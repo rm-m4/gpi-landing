@@ -17,7 +17,7 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 REFERENCE = "corporate-bonds.html"
 
-# corporate-bonds-taste.html and -taste2.html are deliberately absent: the minimalist-ui direction
+# corporate-bonds-taste*.html and -final.html are deliberately absent: the minimalist-ui direction
 # is standalone and shares no shell with the others.
 
 # page -> (nav label that is active, or None)

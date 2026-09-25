@@ -107,6 +107,44 @@ const BEHAVIOUR = {
     return problems;
   },
 
+  'corporate-bonds-final.html': async (page) => {
+    const problems = [];
+
+    const rowsIn = (id) => page.locator(`#panel-${id} .row`).count();
+    const inkX = () => page.locator('.tabs__ink').evaluate(
+      (el) => new DOMMatrixReadOnly(getComputedStyle(el).transform).m41);
+
+    // Tab 1 shows the four corporate bonds.
+    if ((await rowsIn('utsav')) !== 4) problems.push('Bond Utsav tab should hold 4 rows');
+
+    const x0 = await inkX();
+    await page.locator('#tab-ipo').click();
+    await page.waitForTimeout(700);
+
+    if ((await inkX()) === x0) problems.push('tab indicator did not move');
+    if (!(await page.locator('#panel-ipo').isVisible())) problems.push('NCD IPO panel did not open');
+    if (await page.locator('#panel-utsav').isVisible()) problems.push('previous panel stayed open');
+    if ((await rowsIn('ipo')) !== 2) problems.push('NCD IPO tab should hold 2 rows');
+
+    // Keyboard: arrow keys must move selection.
+    await page.locator('#tab-ipo').press('ArrowLeft');
+    await page.waitForTimeout(400);
+    const sel = await page.locator('.tab[aria-selected="true"]').getAttribute('id');
+    if (sel !== 'tab-yield') problems.push(`ArrowLeft selected ${sel}, expected tab-yield`);
+
+    // Count-up must settle on the real figure, not a partial one.
+    await page.locator('.stat dt').first().scrollIntoViewIfNeeded();
+    await page.waitForTimeout(1600);
+    const stat = await page.locator('.stat dt').first().innerText();
+    if (!stat.includes('15')) problems.push(`stat count-up ended at "${stat}"`);
+
+    const hidden = await page.evaluate(() =>
+      [...document.querySelectorAll('[data-r]')].filter(
+        (el) => parseFloat(getComputedStyle(el).opacity) < 0.9).length);
+    if (hidden) problems.push(`${hidden} revealed block(s) still at opacity 0`);
+    return problems;
+  },
+
   'index.html': async (page) => {
     const problems = [];
     const bg = await page.locator('.home-hero').evaluate((el) => getComputedStyle(el).backgroundImage);
@@ -176,7 +214,9 @@ const serve = () =>
   fs.mkdirSync(OUT, { recursive: true });
   const pages = process.argv.slice(2).length
     ? process.argv.slice(2)
-    : fs.readdirSync(path.join(ROOT, 'pages')).filter((f) => f.endsWith('.html'));
+    // Underscore-prefixed files are templates and generators, not pages.
+    : fs.readdirSync(path.join(ROOT, 'pages'))
+        .filter((f) => f.endsWith('.html') && !f.startsWith('_'));
 
   const srv = await serve();
   const browser = await chromium.launch({ executablePath: chromiumPath() });

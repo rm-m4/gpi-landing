@@ -85,6 +85,35 @@ Shared styling: **`assets/alt.css`** for the elevated pages, **`assets/taste.css
 the taste pages, each linked only by its own variants so they cannot drift.
 `pages/_taste.py` regenerates the taste variants from the faithful pages.
 
+#### `corporate-bonds-final.html` - the production candidate
+
+The faithful page carried into taste2's design language, with the pieces called
+out in review. Generated: edit `pages/_final.py` (tab data) or
+`pages/_final_shell.html` (everything else), then run `python3 pages/_final.py`.
+Stylesheet `assets/final.css`. Excluded from `pages/_build.py`.
+
+| Asked for | Done |
+|---|---|
+| Bento collections from taste2 | asymmetric 7/5, 4/4/4, 12 spans, tinted cells |
+| Tabs kept, heading removed | `Special Corporate Bond Deals for you!` dropped; the active tab already names the list |
+| Better tab selection animation | one sliding indicator moved by transform and width on the spring curve, panels cross-fade, rows stagger in at 55ms |
+| taste2 explainer | kept, with `coupon-schedule.svg` in a bezel |
+| taste2 reviews | kept |
+| Premium feel | double-bezel nesting, button-in-button CTAs, film grain, warm light pooling |
+
+**The tabs really filter.** Six tabs, sixteen rows, all captured 2026-09-25, nothing
+invented. High Rated and NCD IPO draw the two live issues from the bond-ipo page;
+Bonds at 30K draws the Muthoot Capital bond with its stated 30,000 minimum. The
+fourth column relabels per tab (Payout / Status / Minimum) and the fifth switches
+between Maturity date and Closes on, because those are genuinely different things.
+
+Keyboard support follows the tablist pattern: arrows move, Home and End jump,
+only the active tab is in the tab order. Stat figures count up once on first view.
+
+`crawl/check.js` asserts the indicator moves, the right panel opens, the previous
+one closes, each tab holds its expected row count, ArrowLeft selects the previous
+tab, and the count-up settles on the true figure.
+
 #### `corporate-bonds-taste3.html` - the three-banner hero
 
 Structure borrowed from `rbp-sparkdesign-template.vercel.app`, which the user
