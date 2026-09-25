@@ -1,0 +1,11 @@
+# Dependencies. Reinstall with: npm i playwright-core
+node_modules/
+
+# Screenshots of our own pages. crawl/check.js regenerates all of these on
+# every run, and they run to ~90MB, so they would bloat every future commit.
+# The *captured* site data in crawl/raw, crawl/rendered and crawl/shots is
+# tracked deliberately: it is the source material and cannot be re-fetched
+# once the UAT site changes.
+crawl/local-shots/
+
+.DS_Store

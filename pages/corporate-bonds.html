@@ -1,0 +1,778 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Invest in Corporate Bonds Online | Fixed Returns | GoldenPi</title>
+<meta name="description" content="Invest in corporate bonds online on GoldenPi. Explore curated collections, high-rated bonds, NCD IPOs and start with returns as high as 15%.">
+<link rel="icon" href="../assets/img/goldenpi-logo.svg">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          gold: "#d4af37",
+          ink: "#322811",
+          page: "#f7f5f2",
+          subtext: "#666666",
+          stroke: "#e7e3d9",
+          deep: "#1a1510",
+          bronze: "#8a6520",
+          gain: "#06963c",
+        },
+        fontFamily: {
+          sans: ['"Satoshi"', "ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "Roboto", "sans-serif"],
+        },
+      },
+    },
+  };
+</script>
+<style>
+  /* Page-specific polish. In <head> because pages/_build.py rewrites the
+     shared footer block. */
+
+  /* A soft warm wash behind the hero so it separates from the page without a
+     hard band edge. */
+  .cb-hero {
+    background:
+      radial-gradient(1100px 380px at 12% 0%, rgba(212, 175, 55, 0.13), transparent 62%),
+      radial-gradient(760px 320px at 92% 18%, rgba(212, 175, 55, 0.08), transparent 60%);
+  }
+
+  /* The number is the promise - let it carry weight without shouting. */
+  .cb-hero__figure {
+    position: relative;
+    white-space: nowrap;
+    font-weight: 900;
+    color: var(--app-heading-color);
+  }
+  .cb-hero__figure::after {
+    content: "";
+    position: absolute;
+    left: -2px;
+    right: -2px;
+    bottom: 2px;
+    height: 34%;
+    z-index: -1;
+    border-radius: 3px;
+    background: rgba(212, 175, 55, 0.3);
+  }
+
+  /* Alternating section grounds, so twelve sections stop reading as one column. */
+  .cb-band {
+    background: linear-gradient(180deg, rgba(252, 251, 250, 0) 0%, #fcfbfa 12%, #fcfbfa 88%, rgba(252, 251, 250, 0) 100%);
+  }
+</style>
+</head>
+<body>
+
+<a class="gp-skip" href="#main-content">Skip to main content</a>
+
+<!-- ============================================================ promo bar -->
+<!-- DATA: campaign strip, API-driven on the live site. Snapshot 2026-09-25. -->
+<div class="gp-promo">
+  <div class="gp-promo__track">
+    <span class="gp-promo__item">Earn 11.40% p.a. &middot; Newly Launched Dishman Bond
+      <a href="https://uatnew.goldenpi.com/bonds/INE385W07075/dishman-1100-bond-yield?src=view_details&amp;tenureDate=17-Aug-2027">Invest Now</a></span>
+    <span class="gp-promo__item">Earn up to 10% p.a. &middot; &#128994; Live: Edelweiss NCD IPO
+      <a href="https://uatnew.goldenpi.com/bond-ipo/GPID100778/edelweiss-financial-services-limited">Invest Now</a></span>
+    <span class="gp-promo__item">Earn 12.10% p.a. &middot; Invest in Spandana Sphoorty Bond
+      <a href="https://uatnew.goldenpi.com/bonds/INE572J07810/spandana-1275-bond-yield?src=view_details&amp;tenureDate=26-Apr-2028">Invest Now</a></span>
+    <span class="gp-promo__item">Earn 10% p.a. &middot; Invest in Varthana Finance bond
+      <a href="https://uatnew.goldenpi.com/bonds/INE125T07329/varthana-finance-1000-bond-yield?src=view_details&amp;tenureDate=05-Feb-2027">Invest Now</a></span>
+    <!-- duplicated once so the marquee loop is seamless -->
+    <span class="gp-promo__item" aria-hidden="true">Earn 11.40% p.a. &middot; Newly Launched Dishman Bond</span>
+    <span class="gp-promo__item" aria-hidden="true">Earn up to 10% p.a. &middot; &#128994; Live: Edelweiss NCD IPO</span>
+    <span class="gp-promo__item" aria-hidden="true">Earn 12.10% p.a. &middot; Invest in Spandana Sphoorty Bond</span>
+    <span class="gp-promo__item" aria-hidden="true">Earn 10% p.a. &middot; Invest in Varthana Finance bond</span>
+  </div>
+</div>
+
+<!-- ============================================================== header -->
+<header class="gp-header">
+  <div class="gp-shell gp-header__inner">
+    <a href="index.html" class="flex-none">
+      <img src="../assets/img/goldenpi-logo.svg" alt="GoldenPi" width="132" height="30">
+    </a>
+
+    <nav class="gp-nav" aria-label="Primary">
+      <a class="gp-nav__link" href="corporate-bonds.html" aria-current="page">
+        <img src="../assets/img/header-nav-bonds-selected.svg" alt=""> Bonds
+      </a>
+      <a class="gp-nav__link" href="fixed-deposits.html">
+        <img src="../assets/img/header-nav-fd.svg" alt=""> FD
+      </a>
+      <a class="gp-nav__link" href="https://uatnew.goldenpi.com/collections/all-bonds">
+        <img src="../assets/img/header-nav-collection.svg" alt=""> Collection
+      </a>
+      <a class="gp-nav__link" href="https://uatnew.goldenpi.com/bond-utsav">
+        <img src="../assets/img/header-nav-bond-utsav.svg" alt=""> Bond Utsav
+      </a>
+      <a class="gp-nav__link" href="https://uatnew.goldenpi.com/refer-and-earn">
+        <img src="../assets/img/header-nav-ref-earn.svg" alt=""> Refer &amp; Earn
+      </a>
+    </nav>
+
+    <div class="gp-search">
+      <img src="../assets/img/header-search.svg" alt="" width="16" height="16">
+      <span>Search for bonds, FD or IPO</span>
+    </div>
+
+    <button type="button" class="gp-btn gp-btn--primary gp-btn--sm flex-none ml-auto lg:ml-0">
+      <img src="../assets/img/user-icon.svg" alt="" width="15" height="15"> Login / Sign up
+    </button>
+  </div>
+</header>
+
+<main id="main-content">
+
+  <!-- ============================================================== hero -->
+  <section class="cb-hero">
+    <div class="gp-shell pt-6 pb-2">
+      <nav class="t-small t-muted mb-6" aria-label="Breadcrumb">
+        <a href="index.html" class="hover:text-ink">Home</a>
+        <span class="mx-1.5">&rsaquo;</span>
+        <span class="text-ink font-medium">Corporate Bonds</span>
+      </nav>
+
+      <div class="grid gap-8 md:grid-cols-[1.05fr_0.95fr] md:items-center">
+        <div data-reveal>
+          <p class="gp-eyebrow mb-5">Fixed income &middot; SEBI regulated</p>
+
+          <h1 class="t-h1">
+            <span class="t-bronze">Invest in Corporate</span><br>
+            <span class="t-bronze">Bonds Online</span>
+          </h1>
+
+          <p class="mt-4 t-h3">
+            Fixed returns as high as
+            <span class="cb-hero__figure">15%</span>
+          </p>
+
+          <p class="mt-4 max-w-md t-body t-muted">
+            Discover reliable income and stable capital growth with Corporate Bond Investments.
+          </p>
+
+          <div class="mt-8 flex flex-wrap items-center gap-4">
+            <a class="gp-btn gp-btn--primary" href="#corporate-bonds-assets">
+              Explore Our Corporate Bonds List
+            </a>
+            <a class="gp-btn gp-btn--ghost" href="bond-ipo-online.html">View live NCD IPOs</a>
+          </div>
+
+          <p class="mt-8 flex items-center gap-2.5 rounded-xl border border-stroke bg-white px-4 py-3 t-small t-muted max-w-lg">
+            <img src="../assets/img/hero-shield.png" alt="" width="18" height="18">
+            <span>GoldenPi is a
+              <a class="font-semibold t-bronze underline" href="https://uatnew.goldenpi.com/about-us">SEBI registered Debt broker</a>
+              and
+              <a class="font-semibold t-bronze underline" href="https://uatnew.goldenpi.com/about-us">OBPP License Holder</a>
+            </span>
+          </p>
+        </div>
+
+        <img src="../assets/img/ncd-hero.png" width="560" height="420"
+             class="w-full max-w-[520px] justify-self-center"
+             alt="Invest in corporate bonds online on GoldenPi">
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================== utsav banner -->
+  <section class="gp-shell mt-10">
+    <a href="https://uatnew.goldenpi.com/bond-utsav" class="block overflow-hidden rounded-2xl">
+      <img src="../assets/img/assetsLanding-desktop.webp" alt="Bond Utsav offers on GoldenPi"
+           class="hidden w-full sm:block" width="1200" height="180">
+      <img src="../assets/img/assetsLanding-mobile.webp" alt="Bond Utsav offers on GoldenPi"
+           class="w-full sm:hidden" width="600" height="300">
+    </a>
+  </section>
+
+  <!-- ====================================================== asset explorer -->
+  <section data-reveal class="gp-section" id="corporate-bonds-assets">
+    <div class="gp-shell">
+      <div class="gp-section__head gp-section__head--marked">
+        <h2 class="gp-section__title">Fixed Income Investments in India 2026</h2>
+        <p class="gp-section__sub">
+          Explore our curated selection of investment solutions to shortlist options that match your goals.
+        </p>
+      </div>
+
+      <div class="rounded-2xl border border-[#f0e6c8] bg-[#fdf8e9] p-4 sm:p-6">
+        <!-- Category tabs. Static on this prototype: the live site swaps the list below. -->
+        <div class="gp-scroller !grid-cols-none mb-6" style="grid-auto-columns:max-content">
+          <a class="flex items-center gap-2 rounded-xl border border-gold bg-white px-4 py-3 t-small font-bold text-ink shadow-sm"
+             href="https://uatnew.goldenpi.com/bond-utsav" aria-current="true">
+            <img src="../assets/img/pre-login-active-offers.svg" alt="" width="20" height="20"> Bond Utsav Deals
+          </a>
+          <a class="flex items-center gap-2 rounded-xl border border-stroke bg-white px-4 py-3 t-small font-medium text-subtext hover:border-gold hover:text-ink"
+             href="https://uatnew.goldenpi.com/collections/highly-rated-bonds">
+            <img src="../assets/img/pre-login-aaa-rated.svg" alt="" width="20" height="20"> High Rated Bonds
+          </a>
+          <a class="flex items-center gap-2 rounded-xl border border-stroke bg-white px-4 py-3 t-small font-medium text-subtext hover:border-gold hover:text-ink"
+             href="https://uatnew.goldenpi.com/collections/bonds-at-10000">
+            <img src="../assets/img/pre-login-bonds-at-10k.svg" alt="" width="20" height="20"> Bonds at &#8377;30K
+          </a>
+          <a class="flex items-center gap-2 rounded-xl border border-stroke bg-white px-4 py-3 t-small font-medium text-subtext hover:border-gold hover:text-ink"
+             href="https://uatnew.goldenpi.com/collections/bonds-to-earn-monthly-fixed-income">
+            <img src="../assets/img/monthly-bonds.svg" alt="" width="20" height="20"> Bonds for Monthly Income
+          </a>
+          <a class="flex items-center gap-2 rounded-xl border border-stroke bg-white px-4 py-3 t-small font-medium text-subtext hover:border-gold hover:text-ink"
+             href="https://uatnew.goldenpi.com/collections/high-yield-bonds">
+            <img src="../assets/img/pre-login-home-highest-yield.svg" alt="" width="20" height="20"> 11%+ Yield Bonds
+          </a>
+          <a class="flex items-center gap-2 rounded-xl border border-stroke bg-white px-4 py-3 t-small font-medium text-subtext hover:border-gold hover:text-ink"
+             href="bond-ipo-online.html">
+            <img src="../assets/img/pre-login-ncd-ipo.svg" alt="" width="20" height="20"> NCD IPO
+          </a>
+        </div>
+
+        <h3 class="mb-4 t-h4">Special Corporate Bond Deals for you!</h3>
+
+        <!-- DATA: bond listing, API-driven on the live site. Snapshot 2026-09-25. -->
+        <div class="gp-rows__head">
+          <span>Issuer</span><span>Returns</span><span>Credit Rating</span>
+          <span>Payout</span><span>Maturity Date</span><span></span>
+        </div>
+
+        <div class="gp-rows">
+          <article class="gp-row">
+            <div class="gp-row__identity">
+              <img class="gp-row__logo" src="../assets/img/GPID102720.AKARA-CAPITAL-ADVISORS-PRIVATE-LIMITED-2x.png" alt="">
+              <a class="gp-row__name gp-row__link"
+                 href="https://uatnew.goldenpi.com/bonds/GPID107435/akara-1300-bond-yield?src=view_details&amp;tenureDate=03-Dec-2027">AKARA</a>
+            </div>
+            <div><div class="gp-row__label">Returns</div><div class="gp-row__value gp-row__value--returns">13.00%</div></div>
+            <div><div class="gp-row__label">Credit Rating</div><div class="gp-row__value">ACUITE BBB+</div></div>
+            <div><div class="gp-row__label">Payout</div><div class="gp-row__value">Monthly</div></div>
+            <div><div class="gp-row__label">Maturity Date</div><div class="gp-row__value">3-Dec-2027</div></div>
+            <div class="gp-row__actions">
+              <button type="button" title="Add to watchlist"><img src="../assets/img/goolden-bookmark.svg" alt="Add to watchlist"></button>
+              <button type="button" title="Share"><img src="../assets/img/golden-share.svg" alt="Share"></button>
+            </div>
+          </article>
+
+          <article class="gp-row">
+            <div class="gp-row__identity">
+              <img class="gp-row__logo" src="../assets/img/GPID104095.Neogrowth-new-logo-1-.jpg" alt="">
+              <a class="gp-row__name gp-row__link"
+                 href="https://uatnew.goldenpi.com/bonds/GPID107371/neogrowth-1300-bond-yield?src=view_details&amp;tenureDate=30-Apr-2028">NEOGROWTH</a>
+            </div>
+            <div><div class="gp-row__label">Returns</div><div class="gp-row__value gp-row__value--returns">13.00%</div></div>
+            <div><div class="gp-row__label">Credit Rating</div><div class="gp-row__value">ICRA BBB</div></div>
+            <div><div class="gp-row__label">Payout</div><div class="gp-row__value">Half Yearly</div></div>
+            <div><div class="gp-row__label">Maturity Date</div><div class="gp-row__value">30-Apr-2028</div></div>
+            <div class="gp-row__actions">
+              <button type="button" title="Add to watchlist"><img src="../assets/img/goolden-bookmark.svg" alt="Add to watchlist"></button>
+              <button type="button" title="Share"><img src="../assets/img/golden-share.svg" alt="Share"></button>
+            </div>
+          </article>
+
+          <article class="gp-row">
+            <div class="gp-row__identity">
+              <img class="gp-row__logo" src="../assets/img/GPID107347.Best-Capital.png" alt="">
+              <a class="gp-row__name gp-row__link"
+                 href="https://uatnew.goldenpi.com/bonds/GPID107433/best-capital-1300-bond-yield?src=view_details&amp;tenureDate=11-Sep-2029">BEST CAPITAL</a>
+            </div>
+            <div><div class="gp-row__label">Returns</div><div class="gp-row__value gp-row__value--returns">13.00%</div></div>
+            <div><div class="gp-row__label">Credit Rating</div><div class="gp-row__value">IVR BBB</div></div>
+            <div><div class="gp-row__label">Payout</div><div class="gp-row__value">Monthly</div></div>
+            <div><div class="gp-row__label">Maturity Date</div><div class="gp-row__value">11-Sep-2029</div></div>
+            <div class="gp-row__actions">
+              <button type="button" title="Add to watchlist"><img src="../assets/img/goolden-bookmark.svg" alt="Add to watchlist"></button>
+              <button type="button" title="Share"><img src="../assets/img/golden-share.svg" alt="Share"></button>
+            </div>
+          </article>
+
+          <article class="gp-row">
+            <div class="gp-row__identity">
+              <img class="gp-row__logo" src="../assets/img/GPID102720.AKARA-CAPITAL-ADVISORS-PRIVATE-LIMITED-2x.png" alt="">
+              <a class="gp-row__name gp-row__link"
+                 href="https://uatnew.goldenpi.com/bonds/GPID107435/akara-1278-bond-yield?src=view_details&amp;tenureDate=03-Dec-2027">AKARA</a>
+            </div>
+            <div><div class="gp-row__label">Returns</div><div class="gp-row__value gp-row__value--returns">12.78%</div></div>
+            <div><div class="gp-row__label">Credit Rating</div><div class="gp-row__value">ACUITE BBB+</div></div>
+            <div><div class="gp-row__label">Payout</div><div class="gp-row__value">Monthly</div></div>
+            <div><div class="gp-row__label">Maturity Date</div><div class="gp-row__value">3-Dec-2027</div></div>
+            <div class="gp-row__actions">
+              <button type="button" title="Add to watchlist"><img src="../assets/img/goolden-bookmark.svg" alt="Add to watchlist"></button>
+              <button type="button" title="Share"><img src="../assets/img/golden-share.svg" alt="Share"></button>
+            </div>
+          </article>
+        </div>
+
+        <div class="mt-5 text-center">
+          <a class="t-small font-bold t-bronze underline" href="https://uatnew.goldenpi.com/bond-utsav">View All</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================== collections -->
+  <section data-reveal class="gp-section gp-section--tight gp-section--flush-top">
+    <div class="gp-shell">
+      <div class="gp-section__head gp-section__head--marked">
+        <h2 class="gp-section__title">Explore our extensive Corporate Bonds Collections</h2>
+      </div>
+
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <a class="gp-card gp-card--link gp-card--accent flex items-center gap-4 p-5"
+           href="https://uatnew.goldenpi.com/collections/newly-launched-bonds">
+          <img src="../assets/img/GPIDO09029.newly_added_bonds.png" alt="" width="40" height="40" class="flex-none">
+          <h3 class="t-body font-bold leading-snug">Newly Launched Bonds: Latest Bond Opportunities</h3>
+        </a>
+
+        <a class="gp-card gp-card--link gp-card--accent flex items-center gap-4 p-5"
+           href="https://uatnew.goldenpi.com/collections/highly-rated-bonds">
+          <img src="../assets/img/highly-rated-bonds.svg" alt="" width="40" height="40" class="flex-none">
+          <div>
+            <h3 class="t-body font-bold leading-snug">Highly Rated Bonds (A or Above)</h3>
+            <p class="mt-1 t-small t-muted">A collection of bonds which are rated 'A' or above by credit rating agencies such as CRISIL, ICRA, etc.</p>
+          </div>
+        </a>
+
+        <a class="gp-card gp-card--link gp-card--accent flex items-center gap-4 p-5"
+           href="https://uatnew.goldenpi.com/collections/high-yield-bonds">
+          <img src="../assets/img/high-yield-bonds.svg" alt="" width="40" height="40" class="flex-none">
+          <div>
+            <h3 class="t-body font-bold leading-snug">High Yield Bonds: Earn Higher Returns 14%*</h3>
+            <p class="mt-1 t-small t-muted">A collection of bonds where yield is more than 11%.</p>
+          </div>
+        </a>
+
+        <a class="gp-card gp-card--link gp-card--accent flex items-center gap-4 p-5"
+           href="https://uatnew.goldenpi.com/collections/bonds-to-earn-monthly-fixed-income">
+          <img src="../assets/img/bonds-to-earn-monthly-fixed-income.svg" alt="" width="40" height="40" class="flex-none">
+          <div>
+            <h3 class="t-body font-bold leading-snug">Bonds to Earn Monthly Fixed Income</h3>
+            <p class="mt-1 t-small t-muted">A collection of bonds which provide fixed interest payout every month.</p>
+          </div>
+        </a>
+
+        <a class="gp-card gp-card--link gp-card--accent flex items-center gap-4 p-5"
+           href="https://uatnew.goldenpi.com/collections/bonds-at-discounted-price">
+          <img src="../assets/img/bonds-at-discounted-price.svg" alt="" width="40" height="40" class="flex-none">
+          <div>
+            <h3 class="t-body font-bold leading-snug">Bonds at Discounted Price</h3>
+            <p class="mt-1 t-small t-muted">A collection of bonds where current market price is less than the face value.</p>
+          </div>
+        </a>
+
+        <a class="gp-card gp-card--link gp-card--accent flex items-center gap-4 p-5"
+           href="https://uatnew.goldenpi.com/collections/bonds-at-10000">
+          <img src="../assets/img/bonds-icon.svg" alt="" width="40" height="40" class="flex-none">
+          <div>
+            <h3 class="t-body font-bold leading-snug">Bonds Under 10,000</h3>
+            <p class="mt-1 t-small t-muted">A collection of bonds with investment amount around Rs. 10,000 on GoldenPi.</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="mt-6 text-center">
+        <a class="t-small font-bold t-bronze underline" href="https://uatnew.goldenpi.com/collections/all-bonds">View all Bond Collections</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================== explainer -->
+  <section data-reveal class="gp-section gp-section--tight gp-section--flush-top">
+    <div class="gp-shell grid gap-8 md:grid-cols-2 md:items-center">
+      <div>
+        <h2 class="gp-section__title text-left">What are Corporate Bonds?</h2>
+        <p class="mt-4 t-body t-muted">
+          Corporate Bonds are debt securities regulated by SEBI and issued by corporations to raise capital from investors.
+        </p>
+        <p class="mt-3 t-body t-muted">
+          These bonds offer higher yields compared to other fixed income securities, offering relatively attractive returns to investors.
+        </p>
+
+        <div class="mt-6 flex flex-wrap items-center gap-2 t-small">
+          <span class="font-semibold">What it means?</span>
+          <span class="rounded-full border border-stroke bg-white px-3 py-1.5">Debt Security</span>
+          <span class="rounded-full border border-stroke bg-white px-3 py-1.5">Yield</span>
+          <span class="rounded-full border border-stroke bg-white px-3 py-1.5">Fixed Income Security</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-4">
+        <div class="rounded-2xl bg-[#fdf8e9] p-5">
+          <img src="../assets/img/cb-hight-return.png" alt="" width="52" height="52">
+          <p class="mt-3 t-body font-bold leading-snug">Returns as high as 15%</p>
+        </div>
+        <div class="rounded-2xl bg-[#eaf4fd] p-5">
+          <img src="../assets/img/money-hand-gesture.png" alt="" width="52" height="52">
+          <p class="mt-3 t-body font-bold leading-snug">Flexible maturity options</p>
+        </div>
+        <div class="rounded-2xl bg-[#eaf4fd] p-5">
+          <img src="../assets/img/diversify-portfolio.png" alt="" width="52" height="52">
+          <p class="mt-3 t-body font-bold leading-snug">Diversify your portfolio</p>
+        </div>
+        <div class="rounded-2xl bg-[#fdf8e9] p-5">
+          <img src="../assets/img/money-profit.png" alt="" width="52" height="52">
+          <p class="mt-3 t-body font-bold leading-snug">Regular and stable growth</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================== 3 steps -->
+  <section data-reveal class="gp-section gp-section--tight gp-section--flush-top">
+    <div class="gp-shell">
+      <div class="gp-section__head gp-section__head--marked">
+        <h2 class="gp-section__title">Invest in Corporate Bonds in 3 easy steps</h2>
+      </div>
+
+      <div class="grid items-center gap-10 md:grid-cols-2">
+        <img src="../assets/img/investment-process.gif" width="440" height="440"
+             class="mx-auto w-full max-w-[380px]"
+             alt="How to invest in corporate bonds on GoldenPi">
+
+        <ol class="space-y-6">
+          <li>
+            <p class="t-caption t-muted">Step 1</p>
+            <p class="mt-1 t-h4">Complete your KYC</p>
+          </li>
+          <li>
+            <p class="t-caption t-muted">Step 2</p>
+            <p class="mt-1 t-h4">Choose the right Corporate Bond</p>
+          </li>
+          <li>
+            <p class="t-caption t-muted">Step 3</p>
+            <p class="mt-1 t-h4">Make payment to Invest</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================== milestones -->
+  <section data-reveal class="gp-section gp-section--tight gp-section--flush-top">
+    <div class="gp-shell grid items-center gap-8 md:grid-cols-[minmax(0,260px)_1fr]">
+      <img src="../assets/img/milestone.png" alt="GoldenPi milestones" width="260" height="260"
+           class="w-full rounded-2xl object-cover">
+      <div>
+        <h2 class="gp-section__title mb-6 text-center md:text-left">Milestones</h2>
+        <dl class="grid gap-6 sm:grid-cols-3 text-center md:text-left">
+          <div>
+            <dt class="t-h1 t-gold">15L+</dt>
+            <dd class="mt-1 t-small t-muted">Registered users</dd>
+          </div>
+          <div>
+            <dt class="t-h1 t-gold">&#8377;2,500<span class="text-[18px]">Cr+</span></dt>
+            <dd class="mt-1 t-small t-muted">Bonds available</dd>
+          </div>
+          <div>
+            <dt class="t-h1 t-gold">&#8377;10,000<span class="text-[18px]">Cr+</span></dt>
+            <dd class="mt-1 t-small t-muted">Transaction value</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================== why us -->
+  <section data-reveal class="gp-section gp-section--tight gp-section--flush-top">
+    <div class="gp-shell">
+      <div class="gp-section__head gp-section__head--marked">
+        <h2 class="gp-section__title">Why invest in Corporate Bonds with GoldenPi?</h2>
+      </div>
+
+      <div class="grid gap-4 sm:grid-cols-3">
+        <div class="gp-card p-6 text-center">
+          <img src="../assets/img/online-invest.png" alt="" width="56" height="56" class="mx-auto">
+          <h3 class="mt-4 t-lead font-bold">100% Online</h3>
+          <p class="mt-2 t-small t-muted leading-relaxed">Seamless Investment process</p>
+        </div>
+        <div class="gp-card p-6 text-center">
+          <img src="../assets/img/product-info.png" alt="" width="56" height="56" class="mx-auto">
+          <h3 class="mt-4 t-lead font-bold">In-depth Product Information</h3>
+          <p class="mt-2 t-small t-muted leading-relaxed">Review all information before you invest</p>
+        </div>
+        <div class="gp-card p-6 text-center">
+          <img src="../assets/img/sebi-regd.png" alt="" width="56" height="56" class="mx-auto">
+          <h3 class="mt-4 t-lead font-bold">SEBI Registered</h3>
+          <p class="mt-2 t-small t-muted leading-relaxed">Registered debt broker and OBPP license holder</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================== testimonials -->
+  <section data-reveal class="gp-section gp-section--tight gp-section--flush-top">
+    <div class="gp-shell">
+      <div class="gp-section__head gp-section__head--marked">
+        <h2 class="gp-section__title">Why 15 Lakh+ Users Trust GoldenPi for Bond Investing</h2>
+      </div>
+
+      <!-- DATA: Google reviews, fetched on the live site. Snapshot 2026-09-25. -->
+      <div class="gp-scroller">
+        <figure class="gp-card flex h-full flex-col p-5">
+          <figcaption class="flex items-center gap-3">
+            <span class="grid h-9 w-9 flex-none place-items-center rounded-full bg-[#fdf8e9] t-body font-bold text-bronze">P</span>
+            <span class="t-body font-bold">Phaniraj D G</span>
+          </figcaption>
+          <p class="mt-2 t-small t-gold" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+          <blockquote class="mt-2 t-small t-muted leading-relaxed">Hassle free investment. One place for all type of bonds. We can choose as per our risk. GoldenPi team is very co-operative and quick in responding.</blockquote>
+        </figure>
+
+        <figure class="gp-card flex h-full flex-col p-5">
+          <figcaption class="flex items-center gap-3">
+            <span class="grid h-9 w-9 flex-none place-items-center rounded-full bg-[#fdf8e9] t-body font-bold text-bronze">N</span>
+            <span class="t-body font-bold">Neeraj Sharma</span>
+          </figcaption>
+          <p class="mt-2 t-small t-gold" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+          <blockquote class="mt-2 t-small t-muted leading-relaxed">Extremely convenient platform assisted with superb executives like I was always guided by Mr Allan with his experience and knowledge. Thank you so much Mr Allan.</blockquote>
+        </figure>
+
+        <figure class="gp-card flex h-full flex-col p-5">
+          <figcaption class="flex items-center gap-3">
+            <span class="grid h-9 w-9 flex-none place-items-center rounded-full bg-[#fdf8e9] t-body font-bold text-bronze">R</span>
+            <span class="t-body font-bold">Reenu Jojy Mathew</span>
+          </figcaption>
+          <p class="mt-2 t-small t-gold" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+          <blockquote class="mt-2 t-small t-muted leading-relaxed">It is a seamless experience now for buying NCDs and Bonds with no hidden costs or service charges.</blockquote>
+        </figure>
+
+        <figure class="gp-card flex h-full flex-col p-5">
+          <figcaption class="flex items-center gap-3">
+            <span class="grid h-9 w-9 flex-none place-items-center rounded-full bg-[#fdf8e9] t-body font-bold text-bronze">L</span>
+            <span class="t-body font-bold">Latha Abhimannue Thayyil</span>
+          </figcaption>
+          <p class="mt-2 t-small t-gold" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+          <blockquote class="mt-2 t-small t-muted leading-relaxed">The details explained by the personal manager was very helpful and useful. Response for each call was immediate, Proper guidance all make the profesional touch I wish them Best wishes.</blockquote>
+        </figure>
+
+        <figure class="gp-card flex h-full flex-col p-5">
+          <figcaption class="flex items-center gap-3">
+            <span class="grid h-9 w-9 flex-none place-items-center rounded-full bg-[#fdf8e9] t-body font-bold text-bronze">H</span>
+            <span class="t-body font-bold">Harish Iyer</span>
+          </figcaption>
+          <p class="mt-2 t-small t-gold" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+          <blockquote class="mt-2 t-small t-muted leading-relaxed">Fantastic Team, superb website, unarguably the best website to buy bonds from. Regarding the Team: Every process is clearly explained, with patience and on time, and a person concerned would be assisting you throughout the buying process.</blockquote>
+        </figure>
+      </div>
+
+      <div class="mt-5 text-center">
+        <a class="t-small font-bold t-bronze underline" href="https://www.google.com/search?q=GoldenPi+reviews">Read all Reviews</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================= blog -->
+  <section data-reveal class="gp-section gp-section--tight gp-section--flush-top">
+    <div class="gp-shell">
+      <div class="gp-section__head gp-section__head--marked">
+        <h2 class="gp-section__title">Learn about Investment in Corporate Bonds</h2>
+      </div>
+
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <article class="gp-card gp-card--link flex overflow-hidden">
+          <div class="flex flex-1 flex-col p-5">
+            <p class="t-caption t-bronze">Corporate Bonds</p>
+            <h3 class="mt-2 t-lead font-bold">India's Manufacturing Surge Can Grow With the Debt Market</h3>
+            <p class="mt-2 t-small t-muted">8 December 2023</p>
+            <a class="mt-auto pt-3 t-small font-bold t-bronze underline"
+               href="https://www.goldenpi.com/blog">Read more</a>
+          </div>
+          <img src="../assets/img/CB-1.JPG" alt="" width="130" height="180" class="w-[110px] flex-none object-cover">
+        </article>
+
+        <article class="gp-card gp-card--link flex overflow-hidden">
+          <div class="flex flex-1 flex-col p-5">
+            <p class="t-caption t-bronze">Corporate Bonds</p>
+            <h3 class="mt-2 t-lead font-bold">The journey of corporate bonds in India</h3>
+            <p class="mt-2 t-small t-muted">1 July 2022</p>
+            <a class="mt-auto pt-3 t-small font-bold t-bronze underline"
+               href="https://www.goldenpi.com/blog">Read more</a>
+          </div>
+          <img src="../assets/img/CB-2.JPG" alt="" width="130" height="180" class="w-[110px] flex-none object-cover">
+        </article>
+
+        <article class="gp-card gp-card--link flex overflow-hidden">
+          <div class="flex flex-1 flex-col p-5">
+            <p class="t-caption t-bronze">Corporate Bonds</p>
+            <h3 class="mt-2 t-lead font-bold">What's a corporate bond? How to select one.</h3>
+            <p class="mt-2 t-small t-muted">26 April 2022</p>
+            <a class="mt-auto pt-3 t-small font-bold t-bronze underline"
+               href="https://www.goldenpi.com/blog">Read more</a>
+          </div>
+          <img src="../assets/img/CB-3.JPG" alt="" width="130" height="180" class="w-[110px] flex-none object-cover">
+        </article>
+      </div>
+
+      <div class="mt-6 text-center">
+        <a class="t-small font-bold t-bronze underline" href="https://www.goldenpi.com/blog">View all Blogs</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================== faq -->
+  <section data-reveal class="gp-section gp-section--tight gp-section--flush-top">
+    <div class="gp-shell">
+      <div class="gp-section__head gp-section__head--marked">
+        <h2 class="gp-section__title">FAQs about investment in Corporate Bonds</h2>
+      </div>
+
+      <div class="gp-faq">
+        <details class="gp-faq__item" open>
+          <summary class="gp-faq__q">What are Corporate bonds and debentures?</summary>
+          <div class="gp-faq__a">
+            <p>Bonds and debentures are debt investment instruments with a <strong>Fixed Rate of Return and Fixed Maturity Period</strong>. While Bonds are securities that are mostly issued by the government, debentures are always issued by corporations. Bonds and Debentures are issued by these entities to raise money from investors as loans used to fulfill business objectives like entering new markets, starting a new project, or scaling existing businesses. For every bond/debenture issue, fixed interest payments (Coupons) are made regularly on pre-specified dates. The principal loan amount(face value per unit of Bond/ Debenture) is paid back on the pre-specified maturity date.</p>
+          </div>
+        </details>
+
+        <details class="gp-faq__item">
+          <summary class="gp-faq__q">Why should I invest in Bonds?</summary>
+          <div class="gp-faq__a">
+            <p>Bonds can be an attractive investment option for investors seeking stable income and portfolio diversification. Here are a few potential benefits:</p>
+            <ul>
+              <li>Most bonds offer fixed coupon payouts at regular intervals.</li>
+              <li>Depending on the issuer and credit rating, certain bonds may offer higher yields compared to traditional savings instruments like Fixed Deposits.</li>
+              <li>Bonds can help balance your portfolio by adding relatively stable income-generating instruments.</li>
+              <li>Bonds are available across different credit ratings, from AAA-rated (relatively safer) to lower-rated high-yield bonds, allowing investors to choose based on their risk appetite.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="gp-faq__item">
+          <summary class="gp-faq__q">Can there be any risk in Bond Investment?</summary>
+          <div class="gp-faq__a">
+            <p><a class="font-semibold text-bronze underline" href="https://www.goldenpi.com/blog/investment-guide/advanced/bond-investments-are-a-halo-of-safety-or-not">Considering the Risk Pyramid, Bonds fall into the category of low-risk securities just like Fixed Deposits. There are a couple of risks involved.</a></p>
+            <ul>
+              <li><strong>Default risk:</strong> The loss that an investor faces when issuer defaults (fail to return principal amount or Interest payments or both)</li>
+              <li><strong>Liquidity risk:</strong> This loss comes into picture only when an investor wants to sell bonds before maturity. This loss is incurred by the investor when he/she finds no buyer for their bonds and hence sells them at a discount.</li>
+              <li><strong>Interest-rate Risk:</strong> If interest rates increase, the price of the Bond decreases. At this time, the investor wants to sell the bonds he/she has to sell at a discount price. However, the flip side is that, if the interest rates in the economy decrease, bonds' selling price will increase. At such a time, an investor can make capital gains by selling his bonds at a premium to his buy price.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="gp-faq__item">
+          <summary class="gp-faq__q">Why should I invest in corporate bonds in 2026?</summary>
+          <div class="gp-faq__a">
+            <p>Corporate bonds typically offer interest payouts, tradability on exchanges, and accessibility through regulated platforms. They also fall under different tax treatments depending on tenure and investor profile. Risk levels vary by issuer rating.</p>
+          </div>
+        </details>
+      </div>
+
+      <p class="mx-auto mt-6 max-w-[900px] t-small t-muted leading-relaxed">
+        <strong>References:</strong> *The returns indicated are based on max pre-tax IPO returns of the IPO issue with SBI Fixed deposit (AAA rated) returns 7% p.a for tenure between 2 years to less than 3 years for Deposits below Rs. 2 Cr as rated w.e.f. 27/12/2023. *The graph representation includes the returns from Navi Finserv Limited (A rated) at 11.02% closed on 13/07/2023, as reference. *Returns can vary based on the market behavior. Investor discretion is required.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================== footer -->
+<footer class="gp-footer">
+  <div class="gp-shell grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="lg:col-span-2">
+      <img src="../assets/img/goldenpi-logo.svg" alt="GoldenPi" width="132" height="30">
+      <p class="mt-4 font-bold">GoldenPi Securities Pvt Ltd</p>
+      <p class="mt-1 text-subtext">(A wholly owned subsidiary of GoldenPi Technologies Pvt Ltd)</p>
+      <address class="mt-3 not-italic leading-relaxed text-subtext">
+        Indiqube Orion, 24th Main, 1st Sector,<br>
+        HSR Layout, Bangalore South,<br>
+        Bangalore, Karnataka - 560102
+      </address>
+      <p class="mt-3">Contact Us: <a class="font-semibold" href="tel:08045685666">080-45685666</a></p>
+      <p class="mt-1 text-subtext">CIN: U65990KA2022PTC164941</p>
+    </div>
+
+    <div>
+      <h2 class="gp-footer__title">Invest with us</h2>
+      <ul class="space-y-2.5">
+        <li><a href="bond-ipo-online.html">Bond IPOs</a></li>
+        <li><a href="corporate-bonds.html">Bonds</a></li>
+        <li><a href="fixed-deposits.html">Fixed Deposits</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="gp-footer__title">Company</h2>
+      <ul class="space-y-2.5">
+        <li><a href="https://uatnew.goldenpi.com/about-us">About us</a></li>
+        <li><a href="https://uatnew.goldenpi.com/careers">Career at GoldenPi</a></li>
+        <li><a href="https://uatnew.goldenpi.com/faq">FAQs</a></li>
+        <li><a href="https://uatnew.goldenpi.com/contact-us">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="gp-shell border-t border-[color:var(--light-stroke)] py-5 text-subtext">
+    &copy; Copyright 2017 &ndash; 2026 | GoldenPi Securities Pvt. Ltd.
+  </div>
+
+  <div class="gp-footer__legal">
+    <div class="gp-shell space-y-6">
+      <div>
+        <h2>Note to Investors</h2>
+        <p>GoldenPi Securities Pvt. Ltd. (&ldquo;GSPL&rdquo;) is a wholly owned subsidiary of GoldenPi Technologies Pvt. Ltd. (&ldquo;GTPL&rdquo;) and is a SEBI registered broker under BSE new debt segment allowing investors to trade in secondary bonds &amp; debentures through exchange.</p>
+        <p>Fixed returns do not constitute guaranteed or assured returns. Investments in corporate debt securities, municipal debt securities/securitised debt instruments are subject to credit risks, market risks and default risks including delay and/or default in payment. Read all the offer related documents carefully. Investors can update their email id and mobile number with their stock broker / depository participant and receive OTP directly from the depository on email id and/or mobile number to create a pledge. Investors can check their securities / MF / bonds in the consolidated account statement issued by NSDL/CDSL every month.</p>
+        <p>The FAQs on the platform are exclusively for educational information/knowledge and do not influence the investment/sale decisions of any investors. As you are aware, under the rapidly evolving dynamics of financial markets, it is crucial for investors to remain updated and well-informed about various aspects of investing in securities market. In this connection, please find a link to the BSE Investor Protection Fund website where you will find some useful educative material in the form of text and videos, so as to become an informed investor.</p>
+        <p><a class="underline" href="https://www.bseipf.com/investors_education.html">https://www.bseipf.com/investors_education.html</a></p>
+        <p>We believe that an educated investor is a protected investor !!!</p>
+      </div>
+
+      <div>
+        <h2>Important Information:</h2>
+        <div class="gp-pills">
+          <a href="https://uatnew.goldenpi.com/collections/best-ongoing-ipos">Ongoing NCD IPOs</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/Conflict+of+Interest.pdf">Conflict of Interest</a>
+          <a href="https://uatnew.goldenpi.com/terms-and-conditions">Terms &amp; Conditions</a>
+          <a href="https://uatnew.goldenpi.com/privacy-policy">Privacy Policy</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/Regulatory+disclosure.pdf">Regulatory Disclosure</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/GoldenPi_Investor_Charter.pdf">Investor Charter</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/Policies+for+Information.pdf">Policies for Information</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/INVESTOR+GRIEVANCE+REDRESSAL+MECHANISM+Goldenpi.pdf">Investor Grievance</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/RIGHTS+AND+OBLIGATIONS+OF+STOCK+BROKERS+AND+CLIENTS.pdf">Rights &amp; Obligations</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/Investor+Complaint+Report.pdf">Investor Complaints</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/DOs+AND+DONTs.pdf">Dos &amp; Don'ts</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/InvestorAdvisoryNote.pdf">Investor Advisory Note</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/RISK+DISCLOSURE+DOCUMENT+FOR+CAPITAL+MARKET+AND+DERIVATIVES+SEGMENTS.pdf">Risk Disclosure</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/goldenpi_RDDvernacular.zip">RDD in Vernacular</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Freezing_Blocking_Account/Policy_on_Voluntary_Freezing.pdf">Voluntary Freezing/Blocking of Account</a>
+        </div>
+      </div>
+
+      <div>
+        <h2>Collections</h2>
+        <p class="leading-loose">
+          <a class="underline" href="https://uatnew.goldenpi.com/collections/best-ongoing-ipos">Ongoing NCD IPOs</a> |
+          <a class="underline" href="https://uatnew.goldenpi.com/collections/high-yield-bonds">High Yield Bonds (Yield more than 11%)</a> |
+          <a class="underline" href="https://uatnew.goldenpi.com/collections/highly-rated-bonds">Highly Rated Bonds (AAA Rated)</a> |
+          <a class="underline" href="https://uatnew.goldenpi.com/collections/bonds-to-earn-monthly-fixed-income">Bonds to Earn Regular Monthly Income</a> |
+          <a class="underline" href="https://uatnew.goldenpi.com/collections/bonds-maturing-within-a-year">Bonds Maturing within a Year</a> |
+          <a class="underline" href="https://uatnew.goldenpi.com/collections/state-government-guranteed-bonds">State Government Guaranteed Bonds</a> |
+          <a class="underline" href="https://uatnew.goldenpi.com/collections/tax-free-bonds">Tax Free Bonds</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal. The .reveal-ready class is added by script, so if this never
+// runs the content simply stays visible rather than staying hidden.
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  document.documentElement.classList.add('reveal-ready');
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('is-in');
+      io.unobserve(e.target);
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.04 });
+
+  document.querySelectorAll('[data-reveal]').forEach(function (el) { io.observe(el); });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 260" role="img" aria-labelledby="cs-t cs-d">
+  <title id="cs-t">How a monthly coupon bond pays out</title>
+  <desc id="cs-d">A timeline from purchase to maturity. Twelve evenly spaced coupon payments along the way, then the principal returned as a larger payment at the end.</desc>
+  <defs>
+    <linearGradient id="csLine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#d4af37" stop-opacity="0.25"/>
+      <stop offset="0.86" stop-color="#d4af37" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#a6801d"/>
+    </linearGradient>
+    <linearGradient id="csBar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e4c75f"/>
+      <stop offset="1" stop-color="#d4af37"/>
+    </linearGradient>
+  </defs>
+
+  <!-- baseline -->
+  <line x1="40" y1="176" x2="600" y2="176" stroke="url(#csLine)" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- coupon payments: even, small, regular -->
+  <g fill="url(#csBar)">
+    <rect x="76"  y="152" width="7" height="24" rx="3.5"/>
+    <rect x="118" y="152" width="7" height="24" rx="3.5"/>
+    <rect x="160" y="152" width="7" height="24" rx="3.5"/>
+    <rect x="202" y="152" width="7" height="24" rx="3.5"/>
+    <rect x="244" y="152" width="7" height="24" rx="3.5"/>
+    <rect x="286" y="152" width="7" height="24" rx="3.5"/>
+    <rect x="328" y="152" width="7" height="24" rx="3.5"/>
+    <rect x="370" y="152" width="7" height="24" rx="3.5"/>
+    <rect x="412" y="152" width="7" height="24" rx="3.5"/>
+    <rect x="454" y="152" width="7" height="24" rx="3.5"/>
+    <rect x="496" y="152" width="7" height="24" rx="3.5"/>
+  </g>
+
+  <!-- principal returned: the tall one -->
+  <rect x="556" y="58" width="16" height="118" rx="8" fill="url(#csBar)"/>
+
+  <!-- purchase marker -->
+  <circle cx="44" cy="176" r="6" fill="#fffefb" stroke="#a6801d" stroke-width="2"/>
+
+  <!-- labels -->
+  <g font-family="Satoshi, system-ui, sans-serif" font-size="11.5" fill="#8b8069">
+    <text x="36" y="206">You invest</text>
+    <text x="252" y="206" text-anchor="middle">Coupon paid every month</text>
+    <text x="604" y="206" text-anchor="end">Principal returned</text>
+  </g>
+  <g font-family="Satoshi, system-ui, sans-serif" font-size="12" font-weight="700" fill="#241d10">
+    <text x="604" y="44" text-anchor="end">Maturity</text>
+  </g>
+
+  <!-- bracket over the coupon run -->
+  <path d="M76 132c0-6 4-10 10-10h406c6 0 10 4 10 10"
+        fill="none" stroke="#241d10" stroke-opacity="0.14" stroke-width="1.5"/>
+</svg>

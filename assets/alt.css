@@ -1,0 +1,310 @@
+/* GoldenPi landing pages - ELEVATED DIRECTION.
+   Loaded only by the *-alt.html pages, on top of site.css. One shared file so
+   the four variants cannot drift apart while they are being compared.
+
+   The move: product pages open on a dark stage instead of a cream page, proof
+   moves up into the hero, section heads run left with a trailing rule, and one
+   section per page becomes a dark band to break the long scroll. */
+
+/* ===================================================================== hero */
+
+.alt-hero {
+  position: relative;
+  isolation: isolate;
+  margin-bottom: var(--s-8);
+  background:
+    radial-gradient(900px 520px at 78% 8%, rgba(212, 175, 55, 0.2), transparent 62%),
+    linear-gradient(160deg, #241c14 0%, #1a1510 55%, #14100b 100%);
+  color: #f4e9c8;
+}
+
+/* A warm hairline where the stage meets the page. */
+.alt-hero::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.55), transparent);
+}
+
+.alt-hero__grid {
+  display: grid;
+  gap: var(--s-8);
+  align-items: center;
+  padding-block: clamp(40px, 6vw, 76px);
+}
+
+@media (min-width: 900px) {
+  .alt-hero__grid { grid-template-columns: 1.1fr 0.9fr; }
+}
+
+.alt-hero__crumb { color: #9c8f75; }
+.alt-hero__crumb a { color: #9c8f75; text-decoration: none; }
+.alt-hero__crumb a:hover { color: var(--mustard); }
+.alt-hero__crumb-now { color: #f4e9c8; font-weight: 600; }
+
+.alt-hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: 7px 14px;
+  margin-bottom: var(--s-6);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 999px;
+  background: rgba(212, 175, 55, 0.08);
+  color: #e8d9ae;
+  font-size: var(--t-caption);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.alt-hero__title {
+  font-size: var(--t-display);
+  font-weight: 900;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  color: #f7efd8;
+  text-wrap: balance;
+}
+
+.alt-hero__title-gold {
+  background: linear-gradient(94deg, #f0d06a 0%, var(--mustard) 45%, #b8912b 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.alt-hero__lede {
+  max-width: 32rem;
+  margin-top: var(--s-5);
+  color: #c3b799;
+  font-size: var(--t-lead);
+  line-height: var(--lh-body);
+  text-wrap: pretty;
+}
+
+.alt-hero__lede strong { color: #f7efd8; font-weight: 800; }
+
+.alt-hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-5);
+  margin-top: var(--s-7);
+}
+
+.alt-hero__link {
+  color: var(--mustard);
+  font-size: var(--t-body);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.alt-hero__link:hover { text-decoration: underline; }
+
+.alt-hero__art {
+  width: 100%;
+  max-width: 520px;
+  justify-self: center;
+  filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.45));
+}
+
+/* --- proof inside the hero ------------------------------------------------
+   A row under the copy (--stats-row) or a panel beside it (--stats), depending
+   on whether the page has hero art to sit next to. */
+
+.alt-hero__stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--s-4);
+  margin-top: var(--s-8);
+  padding-top: var(--s-6);
+  border-top: 1px solid rgba(244, 233, 200, 0.14);
+}
+
+.alt-hero__stats-row dt {
+  font-size: clamp(20px, 2.6vw, 28px);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: var(--mustard);
+  font-variant-numeric: tabular-nums;
+}
+
+.alt-hero__stats-row dt span { font-size: 0.55em; }
+
+.alt-hero__stats-row dd {
+  margin-top: 2px;
+  color: #9c8f75;
+  font-size: var(--t-small);
+}
+
+.alt-hero__stats {
+  display: grid;
+  gap: var(--s-3);
+}
+
+@media (min-width: 640px) {
+  .alt-hero__stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 900px) {
+  .alt-hero__stats { grid-template-columns: minmax(0, 1fr); }
+}
+
+.alt-hero__stats > * {
+  padding: var(--s-5);
+  border: 1px solid rgba(244, 233, 200, 0.14);
+  border-radius: 16px;
+  background: rgba(36, 28, 20, 0.62);
+  backdrop-filter: blur(6px);
+}
+
+.alt-hero__stats dt,
+.alt-hero__stats strong {
+  display: block;
+  margin-top: var(--s-3);
+  color: #f7efd8;
+  font-size: var(--t-lead);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.alt-hero__stats dd,
+.alt-hero__stats span {
+  display: block;
+  margin-top: 2px;
+  color: #9c8f75;
+  font-size: var(--t-small);
+}
+
+/* --- inline feature points ------------------------------------------------ */
+
+.alt-hero__points {
+  display: grid;
+  gap: var(--s-4);
+  margin-top: var(--s-8);
+  padding-top: var(--s-6);
+  border-top: 1px solid rgba(244, 233, 200, 0.14);
+}
+
+@media (min-width: 640px) {
+  .alt-hero__points { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.alt-hero__points strong {
+  display: block;
+  margin-top: var(--s-2);
+  color: #f7efd8;
+  font-size: var(--t-body);
+  font-weight: 800;
+}
+
+.alt-hero__points span {
+  display: block;
+  margin-top: 2px;
+  color: #9c8f75;
+  font-size: var(--t-small);
+}
+
+/* ========================================================== section heads */
+
+.gp-section__head--alt {
+  max-width: none;
+  margin-inline: 0;
+  margin-bottom: var(--s-7);
+  text-align: left;
+}
+
+.gp-section__head--alt .gp-section__title {
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+}
+
+.gp-section__head--alt .gp-section__title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0.5), transparent);
+}
+
+.gp-section__head--alt .gp-section__sub { max-width: 44rem; }
+
+/* ================================================================ dark band
+   One per page, placed where the scroll needs a break. */
+
+.alt-band {
+  margin-block: var(--s-8);
+  padding-block: var(--section-y);
+  background:
+    radial-gradient(760px 320px at 16% 16%, rgba(212, 175, 55, 0.16), transparent 62%),
+    linear-gradient(140deg, #241c14, #1a1510);
+  color: #f4e9c8;
+}
+
+.alt-band .gp-section__title { color: #f7efd8; }
+.alt-band .gp-section__sub { color: #9c8f75; }
+.alt-band .gp-card { border-color: rgba(244, 233, 200, 0.12); }
+
+.alt-band__lede { color: #c3b799; }
+.alt-band__lede span { color: var(--mustard); font-weight: 700; }
+
+.alt-band__inner {
+  display: grid;
+  align-items: center;
+  gap: var(--s-7);
+}
+
+@media (min-width: 768px) {
+  .alt-band__inner { grid-template-columns: minmax(0, 240px) 1fr; }
+}
+
+.alt-band__art {
+  width: 100%;
+  border-radius: 18px;
+  object-fit: cover;
+}
+
+.alt-band__title {
+  margin-bottom: var(--s-6);
+  font-size: var(--t-h2);
+  font-weight: 700;
+  letter-spacing: var(--tracking-tight);
+}
+
+.alt-band__stats { display: grid; gap: var(--s-6); }
+
+@media (min-width: 640px) {
+  .alt-band__stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.alt-band__stats dt {
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 900;
+  letter-spacing: -0.025em;
+  color: var(--mustard);
+  font-variant-numeric: tabular-nums;
+}
+
+.alt-band__stats dt span { font-size: 0.5em; }
+
+.alt-band__stats dd {
+  margin-top: var(--s-1);
+  color: #9c8f75;
+  font-size: var(--t-small);
+}
+
+/* --- cross-sell block on a dark band -------------------------------------- */
+
+.alt-crosssell {
+  display: grid;
+  align-items: center;
+  gap: var(--s-7);
+}
+
+@media (min-width: 768px) {
+  .alt-crosssell { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.alt-crosssell .gp-section__title { color: #f7efd8; }
+.alt-crosssell p { color: #c3b799; }

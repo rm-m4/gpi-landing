@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 300" fill="none" role="img" aria-label="Line drawing of a rising yield curve over a baseline">
+  <rect x="246" y="52" width="122" height="122" rx="10" fill="#EDF3EC"/>
+  <g stroke="#2F3437" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- axes, drawn slightly past the corner like a pen would -->
+    <path d="M62 44v190c0 5 3 8 8 8h288"/>
+    <!-- the curve: flat, then a lift, then a plateau -->
+    <path d="M78 214c34-2 58-14 78-38 18-22 33-48 57-62 22-13 49-14 73-6 21 7 40 20 56 36"/>
+    <!-- a second, lower reference curve -->
+    <path d="M78 228c40-1 80-5 119-14 42-9 84-18 127-15" stroke-dasharray="3 7"/>
+    <!-- payout markers on the curve -->
+    <path d="M156 176a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z"/>
+    <path d="M232 124a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z"/>
+    <path d="M318 122a6 6 0 1 0 0-12 6 6 0 0 0 0 12Z"/>
+    <!-- tenure ticks -->
+    <path d="M110 242v12M180 242v12M250 242v12M320 242v12"/>
+  </g>
+</svg>

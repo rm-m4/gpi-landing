@@ -1,0 +1,343 @@
+/* GoldenPi landing pages - TASTE DIRECTION.
+   Loaded only by the *-taste.html pages, on top of site.css.
+
+   Built against the taste-skill audit (leonxlnx/taste-skill).
+
+   Design read: redesign-preserve of a regulated fixed-income marketplace for
+   retail Indian investors, trust-first language, harvested GoldenPi tokens +
+   Satoshi + restrained motion.
+   Dials: DESIGN_VARIANCE 4 / MOTION_INTENSITY 3 / VISUAL_DENSITY 5.
+   The skill's own dial table puts regulated + trust-first at 3-4 variance and
+   2-3 motion, and states that quiet constraints override aesthetic preference.
+   So this direction is deliberately calmer than the -alt one, not louder.
+
+   Rules this file exists to satisfy:
+   - 4.11 Page Theme Lock: one theme for the whole page. Tonal shifts stay
+     inside the light family; no dark section dropped into a cream page.
+   - 9.C: no three-equal-card feature rows.
+   - 4.7 Layout discipline: hero fits the viewport, layout families vary.
+   - 6.B: reduced motion respected.
+*/
+
+/* ===================================================== theme lock: light ===
+   Section grounds shift tone without ever leaving the light family. */
+
+.ts-ground {
+  background: #fcfbfa;
+  border-block: 1px solid var(--light-stroke);
+}
+
+.ts-ground--warm {
+  background: linear-gradient(180deg, #fdfaf1 0%, #fcf8ec 100%);
+  border-block: 1px solid #f0e6c8;
+}
+
+/* Grain breaks the flatness the audit flags, without a colour change.
+   Pointer-events none so it never intercepts clicks. */
+.ts-grain {
+  position: relative;
+  isolation: isolate;
+}
+
+.ts-grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+}
+
+/* ================================================================== hero ===
+   4.7: fits the initial viewport, headline max 2 lines, subtext max 20 words,
+   max 4 text elements. The SEBI trust strip moves OUT of the hero into its own
+   band directly below, per "trust logos belong under the hero". */
+
+.ts-hero {
+  position: relative;
+  padding-block: clamp(32px, 4vw, 56px) clamp(36px, 5vw, 64px);
+  background:
+    radial-gradient(880px 340px at 8% -10%, rgba(212, 175, 55, 0.12), transparent 60%),
+    radial-gradient(640px 300px at 96% 6%, rgba(212, 175, 55, 0.07), transparent 58%);
+}
+
+.ts-hero__grid {
+  display: grid;
+  gap: var(--s-7);
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .ts-hero__grid { grid-template-columns: 1.06fr 0.94fr; }
+}
+
+/* Weight and colour carry the hierarchy, not raw scale (9.B). */
+.ts-hero__title {
+  font-size: clamp(30px, 4.4vw, 52px);
+  font-weight: 900;
+  line-height: 1.04;
+  letter-spacing: -0.032em;
+  color: var(--app-heading-color);
+  text-wrap: balance;
+}
+
+.ts-hero__title em {
+  font-style: normal;
+  color: #8a6520;
+}
+
+.ts-hero__sub {
+  max-width: 34rem;
+  margin-top: var(--s-5);
+  color: var(--subtext);
+  font-size: var(--t-lead);
+  line-height: var(--lh-body);
+  text-wrap: pretty;
+}
+
+.ts-hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-5);
+  margin-top: var(--s-7);
+}
+
+.ts-hero__text-link {
+  color: #8a6520;
+  font-size: var(--t-body);
+  font-weight: 700;
+  text-decoration: none;
+  text-underline-offset: 4px;
+}
+
+.ts-hero__text-link:hover { text-decoration: underline; }
+
+.ts-hero__art {
+  width: 100%;
+  max-width: 500px;
+  justify-self: center;
+}
+
+/* --- trust band, directly below the hero rather than inside it ---------- */
+
+.ts-trust {
+  padding-block: var(--s-5);
+  background: #fcfbfa;
+  border-block: 1px solid var(--light-stroke);
+}
+
+.ts-trust__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-3) var(--s-6);
+  color: var(--subtext);
+  font-size: var(--t-small);
+  text-align: center;
+}
+
+.ts-trust__item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+}
+
+.ts-trust__item strong {
+  color: var(--app-heading-color);
+  font-weight: 700;
+}
+
+/* ====================================================== section headings ===
+   Left-aligned, no eyebrow. 4.7 EYEBROW RESTRAINT: the headline alone is
+   enough, and the section's position on the page already categorises it. */
+
+.ts-head {
+  max-width: 46rem;
+  margin-bottom: var(--s-7);
+}
+
+.ts-head__title {
+  font-size: var(--t-h2);
+  font-weight: 800;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  text-wrap: balance;
+}
+
+.ts-head__sub {
+  max-width: 62ch;
+  margin-top: var(--s-3);
+  color: var(--subtext);
+  font-size: var(--t-body);
+  line-height: var(--lh-body);
+  text-wrap: pretty;
+}
+
+/* ======================================== reasons: replaces 3 equal cards ===
+   9.C bans the three-identical-cards feature row. This is an asymmetric
+   split: one lead statement, then a stacked list with hairline rules. */
+
+.ts-reasons {
+  display: grid;
+  gap: var(--s-7);
+  align-items: start;
+}
+
+@media (min-width: 860px) {
+  .ts-reasons { grid-template-columns: 0.85fr 1.15fr; }
+}
+
+.ts-reasons__list {
+  display: grid;
+}
+
+.ts-reasons__item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--s-5);
+  align-items: start;
+  padding-block: var(--s-6);
+  border-top: 1px solid var(--light-stroke);
+}
+
+.ts-reasons__item:last-child { border-bottom: 1px solid var(--light-stroke); }
+
+.ts-reasons__item img {
+  width: 42px;
+  height: 42px;
+}
+
+.ts-reasons__item h3 {
+  font-size: var(--t-lead);
+  font-weight: 700;
+  line-height: var(--lh-snug);
+}
+
+.ts-reasons__item p {
+  margin-top: var(--s-2);
+  color: var(--subtext);
+  font-size: var(--t-body);
+  line-height: var(--lh-body);
+}
+
+/* ============================================================ stat strip ===
+   Proof as a single measured row, not a card trio. */
+
+.ts-stats {
+  display: grid;
+  gap: var(--s-6);
+  padding-block: var(--s-7);
+  border-block: 1px solid var(--light-stroke);
+}
+
+@media (min-width: 640px) {
+  .ts-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.ts-stats dt {
+  font-size: clamp(30px, 4.4vw, 44px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--app-heading-color);
+  font-variant-numeric: tabular-nums;
+}
+
+.ts-stats dt span {
+  font-size: 0.45em;
+  color: #8a6520;
+}
+
+.ts-stats dd {
+  margin-top: var(--s-3);
+  color: var(--subtext);
+  font-size: var(--t-small);
+}
+
+/* ========================================================== testimonials ===
+   4.10: max 3 lines of quote body, real typographic quotes, name plus role. */
+
+.ts-quotes {
+  display: grid;
+  gap: var(--s-5);
+}
+
+@media (min-width: 720px) {
+  .ts-quotes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1040px) {
+  .ts-quotes { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  /* Asymmetry: the first quote carries more weight than the rest. */
+  .ts-quotes > :first-child { grid-column: span 2; }
+}
+
+.ts-quote {
+  padding: var(--s-6);
+  background: var(--white);
+  border: 1px solid var(--light-stroke);
+  border-radius: var(--gp-radius);
+}
+
+.ts-quote blockquote {
+  font-size: var(--t-body);
+  line-height: var(--lh-body);
+  color: var(--app-heading-color);
+  text-wrap: pretty;
+}
+
+.ts-quote figcaption {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  margin-top: var(--s-5);
+  padding-top: var(--s-4);
+  border-top: 1px solid var(--light-stroke);
+  color: var(--subtext);
+  font-size: var(--t-small);
+}
+
+.ts-quote__initial {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  flex: none;
+  /* Squircle rather than a circle: the audit flags avatar circles as generic. */
+  border-radius: 11px;
+  background: #fdf8e9;
+  color: #8a6520;
+  font-size: var(--t-small);
+  font-weight: 800;
+}
+
+.ts-quote__name {
+  color: var(--app-heading-color);
+  font-weight: 700;
+}
+
+/* =============================================================== motion ===
+   MOTION_INTENSITY 3: a short opacity and 10px lift, nothing choreographed.
+   Transform and opacity only, so it stays on the compositor. */
+
+.reveal-ready [data-reveal] {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.45s var(--ease), transform 0.45s var(--ease);
+}
+
+.reveal-ready [data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Pressed feedback: the audit flags missing active states. */
+.gp-btn:active { transform: translateY(1px) scale(0.99); }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-ready [data-reveal] { opacity: 1; transform: none; transition: none; }
+  .gp-btn:active { transform: none; }
+}

@@ -1,0 +1,870 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fixed Deposits Online | Earn High FD Interest Rates | GoldenPi</title>
+<!-- TASTE DIRECTION - built against the taste-skill audit -->
+<meta name="description" content="Invest in Fixed Deposits online on GoldenPi. Compare Bank FD, Tax Saving FD and NBFC FD rates, calculate returns, and invest in under 5 minutes.">
+<link rel="icon" href="../assets/img/goldenpi-logo.svg">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/taste.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          gold: "#d4af37", ink: "#322811", page: "#f7f5f2", subtext: "#666666",
+          stroke: "#e7e3d9", deep: "#1a1510", bronze: "#8a6520", gain: "#06963c",
+        },
+        fontFamily: {
+          sans: ['"Satoshi"', "ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "Roboto", "sans-serif"],
+        },
+      },
+    },
+  };
+</script>
+<style>
+  /* Profile chips for the FD calculator. In <head> because pages/_build.py
+     rewrites the shared footer block. */
+  .fd-chip {
+    padding: 8px 16px;
+    border: 1px solid var(--light-stroke);
+    border-radius: 999px;
+    background: #fff;
+    color: var(--subtext);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .fd-chip:hover { border-color: var(--mustard); }
+  .fd-chip.is-on {
+    border-color: var(--mustard);
+    background: #fdf8e9;
+    color: var(--app-heading-color);
+    font-weight: 700;
+  }
+</style>
+</head>
+<body>
+
+<a class="gp-skip" href="#main-content">Skip to main content</a>
+
+<!-- ============================================================ promo bar -->
+<!-- DATA: campaign strip, API-driven on the live site. Snapshot 2026-09-25. -->
+<div class="gp-promo">
+  <div class="gp-promo__track">
+    <span class="gp-promo__item">Earn 11.40% p.a. &middot; Newly Launched Dishman Bond
+      <a href="https://uatnew.goldenpi.com/bonds/INE385W07075/dishman-1100-bond-yield?src=view_details&amp;tenureDate=17-Aug-2027">Invest Now</a></span>
+    <span class="gp-promo__item">Earn up to 10% p.a. &middot; &#128994; Live: Edelweiss NCD IPO
+      <a href="https://uatnew.goldenpi.com/bond-ipo/GPID100778/edelweiss-financial-services-limited">Invest Now</a></span>
+    <span class="gp-promo__item">Earn 12.10% p.a. &middot; Invest in Spandana Sphoorty Bond
+      <a href="https://uatnew.goldenpi.com/bonds/INE572J07810/spandana-1275-bond-yield?src=view_details&amp;tenureDate=26-Apr-2028">Invest Now</a></span>
+    <span class="gp-promo__item">Earn 10% p.a. &middot; Invest in Varthana Finance bond
+      <a href="https://uatnew.goldenpi.com/bonds/INE125T07329/varthana-finance-1000-bond-yield?src=view_details&amp;tenureDate=05-Feb-2027">Invest Now</a></span>
+    <!-- duplicated once so the marquee loop is seamless -->
+    <span class="gp-promo__item" aria-hidden="true">Earn 11.40% p.a. &middot; Newly Launched Dishman Bond</span>
+    <span class="gp-promo__item" aria-hidden="true">Earn up to 10% p.a. &middot; &#128994; Live: Edelweiss NCD IPO</span>
+    <span class="gp-promo__item" aria-hidden="true">Earn 12.10% p.a. &middot; Invest in Spandana Sphoorty Bond</span>
+    <span class="gp-promo__item" aria-hidden="true">Earn 10% p.a. &middot; Invest in Varthana Finance bond</span>
+  </div>
+</div>
+
+<!-- ============================================================== header -->
+<header class="gp-header">
+  <div class="gp-shell gp-header__inner">
+    <a href="index.html" class="flex-none">
+      <img src="../assets/img/goldenpi-logo.svg" alt="GoldenPi" width="132" height="30">
+    </a>
+
+    <nav class="gp-nav" aria-label="Primary">
+      <a class="gp-nav__link" href="corporate-bonds.html">
+        <img src="../assets/img/header-nav-bonds.svg" alt=""> Bonds
+      </a>
+      <a class="gp-nav__link" href="fixed-deposits.html" aria-current="page">
+        <img src="../assets/img/header-nav-fd-selected.svg" alt=""> FD
+      </a>
+      <a class="gp-nav__link" href="https://uatnew.goldenpi.com/collections/all-bonds">
+        <img src="../assets/img/header-nav-collection.svg" alt=""> Collection
+      </a>
+      <a class="gp-nav__link" href="https://uatnew.goldenpi.com/bond-utsav">
+        <img src="../assets/img/header-nav-bond-utsav.svg" alt=""> Bond Utsav
+      </a>
+      <a class="gp-nav__link" href="https://uatnew.goldenpi.com/refer-and-earn">
+        <img src="../assets/img/header-nav-ref-earn.svg" alt=""> Refer &amp; Earn
+      </a>
+    </nav>
+
+    <div class="gp-search">
+      <img src="../assets/img/header-search.svg" alt="" width="16" height="16">
+      <span>Search for bonds, FD or IPO</span>
+    </div>
+
+    <button type="button" class="gp-btn gp-btn--primary gp-btn--sm flex-none ml-auto lg:ml-0">
+      <img src="../assets/img/user-icon.svg" alt="" width="15" height="15"> Login / Sign up
+    </button>
+  </div>
+</header>
+
+<main id="main-content">
+
+  <!-- ============================================================== hero -->
+  <!-- 4.7 hero stack: headline + subtext + CTAs. No eyebrow, no tagline under
+       the CTAs, no trust micro-strip. Those moved to the band below. -->
+  <section class="ts-hero ts-grain">
+    <div class="gp-shell">
+      <nav class="t-small t-muted mb-7" aria-label="Breadcrumb">
+        <a href="index.html" class="hover:text-ink">Home</a>
+        <span class="mx-1.5">&rsaquo;</span>
+        <span class="text-ink font-medium">Fixed Deposits</span>
+      </nav>
+
+      <div class="ts-hero__grid">
+        <div data-reveal>
+          <h1 class="ts-hero__title">Fixed Deposits<br>earning up to <em>8.5% p.a.</em></h1>
+          <p class="ts-hero__sub">Compare Bank, Tax Saving and NBFC deposits in one place, and book online in under five minutes.</p>
+          <div class="ts-hero__cta">
+            <a class="gp-btn gp-btn--primary" href="#explore-fds">Explore our FD offerings</a>
+            <a class="ts-hero__text-link" href="#fd-calculator">Calculate returns &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4.7: trust strip belongs UNDER the hero, not inside it -->
+  <section class="ts-trust">
+    <div class="gp-shell ts-trust__inner">
+      <span class="ts-trust__item">
+        <img src="../assets/img/hero-shield.png" alt="" width="16" height="16">
+        <span><strong>SEBI registered</strong> debt broker</span>
+      </span>
+      <span class="ts-trust__item"><strong>OBPP</strong> license holder</span>
+      <span class="ts-trust__item"><strong>15 lakh+</strong> registered investors</span>
+      <span class="ts-trust__item"><strong>&#8377;10,000 Cr+</strong> transacted</span>
+    </div>
+  </section>
+
+  <!-- ============================================================ banner -->
+  <section class="gp-shell mt-10">
+    <a href="https://uatnew.goldenpi.com/bond-utsav" class="block overflow-hidden rounded-2xl">
+      <img src="../assets/img/assetsLanding-desktop.webp" alt="Download the GoldenPi app"
+           class="hidden w-full sm:block" width="1200" height="180">
+      <img src="../assets/img/assetsLanding-mobile.webp" alt="Download the GoldenPi app"
+           class="w-full sm:hidden" width="600" height="300">
+    </a>
+  </section>
+
+  <!-- ========================================================= explore FDs -->
+  <section class="gp-section" id="explore-fds">
+    <div class="gp-shell">
+      <div class="ts-head">
+        <h2 class="ts-head__title">Explore variety of FDs available on our platform</h2>
+      </div>
+
+      <div class="mb-4 flex flex-wrap justify-center gap-2">
+        <a class="flex items-center gap-2 rounded-xl border border-stroke bg-white px-4 py-2.5 t-small font-medium t-muted hover:border-gold hover:text-ink"
+           href="https://uatnew.goldenpi.com/fixed-deposits">
+          <img src="../assets/img/bank-fd.svg" alt="" width="18" height="18"> Bank FD
+        </a>
+        <a class="flex items-center gap-2 rounded-xl border border-stroke bg-white px-4 py-2.5 t-small font-medium t-muted hover:border-gold hover:text-ink"
+           href="https://uatnew.goldenpi.com/fixed-deposits">
+          <img src="../assets/img/tax-saving-fd.svg" alt="" width="18" height="18"> Tax Saving FD
+        </a>
+        <a class="flex items-center gap-2 rounded-xl border border-gold bg-white px-4 py-2.5 t-small font-bold text-ink shadow-sm"
+           href="https://uatnew.goldenpi.com/fixed-deposits" aria-current="true">
+          <img src="../assets/img/nbfc-fd.svg" alt="" width="18" height="18"> NBFC FD
+        </a>
+      </div>
+
+      <p class="mb-8 flex flex-wrap justify-center gap-x-6 gap-y-2 t-small t-muted">
+        <span class="flex items-center gap-1.5"><img src="../assets/img/success.svg" alt="" width="14" height="14"> Competitive FD interest rates</span>
+        <span class="flex items-center gap-1.5"><img src="../assets/img/success.svg" alt="" width="14" height="14"> Flexible payout options available</span>
+      </p>
+
+      <!-- DATA: FD issuer list, API-driven on the live site. Snapshot 2026-09-25. -->
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <article class="gp-card gp-card--link overflow-hidden text-center">
+          <div class="p-6">
+            <img src="../assets/img/GPID100016.Shriram-Squircle.png" alt="Issuer logo" width="60" height="60" class="mx-auto">
+            <h3 class="mt-4 t-h4">SHRIRAM FINANCE</h3>
+            <p class="mt-3 inline-block rounded-full bg-[#eaf4fd] px-3 py-1 t-caption font-semibold text-[#19386d]">Sr. Citizens get additional benefit</p>
+          </div>
+          <div class="bg-[#fdf8e9] px-6 py-5">
+            <p class="t-caption t-muted">Returns upto</p>
+            <p class="t-figure t-bronze">8.05%</p>
+            <a class="gp-btn gp-btn--primary gp-btn--sm mt-3" href="https://uatnew.goldenpi.com/fixed-deposits/GPID100016/shriram-finance-limited?src=view_details">Know More</a>
+          </div>
+        </article>
+
+        <article class="gp-card gp-card--link overflow-hidden text-center">
+          <div class="p-6">
+            <img src="../assets/img/GPID105193.Mahindra-Squircle.png" alt="Issuer logo" width="60" height="60" class="mx-auto">
+            <h3 class="mt-4 t-h4">MAHINDRA FINANCE</h3>
+            <p class="mt-3 inline-block rounded-full bg-[#eefaf2] px-3 py-1 t-caption font-semibold text-gain">AAA Rated</p>
+          </div>
+          <div class="bg-[#fdf8e9] px-6 py-5">
+            <p class="t-caption t-muted">Returns upto</p>
+            <p class="t-figure t-bronze">7.80%</p>
+            <a class="gp-btn gp-btn--primary gp-btn--sm mt-3" href="https://uatnew.goldenpi.com/fixed-deposits/GPID105193/mahindra-finance?src=view_details">Know More</a>
+          </div>
+        </article>
+
+        <article class="gp-card gp-card--link overflow-hidden text-center">
+          <div class="p-6">
+            <img src="../assets/img/GPID100379.Bajaj-Finserv.png" alt="Issuer logo" width="60" height="60" class="mx-auto">
+            <h3 class="mt-4 t-h4">BAJAJ FINANCE LTD</h3>
+            <p class="mt-3 inline-block rounded-full bg-[#fdf0e6] px-3 py-1 t-caption font-semibold text-[#a05a1f]">Instant Booking</p>
+          </div>
+          <div class="bg-[#fdf8e9] px-6 py-5">
+            <p class="t-caption t-muted">Returns upto</p>
+            <p class="t-figure t-bronze">7.75%</p>
+            <a class="gp-btn gp-btn--primary gp-btn--sm mt-3" href="https://uatnew.goldenpi.com/fixed-deposits/GPID100379/baja-finance-limited-co?src=view_details">Know More</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================== calculator -->
+  <section data-reveal class="gp-section gp-section--tight gp-section--flush-top" id="fd-calculator">
+    <div class="gp-shell">
+      <div class="ts-head">
+        <h2 class="ts-head__title">FD Returns Calculator</h2>
+      </div>
+
+      <div class="gp-card p-5 sm:p-8">
+        <div class="mb-6 flex flex-wrap gap-2" role="group" aria-label="Investor profile">
+          <button type="button" class="fd-chip is-on" data-bonus="0.5">Senior citizen</button>
+          <button type="button" class="fd-chip" data-bonus="0.25">Female</button>
+          <button type="button" class="fd-chip" data-bonus="0">Tax Saver</button>
+          <button type="button" class="fd-chip" data-bonus="0">Bank FD</button>
+          <button type="button" class="fd-chip" data-bonus="0">NBFC</button>
+        </div>
+
+        <div class="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+          <div class="space-y-7">
+            <div>
+              <div class="flex items-center justify-between gap-4">
+                <label for="fd-amount" class="t-body font-semibold">Total Investment</label>
+                <output id="fd-amount-out" for="fd-amount"
+                        class="rounded-lg border border-stroke bg-page px-3 py-1.5 t-body font-bold">&#8377;2,00,000</output>
+              </div>
+              <input id="fd-amount" type="range" min="1000" max="10000000" step="1000" value="200000"
+                     class="mt-3 w-full accent-[color:var(--mustard)]">
+              <div class="mt-1 flex justify-between t-small t-muted">
+                <span>&#8377;1,000</span><span>&#8377;50 L</span><span>&#8377;1 Cr</span>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex items-center justify-between gap-4">
+                <label for="fd-tenure" class="t-body font-semibold">Tenure (Months)</label>
+                <output id="fd-tenure-out" for="fd-tenure"
+                        class="rounded-lg border border-stroke bg-page px-3 py-1.5 t-body font-bold">12 months</output>
+              </div>
+              <input id="fd-tenure" type="range" min="12" max="60" step="6" value="12"
+                     class="mt-3 w-full accent-[color:var(--mustard)]">
+              <div class="mt-1 flex justify-between t-small t-muted">
+                <span>12</span><span>24</span><span>36</span><span>48</span><span>60</span>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-4">
+              <span class="t-body font-semibold">Payout Mode</span>
+              <select id="fd-payout" class="rounded-lg border border-stroke bg-white px-3 py-2 t-small font-medium">
+                <option value="cumulative">On maturity</option>
+                <option value="periodic">Interest</option>
+              </select>
+              <span class="rounded-full bg-[#fdf8e9] px-3 py-1.5 t-small font-bold text-bronze">
+                Rate <span id="fd-rate">7.35</span>%
+              </span>
+            </div>
+          </div>
+
+          <div class="rounded-2xl bg-[#fdf8e9] p-6">
+            <div class="mx-auto max-w-[220px]">
+              <!-- Donut: invested vs gains. Pure SVG, no chart library needed. -->
+              <svg viewBox="0 0 42 42" class="w-full -rotate-90" role="img" aria-labelledby="fd-donut-title">
+                <title id="fd-donut-title">Invested amount versus FD gains</title>
+                <circle cx="21" cy="21" r="15.915" fill="none" stroke="#e9dfc2" stroke-width="5"></circle>
+                <circle id="fd-donut" cx="21" cy="21" r="15.915" fill="none" stroke="#d4af37" stroke-width="5"
+                        stroke-dasharray="93 7" stroke-linecap="round"></circle>
+              </svg>
+            </div>
+
+            <dl class="mt-6 space-y-3 t-body">
+              <div class="flex items-center justify-between gap-4">
+                <dt class="flex items-center gap-2 text-subtext">
+                  <span class="h-2.5 w-2.5 rounded-full bg-gold"></span> Invested Amount
+                </dt>
+                <dd id="fd-invested" class="font-bold">&#8377;2,00,000</dd>
+              </div>
+              <div class="flex items-center justify-between gap-4">
+                <dt class="flex items-center gap-2 text-subtext">
+                  <span class="h-2.5 w-2.5 rounded-full bg-[#e9dfc2]"></span> FD Gains
+                </dt>
+                <dd id="fd-gains" class="font-bold text-gain">&#8377;14,700</dd>
+              </div>
+              <div class="flex items-center justify-between gap-4 border-t border-[color:var(--light-stroke)] pt-3">
+                <dt class="font-semibold">Maturity Amount</dt>
+                <dd id="fd-maturity" class="t-h4 font-black">&#8377;2,14,700</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+
+        <h3 class="mt-10 mb-4 t-h4">Here are the best FD option based on your input</h3>
+
+        <!-- DATA: matched FD offers, API-driven on the live site. Snapshot 2026-09-25. -->
+        <div class="grid gap-4 sm:grid-cols-2">
+          <article class="gp-card flex items-center gap-4 p-4">
+            <img src="../assets/img/GPID100016.Shriram-Squircle.png" alt="" width="40" height="40" class="flex-none">
+            <div class="min-w-0 flex-1">
+              <p class="t-body font-bold">Shriram Finance</p>
+              <dl class="mt-2 grid grid-cols-3 gap-2 t-small">
+                <div><dt class="t-caption t-muted">Returns</dt><dd class="font-bold text-gain">7.35%</dd></div>
+                <div><dt class="t-caption t-muted">Tenure</dt><dd class="font-bold">12 Months</dd></div>
+                <div><dt class="t-caption t-muted">Payout</dt><dd class="font-bold">Cumulative</dd></div>
+              </dl>
+            </div>
+            <a class="gp-btn gp-btn--primary gp-btn--sm flex-none"
+               href="https://uatnew.goldenpi.com/fixed-deposits/GPID100016/shriram-finance-limited?src=view_details">Invest</a>
+          </article>
+
+          <article class="gp-card flex items-center gap-4 p-4">
+            <img src="../assets/img/GPID105193.Mahindra-Squircle.png" alt="" width="40" height="40" class="flex-none">
+            <div class="min-w-0 flex-1">
+              <p class="t-body font-bold">Mahindra Finance</p>
+              <dl class="mt-2 grid grid-cols-3 gap-2 t-small">
+                <div><dt class="t-caption t-muted">Returns</dt><dd class="font-bold text-gain">6.95%</dd></div>
+                <div><dt class="t-caption t-muted">Tenure</dt><dd class="font-bold">12 Months</dd></div>
+                <div><dt class="t-caption t-muted">Payout</dt><dd class="font-bold">Cumulative</dd></div>
+              </dl>
+            </div>
+            <a class="gp-btn gp-btn--primary gp-btn--sm flex-none"
+               href="https://uatnew.goldenpi.com/fixed-deposits/GPID105193/mahindra-finance?src=view_details">Invest</a>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================== compare -->
+  <section data-reveal class="gp-section gp-section--tight gp-section--flush-top">
+    <div class="gp-shell">
+      <div class="ts-head">
+        <h2 class="ts-head__title">Compare and invest in the <span class="text-bronze">Fixed Deposit Plans</span></h2>
+      </div>
+
+      <!-- DATA: comparison grid, API-driven on the live site. Snapshot 2026-09-25. -->
+      <div class="gp-tablewrap">
+        <table class="w-full min-w-[820px] border-collapse t-small">
+          <caption class="sr-only">Fixed deposit plans compared by returns, payout, insurance and account requirement</caption>
+          <thead>
+            <tr class="bg-[#fdf8e9] text-left">
+              <th scope="col" class="p-4 font-bold">Issuer</th>
+              <th scope="col" class="p-4 font-bold">Highest Returns</th>
+              <th scope="col" class="p-4 font-bold">Available Payout</th>
+              <th scope="col" class="p-4 font-bold">Insured</th>
+              <th scope="col" class="p-4 font-bold">New Bank A/C Required</th>
+              <th scope="col" class="p-4"><span class="sr-only">Action</span></th>
+            </tr>
+          </thead>
+          <tbody class="[&>tr:not(:last-child)]:border-b [&>tr]:border-[color:var(--light-stroke)]">
+            <tr>
+              <th scope="row" class="p-4 text-left font-bold">
+                <span class="flex items-center gap-3">
+                  <img src="../assets/img/GPID105192.Unity.png" alt="" width="32" height="32">UNITY SMALL FINANCE BANK
+                </span>
+              </th>
+              <td class="p-4 font-bold text-gain">4.00-8.50%</td>
+              <td class="p-4 text-subtext">Cumulative, Monthly, Quarterly</td>
+              <td class="p-4">Yes</td>
+              <td class="p-4">No</td>
+              <td class="p-4"><a class="gp-btn gp-btn--primary gp-btn--sm" href="https://uatnew.goldenpi.com/fixed-deposits/GPID105192/unity-small-finance-bank?src=view_details">Invest Now</a></td>
+            </tr>
+            <tr>
+              <th scope="row" class="p-4 text-left font-bold">
+                <span class="flex items-center gap-3">
+                  <img src="../assets/img/GPID105191.Suryoday.png" alt="" width="32" height="32">SURYODAY SMALL FINANCE BANK
+                </span>
+              </th>
+              <td class="p-4 font-bold text-gain">4.00-8.50%</td>
+              <td class="p-4 text-subtext">Cumulative</td>
+              <td class="p-4">Yes</td>
+              <td class="p-4">No</td>
+              <td class="p-4"><a class="gp-btn gp-btn--primary gp-btn--sm" href="https://uatnew.goldenpi.com/fixed-deposits/GPID105191/suryoday-bank?src=view_details">Invest Now</a></td>
+            </tr>
+            <tr>
+              <th scope="row" class="p-4 text-left font-bold">
+                <span class="flex items-center gap-3">
+                  <img src="../assets/img/GPID106947.utkarsh_logo.png" alt="" width="32" height="32">UTKARSH SMALL FINANCE BANK
+                </span>
+              </th>
+              <td class="p-4 font-bold text-gain">4.00-8.25%</td>
+              <td class="p-4 text-subtext">Cumulative</td>
+              <td class="p-4">Yes</td>
+              <td class="p-4">No</td>
+              <td class="p-4"><a class="gp-btn gp-btn--primary gp-btn--sm" href="https://uatnew.goldenpi.com/fixed-deposits/GPID106947/utkarsh-small-finance-bank?src=view_details">Invest Now</a></td>
+            </tr>
+            <tr>
+              <th scope="row" class="p-4 text-left font-bold">
+                <span class="flex items-center gap-3">
+                  <img src="../assets/img/GPID100016.Shriram-Squircle.png" alt="" width="32" height="32">SHRIRAM FINANCE
+                </span>
+              </th>
+              <td class="p-4 font-bold text-gain">6.64-8.05%</td>
+              <td class="p-4 text-subtext">Cumulative, Monthly, Quarterly, Half-Yearly, Yearly</td>
+              <td class="p-4">No</td>
+              <td class="p-4">No</td>
+              <td class="p-4"><a class="gp-btn gp-btn--primary gp-btn--sm" href="https://uatnew.goldenpi.com/fixed-deposits/GPID100016/shriram-finance-limited?src=view_details">Invest Now</a></td>
+            </tr>
+            <tr>
+              <th scope="row" class="p-4 text-left font-bold">
+                <span class="flex items-center gap-3">
+                  <img src="../assets/img/GPID105193.Mahindra-Squircle.png" alt="" width="32" height="32">MAHINDRA FINANCE
+                </span>
+              </th>
+              <td class="p-4 font-bold text-gain">6.40-7.80%</td>
+              <td class="p-4 text-subtext">Cumulative, Monthly, Quarterly, Half-Yearly, Yearly</td>
+              <td class="p-4">No</td>
+              <td class="p-4">No</td>
+              <td class="p-4"><a class="gp-btn gp-btn--primary gp-btn--sm" href="https://uatnew.goldenpi.com/fixed-deposits/GPID105193/mahindra-finance?src=view_details">Invest Now</a></td>
+            </tr>
+            <tr>
+              <th scope="row" class="p-4 text-left font-bold">
+                <span class="flex items-center gap-3">
+                  <img src="../assets/img/GPID100379.Bajaj-Finserv.png" alt="" width="32" height="32">BAJAJ FINANCE LTD
+                </span>
+              </th>
+              <td class="p-4 font-bold text-gain">6.41-7.75%</td>
+              <td class="p-4 text-subtext">Cumulative, Monthly, Quarterly, Half-Yearly, Yearly</td>
+              <td class="p-4">No</td>
+              <td class="p-4">No</td>
+              <td class="p-4"><a class="gp-btn gp-btn--primary gp-btn--sm" href="https://uatnew.goldenpi.com/fixed-deposits/GPID100379/baja-finance-limited-co?src=view_details">Invest Now</a></td>
+            </tr>
+            <tr>
+              <th scope="row" class="p-4 text-left font-bold">
+                <span class="flex items-center gap-3">
+                  <img src="../assets/img/traditonal-banks.svg" alt="" width="32" height="32">Traditional Banks
+                </span>
+              </th>
+              <td class="p-4 font-bold">5 - 7%</td>
+              <td class="p-4 text-subtext">Monthly, Quarterly, At maturity</td>
+              <td class="p-4">Yes</td>
+              <td class="p-4">Yes</td>
+              <td class="p-4"><span class="t-small t-muted">-</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================== partners -->
+  <section data-reveal class="gp-section gp-section--tight gp-section--flush-top">
+    <div class="gp-shell flex flex-col items-center gap-6 rounded-2xl border border-stroke bg-white px-6 py-7 sm:flex-row sm:gap-10">
+      <p class="flex-none t-small font-semibold t-muted">Trusted by leading brokers and Market leaders</p>
+      <div class="flex flex-1 flex-wrap items-center justify-center gap-x-10 gap-y-5 sm:justify-between">
+        <img src="../assets/img/Sakthi-Finance-logo.png" alt="Sakthi Finance" height="26" class="h-6 w-auto object-contain">
+        <img src="../assets/img/centrum.png" alt="Centrum" height="26" class="h-6 w-auto object-contain">
+        <img src="../assets/img/axis-securities.png" alt="Axis Securities" height="26" class="h-6 w-auto object-contain">
+        <img src="../assets/img/anand-rathi.webp" alt="Anand Rathi" height="26" class="h-6 w-auto object-contain">
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================== cross-sell bonds -->
+  <section data-reveal class="gp-section gp-section--tight gp-section--flush-top">
+    <div class="gp-shell grid items-center gap-8 rounded-3xl bg-[#fdf8e9] p-8 md:grid-cols-2">
+      <img src="../assets/img/desktop_returns.svg" alt="Get up to 15% returns on secured bonds"
+           width="460" height="260" class="w-full max-w-[420px] justify-self-center">
+      <div>
+        <h2 class="gp-section__title text-left">Looking for higher returns than FDs?</h2>
+        <p class="mt-3 t-body t-muted">
+          Explore corporate bonds and NCDs with competitive yields on GoldenPi.
+        </p>
+        <a class="gp-btn gp-btn--primary mt-6" href="corporate-bonds.html">Explore Corporate Bonds</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================== explainer -->
+  <section data-reveal class="gp-section gp-section--tight gp-section--flush-top">
+    <div class="gp-shell grid gap-8 md:grid-cols-2 md:items-center">
+      <div>
+        <h2 class="gp-section__title text-left">What is a Fixed Deposit?</h2>
+        <p class="mt-4 t-body t-muted">
+          A Fixed Deposit (FD) is a fixed-income instrument where you invest a lump sum for a chosen tenure and earn a predetermined interest rate until maturity.
+        </p>
+        <p class="mt-3 t-body t-muted">
+          On GoldenPi you can compare Bank FDs, Tax Saving FDs and NBFC FDs, then invest online after KYC verification with the issuer.
+        </p>
+        <div class="mt-6 flex flex-wrap items-center gap-2 t-small">
+          <span class="font-semibold">What it means?</span>
+          <span class="rounded-full border border-stroke bg-white px-3 py-1.5">DICGC</span>
+          <span class="rounded-full border border-stroke bg-white px-3 py-1.5">Tenure</span>
+          <span class="rounded-full border border-stroke bg-white px-3 py-1.5">Payout</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-4">
+        <div class="rounded-2xl bg-[#fdf8e9] p-5">
+          <img src="../assets/img/asset-locker.png" alt="" width="52" height="52">
+          <p class="mt-3 t-body font-bold leading-snug">DICGC insured FDs</p>
+        </div>
+        <div class="rounded-2xl bg-[#eaf4fd] p-5">
+          <img src="../assets/img/asset-calender.png" alt="" width="52" height="52">
+          <p class="mt-3 t-body font-bold leading-snug">Flexible tenures</p>
+        </div>
+        <div class="rounded-2xl bg-[#eaf4fd] p-5">
+          <img src="../assets/img/payments.png" alt="" width="52" height="52">
+          <p class="mt-3 t-body font-bold leading-snug">Multiple payout options</p>
+        </div>
+        <div class="rounded-2xl bg-[#fdf8e9] p-5">
+          <img src="../assets/img/online-money.png" alt="" width="52" height="52">
+          <p class="mt-3 t-body font-bold leading-snug">100% Online investment Process</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================== why us -->
+  <section data-reveal class="gp-section gp-section--tight gp-section--flush-top">
+    <div class="gp-shell">
+      <div class="ts-reasons">
+        <div class="ts-head" style="margin-bottom:0">
+          <h2 class="ts-head__title">Why invest in with GoldenPi?</h2>
+          <p class="ts-head__sub">Bank, tax saving and NBFC deposits sit side by side here, on the same terms, so the comparison is the product rather than a sales page.</p>
+        </div>
+
+        <div class="ts-reasons__list">
+          <div class="ts-reasons__item">
+            <img src="../assets/img/online-invest.png" alt="">
+            <div>
+              <h3>100% Online</h3>
+              <p>Seamless Investment process</p>
+            </div>
+          </div>
+          <div class="ts-reasons__item">
+            <img src="../assets/img/product-info.png" alt="">
+            <div>
+              <h3>In-depth Product Information</h3>
+              <p>Review all information before you invest</p>
+            </div>
+          </div>
+          <div class="ts-reasons__item">
+            <img src="../assets/img/sebi-regd.png" alt="">
+            <div>
+              <h3>Trusted Platform</h3>
+              <p>Compare FDs from leading banks and NBFCs in one place</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================== testimonials -->
+    <section class="gp-section gp-section--tight gp-section--flush-top">
+    <div class="gp-shell">
+      <div class="ts-head">
+        <h2 class="ts-head__title">Why 15 Lakh+ Users Trust GoldenPi</h2>
+      </div>
+
+      <!-- DATA: Google reviews, fetched on the live site. Snapshot 2026-09-25. -->
+      <div class="ts-quotes">
+        <figure class="ts-quote" data-reveal>
+          <blockquote>&ldquo;Hassle free investment. One place for all type of bonds, and we can choose as per our risk.&rdquo;</blockquote>
+          <figcaption>
+            <span class="ts-quote__initial">P</span>
+            <span><span class="ts-quote__name">Phaniraj D G</span><br>Google review</span>
+          </figcaption>
+        </figure>
+
+        <figure class="ts-quote">
+          <blockquote>&ldquo;Extremely convenient platform. I was guided throughout by someone who knew the product.&rdquo;</blockquote>
+          <figcaption>
+            <span class="ts-quote__initial">N</span>
+            <span><span class="ts-quote__name">Neeraj Sharma</span><br>Google review</span>
+          </figcaption>
+        </figure>
+
+        <figure class="ts-quote">
+          <blockquote>&ldquo;A seamless experience buying NCDs and bonds, with no hidden costs or service charges.&rdquo;</blockquote>
+          <figcaption>
+            <span class="ts-quote__initial">R</span>
+            <span><span class="ts-quote__name">Reenu Jojy Mathew</span><br>Google review</span>
+          </figcaption>
+        </figure>
+
+        <figure class="ts-quote">
+          <blockquote>&ldquo;The details were explained clearly and the response to each call was immediate.&rdquo;</blockquote>
+          <figcaption>
+            <span class="ts-quote__initial">L</span>
+            <span><span class="ts-quote__name">Latha Abhimannue Thayyil</span><br>Google review</span>
+          </figcaption>
+        </figure>
+
+        <figure class="ts-quote">
+          <blockquote>&ldquo;Superb website. Every process is clearly explained, with patience and on time.&rdquo;</blockquote>
+          <figcaption>
+            <span class="ts-quote__initial">H</span>
+            <span><span class="ts-quote__name">Harish Iyer</span><br>Google review</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <p class="mt-6">
+        <a class="t-small font-bold t-bronze underline" href="https://www.google.com/search?q=GoldenPi+reviews">Read all reviews</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================= blog -->
+  <section data-reveal class="gp-section gp-section--tight gp-section--flush-top">
+    <div class="gp-shell">
+      <div class="ts-head">
+        <h2 class="ts-head__title">Learn about Investment in Fixed Deposits</h2>
+      </div>
+
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <article class="gp-card gp-card--link flex overflow-hidden">
+          <div class="flex flex-1 flex-col p-5">
+            <p class="t-caption t-bronze">Fixed Deposit</p>
+            <h3 class="mt-2 t-lead font-bold">It's Time to Break the Bank FD Habit</h3>
+            <p class="mt-2 t-small t-muted">13 January 2023</p>
+            <a class="mt-auto pt-3 t-small font-bold t-bronze underline" href="https://www.goldenpi.com/blog">Read more</a>
+          </div>
+          <img src="../assets/img/CFD-1.JPG" alt="" width="130" height="180" class="w-[110px] flex-none object-cover">
+        </article>
+
+        <article class="gp-card gp-card--link flex overflow-hidden">
+          <div class="flex flex-1 flex-col p-5">
+            <p class="t-caption t-bronze">Fixed Deposit</p>
+            <h3 class="mt-2 t-lead font-bold">What is Corporate Fixed Deposit?</h3>
+            <p class="mt-2 t-small t-muted">21 October 2022</p>
+            <a class="mt-auto pt-3 t-small font-bold t-bronze underline" href="https://www.goldenpi.com/blog">Read more</a>
+          </div>
+          <img src="../assets/img/CFD-2.JPG" alt="" width="130" height="180" class="w-[110px] flex-none object-cover">
+        </article>
+
+        <article class="gp-card gp-card--link flex overflow-hidden">
+          <div class="flex flex-1 flex-col p-5">
+            <p class="t-caption t-bronze">Fixed Deposit</p>
+            <h3 class="mt-2 t-lead font-bold">What Factors Should You Consider Before Investing In Corporate Fixed Deposits?</h3>
+            <p class="mt-2 t-small t-muted">21 March 2024</p>
+            <a class="mt-auto pt-3 t-small font-bold t-bronze underline" href="https://www.goldenpi.com/blog">Read more</a>
+          </div>
+          <img src="../assets/img/CFD-4.png" alt="" width="130" height="180" class="w-[110px] flex-none object-cover">
+        </article>
+      </div>
+
+      <div class="mt-6 text-center">
+        <a class="t-small font-bold t-bronze underline" href="https://www.goldenpi.com/blog">View all Blogs</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================== faq -->
+  <section data-reveal class="gp-section gp-section--tight gp-section--flush-top">
+    <div class="gp-shell">
+      <div class="ts-head">
+        <h2 class="ts-head__title">FAQs about Fixed Deposits</h2>
+      </div>
+
+      <div class="gp-faq">
+        <details class="gp-faq__item" open>
+          <summary class="gp-faq__q">What is the minimum investment amount for a fixed deposit investment?</summary>
+          <div class="gp-faq__a"><p>Most banks and NBFCs require a minimum deposit of &#8377;1,000 to open a fixed deposit account. However, this amount may vary from one FD provider to another. It also depends on the FD scheme you choose.</p></div>
+        </details>
+        <details class="gp-faq__item">
+          <summary class="gp-faq__q">Are FD investments in India taxable?</summary>
+          <div class="gp-faq__a"><p>Yes, the interest from FDs is taxable as &lsquo;Income from Other Sources&rsquo; in India. It is added to your total income and taxed at the applicable slab rate.</p></div>
+        </details>
+        <details class="gp-faq__item">
+          <summary class="gp-faq__q">Is a digital FD a safe investment option in India?</summary>
+          <div class="gp-faq__a"><p>Yes, FD investments in India are generally considered safe. Moreover, fixed deposits through GoldenPi are also insured up to &#8377;5 lakh under the Deposit Insurance and Credit Guarantee Corporation (DICGC) scheme.</p></div>
+        </details>
+        <details class="gp-faq__item">
+          <summary class="gp-faq__q">Can I withdraw the funds from my online FD investment account before maturity?</summary>
+          <div class="gp-faq__a"><p>Yes, premature withdrawal is allowed for many FD schemes. However, you may have to pay a penalty for early withdrawal. Ensure that you check the fine print to understand these terms better.</p></div>
+        </details>
+        <details class="gp-faq__item">
+          <summary class="gp-faq__q">How do I choose the right FD to invest in?</summary>
+          <div class="gp-faq__a"><p>To find the better fixed deposit to invest, you can compare interest rates, payout options and the credibility of the provider.</p></div>
+        </details>
+        <details class="gp-faq__item">
+          <summary class="gp-faq__q">Are senior citizens eligible for added FD benefits?</summary>
+          <div class="gp-faq__a"><p>Yes, most FD schemes offer higher rates of interest for fixed deposits in India opened by senior citizens. You can check the rates online before investing your funds.</p></div>
+        </details>
+        <details class="gp-faq__item">
+          <summary class="gp-faq__q">Can I open an FD online?</summary>
+          <div class="gp-faq__a"><p>Yes, many banks and digital platforms like GoldenPi allow you to invest in an FD online in just a few simple steps.</p></div>
+        </details>
+        <details class="gp-faq__item">
+          <summary class="gp-faq__q">What is the maximum tenure of a fixed deposit investment?</summary>
+          <div class="gp-faq__a"><p>FD tenures generally range from 7 days to 10 years. The interest rate varies depending on the tenure you choose.</p></div>
+        </details>
+      </div>
+
+      <p class="mx-auto mt-6 max-w-[900px] t-small t-muted leading-relaxed">
+        <strong>References:</strong> *Interest rates and features are indicative and subject to change by issuers. Investor discretion is advised. FD booking depends on successful KYC verification with the issuer.
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================== footer -->
+<footer class="gp-footer">
+  <div class="gp-shell grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="lg:col-span-2">
+      <img src="../assets/img/goldenpi-logo.svg" alt="GoldenPi" width="132" height="30">
+      <p class="mt-4 font-bold">GoldenPi Securities Pvt Ltd</p>
+      <p class="mt-1 text-subtext">(A wholly owned subsidiary of GoldenPi Technologies Pvt Ltd)</p>
+      <address class="mt-3 not-italic leading-relaxed text-subtext">
+        Indiqube Orion, 24th Main, 1st Sector,<br>
+        HSR Layout, Bangalore South,<br>
+        Bangalore, Karnataka - 560102
+      </address>
+      <p class="mt-3">Contact Us: <a class="font-semibold" href="tel:08045685666">080-45685666</a></p>
+      <p class="mt-1 text-subtext">CIN: U65990KA2022PTC164941</p>
+    </div>
+
+    <div>
+      <h2 class="gp-footer__title">Invest with us</h2>
+      <ul class="space-y-2.5">
+        <li><a href="bond-ipo-online.html">Bond IPOs</a></li>
+        <li><a href="corporate-bonds.html">Bonds</a></li>
+        <li><a href="fixed-deposits.html">Fixed Deposits</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="gp-footer__title">Company</h2>
+      <ul class="space-y-2.5">
+        <li><a href="https://uatnew.goldenpi.com/about-us">About us</a></li>
+        <li><a href="https://uatnew.goldenpi.com/careers">Career at GoldenPi</a></li>
+        <li><a href="https://uatnew.goldenpi.com/faq">FAQs</a></li>
+        <li><a href="https://uatnew.goldenpi.com/contact-us">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="gp-shell border-t border-[color:var(--light-stroke)] py-5 text-subtext">
+    &copy; Copyright 2017 &ndash; 2026 | GoldenPi Securities Pvt. Ltd.
+  </div>
+
+  <div class="gp-footer__legal">
+    <div class="gp-shell space-y-6">
+      <div>
+        <h2>Note to Investors</h2>
+        <p>GoldenPi Securities Pvt. Ltd. (&ldquo;GSPL&rdquo;) is a wholly owned subsidiary of GoldenPi Technologies Pvt. Ltd. (&ldquo;GTPL&rdquo;) and is a SEBI registered broker under BSE new debt segment allowing investors to trade in secondary bonds &amp; debentures through exchange.</p>
+        <p>Fixed returns do not constitute guaranteed or assured returns. Investments in corporate debt securities, municipal debt securities/securitised debt instruments are subject to credit risks, market risks and default risks including delay and/or default in payment. Read all the offer related documents carefully. Investors can update their email id and mobile number with their stock broker / depository participant and receive OTP directly from the depository on email id and/or mobile number to create a pledge. Investors can check their securities / MF / bonds in the consolidated account statement issued by NSDL/CDSL every month.</p>
+        <p>The FAQs on the platform are exclusively for educational information/knowledge and do not influence the investment/sale decisions of any investors. As you are aware, under the rapidly evolving dynamics of financial markets, it is crucial for investors to remain updated and well-informed about various aspects of investing in securities market. In this connection, please find a link to the BSE Investor Protection Fund website where you will find some useful educative material in the form of text and videos, so as to become an informed investor.</p>
+        <p><a class="underline" href="https://www.bseipf.com/investors_education.html">https://www.bseipf.com/investors_education.html</a></p>
+        <p>We believe that an educated investor is a protected investor !!!</p>
+      </div>
+
+      <div>
+        <h2>Important Information:</h2>
+        <div class="gp-pills">
+          <a href="https://uatnew.goldenpi.com/collections/best-ongoing-ipos">Ongoing NCD IPOs</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/Conflict+of+Interest.pdf">Conflict of Interest</a>
+          <a href="https://uatnew.goldenpi.com/terms-and-conditions">Terms &amp; Conditions</a>
+          <a href="https://uatnew.goldenpi.com/privacy-policy">Privacy Policy</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/Regulatory+disclosure.pdf">Regulatory Disclosure</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/GoldenPi_Investor_Charter.pdf">Investor Charter</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/Policies+for+Information.pdf">Policies for Information</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/INVESTOR+GRIEVANCE+REDRESSAL+MECHANISM+Goldenpi.pdf">Investor Grievance</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/RIGHTS+AND+OBLIGATIONS+OF+STOCK+BROKERS+AND+CLIENTS.pdf">Rights &amp; Obligations</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/Investor+Complaint+Report.pdf">Investor Complaints</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/DOs+AND+DONTs.pdf">Dos &amp; Don'ts</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/InvestorAdvisoryNote.pdf">Investor Advisory Note</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/RISK+DISCLOSURE+DOCUMENT+FOR+CAPITAL+MARKET+AND+DERIVATIVES+SEGMENTS.pdf">Risk Disclosure</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/goldenpi_RDDvernacular.zip">RDD in Vernacular</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Freezing_Blocking_Account/Policy_on_Voluntary_Freezing.pdf">Voluntary Freezing/Blocking of Account</a>
+        </div>
+      </div>
+
+      <div>
+        <h2>Collections</h2>
+        <p class="leading-loose">
+          <a class="underline" href="https://uatnew.goldenpi.com/collections/best-ongoing-ipos">Ongoing NCD IPOs</a> |
+          <a class="underline" href="https://uatnew.goldenpi.com/collections/high-yield-bonds">High Yield Bonds (Yield more than 11%)</a> |
+          <a class="underline" href="https://uatnew.goldenpi.com/collections/highly-rated-bonds">Highly Rated Bonds (AAA Rated)</a> |
+          <a class="underline" href="https://uatnew.goldenpi.com/collections/bonds-to-earn-monthly-fixed-income">Bonds to Earn Regular Monthly Income</a> |
+          <a class="underline" href="https://uatnew.goldenpi.com/collections/bonds-maturing-within-a-year">Bonds Maturing within a Year</a> |
+          <a class="underline" href="https://uatnew.goldenpi.com/collections/state-government-guranteed-bonds">State Government Guaranteed Bonds</a> |
+          <a class="underline" href="https://uatnew.goldenpi.com/collections/tax-free-bonds">Tax Free Bonds</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// FD returns calculator.
+// Base rate is the best matched offer in the snapshot (Shriram, 7.35% for 12 months);
+// the profile chips add the issuer's published senior-citizen / women bonus on top.
+// Cumulative compounds annually, periodic payout is simple interest -- both agree at
+// 12 months, which is what the live page shows.
+(function () {
+  var BASE_RATE = 7.35;
+  var amount = document.getElementById('fd-amount');
+  var tenure = document.getElementById('fd-tenure');
+  var payout = document.getElementById('fd-payout');
+  var chips = [].slice.call(document.querySelectorAll('.fd-chip'));
+
+  var inr = function (n) {
+    return '\u20B9' + Math.round(n).toLocaleString('en-IN');
+  };
+
+  function bonus() {
+    return chips.reduce(function (sum, c) {
+      return sum + (c.classList.contains('is-on') ? parseFloat(c.dataset.bonus) : 0);
+    }, 0);
+  }
+
+  function update() {
+    var p = Number(amount.value);
+    var months = Number(tenure.value);
+    var rate = BASE_RATE + bonus();
+    var years = months / 12;
+    var maturity = payout.value === 'cumulative'
+      ? p * Math.pow(1 + rate / 100, years)
+      : p * (1 + (rate / 100) * years);
+    var gains = maturity - p;
+
+    document.getElementById('fd-amount-out').textContent = inr(p);
+    document.getElementById('fd-tenure-out').textContent = months + ' months';
+    document.getElementById('fd-rate').textContent = rate.toFixed(2);
+    document.getElementById('fd-invested').textContent = inr(p);
+    document.getElementById('fd-gains').textContent = inr(gains);
+    document.getElementById('fd-maturity').textContent = inr(maturity);
+
+    var share = Math.max(2, Math.min(98, (p / maturity) * 100));
+    document.getElementById('fd-donut')
+      .setAttribute('stroke-dasharray', share.toFixed(1) + ' ' + (100 - share).toFixed(1));
+  }
+
+  chips.forEach(function (c) {
+    c.setAttribute('aria-pressed', c.classList.contains('is-on'));
+    c.addEventListener('click', function () {
+      c.classList.toggle('is-on');
+      c.setAttribute('aria-pressed', c.classList.contains('is-on'));
+      update();
+    });
+  });
+  [amount, tenure, payout].forEach(function (el) { el.addEventListener('input', update); });
+  update();
+})();
+</script>
+
+</body>
+</html>

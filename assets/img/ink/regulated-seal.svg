@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 300" fill="none" role="img" aria-label="Line drawing of a shield with a checked register behind it">
+  <path d="M60 78h120v120H60z" fill="#E1F3FE"/>
+  <g stroke="#2F3437" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- register sheet behind -->
+    <path d="M120 60c44-3 88-3 132 0 5 0 8 3 8 8 1 52 1 104 0 156 0 5-3 8-8 8-44 3-88 3-132 0-5 0-8-3-8-8-1-52-1-104 0-156 0-5 3-8 8-8Z"/>
+    <path d="M140 104c26-2 52-2 78 0M140 132c18-1 36-2 54-1M140 160c30-2 60-2 90 0"/>
+    <!-- shield, offset so it breaks the sheet edge -->
+    <path d="M300 84c-24 8-49 12-74 12-3 24-1 49 7 72 9 26 27 48 51 61 2 1 5 1 7 0 24-13 42-35 51-61 8-23 10-48 7-72-25 0-50-4-74-12-2-1-4-1-6 0-2 1-4 1-6 0"/>
+    <!-- the check: one stroke, slightly overshooting -->
+    <path d="M272 158l18 20 40-48"/>
+  </g>
+</svg>
