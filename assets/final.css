@@ -21,6 +21,9 @@
 .gp-tabs {
   position: relative;
   padding-bottom: 4px;
+  /* The trailing fade matches whatever ground the strip sits on. Panels set
+     this; the default is the cream listing panel. */
+  --gp-tabs-fade: #fdf8e9;
 }
 
 .gp-tabs__track {
@@ -94,7 +97,7 @@
   bottom: 7px;
   width: 40px;
   pointer-events: none;
-  background: linear-gradient(90deg, rgba(253, 248, 233, 0), #fdf8e9);
+  background: linear-gradient(90deg, transparent, var(--gp-tabs-fade));
 }
 
 /* ================================================================= panels */
@@ -142,4 +145,16 @@
    other pages are untouched. */
 @media (min-width: 761px) {
   .gp-panel .gp-row__label { display: none; }
+}
+
+/* Issuer cards inside a tab panel: equal height with the returns block pinned
+   to the bottom. Badge text varies in length, so without this the footers sit
+   at different heights and the Know More buttons no longer form a line. */
+.gp-panel .gp-card.overflow-hidden {
+  display: flex;
+  flex-direction: column;
+}
+
+.gp-panel .gp-card.overflow-hidden > :last-child {
+  margin-top: auto;
 }

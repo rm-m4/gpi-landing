@@ -72,6 +72,15 @@ def fd_row(key, i):
                                     name, ret, payout, insured, newac))
 
 
+CREAM_OPEN = '      <div class="rounded-2xl border border-[#f0e6c8] bg-[#fdf8e9] p-4 sm:p-6">'
+CREAM_CLOSE = '      </div>'
+
+
+def cream(inner):
+    """Wrap a block in the cream panel corporate-bonds uses for its listing."""
+    return "%s\n%s\n%s" % (CREAM_OPEN, inner, CREAM_CLOSE)
+
+
 def tabstrip(tabs):
     """tabs: list of dicts with id, label, icon, head (5 column names), body."""
     buttons, panels = [], []
@@ -303,7 +312,7 @@ def build_fd():
     start = html.index('      <div class="mb-4 flex flex-wrap justify-center gap-2">')
     anchor = html.index('<!-- DATA: FD issuer list', start)
     end = html.index('</div>\n    </div>\n  </section>', anchor) + len('</div>\n')
-    html = html[:start] + tabstrip(tabs) + "\n" + html[end:]
+    html = html[:start] + cream(tabstrip(tabs)) + "\n" + html[end:]
     return scripts(html)
 
 
@@ -311,9 +320,15 @@ def build_fd():
 
 def build_ipo():
     html = open(os.path.join(HERE, "bond-ipo-online-old.html"), encoding="utf-8").read()
-    # No category tabs and no collections grid on this page, so it takes the
-    # stylesheet and the reviews grid only.
-    return scripts(common(html, "bond-ipo-online"), tabs=False)
+    html = common(html, "bond-ipo-online")
+
+    # No tabs on this page, but the live IPO listing gets the same cream panel
+    # corporate-bonds puts its listing in, so the two pages read as a set.
+    start = html.index('      <!-- DATA: live IPO list')
+    end = html.index('    </div>\n  </section>', start)
+    inner = html[start:end].rstrip()
+    html = html[:start] + cream(inner) + "\n" + html[end:]
+    return scripts(html, tabs=False)
 
 
 def main():
