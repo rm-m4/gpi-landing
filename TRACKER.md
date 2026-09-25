@@ -5,7 +5,13 @@ Project context and rules live in `CLAUDE.md`. This file tracks state only.
 **Last updated:** 2026-09-25
 **Content snapshot:** 2026-09-25 (all hardcoded data carries this date)
 **Now:** All four landing pages converted to the agreed styling and promoted.
-The pages as they stood before are archived under `-old`.
+
+**Scope from 2026-09-26: the four live pages only.** `index.html`,
+`corporate-bonds.html`, `fixed-deposits.html`, `bond-ipo-online.html`. The four
+`-old` archives and the seven design explorations (`-alt`, `-taste`, `-taste2`,
+`-taste3`) are frozen; the direction is settled and editing them only adds churn.
+`crawl/check.js` still runs across all eighteen, because a regression in a frozen
+page means something shared broke.
 
 ---
 
