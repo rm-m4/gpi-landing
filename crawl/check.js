@@ -110,8 +110,8 @@ const BEHAVIOUR = {
   'corporate-bonds-final.html': async (page) => {
     const problems = [];
 
-    const rowsIn = (id) => page.locator(`#panel-${id} .row`).count();
-    const inkX = () => page.locator('.tabs__ink').evaluate(
+    const rowsIn = (id) => page.locator(`#panel-${id} .gp-row`).count();
+    const inkX = () => page.locator('.gp-tabs__ink').evaluate(
       (el) => new DOMMatrixReadOnly(getComputedStyle(el).transform).m41);
 
     // Tab 1 shows the four corporate bonds.
@@ -129,13 +129,13 @@ const BEHAVIOUR = {
     // Keyboard: arrow keys must move selection.
     await page.locator('#tab-ipo').press('ArrowLeft');
     await page.waitForTimeout(400);
-    const sel = await page.locator('.tab[aria-selected="true"]').getAttribute('id');
+    const sel = await page.locator('.gp-tab[aria-selected="true"]').getAttribute('id');
     if (sel !== 'tab-yield') problems.push(`ArrowLeft selected ${sel}, expected tab-yield`);
 
     // Count-up must settle on the real figure, not a partial one.
-    await page.locator('.stat dt').first().scrollIntoViewIfNeeded();
+    await page.locator('[data-count]').first().scrollIntoViewIfNeeded();
     await page.waitForTimeout(1600);
-    const stat = await page.locator('.stat dt').first().innerText();
+    const stat = await page.locator('[data-count]').first().innerText();
     if (!stat.includes('15')) problems.push(`stat count-up ended at "${stat}"`);
 
     const hidden = await page.evaluate(() =>

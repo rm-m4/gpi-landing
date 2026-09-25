@@ -87,32 +87,41 @@ the taste pages, each linked only by its own variants so they cannot drift.
 
 #### `corporate-bonds-final.html` - the production candidate
 
-The faithful page carried into taste2's design language, with the pieces called
-out in review. Generated: edit `pages/_final.py` (tab data) or
-`pages/_final_shell.html` (everything else), then run `python3 pages/_final.py`.
-Stylesheet `assets/final.css`. Excluded from `pages/_build.py`.
+**This is `corporate-bonds.html` plus four ported improvements, not a redesign.**
+Same stack (Tailwind CDN + `assets/site.css`), same shared header and footer, same
+`gp-*` components, same gold pill buttons. `assets/final.css` is 137 additive lines
+and overrides nothing in `site.css`.
 
-| Asked for | Done |
+A first attempt took taste2 wholesale and grafted the content in. That was wrong:
+a new stylesheet, a floating island nav, bezels and film grain amount to a
+re-platform, and `CLAUDE.md` says a developer should recognise the page and lift
+markup across rather than translate it. Rebuilt from the faithful page instead.
+
+| Ported from taste2 | How |
 |---|---|
-| Bento collections from taste2 | asymmetric 7/5, 4/4/4, 12 spans, tinted cells |
-| Tabs kept, heading removed | `Special Corporate Bond Deals for you!` dropped; the active tab already names the list |
-| Better tab selection animation | one sliding indicator moved by transform and width on the spring curve, panels cross-fade, rows stagger in at 55ms |
-| taste2 explainer | kept, with `coupon-schedule.svg` in a bezel |
-| taste2 reviews | kept |
-| Premium feel | double-bezel nesting, button-in-button CTAs, film grain, warm light pooling |
+| Bento collections | asymmetric Tailwind spans (4/2, 2/2/2, 6) on the existing `.gp-card` |
+| Tabs keep, heading goes | `Special Corporate Bond Deals for you!` removed; the active tab names the list |
+| Tab selection animation | one indicator moved by transform and width, drawn as the pill that was already there; panels cross-fade, rows stagger at 50ms |
+| taste2 explainer | four benefit tiles replaced with `coupon-schedule.svg` in a `.gp-card` |
+| taste2 reviews | horizontal scroller becomes a three-column grid of `.gp-card` |
 
 **The tabs really filter.** Six tabs, sixteen rows, all captured 2026-09-25, nothing
-invented. High Rated and NCD IPO draw the two live issues from the bond-ipo page;
-Bonds at 30K draws the Muthoot Capital bond with its stated 30,000 minimum. The
-fourth column relabels per tab (Payout / Status / Minimum) and the fifth switches
-between Maturity date and Closes on, because those are genuinely different things.
+invented. High Rated and NCD IPO draw the two live issues from the bond-ipo capture;
+Bonds at 30K draws the Muthoot Capital bond with its stated minimum. The fourth and
+fifth columns relabel per tab (Payout / Status / Min. Investment, Maturity Date /
+Closes On) because those are genuinely different things.
 
-Keyboard support follows the tablist pattern: arrows move, Home and End jump,
-only the active tab is in the tab order. Stat figures count up once on first view.
+Also fixed here: the column labels rendered twice at desktop, once in the header row
+and once inside each row. The in-row labels are the mobile fallback, so they are now
+hidden from 761px up. Scoped to this page's panels, so `site.css` is untouched.
 
-`crawl/check.js` asserts the indicator moves, the right panel opens, the previous
-one closes, each tab holds its expected row count, ArrowLeft selects the previous
-tab, and the count-up settles on the true figure.
+Keyboard support follows the tablist pattern. Milestone figures count up on first
+view. Everything degrades to a working listing without JS.
+
+Generated: edit `pages/_final.py` for tab data or `pages/_final_shell.html` for the
+rest, then run `python3 pages/_final.py`. `crawl/check.js` asserts the indicator
+moves, the right panel opens, the previous closes, row counts per tab, ArrowLeft
+selection, and that the count-up settles on the true figure.
 
 #### `corporate-bonds-taste3.html` - the three-banner hero
 

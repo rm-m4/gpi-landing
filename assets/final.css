@@ -1,807 +1,145 @@
-/* GoldenPi - corporate-bonds-final. The production candidate.
-   Takes taste2's design language (high-end-visual-design skill) and applies it
-   across the whole faithful page, with the pieces the brief singled out:
-   bento collections, a tabbed listing with no repeated heading, the taste2
-   explainer and the taste2 reviews.
+/* GoldenPi - corporate-bonds-final, additive layer.
 
-   Variance Engine roll:
-     Vibe archetype   2 - Editorial Luxury (warm creams, film grain, high contrast type)
-     Layout archetype 1 - Asymmetrical Bento
+   This file is deliberately small. corporate-bonds-final.html is the existing
+   corporate-bonds.html with four improvements ported in from the taste2
+   exploration; it keeps the same stack (Tailwind CDN + assets/site.css), the
+   same shared header and footer, and the same gp-* component classes, so the
+   diff a developer has to implement stays small.
 
-   Why those: GoldenPi's harvested palette is already warm cream and gold, so
-   Editorial Luxury is the archetype that does not fight the brand. Ethereal
-   Glass would mean OLED black and neon orbs, which is a different company.
+   Everything here is additive. Nothing in site.css is overridden.
 
-   Signature techniques from the skill, applied throughout:
-     4.A Double-Bezel - every major container is an outer shell holding an
-         inner core, with concentric radii, so cards read as machined hardware
-         rather than rectangles on a page
-     4.B Button-in-button - the arrow lives in its own circle, flush right
-     5.B Magnetic hover - press-scale on the button, kinetic drift on the icon
-     5.C Scroll interpolation - 16px lift plus a blur that resolves over 800ms
-     6   Transform and opacity only; blur confined to fixed elements
+   What it adds:
+     1. a sliding indicator for the category tabs, drawn to match the pill that
+        was already there (white fill, gold hairline, soft shadow)
+     2. cross-fade between tab panels, with the rows staggering in
+     3. one helper for the bento collection cells
 
-   Brand holds where the skill is generic: type is Satoshi, accent is the
-   harvested gold (#d4af37), ink is #322811. The skill's banned-font list does
-   not touch Satoshi, so there is no conflict to resolve here.
-*/
+   Load order matters: site.css first, then this. */
 
-:root {
-  /* Editorial Luxury ground */
-  --cream: #fdfbf7;
-  --cream-deep: #f7f3ea;
-  --paper: #fffefb;
+/* ============================================================== tab strip */
 
-  --ink: #241d10;
-  --ink-soft: #5c5340;
-  --ink-mute: #8b8069;
-
-  --gold: #d4af37;
-  --gold-deep: #a6801d;
-  --gold-wash: #f6ecd0;
-
-  --gain: #2f7d4f;
-
-  /* Hairlines, never a flat 1px grey */
-  --hair: rgba(36, 29, 16, 0.08);
-  --hair-soft: rgba(36, 29, 16, 0.05);
-  --hair-lit: rgba(255, 255, 255, 0.7);
-
-  /* Diffused ambient shadow, warm not black */
-  --amb-1: 0 1px 2px rgba(60, 48, 20, 0.03), 0 8px 24px rgba(60, 48, 20, 0.04);
-  --amb-2: 0 2px 6px rgba(60, 48, 20, 0.04), 0 24px 60px rgba(60, 48, 20, 0.08);
-  --amb-gold: 0 10px 30px rgba(212, 175, 55, 0.28);
-
-  /* Concentric radii for the double-bezel */
-  --r-shell: 2rem;
-  --r-core: calc(2rem - 0.5rem);
-  --r-shell-sm: 1.25rem;
-  --r-core-sm: calc(1.25rem - 0.375rem);
-
-  /* The skill's curve. Nothing uses linear or ease-in-out. */
-  --spring: cubic-bezier(0.32, 0.72, 0, 1);
-
-  --step: clamp(96px, 11vw, 168px);
-  --step-tight: clamp(56px, 7vw, 96px);
+.gp-tabs {
+  position: relative;
+  padding-bottom: 4px;
 }
 
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-
-body {
-  margin: 0;
-  background: var(--cream);
-  color: var(--ink);
-  font-family: "Satoshi", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  font-size: 16px;
-  line-height: 1.65;
-  -webkit-font-smoothing: antialiased;
-}
-
-img { max-width: 100%; display: block; }
-
-/* Film grain. Fixed, pointer-events none, per the performance guardrail:
-   never attached to a scrolling container. */
-.grain {
-  position: fixed;
-  inset: 0;
-  z-index: 3;
-  pointer-events: none;
-  opacity: 0.032;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23g)'/%3E%3C/svg%3E");
-}
-
-/* Warm light pooling behind the page. */
-.glow {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(880px 520px at 8% -6%, rgba(212, 175, 55, 0.14), transparent 62%),
-    radial-gradient(700px 480px at 96% 12%, rgba(212, 175, 55, 0.08), transparent 60%);
-}
-
-main, header, footer { position: relative; z-index: 1; }
-
-/* ------------------------------------------------------------------- shell */
-
-.wrap {
-  width: 100%;
-  max-width: 1200px;
-  margin-inline: auto;
-  padding-inline: 24px;
-}
-
-.sec { padding-block: var(--step); }
-.sec--tight { padding-block: var(--step-tight); }
-
-/* --------------------------------------------------------------- typography */
-
-.display {
-  margin: 0;
-  font-size: clamp(42px, 6.6vw, 86px);
-  font-weight: 900;
-  line-height: 0.98;
-  letter-spacing: -0.042em;
-  text-wrap: balance;
-}
-
-.display em {
-  font-style: normal;
-  background: linear-gradient(96deg, #e6c556 0%, var(--gold) 38%, var(--gold-deep) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.h2 {
-  margin: 0;
-  font-size: clamp(28px, 3.8vw, 46px);
-  font-weight: 800;
-  line-height: 1.06;
-  letter-spacing: -0.035em;
-  text-wrap: balance;
-}
-
-.h3 {
-  margin: 0;
-  font-size: 19px;
-  font-weight: 700;
-  line-height: 1.32;
-  letter-spacing: -0.016em;
-}
-
-.lede {
-  max-width: 54ch;
-  color: var(--ink-soft);
-  font-size: clamp(17px, 1.5vw, 19px);
-  line-height: 1.62;
-  text-wrap: pretty;
-}
-
-.body { max-width: 64ch; color: var(--ink-soft); }
-.body strong { color: var(--ink); font-weight: 700; }
-
-.num { font-variant-numeric: tabular-nums; }
-
-/* Eyebrow pill, per 4.C. Rationed: this page uses it twice. */
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 14px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.72);
-  box-shadow: inset 0 0 0 1px var(--hair), 0 1px 2px rgba(60, 48, 20, 0.04);
-  color: var(--gold-deep);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-}
-
-/* ============================================ 4.A DOUBLE-BEZEL (Doppelrand)
-   Outer shell carries the hairline and the padding; the inner core carries the
-   surface and its own inset highlight. Radii are concentric, not equal. */
-
-.bezel {
-  padding: 8px;
-  border-radius: var(--r-shell);
-  background: rgba(255, 255, 255, 0.5);
-  box-shadow: inset 0 0 0 1px var(--hair-soft), var(--amb-1);
-}
-
-.bezel__core {
-  border-radius: var(--r-core);
-  background: var(--paper);
-  box-shadow:
-    inset 0 1px 1px var(--hair-lit),
-    inset 0 0 0 1px var(--hair);
-}
-
-.bezel--sm { padding: 6px; border-radius: var(--r-shell-sm); }
-.bezel--sm .bezel__core { border-radius: var(--r-core-sm); }
-
-.bezel--gold {
-  background: linear-gradient(150deg, rgba(212, 175, 55, 0.22), rgba(212, 175, 55, 0.06));
-}
-
-.bezel--gold .bezel__core { background: var(--gold-wash); }
-
-/* Interactive shells lift on hover, on the spring curve. */
-a.bezel {
-  display: block;
-  color: inherit;
-  text-decoration: none;
-  transition: transform 0.7s var(--spring), box-shadow 0.7s var(--spring);
-}
-
-a.bezel:hover {
-  transform: translateY(-4px);
-  box-shadow: inset 0 0 0 1px var(--hair), var(--amb-2);
-}
-
-/* ============================================= 4.B BUTTON-IN-BUTTON + 5.B */
-
-.cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 14px;
-  padding: 8px 8px 8px 26px;
-  border: 0;
-  border-radius: 999px;
-  font-family: inherit;
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 1;
-  text-decoration: none;
-  cursor: pointer;
-  transition: transform 0.45s var(--spring), box-shadow 0.45s var(--spring),
-    background 0.45s var(--spring);
-}
-
-.cta__icon {
-  display: grid;
-  place-items: center;
-  width: 34px;
-  height: 34px;
-  flex: none;
-  border-radius: 999px;
-  transition: transform 0.45s var(--spring), background 0.45s var(--spring);
-}
-
-.cta__icon svg { width: 14px; height: 14px; }
-
-.cta--solid {
-  background: linear-gradient(150deg, #e4c75f 0%, var(--gold) 100%);
-  color: #2b220c;
-  box-shadow: var(--amb-gold);
-}
-
-.cta--solid .cta__icon { background: rgba(43, 34, 12, 0.12); }
-
-.cta--solid:hover { box-shadow: 0 16px 40px rgba(212, 175, 55, 0.38); }
-
-.cta--quiet {
-  background: rgba(255, 255, 255, 0.6);
-  color: var(--ink);
-  box-shadow: inset 0 0 0 1px var(--hair);
-}
-
-.cta--quiet .cta__icon { background: rgba(36, 29, 16, 0.06); }
-
-.cta--quiet:hover { background: #fff; }
-
-/* Kinetic tension: the icon drifts, the button presses. */
-.cta:hover .cta__icon { transform: translate(3px, -1px) scale(1.06); }
-.cta:active { transform: scale(0.98); }
-
-.tlink {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--gold-deep);
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.tlink svg { width: 13px; height: 13px; transition: transform 0.45s var(--spring); }
-.tlink:hover svg { transform: translateX(4px); }
-
-/* ============================================== 3.B ASYMMETRICAL BENTO ==== */
-
-.bento { display: grid; gap: 16px; }
-
-@media (min-width: 760px) { .bento { grid-template-columns: repeat(12, 1fr); } }
-
-/* Mobile first: every span resets to auto. A `span 12` on a single-column grid
-   does not clamp, it creates twelve implicit columns and blows the page out
-   sideways. The skill's universal mobile override says the same thing. */
-.b-3,
-.b-4,
-.b-5,
-.b-6,
-.b-7,
-.b-8,
-.b-12 { grid-column: auto; }
-
-@media (min-width: 760px) {
-  .b-3 { grid-column: span 3; }
-  .b-4 { grid-column: span 4; }
-  .b-5 { grid-column: span 5; }
-  .b-6 { grid-column: span 6; }
-  .b-7 { grid-column: span 7; }
-  .b-8 { grid-column: span 8; }
-  .b-12 { grid-column: span 12; }
-}
-
-.pad { padding: clamp(24px, 2.6vw, 38px); }
-
-/* ------------------------------------------------------------------- rows */
-
-.rows__head {
-  display: none;
-  padding: 22px 26px 14px;
-  color: var(--ink-mute);
-  font-size: 10.5px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.row {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px 22px;
-  padding: 20px 26px;
-  color: inherit;
-  text-decoration: none;
-  border-radius: calc(var(--r-core) - 8px);
-  transition: background 0.45s var(--spring);
-}
-
-.row + .row { box-shadow: inset 0 1px 0 var(--hair-soft); }
-.row:hover { background: rgba(212, 175, 55, 0.055); }
-
-@media (min-width: 880px) {
-  .rows__head,
-  .row {
-    display: grid;
-    grid-template-columns: minmax(0, 1.9fr) repeat(4, minmax(0, 1fr));
-    align-items: center;
-  }
-}
-
-.row__id { display: flex; align-items: center; gap: 14px; font-weight: 700; }
-
-.row__id img {
-  width: 38px;
-  height: 38px;
-  flex: none;
-  object-fit: contain;
-  border-radius: 11px;
-  background: #fff;
-  box-shadow: inset 0 0 0 1px var(--hair);
-}
-
-.row__k {
-  display: block;
-  color: var(--ink-mute);
-  font-size: 10.5px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.row__v { font-weight: 700; font-variant-numeric: tabular-nums; }
-.row__v--up { color: var(--gain); }
-
-@media (min-width: 880px) { .row__k { display: none; } }
-
-/* ------------------------------------------------------------------ steps */
-
-.step { display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: start; }
-
-.step__n {
-  display: grid;
-  place-items: center;
-  width: 38px;
-  height: 38px;
-  flex: none;
-  border-radius: 999px;
-  background: var(--gold-wash);
-  box-shadow: inset 0 0 0 1px rgba(212, 175, 55, 0.3);
-  color: var(--gold-deep);
-  font-size: 13px;
-  font-weight: 800;
-  font-variant-numeric: tabular-nums;
-}
-
-/* ------------------------------------------------------------------ stats */
-
-.stat dt {
-  font-size: clamp(34px, 4.6vw, 54px);
-  font-weight: 900;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  font-variant-numeric: tabular-nums;
-}
-
-.stat dt span { font-size: 0.42em; color: var(--gold-deep); }
-.stat dd { margin: 10px 0 0; color: var(--ink-mute); font-size: 13.5px; }
-
-/* ------------------------------------------------------------------- faq */
-
-.faq__q {
+.gp-tabs__track {
+  position: relative;
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 22px 26px;
-  font-size: 17px;
-  font-weight: 700;
-  letter-spacing: -0.012em;
-  cursor: pointer;
-  list-style: none;
-}
-
-.faq__q::-webkit-details-marker { display: none; }
-
-.faq__q::after {
-  content: "";
-  flex: none;
-  width: 11px;
-  height: 11px;
-  margin-top: 6px;
-  border-right: 2px solid var(--ink-mute);
-  border-bottom: 2px solid var(--ink-mute);
-  transform: rotate(45deg);
-  transition: transform 0.45s var(--spring);
-}
-
-details[open] > .faq__q::after { transform: rotate(-135deg); }
-details + details { box-shadow: inset 0 1px 0 var(--hair-soft); }
-
-.faq__a { padding: 0 26px 24px; color: var(--ink-soft); max-width: 78ch; }
-.faq__a p { margin: 0 0 12px; }
-.faq__a ul { margin: 0; padding-left: 20px; }
-.faq__a li + li { margin-top: 8px; }
-
-/* ------------------------------------------------------------------ quote */
-
-.quote { margin: 0; }
-
-.quote blockquote {
-  margin: 0;
-  font-size: 17px;
-  line-height: 1.58;
-  letter-spacing: -0.012em;
-  text-wrap: pretty;
-}
-
-.quote figcaption {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-top: 22px;
-  padding-top: 18px;
-  box-shadow: inset 0 1px 0 var(--hair-soft);
-  color: var(--ink-mute);
-  font-size: 13px;
-}
-
-.quote__mark {
-  display: grid;
-  place-items: center;
-  width: 34px;
-  height: 34px;
-  flex: none;
-  border-radius: 11px;
-  background: var(--gold-wash);
-  color: var(--gold-deep);
-  font-weight: 800;
-  font-size: 13px;
-}
-
-.quote__mark + span b { display: block; color: var(--ink); font-weight: 700; }
-
-/* ============================================= 5.A FLUID ISLAND NAVIGATION
-   Detached floating pill, not glued edge to edge. backdrop-filter is allowed
-   here because the element is fixed. */
-
-.nav {
-  position: sticky;
-  top: 0;
-  z-index: 40;
-  padding-top: 18px;
-  pointer-events: none;
-}
-
-.nav__pill {
-  display: flex;
-  align-items: center;
   gap: 10px;
-  width: max-content;
-  max-width: calc(100% - 32px);
-  margin-inline: auto;
-  padding: 9px 9px 9px 20px;
-  border-radius: 999px;
-  background: rgba(253, 251, 247, 0.78);
-  backdrop-filter: blur(18px) saturate(150%);
-  box-shadow: inset 0 0 0 1px var(--hair), 0 10px 34px rgba(60, 48, 20, 0.09);
-  pointer-events: auto;
-}
-
-.nav__links { display: none; gap: 4px; margin-inline: 12px; }
-
-.nav__links a {
-  padding: 8px 14px;
-  border-radius: 999px;
-  color: var(--ink-soft);
-  font-size: 14px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: background 0.45s var(--spring), color 0.45s var(--spring);
-}
-
-.nav__links a:hover { background: rgba(36, 29, 16, 0.05); color: var(--ink); }
-
-.nav__links a[aria-current="page"] {
-  background: rgba(212, 175, 55, 0.16);
-  color: var(--ink);
-}
-
-@media (min-width: 940px) { .nav__links { display: flex; } }
-
-/* ----------------------------------------------------------------- footer */
-
-.foot {
-  margin-top: var(--step);
-  padding-block: 72px 44px;
-  background: var(--cream-deep);
-  box-shadow: inset 0 1px 0 var(--hair);
-  font-size: 13.5px;
-  color: var(--ink-soft);
-}
-
-.foot a { color: var(--ink-soft); text-decoration: none; }
-.foot a:hover { color: var(--gold-deep); }
-.foot ul { margin: 0; padding: 0; list-style: none; }
-.foot li + li { margin-top: 10px; }
-
-.foot__h {
-  margin: 0 0 16px;
-  color: var(--ink);
-  font-size: 10.5px;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-
-.legal {
-  margin-top: 52px;
-  padding-top: 30px;
-  box-shadow: inset 0 1px 0 var(--hair);
-  font-size: 12px;
-  line-height: 1.66;
-  color: var(--ink-mute);
-}
-
-.legal p { margin: 0 0 10px; max-width: 104ch; }
-
-.pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
-
-.pills a {
-  padding: 6px 12px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.6);
-  box-shadow: inset 0 0 0 1px var(--hair);
-  font-size: 12px;
-}
-
-.pills a:hover { box-shadow: inset 0 0 0 1px rgba(212, 175, 55, 0.5); }
-
-/* ========================================== 5.C SCROLL INTERPOLATION ======
-   Heavy fade-up with a blur that resolves. Gated on .has-io, which only the
-   script adds, so a JS failure leaves everything visible. */
-
-.has-io [data-r] {
-  opacity: 0;
-  transform: translateY(16px);
-  filter: blur(6px);
-  transition:
-    opacity 0.8s var(--spring),
-    transform 0.8s var(--spring),
-    filter 0.8s var(--spring);
-  transition-delay: calc(var(--i, 0) * 90ms);
-}
-
-.has-io [data-r].in { opacity: 1; transform: none; filter: none; }
-
-@media (prefers-reduced-motion: reduce) {
-  .has-io [data-r] { opacity: 1; transform: none; filter: none; transition: none; }
-  .cta:hover .cta__icon,
-  .cta:active,
-  a.bezel:hover { transform: none; }
-}
-
-@media print {
-  .has-io [data-r] { opacity: 1 !important; transform: none !important; filter: none !important; }
-  .grain, .glow { display: none; }
-}
-
-a:focus-visible,
-button:focus-visible,
-summary:focus-visible {
-  outline: 2px solid var(--gold-deep);
-  outline-offset: 3px;
-  border-radius: 6px;
-}
-
-.skip { position: absolute; left: -9999px; }
-
-.skip:focus {
-  position: fixed;
-  top: 14px;
-  left: 14px;
-  z-index: 60;
-  padding: 10px 18px;
-  border-radius: 999px;
-  background: #fff;
-  box-shadow: var(--amb-2);
-}
-
-
-/* ============================================================== TAB STRIP
-   The tabs stay, the heading under them goes: the active tab already names
-   the list, so a heading beneath it says the same thing twice.
-
-   The indicator is one absolutely positioned pill moved with transform, so
-   the animation stays on the compositor no matter how many tabs there are. */
-
-/* The strip is wider than the card on small screens, so it scrolls. A mask on
-   the trailing edge says so without adding a control. */
-.tabs-wrap {
-  position: relative;
-  padding: 14px 18px 22px;
-  box-shadow: inset 0 -1px 0 var(--hair-soft);
-}
-
-.tabs-wrap::after {
-  content: "";
-  position: absolute;
-  top: 14px;
-  right: 18px;
-  bottom: 22px;
-  width: 46px;
-  pointer-events: none;
-  background: linear-gradient(90deg, rgba(255, 254, 251, 0), var(--paper));
-  opacity: 0;
-  transition: opacity 0.4s var(--spring);
-}
-
-.tabs-wrap[data-overflow="true"]::after { opacity: 1; }
-
-.tabs {
-  position: relative;
-  display: flex;
-  gap: 8px;
-  padding: 6px;
   overflow-x: auto;
   scrollbar-width: none;
-  scroll-snap-type: x proximity;
+  padding: 3px;
 }
 
-.tabs::-webkit-scrollbar { display: none; }
+.gp-tabs__track::-webkit-scrollbar { display: none; }
 
-.tabs__ink {
+/* The indicator is the pill the old markup drew on the active tab, lifted out
+   so it can travel. One element, moved with transform and width, so the cost
+   does not grow with the number of tabs. */
+.gp-tabs__ink {
   position: absolute;
-  top: 6px;
+  top: 3px;
   left: 0;
-  height: calc(100% - 12px);
-  border-radius: 14px;
-  background: var(--paper);
-  box-shadow:
-    inset 0 1px 1px var(--hair-lit),
-    inset 0 0 0 1px rgba(212, 175, 55, 0.55),
-    0 6px 18px rgba(60, 48, 20, 0.08);
-  transform: translateX(0) scaleX(1);
-  transform-origin: left center;
-  transition: transform 0.55s var(--spring), width 0.55s var(--spring);
+  height: calc(100% - 6px);
+  border-radius: 12px;
+  background: var(--white);
+  border: 1px solid var(--mustard);
+  box-shadow: 0 1px 2px rgba(50, 40, 17, 0.05);
+  transform: translateX(0);
+  transition: transform 0.45s var(--ease, cubic-bezier(0.22, 0.61, 0.36, 1)),
+    width 0.45s var(--ease, cubic-bezier(0.22, 0.61, 0.36, 1));
   pointer-events: none;
 }
 
-/* Until the script measures the first tab, the indicator stays invisible
-   rather than parking at the wrong width. */
-.tabs__ink:not(.ready) { opacity: 0; }
+/* Hidden until measured, so it never parks at the wrong width on first paint. */
+.gp-tabs__ink:not(.is-ready) { opacity: 0; }
 
-.tab {
+.gp-tab {
   position: relative;
   z-index: 1;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   flex: none;
-  padding: 13px 20px;
-  border: 0;
-  border-radius: 14px;
+  padding: 12px 16px;
+  border: 1px solid transparent;
+  border-radius: 12px;
   background: transparent;
-  color: var(--ink-soft);
+  color: var(--subtext);
   font-family: inherit;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: var(--t-small);
+  font-weight: 500;
   line-height: 1;
   white-space: nowrap;
   cursor: pointer;
-  scroll-snap-align: start;
-  transition: color 0.4s var(--spring);
+  transition: color 0.35s ease;
 }
 
-.tab img {
-  width: 22px;
-  height: 22px;
-  opacity: 0.6;
-  transition: opacity 0.4s var(--spring), transform 0.5s var(--spring);
+.gp-tab img { width: 20px; height: 20px; }
+
+.gp-tab:hover { color: var(--app-heading-color); }
+
+.gp-tab[aria-selected="true"] {
+  color: var(--app-heading-color);
+  font-weight: 700;
 }
 
-.tab:hover { color: var(--ink); }
-.tab:hover img { opacity: 0.9; }
-
-.tab[aria-selected="true"] { color: var(--ink); font-weight: 700; }
-.tab[aria-selected="true"] img { opacity: 1; transform: scale(1.06); }
-
-/* Panels cross-fade rather than cutting. */
-.panel {
-  display: none;
-  animation: panel-in 0.5s var(--spring) both;
+/* Trailing fade when the strip scrolls, so it reads as scrollable. */
+.gp-tabs[data-overflow="true"]::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  right: 0;
+  bottom: 7px;
+  width: 40px;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(253, 248, 233, 0), #fdf8e9);
 }
 
-.panel.is-on { display: block; }
+/* ================================================================= panels */
 
-@keyframes panel-in {
+.gp-panel { display: none; }
+.gp-panel.is-on { display: block; animation: gp-panel-in 0.4s ease both; }
+
+@keyframes gp-panel-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+.gp-panel.is-on .gp-row {
+  animation: gp-row-in 0.4s ease both;
+  animation-delay: calc(var(--r, 0) * 50ms);
+}
+
+@keyframes gp-row-in {
   from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: none; }
 }
 
-/* Rows stagger in behind the panel fade. */
-.panel.is-on .row {
-  animation: row-in 0.5s var(--spring) both;
-  animation-delay: calc(var(--r, 0) * 55ms);
+.gp-panel__note {
+  margin-bottom: var(--s-4);
+  color: var(--subtext);
+  font-size: var(--t-small);
 }
 
-@keyframes row-in {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: none; }
-}
+/* ================================================================== bento */
 
-.panel__note {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 20px 26px 0;
-  color: var(--ink-mute);
-  font-size: 12.5px;
-}
+/* Collection cells vary in size rather than sitting in three equal columns.
+   Spans are set with Tailwind in the markup; this only makes a cell fill its
+   row so the taller ones do not leave a gap. */
+.gp-bento-cell { height: 100%; }
 
 @media (prefers-reduced-motion: reduce) {
-  .tabs__ink { transition: none; }
-  .panel, .panel.is-on .row { animation: none; }
+  .gp-tabs__ink { transition: none; }
+  .gp-panel.is-on,
+  .gp-panel.is-on .gp-row { animation: none; }
 }
 
-/* ------------------------------------------------------------ stat count-up */
-
-.stat dt { font-feature-settings: "tnum"; }
-
-/* --------------------------------------------------------- bento extras */
-
-/* A tinted cell so a grid is never all-white, per the audit. */
-.bezel--tint .bezel__core { background: linear-gradient(160deg, #fdf9ee, #fbf4e2); }
-.bezel--tint-cool .bezel__core { background: linear-gradient(160deg, #f2f6fa, #eaf1f7); }
-.bezel--tint-leaf .bezel__core { background: linear-gradient(160deg, #f1f6f1, #e9f1ea); }
-
-.cell-ico {
-  display: grid;
-  place-items: center;
-  width: 54px;
-  height: 54px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.72);
-  box-shadow: inset 0 0 0 1px var(--hair);
+/* The header row names each column from 761px up, so the per-row labels, which
+   exist as the mobile fallback, are duplicated at desktop. Hide them once the
+   header is doing the job. Scoped to this page's panels so site.css and the
+   other pages are untouched. */
+@media (min-width: 761px) {
+  .gp-panel .gp-row__label { display: none; }
 }
-
-.cell-ico img { width: 30px; height: 30px; }
-
-/* Arrow that slides on card hover. */
-.cell-go {
-  display: grid;
-  place-items: center;
-  width: 34px;
-  height: 34px;
-  border-radius: 999px;
-  background: rgba(36, 29, 16, 0.06);
-  transition: transform 0.5s var(--spring), background 0.5s var(--spring);
-}
-
-.cell-go svg { width: 13px; height: 13px; }
-a.bezel:hover .cell-go { transform: translate(3px, -3px); background: rgba(212, 175, 55, 0.24); }
