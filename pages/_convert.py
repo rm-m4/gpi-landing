@@ -124,6 +124,37 @@ def listing_body(rows_html, head, more_label, more_href, note=None):
 MAIN = ['index', 'corporate-bonds', 'fixed-deposits', 'bond-ipo-online']
 
 
+def hero_ground(html):
+    """Give the hero the shared warm wash.
+
+    corporate-bonds wrapped its hero in a section carrying the gradient;
+    fixed-deposits and bond-ipo-online opened straight onto .gp-shell, so they
+    sat flat on the page background and the set did not read as one design.
+    """
+    open_tag = '<section class="gp-shell pt-6 pb-2">'
+    if open_tag not in html:
+        sys.exit('hero section not found')
+    i = html.index(open_tag)
+    close = html.index('  </section>', i)
+    inner = html[i + len(open_tag):close]
+    return (html[:i]
+            + '<section class="gp-hero">\n    <div class="gp-shell pt-6 pb-2">'
+            + inner.rstrip() + '\n    </div>\n'
+            + html[close:])
+
+
+def highlight(html, needle):
+    """Mark the hero's key figure, as corporate-bonds does with its 15%."""
+    if needle not in html:
+        sys.exit('hero figure %r not found' % needle)
+    return html.replace(needle, '<span class="gp-hero__figure">%s</span>' % needle, 1)
+
+
+def count_up(html):
+    """Milestone figures count up on first view, as on corporate-bonds."""
+    return html.replace('<dt class="t-h1 t-gold">', '<dt class="t-h1 t-gold" data-count>')
+
+
 def common(html, slug):
     """Steps every converted page gets."""
     # The -old archives were repointed at each other before this ran, so the
@@ -313,6 +344,8 @@ def build_fd():
     anchor = html.index('<!-- DATA: FD issuer list', start)
     end = html.index('</div>\n    </div>\n  </section>', anchor) + len('</div>\n')
     html = html[:start] + cream(tabstrip(tabs)) + "\n" + html[end:]
+    html = hero_ground(html)
+    html = highlight(html, '8.5% p.a.')
     return scripts(html)
 
 
@@ -328,7 +361,10 @@ def build_ipo():
     end = html.index('    </div>\n  </section>', start)
     inner = html[start:end].rstrip()
     html = html[:start] + cream(inner) + "\n" + html[end:]
-    return scripts(html, tabs=False)
+    html = hero_ground(html)
+    html = highlight(html, 'as high as 15%')
+    html = count_up(html)
+    return scripts(html, tabs=True)
 
 
 def main():

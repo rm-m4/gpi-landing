@@ -171,6 +171,50 @@ const BEHAVIOUR = {
 };
 
 
+
+// --------------------------------------------------------------- consistency
+// The four live pages must read as one design. Behaviour assertions never catch
+// this: a page can pass every check and still be missing the shared hero ground
+// or listing panel, which is exactly what happened twice. This compares the live
+// set against corporate-bonds and reports anything only some of them have.
+const LIVE = ['index.html', 'corporate-bonds.html', 'fixed-deposits.html', 'bond-ipo-online.html'];
+
+// Signal -> pages allowed to lack it, with the reason.
+const SHARED = {
+  '.gp-hero, .home-hero': { exempt: [], why: 'hero ground' },
+  '.gp-tabs__track': { exempt: ['bond-ipo-online.html'], why: 'category tabs; this page has none on the live site' },
+  '[data-reveal]': { exempt: [], why: 'scroll reveal markup' },
+  '.gp-section__head--marked': { exempt: [], why: 'section heading treatment' },
+  '.gp-faq': { exempt: [], why: 'FAQ component' },
+};
+
+async function consistencyReport(browser, port) {
+  const seen = {};
+  for (const page of LIVE) {
+    const ctx = await browser.newContext({ viewport: { width: 1440, height: 1000 } });
+    const pg = await ctx.newPage();
+    await pg.goto(`http://localhost:${port}/pages/${page}`, { waitUntil: 'domcontentloaded' });
+    seen[page] = {};
+    for (const sel of Object.keys(SHARED)) {
+      seen[page][sel] = await pg.locator(sel).count();
+    }
+    // The cream listing panel is a utility combination, not a class.
+    seen[page]['cream listing panel'] = await pg
+      .locator('.rounded-2xl.border.bg-\\[\\#fdf8e9\\]').count()
+      .catch(() => 0);
+    await ctx.close();
+  }
+
+  const problems = [];
+  for (const [sel, rule] of Object.entries(SHARED)) {
+    for (const page of LIVE) {
+      if (rule.exempt.includes(page)) continue;
+      if (!seen[page][sel]) problems.push(`${page} is missing ${sel} (${rule.why})`);
+    }
+  }
+  return problems;
+}
+
 // Scroll-reveal animations only fire as sections enter the viewport, so a
 // full-page screenshot taken without scrolling captures them still hidden.
 // Walk the page first, then return to the top.
@@ -294,6 +338,18 @@ const serve = () =>
     bad.slice(0, 12).forEach((b) => console.log(`    ${b}`));
     problems += bad.length;
     await ctx.close();
+  }
+
+  // Cross-page consistency, only on a full run.
+  if (process.argv.slice(2).length === 0) {
+    const drift = await consistencyReport(browser, PORT);
+    if (drift.length) {
+      console.log('\nconsistency');
+      drift.forEach((d) => console.log(`    ${d}`));
+      problems += drift.length;
+    } else {
+      console.log('\nconsistency        the four live pages share the same structure');
+    }
   }
 
   await browser.close();

@@ -97,7 +97,8 @@
 <main id="main-content">
 
   <!-- ============================================================== hero -->
-  <section class="gp-shell pt-6 pb-2">
+  <section class="gp-hero">
+    <div class="gp-shell pt-6 pb-2">
     <nav class="t-small t-muted mb-5" aria-label="Breadcrumb">
       <a href="index.html" class="hover:text-ink">Home</a>
       <span class="mx-1.5">&rsaquo;</span>
@@ -111,7 +112,7 @@
           <span class="text-ink">Latest Bond Issues &amp; Dates</span>
         </h1>
         <p class="mt-4 max-w-md t-body t-muted">
-          Invest as low as &#8377;10k and get returns as high as 15%
+          Invest as low as &#8377;10k and get returns <span class="gp-hero__figure">as high as 15%</span>
         </p>
         <a class="gp-btn gp-btn--primary mt-7" href="#explore-ipos">Start Investing</a>
 
@@ -127,6 +128,7 @@
       <img src="../assets/img/ipo-hero.png" width="560" height="420"
            class="w-full max-w-[520px] justify-self-center"
            alt="Invest in NCD IPOs online on GoldenPi">
+    </div>
     </div>
   </section>
 
@@ -418,15 +420,15 @@
         <h2 class="gp-section__title mb-6 text-center md:text-left">Milestones</h2>
         <dl class="grid gap-6 sm:grid-cols-3 text-center md:text-left">
           <div>
-            <dt class="t-h1 t-gold">15L+</dt>
+            <dt class="t-h1 t-gold" data-count>15L+</dt>
             <dd class="mt-1 t-small t-muted">Registered users</dd>
           </div>
           <div>
-            <dt class="t-h1 t-gold">&#8377;2,500<span class="text-[18px]">Cr+</span></dt>
+            <dt class="t-h1 t-gold" data-count>&#8377;2,500<span class="text-[18px]">Cr+</span></dt>
             <dd class="mt-1 t-small t-muted">Bonds available</dd>
           </div>
           <div>
-            <dt class="t-h1 t-gold">&#8377;10,000<span class="text-[18px]">Cr+</span></dt>
+            <dt class="t-h1 t-gold" data-count>&#8377;10,000<span class="text-[18px]">Cr+</span></dt>
             <dd class="mt-1 t-small t-muted">Transaction value</dd>
           </div>
         </dl>
@@ -675,6 +677,101 @@
     </div>
   </div>
 </footer>
+
+<script>
+// Shared behaviour for the converted landing pages: the category tablist
+// and the milestone count-up. Injected by pages/_final.py and
+// pages/_convert.py so there is one copy, not four.
+// Both are progressive enhancement: without them the first panel is the
+// only one not marked [hidden], and the figures already read correctly.
+// Category tabs. Progressive enhancement: without this the first panel is the
+// only one not marked [hidden], so the page still shows a working listing.
+(function () {
+  var wrap = document.querySelector('.gp-tabs');
+  if (!wrap) return;
+  var track = wrap.querySelector('.gp-tabs__track');
+  var ink = wrap.querySelector('.gp-tabs__ink');
+  var tabs = [].slice.call(wrap.querySelectorAll('.gp-tab'));
+  if (!track || !ink || !tabs.length) return;
+
+  var panels = tabs.map(function (t) { return document.getElementById(t.getAttribute('aria-controls')); });
+
+  function moveInk(tab) {
+    ink.style.width = tab.offsetWidth + 'px';
+    ink.style.transform = 'translateX(' + tab.offsetLeft + 'px)';
+    ink.classList.add('is-ready');
+  }
+
+  function select(n, focus) {
+    tabs.forEach(function (t, k) {
+      var on = k === n;
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+      panels[k].classList.toggle('is-on', on);
+      if (on) { panels[k].removeAttribute('hidden'); } else { panels[k].setAttribute('hidden', ''); }
+    });
+    moveInk(tabs[n]);
+    if (focus) tabs[n].focus();
+    tabs[n].scrollIntoView({ block: 'nearest', inline: 'nearest' });
+  }
+
+  tabs.forEach(function (t, k) {
+    t.addEventListener('click', function () { select(k); });
+    t.addEventListener('keydown', function (e) {
+      var i = null;
+      if (e.key === 'ArrowRight') i = (k + 1) % tabs.length;
+      else if (e.key === 'ArrowLeft') i = (k - 1 + tabs.length) % tabs.length;
+      else if (e.key === 'Home') i = 0;
+      else if (e.key === 'End') i = tabs.length - 1;
+      if (i === null) return;
+      e.preventDefault();
+      select(i, true);
+    });
+  });
+
+  function sync() {
+    var i = tabs.findIndex(function (t) { return t.getAttribute('aria-selected') === 'true'; });
+    moveInk(tabs[i < 0 ? 0 : i]);
+    wrap.setAttribute('data-overflow',
+      String(track.scrollWidth - track.clientWidth - track.scrollLeft > 8));
+  }
+
+  // Measure after webfonts settle, or the indicator lands short.
+  if (document.fonts && document.fonts.ready) { document.fonts.ready.then(sync); }
+  window.addEventListener('resize', sync);
+  track.addEventListener('scroll', sync, { passive: true });
+  sync();
+})();
+
+// Milestone figures count up the first time they are seen. The final value is
+// already in the markup, so nothing is lost if this never runs.
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      io.unobserve(e.target);
+      var el = e.target, full = el.textContent, m = full.match(/([\d,]+)/);
+      if (!m) return;
+      var target = Number(m[1].replace(/,/g, ''));
+      if (!target) return;
+      var t0 = null;
+      function step(ts) {
+        if (!t0) t0 = ts;
+        var p = Math.min((ts - t0) / 1000, 1);
+        el.textContent = full.replace(
+          m[1], Math.round(target * (1 - Math.pow(1 - p, 3))).toLocaleString('en-IN'));
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }, { threshold: 0.6 });
+
+  document.querySelectorAll('[data-count]').forEach(function (el) { io.observe(el); });
+})();
+</script>
 
 <script>
 // Scroll reveal, shared by the converted landing pages. Injected by

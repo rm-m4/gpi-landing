@@ -158,3 +158,35 @@
 .gp-panel .gp-card.overflow-hidden > :last-child {
   margin-top: auto;
 }
+
+/* ============================================================ hero ground
+   The warm wash behind a page hero. This lived in corporate-bonds' own <style>
+   block, which is why fixed-deposits and bond-ipo-online sat flat on the page
+   background and did not read as part of the same set. It is shared now.
+   index.html is the exception on purpose: its hero is GoldenPi's dark banner. */
+
+.gp-hero {
+  background:
+    radial-gradient(1100px 380px at 12% 0%, rgba(212, 175, 55, 0.13), transparent 62%),
+    radial-gradient(760px 320px at 92% 18%, rgba(212, 175, 55, 0.08), transparent 60%);
+}
+
+/* The number is the promise. Weight plus a soft gold underlay, not a shout. */
+.gp-hero__figure {
+  position: relative;
+  white-space: nowrap;
+  font-weight: 900;
+  color: var(--app-heading-color);
+}
+
+.gp-hero__figure::after {
+  content: "";
+  position: absolute;
+  left: -2px;
+  right: -2px;
+  bottom: 2px;
+  height: 34%;
+  z-index: -1;
+  border-radius: 3px;
+  background: rgba(212, 175, 55, 0.3);
+}

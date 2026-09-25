@@ -48,31 +48,7 @@
 
   /* A soft warm wash behind the hero so it separates from the page without a
      hard band edge. */
-  .cb-hero {
-    background:
-      radial-gradient(1100px 380px at 12% 0%, rgba(212, 175, 55, 0.13), transparent 62%),
-      radial-gradient(760px 320px at 92% 18%, rgba(212, 175, 55, 0.08), transparent 60%);
-  }
-
   /* The number is the promise - let it carry weight without shouting. */
-  .cb-hero__figure {
-    position: relative;
-    white-space: nowrap;
-    font-weight: 900;
-    color: var(--app-heading-color);
-  }
-  .cb-hero__figure::after {
-    content: "";
-    position: absolute;
-    left: -2px;
-    right: -2px;
-    bottom: 2px;
-    height: 34%;
-    z-index: -1;
-    border-radius: 3px;
-    background: rgba(212, 175, 55, 0.3);
-  }
-
   /* Alternating section grounds, so twelve sections stop reading as one column. */
   .cb-band {
     background: linear-gradient(180deg, rgba(252, 251, 250, 0) 0%, #fcfbfa 12%, #fcfbfa 88%, rgba(252, 251, 250, 0) 100%);
@@ -142,7 +118,7 @@
 <main id="main-content">
 
   <!-- ============================================================== hero -->
-  <section class="cb-hero">
+  <section class="gp-hero">
     <div class="gp-shell pt-6 pb-2">
       <nav class="t-small t-muted mb-6" aria-label="Breadcrumb">
         <a href="index.html" class="hover:text-ink">Home</a>
@@ -161,7 +137,7 @@
 
           <p class="mt-4 t-h3">
             Fixed returns as high as
-            <span class="cb-hero__figure">15%</span>
+            <span class="gp-hero__figure">15%</span>
           </p>
 
           <p class="mt-4 max-w-md t-body t-muted">

@@ -50,6 +50,31 @@ Scope agreed with the user: 4 pages, static HTML + Tailwind CDN, light theme onl
 
 ---
 
+## Consistency across the live set
+
+A structural audit on 2026-09-26 found the four live pages were not sharing three
+things. Behaviour checks had all passed, because they assert that a page works,
+never that it looks like the others.
+
+| Was missing | Where | Fixed by |
+|---|---|---|
+| warm gold hero wash | fixed-deposits, bond-ipo-online | `.gp-hero` promoted out of corporate-bonds' private `<style>` into `assets/final.css` |
+| highlighted key figure in the hero | fixed-deposits, bond-ipo-online | `.gp-hero__figure` on `8.5% p.a.` and `as high as 15%` |
+| milestone count-up | bond-ipo-online | `data-count` on its three figures |
+| cream listing panel | fixed-deposits, bond-ipo-online | fixed earlier the same day |
+
+`index.html` keeps a different hero on purpose: it is GoldenPi's dark banner, and
+that is the homepage's own treatment.
+
+**`crawl/check.js` now runs a cross-page consistency pass** on a full run. It
+compares the live four against corporate-bonds for the hero ground, the tablist,
+the reveal markup, the section heading treatment and the FAQ, with named
+exemptions (bond-ipo-online has no category tabs on the live site). Negative
+tested: removing the hero ground from one page makes it fail with
+`fixed-deposits.html is missing .gp-hero, .home-hero (hero ground)`.
+
+---
+
 ## Live set, as of 2026-09-26
 
 | URL | Was | Archive |
