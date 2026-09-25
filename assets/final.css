@@ -190,3 +190,158 @@
   border-radius: 3px;
   background: rgba(212, 175, 55, 0.3);
 }
+
+/* ===================================================================
+   COMPONENTS FROM THE ISSUER DESIGN SYSTEM
+   Source: /issuers/akara-capital-advisors-private-limited, which is a
+   from-scratch page on the new site and therefore the reference for
+   how new work should look. Values are theirs, read out of their
+   compiled stylesheet, not eyeballed:
+
+     --gradient-gold   linear-gradient(135deg, #fdf2d0, #e6b325 50%, #b38600)
+     --radius-lg       20px        --radius-pill  9999px
+     --shadow-card     0 2px 1px rgba(0,0,0,.02)
+     --light-yellow    #fdf3d4     (the hairline under every card)
+     --darker-brown    #322811     (resolves to --app-heading-color)
+     button padding    14px 24px
+   =================================================================== */
+
+:root {
+  --gp-gradient-gold: linear-gradient(135deg, #fdf2d0 0%, #e6b325 50%, #b38600 100%);
+  --gp-radius-lg: 20px;
+  --gp-card-hairline: #fdf3d4;
+  --gp-shadow-card: 0 2px 1px rgba(0, 0, 0, 0.02);
+  --gp-shadow-button: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* --------------------------------------------------------------- CTA
+   Gold gradient rather than a flat fill, and the secondary carries the
+   same gradient as its border via a padding-box/border-box pair. */
+
+.gp-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 24px;
+  border-radius: 9999px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.gp-cta:hover { opacity: 0.92; }
+.gp-cta:active { transform: translateY(1px); }
+
+.gp-cta--primary {
+  background: var(--gp-gradient-gold);
+  color: var(--app-heading-color);
+  border: 0.5px solid #fdf2d0;
+  box-shadow: var(--gp-shadow-button);
+}
+
+.gp-cta--secondary {
+  background: linear-gradient(#fff, #fff) padding-box, var(--gp-gradient-gold) border-box;
+  color: var(--app-heading-color);
+  border: 1px solid transparent;
+}
+
+.gp-cta__arrow { width: 14px; height: 14px; flex: none; }
+
+/* ------------------------------------------------------------ blocks
+   The card shape the issuer page uses everywhere: white, 20px radius,
+   a barely-there shadow and a light-yellow hairline along the bottom.
+   The icon sits in a 40px gold-gradient squircle. */
+
+.gp-block {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  border-radius: var(--gp-radius-lg);
+  background: var(--white);
+  box-shadow: var(--gp-shadow-card);
+  border-bottom: 1px solid var(--gp-card-hairline);
+  height: 100%;
+}
+
+.gp-block__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex: none;
+  border-radius: 24px;
+  background: var(--gp-gradient-gold);
+  overflow: hidden;
+}
+
+.gp-block__icon img { width: 22px; height: 22px; }
+
+.gp-block__title { font-size: 16px; font-weight: 700; line-height: 1.3; }
+
+.gp-block__desc {
+  margin: 0;
+  color: var(--subtext);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+/* Stat variant: tighter radius, used for the at-a-glance row. */
+.gp-block--stat {
+  align-items: center;
+  gap: 8px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+/* ------------------------------------------------- FAQ + Need Help
+   One grid: the accordion takes the remaining width, the support card
+   is a fixed 360px rail beside it, and stacks below on small screens. */
+
+.gp-faq-layout { display: grid; gap: 24px; }
+
+@media (min-width: 900px) {
+  .gp-faq-layout { grid-template-columns: minmax(0, 1fr) 360px; gap: 30px; align-items: start; }
+}
+
+.gp-need-help {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 28px;
+  border-radius: var(--gp-radius-lg);
+  background: var(--white);
+  box-shadow: var(--gp-shadow-card);
+  border-bottom: 1px solid var(--gp-card-hairline);
+  text-align: center;
+}
+
+.gp-need-help__image { width: 148px; height: auto; margin-bottom: 4px; }
+
+.gp-need-help__title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.gp-need-help__title img { width: 20px; height: 20px; }
+
+.gp-need-help__desc {
+  margin: 0;
+  max-width: 34ch;
+  color: var(--subtext);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.gp-need-help .gp-cta { min-width: 146px; margin-top: 4px; }

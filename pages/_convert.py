@@ -155,6 +155,79 @@ def count_up(html):
     return html.replace('<dt class="t-h1 t-gold">', '<dt class="t-h1 t-gold" data-count>')
 
 
+
+# ---------------------------------------------------------- issuer design system
+# Components lifted from /issuers/akara-capital-advisors-private-limited, which
+# is a from-scratch page on the new site and so the reference for new work.
+
+def issuer_ctas(html):
+    """Swap the flat gold pill for the gradient CTA the issuer page uses."""
+    html = html.replace('class="gp-btn gp-btn--primary gp-btn--sm',
+                        'class="gp-cta gp-cta--primary gp-cta--sm')
+    html = html.replace('class="gp-btn gp-btn--primary', 'class="gp-cta gp-cta--primary')
+    html = html.replace('class="gp-btn gp-btn--ghost', 'class="gp-cta gp-cta--secondary')
+    return html
+
+
+def blocks(html, heading, icons):
+    """Turn a row of plain centred cards into issuer-style blocks.
+
+    Same copy, same order; what changes is the shape: white card, 20px radius,
+    light-yellow hairline, and the icon in a gold gradient squircle.
+    """
+    i = html.index(heading)
+    start = html.index('<div class="grid gap-4 sm:grid-cols-3">', i)
+    end = html.index('</div>\n    </div>\n  </section>', start)
+    seg = html[start:end]
+
+    cards = re.findall(
+        r'<div class="gp-card p-6 text-center">\s*'
+        r'<img src="([^"]+)"[^>]*>\s*'
+        r'<h3[^>]*>(.*?)</h3>\s*'
+        r'<p[^>]*>(.*?)</p>\s*</div>', seg, re.S)
+    if len(cards) != len(icons):
+        sys.exit('expected %d cards under %r, found %d' % (len(icons), heading[:30], len(cards)))
+
+    out = ['<div class="grid gap-4 sm:grid-cols-3">']
+    for (_, title, desc), icon in zip(cards, icons):
+        out.append(
+            '        <div class="gp-block">\n'
+            '          <span class="gp-block__icon"><img src="../assets/img/%s" alt=""></span>\n'
+            '          <h3 class="gp-block__title">%s</h3>\n'
+            '          <p class="gp-block__desc">%s</p>\n'
+            '        </div>' % (icon, title.strip(), desc.strip()))
+    out.append('      ')
+    return html[:start] + '\n'.join(out) + html[end:]
+
+
+def faq_with_help(html, contact_href):
+    """Put the FAQ accordion and a Need Help card side by side."""
+    i = html.index('<div class="gp-faq">')
+    j = html.index('</div>', html.rindex('</details>', i)) + len('</div>')
+
+    # Structure matches issuer-need-help exactly: the 237px support illustration,
+    # a small phone icon beside the title, and an arrow inside the CTA.
+    help_card = (
+        '\n\n        <aside class="gp-need-help">\n'
+        '          <img class="gp-need-help__image" src="../assets/img/support-icon.svg"\n'
+        '               alt="" width="237" height="237">\n'
+        '          <p class="gp-need-help__title">\n'
+        '            <img src="../assets/img/phone-icon.svg" alt="" width="20" height="20">\n'
+        '            Need Help\n'
+        '          </p>\n'
+        '          <p class="gp-need-help__desc">Talk to our Support Team for free. We will\n'
+        '            help you through your investment journey.</p>\n'
+        '          <a class="gp-cta gp-cta--primary" href="%s">\n'
+        '            Contact Us\n'
+        '            <img class="gp-cta__arrow" src="../assets/img/arrow-right.svg"\n'
+        '                 alt="" width="16" height="16">\n'
+        '          </a>\n'
+        '        </aside>' % contact_href)
+
+    return (html[:i] + '<div class="gp-faq-layout">\n        ' + html[i:j]
+            + help_card + '\n      </div>' + html[j:])
+
+
 def common(html, slug):
     """Steps every converted page gets."""
     # The -old archives were repointed at each other before this ran, so the
@@ -346,6 +419,10 @@ def build_fd():
     html = html[:start] + cream(tabstrip(tabs)) + "\n" + html[end:]
     html = hero_ground(html)
     html = highlight(html, '8.5% p.a.')
+    html = blocks(html, 'Why invest in with GoldenPi?',
+                  ['image10.svg', 'image11.svg', 'image12.svg'])
+    html = faq_with_help(html, BASE + '/contact-us')
+    html = issuer_ctas(html)
     return scripts(html)
 
 

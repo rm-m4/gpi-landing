@@ -50,6 +50,35 @@ Scope agreed with the user: 4 pages, static HTML + Tailwind CDN, light theme onl
 
 ---
 
+## Issuer design system components
+
+`/issuers/akara-capital-advisors-private-limited` is a from-scratch page on the new
+site, so it is the reference for how new work should look. It is captured in
+`crawl/raw/` and `crawl/rendered/`. Values below were read out of their compiled
+stylesheet, not eyeballed:
+
+| Token | Value |
+|---|---|
+| gold gradient | `linear-gradient(135deg, #fdf2d0 0%, #e6b325 50%, #b38600 100%)` |
+| card radius | 20px (stat variant 15px) |
+| card shadow | `0 2px 1px rgba(0,0,0,.02)` plus a `#fdf3d4` hairline along the bottom |
+| CTA | pill, 14px/24px padding, gradient fill, `#322811` text |
+| FAQ layout | `minmax(0,1fr) 360px`, 30px gap, stacking below 900px |
+
+Ported into `assets/final.css` as `.gp-cta`, `.gp-block`, `.gp-faq-layout` and
+`.gp-need-help`. Applied to **fixed-deposits** first:
+
+- every CTA now uses the gold gradient; the secondary carries the same gradient as
+  its border through a padding-box / border-box pair
+- "Why invest in with GoldenPi?" became three blocks: white card, 20px radius,
+  hairline, and the icon in a 40px gold-gradient squircle. Same copy, new shape.
+- the FAQ sits beside a Need Help card matching `issuer-need-help`: the 237px
+  support illustration, a phone icon beside the title, and a Contact Us CTA
+
+The other three live pages have not been converted yet.
+
+---
+
 ## Consistency across the live set
 
 A structural audit on 2026-09-26 found the four live pages were not sharing three
