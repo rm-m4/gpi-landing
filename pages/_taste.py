@@ -21,6 +21,10 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 
+# The taste variants were derived from the original faithful pages, which are
+# now archived under -old. Keep reading those so re-running reproduces what was
+# reviewed, rather than re-deriving from the newer converted pages.
+SOURCES = ['index-old', 'corporate-bonds-old', 'fixed-deposits-old', 'bond-ipo-online-old']
 PAGES = ['index', 'corporate-bonds', 'fixed-deposits', 'bond-ipo-online']
 
 # GoldenPi's own strings. Never rewritten, even where they trip a style rule:
@@ -105,8 +109,8 @@ def replace_block(html, start_marker, end_marker, new, what):
 
 
 def main():
-    for slug in PAGES:
-        src = os.path.join(HERE, '%s.html' % slug)
+    for source, slug in zip(SOURCES, PAGES):
+        src = os.path.join(HERE, '%s.html' % source)
         dst = os.path.join(HERE, '%s-taste.html' % slug)
         html = open(src, encoding='utf-8').read()
 

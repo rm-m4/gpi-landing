@@ -4,8 +4,8 @@ Project context and rules live in `CLAUDE.md`. This file tracks state only.
 
 **Last updated:** 2026-09-25
 **Content snapshot:** 2026-09-25 (all hardcoded data carries this date)
-**Now:** Batch 1 phase C complete and verified by running it — awaiting review
-before the UI polish pass.
+**Now:** All four landing pages converted to the agreed styling and promoted.
+The pages as they stood before are archived under `-old`.
 
 ---
 
@@ -41,6 +41,50 @@ Scope agreed with the user: 4 pages, static HTML + Tailwind CDN, light theme onl
 | `crawl/extract.py` | HTML → reviewable markdown, leaf-block walker |
 | `crawl/check.js` | Serves + renders pages, fails on 404s / errors / overflow |
 | `pages/_build.py` | Syncs header + footer from the reference page |
+
+---
+
+## Live set, as of 2026-09-26
+
+| URL | Was | Archive |
+|---|---|---|
+| `index.html` | the faithful homepage | `index-old.html` |
+| `corporate-bonds.html` | `corporate-bonds-final.html` | `corporate-bonds-old.html` |
+| `fixed-deposits.html` | the faithful FD page | `fixed-deposits-old.html` |
+| `bond-ipo-online.html` | the faithful IPO page | `bond-ipo-online-old.html` |
+
+All four load `assets/site.css` plus the additive `assets/final.css` (137 lines,
+overriding nothing), keep the shared header and footer, and keep every `gp-*`
+component. No page loads `alt.css`, `taste.css`, `lux.css`, `spark.css` or
+`minimal.css`; those belong to the exploration variants only.
+
+**What conversion changed, per page**
+
+| | index | corporate-bonds | fixed-deposits | bond-ipo-online |
+|---|---|---|---|---|
+| tabs become a real tablist | 6 tabs, listing rows | 6 tabs, listing rows | 3 tabs, issuer cards | no tabs on this page |
+| repeated heading removed | yes | yes | n/a | n/a |
+| collections bento | yes | yes | n/a | n/a |
+| reviews grid | yes | yes | yes | yes |
+| scroll reveal script | added | already had it | added | added |
+
+The three archived pages carried `data-reveal` markup but never had the script
+driving it, so the reveal was dead on them. It is wired up on the live set.
+
+On fixed deposits the tabs filter the **issuer cards**, not a new row table:
+the page already carries a full comparison table lower down, and adding rows
+would have been a third copy of the same six issuers. Tax Saving FD shows an
+honest empty state, because no tax saving deposit was in the capture.
+
+**Archives are frozen.** They are absent from `pages/_build.py` so the shell
+sync cannot touch them, they are marked with an ARCHIVE comment, and their
+internal links point at each other. A live page never links into the archive
+and an archive never links out; `crawl/check.js` runs over both sets.
+
+**Generators.** `_final.py` writes corporate-bonds.html from `_final_shell.html`;
+`_convert.py` writes the other three from the `-old` archives; `_tabs.js` and
+`_reveal.js` are shared by both so the behaviour cannot drift; `_taste.py` reads
+the `-old` archives so re-running reproduces what was reviewed.
 
 ---
 

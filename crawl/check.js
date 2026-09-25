@@ -24,29 +24,108 @@ const TYPES = {
 // block goes missing -- which is exactly what happened when pages/_build.py once
 // sliced the shared footer through to </body>. These catch that class of bug:
 // each one fails if the page's own CSS or JS is not actually doing its job.
-const BEHAVIOUR = {
-  'fixed-deposits.html': async (page) => {
-    const problems = [];
-    const maturity = () => page.locator('#fd-maturity').innerText();
-    const before = await maturity();
-    await page.locator('#fd-amount').fill('1000000');
-    await page.locator('#fd-amount').dispatchEvent('input');
-    if ((await maturity()) === before) problems.push('FD calculator did not react to input (script missing?)');
 
-    const chip = await page.locator('.fd-chip').first().evaluate((el) => getComputedStyle(el).borderRadius);
-    if (parseFloat(chip) < 100) problems.push(`.fd-chip is unstyled (border-radius ${chip}) - page <style> missing?`);
-    return problems;
+// Shared: a page whose data-reveal blocks never became visible is broken.
+async function noneHidden(page) {
+  const n = await page.evaluate(() =>
+    [...document.querySelectorAll('[data-reveal],[data-r]')].filter(
+      (el) => parseFloat(getComputedStyle(el).opacity) < 0.9).length);
+  return n ? [`${n} revealed block(s) still at opacity 0`] : [];
+}
+
+// The category tablist, on every page that has one.
+async function tabChecks(page, expect) {
+  const problems = [];
+  // Panels hold listing rows on most pages, but issuer cards on fixed deposits.
+  const item = expect.item || '.gp-row';
+  const inkX = () => page.locator('.gp-tabs__ink').evaluate(
+    (el) => new DOMMatrixReadOnly(getComputedStyle(el).transform).m41);
+  const ids = await page.locator('.gp-tab').evaluateAll(
+    (els) => els.map((e) => e.id.replace(/^tab-/, '')));
+
+  if (ids.length !== expect.count) problems.push(`${ids.length} tabs, expected ${expect.count}`);
+
+  const first = await page.locator(`#panel-${ids[0]} ${item}`).count();
+  if (first !== expect.firstRows)
+    problems.push(`first panel has ${first} ${item}, expected ${expect.firstRows}`);
+
+  const x0 = await inkX();
+  const last = ids[ids.length - 1];
+  await page.locator(`#tab-${last}`).click();
+  await page.waitForTimeout(700);
+
+  if ((await inkX()) === x0) problems.push('tab indicator did not move');
+  if (!(await page.locator(`#panel-${last}`).isVisible())) problems.push('target panel did not open');
+  if (await page.locator(`#panel-${ids[0]}`).isVisible()) problems.push('previous panel stayed open');
+
+  await page.locator(`#tab-${last}`).press('ArrowLeft');
+  await page.waitForTimeout(400);
+  const sel = await page.locator('.gp-tab[aria-selected="true"]').getAttribute('id');
+  const want = `tab-${ids[ids.length - 2]}`;
+  if (sel !== want) problems.push(`ArrowLeft selected ${sel}, expected ${want}`);
+
+  // Only ever one panel open.
+  const open = await page.locator('.gp-panel.is-on').count();
+  if (open !== 1) problems.push(`${open} panels open, expected 1`);
+  return problems;
+}
+
+async function fdChecks(page) {
+  const problems = [];
+  const maturity = () => page.locator('#fd-maturity').innerText();
+  const before = await maturity();
+  await page.locator('#fd-amount').fill('1000000');
+  await page.locator('#fd-amount').dispatchEvent('input');
+  if ((await maturity()) === before) problems.push('FD calculator did not react to input (script missing?)');
+
+  const chip = await page.locator('.fd-chip').first().evaluate((el) => getComputedStyle(el).borderRadius);
+  if (parseFloat(chip) < 100) problems.push(`.fd-chip is unstyled (border-radius ${chip}) - page <style> missing?`);
+  return problems;
+}
+
+async function homeChecks(page) {
+  const problems = [];
+  const bg = await page.locator('.home-hero').evaluate((el) => getComputedStyle(el).backgroundImage);
+  if (bg === 'none') problems.push('.home-hero has no background image - page <style> missing?');
+  const rows = await page.locator('.viz-root tbody tr').count();
+  if (rows !== 6) problems.push(`chart table view has ${rows} rows, expected 6`);
+  return problems;
+}
+
+const BEHAVIOUR = {
+  // --- live pages -----------------------------------------------------------
+  'corporate-bonds.html': async (page) => {
+    const problems = await tabChecks(page, { count: 6, firstRows: 4 });
+    await page.locator('[data-count]').first().scrollIntoViewIfNeeded();
+    await page.waitForTimeout(1500);
+    const stat = await page.locator('[data-count]').first().innerText();
+    if (!stat.includes('15')) problems.push(`stat count-up ended at "${stat}"`);
+    return problems.concat(await noneHidden(page));
   },
 
+  'index.html': async (page) => {
+    const problems = await tabChecks(page, { count: 6, firstRows: 4 });
+    return problems.concat(await homeChecks(page), await noneHidden(page));
+  },
+
+  'fixed-deposits.html': async (page) => {
+    const problems = await tabChecks(page, { count: 3, firstRows: 3, item: '.gp-card' });
+    return problems.concat(await fdChecks(page), await noneHidden(page));
+  },
+
+  'bond-ipo-online.html': async (page) => noneHidden(page),
+
+  // --- archives, which keep their original behaviour ------------------------
+  'fixed-deposits-old.html': fdChecks,
+  'index-old.html': homeChecks,
+
+  // --- design explorations --------------------------------------------------
   'corporate-bonds-taste.html': async (page) => {
     const problems = [];
-    // FAQ uses .faq__item here, not .gp-faq__item.
     const item = page.locator('details.faq__item').first();
     const before = await item.evaluate((e) => e.open);
     await item.locator('summary').click();
     if ((await item.evaluate((e) => e.open)) === before) problems.push('minimal FAQ did not toggle');
-
-    // Nothing may be left invisible once the page has settled.
     const hidden = await page.evaluate(() =>
       [...document.querySelectorAll('[data-r]')].filter(
         (el) => parseFloat(getComputedStyle(el).opacity) < 0.9).length);
@@ -60,13 +139,6 @@ const BEHAVIOUR = {
     const before = await d.evaluate((e) => e.open);
     await d.locator('summary').click();
     if ((await d.evaluate((e) => e.open)) === before) problems.push('FAQ did not toggle');
-
-    const hidden = await page.evaluate(() =>
-      [...document.querySelectorAll('[data-r]')].filter(
-        (el) => parseFloat(getComputedStyle(el).opacity) < 0.9).length);
-    if (hidden) problems.push(`${hidden} revealed block(s) still at opacity 0`);
-
-    // The double-bezel must actually nest: shell padding + concentric radii.
     const bez = await page.locator('.bezel').first().evaluate((el) => {
       const core = el.querySelector('.bezel__core');
       return {
@@ -77,83 +149,27 @@ const BEHAVIOUR = {
     });
     if (!(bez.pad > 0 && bez.inner > 0 && bez.inner < bez.outer))
       problems.push(`double-bezel not nesting: ${JSON.stringify(bez)}`);
-    return problems;
+    return problems.concat(await noneHidden(page));
   },
 
   'corporate-bonds-taste3.html': async (page) => {
     const problems = [];
-
-    // The three-banner carousel must actually advance and swap its metrics.
     const active = () => page.evaluate(() =>
       [...document.querySelectorAll('.dots button')].findIndex(
         (d) => d.getAttribute('aria-selected') === 'true'));
     const ret = () => page.locator('[data-f="ret"]').innerText();
-
     const i0 = await active();
     const r0 = await ret();
     await page.locator('.dots button').nth(1).click();
     await page.waitForTimeout(400);
     if ((await active()) === i0) problems.push('carousel dot did not change the active banner');
     if ((await ret()) === r0) problems.push('floating metrics did not swap with the banner');
-
-    // Exactly one banner visible at a time.
     const onCount = await page.locator('.slide.is-on').count();
     if (onCount !== 1) problems.push(`${onCount} banners active, expected 1`);
-
-    const hidden = await page.evaluate(() =>
-      [...document.querySelectorAll('[data-r]')].filter(
-        (el) => parseFloat(getComputedStyle(el).opacity) < 0.9).length);
-    if (hidden) problems.push(`${hidden} revealed block(s) still at opacity 0`);
-    return problems;
-  },
-
-  'corporate-bonds-final.html': async (page) => {
-    const problems = [];
-
-    const rowsIn = (id) => page.locator(`#panel-${id} .gp-row`).count();
-    const inkX = () => page.locator('.gp-tabs__ink').evaluate(
-      (el) => new DOMMatrixReadOnly(getComputedStyle(el).transform).m41);
-
-    // Tab 1 shows the four corporate bonds.
-    if ((await rowsIn('utsav')) !== 4) problems.push('Bond Utsav tab should hold 4 rows');
-
-    const x0 = await inkX();
-    await page.locator('#tab-ipo').click();
-    await page.waitForTimeout(700);
-
-    if ((await inkX()) === x0) problems.push('tab indicator did not move');
-    if (!(await page.locator('#panel-ipo').isVisible())) problems.push('NCD IPO panel did not open');
-    if (await page.locator('#panel-utsav').isVisible()) problems.push('previous panel stayed open');
-    if ((await rowsIn('ipo')) !== 2) problems.push('NCD IPO tab should hold 2 rows');
-
-    // Keyboard: arrow keys must move selection.
-    await page.locator('#tab-ipo').press('ArrowLeft');
-    await page.waitForTimeout(400);
-    const sel = await page.locator('.gp-tab[aria-selected="true"]').getAttribute('id');
-    if (sel !== 'tab-yield') problems.push(`ArrowLeft selected ${sel}, expected tab-yield`);
-
-    // Count-up must settle on the real figure, not a partial one.
-    await page.locator('[data-count]').first().scrollIntoViewIfNeeded();
-    await page.waitForTimeout(1600);
-    const stat = await page.locator('[data-count]').first().innerText();
-    if (!stat.includes('15')) problems.push(`stat count-up ended at "${stat}"`);
-
-    const hidden = await page.evaluate(() =>
-      [...document.querySelectorAll('[data-r]')].filter(
-        (el) => parseFloat(getComputedStyle(el).opacity) < 0.9).length);
-    if (hidden) problems.push(`${hidden} revealed block(s) still at opacity 0`);
-    return problems;
-  },
-
-  'index.html': async (page) => {
-    const problems = [];
-    const bg = await page.locator('.home-hero').evaluate((el) => getComputedStyle(el).backgroundImage);
-    if (bg === 'none') problems.push('.home-hero has no background image - page <style> missing?');
-    const rows = await page.locator('.viz-root tbody tr').count();
-    if (rows !== 6) problems.push(`chart table view has ${rows} rows, expected 6`);
-    return problems;
+    return problems.concat(await noneHidden(page));
   },
 };
+
 
 // Scroll-reveal animations only fire as sections enter the viewport, so a
 // full-page screenshot taken without scrolling captures them still hidden.

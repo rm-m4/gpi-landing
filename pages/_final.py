@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Generate pages/corporate-bonds-final.html.
+"""Generate pages/corporate-bonds.html.
 
-corporate-bonds-final is corporate-bonds.html with four improvements ported in
-from the taste2 exploration. It keeps the same stack, the same shared header and
+This page is the former corporate-bonds.html (now archived as
+corporate-bonds-old.html) with four improvements ported in from the taste2
+exploration. It keeps the same stack, the same shared header and
 footer, and the same gp-* components, so the change a developer implements is a
 small diff rather than a new design system.
 
@@ -139,11 +140,14 @@ def build():
 def main():
     buttons, panels = build()
     src = open(os.path.join(HERE, "_final_shell.html"), encoding="utf-8").read()
-    for token in ("<!--TABS-->", "<!--PANELS-->"):
+    for token in ("<!--TABS-->", "<!--PANELS-->", "<!--TABJS-->"):
         if token not in src:
             raise SystemExit("_final_shell.html is missing %s" % token)
-    out = src.replace("<!--TABS-->", buttons).replace("<!--PANELS-->", panels)
-    path = os.path.join(HERE, "corporate-bonds-final.html")
+    js = open(os.path.join(HERE, "_tabs.js"), encoding="utf-8").read()
+    out = (src.replace("<!--TABS-->", buttons)
+              .replace("<!--PANELS-->", panels)
+              .replace("<!--TABJS-->", "<script>\n%s</script>" % js))
+    path = os.path.join(HERE, "corporate-bonds.html")
     open(path, "w", encoding="utf-8").write(out)
     print("wrote %s  (%d tabs, %d rows)" % (
         os.path.basename(path), len(TABS), sum(len(t["rows"]) for t in TABS)))

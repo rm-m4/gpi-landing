@@ -3,7 +3,10 @@
 
 These are intentionally duplicated in every .html file -- this is a static
 prototype and developers will rebuild them as components -- but hand-editing four
-copies drifts. Edit them in corporate-bonds.html (the reference page), then run:
+copies drifts. corporate-bonds.html is the reference page, and it is generated,
+so edit the shell in _final_shell.html, run _final.py, then run this. The -old
+archives are deliberately absent from ACTIVE: they are frozen snapshots and must
+not be re-synced. Then run:
 
     python3 pages/_build.py
 
