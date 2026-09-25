@@ -29,10 +29,26 @@ Three commitments follow from that, in priority order:
 3. **Then make it beautiful.** Design is the value we add on top — but it is added
    *after* the content is captured and verified, never in place of it.
 
-## Working method
+## Where the project stands
 
-The project runs in three phases per batch of pages. They are deliberately
-sequential — designing before capture is how invented copy gets in.
+Batch 1 is built and converted. The four live pages are the deliverable:
+`index.html`, `corporate-bonds.html`, `fixed-deposits.html`,
+`bond-ipo-online.html`.
+
+**Scope, from 2026-09-26: those four only.** The `-old` archives and the seven
+design explorations (`-alt`, `-taste`, `-taste2`, `-taste3`) are frozen. The
+direction is settled; editing them adds churn without moving the deliverable.
+`crawl/check.js` still runs across all eighteen, because a regression in a frozen
+page means something shared broke.
+
+**Three of the four are generated.** Editing the HTML directly is lost on the next
+run. `_final.py` writes corporate-bonds.html from `_final_shell.html`;
+`_convert.py` writes the other three from the `-old` archives; `_tabs.js` and
+`_reveal.js` are injected by both so the pages cannot drift apart.
+
+## The method, for the next batch
+
+Phases run in order. Designing before capture is how invented copy gets in.
 
 | Phase | Output | Gate before moving on |
 |---|---|---|
@@ -41,9 +57,20 @@ sequential — designing before capture is how invented copy gets in.
 | **C · Build** | `pages/*.html` | `node crawl/check.js` clean on every page |
 | **D · Polish** | — | Separate pass, only after the user reviews C |
 
-"Workable" (phase C) means every section present, real copy, real links,
-responsive, nothing broken. It does not mean finished-looking. Phase D is where
-typography, spacing, motion and dark theme get their attention.
+## Two corrections worth not repeating
+
+**Enhance, do not re-platform.** Asked to fold good ideas from an exploration into
+the main page, the first attempt lifted that exploration wholesale: its own
+stylesheet, its own nav, its own component system, with the content grafted in.
+That is a re-platform, and it fails the rule above. The rebuild kept the stack and
+ported four specific changes, which came to 150 additive CSS lines. When in doubt,
+measure the diff a developer would have to implement.
+
+**Check that pages look like a set, not just that they work.** After the
+conversion, two pages were missing the cream listing panel the other two had, so
+the four did not read as one design. Every automated check passed, because they
+assert behaviour and errors, never shared visual structure. Compare pages against
+each other by eye or by structure, not only against the checker.
 
 ## What the site forces on us
 
@@ -84,15 +111,17 @@ live site uses.
 
 ## Stack decisions (and why)
 
-- **Static HTML + Tailwind CDN + one shared stylesheet.** No build step, opens in a
+- **Static HTML + Tailwind CDN + two stylesheets** (`site.css`, plus the
+  additive `final.css` on the live pages). No build step, opens in a
   browser instantly, fastest to iterate on visually. Tailwind colour names map onto
   the harvested tokens so the markup lines up with their Next.js app.
-- **Header and footer duplicated per page, not templated.** It's a four-page
-  prototype and developers will rebuild them as components; a partial system would
-  be cost with no payoff. `pages/_build.py` syncs them from the reference page so
-  they cannot drift.
+- **Header and footer duplicated per page, not templated.** Developers will
+  rebuild them as components anyway; a partial system would be cost with no
+  payoff. `pages/_build.py` syncs them so they cannot drift.
 - **No JS framework, native platform features first.** FAQ is `<details>`,
-  carousels are CSS scroll-snap. The only script is the FD returns calculator.
+  carousels are CSS scroll-snap. Scripts are the FD returns calculator, the
+  category tablist and the scroll reveal, all progressive enhancement: without
+  them every page still renders complete and visible.
 - **Live data hardcoded from a dated snapshot**, every block marked
   `<!-- DATA: ... -->` so developers know exactly what to wire up.
 
@@ -103,10 +132,14 @@ live site uses.
 - **Never invent a URL.** Every link must point at a path the crawl actually saw.
   If the live site uses a control that is not a link (the Login button opens a
   modal), do not turn it into one.
+- **Put shared CSS in `assets/final.css`, not `assets/site.css`.** The frozen
+  pages load `site.css` too, so changing it moves them. Only the four live pages
+  load `final.css`.
 - **Run `node crawl/check.js` after any edit.** It fails on 404s, console errors,
   images that never decoded, and horizontal overflow at 390px.
-- **Edit the shared shell in `pages/corporate-bonds.html`**, the reference page,
-  then run `python3 pages/_build.py`.
+- **Edit the shared shell in `pages/_final_shell.html`**, not in
+  `corporate-bonds.html`: that page is generated and direct edits are lost. Then
+  `python3 pages/_final.py` and `python3 pages/_build.py`.
 - **Re-capture rather than hand-patch** when the UAT site changes.
 - Accessibility basics are not part of the polish phase — one `<h1>` per page, real
   `alt` text, keyboard-reachable controls, visible focus. Those ship in phase C.
@@ -114,13 +147,20 @@ live site uses.
 ## Commands
 
 ```bash
+python3 pages/_final.py      # -> corporate-bonds.html
+python3 pages/_convert.py    # -> index, fixed-deposits, bond-ipo-online
+python3 pages/_build.py      # sync header/footer across pages
+node crawl/check.js          # verify every page, run after any change
+python3 -m http.server 8000  # then open /pages/<name>.html
+```
+
+Capture, when the UAT site changes:
+
+```bash
 ./crawl/fetch.sh /corporate-bonds   # server-rendered HTML  -> crawl/raw/
 node crawl/snap.js                  # browser-rendered HTML -> crawl/rendered/ + shots
 ./crawl/assets.sh                   # images + design tokens -> assets/
 python3 crawl/extract.py            # copy -> content/*.md
-python3 pages/_build.py             # sync header/footer across pages
-node crawl/check.js                 # verify every page
-python3 -m http.server 8000         # then open /pages/<name>.html
 ```
 
 `playwright-core` is the only dependency; it drives the Chromium already cached on
@@ -128,4 +168,6 @@ this machine, so there is no browser download.
 
 ## Current state
 
-See **`TRACKER.md`** for what is done, what is in flight, and what is next.
+See **`TRACKER.md`** for what is done and what is next, and **`README.md`**
+for the developer handoff. The repo is private at `rm-m4/gpi-landing`, default
+branch `main`.
