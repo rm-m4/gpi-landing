@@ -331,6 +331,55 @@ def golden_experience(html, add=False):
     return html[:banner_at] + section + html[banner_at:]
 
 
+# The webinar block, as the live site builds it: copy and figures on the left,
+# the YouTube webinar on the right. The embed URL, its autoplay/mute params and
+# the iframe's allow list are as captured from uatnew.goldenpi.com/ on
+# 2026-09-25. The disclaimer is about the faces in that video, so it sits
+# under the video as its caption.
+WEBINAR = '''  <!-- =========================================================== webinar -->
+  <section data-reveal class="gp-section gp-section--tight gp-section--flush-top">
+    <div class="gp-shell">
+      <div class="gp-card gp-webinar">
+        <div class="gp-webinar__body">
+          <p class="gp-webinar__issuer">Muthoot Capital</p>
+          <h2 class="gp-webinar__title">Webinar with Muthoot Capital&rsquo;s CEO</h2>
+
+          <dl class="gp-webinar__facts">
+            <div><dt>Returns Up to</dt><dd class="gp-webinar__returns">9.70%</dd></div>
+            <div><dt>Credit Rating</dt><dd>CRISIL AA-</dd></div>
+            <div><dt>Min. Investment</dt><dd>&#8377;30,000</dd></div>
+          </dl>
+
+          <a class="gp-cta gp-cta--primary gp-webinar__cta"
+             href="https://uatnew.goldenpi.com/bonds/INE296G07333/muthoot-capital-925-bond-yield?src=view_details&amp;tenureDate=24-Aug-2029">Invest Now</a>
+        </div>
+
+        <figure class="gp-webinar__media">
+          <div class="gp-webinar__frame">
+            <iframe src="https://www.youtube.com/embed/bITuF1qC5Kg?autoplay=1&amp;mute=1&amp;rel=0"
+                    title="Webinar with Muthoot Capital&rsquo;s CEO" loading="lazy"
+                    allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <figcaption class="gp-webinar__note">
+            No celebrities are part of the advertisement, all faces displayed are in the capacity of Business Representatives.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+'''
+
+
+def webinar(html):
+    """Replace the webinar section, where a page has one, with WEBINAR."""
+    banner = '  <!-- =========================================================== webinar -->'
+    if banner not in html:
+        return html
+    start = html.index(banner)
+    end = html.index('  </section>\n', start) + len('  </section>\n')
+    return html[:start] + WEBINAR + html[end:]
+
+
 def main():
     buttons, panels = build()
     src = open(os.path.join(HERE, "_final_shell.html"), encoding="utf-8").read()

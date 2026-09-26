@@ -511,7 +511,7 @@ def main():
     for name, fn in (("index.html", build_index),
                      ("fixed-deposits.html", build_fd),
                      ("bond-ipo-online.html", build_ipo)):
-        out = F.golden_experience(F.primary_ctas(fn()))
+        out = F.webinar(F.golden_experience(F.primary_ctas(fn())))
         open(os.path.join(HERE, name), "w", encoding="utf-8").write(out)
         print("%-24s tabs:%d panels:%d final.css:%d" % (
             name, out.count('class="gp-tab"'), out.count('class="gp-panel'),

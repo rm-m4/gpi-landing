@@ -20,35 +20,37 @@
 
 .gp-tabs {
   position: relative;
-  padding-bottom: 4px;
-  /* The trailing fade matches whatever ground the strip sits on. Panels set
-     this; the default is the cream listing panel. */
-  --gp-tabs-fade: #fdf8e9;
+  /* The trailing fade matches the page ground the tabs now sit on. */
+  --gp-tabs-fade: var(--app-page-bg);
 }
 
 .gp-tabs__track {
   position: relative;
-  display: flex;
-  gap: 10px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(120px, 1fr);
+  gap: 12px;
   overflow-x: auto;
   scrollbar-width: none;
-  padding: 3px;
+  /* The panel's top edge, drawn once across the whole strip so it runs
+     unbroken through the gaps. The open tab paints over it. */
+  box-shadow: inset 0 -1px 0 #efe6cc;
 }
 
 .gp-tabs__track::-webkit-scrollbar { display: none; }
 
-/* The indicator is the pill the old markup drew on the active tab, lifted out
-   so it can travel. One element, moved with transform and width, so the cost
-   does not grow with the number of tabs. */
+/* The indicator is a gold edge along the top of the open tab. The page ground
+   is close to the panel's cream, so the fill alone is too quiet; the edge
+   marks the open tab and slides to the next one. Clipped in from both ends so
+   it stays on the straight run between the tab's rounded corners. */
 .gp-tabs__ink {
   position: absolute;
-  top: 3px;
+  z-index: 2;
+  top: 0;
   left: 0;
-  height: calc(100% - 6px);
-  border-radius: 12px;
-  background: var(--white);
-  border: 1px solid var(--mustard);
-  box-shadow: 0 1px 2px rgba(50, 40, 17, 0.05);
+  height: 3px;
+  background: var(--mustard);
+  clip-path: inset(0 18px round 3px);
   transform: translateX(0);
   transition: transform 0.5s var(--ease, cubic-bezier(0.34, 1.28, 0.52, 1)),
     width 0.5s var(--ease, cubic-bezier(0.34, 1.28, 0.52, 1));
@@ -58,66 +60,99 @@
 /* Hidden until measured, so it never parks at the wrong width on first paint. */
 .gp-tabs__ink:not(.is-ready) { opacity: 0; }
 
-/* Icon above the label, not beside it. Six categories side by side ran the
-   strip past the panel and forced it to scroll on desktop; stacked, the same
-   six fit and each tab reads as one target rather than a run of words. The
-   label wraps to two lines, and the flex track stretches every tab to the
-   tallest, so the row still lines up. */
+/* Folder tabs. Equal-width tabs, icon above a two-line label. The open tab
+   and the panel are one surface: same cream, one outline, and concave fillets
+   where the tab meets the panel so the outline curves out instead of turning a
+   hard corner. Closed tabs sit back, a shade darker than the page, so the
+   open one is the lightest thing in the strip rather than the dimmest. */
 .gp-tab {
+  --gp-tab-r: 18px;
+  --gp-fillet: 12px; /* matches the track gap, so a fillet fills it exactly */
   position: relative;
   z-index: 1;
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: 8px;
-  flex: none;
-  max-width: 15ch;
-  padding: 12px 14px;
+  gap: 10px;
+  padding: 18px 12px 16px;
   border: 1px solid transparent;
-  border-radius: 12px;
-  background: transparent;
+  border-bottom: 0;
+  border-radius: var(--gp-tab-r) var(--gp-tab-r) 0 0;
+  background: rgba(50, 40, 17, 0.045);
   color: var(--subtext);
   font-family: inherit;
-  font-size: var(--t-small);
+  font-size: 15px;
   font-weight: 500;
-  line-height: 1.25;
+  line-height: 1.3;
   text-align: center;
   text-wrap: balance;
   cursor: pointer;
-  transition: color 0.35s ease;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-/* The icon carries the state change: it lifts on hover and settles a little
-   larger and at full strength once selected. Overshoot on the way in, because
-   a 2px lift with no spring reads as a rendering glitch rather than a move. */
 .gp-tab img {
-  width: 26px;
-  height: 26px;
-  filter: grayscale(0.4) opacity(0.7);
-  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.35s ease;
+  width: 44px;
+  height: 44px;
+  filter: saturate(0.6);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.25s ease;
 }
 
-.gp-tab:hover { color: var(--app-heading-color); }
+.gp-tab:hover { background: rgba(255, 255, 255, 0.7); color: var(--app-heading-color); }
 .gp-tab:hover img { transform: translateY(-3px); filter: none; }
+.gp-tab:focus-visible { outline: 2px solid var(--mustard); outline-offset: -4px; }
 
 .gp-tab[aria-selected="true"] {
+  border-color: #efe6cc;
+  background: #fdf8e9;
   color: var(--app-heading-color);
   font-weight: 700;
 }
 
-.gp-tab[aria-selected="true"] img {
-  transform: translateY(-2px) scale(1.1);
-  filter: none;
+.gp-tab[aria-selected="true"] img { transform: scale(1.08); filter: none; }
+
+/* The fillets. Each is a gap-sized square outside the tab's bottom corner,
+   painted with a radial gradient: page ground inside the curve, a 1px ring
+   in the outline colour, cream beyond it. The first and last tab's outer
+   fillet falls outside the track and is clipped, which is what the panel's
+   straight side edge wants. */
+.gp-tab[aria-selected="true"]::before,
+.gp-tab[aria-selected="true"]::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: var(--gp-fillet);
+  height: var(--gp-fillet);
+  pointer-events: none;
+}
+
+.gp-tab[aria-selected="true"]::before {
+  right: 100%;
+  margin-right: 1px;
+  background: radial-gradient(circle at 0 0,
+    transparent calc(var(--gp-fillet) - 1.5px),
+    #efe6cc calc(var(--gp-fillet) - 1px),
+    #efe6cc var(--gp-fillet),
+    #fdf8e9 calc(var(--gp-fillet) + 0.5px));
+}
+
+.gp-tab[aria-selected="true"]::after {
+  left: 100%;
+  margin-left: 1px;
+  background: radial-gradient(circle at 100% 0,
+    transparent calc(var(--gp-fillet) - 1.5px),
+    #efe6cc calc(var(--gp-fillet) - 1px),
+    #efe6cc var(--gp-fillet),
+    #fdf8e9 calc(var(--gp-fillet) + 0.5px));
 }
 
 /* Trailing fade when the strip scrolls, so it reads as scrollable. */
 .gp-tabs[data-overflow="true"]::after {
   content: "";
   position: absolute;
-  top: 3px;
+  top: 0;
   right: 0;
-  bottom: 7px;
+  bottom: 1px;
   width: 40px;
   pointer-events: none;
   background: linear-gradient(90deg, transparent, var(--gp-tabs-fade));
@@ -125,12 +160,31 @@
 
 /* ================================================================= panels */
 
-.gp-panel { display: none; }
-.gp-panel.is-on { display: block; animation: gp-panel-in 0.4s ease both; }
+/* The cream ground moves from the wrapper onto the panel, so the tabs can sit
+   outside it on the page ground. Done with :has() to keep the generated
+   markup as it is; a developer would simply drop the wrapper's classes. */
+div:has(> .gp-tabs) {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+}
 
-@keyframes gp-panel-in {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: none; }
+div:has(> .gp-tabs) > .gp-tabs { margin-bottom: 0; }
+
+.gp-panel { display: none; }
+
+.gp-panel.is-on {
+  display: block;
+  padding: 24px;
+  border: 1px solid #efe6cc;
+  border-top: 0;
+  border-radius: 0 0 18px 18px;
+  background: #fdf8e9;
+}
+
+@media (max-width: 760px) {
+  .gp-panel.is-on { padding: 16px 12px; }
 }
 
 .gp-panel.is-on .gp-row {
@@ -143,24 +197,143 @@
   to { opacity: 1; transform: none; }
 }
 
-/* One gold sweep crosses each row as its panel opens, riding the same stagger
-   as the rows themselves. It is a pseudo-element with pointer-events off, so
-   the stretched row link over it is untouched. */
-.gp-panel.is-on .gp-row { overflow: hidden; }
+/* ================================================================ listing
+   One white sheet with hairlines between rows, instead of a card per row: the
+   rows are one list, and a card each made them read as four separate things.
+   Returns is the figure people choose on, so it carries the weight; the rest
+   is context. Markup is unchanged from site.css, this only restyles it. */
 
-.gp-panel.is-on .gp-row::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(105deg, transparent 38%, rgba(212, 175, 55, 0.18) 50%, transparent 62%);
-  animation: gp-row-sheen 0.9s ease both;
-  animation-delay: calc(var(--r, 0) * 50ms + 140ms);
+.gp-panel {
+  --gp-cols: minmax(210px, 1.7fr) minmax(96px, 1fr) minmax(120px, 1.1fr)
+    minmax(96px, 0.9fr) minmax(110px, 1fr) 80px;
 }
 
-@keyframes gp-row-sheen {
-  from { transform: translateX(-110%); }
-  to { transform: translateX(110%); }
+.gp-rows__head,
+.gp-panel .gp-row {
+  grid-template-columns: var(--gp-cols);
+  column-gap: 20px;
+  padding-left: 24px;
+  padding-right: 20px;
+}
+
+.gp-rows__head { padding-bottom: 10px; letter-spacing: 0.08em; }
+.gp-rows__head span:first-child { visibility: visible; }
+
+.gp-panel .gp-rows {
+  gap: 0;
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid #efe6cc;
+  border-radius: 14px;
+  box-shadow: 0 1px 0 rgba(50, 40, 17, 0.03), 0 12px 32px -20px rgba(50, 40, 17, 0.25);
+}
+
+.gp-panel .gp-row {
+  padding-top: 18px;
+  padding-bottom: 18px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.gp-panel .gp-row + .gp-row { border-top: 1px solid #f1ecdf; }
+
+.gp-panel .gp-row:hover {
+  background: #fffbf0;
+  box-shadow: inset 3px 0 0 var(--mustard);
+}
+
+.gp-panel .gp-row__link::after { border-radius: 0; }
+.gp-panel .gp-row:hover .gp-row__name { text-decoration: underline; text-underline-offset: 3px; }
+
+/* Logo above the name. A fixed height with a width cap evens out logos that
+   arrive at every aspect ratio, pinned left so the names line up under them. */
+.gp-panel .gp-row__identity {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.gp-panel .gp-row__logo {
+  width: auto;
+  max-width: 112px;
+  height: 32px;
+  border-radius: 4px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.gp-panel .gp-row__name { font-size: 15px; letter-spacing: 0.01em; }
+
+.gp-panel .gp-row__value {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--app-heading-color);
+  font-variant-numeric: tabular-nums;
+}
+
+.gp-panel .gp-row__value--returns {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: #06963c;
+}
+
+/* Credit rating as a chip: it is a grade, not a quantity. */
+.gp-panel .gp-row > :nth-child(3) .gp-row__value {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #f7f5f2;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.gp-panel .gp-row__actions { gap: 4px; justify-content: flex-end; }
+
+.gp-panel .gp-row__actions button {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  transition: background-color 0.2s ease;
+}
+
+.gp-panel .gp-row__actions button:hover { background: #f7efd6; }
+.gp-panel .gp-row__actions button:active { transform: scale(0.94); }
+.gp-panel .gp-row__actions img { opacity: 1; }
+
+/* The "view all" link becomes the list's closing action. */
+.gp-panel > .mt-5 { margin-top: 20px; }
+
+.gp-panel > .mt-5 > a {
+  display: inline-block;
+  padding: 10px 22px;
+  border: 1px solid var(--mustard);
+  border-radius: 999px;
+  background: var(--white);
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.gp-panel > .mt-5 > a:hover { background: #f7efd6; }
+.gp-panel > .mt-5 > a:active { transform: translateY(1px); }
+
+@media (max-width: 760px) {
+  .gp-panel .gp-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 16px;
+    padding: 16px;
+  }
+
+  .gp-panel .gp-row__identity { grid-column: 1 / -1; padding-right: 76px; }
+  .gp-panel .gp-row__actions { position: absolute; top: 20px; right: 12px; }
+  .gp-panel .gp-row__value--returns { font-size: 22px; margin-top: 6px; }
 }
 
 .gp-panel__note {
@@ -181,7 +354,6 @@
   .gp-tab img { transition: none; }
   .gp-panel.is-on,
   .gp-panel.is-on .gp-row { animation: none; }
-  .gp-panel.is-on .gp-row::before { display: none; }
 }
 
 /* The header row names each column from 761px up, so the per-row labels, which
@@ -882,3 +1054,119 @@ a.gp-gold-card:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba
 
 /* Small gradient CTA: the size gp-btn--sm had, for row and header buttons. */
 .gp-cta--sm { padding: 9px 18px; font-size: 13px; }
+
+/* ================================================================ webinar
+   Copy left, the webinar video right. The video carries the section, so it
+   gets the larger column; the figures reuse the listing's rule that returns
+   is the number that leads. */
+
+.gp-webinar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 28px;
+  padding: 24px;
+  overflow: hidden;
+}
+
+@media (min-width: 900px) {
+  .gp-webinar {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    align-items: center;
+    gap: 48px;
+    padding: 36px;
+  }
+}
+
+.gp-webinar__issuer {
+  color: var(--subtext);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.gp-webinar__title {
+  margin-top: 8px;
+  font-size: clamp(24px, 2.6vw, 32px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--app-heading-color);
+  text-wrap: balance;
+}
+
+/* Three figures on one line, split by hairlines rather than boxed. */
+.gp-webinar__facts {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: start;
+  margin-top: 28px;
+}
+
+.gp-webinar__facts > div { padding: 0 24px; }
+.gp-webinar__facts > div:first-child { padding-left: 0; }
+.gp-webinar__facts > div + div { border-left: 1px solid #f1ecdf; }
+
+.gp-webinar__facts dt {
+  color: var(--subtext);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.gp-webinar__facts dd {
+  margin-top: 6px;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--app-heading-color);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.gp-webinar__facts dd.gp-webinar__returns {
+  margin-top: 2px;
+  font-size: 28px;
+  line-height: 1.1;
+  color: #06963c;
+}
+
+.gp-webinar__cta { margin-top: 28px; }
+.gp-webinar__cta:active { transform: translateY(1px); }
+
+.gp-webinar__media { margin: 0; }
+
+/* 16:9 frame, a smaller radius than the card's 14px so the nested corners
+   read as one family. The cream ground shows while the player loads. */
+.gp-webinar__frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #fdf8e9;
+  box-shadow: 0 0 0 1px #efe6cc, 0 18px 40px -24px rgba(50, 40, 17, 0.45);
+}
+
+.gp-webinar__frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.gp-webinar__note {
+  margin-top: 12px;
+  color: var(--subtext);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+@media (max-width: 480px) {
+  .gp-webinar__facts { grid-template-columns: repeat(3, minmax(0, auto)); }
+  .gp-webinar__facts > div { padding: 0 12px; }
+  .gp-webinar__facts dt { white-space: normal; }
+  .gp-webinar__facts dd { font-size: 15px; }
+  .gp-webinar__facts dd.gp-webinar__returns { font-size: 22px; }
+}
