@@ -120,61 +120,69 @@
   <!-- ============================================================== hero -->
   <section class="gp-hero">
     <div class="gp-shell pt-6 pb-2">
-    <nav class="t-small t-muted mb-5" aria-label="Breadcrumb">
+    <nav class="t-small t-muted mb-6" aria-label="Breadcrumb">
       <a href="index.html" class="hover:text-ink">Home</a>
       <span class="mx-1.5">&rsaquo;</span>
       <span class="text-ink font-medium">Fixed Deposits</span>
     </nav>
 
     <div class="grid gap-8 md:grid-cols-[1.1fr_0.9fr] md:items-center">
-      <div>
-        <h1 class="t-h1">
-          <span class="text-bronze">Fixed Deposits Online</span><br>
-          <span class="text-ink">Earn up to <span class="gp-hero__figure">8.5% p.a.</span> Interest rate</span>
-        </h1>
-        <p class="mt-3 t-body t-muted">Invest Online in Under 5 Minutes</p>
+      <div data-reveal>
+        <p class="gp-eyebrow mb-5">Invest Online in Under 5 Minutes</p>
 
-        <ul class="mt-6 flex flex-wrap gap-3">
-          <li class="gp-card flex items-center gap-3 px-4 py-3">
+        <h1 class="t-h1">
+          <span class="t-bronze">Fixed Deposits Online</span>
+          <span class="mt-4 block t-h3 text-ink">Earn up to <span class="gp-hero__figure">8.5% p.a.</span> Interest rate</span>
+        </h1>
+
+        <ul class="mt-6 grid gap-3 sm:grid-cols-3 max-w-xl">
+          <li class="gp-card flex items-center gap-3 px-4 py-3 sm:flex-col sm:items-start sm:gap-2">
             <img src="../assets/img/gold-shield.svg" alt="" width="26" height="26">
             <span>
               <span class="block t-small font-bold">Upto &#8377;5L Secured</span>
-              <span class="block t-caption t-muted">RBI's DICGC Insurance</span>
+              <span class="block t-small t-muted">RBI's DICGC Insurance</span>
             </span>
           </li>
-          <li class="gp-card flex items-center gap-3 px-4 py-3">
+          <li class="gp-card flex items-center gap-3 px-4 py-3 sm:flex-col sm:items-start sm:gap-2">
             <img src="../assets/img/gold-flash.svg" alt="" width="26" height="26">
             <span>
               <span class="block t-small font-bold">Instant Withdrawal</span>
-              <span class="block t-caption t-muted">No penalty on early closure</span>
+              <span class="block t-small t-muted">No penalty on early closure</span>
             </span>
           </li>
-          <li class="gp-card flex items-center gap-3 px-4 py-3">
+          <li class="gp-card flex items-center gap-3 px-4 py-3 sm:flex-col sm:items-start sm:gap-2">
             <img src="../assets/img/cal.svg" alt="" width="26" height="26">
             <span>
               <span class="block t-small font-bold">Save Tax</span>
-              <span class="block t-caption t-muted">Under 80C</span>
+              <span class="block t-small t-muted">Under 80C</span>
             </span>
           </li>
         </ul>
 
-        <a class="gp-cta gp-cta--primary mt-7" href="#explore-fds">Explore our FD offerings</a>
+        <div class="mt-8 flex flex-wrap items-center gap-4">
+          <a class="gp-cta gp-cta--primary" href="#explore-fds">Explore our FD offerings</a>
+          <a class="gp-cta gp-cta--secondary" href="corporate-bonds.html">Explore Our Corporate Bonds List</a>
+        </div>
       </div>
 
-      <ul class="grid gap-3 sm:grid-cols-2 md:justify-self-end md:max-w-[340px]">
-        <li class="gp-card px-4 py-3 t-small font-semibold sm:col-span-2">
-          <img src="../assets/img/percentage-icon.png" alt="" width="20" height="20" class="mb-2 inline-block">
-          Extra Returns for Senior citizens and women
-        </li>
-        <li class="gp-card px-4 py-3 t-small font-semibold">
-          <img src="../assets/img/coin-icon.png" alt="" width="20" height="20" class="mb-2 block">
-          Starts at &#8377;1,000
-        </li>
-        <li class="gp-card px-4 py-3 t-small font-semibold">
-          <img src="../assets/img/gold-flash.svg" alt="" width="20" height="20" class="mb-2 block">
-          Instant Booking
-        </li>
-      </ul>
+      <div class="relative mx-auto w-full max-w-[460px]">
+        <img src="../assets/img/post-login-cfd.png" width="587" height="544"
+             class="w-full h-auto mix-blend-multiply [mask-image:radial-gradient(closest-side,#000_65%,transparent)]" alt="Money locker with gold coins">
+        <ul>
+          <li class="gp-card absolute left-0 top-[14%] flex items-center gap-2 px-3 py-2 t-small font-semibold max-w-[75%]">
+            <img src="../assets/img/percentage-icon.png" alt="" width="20" height="20">
+            Extra Returns for Senior citizens and women
+          </li>
+          <li class="gp-card absolute right-0 top-[48%] flex items-center gap-2 px-3 py-2 t-small font-semibold">
+            <img src="../assets/img/coin-icon.png" alt="" width="20" height="20">
+            Starts at &#8377;1,000
+          </li>
+          <li class="gp-card absolute left-[4%] bottom-[12%] flex items-center gap-2 px-3 py-2 t-small font-semibold">
+            <img src="../assets/img/gold-flash.svg" alt="" width="20" height="20">
+            Instant Booking
+          </li>
+        </ul>
+      </div>
     </div>
     </div>
   </section>
