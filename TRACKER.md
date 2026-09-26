@@ -82,6 +82,42 @@ Decisions taken while the user was away, for review:
 - **New CSS in `assets/user.css`**, loaded only by the user pages, so the public
   set is untouched.
 
+### Batch 2 follow-ups (2026-09-26, later session) — on `main` at `ff613c1`
+
+Done, at the user's request:
+
+- **user-explore banner carousel.** The product carousel is now banner slides
+  (copy left, each product page's large illustration right) beside the portfolio
+  card at **60:40** (`.gp-snapshot`, 3fr/2fr, stacks below 900px). Arrows removed;
+  dots and swipe only.
+- **"24x7 Order" tag removed** from the tabbed bond rows (`prod_rows()`). The
+  Discover cards on user-corporate-bonds still carry it.
+- **Pending Orders** (before the listing tabs, a closed `<details>`) and
+  **Recently Viewed** (after the listing) on user-explore only. Neither was in the
+  production capture (the account had no data), so content is transcribed from
+  user-supplied screenshots and marked `DATA:`.
+- **One collections bento on all eight live pages.** Five cards, no full-width
+  sixth row. Source of truth is the collections section of `_final_shell.html`;
+  `_final.collections()` lifts it, `_convert.collections()` swaps or inserts it,
+  `_user.collections()` points it at production. FD and IPO pages (public and
+  user) gained the section after their listing.
+- **Accent card hover bar** on the bottom edge (`final.css`), not the top.
+- **Fresh-clone setup.** README Setup section; the three Playwright scripts find
+  Chromium in the macOS or Linux cache and name the install command when it is
+  missing; `_build.py` no longer rewrites the frozen `-alt`/`-taste` pages.
+  Verified by cloning from GitHub: all assets present, generators reproduce the
+  live pages byte-identical, `check.js` all clean.
+
+Awaiting the user:
+
+- Local test of the whole batch (user is testing; the last two commits were not
+  re-run through `check.js`).
+- Whether collections belong on the FD pages at all — they were not there before.
+- Real Satin Finserv and PFC logos and bond URLs. `satin-finserv-logo.png` and
+  `pfc-logo.png` are crops of a screenshot; those two Recently Viewed cards do
+  not link because no URL was ever seen.
+- Try Again, delete and the "Corporate Bonds" chip in Pending Orders are inert.
+
 ---
 
 ## Issuer design system components
@@ -424,6 +460,8 @@ The 11 collection slugs: `all-bonds`, `best-ongoing-ipos`, `bonds-at-10000`,
 | 2 | Hardcoded snapshot data goes stale as UAT changes | pages show old rates over time | re-run `snap.js` + `extract.py` before any handoff |
 | 3 | The UAT site links one FAQ reference relatively, resolving to a dead path | theirs, not ours | ours points at `goldenpi.com/blog`; worth reporting to their team |
 | 4 | `GPID103493.jpeg` 404s on their S3 | one issuer logo unavailable upstream | not referenced by our pages; no action |
+| 5 | Untracked, unreferenced: `assets/img/Sakthi-Finance-logo.2bo0_59pydyvb.png`, `centrum.03z3lbwh9txmb.png`, `monthly-bonds.1k0mb4ukxxby3.svg`, `skills-lock.json` | none; predates the 2026-09-26 follow-up session | commit, ignore or delete — deletion needs sign-off |
+| 6 | A stale worktree of `main` at `/private/tmp/.../aadc3b6a-.../scratchpad/wt-main` (at `a22c8ae`) blocks `git checkout main` here | local only | `git worktree remove` it, with sign-off |
 
 ## Fixed
 
