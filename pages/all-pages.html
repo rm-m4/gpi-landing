@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>All Pages</title>
+<!-- Index of every page in pages/, for review. Not a GoldenPi page: it has no
+     shared header or footer, and _build.py does not touch it. Hand-maintained:
+     add a row when a page is added (Final or Iterations is a judgement call).
+     node crawl/check.js fails if a page on disk is not listed here, and the tab
+     counts are computed from the lists. -->
+<meta name="robots" content="noindex">
+<link rel="icon" href="../assets/img/goldenpi-logo.svg">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/final.css">
+<style>
+  .ap { max-width: 960px; margin: 0 auto; padding: 48px 16px 80px; }
+  .ap h1 { margin: 16px 0 6px; font-size: clamp(28px, 4vw, 40px); font-weight: 900; letter-spacing: -0.02em; }
+  .ap-sub { margin: 0 0 40px; color: var(--subtext); }
+  .ap h2 { margin: 40px 0 14px; font-size: 22px; font-weight: 700; }
+  .ap h3 { margin: 22px 0 8px; color: #8a6520; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+  .ap-list {
+    margin: 0;
+    padding: 6px;
+    list-style: none;
+    border-radius: var(--gp-radius-lg);
+    background: var(--white);
+    box-shadow: var(--gp-shadow-card);
+    border-bottom: 1px solid var(--gp-card-hairline);
+  }
+  .ap-list a {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 4px 16px;
+    padding: 12px 14px;
+    border-radius: 14px;
+    color: var(--app-heading-color);
+    text-decoration: none;
+  }
+  .ap-list a:hover, .ap-list a:focus-visible { background: #fdf8e9; }
+  .ap-list strong { font-weight: 700; }
+  .ap-tabs { display: inline-flex; gap: 4px; margin: 0 0 8px; padding: 4px; border-radius: 999px; background: var(--white); box-shadow: inset 0 0 0 1px var(--light-stroke); }
+  .ap-tabs button {
+    padding: 9px 20px;
+    border: 0;
+    border-radius: 999px;
+    background: none;
+    color: var(--subtext);
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .ap-tabs button[aria-selected="true"] { background: var(--gp-gradient-gold); color: var(--app-heading-color); }
+  .ap-tabs button:focus-visible { outline: 2px solid #8a6520; outline-offset: 2px; }
+  .ap-count { margin-left: 6px; font-weight: 500; opacity: 0.7; }
+  .ap-list span { color: var(--subtext); font-size: 13px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+</style>
+</head>
+<body>
+<main class="ap">
+  <img src="../assets/img/goldenpi-logo.svg" alt="GoldenPi" width="132" height="30">
+  <h1>All Pages</h1>
+  <p class="ap-sub">Every page in this repo. Final pages are the deliverable; iterations are frozen records of what was tried.</p>
+
+  <div class="ap-tabs" role="tablist" aria-label="Page sets" hidden>
+    <button type="button" role="tab" id="tab-final" aria-controls="panel-final" aria-selected="true">Final<span class="ap-count"></span></button>
+    <button type="button" role="tab" id="tab-iterations" aria-controls="panel-iterations" aria-selected="false" tabindex="-1">Iterations<span class="ap-count"></span></button>
+  </div>
+
+  <!-- ================================================================ final -->
+  <section id="panel-final" role="tabpanel" aria-labelledby="tab-final">
+  <h2>Final</h2>
+
+  <h3>Public</h3>
+  <ul class="ap-list">
+    <li><a href="index.html"><strong>Homepage</strong><span>index.html</span></a></li>
+    <li><a href="corporate-bonds.html"><strong>Corporate Bonds</strong><span>corporate-bonds.html</span></a></li>
+    <li><a href="fixed-deposits.html"><strong>Fixed Deposits</strong><span>fixed-deposits.html</span></a></li>
+    <li><a href="bond-ipo-online.html"><strong>Bond IPOs</strong><span>bond-ipo-online.html</span></a></li>
+    <li><a href="refer-and-earn.html"><strong>Refer &amp; Earn</strong><span>refer-and-earn.html</span></a></li>
+    <li><a href="issuers-akara-capital-advisors-private-limited.html"><strong>Issuer: Akara Capital Advisors</strong><span>issuers-akara-capital-advisors-private-limited.html</span></a></li>
+  </ul>
+
+  <h3>Logged in</h3>
+  <ul class="ap-list">
+    <li><a href="user-explore.html"><strong>Explore</strong><span>user-explore.html</span></a></li>
+    <li><a href="user-corporate-bonds.html"><strong>Corporate Bonds</strong><span>user-corporate-bonds.html</span></a></li>
+    <li><a href="user-fixed-deposits.html"><strong>Fixed Deposits</strong><span>user-fixed-deposits.html</span></a></li>
+    <li><a href="user-bond-ipo-online.html"><strong>Bond IPOs</strong><span>user-bond-ipo-online.html</span></a></li>
+  </ul>
+
+  <h3>Company</h3>
+  <ul class="ap-list">
+    <li><a href="about-us.html"><strong>About Us</strong><span>about-us.html</span></a></li>
+    <li><a href="careers.html"><strong>Careers</strong><span>careers.html</span></a></li>
+    <li><a href="contact-us.html"><strong>Contact Us</strong><span>contact-us.html</span></a></li>
+  </ul>
+
+  <h3>Legal</h3>
+  <ul class="ap-list">
+    <li><a href="privacy-policy.html"><strong>Privacy Policy</strong><span>privacy-policy.html</span></a></li>
+    <li><a href="terms-and-conditions.html"><strong>Terms &amp; Conditions</strong><span>terms-and-conditions.html</span></a></li>
+  </ul>
+
+  </section>
+
+  <!-- =========================================================== iterations -->
+  <section id="panel-iterations" role="tabpanel" aria-labelledby="tab-iterations">
+  <h2>Iterations</h2>
+
+  <h3>Homepage</h3>
+  <ul class="ap-list">
+    <li><a href="index-old.html"><strong>Archive, before conversion</strong><span>index-old.html</span></a></li>
+    <li><a href="index-alt.html"><strong>Elevated</strong><span>index-alt.html</span></a></li>
+    <li><a href="index-taste.html"><strong>Taste</strong><span>index-taste.html</span></a></li>
+  </ul>
+
+  <h3>Corporate Bonds</h3>
+  <ul class="ap-list">
+    <li><a href="corporate-bonds-old.html"><strong>Archive, before conversion</strong><span>corporate-bonds-old.html</span></a></li>
+    <li><a href="corporate-bonds-alt.html"><strong>Elevated</strong><span>corporate-bonds-alt.html</span></a></li>
+    <li><a href="corporate-bonds-taste.html"><strong>Taste, minimalist</strong><span>corporate-bonds-taste.html</span></a></li>
+    <li><a href="corporate-bonds-taste2.html"><strong>Taste 2, high-end</strong><span>corporate-bonds-taste2.html</span></a></li>
+    <li><a href="corporate-bonds-taste3.html"><strong>Taste 3, three-banner hero</strong><span>corporate-bonds-taste3.html</span></a></li>
+  </ul>
+
+  <h3>Fixed Deposits</h3>
+  <ul class="ap-list">
+    <li><a href="fixed-deposits-old.html"><strong>Archive, before conversion</strong><span>fixed-deposits-old.html</span></a></li>
+    <li><a href="fixed-deposits-alt.html"><strong>Elevated</strong><span>fixed-deposits-alt.html</span></a></li>
+    <li><a href="fixed-deposits-taste.html"><strong>Taste</strong><span>fixed-deposits-taste.html</span></a></li>
+  </ul>
+
+  <h3>Bond IPOs</h3>
+  <ul class="ap-list">
+    <li><a href="bond-ipo-online-old.html"><strong>Archive, before conversion</strong><span>bond-ipo-online-old.html</span></a></li>
+    <li><a href="bond-ipo-online-alt.html"><strong>Elevated</strong><span>bond-ipo-online-alt.html</span></a></li>
+    <li><a href="bond-ipo-online-taste.html"><strong>Taste</strong><span>bond-ipo-online-taste.html</span></a></li>
+  </ul>
+  </section>
+</main>
+
+<script>
+// Two tabs. Without script both lists show, one under the other, with their
+// headings; with it the tablist appears and the headings hide (the tab names them).
+(function () {
+  var list = document.querySelector('.ap-tabs');
+  var tabs = [].slice.call(list.querySelectorAll('[role="tab"]'));
+  list.hidden = false;
+  // Counts come from the lists, so adding a row is the only edit a new page needs.
+  tabs.forEach(function (t) {
+    t.querySelector('.ap-count').textContent =
+      document.getElementById(t.getAttribute('aria-controls')).querySelectorAll('li').length;
+  });
+  document.querySelectorAll('[role="tabpanel"] > h2').forEach(function (h) { h.hidden = true; });
+
+  function select(tab) {
+    tabs.forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute('aria-selected', on);
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+    history.replaceState(null, '', '#' + tab.id.replace('tab-', ''));
+  }
+
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { select(t); });
+    t.addEventListener('keydown', function (e) {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      var next = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length];
+      select(next);
+      next.focus();
+    });
+  });
+
+  // #iterations in the URL opens that tab, so a link can point straight at it.
+  select(document.getElementById('tab-' + location.hash.slice(1)) || tabs[0]);
+})();
+</script>
+</body>
+</html>

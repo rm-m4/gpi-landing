@@ -135,6 +135,9 @@ live site uses.
 - **Put shared CSS in `assets/final.css`, not `assets/site.css`.** The frozen
   pages load `site.css` too, so changing it moves them. Only the four live pages
   load `final.css`.
+- **Every new page gets a row in `pages/all-pages.html`**, under Final or
+  Iterations (and a group within it). `check.js` fails with `not listed:` until
+  it does; the tab counts update themselves.
 - **Run `node crawl/check.js` after any edit.** It fails on 404s, console errors,
   images that never decoded, and horizontal overflow at 390px.
 - **Edit the shared shell in `pages/_final_shell.html`**, not in

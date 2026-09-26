@@ -1173,3 +1173,723 @@ a.gp-gold-card:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba
   .gp-webinar__facts dd { font-size: 15px; }
   .gp-webinar__facts dd.gp-webinar__returns { font-size: 22px; }
 }
+
+/* ===================================================================
+   REFER & EARN  (pages/refer-and-earn.html)
+   Built from the finalised components above: gp-hero wash, gp-cta,
+   gp-stats, gp-faq-layout + gp-need-help. Three pieces of motion, each
+   for one reason, all off under prefers-reduced-motion:
+     - the reward banner settles in and a light sweeps it once in a while
+       (it is the offer, so it is where the eye should land)
+     - the hero illustration floats gently (it is the one live visual)
+     - the step rail draws left to right as the steps reveal (sequence) */
+
+/* Hero: GoldenPi's dark ink ground (their dark-theme --app-page-bg #1a1510
+   and --surface-warm #2a2117 / #3d3424) inside the page shell, like the
+   homepage's dark banner. The offer sits on a card in their bond-card gold
+   (--gp-gradient-bond-card), with a second card behind it for depth. */
+.gp-refer-stage {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  gap: 40px;
+  align-items: center;
+  padding: 36px 20px 44px;
+  border-radius: var(--gp-radius-lg);
+  background:
+    radial-gradient(520px 360px at 82% 38%, rgba(230, 179, 37, 0.22), transparent 70%),
+    radial-gradient(420px 260px at 0% 100%, rgba(212, 175, 55, 0.10), transparent 70%),
+    linear-gradient(160deg, #2a2117 0%, #1a1510 58%);
+  box-shadow: inset 0 0 0 1px rgba(212, 175, 55, 0.22), 0 24px 60px -24px rgba(50, 40, 17, 0.55);
+  color: #f4e9c8;
+}
+@media (min-width: 1024px) {
+  .gp-refer-stage { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 48px; padding: 64px 64px 72px; }
+}
+
+.gp-refer-kicker {
+  margin: 0 0 14px;
+  color: #e6b325;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.gp-refer-h1 {
+  margin: 0;
+  max-width: 14ch;
+  color: #f4e9c8;
+  font-size: clamp(34px, 5.2vw, 56px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+.gp-refer-sub {
+  margin: 20px 0 0;
+  max-width: 44ch;
+  color: rgba(244, 233, 200, 0.72);
+  font-size: 16px;
+  line-height: 1.6;
+}
+.gp-refer-sub strong { color: #f7d880; font-weight: 700; }
+@media (min-width: 1024px) { .gp-refer-sub { font-size: 18px; } }
+
+.gp-refer-share { margin-top: 32px; }
+.gp-refer-share img { width: 18px; height: 18px; }
+.gp-refer-share:active { transform: translateY(1px) scale(0.99); }
+/* Phones: the share button floats above the bottom edge for the whole page,
+   so the one action is always a thumb away. The body gets matching room at
+   the bottom so the footer's last line is never hidden under it. */
+@media (max-width: 1023px) {
+  .gp-refer-share {
+    position: fixed;
+    left: 16px;
+    right: 16px;
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    z-index: 40;
+    justify-content: center;
+    margin: 0;
+    box-shadow: 0 12px 28px -8px rgba(50, 40, 17, 0.45);
+  }
+  body:has(.gp-refer-share) { padding-bottom: calc(88px + env(safe-area-inset-bottom, 0px)); }
+}
+
+/* Card pair. Credit-card proportions; the back card is ink with a gold
+   hairline, turned a few degrees, so the gold one reads as lifted off it. */
+.gp-refer-cards {
+  position: relative;
+  width: min(100%, 440px);
+  aspect-ratio: 1.586;
+  margin: 12px auto 8px;
+  perspective: 1000px;
+}
+.gp-refer-card {
+  position: absolute;
+  inset: 0;
+  border-radius: 22px;
+}
+.gp-refer-card--back {
+  transform: translate(7%, -9%) rotate(8deg);
+  background: linear-gradient(145deg, #3d3424, #231c13);
+  box-shadow: inset 0 0 0 1px rgba(230, 179, 37, 0.35);
+}
+.gp-refer-card--front {
+  --rx: 0deg;
+  --ry: 0deg;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 7% 8%;
+  transform: rotate(-4deg) rotateX(var(--rx)) rotateY(var(--ry));
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  background: var(--gp-gradient-bond-card);
+  color: #322811;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.55),
+    inset 0 -1px 0 rgba(120, 88, 0, 0.35),
+    0 30px 50px -20px rgba(0, 0, 0, 0.6),
+    0 10px 20px -10px rgba(190, 144, 9, 0.5);
+}
+.gp-refer-card__logo { position: absolute; top: 9%; left: 8%; width: 30%; height: auto; }
+.gp-refer-card__gift {
+  position: absolute;
+  top: 7%;
+  right: 7%;
+  width: 20%;
+  height: auto;
+  filter: drop-shadow(0 8px 10px rgba(80, 55, 0, 0.35));
+}
+.gp-refer-card__label { margin: 0; font-size: clamp(13px, 3.4vw, 16px); font-weight: 700; opacity: 0.8; }
+.gp-refer-card__figure {
+  margin: 2px 0 0;
+  font-size: clamp(44px, 12vw, 68px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+/* The light that crosses the card. Parked off-card until animated. */
+.gp-refer-card--front::after {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, 0.55) 50%, transparent 60%);
+  transform: translateX(-100%);
+  pointer-events: none;
+}
+
+/* Step rail: a gold line through three icon discs. Vertical on phones. */
+.gp-refer-steps {
+  --disc: 88px;
+  position: relative;
+  display: grid;
+  gap: 28px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.gp-refer-steps::before {
+  content: "";
+  position: absolute;
+  top: calc(var(--disc) / 2);
+  bottom: calc(var(--disc) / 2);
+  left: calc(var(--disc) / 2 - 1px);
+  width: 2px;
+  background: linear-gradient(#e6b325, #b38600);
+  opacity: 0.55;
+  transform-origin: top;
+}
+.gp-refer-steps li {
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--disc) minmax(0, 1fr);
+  column-gap: 16px;
+  align-items: center;
+}
+.gp-refer-steps__icon {
+  grid-row: span 2;
+  display: grid;
+  place-items: center;
+  width: var(--disc);
+  height: var(--disc);
+  border-radius: 50%;
+  background: var(--white);
+  border: 1px solid var(--gp-card-hairline);
+  box-shadow: 0 8px 24px rgba(179, 134, 0, 0.12);
+}
+.gp-refer-steps__icon img { width: 56%; height: 56%; object-fit: contain; }
+.gp-refer-steps__title { margin: 0; align-self: end; font-size: 16px; font-weight: 700; line-height: 1.35; }
+.gp-refer-steps__desc { margin: 4px 0 0; align-self: start; color: var(--subtext); font-size: 14px; line-height: 1.55; }
+
+@media (min-width: 900px) {
+  .gp-refer-steps { --disc: 104px; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; }
+  .gp-refer-steps::before {
+    top: calc(var(--disc) / 2 - 1px);
+    bottom: auto;
+    left: 16.66%;
+    right: 16.66%;
+    width: auto;
+    height: 2px;
+    background: linear-gradient(90deg, #e6b325, #b38600);
+    transform-origin: left;
+  }
+  .gp-refer-steps li { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+  .gp-refer-steps__icon { grid-row: auto; margin-bottom: 18px; }
+  .gp-refer-steps__desc { max-width: 30ch; }
+}
+
+/* One card holds the lead line and the caps; the inner gp-stats row drops its
+   own card so the two read as a single block. */
+.gp-refer-caps {
+  border-radius: var(--gp-radius-lg);
+  background: var(--white);
+  box-shadow: var(--gp-shadow-card);
+  border-bottom: 1px solid var(--gp-card-hairline);
+}
+.gp-refer-lead {
+  margin: 0;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--light-stroke);
+  text-align: center;
+  font-weight: 500;
+  color: var(--app-heading-color);
+}
+.gp-refer-caps .gp-stats { margin: 0; background: none; box-shadow: none; border-bottom: 0; }
+.gp-refer-caps dd { margin: 0; }
+.gp-refer-caps .gp-stats__item { justify-content: flex-start; text-align: center; }
+.gp-refer-caps .gp-stats__value { order: 2; font-size: 24px; font-weight: 900; font-variant-numeric: tabular-nums; }
+/* Below 600px the total wraps to its own row: swap its side rule for a top one. */
+@media (max-width: 599px) {
+  .gp-refer-caps .gp-stats__item:last-child { flex-basis: 100%; margin-top: 8px; padding-top: 14px; border-left: 0; border-top: 1px solid var(--light-stroke); }
+}
+.gp-refer-caps__note { order: 3; color: var(--subtext); font-size: 12px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .gp-refer-copy > * { animation: gp-refer-rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
+  .gp-refer-copy > :nth-child(2) { animation-delay: 0.08s; }
+  .gp-refer-copy > :nth-child(3) { animation-delay: 0.16s; }
+  .gp-refer-copy > :nth-child(4) { animation-delay: 0.24s; }
+  .gp-refer-cards { animation: gp-refer-land 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both; }
+  .gp-refer-card--front::after { animation: gp-refer-sweep 6s 1.2s ease-in-out infinite; }
+
+  .reveal-ready .gp-refer-steps::before { transform: scale(0); transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.15s; }
+  .reveal-ready .gp-refer-steps.is-in::before { transform: none; }
+  .reveal-ready .gp-refer-steps li { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+  .reveal-ready .gp-refer-steps.is-in li { opacity: 1; transform: none; }
+  .reveal-ready .gp-refer-steps.is-in li:nth-child(2) { transition-delay: 0.25s; }
+  .reveal-ready .gp-refer-steps.is-in li:nth-child(3) { transition-delay: 0.5s; }
+  /* The list itself stays put; only its steps and rail move. */
+  .reveal-ready .gp-refer-steps[data-reveal] { opacity: 1; transform: none; }
+}
+
+@keyframes gp-refer-rise { from { opacity: 0; transform: translateY(16px); } }
+@keyframes gp-refer-land { from { opacity: 0; transform: translateY(40px) scale(0.96); } }
+@keyframes gp-refer-sweep { 0% { transform: translateX(-100%); } 28%, 100% { transform: translateX(100%); } }
+
+/* ===================================================================
+   COMPANY PAGES  (about-us, careers, contact-us, privacy-policy,
+   terms-and-conditions; the last two generated by pages/_legal.py)
+   Same parts as the rest of the set: gp-hero wash, 20px white cards with
+   the light-yellow hairline, gold-gradient CTAs, the bond-card gold for
+   the one figure card. Motion, all off under prefers-reduced-motion:
+     - figures count up and the gold card is swept by light once (the
+       numbers are the claim, so that is where the eye should land)
+     - the team mosaic assembles tile by tile as it scrolls in
+     - job cards re-flow in sequence when a team filter changes (state)
+     - a reading bar tracks progress through the legal documents
+   =================================================================== */
+
+.gp-white-card {
+  border-radius: var(--gp-radius-lg);
+  background: var(--white);
+  box-shadow: var(--gp-shadow-card);
+  border-bottom: 1px solid var(--gp-card-hairline);
+}
+
+/* ----------------------------------------------------------- about hero */
+.gp-about-hero { display: grid; gap: 32px; align-items: center; }
+@media (min-width: 900px) {
+  .gp-about-hero { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; }
+}
+.gp-about-hero__claim {
+  max-width: 22ch;
+  font-size: clamp(28px, 3.6vw, 42px);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.gp-about-figures {
+  position: relative;
+  overflow: hidden;
+  padding: 28px 28px 20px;
+  border-radius: var(--gp-radius-lg);
+  background: var(--gp-gradient-bond-card);
+  color: var(--app-heading-color);
+  box-shadow: 0 18px 40px -22px rgba(190, 144, 9, 0.55);
+}
+.gp-about-figures::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, 0.5) 50%, transparent 65%);
+  transform: translateX(-100%);
+  pointer-events: none;
+}
+.gp-about-figures__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.gp-about-figures__grid > div { padding-right: 20px; }
+.gp-about-figures__grid > div + div { padding: 0 0 0 20px; border-left: 1px solid rgba(50, 40, 17, 0.18); }
+.gp-about-figures dd { margin: 0; }
+.gp-about-figures__value {
+  font-size: clamp(24px, 2.7vw, 36px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.gp-about-figures__label { margin-top: 6px !important; font-size: 14px; font-weight: 500; line-height: 1.4; }
+.gp-about-figures__note {
+  margin: 20px -28px -20px;
+  padding: 9px 28px;
+  background: rgba(255, 255, 255, 0.4);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+/* ---------------------------------------------------------- about bento
+   Three cells: licence and partners on the left, vision as the tall gold
+   cell on the right. One column on phones. */
+.gp-about-bento { display: grid; gap: 20px; }
+@media (min-width: 900px) {
+  .gp-about-bento { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
+  .gp-about-cell--vision { grid-column: 2; grid-row: 1 / span 2; }
+}
+.gp-about-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 28px;
+  border-radius: var(--gp-radius-lg);
+  background: var(--white);
+  box-shadow: var(--gp-shadow-card);
+  border-bottom: 1px solid var(--gp-card-hairline);
+}
+.gp-about-cell__title { font-size: var(--t-h3); font-weight: 700; line-height: 1.25; letter-spacing: -0.01em; }
+.gp-about-cell__text { color: var(--subtext); font-size: 15px; line-height: 1.6; max-width: 60ch; }
+.gp-about-cell__text b { color: var(--app-heading-color); }
+
+.gp-about-cell--sebi { flex-direction: row; align-items: center; gap: 28px; flex-wrap: wrap; }
+.gp-about-cell--sebi > div:last-child { flex: 1 1 280px; display: flex; flex-direction: column; gap: 10px; }
+.gp-about-sebi__mark { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 16px 20px; border-radius: 15px; background: #fdf8e9; }
+.gp-about-sebi__mark img { width: 120px; height: auto; }
+.gp-about-sebi__mark .gp-badge { font-variant-numeric: tabular-nums; letter-spacing: 0.04em; }
+
+.gp-about-cell--vision {
+  position: relative;
+  overflow: hidden;
+  min-height: 260px;
+  background:
+    radial-gradient(320px 240px at 90% 100%, rgba(230, 179, 37, 0.35), transparent 70%),
+    linear-gradient(160deg, #fffaf0 0%, #fdf2d0 100%);
+}
+.gp-about-cell--vision .gp-about-cell__text { color: var(--app-heading-color); font-size: 17px; font-weight: 500; }
+.gp-about-vision__art { width: 140px; height: auto; margin-top: auto; align-self: flex-end; }
+
+.gp-logo-wall { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 8px; }
+@media (min-width: 640px) { .gp-logo-wall { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.gp-logo-wall li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 72px;
+  padding: 12px 16px;
+  border: 1px solid var(--light-stroke);
+  border-radius: 15px;
+}
+.gp-logo-wall img { max-width: 100%; max-height: 36px; width: auto; height: auto; object-fit: contain; filter: grayscale(1); opacity: 0.8; transition: filter 0.3s ease, opacity 0.3s ease; }
+.gp-logo-wall li:hover img { filter: none; opacity: 1; }
+
+/* ------------------------------------------------------------ leadership */
+.gp-leaders { display: grid; gap: 20px; }
+@media (min-width: 640px) { .gp-leaders { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.gp-leader { display: grid; grid-template-columns: 96px minmax(0, 1fr); grid-template-rows: auto auto 1fr; column-gap: 18px; row-gap: 2px; align-items: start; padding: 18px; border-radius: var(--gp-radius-lg); background: var(--white); box-shadow: var(--gp-shadow-card); border-bottom: 1px solid var(--gp-card-hairline); }
+.gp-leader__photo { grid-row: 1 / 4; overflow: hidden; width: 96px; height: 96px; border-radius: 15px; background: #f1ece2; }
+.gp-leader__name { margin-top: 6px; }
+.gp-leader__photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+.gp-leader:hover .gp-leader__photo img { transform: scale(1.04); }
+.gp-leader__name { font-size: 17px; font-weight: 700; }
+.gp-leader__role { color: var(--subtext); font-size: 14px; }
+.gp-leader__more {
+  justify-self: start;
+  align-self: end;
+  margin-top: 8px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #8a6520;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: rgba(138, 101, 32, 0.35);
+  text-underline-offset: 4px;
+}
+.gp-leader__more:hover { text-decoration-color: currentColor; }
+
+.gp-leader-dialog {
+  width: min(560px, calc(100% - 32px));
+  max-height: calc(100dvh - 48px);
+  padding: 28px;
+  border: 0;
+  border-radius: var(--gp-radius-lg);
+  background: var(--white);
+  color: var(--app-heading-color);
+  box-shadow: 0 30px 80px -30px rgba(50, 40, 17, 0.45);
+}
+.gp-leader-dialog::backdrop { background: rgba(26, 21, 16, 0.45); backdrop-filter: blur(3px); }
+.gp-leader-dialog__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 9999px;
+  background: #f7f5f2;
+  color: var(--app-heading-color);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+.gp-leader-dialog__head { display: flex; gap: 18px; align-items: center; margin-bottom: 18px; padding-right: 36px; }
+.gp-leader-dialog__head > img { width: 96px; height: 96px; flex: none; border-radius: 15px; object-fit: cover; }
+.gp-leader-dialog__in { display: inline-flex; margin-top: 8px; }
+.gp-leader-dialog__in img { width: 30px; height: 30px; border-radius: 6px; }
+.gp-leader-dialog__bio p { margin: 0 0 12px; color: var(--subtext); font-size: 15px; line-height: 1.69; }
+@media (prefers-reduced-motion: no-preference) {
+  .gp-leader-dialog[open] { animation: gp-dialog-in 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
+  .gp-leader-dialog[open]::backdrop { animation: gp-fade-in 0.35s ease; }
+}
+@keyframes gp-dialog-in { from { opacity: 0; transform: translateY(16px) scale(0.97); } }
+@keyframes gp-fade-in { from { opacity: 0; } }
+
+/* ---------------------------------------------------------- team mosaic
+   Six photos, six cells, no gaps: a 4x3 grid on desktop, 2 columns on
+   phones with the lead and the last photo spanning the width. */
+.gp-mosaic { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 150px; gap: 10px; }
+.gp-mosaic__cell--a, .gp-mosaic__cell--f { grid-column: span 2; }
+.gp-mosaic__cell--a { grid-row: span 2; }
+@media (min-width: 760px) {
+  .gp-mosaic { grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: 160px; }
+  .gp-mosaic__cell--a { grid-column: 1 / 3; grid-row: 1 / 3; }
+  .gp-mosaic__cell--b { grid-column: 3; grid-row: 1 / 3; }
+  .gp-mosaic__cell--c { grid-column: 4; grid-row: 1; }
+  .gp-mosaic__cell--d { grid-column: 4; grid-row: 2; }
+  .gp-mosaic__cell--e { grid-column: 1 / 3; grid-row: 3; }
+  .gp-mosaic__cell--f { grid-column: 3 / 5; grid-row: 3; }
+}
+.gp-mosaic__cell { display: block; overflow: hidden; border-radius: 15px; background: #ece4d5; }
+.gp-mosaic__cell img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+.gp-mosaic__cell:hover img { transform: scale(1.05); }
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-ready .gp-mosaic[data-reveal] { opacity: 1; transform: none; }
+  .reveal-ready .gp-mosaic .gp-mosaic__cell { opacity: 0; transform: scale(0.94); transition: opacity 0.6s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); transition-delay: calc(var(--i) * 90ms); }
+  .reveal-ready .gp-mosaic.is-in .gp-mosaic__cell { opacity: 1; transform: none; }
+}
+
+.gp-about-team { display: grid; gap: 28px; }
+@media (min-width: 900px) { .gp-about-team { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 48px; align-items: center; } }
+.gp-about-team__title { font-size: var(--t-h2); font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; }
+.gp-about-team__text { margin-top: 14px; color: var(--subtext); font-size: 17px; line-height: 1.65; }
+
+/* The closing band: warm, not dark, so the page keeps one theme. */
+.gp-hiring {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: clamp(36px, 5vw, 56px) 24px;
+  border-radius: var(--gp-radius-lg);
+  text-align: center;
+  background:
+    radial-gradient(420px 220px at 50% 0%, rgba(230, 179, 37, 0.28), transparent 70%),
+    linear-gradient(180deg, #fbf3dc 0%, #f4ead2 100%);
+}
+.gp-hiring__title { font-size: var(--t-h2); font-weight: 700; letter-spacing: -0.02em; }
+.gp-hiring__text { max-width: 52ch; color: var(--app-heading-color); font-size: 16px; line-height: 1.6; }
+
+/* --------------------------------------------------------------- careers */
+.gp-careers-hero { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; max-width: 760px; margin-bottom: 36px; }
+.gp-careers-hero__text { color: var(--subtext); font-size: 17px; line-height: 1.65; }
+
+.gp-openings__head { display: grid; gap: 24px; align-items: end; margin-bottom: 28px; }
+@media (min-width: 900px) { .gp-openings__head { grid-template-columns: minmax(0, 1fr) 360px; } }
+.gp-openings__text { margin-top: 10px; max-width: 52ch; color: var(--subtext); font-size: 16px; line-height: 1.6; }
+.gp-openings__art { width: 100%; max-width: 360px; height: auto; justify-self: end; }
+@media (max-width: 899px) { .gp-openings__art { display: none; } }
+
+.gp-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.gp-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border: 1px solid var(--light-stroke);
+  border-radius: 9999px;
+  background: var(--white);
+  color: var(--app-heading-color);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+.gp-chip span { min-width: 20px; padding: 1px 6px; border-radius: 9999px; background: #f7f5f2; font-size: 12px; font-variant-numeric: tabular-nums; }
+.gp-chip:hover { border-color: var(--mustard); }
+.gp-chip[aria-pressed="true"] { border-color: transparent; background: var(--app-heading-color); color: #fdf2d0; }
+.gp-chip[aria-pressed="true"] span { background: rgba(253, 242, 208, 0.18); }
+
+.gp-jobs { display: grid; gap: 16px; }
+@media (min-width: 760px) { .gp-jobs { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; } }
+.gp-job {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 24px;
+  border-radius: var(--gp-radius-lg);
+  background: var(--white);
+  box-shadow: var(--gp-shadow-card);
+  border-bottom: 1px solid var(--gp-card-hairline);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+.gp-job::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 3px;
+  background: var(--gp-gradient-gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.gp-job:hover { transform: translateY(-3px); box-shadow: var(--gp-shadow-lift); }
+.gp-job:hover::after { transform: none; }
+.gp-job__title { font-size: 18px; font-weight: 700; }
+.gp-job__meta { display: flex; flex-wrap: wrap; gap: 6px 16px; color: var(--subtext); font-size: 13px; }
+.gp-job__meta span { display: inline-flex; align-items: center; gap: 6px; }
+.gp-job__desc {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+  color: var(--subtext);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.gp-job .gp-cta { align-self: flex-start; margin-top: auto; }
+@media (prefers-reduced-motion: no-preference) {
+  .gp-job { animation: gp-job-in 0.45s cubic-bezier(0.16, 1, 0.3, 1) both; animation-delay: calc(var(--n, 0) * 45ms); }
+}
+@keyframes gp-job-in { from { opacity: 0; transform: translateY(12px); } }
+
+/* --------------------------------------------------------------- contact */
+.gp-contact { display: grid; gap: 24px; align-items: stretch; }
+@media (min-width: 900px) { .gp-contact { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; } }
+
+.gp-contact__form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: clamp(24px, 3vw, 36px);
+  border-radius: var(--gp-radius-lg);
+  background: var(--white);
+  box-shadow: 0 1px 2px rgba(50, 40, 17, 0.04), 0 18px 40px -24px rgba(50, 40, 17, 0.25);
+  border-bottom: 1px solid var(--gp-card-hairline);
+}
+.gp-contact__title { font-size: var(--t-h2); font-weight: 700; letter-spacing: -0.02em; }
+
+.gp-field { display: flex; flex-direction: column; gap: 8px; }
+.gp-field label { font-size: 14px; font-weight: 700; }
+.gp-field input,
+.gp-field select,
+.gp-field textarea,
+.gp-field__group {
+  width: 100%;
+  border: 1px solid #ebe5d6;
+  border-radius: 14px;
+  background: #faf8f4;
+  color: var(--app-heading-color);
+  font: inherit;
+  font-size: 15px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+.gp-field input, .gp-field select { height: 48px; padding: 0 16px; }
+.gp-field textarea { min-height: 128px; padding: 14px 16px; resize: vertical; }
+.gp-field ::placeholder { color: #7a7266; }
+.gp-field select { appearance: none; cursor: pointer; background-image: url("img/pending-order-arrow-down.svg"); background-repeat: no-repeat; background-position: right 16px center; background-size: 16px; }
+.gp-field select:invalid { color: #7a7266; }
+.gp-field__group { display: flex; align-items: center; }
+.gp-field__group input { height: 46px; border: 0; background: transparent; box-shadow: none !important; }
+.gp-field__prefix { padding: 0 12px 0 16px; border-right: 1px solid #ebe5d6; color: var(--subtext); font-size: 14px; font-weight: 600; }
+.gp-field input:focus-visible,
+.gp-field select:focus-visible,
+.gp-field textarea:focus-visible,
+.gp-field__group:focus-within {
+  outline: none;
+  border-color: var(--mustard);
+  background: var(--white);
+  box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.2);
+}
+.gp-contact__send { width: 100%; margin-top: 4px; }
+/* Inactive until every field is valid, as the live Send is. */
+.gp-contact__form:invalid .gp-contact__send { opacity: 0.5; box-shadow: none; }
+
+.gp-contact__member {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 40px 28px;
+  border-radius: var(--gp-radius-lg);
+  text-align: center;
+  background:
+    radial-gradient(360px 260px at 100% 0%, rgba(255, 255, 255, 0.75), transparent 70%),
+    radial-gradient(480px 320px at 0% 100%, rgba(230, 179, 37, 0.3), transparent 70%),
+    linear-gradient(160deg, #fdf5dc 0%, #f8e7b4 100%);
+}
+.gp-contact__member-title { font-size: var(--t-h2); font-weight: 700; letter-spacing: -0.02em; }
+.gp-contact__member-sub { max-width: 34ch; color: var(--subtext); font-size: 16px; line-height: 1.5; }
+.gp-contact__agent { width: 104px; height: auto; margin: 18px 0 6px; filter: drop-shadow(0 12px 16px rgba(50, 40, 17, 0.18)); }
+.gp-contact__help { font-size: 20px; font-weight: 700; }
+.gp-contact__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 6px; }
+.gp-contact__actions .gp-cta { min-width: 160px; }
+.gp-contact__hours { margin-top: 10px; color: var(--subtext); font-size: 13px; }
+@media (prefers-reduced-motion: no-preference) {
+  .gp-contact__agent { animation: gp-float 5s ease-in-out infinite; }
+}
+@keyframes gp-float { 50% { transform: translateY(-8px); } }
+
+.gp-address {
+  display: grid;
+  overflow: hidden;
+  border-radius: var(--gp-radius-lg);
+  background: var(--white);
+  box-shadow: var(--gp-shadow-card);
+  border-bottom: 1px solid var(--gp-card-hairline);
+}
+@media (min-width: 900px) { .gp-address { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); } }
+.gp-address__map { position: relative; min-height: 300px; background: #f1ece2; }
+.gp-address__map iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; filter: sepia(0.25) saturate(0.9); }
+.gp-address__card { display: flex; flex-direction: column; gap: 6px; padding: clamp(24px, 3vw, 40px); }
+.gp-address__title { margin-bottom: 8px; font-size: var(--t-h2); font-weight: 700; letter-spacing: -0.02em; }
+.gp-address__entity { font-size: 17px; font-weight: 700; }
+.gp-address__sub { color: var(--subtext); font-size: 13px; }
+.gp-address__lines { margin-top: 12px; font-style: normal; font-size: 15px; line-height: 1.6; }
+.gp-address__mail { display: inline-flex; align-items: center; gap: 10px; align-self: flex-start; margin-top: 16px; padding: 10px 16px; border-radius: 9999px; background: #fdf8e9; color: var(--app-heading-color); font-size: 15px; font-weight: 600; text-decoration: none; transition: background 0.25s ease; }
+.gp-address__mail:hover { background: #fdf2d0; }
+
+/* ----------------------------------------------------------------- legal */
+.gp-legal-hero__rule { display: block; width: 64px; height: 3px; margin: 16px 0 18px; border-radius: 2px; background: var(--gp-gradient-gold); }
+.gp-legal-hero__date { font-weight: 600; color: var(--subtext); }
+
+/* Wider rail than the issuer page: these section titles run long. overflow:
+   clip rather than hidden, so the sticky rail still sticks to the viewport. */
+.gp-legal { overflow: clip; }
+@media (min-width: 900px) {
+  .gp-legal { grid-template-columns: 250px minmax(0, 1fr); }
+  .gp-legal .gp-sidenav {
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    padding-right: 12px;
+    border-right: 1px solid #f1ecdf;
+    scrollbar-width: thin;
+  }
+  .gp-legal .gp-sidenav a { padding: 9px 12px 9px 12px; border-bottom: 0; border-left: 2px solid transparent; border-radius: 0 10px 10px 0; }
+  .gp-legal .gp-sidenav a.is-on { border-left-color: var(--mustard); background: #fdf8e9; }
+}
+.gp-legal .gp-sidenav a { transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease; }
+
+.gp-legal__doc { max-width: 820px; }
+.gp-legal__doc p, .gp-legal__doc li { font-size: 15px; line-height: 1.75; }
+.gp-legal__doc a { color: #8a6520; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.gp-legal__doc strong { color: var(--app-heading-color); }
+.gp-legal__lead-title { margin: 28px 0 12px; font-size: var(--t-h3); font-weight: 700; line-height: 1.3; }
+.gp-legal__callout { margin: 24px 0 8px; padding: 18px 22px; border-left: 3px solid var(--mustard); border-radius: 0 15px 15px 0; background: #fdf8e9; }
+.gp-legal__callout p:last-child { margin-bottom: 0; }
+.gp-legal__section { padding-top: 34px; scroll-margin-top: 90px; }
+.gp-legal__section + .gp-legal__section { margin-top: 10px; border-top: 1px solid #f1ecdf; }
+.gp-legal__section h2 { margin: 0 0 14px; font-size: var(--t-h3); font-weight: 700; line-height: 1.3; letter-spacing: -0.01em; }
+.gp-legal__section h3 { margin: 22px 0 8px; font-size: 16px; font-weight: 700; scroll-margin-top: 90px; }
+
+/* Reading progress along the top edge, driven by the page's own scroll. */
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .gp-legal::before {
+      content: "";
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 50;
+      height: 3px;
+      background: var(--gp-gradient-gold);
+      transform-origin: left;
+      animation: gp-read linear both;
+      animation-timeline: scroll(root);
+    }
+  }
+}
+@keyframes gp-read { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+@media (prefers-reduced-motion: no-preference) {
+  .gp-about-figures::after { animation: gp-refer-sweep 7s 1s ease-in-out infinite; }
+  .gp-about-vision__art { animation: gp-float 6s ease-in-out infinite; }
+}

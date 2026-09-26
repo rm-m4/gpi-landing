@@ -1,0 +1,21 @@
+# Netlify: https://gpi-landing.netlify.app, linked to rm-m4/gpi-landing, deploys main.
+# Only pages/ and assets/ are published. The rest of the repo (crawl/ is
+# 340 MB of raw captures, plus content/, node_modules/, notes) stays out.
+# Layout is kept, so the pages' ../assets/ paths resolve unchanged.
+
+[build]
+  command = "rm -rf dist && mkdir dist && cp -R pages assets robots.txt dist/"
+  publish = "dist"
+
+# The bare URL opens the review index.
+[[redirects]]
+  from = "/"
+  to = "/pages/all-pages.html"
+  status = 302
+
+# A replica of goldenpi.com with their regulated content and staging test data:
+# keep every response out of search engines.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"

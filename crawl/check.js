@@ -226,6 +226,22 @@ async function consistencyReport(browser, port) {
 // Scroll-reveal animations only fire as sections enter the viewport, so a
 // full-page screenshot taken without scrolling captures them still hidden.
 // Walk the page first, then return to the top.
+// --------------------------------------------------------------- page index
+// pages/all-pages.html is hand-maintained (a person decides Final or
+// Iterations), so this is what keeps it complete: every page on disk is
+// linked, and every link is a page on disk.
+function indexReport() {
+  const dir = path.join(ROOT, 'pages');
+  const onDisk = fs.readdirSync(dir)
+    .filter((f) => f.endsWith('.html') && !f.startsWith('_') && f !== 'all-pages.html');
+  const html = fs.readFileSync(path.join(dir, 'all-pages.html'), 'utf8');
+  const linked = new Set([...html.matchAll(/href="([^"#/:]+\.html)"/g)].map((m) => m[1]));
+  return [
+    ...onDisk.filter((f) => !linked.has(f)).map((f) => `not listed: ${f} (add a row under Final or Iterations)`),
+    ...[...linked].filter((f) => !onDisk.includes(f)).map((f) => `links to a missing page: ${f}`),
+  ];
+}
+
 async function scrollThrough(page) {
   await page.evaluate(async () => {
     const step = Math.round(window.innerHeight * 0.8);
@@ -350,6 +366,16 @@ const serve = () =>
     bad.slice(0, 12).forEach((b) => console.log(`    ${b}`));
     problems += bad.length;
     await ctx.close();
+  }
+
+  // The page index must list every page. Cheap (reads files, no browser), so
+  // it runs on targeted runs too: adding a page and checking just that page is
+  // exactly when a missing index row would otherwise slip through.
+  const indexDrift = indexReport();
+  if (indexDrift.length) {
+    console.log('\nall-pages.html');
+    indexDrift.forEach((d) => console.log(`    ${d}`));
+    problems += indexDrift.length;
   }
 
   // Cross-page consistency, only on a full run.

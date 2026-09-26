@@ -1,0 +1,9 @@
+alert.svg	bell
+goldenpi-logo.2qzc6yjkqzeqc.svg	GoldenPi
+header-nav-bonds.1h3kbznfomfnx.svg	
+header-nav-fd.2fybbqt4y5m_8.svg	
+header-nav-collection.2bnl0irrjy91r.svg	
+header-nav-bond-utsav.1hztj7yt4kmfg.svg	
+header-nav-ref-earn.3h7zk2vgdlva2.svg	
+header-search.2k7bdlgsxljnb.svg	
+user-icon.1ytalgivehf56.svg	

@@ -29,6 +29,14 @@ ACTIVE = {
     "bond-ipo-online.html": "Bonds",
     # Issuer detail page. No nav item is current on the live site.
     "issuers-akara-capital-advisors-private-limited.html": None,
+    # The label is matched against the markup, so the ampersand is escaped.
+    "refer-and-earn.html": "Refer &amp; Earn",
+    # Company and legal pages. No nav item is current on the live site.
+    "about-us.html": None,
+    "careers.html": None,
+    "contact-us.html": None,
+    "privacy-policy.html": None,
+    "terms-and-conditions.html": None,
 }
 
 SHELL_START = '<a class="gp-skip"'

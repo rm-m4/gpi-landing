@@ -1,0 +1,21 @@
+alert.svg	bell
+goldenpi-logo.2qzc6yjkqzeqc.svg	GoldenPi
+header-nav-bonds.1h3kbznfomfnx.svg	
+header-nav-fd.2fybbqt4y5m_8.svg	
+header-nav-collection.2bnl0irrjy91r.svg	
+header-nav-bond-utsav.1hztj7yt4kmfg.svg	
+header-nav-ref-earn-selected.3fnmx_-578hxc.svg	
+header-search.2k7bdlgsxljnb.svg	
+user-icon.1ytalgivehf56.svg	
+refer-and-earn-title-desktop.1_qrpcp8ie-26.png	Refer and earn upto five lacs
+refer-and-earn-title-mobile.3_uw1u65q9-67.png	Refer and earn upto five lacs
+refere-earn-desktop-share-button.2w9a_w6fh6vno.png	
+refere-earn-mobile-share-button.33uzecfbngo1p.png	
+refer-and-earn-hero-image-desktop.24u31m94bh90a.png	Refer and earn illustration
+refer-and-earn-hero-image-mobile.0u0ayimi1ot-m.png	Refer and earn illustration
+refer-and-earn-step-1-handshake.37kr3f47075a_.png	Refer a friend
+refer-and-earn-step-2-people.0h_m3cv3n35pk.png	Friend invests
+refer-and-earn-step-3-gift.3tj9-9z0br3sh.png	Earn rewards
+refer-and-earn-step-1-handshake-desktop.0y87m4p34_1gf.png	Refer a friend
+refer-and-earn-step-2-people-desktop.44ita9jz2ao2a.png	Friend invests
+refer-and-earn-step-3-gift-desktop.1egy4ccb6zi77.png	Earn rewards

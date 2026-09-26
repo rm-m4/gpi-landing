@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact Us | GoldenPi</title>
+<!-- Contact Us, rebuilt from uatnew.goldenpi.com/contact-us (captured
+     2026-09-26) on the finalised components in assets/final.css. Copy is
+     verbatim from crawl/rendered/contact-us.html; see content/contact-us.md. -->
+<meta name="description" content="Contact us to invest in fixed income investments that offer steady returns at regular intervals.">
+<link rel="icon" href="../assets/img/goldenpi-logo.svg">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/final.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          gold: "#d4af37",
+          ink: "#322811",
+          page: "#f7f5f2",
+          subtext: "#666666",
+          stroke: "#e7e3d9",
+          deep: "#1a1510",
+          bronze: "#8a6520",
+          gain: "#06963c",
+        },
+        fontFamily: {
+          sans: ['"Satoshi"', "ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "Roboto", "sans-serif"],
+        },
+      },
+    },
+  };
+</script>
+</head>
+<body>
+
+<a class="gp-skip" href="#main-content">Skip to main content</a>
+
+<!-- ============================================================ promo bar -->
+<!-- DATA: campaign strip, API-driven on the live site. Snapshot 2026-09-25. -->
+<div class="gp-promo">
+  <div class="gp-promo__track">
+    <span class="gp-promo__item">Earn 11.40% p.a. &middot; Newly Launched Dishman Bond
+      <a href="https://uatnew.goldenpi.com/bonds/INE385W07075/dishman-1100-bond-yield?src=view_details&amp;tenureDate=17-Aug-2027">Invest Now</a></span>
+    <span class="gp-promo__item">Earn up to 10% p.a. &middot; &#128994; Live: Edelweiss NCD IPO
+      <a href="https://uatnew.goldenpi.com/bond-ipo/GPID100778/edelweiss-financial-services-limited">Invest Now</a></span>
+    <span class="gp-promo__item">Earn 12.10% p.a. &middot; Invest in Spandana Sphoorty Bond
+      <a href="https://uatnew.goldenpi.com/bonds/INE572J07810/spandana-1275-bond-yield?src=view_details&amp;tenureDate=26-Apr-2028">Invest Now</a></span>
+    <span class="gp-promo__item">Earn 10% p.a. &middot; Invest in Varthana Finance bond
+      <a href="https://uatnew.goldenpi.com/bonds/INE125T07329/varthana-finance-1000-bond-yield?src=view_details&amp;tenureDate=05-Feb-2027">Invest Now</a></span>
+    <!-- duplicated once so the marquee loop is seamless -->
+    <span class="gp-promo__item" aria-hidden="true">Earn 11.40% p.a. &middot; Newly Launched Dishman Bond</span>
+    <span class="gp-promo__item" aria-hidden="true">Earn up to 10% p.a. &middot; &#128994; Live: Edelweiss NCD IPO</span>
+    <span class="gp-promo__item" aria-hidden="true">Earn 12.10% p.a. &middot; Invest in Spandana Sphoorty Bond</span>
+    <span class="gp-promo__item" aria-hidden="true">Earn 10% p.a. &middot; Invest in Varthana Finance bond</span>
+  </div>
+</div>
+
+<!-- ============================================================== header -->
+<header class="gp-header">
+  <div class="gp-shell gp-header__inner">
+    <a href="index.html" class="flex-none">
+      <img src="../assets/img/goldenpi-logo.svg" alt="GoldenPi" width="132" height="30">
+    </a>
+
+    <nav class="gp-nav" aria-label="Primary">
+      <a class="gp-nav__link" href="corporate-bonds.html">
+        <img src="../assets/img/header-nav-bonds.svg" alt=""> Bonds
+      </a>
+      <a class="gp-nav__link" href="fixed-deposits.html">
+        <img src="../assets/img/header-nav-fd.svg" alt=""> FD
+      </a>
+      <a class="gp-nav__link" href="https://uatnew.goldenpi.com/collections/all-bonds">
+        <img src="../assets/img/header-nav-collection.svg" alt=""> Collection
+      </a>
+      <a class="gp-nav__link" href="https://uatnew.goldenpi.com/bond-utsav">
+        <img src="../assets/img/header-nav-bond-utsav.svg" alt=""> Bond Utsav
+      </a>
+      <a class="gp-nav__link" href="refer-and-earn.html">
+        <img src="../assets/img/header-nav-ref-earn.svg" alt=""> Refer &amp; Earn
+      </a>
+    </nav>
+
+    <div class="gp-search">
+      <img src="../assets/img/header-search.svg" alt="" width="16" height="16">
+      <span>Search for bonds, FD or IPO</span>
+    </div>
+
+    <button type="button" class="gp-cta gp-cta--primary gp-cta--sm flex-none ml-auto lg:ml-0">
+      <img src="../assets/img/user-icon.svg" alt="" width="15" height="15"> Login / Sign up
+    </button>
+  </div>
+</header>
+
+<main id="main-content">
+
+  <!-- ================================================================ hero -->
+  <!-- The live page's two halves side by side: the form card, and the
+       support panel for existing investors. Every label is theirs. -->
+  <section class="gp-hero gp-contact-hero">
+    <div class="gp-shell pt-6 pb-10">
+      <nav class="t-small t-muted mb-6" aria-label="Breadcrumb">
+        <a href="index.html" class="hover:text-ink">Home</a>
+        <span class="mx-1.5">&rsaquo;</span>
+        <span class="text-ink font-medium">Contact Us</span>
+      </nav>
+
+      <div class="gp-contact">
+        <!-- Not wired: the live form posts through reCAPTCHA to their API.
+             Send stays inactive until the form is valid, as on theirs; the
+             script below only stops the submit. -->
+        <form class="gp-contact__form" novalidate data-reveal>
+          <h1 class="gp-contact__title">Write to Us</h1>
+
+          <div class="gp-field">
+            <label for="contact-email">Enter Email</label>
+            <input id="contact-email" name="email" type="email" autocomplete="email" required>
+          </div>
+
+          <div class="gp-field">
+            <label for="contact-mobile">Mobile number</label>
+            <div class="gp-field__group">
+              <span class="gp-field__prefix" aria-label="India country code">+91</span>
+              <input id="contact-mobile" name="mobile" type="tel" inputmode="numeric"
+                     autocomplete="tel-national" pattern="[0-9]{10}" maxlength="10" required>
+            </div>
+          </div>
+
+          <!-- Options read from the live listbox. A native <select> here. -->
+          <div class="gp-field">
+            <label for="contact-topic">I am looking for</label>
+            <select id="contact-topic" name="topic" required>
+              <option value="" selected disabled>I am looking for</option>
+              <option>Bond Investment</option>
+              <option>KYC Process</option>
+              <option>IPO Application</option>
+              <option>Fixed Deposits</option>
+              <option>Interest Payment &amp; TDS</option>
+              <option>Something Else</option>
+            </select>
+          </div>
+
+          <div class="gp-field">
+            <label for="contact-message">Your Message</label>
+            <textarea id="contact-message" name="message" rows="5" placeholder="Your Message" required></textarea>
+          </div>
+
+          <button type="submit" class="gp-cta gp-cta--primary gp-contact__send">Send</button>
+        </form>
+
+        <aside class="gp-contact__member" aria-labelledby="contact-member" data-reveal>
+          <h2 id="contact-member" class="gp-contact__member-title">Already a member?</h2>
+          <p class="gp-contact__member-sub">Have some queries regarding your bond investment?</p>
+          <img class="gp-contact__agent" src="../assets/img/support-1.svg" alt="Customer support" width="100" height="102">
+          <p class="gp-contact__help">Need Help?</p>
+          <div class="gp-contact__actions">
+            <a class="gp-cta gp-cta--primary" href="https://uatnew.goldenpi.com/signup">Login To Contact</a>
+            <a class="gp-cta gp-cta--secondary" href="https://uatnew.goldenpi.com/faq">Read FAQs</a>
+          </div>
+          <p class="gp-contact__hours">Our working hours are 9:00 am to 6:30 pm from Monday to Friday.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ address -->
+  <section class="gp-section gp-section--tight gp-section--flush-top">
+    <div class="gp-shell">
+      <div class="gp-address" data-reveal>
+        <div class="gp-address__map">
+          <iframe title="GoldenPi office location map" loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade" allowfullscreen
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3889.058149949577!2d77.64658855034165!3d12.903982419805274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae149adc349189%3A0xf8c3fe4924859a4e!2sGoldenPi%20Technologies!5e0!3m2!1sen!2sin!4v1594894914768!5m2!1sen!2sin"></iframe>
+        </div>
+        <div class="gp-address__card">
+          <h2 class="gp-address__title">Address</h2>
+          <p class="gp-address__entity">GoldenPi Securities Pvt Ltd</p>
+          <p class="gp-address__sub">(A wholly owned subsidiary of GoldenPi Technologies Pvt Ltd)</p>
+          <address class="gp-address__lines">Indiqube Orion, 24th Main, 1st Sector,<br>HSR Layout, Bangalore South,<br>Bangalore, Karnataka - 560102</address>
+          <a class="gp-address__mail" href="mailto:contact-us@goldenpi.com">
+            <img src="../assets/img/mail.svg" alt="" width="20" height="20">contact-us@goldenpi.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================== footer -->
+<footer class="gp-footer">
+  <div class="gp-shell grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="lg:col-span-2">
+      <img src="../assets/img/goldenpi-logo.svg" alt="GoldenPi" width="132" height="30">
+      <p class="mt-4 font-bold">GoldenPi Securities Pvt Ltd</p>
+      <p class="mt-1 text-subtext">(A wholly owned subsidiary of GoldenPi Technologies Pvt Ltd)</p>
+      <address class="mt-3 not-italic leading-relaxed text-subtext">
+        Indiqube Orion, 24th Main, 1st Sector,<br>
+        HSR Layout, Bangalore South,<br>
+        Bangalore, Karnataka - 560102
+      </address>
+      <p class="mt-3">Contact Us: <a class="font-semibold" href="tel:08045685666">080-45685666</a></p>
+      <p class="mt-1 text-subtext">CIN: U65990KA2022PTC164941</p>
+    </div>
+
+    <div>
+      <h2 class="gp-footer__title">Invest with us</h2>
+      <ul class="space-y-2.5">
+        <li><a href="bond-ipo-online.html">Bond IPOs</a></li>
+        <li><a href="corporate-bonds.html">Bonds</a></li>
+        <li><a href="fixed-deposits.html">Fixed Deposits</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="gp-footer__title">Company</h2>
+      <ul class="space-y-2.5">
+        <li><a href="about-us.html">About us</a></li>
+        <li><a href="careers.html">Career at GoldenPi</a></li>
+        <li><a href="https://uatnew.goldenpi.com/faq">FAQs</a></li>
+        <li><a href="contact-us.html">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="gp-shell border-t border-[color:var(--light-stroke)] py-5 text-subtext">
+    &copy; Copyright 2017 &ndash; 2026 | GoldenPi Securities Pvt. Ltd.
+  </div>
+
+  <div class="gp-footer__legal">
+    <div class="gp-shell space-y-6">
+      <div>
+        <h2>Note to Investors</h2>
+        <p>GoldenPi Securities Pvt. Ltd. (&ldquo;GSPL&rdquo;) is a wholly owned subsidiary of GoldenPi Technologies Pvt. Ltd. (&ldquo;GTPL&rdquo;) and is a SEBI registered broker under BSE new debt segment allowing investors to trade in secondary bonds &amp; debentures through exchange.</p>
+        <p>Fixed returns do not constitute guaranteed or assured returns. Investments in corporate debt securities, municipal debt securities/securitised debt instruments are subject to credit risks, market risks and default risks including delay and/or default in payment. Read all the offer related documents carefully. Investors can update their email id and mobile number with their stock broker / depository participant and receive OTP directly from the depository on email id and/or mobile number to create a pledge. Investors can check their securities / MF / bonds in the consolidated account statement issued by NSDL/CDSL every month.</p>
+        <p>The FAQs on the platform are exclusively for educational information/knowledge and do not influence the investment/sale decisions of any investors. As you are aware, under the rapidly evolving dynamics of financial markets, it is crucial for investors to remain updated and well-informed about various aspects of investing in securities market. In this connection, please find a link to the BSE Investor Protection Fund website where you will find some useful educative material in the form of text and videos, so as to become an informed investor.</p>
+        <p><a class="underline" href="https://www.bseipf.com/investors_education.html">https://www.bseipf.com/investors_education.html</a></p>
+        <p>We believe that an educated investor is a protected investor !!!</p>
+      </div>
+
+      <div>
+        <h2>Important Information:</h2>
+        <div class="gp-pills">
+          <a href="https://uatnew.goldenpi.com/collections/best-ongoing-ipos">Ongoing NCD IPOs</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/Conflict+of+Interest.pdf">Conflict of Interest</a>
+          <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/Regulatory+disclosure.pdf">Regulatory Disclosure</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/GoldenPi_Investor_Charter.pdf">Investor Charter</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/Policies+for+Information.pdf">Policies for Information</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/INVESTOR+GRIEVANCE+REDRESSAL+MECHANISM+Goldenpi.pdf">Investor Grievance</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/RIGHTS+AND+OBLIGATIONS+OF+STOCK+BROKERS+AND+CLIENTS.pdf">Rights &amp; Obligations</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/Investor+Complaint+Report.pdf">Investor Complaints</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/DOs+AND+DONTs.pdf">Dos &amp; Don'ts</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/InvestorAdvisoryNote.pdf">Investor Advisory Note</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/RISK+DISCLOSURE+DOCUMENT+FOR+CAPITAL+MARKET+AND+DERIVATIVES+SEGMENTS.pdf">Risk Disclosure</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/goldenpi_RDDvernacular.zip">RDD in Vernacular</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Freezing_Blocking_Account/Policy_on_Voluntary_Freezing.pdf">Voluntary Freezing/Blocking of Account</a>
+        </div>
+      </div>
+
+      <div>
+        <h2>Collections</h2>
+        <p class="leading-loose">
+          <a class="underline" href="https://uatnew.goldenpi.com/collections/best-ongoing-ipos">Ongoing NCD IPOs</a> |
+          <a class="underline" href="https://uatnew.goldenpi.com/collections/high-yield-bonds">High Yield Bonds (Yield more than 11%)</a> |
+          <a class="underline" href="https://uatnew.goldenpi.com/collections/highly-rated-bonds">Highly Rated Bonds (AAA Rated)</a> |
+          <a class="underline" href="https://uatnew.goldenpi.com/collections/bonds-to-earn-monthly-fixed-income">Bonds to Earn Regular Monthly Income</a> |
+          <a class="underline" href="https://uatnew.goldenpi.com/collections/bonds-maturing-within-a-year">Bonds Maturing within a Year</a> |
+          <a class="underline" href="https://uatnew.goldenpi.com/collections/state-government-guranteed-bonds">State Government Guaranteed Bonds</a> |
+          <a class="underline" href="https://uatnew.goldenpi.com/collections/tax-free-bonds">Tax Free Bonds</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+// Scroll reveal. The .reveal-ready class is added by script, so if this never
+// runs the content simply stays visible rather than staying hidden.
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  document.documentElement.classList.add('reveal-ready');
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('is-in');
+      io.unobserve(e.target);
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.04 });
+
+  document.querySelectorAll('[data-reveal]').forEach(function (el) { io.observe(el); });
+})();
+</script>
+<script>
+// The form is a build reference, not wired to their API: stop the submit so the
+// page does not reload. Send is styled inactive until the form is valid (CSS).
+document.querySelector('.gp-contact__form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  if (!this.checkValidity()) this.reportValidity();
+});
+</script>
+</body>
+</html>

@@ -120,6 +120,44 @@ Awaiting the user:
 
 ---
 
+## Refer & Earn (2026-09-26)
+
+`pages/refer-and-earn.html`, from `uatnew.goldenpi.com/refer-and-earn`. Captured
+first (`crawl/raw/`, `crawl/rendered/`, `crawl/shots/`, 12 images), copy in
+`content/refer-and-earn.md`. Hand-built like the issuer page, on the finalised
+components (`gp-hero`, `gp-cta`, `gp-stats`, `gp-faq-layout`, `gp-need-help`);
+page CSS is the `REFER & EARN` block at the end of `final.css`. The shared nav's
+Refer & Earn link now points here, and `_build.py` syncs its shell.
+`check.js` clean.
+
+- **FAQ answers** are client-rendered on the live page; they were read out of the
+  RSC payload, verbatim.
+- **Hero, re-composed for a premium read (same day).** Dark ink ground from their
+  dark-theme tokens, the offer ("Refer & Earn Upto ₹5 Lacs", the text of their
+  banner image) set as type on a card in their bond-card gold. Their title banner
+  and sticker illustration are no longer used; the illustration's baked-in claims
+  (₹10,000 per referral, 15% fixed return) are not repeated. The share button
+  stays a `<button>`: logged out it opens sign-up. Label shortened to "Share referral
+  link" at the user's request (live: "SHARE THIS LINK TO EARN REWARD"); below 1024px
+  it floats fixed at the bottom of the screen.
+- **Motion:** hero copy rises in order, the card lands, a light crosses it and it
+  tilts toward a mouse pointer; the step rail draws as the steps stagger in. All
+  off under reduced motion.
+- **No generated imagery yet.** Weave (via the Figma connector) is not linked to
+  the account, so nothing was generated.
+- **Two additions, for review.** A reward-caps strip, every string lifted from the
+  FAQ answer that states the caps, and the Need Help card beside the FAQ (as on
+  fixed-deposits). Neither is a section on the live page.
+- **The offer ends 30 Sep 2026** per their own FAQ, four days after capture. The
+  note was removed from the caps card at the user's request; the FAQ answer keeps it.
+  The lead line and the three caps are now one card.
+- **`assets/tokens.css` is partly dead.** The harvester wrote malformed
+  declarations with `{` in them (from line ~1001), which ends `:root` early, so
+  later tokens (`--stroke`, `--gradient-surface-warm`, `--referral-*`) never
+  exist. This page uses literal values; the harvester needs a fix.
+
+---
+
 ## Issuer design system components
 
 `/issuers/akara-capital-advisors-private-limited` is a from-scratch page on the new
