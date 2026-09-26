@@ -158,6 +158,71 @@ Refer & Earn link now points here, and `_build.py` syncs its shell.
 
 ---
 
+## Bond Utsav (2026-09-26)
+
+`pages/bond-utsav.html`, from `uatnew.goldenpi.com/bond-utsav`. **Generated**:
+`python3 pages/_utsav.py && python3 pages/_build.py`. Captured first
+(`crawl/raw/`, `crawl/rendered/`, `crawl/shots/`), copy in `content/bond-utsav.md`;
+page CSS is the `BOND UTSAV` block at the end of `final.css`. The shared nav's
+Bond Utsav link now points here. `check.js` clean.
+
+- **Every tab was captured, not just the first.** The live page renders only the
+  open tab and infinite-scrolls it, so `crawl/utsav_tabs.js` clicks each of the
+  ten tabs and walks to the end: 227 cards in
+  `crawl/rendered/bond-utsav.tabs.json` (All Bonds 50). Re-running it gave the
+  same cards. Non NBFC's repeated Edelweiss / Adani cards are real: several IPO
+  series share one URL.
+- **Banner shown as their art**, like the homepage hero: the Edelweiss NCD IPO
+  offer is baked into the image, so it is not re-typeset. It settles in and a
+  light crosses it once.
+- **Category pills** (revised same day at the user's request, from a supplied
+  pill design): white pills with a cream hairline, icon then label, the open
+  one in heading ink. Two rows of five as the live page splits them, centred
+  from 768px; on phones one scroller holds both rows so they slide together,
+  with a fade when there is more to the right. The strip sticks under the
+  header, and opening a pill from deep in a list scrolls to its top. Behaviour
+  is the shared `_tabs.js`, whose sliding indicator is now optional and which
+  selects by ARIA role (every page inlining it was regenerated; the only diff
+  is the script).
+- **Card redesigned from the user's Figma** (`HRSMFFccdLgqf1YwD7oyc9`, node
+  1:499, used for the card only): gold hairline, issuer with sold under it,
+  large rate on the right, tags, three metrics with hairline dividers, and a
+  gold-gradient note strip with their bolt icon (`utsav-card-bolt.png`, cropped
+  from the Figma asset). New `gp-ucard` classes; the old `gp-utsav-card` rules
+  stay for `bond-utsav1`. Missing parts are left out; the empty strip stays, as
+  in the design. **For review:** the design drops "p.a." after the rate, and has
+  a struck-through old yield that no captured card carries (the generator shows
+  it only if a `was` field is ever captured). The design's noise overlay was
+  not exported as an asset, so it is not used.
+- **Pills now centred on desktop.** `site.css` made `.gp-pills` a flex row, which
+  shrank the track and left it off centre. On phones the two rows centre on
+  each other and start at the edge when they overflow.
+- **Collections bento removed** and the per-tab counts dropped, at the user's
+  request.
+- **For review:** All Bonds carries their chart icon (`all-bonds.svg`), as in the
+  supplied pill design; the live page shows that icon on Non NBFC Bonds and
+  none on All Bonds, so the two pills now share it.
+- **Iterations:** the first build (folder tabs, counts, collections bento) is
+  frozen as `bond-utsav1.html` (was `bond-utsav2`, renamed at the user's
+  request), a static copy. Its CSS is the folder-tab part of the `BOND UTSAV`
+  block, kept for it.
+- **`bond-utsav2.html`, review iteration (2026-09-26, awaiting review).**
+  Written by `_utsav.py` beside `bond-utsav.html` from the same data, so card
+  and data changes carry over; its CSS is the `iteration 2` block at the end
+  of `final.css`, all under `.gp-utsav-v2`. From a redesign-skill audit:
+  (1) once stuck under the header the pill strip folds to one short row of
+  labels (`STUCK_JS`; the strip keeps its height so the grid does not jump);
+  (2) an empty note strip is a thin cream band; (3) the logo holds the name's
+  first line, names balance, and the rate is 32px in the 3-up grid;
+  (4) tags on page cream with a hairline; (5) "p.a." back after the rate;
+  (6) the banner fades into the page; (7) pill icons desaturated until hovered
+  or open; (8) single gap before the footer. Not run through `check.js` yet.
+- **Side effect worth knowing:** regenerating the `user-*` pages also brought in
+  last session's local links (About, Careers, Contact, Terms, Privacy, Refer &
+  Earn), which `_user.py` already produced but the committed pages lacked.
+
+---
+
 ## Company and legal pages (2026-09-26)
 
 `about-us.html`, `careers.html`, `contact-us.html`, `privacy-policy.html`,

@@ -93,7 +93,7 @@
       <a class="gp-nav__link" href="https://uatnew.goldenpi.com/collections/all-bonds">
         <img src="../assets/img/header-nav-collection.svg" alt=""> Collection
       </a>
-      <a class="gp-nav__link" href="https://uatnew.goldenpi.com/bond-utsav">
+      <a class="gp-nav__link" href="bond-utsav.html">
         <img src="../assets/img/header-nav-bond-utsav.svg" alt=""> Bond Utsav
       </a>
       <a class="gp-nav__link" href="refer-and-earn.html">
@@ -1196,16 +1196,19 @@
 // Category tabs. Progressive enhancement: without this the first panel is the
 // only one not marked [hidden], so the page still shows a working listing.
 (function () {
-  var wrap = document.querySelector('.gp-tabs');
+  // .gp-tabs is the folder strip; .gp-pills (bond-utsav) is a pill filter
+  // with no sliding indicator. Both mark their parts up by ARIA role.
+  var wrap = document.querySelector('.gp-tabs, .gp-pills');
   if (!wrap) return;
-  var track = wrap.querySelector('.gp-tabs__track');
+  var track = wrap.querySelector('[role="tablist"]');
   var ink = wrap.querySelector('.gp-tabs__ink');
-  var tabs = [].slice.call(wrap.querySelectorAll('.gp-tab'));
-  if (!track || !ink || !tabs.length) return;
+  var tabs = [].slice.call(wrap.querySelectorAll('[role="tab"]'));
+  if (!track || !tabs.length) return;
 
   var panels = tabs.map(function (t) { return document.getElementById(t.getAttribute('aria-controls')); });
 
   function moveInk(tab) {
+    if (!ink) return;
     ink.style.width = tab.offsetWidth + 'px';
     ink.style.transform = 'translateX(' + tab.offsetLeft + 'px)';
     ink.classList.add('is-ready');

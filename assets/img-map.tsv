@@ -1,5 +1,7 @@
 http://d35kx21znie3xm.cloudfront.net/webtheme/assetsLanding-desktop.webp	assetsLanding-desktop.webp
 http://d35kx21znie3xm.cloudfront.net/webtheme/assetsLanding-mobile.webp	assetsLanding-mobile.webp
+http://d35kx21znie3xm.cloudfront.net/webtheme/bondUtsavBanner-desktop.webp	bondUtsavBanner-desktop.webp
+http://d35kx21znie3xm.cloudfront.net/webtheme/bondUtsavBanner-mobile.webp	bondUtsavBanner-mobile.webp
 http://d35kx21znie3xm.cloudfront.net/webtheme/homePreLoginBanner-desktop.webp	homePreLoginBanner-desktop.webp
 http://d35kx21znie3xm.cloudfront.net/webtheme/homePreLoginBanner-mobile.webp	homePreLoginBanner-mobile.webp
 https://d2tfvseypdp8pf.cloudfront.net/assets/img/AnandRathi.webp	AnandRathi.webp
@@ -12,6 +14,7 @@ https://d2tfvseypdp8pf.cloudfront.net/assets/img/ankur.png	ankur.png
 https://d2tfvseypdp8pf.cloudfront.net/assets/img/arrow_back_2.svg	arrow_back_2.svg
 https://d2tfvseypdp8pf.cloudfront.net/assets/img/atanu.png	atanu.png
 https://d2tfvseypdp8pf.cloudfront.net/assets/img/bhaskar.png	bhaskar.png
+https://d2tfvseypdp8pf.cloudfront.net/assets/img/bond-utsav/all-bonds.svg	all-bonds.svg
 https://d2tfvseypdp8pf.cloudfront.net/assets/img/bonds-at-10k-post-login-home.svg	bonds-at-10k-post-login-home.svg
 https://d2tfvseypdp8pf.cloudfront.net/assets/img/bubble.svg	bubble.svg
 https://d2tfvseypdp8pf.cloudfront.net/assets/img/calc.svg	calc.svg
@@ -133,26 +136,63 @@ https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/blogImages/CF
 https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/blogImages/IPO-1.JPG	IPO-1.JPG
 https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/blogImages/IPO-3.JPG	IPO-3.JPG
 https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/blogImages/IPO-5.png	IPO-5.png
+https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/collection_icons/app-bonds-for-short-term-investment.png	app-bonds-for-short-term-investment.png
+https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/collection_icons/app-gold-backed-bonds.png	app-gold-backed-bonds.png
+https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/collection_icons/app-govt-backed.png	app-govt-backed.png
+https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/collection_icons/app-high-yield-bonds.png	app-high-yield-bonds.png
+https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/collection_icons/app-highly-rated-bonds.png	app-highly-rated-bonds.png
+https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/collection_icons/app-monthly-payout.png	app-monthly-payout.png
+https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/collection_icons/app-starts-at-10k-bonds.png	app-starts-at-10k-bonds.png
 https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/collection_icons/bonds-at-discounted-price.svg	bonds-at-discounted-price.svg
 https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/collection_icons/bonds-icon.svg	bonds-icon.svg
 https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/collection_icons/bonds-to-earn-monthly-fixed-income.svg	bonds-to-earn-monthly-fixed-income.svg
 https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/collection_icons/high-yield-bonds.svg	high-yield-bonds.svg
 https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/collection_icons/highly-rated-bonds.svg	highly-rated-bonds.svg
+https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100004.HDFC BANK LIMITED@2x.png	GPID100004.HDFC-BANK-LIMITED-2x.png
 https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100016.Shriram-Squircle.png	GPID100016.Shriram-Squircle.png
+https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100094.INDIAN RAILWAY FINANCE CORPORATION LIMITED.png	GPID100094.INDIAN-RAILWAY-FINANCE-CORPORATION-LIMITED.png
+https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100099.POWER FINANCE CORPORATION LTD.png	GPID100099.POWER-FINANCE-CORPORATION-LTD.png
 https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100133.Kosamattam Finance Limited.png	GPID100133.Kosamattam-Finance-Limited.png
 https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100379.Bajaj Finserv.png	GPID100379.Bajaj-Finserv.png
+https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100507.HINDUJA LEYLAND FINANCE LIMITED.png	GPID100507.HINDUJA-LEYLAND-FINANCE-LIMITED.png
+https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100700.SPANDANA SPHOORTY FINANCIAL LIMITED@2x.png	GPID100700.SPANDANA-SPHOORTY-FINANCIAL-LIMITED-2x.png
 https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100778.EDELWEISS FINANCIAL SERVICES LIMITED.png	GPID100778.EDELWEISS-FINANCIAL-SERVICES-LIMITED.png
+https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100793.piramalcpital.png	GPID100793.piramalcpital.png
 https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100936.MUTHOOT FINCORP LIMITED_1@2x.png	GPID100936.MUTHOOT-FINCORP-LIMITED_1-2x.png
+https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID101068.NAVI FINSERV LIMITED@2x.png	GPID101068.NAVI-FINSERV-LIMITED-2x.png
+https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID101216.UGRO CAPITAL LIMITED.png	GPID101216.UGRO-CAPITAL-LIMITED.png
+https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID101491.ANDHRA PRADESH STATE BEVERAGES CORPORATION LIMITED.png	GPID101491.ANDHRA-PRADESH-STATE-BEVERAGES-CORPORATION-LIMITED.png
+https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID101761.TATA CAPITAL LIMITED.png	GPID101761.TATA-CAPITAL-LIMITED.png
+https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102496.MUTHOOT CAPITAL SERVICES LIMITED.png	GPID102496.MUTHOOT-CAPITAL-SERVICES-LIMITED.png
+https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102664.IIFLLogo.png	GPID102664.IIFLLogo.png
 https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102671.INDEL MONEY LIMITED@2x.png	GPID102671.INDEL-MONEY-LIMITED-2x.png
+https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102688.keertanafin_logo.jpg.jpeg	GPID102688.keertanafin_logo.jpg.jpeg
 https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102720.AKARA CAPITAL ADVISORS PRIVATE LIMITED@2x.png	GPID102720.AKARA-CAPITAL-ADVISORS-PRIVATE-LIMITED-2x.png
+https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102759.KERALA INFRASTRUCTURE INVESTMENT FUND BOARD.png	GPID102759.KERALA-INFRASTRUCTURE-INVESTMENT-FUND-BOARD.png
+https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103446.MUTHOOTTU MINI FINANCIERS LTD@2x.png	GPID103446.MUTHOOTTU-MINI-FINANCIERS-LTD-2x.png
+https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103532.EARLYSALARY SERVICES PRIVATE LIMITED@2x.png	GPID103532.EARLYSALARY-SERVICES-PRIVATE-LIMITED-2x.png
+https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103646.Tapir Constructions Limited@2x.png	GPID103646.Tapir-Constructions-Limited-2x.png
 https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103761.Screenshot 2024-08-08 171759_11zon.jpg	GPID103761.Screenshot-2024-08-08-171759_11zon.jpg
+https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103817.Screenshot 2024-08-08 165240_11zon.jpg	GPID103817.Screenshot-2024-08-08-165240_11zon.jpg
+https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103845.Screenshot 2024-08-28 171536_11zon.png	GPID103845.Screenshot-2024-08-28-171536_11zon.png
+https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103968.ARMAN FINANCIAL SERVICES LIMITED .png	GPID103968.ARMAN-FINANCIAL-SERVICES-LIMITED-.png
 https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104095.Neogrowth new logo (1).jpg	GPID104095.Neogrowth-new-logo-1-.jpg
+https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104220.dishman_carbogen_amcis_logo_under_80kb.png	GPID104220.dishman_carbogen_amcis_logo_under_80kb.png
+https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104322.ADANI ENTERPRISES LIMITED.png	GPID104322.ADANI-ENTERPRISES-LIMITED.png
+https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104493.Namra.jpg	GPID104493.Namra.jpg
+https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104763.Screenshot 2025-01-23 123637_11zon.png	GPID104763.Screenshot-2025-01-23-123637_11zon.png
+https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID105130.SHARE INDIA SECURITIES LIMITED.png	GPID105130.SHARE-INDIA-SECURITIES-LIMITED.png
 https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID105191.Suryoday.png	GPID105191.Suryoday.png
 https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID105192.Unity.png	GPID105192.Unity.png
 https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID105193.Mahindra-Squircle.png	GPID105193.Mahindra-Squircle.png
+https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID106733.FINNABLE CREDIT PRIVATE LIMITED@2x.png	GPID106733.FINNABLE-CREDIT-PRIVATE-LIMITED-2x.png
 https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID106947.utkarsh_logo.png	GPID106947.utkarsh_logo.png
+https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID106987.Unigold_3020105861.png	GPID106987.Unigold_3020105861.png
+https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID107034.mahaveer_finance_india_ltd_logo.jpg	GPID107034.mahaveer_finance_india_ltd_logo.jpg
+https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID107295.arvog_logo.jpg	GPID107295.arvog_logo.jpg
 https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID107347.Best Capital.png	GPID107347.Best-Capital.png
 https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPIDO09029.newly_added_bonds.png	GPIDO09029.newly_added_bonds.png
+https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPIDO09029.newly_launch_app.png	GPIDO09029.newly_launch_app.png
 https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/images/alert.svg	alert.svg
 https://uatnew.goldenpi.com/_next/static/media/1.14x6wagm2sw5g.jpg	1.jpg
 https://uatnew.goldenpi.com/_next/static/media/3.0t0u669vyzckk.jpg	3.jpg

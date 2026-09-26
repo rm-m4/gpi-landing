@@ -1,0 +1,3462 @@
+{
+ "captured": "2026-09-26T12:30:51.938Z",
+ "tabs": [
+  {
+   "slug": "all_bonds",
+   "label": "All Bonds",
+   "count": 50,
+   "cards": [
+    {
+     "href": "/bonds/GPID107371/neogrowth-1300-bond-yield?src=view_details&tenureDate=30-Apr-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104095.Neogrowth new logo (1).jpg",
+     "issuer": "NEOGROWTH",
+     "tags": [
+      "High YTM",
+      "Newly Launched"
+     ],
+     "rate": "13.00",
+     "sold": "77.56% Sold",
+     "tenure": "1Y 7M",
+     "payout": "Half Yearly",
+     "rating": "ICRA BBB",
+     "note": "Equity Investors: Omidyar Network & IIFL Venture CMS"
+    },
+    {
+     "href": "/bonds/GPID107433/best-capital-1300-bond-yield?src=view_details&tenureDate=11-Sep-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID107347.Best Capital.png",
+     "issuer": "BEST CAPITAL",
+     "tags": [
+      "Regular Income",
+      "NBFC Retail Bond"
+     ],
+     "rate": "13.00",
+     "sold": "10.04% Sold",
+     "tenure": "3Y",
+     "payout": "Monthly",
+     "rating": "IVR BBB",
+     "note": ""
+    },
+    {
+     "href": "/bonds/GPID107435/akara-1300-bond-yield?src=view_details&tenureDate=03-Dec-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102720.AKARA CAPITAL ADVISORS PRIVATE LIMITED@2x.png",
+     "issuer": "AKARA",
+     "tags": [
+      "Newly Launched",
+      "High Yield"
+     ],
+     "rate": "13.00",
+     "sold": "46.38% Sold",
+     "tenure": "1Y 2M",
+     "payout": "Monthly",
+     "rating": "ACUITE BBB+",
+     "note": "Marquee Equity Global Investors Tencent, Blowfish"
+    },
+    {
+     "href": "/bonds/GPID107435/akara-1277-bond-yield?src=view_details&tenureDate=03-May-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102720.AKARA CAPITAL ADVISORS PRIVATE LIMITED@2x.png",
+     "issuer": "AKARA",
+     "tags": [
+      "Newly Launched",
+      "High Yield"
+     ],
+     "rate": "12.77",
+     "sold": "46.38% Sold",
+     "tenure": "7M",
+     "payout": "Monthly",
+     "rating": "ACUITE BBB+",
+     "note": "Marquee Equity Global Investors Tencent, Blowfish"
+    },
+    {
+     "href": "/bonds/GPID107371/neogrowth-1275-bond-yield?src=view_details&tenureDate=30-Jul-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104095.Neogrowth new logo (1).jpg",
+     "issuer": "NEOGROWTH",
+     "tags": [
+      "High YTM",
+      "Newly Launched"
+     ],
+     "rate": "12.75",
+     "sold": "77.56% Sold",
+     "tenure": "10M",
+     "payout": "Half Yearly",
+     "rating": "ICRA BBB",
+     "note": "Equity Investors: Omidyar Network & IIFL Venture CMS"
+    },
+    {
+     "href": "/bonds/GPID107372/dishman-1266-bond-yield?src=view_details&tenureDate=17-Feb-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104220.dishman_carbogen_amcis_logo_under_80kb.png",
+     "issuer": "DISHMAN",
+     "tags": [
+      "Regular Income",
+      "Corporate Bond"
+     ],
+     "rate": "12.66",
+     "sold": "63.68% Sold",
+     "tenure": "5M",
+     "payout": "Half Yearly",
+     "rating": "IND A",
+     "note": ""
+    },
+    {
+     "href": "/bonds/GPID107348/best-capital-1255-bond-yield?src=view_details&tenureDate=24-Oct-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID107347.Best Capital.png",
+     "issuer": "BEST CAPITAL",
+     "tags": [
+      "Regular Income",
+      "NBFC Retail Bond"
+     ],
+     "rate": "12.55",
+     "sold": "94.32% Sold",
+     "tenure": "1Y 1M",
+     "payout": "Monthly",
+     "rating": "IVR BBB",
+     "note": ""
+    },
+    {
+     "href": "/bonds/GPID106980/tapir-1225-bond-yield?src=view_details&tenureDate=12-Mar-2030",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103646.Tapir Constructions Limited@2x.png",
+     "issuer": "TAPIR",
+     "tags": [
+      "Regular Income",
+      "Corporate Bond"
+     ],
+     "rate": "12.25",
+     "sold": "95.05% Sold",
+     "tenure": "3Y 6M",
+     "payout": "Monthly",
+     "rating": "IVR A-",
+     "note": ""
+    },
+    {
+     "href": "/bonds/GPID107346/iifl-samasta-1223-bond-yield?src=view_details&tenureDate=12-May-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102664.IIFLLogo.png",
+     "issuer": "IIFL SAMASTA",
+     "tags": [
+      "Regular Income",
+      "NBFC Retail Bond"
+     ],
+     "rate": "12.23",
+     "sold": "91.23% Sold",
+     "tenure": "8M",
+     "payout": "Monthly",
+     "rating": "CRISIL AA-",
+     "note": ""
+    },
+    {
+     "href": "/bonds/GPID107006/spandana-1210-bond-yield?src=view_details&tenureDate=26-Apr-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100700.SPANDANA SPHOORTY FINANCIAL LIMITED@2x.png",
+     "issuer": "SPANDANA",
+     "tags": [
+      "Regular Income",
+      "NBFC Retail Bond"
+     ],
+     "rate": "12.10",
+     "sold": "94.26% Sold",
+     "tenure": "1Y 7M",
+     "payout": "Monthly",
+     "rating": "CRISIL BBB+",
+     "note": ""
+    },
+    {
+     "href": "/bonds/GPID107296/finkurve-1200-bond-yield?src=view_details&tenureDate=16-Jun-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID107295.arvog_logo.jpg",
+     "issuer": "FINKURVE",
+     "tags": [
+      "Gold Loan Backed",
+      "High YTM"
+     ],
+     "rate": "12.00",
+     "sold": "82.75% Sold",
+     "tenure": "1Y 9M",
+     "payout": "Half Yearly",
+     "rating": "CARE BBB+",
+     "note": "Emerging Gold Loan NBFC backed by Augmont Group"
+    },
+    {
+     "href": "/bonds/GPID107035/mahaveer-1200-bond-yield?src=view_details&tenureDate=26-Nov-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID107034.mahaveer_finance_india_ltd_logo.jpg",
+     "issuer": "MAHAVEER",
+     "tags": [
+      "High Yield"
+     ],
+     "rate": "12.00",
+     "sold": "72.48% Sold",
+     "tenure": "3Y 3M",
+     "payout": "Half Yearly",
+     "rating": "CARE BBB+",
+     "note": "40+ years of Financing expertise & Strong Capital base"
+    },
+    {
+     "href": "/bonds/GPID107434/keertana-1200-bond-yield?src=view_details&tenureDate=16-Dec-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102688.keertanafin_logo.jpg.jpeg",
+     "issuer": "KEERTANA",
+     "tags": [
+      "Newly Launched",
+      "High Yield"
+     ],
+     "rate": "12.00",
+     "sold": "30.29% Sold",
+     "tenure": "2Y 3M",
+     "payout": "Monthly",
+     "rating": "ACUITE A-",
+     "note": "Fast Growing Gold Lender"
+    },
+    {
+     "href": "/bonds/GPID106988/unigold-1197-bond-yield?src=view_details&tenureDate=02-Apr-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID106987.Unigold_3020105861.png",
+     "issuer": "UNIGOLD",
+     "tags": [
+      "Newly Launched",
+      "Gold Loan Backed"
+     ],
+     "rate": "11.97",
+     "sold": "92.09% Sold",
+     "tenure": "1Y 7M",
+     "payout": "Monthly",
+     "rating": "CRISIL BBB",
+     "note": "Fast Growing Gold Loan Lender"
+    },
+    {
+     "href": "/bonds/GPID107006/spandana-1190-bond-yield?src=view_details&tenureDate=26-Jun-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100700.SPANDANA SPHOORTY FINANCIAL LIMITED@2x.png",
+     "issuer": "SPANDANA",
+     "tags": [
+      "Newly Launched",
+      "High Yield"
+     ],
+     "rate": "11.90",
+     "sold": "94.26% Sold",
+     "tenure": "9M",
+     "payout": "Monthly",
+     "rating": "CRISIL BBB+",
+     "note": "Equity Listed with ₹2,400 Cr+ Market Cap"
+    },
+    {
+     "href": "/bonds/GPID107397/satin-finserv-1190-bond-yield?src=view_details&tenureDate=27-Nov-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103817.Screenshot 2024-08-08 165240_11zon.jpg",
+     "issuer": "SATIN FINSERV",
+     "tags": [
+      "High Rated",
+      "High YTM"
+     ],
+     "rate": "11.90",
+     "sold": "65% Sold",
+     "tenure": "2Y 2M",
+     "payout": "Half Yearly",
+     "rating": "ICRA A-",
+     "note": "Emerging MSME focused NBFC backed by Satin Group"
+    },
+    {
+     "href": "/bonds/GPID107399/finnable-1175-bond-yield?src=view_details&tenureDate=31-Jan-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID106733.FINNABLE CREDIT PRIVATE LIMITED@2x.png",
+     "issuer": "FINNABLE",
+     "tags": [
+      "Newly Launched",
+      "High Yield"
+     ],
+     "rate": "11.75",
+     "sold": "33.99% Sold",
+     "tenure": "2Y 5M",
+     "payout": "Monthly",
+     "rating": "CARE BBB+",
+     "note": "Equity Investors: TVS Capital and Matrix Partners"
+    },
+    {
+     "href": "/bonds/GPID107397/satin-finserv-1160-bond-yield?src=view_details&tenureDate=27-Aug-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103817.Screenshot 2024-08-08 165240_11zon.jpg",
+     "issuer": "SATIN FINSERV",
+     "tags": [
+      "High Rated",
+      "High YTM"
+     ],
+     "rate": "11.60",
+     "sold": "65% Sold",
+     "tenure": "11M",
+     "payout": "Half Yearly",
+     "rating": "ICRA A-",
+     "note": "Emerging MSME focused NBFC backed by Satin Group"
+    },
+    {
+     "href": "/bonds/GPID107391/indel-1145-bond-yield?src=view_details&tenureDate=24-Aug-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102671.INDEL MONEY LIMITED@2x.png",
+     "issuer": "INDEL",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "11.45",
+     "sold": "67.29% Sold",
+     "tenure": "2Y 11M",
+     "payout": "Monthly",
+     "rating": "IND A-",
+     "note": "Gold Loan Dominant & Established Regional Presence"
+    },
+    {
+     "href": "/bonds/GPID107434/keertana-1142-bond-yield?src=view_details&tenureDate=16-Jun-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102688.keertanafin_logo.jpg.jpeg",
+     "issuer": "KEERTANA",
+     "tags": [
+      "Newly Launched",
+      "High Yield"
+     ],
+     "rate": "11.42",
+     "sold": "30.29% Sold",
+     "tenure": "9M",
+     "payout": "Monthly",
+     "rating": "ACUITE A-",
+     "note": "Fast Growing Gold Lender"
+    },
+    {
+     "href": "/bonds/GPID107399/finnable-1140-bond-yield?src=view_details&tenureDate=26-Aug-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID106733.FINNABLE CREDIT PRIVATE LIMITED@2x.png",
+     "issuer": "FINNABLE",
+     "tags": [
+      "Newly Launched",
+      "High Yield"
+     ],
+     "rate": "11.40",
+     "sold": "33.99% Sold",
+     "tenure": "11M",
+     "payout": "Monthly",
+     "rating": "CARE BBB+",
+     "note": "Equity Investors: TVS Capital and Matrix Partners"
+    },
+    {
+     "href": "/bonds/GPID107345/arman-1140-bond-yield?src=view_details&tenureDate=25-Sep-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103968.ARMAN FINANCIAL SERVICES LIMITED .png",
+     "issuer": "ARMAN",
+     "tags": [
+      "Newly Launched",
+      "High Yield"
+     ],
+     "rate": "11.40",
+     "sold": "87.22% Sold",
+     "tenure": "2Y",
+     "payout": "Half Yearly",
+     "rating": "ACUITE A-",
+     "note": "Equity Listed with ₹2,000 Cr+ Market Cap"
+    },
+    {
+     "href": "/bonds/GPID107372/dishman-1140-bond-yield?src=view_details&tenureDate=17-Aug-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104220.dishman_carbogen_amcis_logo_under_80kb.png",
+     "issuer": "DISHMAN",
+     "tags": [
+      "Newly Launched"
+     ],
+     "rate": "11.40",
+     "sold": "63.68% Sold",
+     "tenure": "11M",
+     "payout": "Half Yearly",
+     "rating": "IND A",
+     "note": "Listed Entity with ₹2,700 Cr+ Market Cap"
+    },
+    {
+     "href": "/bonds/GPID107331/earlysalaryfibe-1130-bond-yield?src=view_details&tenureDate=07-Jun-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103532.EARLYSALARY SERVICES PRIVATE LIMITED@2x.png",
+     "issuer": "EARLYSALARY(FIBE)",
+     "tags": [
+      "High Rated",
+      "High YTM"
+     ],
+     "rate": "11.30",
+     "sold": "69.85% Sold",
+     "tenure": "2Y 9M",
+     "payout": "Yearly",
+     "rating": "CARE A-",
+     "note": "Upcoming Equity Listing"
+    },
+    {
+     "href": "/bonds/GPID107391/indel-1110-bond-yield?src=view_details&tenureDate=01-Aug-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102671.INDEL MONEY LIMITED@2x.png",
+     "issuer": "INDEL",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "11.10",
+     "sold": "67.29% Sold",
+     "tenure": "10M",
+     "payout": "Monthly",
+     "rating": "IND A-",
+     "note": "Gold Loan Dominant & Established Regional Presence"
+    },
+    {
+     "href": "/bonds/GPID107360/namra-1110-bond-yield?src=view_details&tenureDate=24-Apr-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104493.Namra.jpg",
+     "issuer": "NAMRA",
+     "tags": [
+      "High Rated",
+      "High Yield",
+      "₹30k Bond"
+     ],
+     "rate": "11.10",
+     "sold": "18.78% Sold",
+     "tenure": "1Y 7M",
+     "payout": "Half Yearly",
+     "rating": "ACUITE A-",
+     "note": "MSME & Secured Lending Focus & Growing AUM Base"
+    },
+    {
+     "href": "/bonds/GPID107331/earlysalaryfibe-1100-bond-yield?src=view_details&tenureDate=07-Jun-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103532.EARLYSALARY SERVICES PRIVATE LIMITED@2x.png",
+     "issuer": "EARLYSALARY(FIBE)",
+     "tags": [
+      "High Rated",
+      "High YTM"
+     ],
+     "rate": "11.00",
+     "sold": "69.85% Sold",
+     "tenure": "9M",
+     "payout": "Yearly",
+     "rating": "CARE A-",
+     "note": "Upcoming Equity Listing"
+    },
+    {
+     "href": "/bonds/GPID107351/indel-1086-bond-yield?src=view_details&tenureDate=30-Mar-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102671.INDEL MONEY LIMITED@2x.png",
+     "issuer": "INDEL",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "10.86",
+     "sold": "98.03% Sold",
+     "tenure": "1Y 6M",
+     "payout": "Monthly",
+     "rating": "IND A-",
+     "note": "Gold Loan Dominant & Established Regional Presence"
+    },
+    {
+     "href": "/bonds/GPID107370/share-india-1075-bond-yield?src=view_details&tenureDate=10-Aug-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID105130.SHARE INDIA SECURITIES LIMITED.png",
+     "issuer": "SHARE INDIA",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "10.75",
+     "sold": "74.31% Sold",
+     "tenure": "1Y 11M",
+     "payout": "Monthly",
+     "rating": "CARE A+",
+     "note": "Equity Listed with ₹3,660 Cr+ Market Cap"
+    },
+    {
+     "href": "/bonds/GPID107370/share-india-1050-bond-yield?src=view_details&tenureDate=10-Aug-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID105130.SHARE INDIA SECURITIES LIMITED.png",
+     "issuer": "SHARE INDIA",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "10.50",
+     "sold": "74.31% Sold",
+     "tenure": "11M",
+     "payout": "Monthly",
+     "rating": "CARE A+",
+     "note": "Equity Listed with ₹3,660 Cr+ Market Cap"
+    },
+    {
+     "href": "/bonds/GPID107284/muthoot-fincorp-1050-bond-yield?src=view_details&tenureDate=30-Dec-2033",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100936.MUTHOOT FINCORP LIMITED_1@2x.png",
+     "issuer": "MUTHOOT FINCORP",
+     "tags": [
+      "High Rated"
+     ],
+     "rate": "10.50",
+     "sold": "87.56% Sold",
+     "tenure": "7Y 4M",
+     "payout": "Monthly",
+     "rating": "CRISIL AA",
+     "note": "Backed by a 130+ years Legacy of Trust and Growth"
+    },
+    {
+     "href": "/bonds/GPID106817/navi-dec28-1040-bond-yield?src=view_details&tenureDate=31-Dec-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID101068.NAVI FINSERV LIMITED@2x.png",
+     "issuer": "Navi Dec'28",
+     "tags": [
+      "Popular Choice",
+      "₹10K Bond"
+     ],
+     "rate": "10.40",
+     "sold": "91.23% Sold",
+     "tenure": "2Y 4M",
+     "payout": "Monthly",
+     "rating": "CRISIL A",
+     "note": "Leading Digitial NBFC Backed by Sachin Bansal"
+    },
+    {
+     "href": "/bonds/GPID106749/ugro-capital-limited-1035-bond-yield?src=view_details&tenureDate=16-Jun-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID101216.UGRO CAPITAL LIMITED.png",
+     "issuer": "UGRO CAPITAL LIMITED",
+     "tags": [
+      "Public Listed",
+      "₹10K Bond"
+     ],
+     "rate": "10.35",
+     "sold": "42.45% Sold",
+     "tenure": "2Y 9M",
+     "payout": "Monthly",
+     "rating": "IND A+",
+     "note": "A+ Rated MSME Lender & ₹15K+ Cr AUM"
+    },
+    {
+     "href": "/bonds/GPID107346/iifl-samasta-1025-bond-yield?src=view_details&tenureDate=12-Aug-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102664.IIFLLogo.png",
+     "issuer": "IIFL SAMASTA",
+     "tags": [
+      "High Rated"
+     ],
+     "rate": "10.25",
+     "sold": "91.23% Sold",
+     "tenure": "2Y 11M",
+     "payout": "Monthly",
+     "rating": "CRISIL AA-",
+     "note": "Group AUM is above 98K Cr+"
+    },
+    {
+     "href": "/bonds/GPID107398/muthoot-mcred-1020-bond-yield?src=view_details&tenureDate=07-Aug-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103446.MUTHOOTTU MINI FINANCIERS LTD@2x.png",
+     "issuer": "MUTHOOT MCRED",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "10.20",
+     "sold": "99.4% Sold",
+     "tenure": "2Y 11M",
+     "payout": "Monthly",
+     "rating": "ICRA A",
+     "note": "100% Promoter Owned & Gold backed"
+    },
+    {
+     "href": "/bonds/GPID104858/varthana-finance-private-limited-1000-bond-yield?src=view_details&tenureDate=05-Feb-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104763.Screenshot 2025-01-23 123637_11zon.png",
+     "issuer": "VARTHANA FINANCE PRIVATE LIMITED",
+     "tags": [
+      "Senior",
+      "Secured"
+     ],
+     "rate": "10.00",
+     "sold": "6.34% Sold",
+     "tenure": "4M",
+     "payout": "Half Yearly",
+     "rating": "CRISIL BBB",
+     "note": "Recently acquired by TVS Group"
+    },
+    {
+     "href": "/bonds/GPID107398/muthoot-mcred-995-bond-yield?src=view_details&tenureDate=10-Aug-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103446.MUTHOOTTU MINI FINANCIERS LTD@2x.png",
+     "issuer": "MUTHOOT MCRED",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "9.95",
+     "sold": "99.4% Sold",
+     "tenure": "11M",
+     "payout": "Monthly",
+     "rating": "ICRA A",
+     "note": "100% Promoter Owned & Gold backed"
+    },
+    {
+     "href": "/bonds/GPID107396/muthoot-capital-970-bond-yield?src=view_details&tenureDate=24-Aug-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102496.MUTHOOT CAPITAL SERVICES LIMITED.png",
+     "issuer": "MUTHOOT CAPITAL",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "9.70",
+     "sold": "56.4% Sold",
+     "tenure": "2Y 11M",
+     "payout": "Monthly",
+     "rating": "CRISIL AA-",
+     "note": "Credit Rating Upgraded from CRISIL A+"
+    },
+    {
+     "href": "/bonds/GPID107396/muthoot-capital-950-bond-yield?src=view_details&tenureDate=24-Aug-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102496.MUTHOOT CAPITAL SERVICES LIMITED.png",
+     "issuer": "MUTHOOT CAPITAL",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "9.50",
+     "sold": "56.4% Sold",
+     "tenure": "11M",
+     "payout": "Monthly",
+     "rating": "CRISIL AA-",
+     "note": "Credit Rating Upgraded from CRISIL A+"
+    },
+    {
+     "href": "/bonds/GPID107358/hinduja-910-bond-yield?src=view_details&tenureDate=14-Dec-2032",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100507.HINDUJA LEYLAND FINANCE LIMITED.png",
+     "issuer": "HINDUJA",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "9.10",
+     "sold": "54.21% Sold",
+     "tenure": "6Y 4M",
+     "payout": "Yearly",
+     "rating": "CRISIL AA+",
+     "note": "Backed by the Hinduja Group and Ashok Leyland."
+    },
+    {
+     "href": "/bonds/GPID100974/piramal-capital--housing-finance-limited-885-bond-yield?src=view_details&tenureDate=26-Sep-2031",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100793.piramalcpital.png",
+     "issuer": "PIRAMAL CAPITAL & HOUSING FINANCE LIMITED",
+     "tags": [
+      "Regular Income",
+      "Corporate Bond"
+     ],
+     "rate": "8.85",
+     "sold": "45.54% Sold",
+     "tenure": "5Y 1M",
+     "payout": "Quarterly",
+     "rating": "CARE AA",
+     "note": ""
+    },
+    {
+     "href": "/bonds/GPID106789/adani-enterprises-limited-850-bond-yield?src=view_details&tenureDate=12-Jan-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104322.ADANI ENTERPRISES LIMITED.png",
+     "issuer": "ADANI ENTERPRISES LIMITED",
+     "tags": [
+      "Regular Income",
+      "Corporate Bond"
+     ],
+     "rate": "8.50",
+     "sold": "83.58% Sold",
+     "tenure": "2Y 4M",
+     "payout": "Yearly",
+     "rating": "CARE AA-",
+     "note": ""
+    },
+    {
+     "href": "/bonds/GPID107359/adani-airport-845-bond-yield?src=view_details&tenureDate=12-Feb-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103845.Screenshot 2024-08-28 171536_11zon.png",
+     "issuer": "ADANI AIRPORT",
+     "tags": [
+      "Regular Income",
+      "Corporate Bond"
+     ],
+     "rate": "8.45",
+     "sold": "64.33% Sold",
+     "tenure": "2Y 5M",
+     "payout": "Half Yearly",
+     "rating": "CRISIL AA-",
+     "note": ""
+    },
+    {
+     "href": "/bonds/GPID106795/kerala-infrastructure-investment-fund-board-825-bond-yield?src=view_details&tenureDate=21-Jan-2031",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102759.KERALA INFRASTRUCTURE INVESTMENT FUND BOARD.png",
+     "issuer": "KERALA INFRASTRUCTURE INVESTMENT FUND BOARD",
+     "tags": [
+      "Regular Income",
+      "State Govt Guaranteed"
+     ],
+     "rate": "8.25",
+     "sold": "8% Sold",
+     "tenure": "4Y 5M",
+     "payout": "Half Yearly",
+     "rating": "IND AA",
+     "note": ""
+    },
+    {
+     "href": "/bonds/GPID106739/andhra-pradesh-state-beverages-corporation-limited-800-bond-yield?src=view_details&tenureDate=28-Nov-2031",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID101491.ANDHRA PRADESH STATE BEVERAGES CORPORATION LIMITED.png",
+     "issuer": "ANDHRA PRADESH STATE BEVERAGES CORPORATION LIMITED",
+     "tags": [
+      "Regular Income",
+      "State Govt Guaranteed"
+     ],
+     "rate": "8.00",
+     "sold": "99.89% Sold",
+     "tenure": "5Y 3M",
+     "payout": "Half Yearly",
+     "rating": "IND AA",
+     "note": ""
+    },
+    {
+     "href": "/bonds/GPID101395/tata-capital-limited-740-bond-yield?src=view_details&tenureDate=29-Apr-2032",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID101761.TATA CAPITAL LIMITED.png",
+     "issuer": "TATA CAPITAL LIMITED",
+     "tags": [
+      "Regular Income",
+      "NBFC Corporate Bond"
+     ],
+     "rate": "7.40",
+     "sold": "50% Sold",
+     "tenure": "5Y 8M",
+     "payout": "Yearly",
+     "rating": "CRISIL AAA",
+     "note": ""
+    },
+    {
+     "href": "/bonds/GPID102920/bajaj-finance-ltd-695-bond-yield?src=view_details&tenureDate=02-Dec-2031",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100379.Bajaj Finserv.png",
+     "issuer": "BAJAJ FINANCE LTD",
+     "tags": [
+      "Regular Income",
+      "NBFC Retail Bond"
+     ],
+     "rate": "6.95",
+     "sold": "2% Sold",
+     "tenure": "5Y 3M",
+     "payout": "Yearly",
+     "rating": "CRISIL AAA",
+     "note": ""
+    },
+    {
+     "href": "/bonds/GPID107049/hdfc-bank-685-bond-yield?src=view_details&tenureDate=01-Dec-2031",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100004.HDFC BANK LIMITED@2x.png",
+     "issuer": "HDFC BANK",
+     "tags": [
+      "Regular Income",
+      "Private Sector Bank"
+     ],
+     "rate": "6.85",
+     "sold": "2% Sold",
+     "tenure": "5Y 3M",
+     "payout": "Yearly",
+     "rating": "CRISIL AAA",
+     "note": ""
+    },
+    {
+     "href": "/bonds/GPID101066/power-finance-corporation-limited-685-bond-yield?src=view_details&tenureDate=14-Apr-2032",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100099.POWER FINANCE CORPORATION LTD.png",
+     "issuer": "Power Finance Corporation Limited",
+     "tags": [
+      "Tag 1",
+      "Tag 2",
+      "Tag 3"
+     ],
+     "rate": "6.85",
+     "sold": "0% Sold",
+     "tenure": "5Y 8M",
+     "payout": "Yearly",
+     "rating": "CRISIL AAA",
+     "note": "Hurry up!"
+    },
+    {
+     "href": "/bonds/GPID103812/indian-railway-finance-corporation-limited-670-bond-yield?src=view_details&tenureDate=31-Aug-2031",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100094.INDIAN RAILWAY FINANCE CORPORATION LIMITED.png",
+     "issuer": "Indian Railway Finance Corporation Limited",
+     "tags": [
+      "Regular Income",
+      "PSU Bond"
+     ],
+     "rate": "6.70",
+     "sold": "2% Sold",
+     "tenure": "5Y",
+     "payout": "Yearly",
+     "rating": "CRISIL AAA",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "slug": "newly-launched-bonds",
+   "label": "Newly Launched",
+   "count": 5,
+   "cards": [
+    {
+     "href": "/bonds/GPID107397/satin-finserv-1190-bond-yield?src=view_details&tenureDate=27-Nov-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103817.Screenshot 2024-08-08 165240_11zon.jpg",
+     "issuer": "SATIN FINSERV",
+     "tags": [
+      "High Rated",
+      "High YTM"
+     ],
+     "rate": "11.90",
+     "sold": "65% Sold",
+     "tenure": "2Y 2M",
+     "payout": "Half Yearly",
+     "rating": "ICRA A-",
+     "note": "Emerging MSME focused NBFC backed by Satin Group"
+    },
+    {
+     "href": "/bonds/GPID107399/finnable-1175-bond-yield?src=view_details&tenureDate=31-Jan-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID106733.FINNABLE CREDIT PRIVATE LIMITED@2x.png",
+     "issuer": "FINNABLE",
+     "tags": [
+      "Newly Launched",
+      "High Yield"
+     ],
+     "rate": "11.75",
+     "sold": "33.99% Sold",
+     "tenure": "2Y 5M",
+     "payout": "Monthly",
+     "rating": "CARE BBB+",
+     "note": "Equity Investors: TVS Capital and Matrix Partners"
+    },
+    {
+     "href": "/bonds/GPID107391/indel-1145-bond-yield?src=view_details&tenureDate=24-Aug-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102671.INDEL MONEY LIMITED@2x.png",
+     "issuer": "INDEL",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "11.45",
+     "sold": "67.29% Sold",
+     "tenure": "2Y 11M",
+     "payout": "Monthly",
+     "rating": "IND A-",
+     "note": "Gold Loan Dominant & Established Regional Presence"
+    },
+    {
+     "href": "/bonds/GPID107372/dishman-1140-bond-yield?src=view_details&tenureDate=17-Aug-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104220.dishman_carbogen_amcis_logo_under_80kb.png",
+     "issuer": "DISHMAN",
+     "tags": [
+      "Newly Launched"
+     ],
+     "rate": "11.40",
+     "sold": "63.68% Sold",
+     "tenure": "11M",
+     "payout": "Half Yearly",
+     "rating": "IND A",
+     "note": "Listed Entity with ₹2,700 Cr+ Market Cap"
+    },
+    {
+     "href": "/bonds/GPID107396/muthoot-capital-970-bond-yield?src=view_details&tenureDate=24-Aug-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102496.MUTHOOT CAPITAL SERVICES LIMITED.png",
+     "issuer": "MUTHOOT CAPITAL",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "9.70",
+     "sold": "56.4% Sold",
+     "tenure": "2Y 11M",
+     "payout": "Monthly",
+     "rating": "CRISIL AA-",
+     "note": "Credit Rating Upgraded from CRISIL A+"
+    }
+   ]
+  },
+  {
+   "slug": "high-yield-bonds",
+   "label": "High Returns",
+   "count": 26,
+   "cards": [
+    {
+     "href": "/bonds/GPID107371/neogrowth-1300-bond-yield?src=view_details&tenureDate=30-Apr-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104095.Neogrowth new logo (1).jpg",
+     "issuer": "NEOGROWTH",
+     "tags": [
+      "High YTM",
+      "Newly Launched"
+     ],
+     "rate": "13.00",
+     "sold": "77.56% Sold",
+     "tenure": "1Y 7M",
+     "payout": "Half Yearly",
+     "rating": "ICRA BBB",
+     "note": "Equity Investors: Omidyar Network & IIFL Venture CMS"
+    },
+    {
+     "href": "/bonds/GPID107433/best-capital-1300-bond-yield?src=view_details&tenureDate=11-Sep-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID107347.Best Capital.png",
+     "issuer": "BEST CAPITAL",
+     "tags": [
+      "Regular Income",
+      "NBFC Retail Bond"
+     ],
+     "rate": "13.00",
+     "sold": "10.04% Sold",
+     "tenure": "3Y",
+     "payout": "Monthly",
+     "rating": "IVR BBB",
+     "note": ""
+    },
+    {
+     "href": "/bonds/GPID107435/akara-1300-bond-yield?src=view_details&tenureDate=03-Dec-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102720.AKARA CAPITAL ADVISORS PRIVATE LIMITED@2x.png",
+     "issuer": "AKARA",
+     "tags": [
+      "Newly Launched",
+      "High Yield"
+     ],
+     "rate": "13.00",
+     "sold": "46.38% Sold",
+     "tenure": "1Y 2M",
+     "payout": "Monthly",
+     "rating": "ACUITE BBB+",
+     "note": "Marquee Equity Global Investors Tencent, Blowfish"
+    },
+    {
+     "href": "/bonds/GPID107435/akara-1277-bond-yield?src=view_details&tenureDate=03-May-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102720.AKARA CAPITAL ADVISORS PRIVATE LIMITED@2x.png",
+     "issuer": "AKARA",
+     "tags": [
+      "Newly Launched",
+      "High Yield"
+     ],
+     "rate": "12.77",
+     "sold": "46.38% Sold",
+     "tenure": "7M",
+     "payout": "Monthly",
+     "rating": "ACUITE BBB+",
+     "note": "Marquee Equity Global Investors Tencent, Blowfish"
+    },
+    {
+     "href": "/bonds/GPID107371/neogrowth-1275-bond-yield?src=view_details&tenureDate=30-Jul-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104095.Neogrowth new logo (1).jpg",
+     "issuer": "NEOGROWTH",
+     "tags": [
+      "High YTM",
+      "Newly Launched"
+     ],
+     "rate": "12.75",
+     "sold": "77.56% Sold",
+     "tenure": "10M",
+     "payout": "Half Yearly",
+     "rating": "ICRA BBB",
+     "note": "Equity Investors: Omidyar Network & IIFL Venture CMS"
+    },
+    {
+     "href": "/bonds/GPID107372/dishman-1266-bond-yield?src=view_details&tenureDate=17-Feb-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104220.dishman_carbogen_amcis_logo_under_80kb.png",
+     "issuer": "DISHMAN",
+     "tags": [
+      "Regular Income",
+      "Corporate Bond"
+     ],
+     "rate": "12.66",
+     "sold": "63.68% Sold",
+     "tenure": "5M",
+     "payout": "Half Yearly",
+     "rating": "IND A",
+     "note": ""
+    },
+    {
+     "href": "/bonds/GPID107348/best-capital-1255-bond-yield?src=view_details&tenureDate=24-Oct-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID107347.Best Capital.png",
+     "issuer": "BEST CAPITAL",
+     "tags": [
+      "Regular Income",
+      "NBFC Retail Bond"
+     ],
+     "rate": "12.55",
+     "sold": "94.32% Sold",
+     "tenure": "1Y 1M",
+     "payout": "Monthly",
+     "rating": "IVR BBB",
+     "note": ""
+    },
+    {
+     "href": "/bonds/GPID106980/tapir-1225-bond-yield?src=view_details&tenureDate=12-Mar-2030",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103646.Tapir Constructions Limited@2x.png",
+     "issuer": "TAPIR",
+     "tags": [
+      "Regular Income",
+      "Corporate Bond"
+     ],
+     "rate": "12.25",
+     "sold": "95.05% Sold",
+     "tenure": "3Y 6M",
+     "payout": "Monthly",
+     "rating": "IVR A-",
+     "note": ""
+    },
+    {
+     "href": "/bonds/GPID107346/iifl-samasta-1223-bond-yield?src=view_details&tenureDate=12-May-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102664.IIFLLogo.png",
+     "issuer": "IIFL SAMASTA",
+     "tags": [
+      "Regular Income",
+      "NBFC Retail Bond"
+     ],
+     "rate": "12.23",
+     "sold": "91.23% Sold",
+     "tenure": "8M",
+     "payout": "Monthly",
+     "rating": "CRISIL AA-",
+     "note": ""
+    },
+    {
+     "href": "/bonds/GPID107006/spandana-1210-bond-yield?src=view_details&tenureDate=26-Apr-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100700.SPANDANA SPHOORTY FINANCIAL LIMITED@2x.png",
+     "issuer": "SPANDANA",
+     "tags": [
+      "Regular Income",
+      "NBFC Retail Bond"
+     ],
+     "rate": "12.10",
+     "sold": "94.26% Sold",
+     "tenure": "1Y 7M",
+     "payout": "Monthly",
+     "rating": "CRISIL BBB+",
+     "note": ""
+    },
+    {
+     "href": "/bonds/GPID107035/mahaveer-1200-bond-yield?src=view_details&tenureDate=26-Nov-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID107034.mahaveer_finance_india_ltd_logo.jpg",
+     "issuer": "MAHAVEER",
+     "tags": [
+      "High Yield"
+     ],
+     "rate": "12.00",
+     "sold": "72.48% Sold",
+     "tenure": "3Y 3M",
+     "payout": "Half Yearly",
+     "rating": "CARE BBB+",
+     "note": "40+ years of Financing expertise & Strong Capital base"
+    },
+    {
+     "href": "/bonds/GPID107296/finkurve-1200-bond-yield?src=view_details&tenureDate=16-Jun-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID107295.arvog_logo.jpg",
+     "issuer": "FINKURVE",
+     "tags": [
+      "Gold Loan Backed",
+      "High YTM"
+     ],
+     "rate": "12.00",
+     "sold": "82.75% Sold",
+     "tenure": "1Y 9M",
+     "payout": "Half Yearly",
+     "rating": "CARE BBB+",
+     "note": "Emerging Gold Loan NBFC backed by Augmont Group"
+    },
+    {
+     "href": "/bonds/GPID107434/keertana-1200-bond-yield?src=view_details&tenureDate=16-Dec-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102688.keertanafin_logo.jpg.jpeg",
+     "issuer": "KEERTANA",
+     "tags": [
+      "Newly Launched",
+      "High Yield"
+     ],
+     "rate": "12.00",
+     "sold": "30.29% Sold",
+     "tenure": "2Y 3M",
+     "payout": "Monthly",
+     "rating": "ACUITE A-",
+     "note": "Fast Growing Gold Lender"
+    },
+    {
+     "href": "/bonds/GPID106988/unigold-1197-bond-yield?src=view_details&tenureDate=02-Apr-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID106987.Unigold_3020105861.png",
+     "issuer": "UNIGOLD",
+     "tags": [
+      "Newly Launched",
+      "Gold Loan Backed"
+     ],
+     "rate": "11.97",
+     "sold": "92.09% Sold",
+     "tenure": "1Y 7M",
+     "payout": "Monthly",
+     "rating": "CRISIL BBB",
+     "note": "Fast Growing Gold Loan Lender"
+    },
+    {
+     "href": "/bonds/GPID107006/spandana-1190-bond-yield?src=view_details&tenureDate=26-Jun-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100700.SPANDANA SPHOORTY FINANCIAL LIMITED@2x.png",
+     "issuer": "SPANDANA",
+     "tags": [
+      "Newly Launched",
+      "High Yield"
+     ],
+     "rate": "11.90",
+     "sold": "94.26% Sold",
+     "tenure": "9M",
+     "payout": "Monthly",
+     "rating": "CRISIL BBB+",
+     "note": "Equity Listed with ₹2,400 Cr+ Market Cap"
+    },
+    {
+     "href": "/bonds/GPID107397/satin-finserv-1190-bond-yield?src=view_details&tenureDate=27-Nov-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103817.Screenshot 2024-08-08 165240_11zon.jpg",
+     "issuer": "SATIN FINSERV",
+     "tags": [
+      "High Rated",
+      "High YTM"
+     ],
+     "rate": "11.90",
+     "sold": "65% Sold",
+     "tenure": "2Y 2M",
+     "payout": "Half Yearly",
+     "rating": "ICRA A-",
+     "note": "Emerging MSME focused NBFC backed by Satin Group"
+    },
+    {
+     "href": "/bonds/GPID107399/finnable-1175-bond-yield?src=view_details&tenureDate=31-Jan-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID106733.FINNABLE CREDIT PRIVATE LIMITED@2x.png",
+     "issuer": "FINNABLE",
+     "tags": [
+      "Newly Launched",
+      "High Yield"
+     ],
+     "rate": "11.75",
+     "sold": "33.99% Sold",
+     "tenure": "2Y 5M",
+     "payout": "Monthly",
+     "rating": "CARE BBB+",
+     "note": "Equity Investors: TVS Capital and Matrix Partners"
+    },
+    {
+     "href": "/bonds/GPID107397/satin-finserv-1160-bond-yield?src=view_details&tenureDate=27-Aug-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103817.Screenshot 2024-08-08 165240_11zon.jpg",
+     "issuer": "SATIN FINSERV",
+     "tags": [
+      "High Rated",
+      "High YTM"
+     ],
+     "rate": "11.60",
+     "sold": "65% Sold",
+     "tenure": "11M",
+     "payout": "Half Yearly",
+     "rating": "ICRA A-",
+     "note": "Emerging MSME focused NBFC backed by Satin Group"
+    },
+    {
+     "href": "/bonds/GPID107391/indel-1145-bond-yield?src=view_details&tenureDate=24-Aug-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102671.INDEL MONEY LIMITED@2x.png",
+     "issuer": "INDEL",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "11.45",
+     "sold": "67.29% Sold",
+     "tenure": "2Y 11M",
+     "payout": "Monthly",
+     "rating": "IND A-",
+     "note": "Gold Loan Dominant & Established Regional Presence"
+    },
+    {
+     "href": "/bonds/GPID107434/keertana-1142-bond-yield?src=view_details&tenureDate=16-Jun-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102688.keertanafin_logo.jpg.jpeg",
+     "issuer": "KEERTANA",
+     "tags": [
+      "Newly Launched",
+      "High Yield"
+     ],
+     "rate": "11.42",
+     "sold": "30.29% Sold",
+     "tenure": "9M",
+     "payout": "Monthly",
+     "rating": "ACUITE A-",
+     "note": "Fast Growing Gold Lender"
+    },
+    {
+     "href": "/bonds/GPID107399/finnable-1140-bond-yield?src=view_details&tenureDate=26-Aug-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID106733.FINNABLE CREDIT PRIVATE LIMITED@2x.png",
+     "issuer": "FINNABLE",
+     "tags": [
+      "Newly Launched",
+      "High Yield"
+     ],
+     "rate": "11.40",
+     "sold": "33.99% Sold",
+     "tenure": "11M",
+     "payout": "Monthly",
+     "rating": "CARE BBB+",
+     "note": "Equity Investors: TVS Capital and Matrix Partners"
+    },
+    {
+     "href": "/bonds/GPID107372/dishman-1140-bond-yield?src=view_details&tenureDate=17-Aug-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104220.dishman_carbogen_amcis_logo_under_80kb.png",
+     "issuer": "DISHMAN",
+     "tags": [
+      "Newly Launched"
+     ],
+     "rate": "11.40",
+     "sold": "63.68% Sold",
+     "tenure": "11M",
+     "payout": "Half Yearly",
+     "rating": "IND A",
+     "note": "Listed Entity with ₹2,700 Cr+ Market Cap"
+    },
+    {
+     "href": "/bonds/GPID107345/arman-1140-bond-yield?src=view_details&tenureDate=25-Sep-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103968.ARMAN FINANCIAL SERVICES LIMITED .png",
+     "issuer": "ARMAN",
+     "tags": [
+      "Newly Launched",
+      "High Yield"
+     ],
+     "rate": "11.40",
+     "sold": "87.22% Sold",
+     "tenure": "2Y",
+     "payout": "Half Yearly",
+     "rating": "ACUITE A-",
+     "note": "Equity Listed with ₹2,000 Cr+ Market Cap"
+    },
+    {
+     "href": "/bonds/GPID107331/earlysalaryfibe-1130-bond-yield?src=view_details&tenureDate=07-Jun-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103532.EARLYSALARY SERVICES PRIVATE LIMITED@2x.png",
+     "issuer": "EARLYSALARY(FIBE)",
+     "tags": [
+      "High Rated",
+      "High YTM"
+     ],
+     "rate": "11.30",
+     "sold": "69.85% Sold",
+     "tenure": "2Y 9M",
+     "payout": "Yearly",
+     "rating": "CARE A-",
+     "note": "Upcoming Equity Listing"
+    },
+    {
+     "href": "/bonds/GPID107391/indel-1110-bond-yield?src=view_details&tenureDate=01-Aug-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102671.INDEL MONEY LIMITED@2x.png",
+     "issuer": "INDEL",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "11.10",
+     "sold": "67.29% Sold",
+     "tenure": "10M",
+     "payout": "Monthly",
+     "rating": "IND A-",
+     "note": "Gold Loan Dominant & Established Regional Presence"
+    },
+    {
+     "href": "/bonds/GPID107360/namra-1110-bond-yield?src=view_details&tenureDate=24-Apr-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104493.Namra.jpg",
+     "issuer": "NAMRA",
+     "tags": [
+      "High Rated",
+      "High Yield",
+      "₹30k Bond"
+     ],
+     "rate": "11.10",
+     "sold": "18.78% Sold",
+     "tenure": "1Y 7M",
+     "payout": "Half Yearly",
+     "rating": "ACUITE A-",
+     "note": "MSME & Secured Lending Focus & Growing AUM Base"
+    }
+   ]
+  },
+  {
+   "slug": "highly-rated-bonds",
+   "label": "High Rated",
+   "count": 36,
+   "cards": [
+    {
+     "href": "/bonds/GPID107372/dishman-1266-bond-yield?src=view_details&tenureDate=17-Feb-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104220.dishman_carbogen_amcis_logo_under_80kb.png",
+     "issuer": "DISHMAN",
+     "tags": [
+      "Newly Launched"
+     ],
+     "rate": "12.66",
+     "sold": "63.68% Sold",
+     "tenure": "5M",
+     "payout": "Half Yearly",
+     "rating": "IND A",
+     "note": "Listed Entity with ₹2,700 Cr+ Market Cap"
+    },
+    {
+     "href": "/bonds/GPID106980/tapir-1225-bond-yield?src=view_details&tenureDate=12-Mar-2030",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103646.Tapir Constructions Limited@2x.png",
+     "issuer": "TAPIR",
+     "tags": [
+      "Selling Out Fast",
+      "Corp Bond"
+     ],
+     "rate": "12.25",
+     "sold": "95.05% Sold",
+     "tenure": "3Y 6M",
+     "payout": "Monthly",
+     "rating": "IVR A-",
+     "note": "Part of ₹50K Crs+ Market Cap Embassy Group"
+    },
+    {
+     "href": "/bonds/GPID107346/iifl-samasta-1223-bond-yield?src=view_details&tenureDate=12-May-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102664.IIFLLogo.png",
+     "issuer": "IIFL SAMASTA",
+     "tags": [
+      "High Rated"
+     ],
+     "rate": "12.23",
+     "sold": "91.23% Sold",
+     "tenure": "8M",
+     "payout": "Monthly",
+     "rating": "CRISIL AA-",
+     "note": "Group AUM is above 98K Cr+"
+    },
+    {
+     "href": "/bonds/GPID107434/keertana-1200-bond-yield?src=view_details&tenureDate=16-Dec-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102688.keertanafin_logo.jpg.jpeg",
+     "issuer": "KEERTANA",
+     "tags": [
+      "Newly Launched",
+      "High Yield"
+     ],
+     "rate": "12.00",
+     "sold": "30.29% Sold",
+     "tenure": "2Y 3M",
+     "payout": "Monthly",
+     "rating": "ACUITE A-",
+     "note": "Fast Growing Gold Lender"
+    },
+    {
+     "href": "/bonds/GPID107397/satin-finserv-1190-bond-yield?src=view_details&tenureDate=27-Nov-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103817.Screenshot 2024-08-08 165240_11zon.jpg",
+     "issuer": "SATIN FINSERV",
+     "tags": [
+      "High Rated",
+      "High YTM"
+     ],
+     "rate": "11.90",
+     "sold": "65% Sold",
+     "tenure": "2Y 2M",
+     "payout": "Half Yearly",
+     "rating": "ICRA A-",
+     "note": "Emerging MSME focused NBFC backed by Satin Group"
+    },
+    {
+     "href": "/bonds/GPID107397/satin-finserv-1160-bond-yield?src=view_details&tenureDate=27-Aug-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103817.Screenshot 2024-08-08 165240_11zon.jpg",
+     "issuer": "SATIN FINSERV",
+     "tags": [
+      "High Rated",
+      "High YTM"
+     ],
+     "rate": "11.60",
+     "sold": "65% Sold",
+     "tenure": "11M",
+     "payout": "Half Yearly",
+     "rating": "ICRA A-",
+     "note": "Emerging MSME focused NBFC backed by Satin Group"
+    },
+    {
+     "href": "/bonds/GPID107391/indel-1145-bond-yield?src=view_details&tenureDate=24-Aug-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102671.INDEL MONEY LIMITED@2x.png",
+     "issuer": "INDEL",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "11.45",
+     "sold": "67.29% Sold",
+     "tenure": "2Y 11M",
+     "payout": "Monthly",
+     "rating": "IND A-",
+     "note": "Gold Loan Dominant & Established Regional Presence"
+    },
+    {
+     "href": "/bonds/GPID107434/keertana-1142-bond-yield?src=view_details&tenureDate=16-Jun-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102688.keertanafin_logo.jpg.jpeg",
+     "issuer": "KEERTANA",
+     "tags": [
+      "Newly Launched",
+      "High Yield"
+     ],
+     "rate": "11.42",
+     "sold": "30.29% Sold",
+     "tenure": "9M",
+     "payout": "Monthly",
+     "rating": "ACUITE A-",
+     "note": "Fast Growing Gold Lender"
+    },
+    {
+     "href": "/bonds/GPID107372/dishman-1140-bond-yield?src=view_details&tenureDate=17-Aug-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104220.dishman_carbogen_amcis_logo_under_80kb.png",
+     "issuer": "DISHMAN",
+     "tags": [
+      "Newly Launched"
+     ],
+     "rate": "11.40",
+     "sold": "63.68% Sold",
+     "tenure": "11M",
+     "payout": "Half Yearly",
+     "rating": "IND A",
+     "note": "Listed Entity with ₹2,700 Cr+ Market Cap"
+    },
+    {
+     "href": "/bonds/GPID107345/arman-1140-bond-yield?src=view_details&tenureDate=25-Sep-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103968.ARMAN FINANCIAL SERVICES LIMITED .png",
+     "issuer": "ARMAN",
+     "tags": [
+      "Newly Launched",
+      "High Yield"
+     ],
+     "rate": "11.40",
+     "sold": "87.22% Sold",
+     "tenure": "2Y",
+     "payout": "Half Yearly",
+     "rating": "ACUITE A-",
+     "note": "Equity Listed with ₹2,000 Cr+ Market Cap"
+    },
+    {
+     "href": "/bonds/GPID107331/earlysalaryfibe-1130-bond-yield?src=view_details&tenureDate=07-Jun-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103532.EARLYSALARY SERVICES PRIVATE LIMITED@2x.png",
+     "issuer": "EARLYSALARY(FIBE)",
+     "tags": [
+      "High Rated",
+      "High YTM"
+     ],
+     "rate": "11.30",
+     "sold": "69.85% Sold",
+     "tenure": "2Y 9M",
+     "payout": "Yearly",
+     "rating": "CARE A-",
+     "note": "Upcoming Equity Listing"
+    },
+    {
+     "href": "/bonds/GPID107391/indel-1110-bond-yield?src=view_details&tenureDate=01-Aug-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102671.INDEL MONEY LIMITED@2x.png",
+     "issuer": "INDEL",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "11.10",
+     "sold": "67.29% Sold",
+     "tenure": "10M",
+     "payout": "Monthly",
+     "rating": "IND A-",
+     "note": "Gold Loan Dominant & Established Regional Presence"
+    },
+    {
+     "href": "/bonds/GPID107360/namra-1110-bond-yield?src=view_details&tenureDate=24-Apr-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104493.Namra.jpg",
+     "issuer": "NAMRA",
+     "tags": [
+      "High Rated",
+      "High Yield",
+      "₹30k Bond"
+     ],
+     "rate": "11.10",
+     "sold": "18.78% Sold",
+     "tenure": "1Y 7M",
+     "payout": "Half Yearly",
+     "rating": "ACUITE A-",
+     "note": "MSME & Secured Lending Focus & Growing AUM Base"
+    },
+    {
+     "href": "/bonds/GPID107331/earlysalaryfibe-1100-bond-yield?src=view_details&tenureDate=07-Jun-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103532.EARLYSALARY SERVICES PRIVATE LIMITED@2x.png",
+     "issuer": "EARLYSALARY(FIBE)",
+     "tags": [
+      "High Rated",
+      "High YTM"
+     ],
+     "rate": "11.00",
+     "sold": "69.85% Sold",
+     "tenure": "9M",
+     "payout": "Yearly",
+     "rating": "CARE A-",
+     "note": "Upcoming Equity Listing"
+    },
+    {
+     "href": "/bonds/GPID107351/indel-1086-bond-yield?src=view_details&tenureDate=30-Mar-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102671.INDEL MONEY LIMITED@2x.png",
+     "issuer": "INDEL",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "10.86",
+     "sold": "98.03% Sold",
+     "tenure": "1Y 6M",
+     "payout": "Monthly",
+     "rating": "IND A-",
+     "note": "Gold Loan Dominant & Established Regional Presence"
+    },
+    {
+     "href": "/bonds/GPID107370/share-india-1075-bond-yield?src=view_details&tenureDate=10-Aug-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID105130.SHARE INDIA SECURITIES LIMITED.png",
+     "issuer": "SHARE INDIA",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "10.75",
+     "sold": "74.31% Sold",
+     "tenure": "1Y 11M",
+     "payout": "Monthly",
+     "rating": "CARE A+",
+     "note": "Equity Listed with ₹3,660 Cr+ Market Cap"
+    },
+    {
+     "href": "/bonds/GPID107370/share-india-1050-bond-yield?src=view_details&tenureDate=10-Aug-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID105130.SHARE INDIA SECURITIES LIMITED.png",
+     "issuer": "SHARE INDIA",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "10.50",
+     "sold": "74.31% Sold",
+     "tenure": "11M",
+     "payout": "Monthly",
+     "rating": "CARE A+",
+     "note": "Equity Listed with ₹3,660 Cr+ Market Cap"
+    },
+    {
+     "href": "/bonds/GPID107284/muthoot-fincorp-1050-bond-yield?src=view_details&tenureDate=30-Dec-2033",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100936.MUTHOOT FINCORP LIMITED_1@2x.png",
+     "issuer": "MUTHOOT FINCORP",
+     "tags": [
+      "High Rated"
+     ],
+     "rate": "10.50",
+     "sold": "87.56% Sold",
+     "tenure": "7Y 4M",
+     "payout": "Monthly",
+     "rating": "CRISIL AA",
+     "note": "Backed by a 130+ years Legacy of Trust and Growth"
+    },
+    {
+     "href": "/bonds/GPID106817/navi-dec28-1040-bond-yield?src=view_details&tenureDate=31-Dec-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID101068.NAVI FINSERV LIMITED@2x.png",
+     "issuer": "Navi Dec'28",
+     "tags": [
+      "Popular Choice",
+      "₹10K Bond"
+     ],
+     "rate": "10.40",
+     "sold": "91.23% Sold",
+     "tenure": "2Y 4M",
+     "payout": "Monthly",
+     "rating": "CRISIL A",
+     "note": "Leading Digitial NBFC Backed by Sachin Bansal"
+    },
+    {
+     "href": "/bonds/GPID106749/ugro-capital-limited-1035-bond-yield?src=view_details&tenureDate=16-Jun-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID101216.UGRO CAPITAL LIMITED.png",
+     "issuer": "UGRO CAPITAL LIMITED",
+     "tags": [
+      "Public Listed",
+      "₹10K Bond"
+     ],
+     "rate": "10.35",
+     "sold": "42.45% Sold",
+     "tenure": "2Y 9M",
+     "payout": "Monthly",
+     "rating": "IND A+",
+     "note": "A+ Rated MSME Lender & ₹15K+ Cr AUM"
+    },
+    {
+     "href": "/bonds/GPID107346/iifl-samasta-1025-bond-yield?src=view_details&tenureDate=12-Aug-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102664.IIFLLogo.png",
+     "issuer": "IIFL SAMASTA",
+     "tags": [
+      "High Rated"
+     ],
+     "rate": "10.25",
+     "sold": "91.23% Sold",
+     "tenure": "2Y 11M",
+     "payout": "Monthly",
+     "rating": "CRISIL AA-",
+     "note": "Group AUM is above 98K Cr+"
+    },
+    {
+     "href": "/bonds/GPID107398/muthoot-mcred-1020-bond-yield?src=view_details&tenureDate=07-Aug-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103446.MUTHOOTTU MINI FINANCIERS LTD@2x.png",
+     "issuer": "MUTHOOT MCRED",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "10.20",
+     "sold": "99.4% Sold",
+     "tenure": "2Y 11M",
+     "payout": "Monthly",
+     "rating": "ICRA A",
+     "note": "100% Promoter Owned & Gold backed"
+    },
+    {
+     "href": "/bonds/GPID107398/muthoot-mcred-995-bond-yield?src=view_details&tenureDate=10-Aug-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103446.MUTHOOTTU MINI FINANCIERS LTD@2x.png",
+     "issuer": "MUTHOOT MCRED",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "9.95",
+     "sold": "99.4% Sold",
+     "tenure": "11M",
+     "payout": "Monthly",
+     "rating": "ICRA A",
+     "note": "100% Promoter Owned & Gold backed"
+    },
+    {
+     "href": "/bonds/GPID107396/muthoot-capital-970-bond-yield?src=view_details&tenureDate=24-Aug-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102496.MUTHOOT CAPITAL SERVICES LIMITED.png",
+     "issuer": "MUTHOOT CAPITAL",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "9.70",
+     "sold": "56.4% Sold",
+     "tenure": "2Y 11M",
+     "payout": "Monthly",
+     "rating": "CRISIL AA-",
+     "note": "Credit Rating Upgraded from CRISIL A+"
+    },
+    {
+     "href": "/bonds/GPID107396/muthoot-capital-950-bond-yield?src=view_details&tenureDate=24-Aug-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102496.MUTHOOT CAPITAL SERVICES LIMITED.png",
+     "issuer": "MUTHOOT CAPITAL",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "9.50",
+     "sold": "56.4% Sold",
+     "tenure": "11M",
+     "payout": "Monthly",
+     "rating": "CRISIL AA-",
+     "note": "Credit Rating Upgraded from CRISIL A+"
+    },
+    {
+     "href": "/bonds/GPID107358/hinduja-910-bond-yield?src=view_details&tenureDate=14-Dec-2032",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100507.HINDUJA LEYLAND FINANCE LIMITED.png",
+     "issuer": "HINDUJA",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "9.10",
+     "sold": "54.21% Sold",
+     "tenure": "6Y 4M",
+     "payout": "Yearly",
+     "rating": "CRISIL AA+",
+     "note": "Backed by the Hinduja Group and Ashok Leyland."
+    },
+    {
+     "href": "/bonds/GPID100974/piramal-capital--housing-finance-limited-885-bond-yield?src=view_details&tenureDate=26-Sep-2031",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100793.piramalcpital.png",
+     "issuer": "PIRAMAL CAPITAL & HOUSING FINANCE LIMITED",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "8.85",
+     "sold": "45.54% Sold",
+     "tenure": "5Y 1M",
+     "payout": "Quarterly",
+     "rating": "CARE AA",
+     "note": "Equity Listed with ₹47,500 Cr+ Market Cap"
+    },
+    {
+     "href": "/bonds/GPID106789/adani-enterprises-limited-850-bond-yield?src=view_details&tenureDate=12-Jan-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104322.ADANI ENTERPRISES LIMITED.png",
+     "issuer": "ADANI ENTERPRISES LIMITED",
+     "tags": [
+      "High rated"
+     ],
+     "rate": "8.50",
+     "sold": "83.58% Sold",
+     "tenure": "2Y 4M",
+     "payout": "Yearly",
+     "rating": "CARE AA-",
+     "note": "Equity Listed with ₹4 Lakhs Cr+ Market Cap"
+    },
+    {
+     "href": "/bonds/GPID107359/adani-airport-845-bond-yield?src=view_details&tenureDate=12-Feb-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103845.Screenshot 2024-08-28 171536_11zon.png",
+     "issuer": "ADANI AIRPORT",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "8.45",
+     "sold": "64.33% Sold",
+     "tenure": "2Y 5M",
+     "payout": "Half Yearly",
+     "rating": "CRISIL AA-",
+     "note": "Backed by Adani Groups Strong Infrastructure Legacy"
+    },
+    {
+     "href": "/bonds/GPID106795/kerala-infrastructure-investment-fund-board-825-bond-yield?src=view_details&tenureDate=21-Jan-2031",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102759.KERALA INFRASTRUCTURE INVESTMENT FUND BOARD.png",
+     "issuer": "KERALA INFRASTRUCTURE INVESTMENT FUND BOARD",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "8.25",
+     "sold": "8% Sold",
+     "tenure": "4Y 5M",
+     "payout": "Half Yearly",
+     "rating": "IND AA",
+     "note": "Govt of Kerala Backed & Funding Kerala’s Infrastructure Growth"
+    },
+    {
+     "href": "/bonds/GPID106739/andhra-pradesh-state-beverages-corporation-limited-800-bond-yield?src=view_details&tenureDate=28-Nov-2031",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID101491.ANDHRA PRADESH STATE BEVERAGES CORPORATION LIMITED.png",
+     "issuer": "ANDHRA PRADESH STATE BEVERAGES CORPORATION LIMITED",
+     "tags": [
+      "Regular Income",
+      "State Govt Guaranteed"
+     ],
+     "rate": "8.00",
+     "sold": "99.89% Sold",
+     "tenure": "5Y 3M",
+     "payout": "Half Yearly",
+     "rating": "IND AA",
+     "note": ""
+    },
+    {
+     "href": "/bonds/GPID101395/tata-capital-limited-740-bond-yield?src=view_details&tenureDate=29-Apr-2032",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID101761.TATA CAPITAL LIMITED.png",
+     "issuer": "TATA CAPITAL LIMITED",
+     "tags": [
+      "Regular Income",
+      "NBFC Corporate Bond"
+     ],
+     "rate": "7.40",
+     "sold": "50% Sold",
+     "tenure": "5Y 8M",
+     "payout": "Yearly",
+     "rating": "CRISIL AAA",
+     "note": ""
+    },
+    {
+     "href": "/bonds/GPID102920/bajaj-finance-ltd-695-bond-yield?src=view_details&tenureDate=02-Dec-2031",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100379.Bajaj Finserv.png",
+     "issuer": "BAJAJ FINANCE LTD",
+     "tags": [
+      "Regular Income",
+      "NBFC Retail Bond"
+     ],
+     "rate": "6.95",
+     "sold": "2% Sold",
+     "tenure": "5Y 3M",
+     "payout": "Yearly",
+     "rating": "CRISIL AAA",
+     "note": ""
+    },
+    {
+     "href": "/bonds/GPID107049/hdfc-bank-685-bond-yield?src=view_details&tenureDate=01-Dec-2031",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100004.HDFC BANK LIMITED@2x.png",
+     "issuer": "HDFC BANK",
+     "tags": [
+      "Regular Income",
+      "Private Sector Bank"
+     ],
+     "rate": "6.85",
+     "sold": "2% Sold",
+     "tenure": "5Y 3M",
+     "payout": "Yearly",
+     "rating": "CRISIL AAA",
+     "note": ""
+    },
+    {
+     "href": "/bonds/GPID101066/power-finance-corporation-limited-685-bond-yield?src=view_details&tenureDate=14-Apr-2032",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100099.POWER FINANCE CORPORATION LTD.png",
+     "issuer": "Power Finance Corporation Limited",
+     "tags": [
+      "Tag 1",
+      "Tag 2",
+      "Tag 3"
+     ],
+     "rate": "6.85",
+     "sold": "0% Sold",
+     "tenure": "5Y 8M",
+     "payout": "Yearly",
+     "rating": "CRISIL AAA",
+     "note": "Hurry up!"
+    },
+    {
+     "href": "/bonds/GPID103812/indian-railway-finance-corporation-limited-670-bond-yield?src=view_details&tenureDate=31-Aug-2031",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100094.INDIAN RAILWAY FINANCE CORPORATION LIMITED.png",
+     "issuer": "Indian Railway Finance Corporation Limited",
+     "tags": [
+      "Regular Income",
+      "PSU Bond"
+     ],
+     "rate": "6.70",
+     "sold": "2% Sold",
+     "tenure": "5Y",
+     "payout": "Yearly",
+     "rating": "CRISIL AAA",
+     "note": ""
+    }
+   ]
+  },
+  {
+   "slug": "bonds-at-30000",
+   "label": "Starts at 30k",
+   "count": 30,
+   "cards": [
+    {
+     "href": "/bonds/GPID107433/best-capital-1300-bond-yield?src=view_details&tenureDate=11-Sep-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID107347.Best Capital.png",
+     "issuer": "BEST CAPITAL",
+     "tags": [
+      "Newly Launched",
+      "High Yield"
+     ],
+     "rate": "13.00",
+     "sold": "10.04% Sold",
+     "tenure": "3Y",
+     "payout": "Monthly",
+     "rating": "IVR BBB",
+     "note": "Trusted NBFC For MSMEs And Vehicles"
+    },
+    {
+     "href": "/bonds/GPID107348/best-capital-1255-bond-yield?src=view_details&tenureDate=24-Oct-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID107347.Best Capital.png",
+     "issuer": "BEST CAPITAL",
+     "tags": [
+      "High YTM",
+      "Newly Launched"
+     ],
+     "rate": "12.55",
+     "sold": "94.32% Sold",
+     "tenure": "1Y 1M",
+     "payout": "Monthly",
+     "rating": "IVR BBB",
+     "note": "Trusted NBFC For MSMEs And Vehicles"
+    },
+    {
+     "href": "/bonds/GPID107346/iifl-samasta-1223-bond-yield?src=view_details&tenureDate=12-May-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102664.IIFLLogo.png",
+     "issuer": "IIFL SAMASTA",
+     "tags": [
+      "High Rated"
+     ],
+     "rate": "12.23",
+     "sold": "91.23% Sold",
+     "tenure": "8M",
+     "payout": "Monthly",
+     "rating": "CRISIL AA-",
+     "note": "Group AUM is above 98K Cr+"
+    },
+    {
+     "href": "/bonds/GPID107006/spandana-1210-bond-yield?src=view_details&tenureDate=26-Apr-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100700.SPANDANA SPHOORTY FINANCIAL LIMITED@2x.png",
+     "issuer": "SPANDANA",
+     "tags": [
+      "Newly Launched",
+      "High Yield"
+     ],
+     "rate": "12.10",
+     "sold": "94.26% Sold",
+     "tenure": "1Y 7M",
+     "payout": "Monthly",
+     "rating": "CRISIL BBB+",
+     "note": "Equity Listed with ₹2,400 Cr+ Market Cap"
+    },
+    {
+     "href": "/bonds/GPID107296/finkurve-1200-bond-yield?src=view_details&tenureDate=16-Jun-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID107295.arvog_logo.jpg",
+     "issuer": "FINKURVE",
+     "tags": [
+      "Gold Loan Backed",
+      "High YTM"
+     ],
+     "rate": "12.00",
+     "sold": "82.75% Sold",
+     "tenure": "1Y 9M",
+     "payout": "Half Yearly",
+     "rating": "CARE BBB+",
+     "note": "Emerging Gold Loan NBFC backed by Augmont Group"
+    },
+    {
+     "href": "/bonds/GPID107035/mahaveer-1200-bond-yield?src=view_details&tenureDate=26-Nov-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID107034.mahaveer_finance_india_ltd_logo.jpg",
+     "issuer": "MAHAVEER",
+     "tags": [
+      "High Yield"
+     ],
+     "rate": "12.00",
+     "sold": "72.48% Sold",
+     "tenure": "3Y 3M",
+     "payout": "Half Yearly",
+     "rating": "CARE BBB+",
+     "note": "40+ years of Financing expertise & Strong Capital base"
+    },
+    {
+     "href": "/bonds/GPID107434/keertana-1200-bond-yield?src=view_details&tenureDate=16-Dec-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102688.keertanafin_logo.jpg.jpeg",
+     "issuer": "KEERTANA",
+     "tags": [
+      "Newly Launched",
+      "High Yield"
+     ],
+     "rate": "12.00",
+     "sold": "30.29% Sold",
+     "tenure": "2Y 3M",
+     "payout": "Monthly",
+     "rating": "ACUITE A-",
+     "note": "Fast Growing Gold Lender"
+    },
+    {
+     "href": "/bonds/GPID106988/unigold-1197-bond-yield?src=view_details&tenureDate=02-Apr-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID106987.Unigold_3020105861.png",
+     "issuer": "UNIGOLD",
+     "tags": [
+      "Newly Launched",
+      "Gold Loan Backed"
+     ],
+     "rate": "11.97",
+     "sold": "92.09% Sold",
+     "tenure": "1Y 7M",
+     "payout": "Monthly",
+     "rating": "CRISIL BBB",
+     "note": "Fast Growing Gold Loan Lender"
+    },
+    {
+     "href": "/bonds/GPID107006/spandana-1190-bond-yield?src=view_details&tenureDate=26-Jun-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100700.SPANDANA SPHOORTY FINANCIAL LIMITED@2x.png",
+     "issuer": "SPANDANA",
+     "tags": [
+      "Newly Launched",
+      "High Yield"
+     ],
+     "rate": "11.90",
+     "sold": "94.26% Sold",
+     "tenure": "9M",
+     "payout": "Monthly",
+     "rating": "CRISIL BBB+",
+     "note": "Equity Listed with ₹2,400 Cr+ Market Cap"
+    },
+    {
+     "href": "/bonds/GPID107399/finnable-1175-bond-yield?src=view_details&tenureDate=31-Jan-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID106733.FINNABLE CREDIT PRIVATE LIMITED@2x.png",
+     "issuer": "FINNABLE",
+     "tags": [
+      "Newly Launched",
+      "High Yield"
+     ],
+     "rate": "11.75",
+     "sold": "33.99% Sold",
+     "tenure": "2Y 5M",
+     "payout": "Monthly",
+     "rating": "CARE BBB+",
+     "note": "Equity Investors: TVS Capital and Matrix Partners"
+    },
+    {
+     "href": "/bonds/GPID107391/indel-1145-bond-yield?src=view_details&tenureDate=24-Aug-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102671.INDEL MONEY LIMITED@2x.png",
+     "issuer": "INDEL",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "11.45",
+     "sold": "67.29% Sold",
+     "tenure": "2Y 11M",
+     "payout": "Monthly",
+     "rating": "IND A-",
+     "note": "Gold Loan Dominant & Established Regional Presence"
+    },
+    {
+     "href": "/bonds/GPID107434/keertana-1142-bond-yield?src=view_details&tenureDate=16-Jun-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102688.keertanafin_logo.jpg.jpeg",
+     "issuer": "KEERTANA",
+     "tags": [
+      "Newly Launched",
+      "High Yield"
+     ],
+     "rate": "11.42",
+     "sold": "30.29% Sold",
+     "tenure": "9M",
+     "payout": "Monthly",
+     "rating": "ACUITE A-",
+     "note": "Fast Growing Gold Lender"
+    },
+    {
+     "href": "/bonds/GPID107399/finnable-1140-bond-yield?src=view_details&tenureDate=26-Aug-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID106733.FINNABLE CREDIT PRIVATE LIMITED@2x.png",
+     "issuer": "FINNABLE",
+     "tags": [
+      "Newly Launched",
+      "High Yield"
+     ],
+     "rate": "11.40",
+     "sold": "33.99% Sold",
+     "tenure": "11M",
+     "payout": "Monthly",
+     "rating": "CARE BBB+",
+     "note": "Equity Investors: TVS Capital and Matrix Partners"
+    },
+    {
+     "href": "/bonds/GPID107345/arman-1140-bond-yield?src=view_details&tenureDate=25-Sep-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103968.ARMAN FINANCIAL SERVICES LIMITED .png",
+     "issuer": "ARMAN",
+     "tags": [
+      "Newly Launched",
+      "High Yield"
+     ],
+     "rate": "11.40",
+     "sold": "87.22% Sold",
+     "tenure": "2Y",
+     "payout": "Half Yearly",
+     "rating": "ACUITE A-",
+     "note": "Equity Listed with ₹2,000 Cr+ Market Cap"
+    },
+    {
+     "href": "/bonds/GPID107391/indel-1110-bond-yield?src=view_details&tenureDate=01-Aug-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102671.INDEL MONEY LIMITED@2x.png",
+     "issuer": "INDEL",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "11.10",
+     "sold": "67.29% Sold",
+     "tenure": "10M",
+     "payout": "Monthly",
+     "rating": "IND A-",
+     "note": "Gold Loan Dominant & Established Regional Presence"
+    },
+    {
+     "href": "/bonds/GPID107360/namra-1110-bond-yield?src=view_details&tenureDate=24-Apr-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104493.Namra.jpg",
+     "issuer": "NAMRA",
+     "tags": [
+      "High Rated",
+      "High Yield",
+      "₹30k Bond"
+     ],
+     "rate": "11.10",
+     "sold": "18.78% Sold",
+     "tenure": "1Y 7M",
+     "payout": "Half Yearly",
+     "rating": "ACUITE A-",
+     "note": "MSME & Secured Lending Focus & Growing AUM Base"
+    },
+    {
+     "href": "/bonds/GPID107351/indel-1086-bond-yield?src=view_details&tenureDate=30-Mar-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102671.INDEL MONEY LIMITED@2x.png",
+     "issuer": "INDEL",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "10.86",
+     "sold": "98.03% Sold",
+     "tenure": "1Y 6M",
+     "payout": "Monthly",
+     "rating": "IND A-",
+     "note": "Gold Loan Dominant & Established Regional Presence"
+    },
+    {
+     "href": "/bonds/GPID107370/share-india-1075-bond-yield?src=view_details&tenureDate=10-Aug-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID105130.SHARE INDIA SECURITIES LIMITED.png",
+     "issuer": "SHARE INDIA",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "10.75",
+     "sold": "74.31% Sold",
+     "tenure": "1Y 11M",
+     "payout": "Monthly",
+     "rating": "CARE A+",
+     "note": "Equity Listed with ₹3,660 Cr+ Market Cap"
+    },
+    {
+     "href": "/bonds/GPID107370/share-india-1050-bond-yield?src=view_details&tenureDate=10-Aug-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID105130.SHARE INDIA SECURITIES LIMITED.png",
+     "issuer": "SHARE INDIA",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "10.50",
+     "sold": "74.31% Sold",
+     "tenure": "11M",
+     "payout": "Monthly",
+     "rating": "CARE A+",
+     "note": "Equity Listed with ₹3,660 Cr+ Market Cap"
+    },
+    {
+     "href": "/bonds/GPID107284/muthoot-fincorp-1050-bond-yield?src=view_details&tenureDate=30-Dec-2033",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100936.MUTHOOT FINCORP LIMITED_1@2x.png",
+     "issuer": "MUTHOOT FINCORP",
+     "tags": [
+      "High Rated"
+     ],
+     "rate": "10.50",
+     "sold": "87.56% Sold",
+     "tenure": "7Y 4M",
+     "payout": "Monthly",
+     "rating": "CRISIL AA",
+     "note": "Backed by a 130+ years Legacy of Trust and Growth"
+    },
+    {
+     "href": "/bonds/GPID106817/navi-dec28-1040-bond-yield?src=view_details&tenureDate=31-Dec-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID101068.NAVI FINSERV LIMITED@2x.png",
+     "issuer": "Navi Dec'28",
+     "tags": [
+      "Popular Choice",
+      "₹10K Bond"
+     ],
+     "rate": "10.40",
+     "sold": "91.23% Sold",
+     "tenure": "2Y 4M",
+     "payout": "Monthly",
+     "rating": "CRISIL A",
+     "note": "Leading Digitial NBFC Backed by Sachin Bansal"
+    },
+    {
+     "href": "/bonds/GPID106749/ugro-capital-limited-1035-bond-yield?src=view_details&tenureDate=16-Jun-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID101216.UGRO CAPITAL LIMITED.png",
+     "issuer": "UGRO CAPITAL LIMITED",
+     "tags": [
+      "Public Listed",
+      "₹10K Bond"
+     ],
+     "rate": "10.35",
+     "sold": "42.45% Sold",
+     "tenure": "2Y 9M",
+     "payout": "Monthly",
+     "rating": "IND A+",
+     "note": "A+ Rated MSME Lender & ₹15K+ Cr AUM"
+    },
+    {
+     "href": "/bonds/GPID107346/iifl-samasta-1025-bond-yield?src=view_details&tenureDate=12-Aug-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102664.IIFLLogo.png",
+     "issuer": "IIFL SAMASTA",
+     "tags": [
+      "High Rated"
+     ],
+     "rate": "10.25",
+     "sold": "91.23% Sold",
+     "tenure": "2Y 11M",
+     "payout": "Monthly",
+     "rating": "CRISIL AA-",
+     "note": "Group AUM is above 98K Cr+"
+    },
+    {
+     "href": "/bonds/GPID107398/muthoot-mcred-1020-bond-yield?src=view_details&tenureDate=07-Aug-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103446.MUTHOOTTU MINI FINANCIERS LTD@2x.png",
+     "issuer": "MUTHOOT MCRED",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "10.20",
+     "sold": "99.4% Sold",
+     "tenure": "2Y 11M",
+     "payout": "Monthly",
+     "rating": "ICRA A",
+     "note": "100% Promoter Owned & Gold backed"
+    },
+    {
+     "href": "/bonds/GPID104858/varthana-finance-private-limited-1000-bond-yield?src=view_details&tenureDate=05-Feb-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104763.Screenshot 2025-01-23 123637_11zon.png",
+     "issuer": "VARTHANA FINANCE PRIVATE LIMITED",
+     "tags": [
+      "Senior",
+      "Secured"
+     ],
+     "rate": "10.00",
+     "sold": "6.34% Sold",
+     "tenure": "4M",
+     "payout": "Half Yearly",
+     "rating": "CRISIL BBB",
+     "note": "Recently acquired by TVS Group"
+    },
+    {
+     "href": "/bonds/GPID107398/muthoot-mcred-995-bond-yield?src=view_details&tenureDate=10-Aug-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103446.MUTHOOTTU MINI FINANCIERS LTD@2x.png",
+     "issuer": "MUTHOOT MCRED",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "9.95",
+     "sold": "99.4% Sold",
+     "tenure": "11M",
+     "payout": "Monthly",
+     "rating": "ICRA A",
+     "note": "100% Promoter Owned & Gold backed"
+    },
+    {
+     "href": "/bonds/GPID107396/muthoot-capital-970-bond-yield?src=view_details&tenureDate=24-Aug-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102496.MUTHOOT CAPITAL SERVICES LIMITED.png",
+     "issuer": "MUTHOOT CAPITAL",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "9.70",
+     "sold": "56.4% Sold",
+     "tenure": "2Y 11M",
+     "payout": "Monthly",
+     "rating": "CRISIL AA-",
+     "note": "Credit Rating Upgraded from CRISIL A+"
+    },
+    {
+     "href": "/bonds/GPID107396/muthoot-capital-950-bond-yield?src=view_details&tenureDate=24-Aug-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102496.MUTHOOT CAPITAL SERVICES LIMITED.png",
+     "issuer": "MUTHOOT CAPITAL",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "9.50",
+     "sold": "56.4% Sold",
+     "tenure": "11M",
+     "payout": "Monthly",
+     "rating": "CRISIL AA-",
+     "note": "Credit Rating Upgraded from CRISIL A+"
+    },
+    {
+     "href": "/bonds/GPID100974/piramal-capital--housing-finance-limited-885-bond-yield?src=view_details&tenureDate=26-Sep-2031",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100793.piramalcpital.png",
+     "issuer": "PIRAMAL CAPITAL & HOUSING FINANCE LIMITED",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "8.85",
+     "sold": "45.54% Sold",
+     "tenure": "5Y 1M",
+     "payout": "Quarterly",
+     "rating": "CARE AA",
+     "note": "Equity Listed with ₹47,500 Cr+ Market Cap"
+    },
+    {
+     "href": "/bonds/GPID106789/adani-enterprises-limited-850-bond-yield?src=view_details&tenureDate=12-Jan-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104322.ADANI ENTERPRISES LIMITED.png",
+     "issuer": "ADANI ENTERPRISES LIMITED",
+     "tags": [
+      "High rated"
+     ],
+     "rate": "8.50",
+     "sold": "83.58% Sold",
+     "tenure": "2Y 4M",
+     "payout": "Yearly",
+     "rating": "CARE AA-",
+     "note": "Equity Listed with ₹4 Lakhs Cr+ Market Cap"
+    }
+   ]
+  },
+  {
+   "slug": "bonds-for-short-term-investment",
+   "label": "Short Term",
+   "count": 15,
+   "cards": [
+    {
+     "href": "/bonds/GPID107435/akara-1277-bond-yield?src=view_details&tenureDate=03-May-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102720.AKARA CAPITAL ADVISORS PRIVATE LIMITED@2x.png",
+     "issuer": "AKARA",
+     "tags": [
+      "Newly Launched",
+      "High Yield"
+     ],
+     "rate": "12.77",
+     "sold": "46.38% Sold",
+     "tenure": "7M",
+     "payout": "Monthly",
+     "rating": "ACUITE BBB+",
+     "note": "Marquee Equity Global Investors Tencent, Blowfish"
+    },
+    {
+     "href": "/bonds/GPID107371/neogrowth-1275-bond-yield?src=view_details&tenureDate=30-Jul-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104095.Neogrowth new logo (1).jpg",
+     "issuer": "NEOGROWTH",
+     "tags": [
+      "High YTM",
+      "Newly Launched"
+     ],
+     "rate": "12.75",
+     "sold": "77.56% Sold",
+     "tenure": "10M",
+     "payout": "Half Yearly",
+     "rating": "ICRA BBB",
+     "note": "Equity Investors: Omidyar Network & IIFL Venture CMS"
+    },
+    {
+     "href": "/bonds/GPID107372/dishman-1266-bond-yield?src=view_details&tenureDate=17-Feb-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104220.dishman_carbogen_amcis_logo_under_80kb.png",
+     "issuer": "DISHMAN",
+     "tags": [
+      "Regular Income",
+      "Corporate Bond"
+     ],
+     "rate": "12.66",
+     "sold": "63.68% Sold",
+     "tenure": "5M",
+     "payout": "Half Yearly",
+     "rating": "IND A",
+     "note": ""
+    },
+    {
+     "href": "/bonds/GPID107346/iifl-samasta-1223-bond-yield?src=view_details&tenureDate=12-May-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102664.IIFLLogo.png",
+     "issuer": "IIFL SAMASTA",
+     "tags": [
+      "Regular Income",
+      "NBFC Retail Bond"
+     ],
+     "rate": "12.23",
+     "sold": "91.23% Sold",
+     "tenure": "8M",
+     "payout": "Monthly",
+     "rating": "CRISIL AA-",
+     "note": ""
+    },
+    {
+     "href": "/bonds/GPID107006/spandana-1190-bond-yield?src=view_details&tenureDate=26-Jun-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100700.SPANDANA SPHOORTY FINANCIAL LIMITED@2x.png",
+     "issuer": "SPANDANA",
+     "tags": [
+      "Regular Income",
+      "NBFC Retail Bond"
+     ],
+     "rate": "11.90",
+     "sold": "94.26% Sold",
+     "tenure": "9M",
+     "payout": "Monthly",
+     "rating": "CRISIL BBB+",
+     "note": ""
+    },
+    {
+     "href": "/bonds/GPID107397/satin-finserv-1160-bond-yield?src=view_details&tenureDate=27-Aug-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103817.Screenshot 2024-08-08 165240_11zon.jpg",
+     "issuer": "SATIN FINSERV",
+     "tags": [
+      "Regular Income",
+      "NBFC Retail Bond"
+     ],
+     "rate": "11.60",
+     "sold": "65% Sold",
+     "tenure": "11M",
+     "payout": "Half Yearly",
+     "rating": "ICRA A-",
+     "note": ""
+    },
+    {
+     "href": "/bonds/GPID107434/keertana-1142-bond-yield?src=view_details&tenureDate=16-Jun-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102688.keertanafin_logo.jpg.jpeg",
+     "issuer": "KEERTANA",
+     "tags": [
+      "Regular Income",
+      "NBFC Retail Bond"
+     ],
+     "rate": "11.42",
+     "sold": "30.29% Sold",
+     "tenure": "9M",
+     "payout": "Monthly",
+     "rating": "ACUITE A-",
+     "note": ""
+    },
+    {
+     "href": "/bonds/GPID107399/finnable-1140-bond-yield?src=view_details&tenureDate=26-Aug-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID106733.FINNABLE CREDIT PRIVATE LIMITED@2x.png",
+     "issuer": "FINNABLE",
+     "tags": [
+      "Regular Income",
+      "NBFC Retail Bond"
+     ],
+     "rate": "11.40",
+     "sold": "33.99% Sold",
+     "tenure": "11M",
+     "payout": "Monthly",
+     "rating": "CARE BBB+",
+     "note": ""
+    },
+    {
+     "href": "/bonds/GPID107372/dishman-1140-bond-yield?src=view_details&tenureDate=17-Aug-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104220.dishman_carbogen_amcis_logo_under_80kb.png",
+     "issuer": "DISHMAN",
+     "tags": [
+      "Regular Income",
+      "Corporate Bond"
+     ],
+     "rate": "11.40",
+     "sold": "63.68% Sold",
+     "tenure": "11M",
+     "payout": "Half Yearly",
+     "rating": "IND A",
+     "note": ""
+    },
+    {
+     "href": "/bonds/GPID107391/indel-1110-bond-yield?src=view_details&tenureDate=01-Aug-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102671.INDEL MONEY LIMITED@2x.png",
+     "issuer": "INDEL",
+     "tags": [
+      "Regular Income",
+      "NBFC Retail Bond"
+     ],
+     "rate": "11.10",
+     "sold": "67.29% Sold",
+     "tenure": "10M",
+     "payout": "Monthly",
+     "rating": "IND A-",
+     "note": ""
+    },
+    {
+     "href": "/bonds/GPID107331/earlysalaryfibe-1100-bond-yield?src=view_details&tenureDate=07-Jun-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103532.EARLYSALARY SERVICES PRIVATE LIMITED@2x.png",
+     "issuer": "EARLYSALARY(FIBE)",
+     "tags": [
+      "High Rated",
+      "High YTM"
+     ],
+     "rate": "11.00",
+     "sold": "69.85% Sold",
+     "tenure": "9M",
+     "payout": "Yearly",
+     "rating": "CARE A-",
+     "note": "Upcoming Equity Listing"
+    },
+    {
+     "href": "/bonds/GPID107370/share-india-1050-bond-yield?src=view_details&tenureDate=10-Aug-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID105130.SHARE INDIA SECURITIES LIMITED.png",
+     "issuer": "SHARE INDIA",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "10.50",
+     "sold": "74.31% Sold",
+     "tenure": "11M",
+     "payout": "Monthly",
+     "rating": "CARE A+",
+     "note": "Equity Listed with ₹3,660 Cr+ Market Cap"
+    },
+    {
+     "href": "/bonds/GPID104858/varthana-finance-private-limited-1000-bond-yield?src=view_details&tenureDate=05-Feb-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104763.Screenshot 2025-01-23 123637_11zon.png",
+     "issuer": "VARTHANA FINANCE PRIVATE LIMITED",
+     "tags": [
+      "Senior",
+      "Secured"
+     ],
+     "rate": "10.00",
+     "sold": "6.34% Sold",
+     "tenure": "4M",
+     "payout": "Half Yearly",
+     "rating": "CRISIL BBB",
+     "note": "Recently acquired by TVS Group"
+    },
+    {
+     "href": "/bonds/GPID107398/muthoot-mcred-995-bond-yield?src=view_details&tenureDate=10-Aug-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103446.MUTHOOTTU MINI FINANCIERS LTD@2x.png",
+     "issuer": "MUTHOOT MCRED",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "9.95",
+     "sold": "99.4% Sold",
+     "tenure": "11M",
+     "payout": "Monthly",
+     "rating": "ICRA A",
+     "note": "100% Promoter Owned & Gold backed"
+    },
+    {
+     "href": "/bonds/GPID107396/muthoot-capital-950-bond-yield?src=view_details&tenureDate=24-Aug-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102496.MUTHOOT CAPITAL SERVICES LIMITED.png",
+     "issuer": "MUTHOOT CAPITAL",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "9.50",
+     "sold": "56.4% Sold",
+     "tenure": "11M",
+     "payout": "Monthly",
+     "rating": "CRISIL AA-",
+     "note": "Credit Rating Upgraded from CRISIL A+"
+    }
+   ]
+  },
+  {
+   "slug": "bonds-to-earn-monthly-fixed-income",
+   "label": "Monthly Payout",
+   "count": 26,
+   "cards": [
+    {
+     "href": "/bonds/GPID107433/best-capital-1300-bond-yield?src=view_details&tenureDate=11-Sep-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID107347.Best Capital.png",
+     "issuer": "BEST CAPITAL",
+     "tags": [
+      "Regular Income",
+      "NBFC Retail Bond"
+     ],
+     "rate": "13.00",
+     "sold": "10.04% Sold",
+     "tenure": "3Y",
+     "payout": "Monthly",
+     "rating": "IVR BBB",
+     "note": ""
+    },
+    {
+     "href": "/bonds/GPID107435/akara-1300-bond-yield?src=view_details&tenureDate=03-Dec-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102720.AKARA CAPITAL ADVISORS PRIVATE LIMITED@2x.png",
+     "issuer": "AKARA",
+     "tags": [
+      "Newly Launched",
+      "High Yield"
+     ],
+     "rate": "13.00",
+     "sold": "46.38% Sold",
+     "tenure": "1Y 2M",
+     "payout": "Monthly",
+     "rating": "ACUITE BBB+",
+     "note": "Marquee Equity Global Investors Tencent, Blowfish"
+    },
+    {
+     "href": "/bonds/GPID107435/akara-1277-bond-yield?src=view_details&tenureDate=03-May-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102720.AKARA CAPITAL ADVISORS PRIVATE LIMITED@2x.png",
+     "issuer": "AKARA",
+     "tags": [
+      "Newly Launched",
+      "High Yield"
+     ],
+     "rate": "12.77",
+     "sold": "46.38% Sold",
+     "tenure": "7M",
+     "payout": "Monthly",
+     "rating": "ACUITE BBB+",
+     "note": "Marquee Equity Global Investors Tencent, Blowfish"
+    },
+    {
+     "href": "/bonds/GPID107348/best-capital-1255-bond-yield?src=view_details&tenureDate=24-Oct-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID107347.Best Capital.png",
+     "issuer": "BEST CAPITAL",
+     "tags": [
+      "Regular Income",
+      "NBFC Retail Bond"
+     ],
+     "rate": "12.55",
+     "sold": "94.32% Sold",
+     "tenure": "1Y 1M",
+     "payout": "Monthly",
+     "rating": "IVR BBB",
+     "note": ""
+    },
+    {
+     "href": "/bonds/GPID106980/tapir-1225-bond-yield?src=view_details&tenureDate=12-Mar-2030",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103646.Tapir Constructions Limited@2x.png",
+     "issuer": "TAPIR",
+     "tags": [
+      "Regular Income",
+      "Corporate Bond"
+     ],
+     "rate": "12.25",
+     "sold": "95.05% Sold",
+     "tenure": "3Y 6M",
+     "payout": "Monthly",
+     "rating": "IVR A-",
+     "note": ""
+    },
+    {
+     "href": "/bonds/GPID107346/iifl-samasta-1223-bond-yield?src=view_details&tenureDate=12-May-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102664.IIFLLogo.png",
+     "issuer": "IIFL SAMASTA",
+     "tags": [
+      "Regular Income",
+      "NBFC Retail Bond"
+     ],
+     "rate": "12.23",
+     "sold": "91.23% Sold",
+     "tenure": "8M",
+     "payout": "Monthly",
+     "rating": "CRISIL AA-",
+     "note": ""
+    },
+    {
+     "href": "/bonds/GPID107006/spandana-1210-bond-yield?src=view_details&tenureDate=26-Apr-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100700.SPANDANA SPHOORTY FINANCIAL LIMITED@2x.png",
+     "issuer": "SPANDANA",
+     "tags": [
+      "Regular Income",
+      "NBFC Retail Bond"
+     ],
+     "rate": "12.10",
+     "sold": "94.26% Sold",
+     "tenure": "1Y 7M",
+     "payout": "Monthly",
+     "rating": "CRISIL BBB+",
+     "note": ""
+    },
+    {
+     "href": "/bonds/GPID107434/keertana-1200-bond-yield?src=view_details&tenureDate=16-Dec-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102688.keertanafin_logo.jpg.jpeg",
+     "issuer": "KEERTANA",
+     "tags": [
+      "Regular Income",
+      "NBFC Retail Bond"
+     ],
+     "rate": "12.00",
+     "sold": "30.29% Sold",
+     "tenure": "2Y 3M",
+     "payout": "Monthly",
+     "rating": "ACUITE A-",
+     "note": ""
+    },
+    {
+     "href": "/bonds/GPID106988/unigold-1197-bond-yield?src=view_details&tenureDate=02-Apr-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID106987.Unigold_3020105861.png",
+     "issuer": "UNIGOLD",
+     "tags": [
+      "Regular Income",
+      "NBFC Retail Bond"
+     ],
+     "rate": "11.97",
+     "sold": "92.09% Sold",
+     "tenure": "1Y 7M",
+     "payout": "Monthly",
+     "rating": "CRISIL BBB",
+     "note": ""
+    },
+    {
+     "href": "/bonds/GPID107006/spandana-1190-bond-yield?src=view_details&tenureDate=26-Jun-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100700.SPANDANA SPHOORTY FINANCIAL LIMITED@2x.png",
+     "issuer": "SPANDANA",
+     "tags": [
+      "Regular Income",
+      "NBFC Retail Bond"
+     ],
+     "rate": "11.90",
+     "sold": "94.26% Sold",
+     "tenure": "9M",
+     "payout": "Monthly",
+     "rating": "CRISIL BBB+",
+     "note": ""
+    },
+    {
+     "href": "/bonds/GPID107399/finnable-1175-bond-yield?src=view_details&tenureDate=31-Jan-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID106733.FINNABLE CREDIT PRIVATE LIMITED@2x.png",
+     "issuer": "FINNABLE",
+     "tags": [
+      "Newly Launched",
+      "High Yield"
+     ],
+     "rate": "11.75",
+     "sold": "33.99% Sold",
+     "tenure": "2Y 5M",
+     "payout": "Monthly",
+     "rating": "CARE BBB+",
+     "note": "Equity Investors: TVS Capital and Matrix Partners"
+    },
+    {
+     "href": "/bonds/GPID107391/indel-1145-bond-yield?src=view_details&tenureDate=24-Aug-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102671.INDEL MONEY LIMITED@2x.png",
+     "issuer": "INDEL",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "11.45",
+     "sold": "67.29% Sold",
+     "tenure": "2Y 11M",
+     "payout": "Monthly",
+     "rating": "IND A-",
+     "note": "Gold Loan Dominant & Established Regional Presence"
+    },
+    {
+     "href": "/bonds/GPID107434/keertana-1142-bond-yield?src=view_details&tenureDate=16-Jun-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102688.keertanafin_logo.jpg.jpeg",
+     "issuer": "KEERTANA",
+     "tags": [
+      "Newly Launched",
+      "High Yield"
+     ],
+     "rate": "11.42",
+     "sold": "30.29% Sold",
+     "tenure": "9M",
+     "payout": "Monthly",
+     "rating": "ACUITE A-",
+     "note": "Fast Growing Gold Lender"
+    },
+    {
+     "href": "/bonds/GPID107399/finnable-1140-bond-yield?src=view_details&tenureDate=26-Aug-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID106733.FINNABLE CREDIT PRIVATE LIMITED@2x.png",
+     "issuer": "FINNABLE",
+     "tags": [
+      "Newly Launched",
+      "High Yield"
+     ],
+     "rate": "11.40",
+     "sold": "33.99% Sold",
+     "tenure": "11M",
+     "payout": "Monthly",
+     "rating": "CARE BBB+",
+     "note": "Equity Investors: TVS Capital and Matrix Partners"
+    },
+    {
+     "href": "/bonds/GPID107391/indel-1110-bond-yield?src=view_details&tenureDate=01-Aug-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102671.INDEL MONEY LIMITED@2x.png",
+     "issuer": "INDEL",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "11.10",
+     "sold": "67.29% Sold",
+     "tenure": "10M",
+     "payout": "Monthly",
+     "rating": "IND A-",
+     "note": "Gold Loan Dominant & Established Regional Presence"
+    },
+    {
+     "href": "/bonds/GPID107351/indel-1086-bond-yield?src=view_details&tenureDate=30-Mar-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102671.INDEL MONEY LIMITED@2x.png",
+     "issuer": "INDEL",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "10.86",
+     "sold": "98.03% Sold",
+     "tenure": "1Y 6M",
+     "payout": "Monthly",
+     "rating": "IND A-",
+     "note": "Gold Loan Dominant & Established Regional Presence"
+    },
+    {
+     "href": "/bonds/GPID107370/share-india-1075-bond-yield?src=view_details&tenureDate=10-Aug-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID105130.SHARE INDIA SECURITIES LIMITED.png",
+     "issuer": "SHARE INDIA",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "10.75",
+     "sold": "74.31% Sold",
+     "tenure": "1Y 11M",
+     "payout": "Monthly",
+     "rating": "CARE A+",
+     "note": "Equity Listed with ₹3,660 Cr+ Market Cap"
+    },
+    {
+     "href": "/bonds/GPID107370/share-india-1050-bond-yield?src=view_details&tenureDate=10-Aug-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID105130.SHARE INDIA SECURITIES LIMITED.png",
+     "issuer": "SHARE INDIA",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "10.50",
+     "sold": "74.31% Sold",
+     "tenure": "11M",
+     "payout": "Monthly",
+     "rating": "CARE A+",
+     "note": "Equity Listed with ₹3,660 Cr+ Market Cap"
+    },
+    {
+     "href": "/bonds/GPID107284/muthoot-fincorp-1050-bond-yield?src=view_details&tenureDate=30-Dec-2033",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100936.MUTHOOT FINCORP LIMITED_1@2x.png",
+     "issuer": "MUTHOOT FINCORP",
+     "tags": [
+      "High Rated"
+     ],
+     "rate": "10.50",
+     "sold": "87.56% Sold",
+     "tenure": "7Y 4M",
+     "payout": "Monthly",
+     "rating": "CRISIL AA",
+     "note": "Backed by a 130+ years Legacy of Trust and Growth"
+    },
+    {
+     "href": "/bonds/GPID106817/navi-dec28-1040-bond-yield?src=view_details&tenureDate=31-Dec-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID101068.NAVI FINSERV LIMITED@2x.png",
+     "issuer": "Navi Dec'28",
+     "tags": [
+      "Popular Choice",
+      "₹10K Bond"
+     ],
+     "rate": "10.40",
+     "sold": "91.23% Sold",
+     "tenure": "2Y 4M",
+     "payout": "Monthly",
+     "rating": "CRISIL A",
+     "note": "Leading Digitial NBFC Backed by Sachin Bansal"
+    },
+    {
+     "href": "/bonds/GPID106749/ugro-capital-limited-1035-bond-yield?src=view_details&tenureDate=16-Jun-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID101216.UGRO CAPITAL LIMITED.png",
+     "issuer": "UGRO CAPITAL LIMITED",
+     "tags": [
+      "Public Listed",
+      "₹10K Bond"
+     ],
+     "rate": "10.35",
+     "sold": "42.45% Sold",
+     "tenure": "2Y 9M",
+     "payout": "Monthly",
+     "rating": "IND A+",
+     "note": "A+ Rated MSME Lender & ₹15K+ Cr AUM"
+    },
+    {
+     "href": "/bonds/GPID107346/iifl-samasta-1025-bond-yield?src=view_details&tenureDate=12-Aug-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102664.IIFLLogo.png",
+     "issuer": "IIFL SAMASTA",
+     "tags": [
+      "High Rated"
+     ],
+     "rate": "10.25",
+     "sold": "91.23% Sold",
+     "tenure": "2Y 11M",
+     "payout": "Monthly",
+     "rating": "CRISIL AA-",
+     "note": "Group AUM is above 98K Cr+"
+    },
+    {
+     "href": "/bonds/GPID107398/muthoot-mcred-1020-bond-yield?src=view_details&tenureDate=07-Aug-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103446.MUTHOOTTU MINI FINANCIERS LTD@2x.png",
+     "issuer": "MUTHOOT MCRED",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "10.20",
+     "sold": "99.4% Sold",
+     "tenure": "2Y 11M",
+     "payout": "Monthly",
+     "rating": "ICRA A",
+     "note": "100% Promoter Owned & Gold backed"
+    },
+    {
+     "href": "/bonds/GPID107398/muthoot-mcred-995-bond-yield?src=view_details&tenureDate=10-Aug-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103446.MUTHOOTTU MINI FINANCIERS LTD@2x.png",
+     "issuer": "MUTHOOT MCRED",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "9.95",
+     "sold": "99.4% Sold",
+     "tenure": "11M",
+     "payout": "Monthly",
+     "rating": "ICRA A",
+     "note": "100% Promoter Owned & Gold backed"
+    },
+    {
+     "href": "/bonds/GPID107396/muthoot-capital-970-bond-yield?src=view_details&tenureDate=24-Aug-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102496.MUTHOOT CAPITAL SERVICES LIMITED.png",
+     "issuer": "MUTHOOT CAPITAL",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "9.70",
+     "sold": "56.4% Sold",
+     "tenure": "2Y 11M",
+     "payout": "Monthly",
+     "rating": "CRISIL AA-",
+     "note": "Credit Rating Upgraded from CRISIL A+"
+    },
+    {
+     "href": "/bonds/GPID107396/muthoot-capital-950-bond-yield?src=view_details&tenureDate=24-Aug-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102496.MUTHOOT CAPITAL SERVICES LIMITED.png",
+     "issuer": "MUTHOOT CAPITAL",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "9.50",
+     "sold": "56.4% Sold",
+     "tenure": "11M",
+     "payout": "Monthly",
+     "rating": "CRISIL AA-",
+     "note": "Credit Rating Upgraded from CRISIL A+"
+    }
+   ]
+  },
+  {
+   "slug": "gold-backed-bonds",
+   "label": "Gold Backed",
+   "count": 8,
+   "cards": [
+    {
+     "href": "/bonds/GPID107296/finkurve-1200-bond-yield?src=view_details&tenureDate=16-Jun-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID107295.arvog_logo.jpg",
+     "issuer": "FINKURVE",
+     "tags": [
+      "Gold Loan Backed",
+      "High YTM"
+     ],
+     "rate": "12.00",
+     "sold": "82.75% Sold",
+     "tenure": "1Y 9M",
+     "payout": "Half Yearly",
+     "rating": "CARE BBB+",
+     "note": "Emerging Gold Loan NBFC backed by Augmont Group"
+    },
+    {
+     "href": "/bonds/GPID107434/keertana-1200-bond-yield?src=view_details&tenureDate=16-Dec-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102688.keertanafin_logo.jpg.jpeg",
+     "issuer": "KEERTANA",
+     "tags": [
+      "Newly Launched",
+      "High Yield"
+     ],
+     "rate": "12.00",
+     "sold": "30.29% Sold",
+     "tenure": "2Y 3M",
+     "payout": "Monthly",
+     "rating": "ACUITE A-",
+     "note": "Fast Growing Gold Lender"
+    },
+    {
+     "href": "/bonds/GPID106988/unigold-1197-bond-yield?src=view_details&tenureDate=02-Apr-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID106987.Unigold_3020105861.png",
+     "issuer": "UNIGOLD",
+     "tags": [
+      "Newly Launched",
+      "Gold Loan Backed"
+     ],
+     "rate": "11.97",
+     "sold": "92.09% Sold",
+     "tenure": "1Y 7M",
+     "payout": "Monthly",
+     "rating": "CRISIL BBB",
+     "note": "Fast Growing Gold Loan Lender"
+    },
+    {
+     "href": "/bonds/GPID107391/indel-1145-bond-yield?src=view_details&tenureDate=24-Aug-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102671.INDEL MONEY LIMITED@2x.png",
+     "issuer": "INDEL",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "11.45",
+     "sold": "67.29% Sold",
+     "tenure": "2Y 11M",
+     "payout": "Monthly",
+     "rating": "IND A-",
+     "note": "Gold Loan Dominant & Established Regional Presence"
+    },
+    {
+     "href": "/bonds/GPID107434/keertana-1142-bond-yield?src=view_details&tenureDate=16-Jun-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102688.keertanafin_logo.jpg.jpeg",
+     "issuer": "KEERTANA",
+     "tags": [
+      "Newly Launched",
+      "High Yield"
+     ],
+     "rate": "11.42",
+     "sold": "30.29% Sold",
+     "tenure": "9M",
+     "payout": "Monthly",
+     "rating": "ACUITE A-",
+     "note": "Fast Growing Gold Lender"
+    },
+    {
+     "href": "/bonds/GPID107391/indel-1110-bond-yield?src=view_details&tenureDate=01-Aug-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102671.INDEL MONEY LIMITED@2x.png",
+     "issuer": "INDEL",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "11.10",
+     "sold": "67.29% Sold",
+     "tenure": "10M",
+     "payout": "Monthly",
+     "rating": "IND A-",
+     "note": "Gold Loan Dominant & Established Regional Presence"
+    },
+    {
+     "href": "/bonds/GPID107398/muthoot-mcred-1020-bond-yield?src=view_details&tenureDate=07-Aug-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103446.MUTHOOTTU MINI FINANCIERS LTD@2x.png",
+     "issuer": "MUTHOOT MCRED",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "10.20",
+     "sold": "99.4% Sold",
+     "tenure": "2Y 11M",
+     "payout": "Monthly",
+     "rating": "ICRA A",
+     "note": "100% Promoter Owned & Gold backed"
+    },
+    {
+     "href": "/bonds/GPID107398/muthoot-mcred-995-bond-yield?src=view_details&tenureDate=10-Aug-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103446.MUTHOOTTU MINI FINANCIERS LTD@2x.png",
+     "issuer": "MUTHOOT MCRED",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "9.95",
+     "sold": "99.4% Sold",
+     "tenure": "11M",
+     "payout": "Monthly",
+     "rating": "ICRA A",
+     "note": "100% Promoter Owned & Gold backed"
+    }
+   ]
+  },
+  {
+   "slug": "state-government-guranteed-bonds",
+   "label": "Govt Backed",
+   "count": 2,
+   "cards": [
+    {
+     "href": "/bonds/GPID106795/kerala-infrastructure-investment-fund-board-825-bond-yield?src=view_details&tenureDate=21-Jan-2031",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102759.KERALA INFRASTRUCTURE INVESTMENT FUND BOARD.png",
+     "issuer": "KERALA INFRASTRUCTURE INVESTMENT FUND BOARD",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "8.25",
+     "sold": "8% Sold",
+     "tenure": "4Y 5M",
+     "payout": "Half Yearly",
+     "rating": "IND AA",
+     "note": "Govt of Kerala Backed & Funding Kerala’s Infrastructure Growth"
+    },
+    {
+     "href": "/bonds/GPID106739/andhra-pradesh-state-beverages-corporation-limited-800-bond-yield?src=view_details&tenureDate=28-Nov-2031",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID101491.ANDHRA PRADESH STATE BEVERAGES CORPORATION LIMITED.png",
+     "issuer": "ANDHRA PRADESH STATE BEVERAGES CORPORATION LIMITED",
+     "tags": [
+      "State Govt Backed",
+      "State Guarantee"
+     ],
+     "rate": "8.00",
+     "sold": "99.89% Sold",
+     "tenure": "5Y 3M",
+     "payout": "Half Yearly",
+     "rating": "IND AA",
+     "note": "Guaranteed by Govt of Andhra Pradesh"
+    }
+   ]
+  },
+  {
+   "slug": "non-nbfc-bonds",
+   "label": "Non NBFC Bonds",
+   "count": 29,
+   "cards": [
+    {
+     "href": "/bonds/GPID107372/dishman-1266-bond-yield?src=view_details&tenureDate=17-Feb-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104220.dishman_carbogen_amcis_logo_under_80kb.png",
+     "issuer": "DISHMAN",
+     "tags": [
+      "Newly Launched"
+     ],
+     "rate": "12.66",
+     "sold": "63.68% Sold",
+     "tenure": "5M",
+     "payout": "Half Yearly",
+     "rating": "IND A",
+     "note": "Listed Entity with ₹2,700 Cr+ Market Cap"
+    },
+    {
+     "href": "/bonds/GPID106980/tapir-1225-bond-yield?src=view_details&tenureDate=12-Mar-2030",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103646.Tapir Constructions Limited@2x.png",
+     "issuer": "TAPIR",
+     "tags": [
+      "Selling Out Fast",
+      "Corp Bond"
+     ],
+     "rate": "12.25",
+     "sold": "95.05% Sold",
+     "tenure": "3Y 6M",
+     "payout": "Monthly",
+     "rating": "IVR A-",
+     "note": "Part of ₹50K Crs+ Market Cap Embassy Group"
+    },
+    {
+     "href": "/bonds/GPID107372/dishman-1140-bond-yield?src=view_details&tenureDate=17-Aug-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104220.dishman_carbogen_amcis_logo_under_80kb.png",
+     "issuer": "DISHMAN",
+     "tags": [
+      "Newly Launched"
+     ],
+     "rate": "11.40",
+     "sold": "63.68% Sold",
+     "tenure": "11M",
+     "payout": "Half Yearly",
+     "rating": "IND A",
+     "note": "Listed Entity with ₹2,700 Cr+ Market Cap"
+    },
+    {
+     "href": "/bonds/GPID107370/share-india-1075-bond-yield?src=view_details&tenureDate=10-Aug-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID105130.SHARE INDIA SECURITIES LIMITED.png",
+     "issuer": "SHARE INDIA",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "10.75",
+     "sold": "74.31% Sold",
+     "tenure": "1Y 11M",
+     "payout": "Monthly",
+     "rating": "CARE A+",
+     "note": "Equity Listed with ₹3,660 Cr+ Market Cap"
+    },
+    {
+     "href": "/bonds/GPID107370/share-india-1050-bond-yield?src=view_details&tenureDate=10-Aug-2027",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID105130.SHARE INDIA SECURITIES LIMITED.png",
+     "issuer": "SHARE INDIA",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "10.50",
+     "sold": "74.31% Sold",
+     "tenure": "11M",
+     "payout": "Monthly",
+     "rating": "CARE A+",
+     "note": "Equity Listed with ₹3,660 Cr+ Market Cap"
+    },
+    {
+     "href": "/bonds/GPID106817/navi-dec28-1040-bond-yield?src=view_details&tenureDate=31-Dec-2028",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID101068.NAVI FINSERV LIMITED@2x.png",
+     "issuer": "Navi Dec'28",
+     "tags": [
+      "Popular Choice",
+      "₹10K Bond"
+     ],
+     "rate": "10.40",
+     "sold": "91.23% Sold",
+     "tenure": "2Y 4M",
+     "payout": "Monthly",
+     "rating": "CRISIL A",
+     "note": "Leading Digitial NBFC Backed by Sachin Bansal"
+    },
+    {
+     "href": "/bonds/GPID106749/ugro-capital-limited-1035-bond-yield?src=view_details&tenureDate=16-Jun-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID101216.UGRO CAPITAL LIMITED.png",
+     "issuer": "UGRO CAPITAL LIMITED",
+     "tags": [
+      "Public Listed",
+      "₹10K Bond"
+     ],
+     "rate": "10.35",
+     "sold": "42.45% Sold",
+     "tenure": "2Y 9M",
+     "payout": "Monthly",
+     "rating": "IND A+",
+     "note": "A+ Rated MSME Lender & ₹15K+ Cr AUM"
+    },
+    {
+     "href": "/bond-ipo/GPID100778/edelweiss-financial-services-limited?src=view_details&tenureDate=NA",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100778.EDELWEISS FINANCIAL SERVICES LIMITED.png",
+     "issuer": "EDELWEISS FINANCIAL SERVICES LIMITED",
+     "tags": [
+      "Regular Income",
+      "Corporate Bond"
+     ],
+     "rate": "10.00",
+     "sold": "",
+     "tenure": "10Y",
+     "payout": "Monthly",
+     "rating": "CRISIL A+",
+     "note": ""
+    },
+    {
+     "href": "/bond-ipo/GPID100778/edelweiss-financial-services-limited?src=view_details&tenureDate=NA",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100778.EDELWEISS FINANCIAL SERVICES LIMITED.png",
+     "issuer": "EDELWEISS FINANCIAL SERVICES LIMITED",
+     "tags": [
+      "Regular Income",
+      "Corporate Bond"
+     ],
+     "rate": "9.99",
+     "sold": "",
+     "tenure": "10Y",
+     "payout": "Yearly",
+     "rating": "CRISIL A+",
+     "note": ""
+    },
+    {
+     "href": "/bond-ipo/GPID100778/edelweiss-financial-services-limited?src=view_details&tenureDate=NA",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100778.EDELWEISS FINANCIAL SERVICES LIMITED.png",
+     "issuer": "EDELWEISS FINANCIAL SERVICES LIMITED",
+     "tags": [
+      "Regular Income",
+      "Corporate Bond"
+     ],
+     "rate": "9.60",
+     "sold": "",
+     "tenure": "5Y",
+     "payout": "Monthly",
+     "rating": "CRISIL A+",
+     "note": ""
+    },
+    {
+     "href": "/bond-ipo/GPID100778/edelweiss-financial-services-limited?src=view_details&tenureDate=NA",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100778.EDELWEISS FINANCIAL SERVICES LIMITED.png",
+     "issuer": "EDELWEISS FINANCIAL SERVICES LIMITED",
+     "tags": [
+      "Lump Sum at Maturity",
+      "Corporate Bond"
+     ],
+     "rate": "9.60",
+     "sold": "",
+     "tenure": "5Y",
+     "payout": "On Maturity",
+     "rating": "CRISIL A+",
+     "note": ""
+    },
+    {
+     "href": "/bond-ipo/GPID100778/edelweiss-financial-services-limited?src=view_details&tenureDate=NA",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100778.EDELWEISS FINANCIAL SERVICES LIMITED.png",
+     "issuer": "EDELWEISS FINANCIAL SERVICES LIMITED",
+     "tags": [
+      "Regular Income",
+      "Corporate Bond"
+     ],
+     "rate": "9.59",
+     "sold": "",
+     "tenure": "5Y",
+     "payout": "Yearly",
+     "rating": "CRISIL A+",
+     "note": ""
+    },
+    {
+     "href": "/bond-ipo/GPID100778/edelweiss-financial-services-limited?src=view_details&tenureDate=NA",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100778.EDELWEISS FINANCIAL SERVICES LIMITED.png",
+     "issuer": "EDELWEISS FINANCIAL SERVICES LIMITED",
+     "tags": [
+      "Regular Income",
+      "Corporate Bond"
+     ],
+     "rate": "9.15",
+     "sold": "",
+     "tenure": "3Y",
+     "payout": "Monthly",
+     "rating": "CRISIL A+",
+     "note": ""
+    },
+    {
+     "href": "/bond-ipo/GPID100778/edelweiss-financial-services-limited?src=view_details&tenureDate=NA",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100778.EDELWEISS FINANCIAL SERVICES LIMITED.png",
+     "issuer": "EDELWEISS FINANCIAL SERVICES LIMITED",
+     "tags": [
+      "Lump Sum at Maturity",
+      "Corporate Bond"
+     ],
+     "rate": "9.15",
+     "sold": "",
+     "tenure": "3Y",
+     "payout": "On Maturity",
+     "rating": "CRISIL A+",
+     "note": ""
+    },
+    {
+     "href": "/bond-ipo/GPID100778/edelweiss-financial-services-limited?src=view_details&tenureDate=NA",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100778.EDELWEISS FINANCIAL SERVICES LIMITED.png",
+     "issuer": "EDELWEISS FINANCIAL SERVICES LIMITED",
+     "tags": [
+      "Regular Income",
+      "Corporate Bond"
+     ],
+     "rate": "9.14",
+     "sold": "",
+     "tenure": "3Y",
+     "payout": "Yearly",
+     "rating": "CRISIL A+",
+     "note": ""
+    },
+    {
+     "href": "/bond-ipo/GPID104322/adani-enterprises-limited?src=view_details&tenureDate=NA",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104322.ADANI ENTERPRISES LIMITED.png",
+     "issuer": "ADANI ENTERPRISES LIMITED",
+     "tags": [
+      "Regular Income",
+      "Corporate Bond"
+     ],
+     "rate": "8.90",
+     "sold": "",
+     "tenure": "5Y",
+     "payout": "Half Yearly",
+     "rating": "CARE AA-",
+     "note": ""
+    },
+    {
+     "href": "/bond-ipo/GPID104322/adani-enterprises-limited?src=view_details&tenureDate=NA",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104322.ADANI ENTERPRISES LIMITED.png",
+     "issuer": "ADANI ENTERPRISES LIMITED",
+     "tags": [
+      "Lump Sum at Maturity",
+      "Corporate Bond"
+     ],
+     "rate": "8.90",
+     "sold": "",
+     "tenure": "5Y",
+     "payout": "On Maturity",
+     "rating": "CARE AA-",
+     "note": ""
+    },
+    {
+     "href": "/bond-ipo/GPID104322/adani-enterprises-limited?src=view_details&tenureDate=NA",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104322.ADANI ENTERPRISES LIMITED.png",
+     "issuer": "ADANI ENTERPRISES LIMITED",
+     "tags": [
+      "Regular Income",
+      "Corporate Bond"
+     ],
+     "rate": "8.89",
+     "sold": "",
+     "tenure": "5Y",
+     "payout": "Yearly",
+     "rating": "CARE AA-",
+     "note": ""
+    },
+    {
+     "href": "/bonds/GPID100974/piramal-capital--housing-finance-limited-885-bond-yield?src=view_details&tenureDate=26-Sep-2031",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100793.piramalcpital.png",
+     "issuer": "PIRAMAL CAPITAL & HOUSING FINANCE LIMITED",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "8.85",
+     "sold": "45.54% Sold",
+     "tenure": "5Y 1M",
+     "payout": "Quarterly",
+     "rating": "CARE AA",
+     "note": "Equity Listed with ₹47,500 Cr+ Market Cap"
+    },
+    {
+     "href": "/bond-ipo/GPID104322/adani-enterprises-limited?src=view_details&tenureDate=NA",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104322.ADANI ENTERPRISES LIMITED.png",
+     "issuer": "ADANI ENTERPRISES LIMITED",
+     "tags": [
+      "Regular Income",
+      "Corporate Bond"
+     ],
+     "rate": "8.75",
+     "sold": "",
+     "tenure": "3Y",
+     "payout": "Half Yearly",
+     "rating": "CARE AA-",
+     "note": ""
+    },
+    {
+     "href": "/bond-ipo/GPID104322/adani-enterprises-limited?src=view_details&tenureDate=NA",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104322.ADANI ENTERPRISES LIMITED.png",
+     "issuer": "ADANI ENTERPRISES LIMITED",
+     "tags": [
+      "Lump Sum at Maturity",
+      "Corporate Bond"
+     ],
+     "rate": "8.75",
+     "sold": "",
+     "tenure": "3Y",
+     "payout": "On Maturity",
+     "rating": "CARE AA-",
+     "note": ""
+    },
+    {
+     "href": "/bond-ipo/GPID104322/adani-enterprises-limited?src=view_details&tenureDate=NA",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104322.ADANI ENTERPRISES LIMITED.png",
+     "issuer": "ADANI ENTERPRISES LIMITED",
+     "tags": [
+      "Regular Income",
+      "Corporate Bond"
+     ],
+     "rate": "8.74",
+     "sold": "",
+     "tenure": "3Y",
+     "payout": "Yearly",
+     "rating": "CARE AA-",
+     "note": ""
+    },
+    {
+     "href": "/bond-ipo/GPID100778/edelweiss-financial-services-limited?src=view_details&tenureDate=NA",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100778.EDELWEISS FINANCIAL SERVICES LIMITED.png",
+     "issuer": "EDELWEISS FINANCIAL SERVICES LIMITED",
+     "tags": [
+      "Lump Sum at Maturity",
+      "Corporate Bond"
+     ],
+     "rate": "8.65",
+     "sold": "",
+     "tenure": "2Y",
+     "payout": "On Maturity",
+     "rating": "CRISIL A+",
+     "note": ""
+    },
+    {
+     "href": "/bond-ipo/GPID100778/edelweiss-financial-services-limited?src=view_details&tenureDate=NA",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100778.EDELWEISS FINANCIAL SERVICES LIMITED.png",
+     "issuer": "EDELWEISS FINANCIAL SERVICES LIMITED",
+     "tags": [
+      "Regular Income",
+      "Corporate Bond"
+     ],
+     "rate": "8.64",
+     "sold": "",
+     "tenure": "2Y",
+     "payout": "Yearly",
+     "rating": "CRISIL A+",
+     "note": ""
+    },
+    {
+     "href": "/bond-ipo/GPID104322/adani-enterprises-limited?src=view_details&tenureDate=NA",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104322.ADANI ENTERPRISES LIMITED.png",
+     "issuer": "ADANI ENTERPRISES LIMITED",
+     "tags": [
+      "Regular Income",
+      "Corporate Bond"
+     ],
+     "rate": "8.60",
+     "sold": "",
+     "tenure": "2Y",
+     "payout": "Yearly",
+     "rating": "CARE AA-",
+     "note": ""
+    },
+    {
+     "href": "/bond-ipo/GPID104322/adani-enterprises-limited?src=view_details&tenureDate=NA",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104322.ADANI ENTERPRISES LIMITED.png",
+     "issuer": "ADANI ENTERPRISES LIMITED",
+     "tags": [
+      "Lump Sum at Maturity",
+      "Corporate Bond"
+     ],
+     "rate": "8.60",
+     "sold": "",
+     "tenure": "2Y",
+     "payout": "On Maturity",
+     "rating": "CARE AA-",
+     "note": ""
+    },
+    {
+     "href": "/bonds/GPID106789/adani-enterprises-limited-850-bond-yield?src=view_details&tenureDate=12-Jan-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104322.ADANI ENTERPRISES LIMITED.png",
+     "issuer": "ADANI ENTERPRISES LIMITED",
+     "tags": [
+      "High rated"
+     ],
+     "rate": "8.50",
+     "sold": "83.58% Sold",
+     "tenure": "2Y 4M",
+     "payout": "Yearly",
+     "rating": "CARE AA-",
+     "note": "Equity Listed with ₹4 Lakhs Cr+ Market Cap"
+    },
+    {
+     "href": "/bonds/GPID107359/adani-airport-845-bond-yield?src=view_details&tenureDate=12-Feb-2029",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103845.Screenshot 2024-08-28 171536_11zon.png",
+     "issuer": "ADANI AIRPORT",
+     "tags": [
+      "Newly Launched",
+      "High Rated"
+     ],
+     "rate": "8.45",
+     "sold": "64.33% Sold",
+     "tenure": "2Y 5M",
+     "payout": "Half Yearly",
+     "rating": "CRISIL AA-",
+     "note": "Backed by Adani Groups Strong Infrastructure Legacy"
+    },
+    {
+     "href": "/bonds/GPID101395/tata-capital-limited-740-bond-yield?src=view_details&tenureDate=29-Apr-2032",
+     "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID101761.TATA CAPITAL LIMITED.png",
+     "issuer": "TATA CAPITAL LIMITED",
+     "tags": [
+      "High Rated"
+     ],
+     "rate": "7.40",
+     "sold": "50% Sold",
+     "tenure": "5Y 8M",
+     "payout": "Yearly",
+     "rating": "CRISIL AAA",
+     "note": "India’s 3rd Largest NBFC"
+    }
+   ]
+  }
+ ]
+}

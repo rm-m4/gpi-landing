@@ -1,0 +1,55 @@
+alert.svg	bell
+goldenpi-logo.2qzc6yjkqzeqc.svg	GoldenPi
+header-nav-bonds.1h3kbznfomfnx.svg	
+header-nav-fd.2fybbqt4y5m_8.svg	
+header-nav-collection.2bnl0irrjy91r.svg	
+header-nav-bond-utsav.1hztj7yt4kmfg.svg	
+header-nav-ref-earn.3h7zk2vgdlva2.svg	
+header-search.2k7bdlgsxljnb.svg	
+user-icon.1ytalgivehf56.svg	
+bondUtsavBanner-desktop.webp	Bond Utsav promotional banner
+bondUtsavBanner-mobile.webp	Bond Utsav promotional banner
+GPIDO09029.newly_launch_app.png	
+app-high-yield-bonds.png	
+app-highly-rated-bonds.png	
+app-starts-at-10k-bonds.png	
+app-bonds-for-short-term-investment.png	
+app-monthly-payout.png	
+app-gold-backed-bonds.png	
+app-govt-backed.png	
+all-bonds.svg	
+GPID104095.Neogrowth new logo (1).jpg	
+GPID107347.Best Capital.png	
+GPID102720.AKARA CAPITAL ADVISORS PRIVATE LIMITED@2x.png	
+GPID104220.dishman_carbogen_amcis_logo_under_80kb.png	
+GPID103646.Tapir Constructions Limited@2x.png	
+GPID102664.IIFLLogo.png	
+GPID100700.SPANDANA SPHOORTY FINANCIAL LIMITED@2x.png	
+GPID107295.arvog_logo.jpg	
+GPID107034.mahaveer_finance_india_ltd_logo.jpg	
+GPID102688.keertanafin_logo.jpg.jpeg	
+GPID106987.Unigold_3020105861.png	
+GPID103817.Screenshot 2024-08-08 165240_11zon.jpg	
+GPID106733.FINNABLE CREDIT PRIVATE LIMITED@2x.png	
+GPID102671.INDEL MONEY LIMITED@2x.png	
+GPID103968.ARMAN FINANCIAL SERVICES LIMITED .png	
+GPID103532.EARLYSALARY SERVICES PRIVATE LIMITED@2x.png	
+GPID104493.Namra.jpg	
+GPID105130.SHARE INDIA SECURITIES LIMITED.png	
+GPID100936.MUTHOOT FINCORP LIMITED_1@2x.png	
+GPID101068.NAVI FINSERV LIMITED@2x.png	
+GPID101216.UGRO CAPITAL LIMITED.png	
+GPID103446.MUTHOOTTU MINI FINANCIERS LTD@2x.png	
+GPID104763.Screenshot 2025-01-23 123637_11zon.png	
+GPID102496.MUTHOOT CAPITAL SERVICES LIMITED.png	
+GPID100507.HINDUJA LEYLAND FINANCE LIMITED.png	
+GPID100793.piramalcpital.png	
+GPID104322.ADANI ENTERPRISES LIMITED.png	
+GPID103845.Screenshot 2024-08-28 171536_11zon.png	
+GPID102759.KERALA INFRASTRUCTURE INVESTMENT FUND BOARD.png	
+GPID101491.ANDHRA PRADESH STATE BEVERAGES CORPORATION LIMITED.png	
+GPID101761.TATA CAPITAL LIMITED.png	
+GPID100379.Bajaj Finserv.png	
+GPID100004.HDFC BANK LIMITED@2x.png	
+GPID100099.POWER FINANCE CORPORATION LTD.png	
+GPID100094.INDIAN RAILWAY FINANCE CORPORATION LIMITED.png	
