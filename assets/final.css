@@ -50,22 +50,30 @@
   border: 1px solid var(--mustard);
   box-shadow: 0 1px 2px rgba(50, 40, 17, 0.05);
   transform: translateX(0);
-  transition: transform 0.45s var(--ease, cubic-bezier(0.22, 0.61, 0.36, 1)),
-    width 0.45s var(--ease, cubic-bezier(0.22, 0.61, 0.36, 1));
+  transition: transform 0.5s var(--ease, cubic-bezier(0.34, 1.28, 0.52, 1)),
+    width 0.5s var(--ease, cubic-bezier(0.34, 1.28, 0.52, 1));
   pointer-events: none;
 }
 
 /* Hidden until measured, so it never parks at the wrong width on first paint. */
 .gp-tabs__ink:not(.is-ready) { opacity: 0; }
 
+/* Icon above the label, not beside it. Six categories side by side ran the
+   strip past the panel and forced it to scroll on desktop; stacked, the same
+   six fit and each tab reads as one target rather than a run of words. The
+   label wraps to two lines, and the flex track stretches every tab to the
+   tallest, so the row still lines up. */
 .gp-tab {
   position: relative;
   z-index: 1;
   display: inline-flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
   gap: 8px;
   flex: none;
-  padding: 12px 16px;
+  max-width: 15ch;
+  padding: 12px 14px;
   border: 1px solid transparent;
   border-radius: 12px;
   background: transparent;
@@ -73,19 +81,34 @@
   font-family: inherit;
   font-size: var(--t-small);
   font-weight: 500;
-  line-height: 1;
-  white-space: nowrap;
+  line-height: 1.25;
+  text-align: center;
+  text-wrap: balance;
   cursor: pointer;
   transition: color 0.35s ease;
 }
 
-.gp-tab img { width: 20px; height: 20px; }
+/* The icon carries the state change: it lifts on hover and settles a little
+   larger and at full strength once selected. Overshoot on the way in, because
+   a 2px lift with no spring reads as a rendering glitch rather than a move. */
+.gp-tab img {
+  width: 26px;
+  height: 26px;
+  filter: grayscale(0.4) opacity(0.7);
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.35s ease;
+}
 
 .gp-tab:hover { color: var(--app-heading-color); }
+.gp-tab:hover img { transform: translateY(-3px); filter: none; }
 
 .gp-tab[aria-selected="true"] {
   color: var(--app-heading-color);
   font-weight: 700;
+}
+
+.gp-tab[aria-selected="true"] img {
+  transform: translateY(-2px) scale(1.1);
+  filter: none;
 }
 
 /* Trailing fade when the strip scrolls, so it reads as scrollable. */
@@ -120,6 +143,26 @@
   to { opacity: 1; transform: none; }
 }
 
+/* One gold sweep crosses each row as its panel opens, riding the same stagger
+   as the rows themselves. It is a pseudo-element with pointer-events off, so
+   the stretched row link over it is untouched. */
+.gp-panel.is-on .gp-row { overflow: hidden; }
+
+.gp-panel.is-on .gp-row::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(105deg, transparent 38%, rgba(212, 175, 55, 0.18) 50%, transparent 62%);
+  animation: gp-row-sheen 0.9s ease both;
+  animation-delay: calc(var(--r, 0) * 50ms + 140ms);
+}
+
+@keyframes gp-row-sheen {
+  from { transform: translateX(-110%); }
+  to { transform: translateX(110%); }
+}
+
 .gp-panel__note {
   margin-bottom: var(--s-4);
   color: var(--subtext);
@@ -135,8 +178,10 @@
 
 @media (prefers-reduced-motion: reduce) {
   .gp-tabs__ink { transition: none; }
+  .gp-tab img { transition: none; }
   .gp-panel.is-on,
   .gp-panel.is-on .gp-row { animation: none; }
+  .gp-panel.is-on .gp-row::before { display: none; }
 }
 
 /* The header row names each column from 761px up, so the per-row labels, which
@@ -305,6 +350,9 @@
    is a fixed 360px rail beside it, and stacks below on small screens. */
 
 .gp-faq-layout { display: grid; gap: 24px; }
+/* site.css centres .gp-faq with auto margins; in a grid cell that shrinks it
+   to its content, so it narrowed whenever every answer was collapsed. */
+.gp-faq-layout .gp-faq { width: 100%; max-width: none; margin-inline: 0; }
 
 @media (min-width: 900px) {
   .gp-faq-layout { grid-template-columns: minmax(0, 1fr) 360px; gap: 30px; align-items: start; }
@@ -753,8 +801,81 @@ a.gp-gold-card:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba
   .gp-blogcard__media { width: 100%; height: 150px; }
 }
 
+/* The landing pages' blog thumbnails are 380x280 with their title baked into
+   the art, so a square crop cuts words off. Keep their ratio instead; the body
+   takes the remaining width so the image always sits on the right edge. */
+.gp-blogcard__body { flex: 1; }
+.gp-blogcard__media--photo { width: 150px; height: auto; aspect-ratio: 380 / 280; align-self: flex-start; }
+@media (max-width: 460px) {
+  .gp-blogcard__media--photo { width: 100%; height: auto; }
+}
+
 /* The rating agency sits above its grade in their card; keep it subordinate. */
 .gp-gold-card__metric dd small { font-size: 10px; font-weight: 600; opacity: 0.7; }
 
 /* The step card is an <ol>: numbering is the design, not the marker. */
 .gp-steps { list-style: none; margin: 0; padding-left: 24px; padding-right: 24px; }
+
+/* No gold rule under section headings on the live pages. The marker lives in
+   site.css, which the frozen pages share, so it is switched off here. */
+.gp-section__head--marked .gp-section__title::after { display: none; }
+
+/* Heading rhythm: the space above a section heading is twice the space below
+   it, so each heading groups with its content, not with the section before.
+   Sections are flush-top, so the space above comes from the previous
+   section's bottom padding. */
+:root { --head-gap: clamp(20px, 2.5vw, 32px); }
+.gp-section__head { margin-bottom: var(--head-gap); }
+.gp-section, .gp-section--tight { padding-bottom: calc(var(--head-gap) * 2); }
+
+/* ================================================================ reviews
+   One row drifting left on a loop, edges faded. The track holds the set twice,
+   so moving it by half its width lands exactly where it started. */
+.gp-reviews {
+  overflow: hidden;
+  padding-block: 8px 16px;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+.gp-reviews__track {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  animation: gp-reviews-drift calc(var(--n, 5) * 9s) linear infinite;
+}
+.gp-reviews:hover .gp-reviews__track { animation-play-state: paused; }
+@keyframes gp-reviews-drift {
+  to { transform: translateX(calc(-50% - 12px)); }
+}
+
+.gp-review {
+  flex: none;
+  width: min(420px, 82vw);
+  margin: 0;
+  padding: 28px;
+  border-radius: var(--gp-radius-lg);
+  background: var(--white);
+  box-shadow: var(--gp-shadow-card);
+  border-bottom: 1px solid var(--gp-card-hairline);
+}
+.gp-review__head { display: flex; align-items: center; gap: 16px; }
+.gp-review__avatar {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #fbf3d5;
+  color: #8a6520;
+  font-size: 18px;
+  font-weight: 700;
+}
+.gp-review__name { display: block; font-size: 17px; font-weight: 700; color: var(--app-heading-color); }
+.gp-review__stars { display: block; margin-top: 4px; color: #a07c2a; letter-spacing: 2px; }
+.gp-review__text { margin: 16px 0 0; color: var(--subtext); font-size: 15px; line-height: 1.6; }
+
+@media (prefers-reduced-motion: reduce) {
+  .gp-reviews { overflow-x: auto; }
+  .gp-reviews__track { animation: none; }
+}

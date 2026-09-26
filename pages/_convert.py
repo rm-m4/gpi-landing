@@ -193,34 +193,6 @@ def blocks(html, heading, icons):
     return html[:start] + '\n'.join(out) + html[end:]
 
 
-def faq_with_help(html, contact_href):
-    """Put the FAQ accordion and a Need Help card side by side."""
-    i = html.index('<div class="gp-faq">')
-    j = html.index('</div>', html.rindex('</details>', i)) + len('</div>')
-
-    # Structure matches issuer-need-help exactly: the 237px support illustration,
-    # a small phone icon beside the title, and an arrow inside the CTA.
-    help_card = (
-        '\n\n        <aside class="gp-need-help">\n'
-        '          <img class="gp-need-help__image" src="../assets/img/support-icon.svg"\n'
-        '               alt="" width="237" height="237">\n'
-        '          <p class="gp-need-help__title">\n'
-        '            <img src="../assets/img/phone-icon.svg" alt="" width="20" height="20">\n'
-        '            Need Help\n'
-        '          </p>\n'
-        '          <p class="gp-need-help__desc">Talk to our Support Team for free. We will\n'
-        '            help you through your investment journey.</p>\n'
-        '          <a class="gp-cta gp-cta--primary" href="%s">\n'
-        '            Contact Us\n'
-        '            <img class="gp-cta__arrow" src="../assets/img/arrow-right.svg"\n'
-        '                 alt="" width="16" height="16">\n'
-        '          </a>\n'
-        '        </aside>' % contact_href)
-
-    return (html[:i] + '<div class="gp-faq-layout">\n        ' + html[i:j]
-            + help_card + '\n      </div>' + html[j:])
-
-
 def common(html, slug):
     """Steps every converted page gets."""
     # The -old archives were repointed at each other before this ran, so the
@@ -246,7 +218,7 @@ def common(html, slug):
             html = (html[:i] + '<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">'
                     + html[i + len('<div class="gp-scroller">'):])
             break
-    return html
+    return F.review_marquee(F.blog_cards(html))
 
 
 def bento(html, spans):
@@ -328,6 +300,7 @@ def build_index():
 
     html = bento(html, ['lg:col-span-4', 'lg:col-span-2', 'lg:col-span-2',
                         'lg:col-span-2', 'lg:col-span-2', 'lg:col-span-6'])
+    html = F.faq_with_help(html)
     return scripts(html)
 
 
@@ -487,7 +460,7 @@ def build_fd():
     html = hero_ground(html)
     html = blocks(html, 'Why invest in with GoldenPi?',
                   ['image10.svg', 'image11.svg', 'image12.svg'])
-    html = faq_with_help(html, BASE + '/contact-us')
+    html = F.faq_with_help(html)
     html = issuer_ctas(html)
     return scripts(html)
 
@@ -559,6 +532,7 @@ def build_ipo():
     html = ipo_hero(html)
     html = hero_ground(html)
     html = count_up(html)
+    html = F.faq_with_help(html)
     return scripts(html, tabs=True)
 
 
