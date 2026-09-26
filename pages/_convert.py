@@ -189,19 +189,17 @@ def common(html, slug):
     return F.review_marquee(F.blog_cards(html))
 
 
-def bento(html, spans):
-    """Collections: three equal columns become an asymmetric bento."""
-    i = html.index('Corporate Bond Collections')
-    old = '<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">'
-    gi = html.index(old, i)
-    html = html[:gi] + '<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-6">' + html[gi + len(old):]
-    end = html.index('View all Bond Collections', gi)
-    seg = html[gi:end]
-    card = 'class="gp-card gp-card--link gp-card--accent flex items-center gap-4 p-5"'
-    for sp in spans:
-        seg = seg.replace(card, 'class="gp-card gp-card--link gp-card--accent gp-bento-cell %s '
-                                'flex items-center gap-4 p-5"' % sp, 1)
-    return html[:gi] + seg + html[end:]
+def collections(html, after=None, title="Explore Corporate Bond Collections"):
+    """The shared five-card collections bento: swapped in where the page has
+    its own collections section, otherwise added after the section holding `after`."""
+    if F.MARK in html:
+        i = html.index(F.MARK)
+        j = html.index("  </section>\n", i) + len("  </section>\n")
+    else:
+        i = j = html.index("  </section>\n", html.index(after)) + len("  </section>\n")
+        html = html[:i] + "\n" + html[i:]
+        i = j = i + 1
+    return html[:i] + F.collections(title) + html[j:]
 
 
 def scripts(html, tabs=True):
@@ -272,8 +270,7 @@ def build_index():
     end = html.index('</div>', html.index('View All</a>', end)) + len('</div>')
     html = html[:start] + tabstrip(tabs) + "\n" + html[end:]
 
-    html = bento(html, ['lg:col-span-4', 'lg:col-span-2', 'lg:col-span-2',
-                        'lg:col-span-2', 'lg:col-span-2', 'lg:col-span-6'])
+    html = collections(html)
     html = F.faq_with_help(html)
     return scripts(html)
 
@@ -432,6 +429,7 @@ def build_fd():
     anchor = html.index('<!-- DATA: FD issuer list', start)
     end = html.index('</div>\n    </div>\n  </section>', anchor) + len('</div>\n')
     html = html[:start] + cream(tabstrip(tabs)) + "\n" + html[end:]
+    html = collections(html, 'role="tablist"')
     html = fd_hero(html)
     html = hero_ground(html)
     html = F.drop_sections(html)
@@ -505,6 +503,7 @@ def build_ipo():
     end = html.index('    </div>\n  </section>', start)
     inner = html[start:end].rstrip()
     html = html[:start] + cream(inner) + "\n" + html[end:]
+    html = collections(html, '<!-- DATA: live IPO list')
     html = ipo_hero(html)
     html = hero_ground(html)
     html = count_up(html)

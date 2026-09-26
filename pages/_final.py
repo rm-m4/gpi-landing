@@ -380,6 +380,17 @@ def webinar(html):
     return html[:start] + WEBINAR + html[end:]
 
 
+MARK = "  <!-- ======================================================== collections -->\n"
+
+
+def collections(title=None):
+    """The shell's five-card collections bento, so every page draws the same one."""
+    src = open(os.path.join(HERE, "_final_shell.html"), encoding="utf-8").read()
+    start = src.index(MARK)
+    sec = src[start:src.index("  </section>\n", start) + len("  </section>\n")]
+    return sec.replace("Explore our extensive Corporate Bonds Collections", title) if title else sec
+
+
 def main():
     buttons, panels = build()
     src = open(os.path.join(HERE, "_final_shell.html"), encoding="utf-8").read()

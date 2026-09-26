@@ -187,13 +187,70 @@ BANNER = (
     '  </section>\n')
 
 
+# One slide per product page. Copy is each page's own greeting line, and the
+# CTA is its greeting's "Explore ..." phrase, so nothing here is new copy.
+PRODUCTS = [
+    ("Corporate Bonds", "post-login-ncd-info.svg",
+     "Discover reliable income and stable capital growth with Corporate Bond Investments",
+     "Explore Corporate Bonds", "user-corporate-bonds.html"),
+    ("Fixed Deposits", "post-login-cfd-home.svg",
+     "Invest in RBI-regulated small banks and NBFCs with Annual returns up to 8.5%",
+     "Explore Fixed Deposit", "user-fixed-deposits.html"),
+    ("NCD IPOs", "ipo-post-login.svg",
+     "Earn more than bank FDs, with returns as high as 12%",
+     "Explore NCD IPOs", "user-bond-ipo-online.html"),
+]
+
+
+def product_carousel():
+    """CSS scroll-snap carousel. The dots are a small script on
+    top; without it the slides still swipe and scroll."""
+    slides = "\n".join(
+        '          <li class="gp-carousel__slide" id="product-%d" aria-roledescription="slide"'
+        ' aria-label="%d of %d">\n'
+        '            <div class="gp-carousel__copy">\n'
+        '              <h2 class="gp-carousel__title">%s</h2>\n'
+        '              <p class="gp-carousel__text">%s</p>\n'
+        '              <a class="gp-cta gp-cta--primary gp-cta--sm" href="%s">%s</a>\n'
+        '            </div>\n'
+        '            <img class="gp-carousel__art" src="../assets/img/%s" alt="" width="180" height="200">\n'
+        '          </li>' % (i + 1, i + 1, len(PRODUCTS), name, text, href, cta, icon)
+        for i, (name, icon, text, cta, href) in enumerate(PRODUCTS))
+    dots = "\n".join('          <button type="button" class="gp-carousel__dot" aria-label="Show %s"%s></button>'
+                     % (p[0], ' aria-current="true"' if i == 0 else "") for i, p in enumerate(PRODUCTS))
+    return (
+        '      <div class="gp-carousel" aria-roledescription="carousel" aria-label="Products">\n'
+        '        <ul class="gp-carousel__track">\n%s\n        </ul>\n'
+        '        <div class="gp-carousel__nav">\n'
+        '%s\n'
+        '        </div>\n'
+        '      </div>\n'
+        '      <script>\n'
+        '      (function () {\n'
+        '        var root = document.currentScript.previousElementSibling;\n'
+        '        var track = root.querySelector(".gp-carousel__track");\n'
+        '        var dots = root.querySelectorAll(".gp-carousel__dot");\n'
+        '        var at = function () { return Math.round(track.scrollLeft / track.clientWidth); };\n'
+        '        var go = function (i) {\n'
+        '          track.scrollTo({ left: i * track.clientWidth, behavior: "smooth" });\n'
+        '        };\n'
+        '        dots.forEach(function (d, i) { d.addEventListener("click", function () { go(i); }); });\n'
+        '        track.addEventListener("scroll", function () {\n'
+        '          dots.forEach(function (d, i) {\n'
+        '            if (i === at()) d.setAttribute("aria-current", "true"); else d.removeAttribute("aria-current");\n'
+        '          });\n'
+        '        }, { passive: true });\n'
+        '      })();\n'
+        '      </script>\n') % (slides, dots)
+
+
 def portfolio():
     stats = [("Current Value", "&#8377; 0"), ("Total Invested", "&#8377; 0"),
              ("Principal Repaid", "&#8377; 0"), ("Interest Earned", "&#8377; 0")]
     cells = "\n".join(
         '          <div>\n            <dt>%s</dt>\n            <dd>%s</dd>\n          </div>' % s
         for s in stats)
-    return section("portfolio", (
+    card = (
         '      <!-- DATA: the account\'s portfolio, all zero on this capture (KYC incomplete). -->\n'
         '      <div class="gp-portfolio">\n'
         '        <p class="gp-portfolio__strip">\n'
@@ -204,7 +261,8 @@ def portfolio():
         '          <span class="gp-portfolio__ring" aria-hidden="true">100%%</span>\n'
         '          <p>Complete your KYC to start investing</p>\n'
         '          <button type="button" class="gp-cta gp-cta--primary gp-cta--sm">Complete KYC</button>\n'
-        '        </div>\n      </div>') % cells)
+        '        </div>\n      </div>\n') % cells
+    return section("portfolio", '      <div class="gp-snapshot">\n' + product_carousel() + card + '      </div>')
 
 
 # Rows exactly as the capture shows them: the new yield, the old one struck.
@@ -230,9 +288,6 @@ def prod_rows():
         row = F.row_html((name, logo, '%s <s class="gp-was">%s</s>' % (ret, was), rating,
                           payout, tenure, href), i, "Payout", "Tenure")
         row = row.replace(UAT + "/bonds/", PROD + "/bonds/")
-        row = row.replace("</a>\n              </div>",
-                          '</a>\n                <span class="gp-order-badge">24x7 Order</span>\n'
-                          "              </div>", 1)
         out.append(row)
     return C.listing_body("\n\n".join(out), ("Returns", "Credit Rating", "Payout", "Tenure"),
                           "View All", "/bond-utsav").replace(UAT + "/bond-utsav", PROD + "/bond-utsav")
@@ -269,32 +324,9 @@ def corporate_tabs():
     return tabs
 
 
-COLLECTIONS = [
-    # title, icon, path the crawl saw (uatnew or production), trending
-    ("Newly Launched Bonds: Latest Bond Opportunities", "GPIDO09029.newly_added_bonds.png",
-     "/collections/newly-launched-bonds", False),
-    ("Highly Rated Bonds (A or Above)", "highly-rated-bonds.svg", "/collections/highly-rated-bonds", True),
-    ("High Yield Bonds: Earn Higher Returns 14%*", "high-yield-bonds.svg", "/collections/high-yield-bonds", True),
-    ("Bonds to Earn Monthly Fixed Income", "bonds-to-earn-monthly-fixed-income.svg",
-     "/collections/bonds-to-earn-monthly-fixed-income", False),
-    ("Bonds at Discounted Price", "bonds-at-discounted-price.svg", "/collections/bonds-at-discounted-price", False),
-    ("Bonds Under 10,000", "bonds-icon.svg", "/collections/bonds-at-10000", False),
-]
-
-
-def collections(n):
-    cards = "\n".join(
-        '        <a class="gp-card gp-card--link gp-card--accent gp-collection" href="%s%s">\n'
-        '%s'
-        '          <img src="../assets/img/%s" alt="" width="64" height="64">\n'
-        '          <h3>%s</h3>\n        </a>' % (
-            PROD, path, '          <span class="gp-trend">Trending</span>\n' if hot else "", icon, title)
-        for title, icon, path, hot in COLLECTIONS[:n])
-    extra = ('        <p class="gp-section__sub"><a class="t-bronze font-bold underline" '
-             'href="%s/collections">View All</a></p>\n' % PROD)
-    return section("collections", head("Our Bond Collections", extra) +
-                   '      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-%d">\n%s\n      </div>'
-                   % (4 if n == 4 else 3, cards))
+def collections():
+    """The shared five-card bento, pointed at production."""
+    return F.collections("Our Bond Collections").replace(UAT, PROD)
 
 
 def quiz():
@@ -478,13 +510,84 @@ def steps(title, items, chips=None):
 
 # ---------------------------------------------------------------- pages
 
+# Both blocks are per-account and empty on the production capture, so their
+# content is transcribed from reference screenshots supplied on 2026-09-26.
+# Satin and PFC logos are cropped from those screenshots; the crawl never saw
+# those bonds, so only NEOGROWTH links anywhere.
+PENDING = [("NEOGROWTH", "GPID104095.Neogrowth-new-logo-1-.jpg", "13.00%", "&#8377; 1,01,874.54")]
+RECENT = [
+    ("NEOGROWTH", "GPID104095.Neogrowth-new-logo-1-.jpg", "13.00%", PROD_ROWS[0][7]),
+    ("SATIN FINSERV", "satin-finserv-logo.png", "11.90%", None),
+    ("POWER FINANCE", "pfc-logo.png", "6.85%", None),
+]
+
+HOURGLASS = ('<svg viewBox="0 0 24 32" width="28" height="36" aria-hidden="true" fill="none" '
+             'stroke="#322811" stroke-width="1.6" stroke-linejoin="round">'
+             '<rect x="3" y="1" width="18" height="3" rx="1.5"/><rect x="3" y="28" width="18" height="3" rx="1.5"/>'
+             '<path d="M5 4c0 7 7 8 7 12s-7 5-7 12h14c0-7-7-8-7-12s7-5 7-12"/>'
+             '<path d="M7.5 27c1-3 3-4 4.5-4.5 1.5.5 3.5 1.5 4.5 4.5z" fill="#d4af37" stroke="none"/></svg>')
+
+
+def pending_orders():
+    cards = "\n".join(
+        '          <article class="gp-pending__card">\n'
+        '            <p class="gp-pending__gain">+%s returns if invested\n'
+        '              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"'
+        ' stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 13l5-5 4 3 7-7M15 4h4v4'
+        'M4 21v-2M8 21v-5M12 21v-4M16 21v-7M20 21v-9"/></svg></p>\n'
+        '            <div class="gp-pending__body">\n'
+        '              <div class="gp-pending__id">\n'
+        '                <img src="../assets/img/%s" alt="%s" width="84" height="42">\n'
+        '                <div>\n                  <h3>%s</h3>\n'
+        '                  <p><b>%s</b> Yield <span aria-hidden="true">|</span> <span class="whitespace-nowrap">%s</span></p>\n'
+        '                </div>\n              </div>\n'
+        '              <div class="gp-pending__actions">\n'
+        '                <button type="button" class="gp-cta gp-cta--primary gp-cta--sm">Try Again</button>\n'
+        '                <span class="gp-pending__alert" role="img" aria-label="Payment failed">!</span>\n'
+        '                <button type="button" class="gp-pending__delete" aria-label="Delete %s order">\n'
+        '                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor"'
+        ' stroke-width="1.6" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v6M14 11v6"/></svg>\n'
+        '                </button>\n'
+        '              </div>\n            </div>\n          </article>'
+        % (ret, logo, name, name, ret, amt, name) for name, logo, ret, amt in PENDING)
+    return section("pending orders", (
+        '      <!-- DATA: the account\'s unpaid orders; collapsed until opened. -->\n'
+        '      <details class="gp-pending">\n'
+        '        <summary>\n'
+        '          <span class="gp-pending__icon">%s<span class="gp-pending__count">%d</span></span>\n'
+        '          <h2 class="gp-pending__title">Pending Orders</h2>\n'
+        '          <span class="gp-pending__chip">Corporate Bonds</span>\n'
+        '          <img class="gp-pending__caret" src="../assets/img/pending-order-arrow-down.svg" alt="" width="14" height="8">\n'
+        '        </summary>\n'
+        '        <div class="gp-pending__list">\n%s\n        </div>\n'
+        '      </details>') % (HOURGLASS, len(PENDING), cards))
+
+
+def recently_viewed():
+    def card(name, logo, ret, href):
+        tag, attr = ("a", ' href="%s%s"' % (PROD, href)) if href else ("div", "")
+        return ('          <%s class="gp-card gp-recent__card%s"%s>\n'
+                '            <p class="gp-recent__return">Potential Return <b>%s</b></p>\n'
+                '            <div class="gp-recent__id">\n'
+                '              <img src="../assets/img/%s" alt="%s" width="120" height="60">\n'
+                '              <h3>%s<span>Corporate Bond</span></h3>\n'
+                '            </div>\n          </%s>'
+                % (tag, " gp-card--link" if href else "", attr, ret, logo, name, name, tag))
+    cards = "\n".join(card(*r) for r in RECENT)
+    return section("recently viewed", head("Recently Viewed") +
+                   '      <!-- DATA: bonds this account opened most recently. -->\n'
+                   '      <div class="gp-recent">\n%s\n      </div>' % cards)
+
+
 def page_explore():
     return [
         greet("Hi %s!" % NAME, "Let GoldenPi help you start your fixed-income investment journey"),
         BANNER,
         portfolio(),
+        pending_orders(),
         listing("Special Corporate Bond Deals for you!", explore_tabs()),
-        collections(4),
+        recently_viewed(),
+        collections(),
         quiz(),
         trusted("explore"),
         blog_section("explore"),
@@ -589,6 +692,7 @@ def page_fd():
               "cfd-post-login-home.svg"),
         BANNER,
         fd_options(),
+        collections(),
         fd_calculator(),
         steps("How to invest in a FD?", [("ipo-2.png", "Choose the desired FD"),
                                           ("ipo-1.png", "Share Required Details"),
@@ -663,7 +767,7 @@ def page_corporate():
         listing("Special Corporate Bond Deals for you!", corporate_tabs()),
         discover(),
         quiz(),
-        collections(6),
+        collections(),
         live_ipos(),
         explainer("What is a Corporate Bond?",
                   ["Corporate Bonds are debt securities regulated by SEBI and issued by corporations "
@@ -715,6 +819,7 @@ def page_ipo():
         BANNER,
         live_ipos(),
         closed_ipos(),
+        collections(),
         steps("How to apply for an IPO?",
               [("ipo-1.png", "Select IPO series"), ("ipo-2.png", "Enter the Demat &amp; UPI details"),
                ("ipo-3.png", "Accept UPI mandate for the IPO"), ("ipo-4.png", "Get bond units in your Demat")],

@@ -349,6 +349,9 @@ div:has(> .gp-tabs) > .gp-tabs { margin-bottom: 0; }
    row so the taller ones do not leave a gap. */
 .gp-bento-cell { height: 100%; }
 
+/* The accent hairline sits on the bottom edge, not the top. */
+.gp-card--accent::before { inset: auto 0 0; }
+
 @media (prefers-reduced-motion: reduce) {
   .gp-tabs__ink { transition: none; }
   .gp-tab img { transition: none; }
