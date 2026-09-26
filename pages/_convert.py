@@ -143,13 +143,6 @@ def hero_ground(html):
             + html[close:])
 
 
-def highlight(html, needle):
-    """Mark the hero's key figure, as corporate-bonds does with its 15%."""
-    if needle not in html:
-        sys.exit('hero figure %r not found' % needle)
-    return html.replace(needle, '<span class="gp-hero__figure">%s</span>' % needle, 1)
-
-
 def count_up(html):
     """Milestone figures count up on first view, as on corporate-bonds."""
     return html.replace('<dt class="t-h1 t-gold">', '<dt class="t-h1 t-gold" data-count>')
@@ -389,6 +382,79 @@ def fd_panel(keys):
             % "\n\n".join(fd_card(k) for k in keys))
 
 
+# Same structure as the corporate-bonds hero. The eyebrow is this page's own
+# "Invest Online in Under 5 Minutes": FDs are not SEBI products, so the
+# corporate-bonds eyebrow and trust strip would be wrong here. The rate line
+# stays inside the h1, styled as the figure line. The three features sit in one
+# row at desktop, stacked on the icon, with sentence-case captions so they fit.
+FD_FEATURES = [
+    ("gold-shield.svg", "Upto &#8377;5L Secured", "RBI's DICGC Insurance"),
+    ("gold-flash.svg", "Instant Withdrawal", "No penalty on early closure"),
+    ("cal.svg", "Save Tax", "Under 80C"),
+]
+
+FD_HERO = '''<div class="grid gap-8 md:grid-cols-[1.1fr_0.9fr] md:items-center">
+      <div data-reveal>
+        <p class="gp-eyebrow mb-5">Invest Online in Under 5 Minutes</p>
+
+        <h1 class="t-h1">
+          <span class="t-bronze">Fixed Deposits Online</span>
+          <span class="mt-4 block t-h3 text-ink">Earn up to <span class="gp-hero__figure">8.5%% p.a.</span> Interest rate</span>
+        </h1>
+
+        <ul class="mt-6 grid gap-3 sm:grid-cols-3 max-w-xl">
+%s
+        </ul>
+
+        <div class="mt-8 flex flex-wrap items-center gap-4">
+          <a class="gp-btn gp-btn--primary" href="#explore-fds">Explore our FD offerings</a>
+          <a class="gp-btn gp-btn--ghost" href="corporate-bonds.html">Explore Our Corporate Bonds List</a>
+        </div>
+      </div>
+''' % "\n".join(
+    '          <li class="gp-card flex items-center gap-3 px-4 py-3 sm:flex-col sm:items-start sm:gap-2">\n'
+    '            <img src="../assets/img/%s" alt="" width="26" height="26">\n'
+    '            <span>\n'
+    '              <span class="block t-small font-bold">%s</span>\n'
+    '              <span class="block t-small t-muted">%s</span>\n'
+    '            </span>\n'
+    '          </li>' % f for f in FD_FEATURES)
+
+
+# The locker is goldenpi.com/fixed-deposits' own hero art (post-login-cfd.png,
+# its .hero-gif-bg background). Production draws the three chips over it with a
+# Lottie; here they are the same cards as before, as real text, placed where
+# production puts them. Copy stays the UAT wording.
+FD_ART = '''<div class="relative mx-auto w-full max-w-[460px]">
+        <img src="../assets/img/post-login-cfd.png" width="587" height="544"
+             class="w-full h-auto mix-blend-multiply [mask-image:radial-gradient(closest-side,#000_65%,transparent)]" alt="Money locker with gold coins">
+        <ul>
+          <li class="gp-card absolute left-0 top-[14%] flex items-center gap-2 px-3 py-2 t-small font-semibold max-w-[75%]">
+            <img src="../assets/img/percentage-icon.png" alt="" width="20" height="20">
+            Extra Returns for Senior citizens and women
+          </li>
+          <li class="gp-card absolute right-0 top-[48%] flex items-center gap-2 px-3 py-2 t-small font-semibold">
+            <img src="../assets/img/coin-icon.png" alt="" width="20" height="20">
+            Starts at &#8377;1,000
+          </li>
+          <li class="gp-card absolute left-[4%] bottom-[12%] flex items-center gap-2 px-3 py-2 t-small font-semibold">
+            <img src="../assets/img/gold-flash.svg" alt="" width="20" height="20">
+            Instant Booking
+          </li>
+        </ul>
+      </div>'''
+
+
+def fd_hero(html):
+    """Replace the hero: left column rebuilt, right column becomes the locker art."""
+    start = html.index('<div class="grid gap-8 md:grid-cols-[1.1fr_0.9fr] md:items-center">')
+    ul = html.index('<ul class="grid gap-3 sm:grid-cols-2', start)
+    end = html.index('</ul>', ul) + len('</ul>')
+    html = html[:start] + FD_HERO + '\n      ' + FD_ART + html[end:]
+    return html.replace('<nav class="t-small t-muted mb-5" aria-label="Breadcrumb">',
+                        '<nav class="t-small t-muted mb-6" aria-label="Breadcrumb">', 1)
+
+
 def build_fd():
     html = open(os.path.join(HERE, "fixed-deposits-old.html"), encoding="utf-8").read()
     html = common(html, "fixed-deposits")
@@ -417,8 +483,8 @@ def build_fd():
     anchor = html.index('<!-- DATA: FD issuer list', start)
     end = html.index('</div>\n    </div>\n  </section>', anchor) + len('</div>\n')
     html = html[:start] + cream(tabstrip(tabs)) + "\n" + html[end:]
+    html = fd_hero(html)
     html = hero_ground(html)
-    html = highlight(html, '8.5% p.a.')
     html = blocks(html, 'Why invest in with GoldenPi?',
                   ['image10.svg', 'image11.svg', 'image12.svg'])
     html = faq_with_help(html, BASE + '/contact-us')
@@ -427,6 +493,58 @@ def build_fd():
 
 
 # --------------------------------------------------------------- bond ipo page
+
+# Same structure as the corporate-bonds hero: eyebrow, h1, figure line, body,
+# two CTAs, trust strip. All copy is captured: the h1 and figure line from the
+# hero, the body line from this page's meta description, the ghost CTA label
+# from the corporate-bonds hero. The art is square (1226x1220), so it gets its
+# real ratio and a smaller cap than corporate-bonds' landscape image.
+IPO_HERO = '''<div class="grid gap-8 md:grid-cols-[1.05fr_0.95fr] md:items-center">
+        <div data-reveal>
+          <p class="gp-eyebrow mb-5">Fixed income &middot; SEBI regulated</p>
+
+          <h1 class="t-h1">
+            <span class="t-bronze">Apply NCD IPOs Online</span><br>
+            <span class="t-bronze">Latest Bond Issues &amp; Dates</span>
+          </h1>
+
+          <p class="mt-4 t-h3">
+            Invest as low as &#8377;10k and get returns as high as
+            <span class="gp-hero__figure">15%</span>
+          </p>
+
+          <p class="mt-4 max-w-md t-body t-muted">
+            Explore live NCD IPOs, returns, credit ratings, and apply digitally.
+          </p>
+
+          <div class="mt-8 flex flex-wrap items-center gap-4">
+            <a class="gp-btn gp-btn--primary" href="#explore-ipos">Start Investing</a>
+            <a class="gp-btn gp-btn--ghost" href="corporate-bonds.html">Explore Our Corporate Bonds List</a>
+          </div>
+
+          <p class="mt-8 flex items-center gap-2.5 rounded-xl border border-stroke bg-white px-4 py-3 t-small t-muted max-w-lg">
+            <img src="../assets/img/ipo-hero-shield-img.png" alt="" width="18" height="18">
+            <span>GoldenPi is a
+              <a class="font-semibold t-bronze underline" href="https://www.sebi.gov.in/">SEBI registered Debt broker</a>
+              and
+              <a class="font-semibold t-bronze underline" href="https://www.sebi.gov.in/">OBPP License Holder</a>
+            </span>
+          </p>
+        </div>
+
+        <img src="../assets/img/ipo-hero.png" width="1226" height="1220"
+             class="w-full max-w-[420px] h-auto justify-self-center"
+             alt="Invest in NCD IPOs online on GoldenPi">
+      </div>'''
+
+
+def ipo_hero(html):
+    start = html.index('<div class="grid gap-8 md:grid-cols-[1.05fr_0.95fr] md:items-center">')
+    end = html.index('</div>', html.index('alt="Invest in NCD IPOs online on GoldenPi">', start)) + len('</div>')
+    html = html[:start] + IPO_HERO + html[end:]
+    return html.replace('<nav class="t-small t-muted mb-5" aria-label="Breadcrumb">',
+                        '<nav class="t-small t-muted mb-6" aria-label="Breadcrumb">', 1)
+
 
 def build_ipo():
     html = open(os.path.join(HERE, "bond-ipo-online-old.html"), encoding="utf-8").read()
@@ -438,8 +556,8 @@ def build_ipo():
     end = html.index('    </div>\n  </section>', start)
     inner = html[start:end].rstrip()
     html = html[:start] + cream(inner) + "\n" + html[end:]
+    html = ipo_hero(html)
     html = hero_ground(html)
-    html = highlight(html, 'as high as 15%')
     html = count_up(html)
     return scripts(html, tabs=True)
 
