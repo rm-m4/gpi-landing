@@ -17,6 +17,7 @@ NCD IPOs, the Muthoot Capital bond and its stated minimum), the panel says so.
 Run: python3 pages/_final.py
 """
 import os
+import re
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 BASE = "https://uatnew.goldenpi.com"
@@ -137,6 +138,199 @@ def build():
     return "\n\n".join(buttons), "\n\n".join(panels)
 
 
+def faq_with_help(html, contact_href=BASE + "/contact-us"):
+    """Put the FAQ accordion and a Need Help card side by side, as on the
+    Akara issuer page. Shared by all four live pages."""
+    i = html.index('<div class="gp-faq">')
+    j = html.index('</div>', html.rindex('</details>', i)) + len('</div>')
+
+    # Structure matches issuer-need-help exactly: the 237px support illustration,
+    # a small phone icon beside the title, and an arrow inside the CTA.
+    help_card = (
+        '\n\n        <aside class="gp-need-help">\n'
+        '          <img class="gp-need-help__image" src="../assets/img/support-icon.svg"\n'
+        '               alt="" width="237" height="237">\n'
+        '          <p class="gp-need-help__title">\n'
+        '            <img src="../assets/img/phone-icon.svg" alt="" width="20" height="20">\n'
+        '            Need Help\n'
+        '          </p>\n'
+        '          <p class="gp-need-help__desc">Talk to our Support Team for free. We will\n'
+        '            help you through your investment journey.</p>\n'
+        '          <a class="gp-cta gp-cta--primary" href="%s">\n'
+        '            Contact Us\n'
+        '            <img class="gp-cta__arrow" src="../assets/img/arrow-right.svg"\n'
+        '                 alt="" width="16" height="16">\n'
+        '          </a>\n'
+        '        </aside>' % contact_href)
+
+    return (html[:i] + '<div class="gp-faq-layout">\n        ' + html[i:j]
+            + help_card + '\n      </div>' + html[j:])
+
+
+BLOG_CARD = re.compile(
+    r'<article class="gp-card gp-card--link flex overflow-hidden">\s*'
+    r'<div class="flex flex-1 flex-col p-5">\s*'
+    r'<p class="t-caption t-bronze">(.*?)</p>\s*'
+    r'<h3 class="mt-2 t-lead font-bold">(.*?)</h3>\s*'
+    r'<p class="mt-2 t-small t-muted">(.*?)</p>\s*'
+    r'<a class="[^"]*"\s*href="([^"]+)">Read more</a>\s*'
+    r'</div>\s*'
+    r'<img src="([^"]+)"[^>]*>\s*'
+    r'</article>', re.S)
+
+
+def blog_cards(html):
+    """Blog cards take the Akara issuer page's gp-blogcard shape.
+
+    Same category, title, date, link and image per card; the whole card
+    becomes the link, with the image in a rounded square on the right.
+    """
+    html, n = BLOG_CARD.subn(lambda m: (
+        '<a class="gp-blogcard" href="%s">\n'
+        '          <span class="gp-blogcard__body">\n'
+        '            <span class="gp-blogcard__cat">%s</span>\n'
+        '            <span class="gp-blogcard__title">%s</span>\n'
+        '            <span class="gp-blogcard__meta">%s</span>\n'
+        '            <span class="gp-blogcard__more">Read more\n'
+        '              <img src="../assets/img/SVG-1.png" alt="" width="14" height="14"></span>\n'
+        '          </span>\n'
+        '          <img class="gp-blogcard__media gp-blogcard__media--photo" src="%s" alt="" width="380" height="280">\n'
+        '        </a>' % (m.group(4), m.group(1), m.group(2), m.group(3), m.group(5))), html)
+    if n != 3:
+        raise SystemExit("expected 3 blog cards, converted %d" % n)
+    return html
+
+
+REVIEW = re.compile(
+    r'<figure class="gp-card flex h-full flex-col p-5">\s*'
+    r'<figcaption[^>]*>\s*<span[^>]*>(.*?)</span>\s*<span[^>]*>(.*?)</span>\s*</figcaption>\s*'
+    r'<p[^>]*aria-label="([^"]*)">(.*?)</p>\s*'
+    r'<blockquote[^>]*>(.*?)</blockquote>\s*</figure>', re.S)
+
+
+def review_marquee(html):
+    """Reviews become a strip that drifts left on a loop.
+
+    Same reviewers, stars and quotes. The set is rendered twice so the loop is
+    seamless; the copy is aria-hidden so screen readers hear each review once.
+    CSS pauses it on hover and stops it under reduced motion.
+    """
+    grid = '<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">'
+    first = REVIEW.search(html)
+    if not first:
+        raise SystemExit("no review cards found")
+    start = html.rindex(grid, 0, first.start())
+    end = html.index('</div>', [m for m in REVIEW.finditer(html)][-1].end()) + len('</div>')
+    cards = REVIEW.findall(html[start:end])
+
+    def card(c, hidden):
+        initial, name, label, stars, quote = c
+        return (
+            '          <figure class="gp-review"%s>\n'
+            '            <figcaption class="gp-review__head">\n'
+            '              <span class="gp-review__avatar">%s</span>\n'
+            '              <span>\n'
+            '                <span class="gp-review__name">%s</span>\n'
+            '                <span class="gp-review__stars" aria-label="%s">%s</span>\n'
+            '              </span>\n'
+            '            </figcaption>\n'
+            '            <blockquote class="gp-review__text">%s</blockquote>\n'
+            '          </figure>' % (' aria-hidden="true"' if hidden else '',
+                                     initial, name, label, stars, quote.strip()))
+
+    track = "\n".join([card(c, False) for c in cards] + [card(c, True) for c in cards])
+    return (html[:start]
+            + '<div class="gp-reviews">\n        <div class="gp-reviews__track" style="--n:%d">\n%s\n'
+              '        </div>\n      </div>' % (len(cards), track)
+            + html[end:])
+
+
+def primary_ctas(html):
+    """Every primary CTA takes the gradient gp-cta look the FD page uses.
+
+    Ghost buttons are left alone; only fixed-deposits swaps those too.
+    """
+    html = html.replace('class="gp-btn gp-btn--primary gp-btn--sm',
+                        'class="gp-cta gp-cta--primary gp-cta--sm')
+    return html.replace('class="gp-btn gp-btn--primary', 'class="gp-cta gp-cta--primary')
+
+
+# Sections the product owner removed from the product pages (2026-09-26):
+# the "Why invest" blocks, and the how-to-invest steps.
+DROPPED_HEADINGS = (
+    "Why invest in Corporate Bonds with GoldenPi?",
+    "Why invest in with GoldenPi?",
+    "Why to invest in Bond IPO with GoldenPi",
+    "Invest in Corporate Bonds in 3 easy steps",
+    "How to Invest in Bond IPOs Online",
+)
+
+
+def drop_sections(html):
+    """Remove each listed section present, banner comment to closing tag.
+
+    The "Why 15 Lakh+ Users Trust GoldenPi" reviews section is a different
+    one and stays.
+    """
+    dropped = 0
+    for heading in DROPPED_HEADINGS:
+        needle = '<h2 class="gp-section__title">%s</h2>' % heading
+        if needle in html:
+            h = html.index(needle)
+            start = html.rindex('  <!-- ====', 0, h)
+            end = html.index('  </section>\n', h) + len('  </section>\n')
+            html = html[:start] + html[end:].lstrip('\n')
+            dropped += 1
+    if not dropped:
+        raise SystemExit("none of the dropped sections found")
+    return html
+
+
+# The platform strip from the Akara issuer page ("The Golden Experience of
+# Investing"), copy and icons as captured there. It replaces the Milestones
+# figures inside the reviews section (product owner's call, 2026-09-26).
+GOLDEN = [
+    ("trophy.png", "Zero Defaults"),
+    ("shield.png", "Sebi Registered"),
+    ("5percent.png", "Curated Bonds"),
+    ("users.png", "18 lacs+ Users"),
+]
+
+
+def golden_experience(html, add=False):
+    """Drop the Milestones section; add the Golden Experience strip as its own
+    section just before the reviews, built exactly as on the Akara page.
+
+    Pages that had a Milestones section get the strip; add=True gives it to a
+    page that never had one (fixed-deposits).
+    """
+    banner = '  <!-- ======================================================== milestones -->'
+    if banner in html:
+        start = html.index(banner)
+        end = html.index('  </section>\n', start) + len('  </section>\n')
+        html = html[:start] + html[end:].lstrip('\n')
+    elif not add:
+        return html
+
+    items = "\n".join(
+        '        <div class="gp-stats__item">\n'
+        '          <img src="../assets/img/%s" alt="" width="36" height="36">\n'
+        '          <span class="gp-stats__value">%s</span>\n'
+        '        </div>' % g for g in GOLDEN)
+    section = (
+        '  <!-- ================================================ golden experience -->\n'
+        '  <section data-reveal class="gp-section gp-section--tight gp-section--flush-top">\n'
+        '    <div class="gp-shell">\n'
+        '      <p class="gp-divider">The Golden Experience of Investing</p>\n'
+        '      <div class="gp-stats">\n%s\n      </div>\n'
+        '    </div>\n'
+        '  </section>\n\n' % items)
+    # Its own section, directly before the reviews section.
+    reviews = html.index('<div class="gp-reviews">')
+    banner_at = html.rindex('  <!-- ====', 0, reviews)
+    return html[:banner_at] + section + html[banner_at:]
+
+
 def main():
     buttons, panels = build()
     src = open(os.path.join(HERE, "_final_shell.html"), encoding="utf-8").read()
@@ -148,6 +342,7 @@ def main():
               .replace("<!--PANELS-->", panels)
               .replace("<!--TABJS-->", "<script>\n%s</script>" % js))
     path = os.path.join(HERE, "corporate-bonds.html")
+    out = golden_experience(drop_sections(primary_ctas(review_marquee(blog_cards(faq_with_help(out))))))
     open(path, "w", encoding="utf-8").write(out)
     print("wrote %s  (%d tabs, %d rows)" % (
         os.path.basename(path), len(TABS), sum(len(t["rows"]) for t in TABS)))

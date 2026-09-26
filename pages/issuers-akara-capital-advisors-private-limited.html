@@ -1,0 +1,786 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akara Capital Private Limited test | GoldenPi</title>
+<!-- Issuer detail page, rebuilt from /issuers/akara-capital-advisors-private-limited.
+     That page is a from-scratch template on the new site, so it is the reference
+     for how new work should look; the components it introduced (gold bond card,
+     sticky section rail, stat strip, step card, blog card) live in
+     assets/final.css beside the ones already ported to fixed-deposits.
+
+     Copy is verbatim from crawl/rendered/ -- including the places where their CMS
+     test data contradicts itself (Muthoot history under an Akara heading, one FAQ
+     answer repeated eight times, three blog cards pointing at one post). Those are
+     theirs to fix, and are listed in TRACKER.md rather than quietly corrected. -->
+<!-- Their <meta name="description"> ships raw HTML tags inside the attribute; the
+     text is theirs, the tags are dropped. -->
+<meta name="description" content="Akara Capital Advisors (&ldquo;Akara&rdquo;) is a ICRA BBB Rated non-deposit taking NBFC that provides short-term personal loans up to INR 5lac to salaried individuals using the Stashfin platform built by EQX Analytics Private Limited.">
+<link rel="icon" href="../assets/img/goldenpi-logo.svg">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/final.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          gold: "#d4af37",
+          ink: "#322811",
+          page: "#f7f5f2",
+          subtext: "#666666",
+          stroke: "#e7e3d9",
+          deep: "#1a1510",
+          bronze: "#8a6520",
+          gain: "#06963c",
+        },
+        fontFamily: {
+          sans: ['"Satoshi"', "ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "Roboto", "sans-serif"],
+        },
+      },
+    },
+  };
+</script>
+</head>
+<body>
+
+<a class="gp-skip" href="#main-content">Skip to main content</a>
+
+<!-- ============================================================ promo bar -->
+<!-- DATA: campaign strip, API-driven on the live site. Snapshot 2026-09-25. -->
+<div class="gp-promo">
+  <div class="gp-promo__track">
+    <span class="gp-promo__item">Earn 11.40% p.a. &middot; Newly Launched Dishman Bond
+      <a href="https://uatnew.goldenpi.com/bonds/INE385W07075/dishman-1100-bond-yield?src=view_details&amp;tenureDate=17-Aug-2027">Invest Now</a></span>
+    <span class="gp-promo__item">Earn up to 10% p.a. &middot; &#128994; Live: Edelweiss NCD IPO
+      <a href="https://uatnew.goldenpi.com/bond-ipo/GPID100778/edelweiss-financial-services-limited">Invest Now</a></span>
+    <span class="gp-promo__item">Earn 12.10% p.a. &middot; Invest in Spandana Sphoorty Bond
+      <a href="https://uatnew.goldenpi.com/bonds/INE572J07810/spandana-1275-bond-yield?src=view_details&amp;tenureDate=26-Apr-2028">Invest Now</a></span>
+    <span class="gp-promo__item">Earn 10% p.a. &middot; Invest in Varthana Finance bond
+      <a href="https://uatnew.goldenpi.com/bonds/INE125T07329/varthana-finance-1000-bond-yield?src=view_details&amp;tenureDate=05-Feb-2027">Invest Now</a></span>
+    <!-- duplicated once so the marquee loop is seamless -->
+    <span class="gp-promo__item" aria-hidden="true">Earn 11.40% p.a. &middot; Newly Launched Dishman Bond</span>
+    <span class="gp-promo__item" aria-hidden="true">Earn up to 10% p.a. &middot; &#128994; Live: Edelweiss NCD IPO</span>
+    <span class="gp-promo__item" aria-hidden="true">Earn 12.10% p.a. &middot; Invest in Spandana Sphoorty Bond</span>
+    <span class="gp-promo__item" aria-hidden="true">Earn 10% p.a. &middot; Invest in Varthana Finance bond</span>
+  </div>
+</div>
+
+<!-- ============================================================== header -->
+<header class="gp-header">
+  <div class="gp-shell gp-header__inner">
+    <a href="index.html" class="flex-none">
+      <img src="../assets/img/goldenpi-logo.svg" alt="GoldenPi" width="132" height="30">
+    </a>
+
+    <nav class="gp-nav" aria-label="Primary">
+      <a class="gp-nav__link" href="corporate-bonds.html">
+        <img src="../assets/img/header-nav-bonds.svg" alt=""> Bonds
+      </a>
+      <a class="gp-nav__link" href="fixed-deposits.html">
+        <img src="../assets/img/header-nav-fd.svg" alt=""> FD
+      </a>
+      <a class="gp-nav__link" href="https://uatnew.goldenpi.com/collections/all-bonds">
+        <img src="../assets/img/header-nav-collection.svg" alt=""> Collection
+      </a>
+      <a class="gp-nav__link" href="https://uatnew.goldenpi.com/bond-utsav">
+        <img src="../assets/img/header-nav-bond-utsav.svg" alt=""> Bond Utsav
+      </a>
+      <a class="gp-nav__link" href="https://uatnew.goldenpi.com/refer-and-earn">
+        <img src="../assets/img/header-nav-ref-earn.svg" alt=""> Refer &amp; Earn
+      </a>
+    </nav>
+
+    <div class="gp-search">
+      <img src="../assets/img/header-search.svg" alt="" width="16" height="16">
+      <span>Search for bonds, FD or IPO</span>
+    </div>
+
+    <button type="button" class="gp-btn gp-btn--primary gp-btn--sm flex-none ml-auto lg:ml-0">
+      <img src="../assets/img/user-icon.svg" alt="" width="15" height="15"> Login / Sign up
+    </button>
+  </div>
+</header>
+
+<main id="main-content">
+
+  <!-- ================================================================ hero -->
+  <section class="gp-hero gp-section gp-section--tight">
+    <div class="gp-shell">
+      <nav class="gp-crumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span aria-hidden="true">&rsaquo;</span>
+        <span aria-current="page">Akara Capital Private Limited test</span>
+      </nav>
+
+      <div class="gp-issuer-hero mt-6">
+        <div>
+          <p class="gp-eyebrow gp-eyebrow--soft">Provider &middot; NBFC &middot; Gold Finance</p>
+
+          <h1 class="t-h1 mt-4">Akara Capital Private Limited <span class="text-gold">Bonds</span></h1>
+
+          <div class="gp-badges mt-5">
+            <span class="gp-badge">AA+ / ICRA</span>
+            <span class="gp-badge">Secured NCD</span>
+            <span class="gp-badge">BSE Listed</span>
+            <span class="gp-badge">SEBI Regulated</span>
+            <span class="gp-badge">Est. 1939</span>
+          </div>
+
+          <!-- Verbatim from the live page. The second half is Muthoot Finance
+               copy sitting on an Akara page: their CMS test data, not ours to
+               fix. Flagged in TRACKER.md rather than silently corrected. -->
+          <div class="mt-5 max-w-[68ch] t-body text-subtext">
+            <p>India&#8217;s largest gold-loan NBFC, offering AA+ rated secured NCDs with
+              yields up to 8.60%. Choose from 7 active bond series with monthly, quarterly,
+              annual, or cumulative payouts &mdash; fully digital, with a &#8377;10,000 minimum.</p>
+            <p class="mt-3">In 1939, M. George Muthoot created a partnership firm named
+              Muthoot M. George &amp; Brothers (MMG). MMG was a chit fund based out of
+              Kozhencherry. In 1971, the firm was renamed as Muthoot Bankers, and started to
+              finance loans using gold jewellery as collateral. In 2001, the company was
+              renamed to Muthoot Finance. Muthoot Finance falls under the category of
+              systemically important non-banking financial company (NBFC) of the RBI
+              guidelines. As of March 2023, the promoters hold 73.35% of the equity stake in
+              the company. Muthoot Finance Ltd is the Flagship Company of the group.</p>
+          </div>
+
+          <div class="mt-7 flex flex-wrap gap-4">
+            <a class="gp-cta gp-cta--primary" href="https://uatnew.goldenpi.com">
+              Start Investing
+              <img class="gp-cta__arrow" src="../assets/img/arrow-right.svg" alt="" width="16" height="16">
+            </a>
+            <a class="gp-cta gp-cta--secondary" href="https://uatnew.goldenpi.com/collections/all-bonds">
+              View All Bonds
+            </a>
+          </div>
+
+          <!-- ------------------------------------------------ issuer record -->
+          <div class="mt-10">
+            <p class="gp-divider">Akara Capital Private Limited On Goldenpi</p>
+            <!-- DATA: issuer repayment record, API-driven on the live site. Snapshot 2026-09-26. -->
+            <div class="gp-stats">
+              <div class="gp-stats__item">
+                <img src="../assets/img/image2.svg" alt="" width="36" height="36">
+                <span class="gp-stats__value">Zero Defaults</span>
+                <span class="gp-stats__label">Day one to today</span>
+              </div>
+              <div class="gp-stats__item">
+                <img src="../assets/img/image1.svg" alt="" width="36" height="36">
+                <span class="gp-stats__value">&#8377;24 Crores</span>
+                <span class="gp-stats__label">Repaid to 72000+ Investors</span>
+              </div>
+              <div class="gp-stats__item">
+                <img src="../assets/img/image4.svg" alt="" width="36" height="36">
+                <span class="gp-stats__value">100% On Time</span>
+                <span class="gp-stats__label">Repayments</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ------------------------------------------------------ bond rail -->
+        <!-- DATA: the issuer's live bonds, client-fetched on the live site. Snapshot 2026-09-26. -->
+        <div>
+          <div class="gp-rail__head">
+            <h2 class="gp-rail__title">Bonds</h2>
+            <a class="gp-rail__link" href="https://uatnew.goldenpi.com/investment-options/list-view">VIEW &rarr;</a>
+          </div>
+
+          <div class="flex flex-col gap-3">
+            <a class="gp-gold-card" href="https://uatnew.goldenpi.com/bonds/GPID107435/akara-1325-bond-yield?src=view_details&amp;tenureDate=3-Dec-2027">
+              <span class="gp-gold-card__top">
+                <span>
+                  <span class="gp-gold-card__name block">Akara Capital Advisors Private Limited</span>
+                  <span class="gp-gold-card__min">Min Inv. &#8377;1L</span>
+                </span>
+                <span class="gp-gold-card__rate">13.25<sup>%</sup></span>
+              </span>
+              <span class="gp-gold-card__tags">
+                <span class="gp-gold-card__tag">Newly Launched</span>
+                <span class="gp-gold-card__tag">High Yield</span>
+                <span class="gp-gold-card__sold">46.38% Sold</span>
+              </span>
+              <dl class="gp-gold-card__metrics">
+                <div class="gp-gold-card__metric"><dt>Tenure</dt><dd>1Y 2M</dd></div>
+                <div class="gp-gold-card__metric"><dt>Payout</dt><dd>monthly</dd></div>
+                <div class="gp-gold-card__metric"><dt>Rating</dt><dd><small>ACUITE</small> BBB+</dd></div>
+              </dl>
+              <span class="gp-gold-card__foot">Marquee Equity Global Investors Tencent, Blowfish</span>
+            </a>
+
+            <a class="gp-gold-card" href="https://uatnew.goldenpi.com/bonds/GPID107435/akara-1315-bond-yield?src=view_details&amp;tenureDate=3-Dec-2027">
+              <span class="gp-gold-card__top">
+                <span>
+                  <span class="gp-gold-card__name block">Akara Capital Advisors Private Limited</span>
+                  <span class="gp-gold-card__min">Min Inv. &#8377;1L</span>
+                </span>
+                <span class="gp-gold-card__rate">13.15<sup>%</sup></span>
+              </span>
+              <span class="gp-gold-card__tags">
+                <span class="gp-gold-card__tag">Newly Launched</span>
+                <span class="gp-gold-card__tag">High Yield</span>
+                <span class="gp-gold-card__sold">46.38% Sold</span>
+              </span>
+              <dl class="gp-gold-card__metrics">
+                <div class="gp-gold-card__metric"><dt>Tenure</dt><dd>1Y 2M</dd></div>
+                <div class="gp-gold-card__metric"><dt>Payout</dt><dd>monthly</dd></div>
+                <div class="gp-gold-card__metric"><dt>Rating</dt><dd><small>ACUITE</small> BBB+</dd></div>
+              </dl>
+              <span class="gp-gold-card__foot">Marquee Equity Global Investors Tencent, Blowfish</span>
+            </a>
+          </div>
+
+          <div class="gp-rail__head mt-6">
+            <h2 class="gp-rail__title">Old bonds</h2>
+          </div>
+
+          <div class="gp-gold-card gp-gold-card--past">
+            <span class="gp-gold-card__top">
+              <span>
+                <span class="gp-gold-card__name block">Akara Capital Advisors Private Limited</span>
+                <span class="gp-gold-card__min">Min Inv. &#8377;1L</span>
+              </span>
+              <span class="gp-gold-card__rate">10.01<sup>%</sup><small>Coupon</small></span>
+            </span>
+            <dl class="gp-gold-card__metrics">
+              <div class="gp-gold-card__metric"><dt>Tenure</dt><dd>1Y</dd></div>
+              <div class="gp-gold-card__metric"><dt>Payout</dt><dd>monthly</dd></div>
+              <div class="gp-gold-card__metric"><dt>Rating</dt><dd><small>ICRA</small> BBB</dd></div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================================== about -->
+  <section data-reveal class="gp-section gp-section--tight gp-section--flush-top">
+    <div class="gp-shell">
+      <h2 class="t-h3">About Akara Capital Private Limited</h2>
+      <p class="mt-4 max-w-[80ch] t-body text-subtext">Akara Capital is a renowned NBFC under
+        RBI, found in Febraury 2016. They are committed to supporting the businesses by lending
+        the capital they require to emerge across India and abroad. They offer services such as
+        MSME loans to the businesses ensuring instant credit which is backed by automation to
+        make the funding process hassle free to the ones in requirement. Corporate financing is
+        another such service offering tailor made solutions to the businesses as a partner to aid
+        in meeting their business needs. Their service as well include digitized lending and
+        consumer loans with instant credit at flexible tennure and at lower interest rates. The
+        asset blacked credit lending is another service that offers credit against property to
+        the established as well as emerging businesses with a great security.</p>
+    </div>
+  </section>
+
+  <!-- ====================================================== issuer write-up -->
+  <section data-reveal class="gp-section gp-section--tight gp-section--flush-top">
+    <div class="gp-shell">
+      <div class="gp-navlayout">
+        <nav class="gp-sidenav" aria-label="Issuer sections">
+          <a class="is-on" href="#history-overview">History &amp; Overview</a>
+          <a href="#akara-capital-credit-rating-in-the-past-3-years">Akara Capital Credit Rating in the past 3 years</a>
+          <a href="#financial-highlights">Financial Highlights</a>
+          <a href="#key-strength">Key Strength</a>
+          <a href="#financial-performance-of-akara-capital">Financial Performance of Akara Capital</a>
+        </nav>
+
+        <div class="gp-article">
+          <section id="history-overview">
+            <h3>History of Akara Capital</h3>
+            <p>Akara Capital Advisors Private Limited (ACAPL) is a Delhi-based
+              non-deposit-taking NBFC registered with the Reserve Bank of India (RBI) since
+              February 2016. The company commenced lending operations in 2017, primarily
+              providing unsecured short-term personal loans to salaried individuals through web
+              and mobile platforms under the brand Stashfin.</p>
+            <p>ACAPL is a wholly owned subsidiary of Morus Technologies Pte. Ltd. (MTPL), a
+              Singapore-based entity. MTPL owns two other subsidiaries: EQX Analytics Private
+              Limited (EQXAPL), which operates the Stashfin technology platform and sources
+              leads, and Titanium Fortune Financial Services Private Limited (currently
+              non-operational). MTPL was founded by Mr. Tushar Aggarwal, who has over 20 years
+              of experience in investment banking and private equity.</p>
+          </section>
+
+          <section id="akara-capital-credit-rating-in-the-past-3-years">
+            <h3>Company Overview</h3>
+            <p>Akara Capital Advisors Private Limited (ACAPL) is a Delhi-based
+              non-deposit-taking NBFC registered with the Reserve Bank of India (RBI) since
+              February 2016. The company commenced lending operations in 2017, primarily
+              providing unsecured short-term personal loans to salaried individuals through web
+              and mobile platforms under the brand Stashfin.</p>
+            <p>ACAPL is a wholly owned subsidiary of Morus Technologies Pte. Ltd. (MTPL), a
+              Singapore-based entity. MTPL owns two other subsidiaries: EQX Analytics Private
+              Limited (EQXAPL), which operates the Stashfin technology platform and sources
+              leads, and Titanium Fortune Financial Services Private Limited (currently
+              non-operational). MTPL was founded by Mr. Tushar Aggarwal, who has over 20 years
+              of experience in investment banking and private equity.</p>
+          </section>
+
+          <section id="financial-highlights">
+            <h3>Financial Highlights</h3>
+            <p>The company has demonstrated strong financial and operational growth over the
+              years, supported by a steady increase in profitability, net worth, and customer
+              base. With disbursements scaling significantly and borrowers growing from 21 lakh
+              in FY&#8217;22 to 50 lakh in FY&#8217;25, the company continues to strengthen its
+              market presence and lending franchise.</p>
+
+            <div class="gp-tablewrap mt-5">
+              <table class="w-full min-w-[560px] border-collapse t-small">
+                <caption class="sr-only">Akara Capital financial highlights, FY22 to FY25, in INR crores</caption>
+                <thead>
+                  <tr class="text-left">
+                    <th scope="col" class="p-4 font-bold">FINANCIAL METRIC (INR Crs.)</th>
+                    <th scope="col" class="p-4 text-right font-bold">FY&#8217;22</th>
+                    <th scope="col" class="p-4 text-right font-bold">FY&#8217;23</th>
+                    <th scope="col" class="p-4 text-right font-bold">FY&#8217;24</th>
+                    <th scope="col" class="p-4 text-right font-bold">FY&#8217;25</th>
+                  </tr>
+                </thead>
+                <tbody class="[&>tr:nth-child(odd)]:bg-[#faf8f5]">
+                  <tr><th scope="row" class="p-4 text-left font-semibold">AUM</th><td class="p-4 text-right">---</td><td class="p-4 text-right">1465</td><td class="p-4 text-right">1839</td><td class="p-4 text-right">1727</td></tr>
+                  <tr><th scope="row" class="p-4 text-left font-semibold">PAT</th><td class="p-4 text-right">4</td><td class="p-4 text-right">9</td><td class="p-4 text-right">69</td><td class="p-4 text-right">85</td></tr>
+                  <tr><th scope="row" class="p-4 text-left font-semibold">Net Worth</th><td class="p-4 text-right">278</td><td class="p-4 text-right">412</td><td class="p-4 text-right">593</td><td class="p-4 text-right">683</td></tr>
+                  <tr><th scope="row" class="p-4 text-left font-semibold">Cash and Bank Balance</th><td class="p-4 text-right">57</td><td class="p-4 text-right">287</td><td class="p-4 text-right">38</td><td class="p-4 text-right">113</td></tr>
+                  <tr><th scope="row" class="p-4 text-left font-semibold">Disbursements</th><td class="p-4 text-right">1,201</td><td class="p-4 text-right">2,806</td><td class="p-4 text-right">5074</td><td class="p-4 text-right">3300</td></tr>
+                  <tr><th scope="row" class="p-4 text-left font-semibold">Borrowers</th><td class="p-4 text-right">21</td><td class="p-4 text-right">38</td><td class="p-4 text-right">45</td><td class="p-4 text-right">50</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section id="key-strength">
+            <h3>Key Strength</h3>
+
+            <h4>EXTENSIVE PROMOTER EXPERIENCE &amp; GROUP SUPPORT</h4>
+            <p>Mr. Tushar Aggarwal Founder and MD has over 15 years of experience in Investment
+              Banking and Private Equity and was previously associated with Goldman Sachs, Lehman
+              Brothers etc. Mr. Prikshit Chitalkar (Co-founder and CTO) also has over 15 years of
+              experience in Product Development, Risk Management, Technology and Data Analytics.
+              Akara is an integral part of the Morus Group and derives significant benefits owing
+              to their business linkages, common management and shared infrastructure.</p>
+
+            <h4>STRONG INVESTOR PROFILE</h4>
+            <p>Mr. Tushar Aggarwal Founder and MD has over 15 years of experience in Investment
+              Banking and Private Equity and was previously associated with Goldman Sachs, Lehman
+              Brothers etc. Mr. Prikshit Chitalkar (Co-founder and CTO) also has over 15 years of
+              experience in Product Development, Risk Management, Technology and Data Analytics.
+              Akara is an integral part of the Morus Group and derives significant benefits owing
+              to their business linkages, common management and shared infrastructure.</p>
+
+            <h4>Comfortable Metrics</h4>
+            <ul>
+              <li>Capitalisation has been supported by regular capital infusion from the MTPL as
+                well as consistent retained earnings; the net-worth stands at INR 683 Crs. till
+                Mar&#8217;25.</li>
+              <li>Akara&#8217;s gearing ratio stands at 1.6x and CRAR is at 31.09%.</li>
+              <li>Akara has a strong franchise of debt partnerships with marquee banks and NBFCs
+                such as Hinduja Leyland, Northern Arc, Moneywise Financial, Groww Financial,
+                Ambit Invest &amp; ICICI Bank etc.</li>
+              <li>The group&#8217;s unencumbered cash and bank balance stood at Rs. 113 crs. as on
+                March 31, 2025</li>
+              <li>Secured by 1.10x first ranking and exclusive charge on book debts (in the form
+                of current loans).</li>
+            </ul>
+
+            <h4>Equity Raised Till Date:</h4>
+            <p>Akara Capital has started raising equity from 2019. and last Akara has raised 54
+              Crore in FY2024</p>
+
+            <div class="gp-tablewrap mt-5">
+              <table class="w-full min-w-[320px] border-collapse t-small">
+                <caption class="sr-only">Equity raised by Akara Capital, FY19 to FY23</caption>
+                <thead>
+                  <tr class="text-left">
+                    <th scope="col" class="p-4 font-bold">Fiscal Year</th>
+                    <th scope="col" class="p-4 text-right font-bold">Equity Raised</th>
+                  </tr>
+                </thead>
+                <tbody class="[&>tr:nth-child(odd)]:bg-[#faf8f5]">
+                  <tr><th scope="row" class="p-4 text-left font-semibold">FY 19</th><td class="p-4 text-right">100Cr</td></tr>
+                  <tr><th scope="row" class="p-4 text-left font-semibold">FY 20</th><td class="p-4 text-right">303Cr</td></tr>
+                  <tr><th scope="row" class="p-4 text-left font-semibold">FY 21</th><td class="p-4 text-right">204Cr</td></tr>
+                  <tr><th scope="row" class="p-4 text-left font-semibold">FY 22</th><td class="p-4 text-right">303Cr</td></tr>
+                  <tr><th scope="row" class="p-4 text-left font-semibold">FY 23</th><td class="p-4 text-right">165Cr</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section id="financial-performance-of-akara-capital">
+            <h3>Financial Performance of Akara Capital</h3>
+            <p>Akara Capital has demonstrated consistent financial growth, driven by strong
+              operational performance and expanding customer reach. The company&#8217;s improving
+              profitability, strengthening net worth, and scalable lending platform highlight its
+              robust business fundamentals</p>
+
+            <div class="gp-tablewrap mt-5">
+              <table class="w-full min-w-[640px] border-collapse t-small">
+                <caption class="sr-only">Akara Capital quarterly financial performance, unaudited</caption>
+                <thead>
+                  <tr class="text-left">
+                    <th scope="col" class="p-4 font-bold">Particulars</th>
+                    <th scope="col" class="p-4 text-right font-bold">Quarter ended Dec 31, 2025 (Unaudited)</th>
+                    <th scope="col" class="p-4 text-right font-bold">Quarter ended Sep 30, 2025 (Unaudited)</th>
+                    <th scope="col" class="p-4 text-right font-bold">Quarter ended Dec 31, 2024 (Unaudited)</th>
+                    <th scope="col" class="p-4 text-right font-bold">Nine months ended Dec 31, 2025 (Unaudited)</th>
+                  </tr>
+                </thead>
+                <tbody class="[&>tr:nth-child(odd)]:bg-[#faf8f5]">
+                  <tr><th scope="row" class="p-4 text-left font-semibold">Revenue from operations</th><td class="p-4 text-right">-</td><td class="p-4 text-right">-</td><td class="p-4 text-right">-</td><td class="p-4 text-right">-</td></tr>
+                  <tr><th scope="row" class="p-4 text-left font-semibold">Interest income</th><td class="p-4 text-right">16,591.13</td><td class="p-4 text-right">7,450.61</td><td class="p-4 text-right">5,461.80</td><td class="p-4 text-right">21,893.27</td></tr>
+                  <tr><th scope="row" class="p-4 text-left font-semibold">Fees and commission income</th><td class="p-4 text-right">-</td><td class="p-4 text-right">-</td><td class="p-4 text-right">208.99</td><td class="p-4 text-right">-</td></tr>
+                  <tr><th scope="row" class="p-4 text-left font-semibold">Net gain on fair value change on financial instruments</th><td class="p-4 text-right">25,640.96</td><td class="p-4 text-right">20,310.44</td><td class="p-4 text-right">18,071.55</td><td class="p-4 text-right">63,664.75</td></tr>
+                  <tr><th scope="row" class="p-4 text-left font-semibold">(I) Total revenue from operations</th><td class="p-4 text-right">2.29</td><td class="p-4 text-right">1.88</td><td class="p-4 text-right">3.66</td><td class="p-4 text-right">6.04</td></tr>
+                  <tr><th scope="row" class="p-4 text-left font-semibold">(II) Other income</th><td class="p-4 text-right">9,049.83</td><td class="p-4 text-right">7,450.61</td><td class="p-4 text-right">5,461.80</td><td class="p-4 text-right">21,893.27</td></tr>
+                  <tr><th scope="row" class="p-4 text-left font-semibold">(III) Total income (I+II)</th><td class="p-4 text-right">25,643.25</td><td class="p-4 text-right">20,312.32</td><td class="p-4 text-right">18,075.21</td><td class="p-4 text-right">63,670.79</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================== platform record -->
+  <section data-reveal class="gp-section gp-section--tight gp-section--flush-top">
+    <div class="gp-shell">
+      <p class="gp-divider">The Golden Experience of Investing</p>
+      <div class="gp-stats">
+        <div class="gp-stats__item">
+          <img src="../assets/img/trophy.png" alt="" width="36" height="36">
+          <span class="gp-stats__value">Zero Defaults</span>
+        </div>
+        <div class="gp-stats__item">
+          <img src="../assets/img/shield.png" alt="" width="36" height="36">
+          <span class="gp-stats__value">Sebi Registered</span>
+        </div>
+        <div class="gp-stats__item">
+          <img src="../assets/img/5percent.png" alt="" width="36" height="36">
+          <span class="gp-stats__value">Curated Bonds</span>
+        </div>
+        <div class="gp-stats__item">
+          <img src="../assets/img/users.png" alt="" width="36" height="36">
+          <span class="gp-stats__value">18 lacs+ Users</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================================== steps -->
+  <section data-reveal class="gp-section gp-section--tight gp-section--flush-top">
+    <div class="gp-shell">
+      <div class="gp-section__head gp-section__head--marked">
+        <h2 class="gp-section__title">How do I buy this bond?</h2>
+      </div>
+      <ol class="gp-steps">
+        <li>
+          <p class="gp-steps__num"><span>01</span></p>
+          <p class="gp-steps__title">Complete KYC</p>
+          <p class="gp-steps__desc">Quick digital onboarding with PAN and Aadhaar.</p>
+        </li>
+        <li>
+          <p class="gp-steps__num"><span>02</span></p>
+          <p class="gp-steps__title">Choose Bond</p>
+          <p class="gp-steps__desc">Select from our curated list of high-yield bonds</p>
+        </li>
+        <li>
+          <p class="gp-steps__num"><span>03</span></p>
+          <p class="gp-steps__title">Start Earning</p>
+          <p class="gp-steps__desc">Receive interest directly in your bank account.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- =============================================================== risks -->
+  <section data-reveal class="gp-section gp-section--tight gp-section--flush-top">
+    <div class="gp-shell">
+      <div class="gp-section__head gp-section__head--marked">
+        <h2 class="gp-section__title">Risks &amp; considerations</h2>
+        <p class="gp-section__sub">Bonds are safer than equities but not risk-free. Here&#8217;s
+          what to keep in mind before investing.</p>
+      </div>
+
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <article class="gp-block">
+          <span class="gp-block__icon"><img src="../assets/img/image10.svg" alt="" width="22" height="22"></span>
+          <h3 class="gp-block__title">Credit risk</h3>
+          <p class="gp-block__desc">If MFL&#8217;s financial health deteriorates, principal &amp;
+            coupon payments could be delayed or impaired. Monitor rating actions by ICRA / CRISIL.</p>
+        </article>
+        <article class="gp-block">
+          <span class="gp-block__icon"><img src="../assets/img/image11.svg" alt="" width="22" height="22"></span>
+          <h3 class="gp-block__title">Concentration risk</h3>
+          <p class="gp-block__desc">Avoid putting &gt;10% of your debt portfolio into a single
+            issuer. Diversify across NBFCs &amp; PSUs.</p>
+        </article>
+        <article class="gp-block">
+          <span class="gp-block__icon"><img src="../assets/img/image11.svg" alt="" width="22" height="22"></span>
+          <h3 class="gp-block__title">Mitigating factors</h3>
+          <p class="gp-block__desc">AA+ rating, secured charge on receivables, 1.25x asset
+            coverage, low GNPA (3.85%), and CRAR well above the 15% regulatory floor.</p>
+        </article>
+        <article class="gp-block">
+          <span class="gp-block__icon"><img src="../assets/img/image12.svg" alt="" width="22" height="22"></span>
+          <h3 class="gp-block__title">Liquidity risk</h3>
+          <p class="gp-block__desc">Secondary-market bid-ask spreads vary by series. Plan to hold
+            to maturity for the published YTM.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================================== blogs -->
+  <section data-reveal class="gp-section gp-section--tight gp-section--flush-top">
+    <div class="gp-shell">
+      <div class="gp-section__head gp-section__head--marked">
+        <h2 class="gp-section__title">Your guide to invest smartly</h2>
+      </div>
+
+      <!-- DATA: blog feed, API-driven on the live site. Snapshot 2026-09-26 -- all
+           three cards point at the same post there. -->
+      <div class="grid gap-4 lg:grid-cols-3">
+        <a class="gp-blogcard" href="https://goldenpi.com/blog/webinar-leader-speaks/exclusive-webinar-on-the-keertanas-journey-innovation-disruption-investment-risk-assessment/">
+          <span class="gp-blogcard__body">
+            <span class="gp-blogcard__cat">Guide</span>
+            <span class="gp-blogcard__title">Understanding NCDs: A retail investor&#8217;s primer</span>
+            <span class="gp-blogcard__meta">6 min read &middot; Mar 2026</span>
+            <span class="gp-blogcard__more">Read more
+              <img src="../assets/img/SVG-1.png" alt="" width="14" height="14"></span>
+          </span>
+          <img class="gp-blogcard__media" src="../assets/img/image13.svg" alt="" width="128" height="123">
+        </a>
+        <a class="gp-blogcard" href="https://goldenpi.com/blog/webinar-leader-speaks/exclusive-webinar-on-the-keertanas-journey-innovation-disruption-investment-risk-assessment/">
+          <span class="gp-blogcard__body">
+            <span class="gp-blogcard__cat">Analysis</span>
+            <span class="gp-blogcard__title">What is Sovereign Gold Bond?</span>
+            <span class="gp-blogcard__meta">8 min read &middot; Mar 2026</span>
+            <span class="gp-blogcard__more">Read more
+              <img src="../assets/img/SVG-1.png" alt="" width="14" height="14"></span>
+          </span>
+          <img class="gp-blogcard__media" src="../assets/img/image13.svg" alt="" width="128" height="123">
+        </a>
+        <a class="gp-blogcard" href="https://goldenpi.com/blog/webinar-leader-speaks/exclusive-webinar-on-the-keertanas-journey-innovation-disruption-investment-risk-assessment/">
+          <span class="gp-blogcard__body">
+            <span class="gp-blogcard__cat">How to</span>
+            <span class="gp-blogcard__title">Building a ladder of NCDs for monthly income</span>
+            <span class="gp-blogcard__meta">5 min read &middot; Mar 2026</span>
+            <span class="gp-blogcard__more">Read more
+              <img src="../assets/img/SVG-1.png" alt="" width="14" height="14"></span>
+          </span>
+          <img class="gp-blogcard__media" src="../assets/img/image13.svg" alt="" width="128" height="123">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================= faq -->
+  <section data-reveal class="gp-section gp-section--tight gp-section--flush-top">
+    <div class="gp-shell">
+      <div class="gp-section__head gp-section__head--marked">
+        <h2 class="gp-section__title">FAQs about Akara Capital Advisors Private Limited</h2>
+      </div>
+
+      <!-- Every answer on the live page is the same paragraph: their CMS test
+           data. Reproduced as captured rather than written around. -->
+      <div class="gp-faq-layout">
+        <div class="gp-faq">
+          <details class="gp-faq__item" open>
+            <summary class="gp-faq__q">How to redeem this Akara Capital Advisors Private Limited bond?</summary>
+            <div class="gp-faq__a"><p>To redeem this AKARA CAPITAL bond, bond, kindly first check
+              its redemption value and redemption schedule. This can be found by downloading the
+              cash flow from the &ldquo;Calculate Your Returns&rdquo; section of this page or by
+              contacting the support team at GoldenPi.<br>Once you buy this bond, the units would
+              be reflected in your demat account.</p></div>
+          </details>
+          <details class="gp-faq__item">
+            <summary class="gp-faq__q">Are these bonds safe?</summary>
+            <div class="gp-faq__a"><p>To redeem this AKARA CAPITAL bond, bond, kindly first check
+              its redemption value and redemption schedule. This can be found by downloading the
+              cash flow from the &ldquo;Calculate Your Returns&rdquo; section of this page or by
+              contacting the support team at GoldenPi.<br>Once you buy this bond, the units would
+              be reflected in your demat account.</p></div>
+          </details>
+          <details class="gp-faq__item">
+            <summary class="gp-faq__q">What is the minimum investment?</summary>
+            <div class="gp-faq__a"><p>To redeem this AKARA CAPITAL bond, bond, kindly first check
+              its redemption value and redemption schedule. This can be found by downloading the
+              cash flow from the &ldquo;Calculate Your Returns&rdquo; section of this page or by
+              contacting the support team at GoldenPi.<br>Once you buy this bond, the units would
+              be reflected in your demat account.</p></div>
+          </details>
+          <details class="gp-faq__item">
+            <summary class="gp-faq__q">How do I receive interest payouts?</summary>
+            <div class="gp-faq__a"><p>To redeem this AKARA CAPITAL bond, bond, kindly first check
+              its redemption value and redemption schedule. This can be found by downloading the
+              cash flow from the &ldquo;Calculate Your Returns&rdquo; section of this page or by
+              contacting the support team at GoldenPi.<br>Once you buy this bond, the units would
+              be reflected in your demat account.</p></div>
+          </details>
+          <details class="gp-faq__item">
+            <summary class="gp-faq__q">Can I sell Akara Capital NCDs before maturity?</summary>
+            <div class="gp-faq__a"><p>To redeem this AKARA CAPITAL bond, bond, kindly first check
+              its redemption value and redemption schedule. This can be found by downloading the
+              cash flow from the &ldquo;Calculate Your Returns&rdquo; section of this page or by
+              contacting the support team at GoldenPi.<br>Once you buy this bond, the units would
+              be reflected in your demat account.</p></div>
+          </details>
+          <details class="gp-faq__item">
+            <summary class="gp-faq__q">Are returns from NCDs taxable?</summary>
+            <div class="gp-faq__a"><p>To redeem this AKARA CAPITAL bond, bond, kindly first check
+              its redemption value and redemption schedule. This can be found by downloading the
+              cash flow from the &ldquo;Calculate Your Returns&rdquo; section of this page or by
+              contacting the support team at GoldenPi.<br>Once you buy this bond, the units would
+              be reflected in your demat account.</p></div>
+          </details>
+          <details class="gp-faq__item">
+            <summary class="gp-faq__q">What is the difference between cumulative and monthly payout?</summary>
+            <div class="gp-faq__a"><p>To redeem this AKARA CAPITAL bond, bond, kindly first check
+              its redemption value and redemption schedule. This can be found by downloading the
+              cash flow from the &ldquo;Calculate Your Returns&rdquo; section of this page or by
+              contacting the support team at GoldenPi.<br>Once you buy this bond, the units would
+              be reflected in your demat account.</p></div>
+          </details>
+          <details class="gp-faq__item">
+            <summary class="gp-faq__q">How quickly can I start?</summary>
+            <div class="gp-faq__a"><p>To redeem this AKARA CAPITAL bond, bond, kindly first check
+              its redemption value and redemption schedule. This can be found by downloading the
+              cash flow from the &ldquo;Calculate Your Returns&rdquo; section of this page or by
+              contacting the support team at GoldenPi.<br>Once you buy this bond, the units would
+              be reflected in your demat account.</p></div>
+          </details>
+        </div>
+
+        <aside class="gp-need-help">
+          <img class="gp-need-help__image" src="../assets/img/support-icon.svg"
+               alt="" width="237" height="237">
+          <p class="gp-need-help__title">
+            <img src="../assets/img/phone-icon.svg" alt="" width="20" height="20">
+            Need Help
+          </p>
+          <p class="gp-need-help__desc">Talk to our Support Team for free. We will
+            help you through your investment journey.</p>
+          <a class="gp-cta gp-cta--primary" href="https://uatnew.goldenpi.com/contact-us">
+            Contact Us
+            <img class="gp-cta__arrow" src="../assets/img/arrow-right.svg"
+                 alt="" width="16" height="16">
+          </a>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================================================== footer -->
+<footer class="gp-footer">
+  <div class="gp-shell grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="lg:col-span-2">
+      <img src="../assets/img/goldenpi-logo.svg" alt="GoldenPi" width="132" height="30">
+      <p class="mt-4 font-bold">GoldenPi Securities Pvt Ltd</p>
+      <p class="mt-1 text-subtext">(A wholly owned subsidiary of GoldenPi Technologies Pvt Ltd)</p>
+      <address class="mt-3 not-italic leading-relaxed text-subtext">
+        Indiqube Orion, 24th Main, 1st Sector,<br>
+        HSR Layout, Bangalore South,<br>
+        Bangalore, Karnataka - 560102
+      </address>
+      <p class="mt-3">Contact Us: <a class="font-semibold" href="tel:08045685666">080-45685666</a></p>
+      <p class="mt-1 text-subtext">CIN: U65990KA2022PTC164941</p>
+    </div>
+
+    <div>
+      <h2 class="gp-footer__title">Invest with us</h2>
+      <ul class="space-y-2.5">
+        <li><a href="bond-ipo-online.html">Bond IPOs</a></li>
+        <li><a href="corporate-bonds.html">Bonds</a></li>
+        <li><a href="fixed-deposits.html">Fixed Deposits</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="gp-footer__title">Company</h2>
+      <ul class="space-y-2.5">
+        <li><a href="https://uatnew.goldenpi.com/about-us">About us</a></li>
+        <li><a href="https://uatnew.goldenpi.com/careers">Career at GoldenPi</a></li>
+        <li><a href="https://uatnew.goldenpi.com/faq">FAQs</a></li>
+        <li><a href="https://uatnew.goldenpi.com/contact-us">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="gp-shell border-t border-[color:var(--light-stroke)] py-5 text-subtext">
+    &copy; Copyright 2017 &ndash; 2026 | GoldenPi Securities Pvt. Ltd.
+  </div>
+
+  <div class="gp-footer__legal">
+    <div class="gp-shell space-y-6">
+      <div>
+        <h2>Note to Investors</h2>
+        <p>GoldenPi Securities Pvt. Ltd. (&ldquo;GSPL&rdquo;) is a wholly owned subsidiary of GoldenPi Technologies Pvt. Ltd. (&ldquo;GTPL&rdquo;) and is a SEBI registered broker under BSE new debt segment allowing investors to trade in secondary bonds &amp; debentures through exchange.</p>
+        <p>Fixed returns do not constitute guaranteed or assured returns. Investments in corporate debt securities, municipal debt securities/securitised debt instruments are subject to credit risks, market risks and default risks including delay and/or default in payment. Read all the offer related documents carefully. Investors can update their email id and mobile number with their stock broker / depository participant and receive OTP directly from the depository on email id and/or mobile number to create a pledge. Investors can check their securities / MF / bonds in the consolidated account statement issued by NSDL/CDSL every month.</p>
+        <p>The FAQs on the platform are exclusively for educational information/knowledge and do not influence the investment/sale decisions of any investors. As you are aware, under the rapidly evolving dynamics of financial markets, it is crucial for investors to remain updated and well-informed about various aspects of investing in securities market. In this connection, please find a link to the BSE Investor Protection Fund website where you will find some useful educative material in the form of text and videos, so as to become an informed investor.</p>
+        <p><a class="underline" href="https://www.bseipf.com/investors_education.html">https://www.bseipf.com/investors_education.html</a></p>
+        <p>We believe that an educated investor is a protected investor !!!</p>
+      </div>
+
+      <div>
+        <h2>Important Information:</h2>
+        <div class="gp-pills">
+          <a href="https://uatnew.goldenpi.com/collections/best-ongoing-ipos">Ongoing NCD IPOs</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/Conflict+of+Interest.pdf">Conflict of Interest</a>
+          <a href="https://uatnew.goldenpi.com/terms-and-conditions">Terms &amp; Conditions</a>
+          <a href="https://uatnew.goldenpi.com/privacy-policy">Privacy Policy</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/Regulatory+disclosure.pdf">Regulatory Disclosure</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/GoldenPi_Investor_Charter.pdf">Investor Charter</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/Policies+for+Information.pdf">Policies for Information</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/INVESTOR+GRIEVANCE+REDRESSAL+MECHANISM+Goldenpi.pdf">Investor Grievance</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/RIGHTS+AND+OBLIGATIONS+OF+STOCK+BROKERS+AND+CLIENTS.pdf">Rights &amp; Obligations</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/Investor+Complaint+Report.pdf">Investor Complaints</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/DOs+AND+DONTs.pdf">Dos &amp; Don'ts</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/InvestorAdvisoryNote.pdf">Investor Advisory Note</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/RISK+DISCLOSURE+DOCUMENT+FOR+CAPITAL+MARKET+AND+DERIVATIVES+SEGMENTS.pdf">Risk Disclosure</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/goldenpi_RDDvernacular.zip">RDD in Vernacular</a>
+          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Freezing_Blocking_Account/Policy_on_Voluntary_Freezing.pdf">Voluntary Freezing/Blocking of Account</a>
+        </div>
+      </div>
+
+      <div>
+        <h2>Collections</h2>
+        <p class="leading-loose">
+          <a class="underline" href="https://uatnew.goldenpi.com/collections/best-ongoing-ipos">Ongoing NCD IPOs</a> |
+          <a class="underline" href="https://uatnew.goldenpi.com/collections/high-yield-bonds">High Yield Bonds (Yield more than 11%)</a> |
+          <a class="underline" href="https://uatnew.goldenpi.com/collections/highly-rated-bonds">Highly Rated Bonds (AAA Rated)</a> |
+          <a class="underline" href="https://uatnew.goldenpi.com/collections/bonds-to-earn-monthly-fixed-income">Bonds to Earn Regular Monthly Income</a> |
+          <a class="underline" href="https://uatnew.goldenpi.com/collections/bonds-maturing-within-a-year">Bonds Maturing within a Year</a> |
+          <a class="underline" href="https://uatnew.goldenpi.com/collections/state-government-guranteed-bonds">State Government Guaranteed Bonds</a> |
+          <a class="underline" href="https://uatnew.goldenpi.com/collections/tax-free-bonds">Tax Free Bonds</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal. The .reveal-ready class is added by script, so if this never
+// runs the content simply stays visible rather than staying hidden.
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  document.documentElement.classList.add('reveal-ready');
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('is-in');
+      io.unobserve(e.target);
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.04 });
+
+  document.querySelectorAll('[data-reveal]').forEach(function (el) { io.observe(el); });
+})();
+</script>
+
+</body>
+</html>

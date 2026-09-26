@@ -2,7 +2,7 @@
 
 Project context and rules live in `CLAUDE.md`. This file tracks state only.
 
-**Last updated:** 2026-09-25
+**Last updated:** 2026-09-26
 **Content snapshot:** 2026-09-25 (all hardcoded data carries this date)
 **Now:** All four landing pages converted to the agreed styling and promoted.
 
@@ -76,6 +76,51 @@ Ported into `assets/final.css` as `.gp-cta`, `.gp-block`, `.gp-faq-layout` and
   support illustration, a phone icon beside the title, and a Contact Us CTA
 
 The other three live pages have not been converted yet.
+
+### The issuer page itself, rebuilt
+
+`pages/issuers-akara-capital-advisors-private-limited.html`, built 2026-09-26 from
+the capture already in `crawl/`. Content extracted to
+`content/issuers_akara-capital-advisors-private-limited.md` first, as phase B
+requires. `node crawl/check.js` clean; it is not in the `LIVE` consistency set,
+which is the four landing pages and a different page type.
+
+Second wave of components into `assets/final.css`, values again read out of their
+stylesheet, not eyeballed:
+
+| Component | Class | Value taken from theirs |
+|---|---|---|
+| bond gold card | `.gp-gold-card` | `linear-gradient(-71.23deg, #cb9b11 1.58%, #eabe42 24.77%, #f7d880 51.26%, #f5dc95 70.66%, #efcc69 83.91%, #be9009 100%)` |
+| section rail | `.gp-navlayout`, `.gp-sidenav` | 191px rail, 48px before the article |
+| stat strip | `.gp-stats` | one card, hairline dividers, 125px tall |
+| step card | `.gp-steps` | 900-weight numeral, gold gradient clipped to the glyphs |
+| divider | `.gp-divider` | 24×1px rule, `#d4af37` fading to nothing, 0.7 opacity |
+| badge | `.gp-badge` | white pill, 26px min-height, 700 weight |
+| blog card | `.gp-blogcard` | 128×123 media, 20px radius |
+
+Two deviations from theirs, both deliberate:
+
+- their mobile rail is a JS accordion; ours is the same list of anchors scrolled
+  horizontally, so the section links work with no script at all
+- the gold gradient on the step numerals is painted on a span the width of the
+  numeral. On the full-width `<p>` the digits land in the palest 5% of the ramp
+  and come out nearly white.
+
+**Their CMS test data, reproduced as captured.** This page is staging content and
+contradicts itself in four places. None of it was corrected — that is theirs to
+fix, and inventing replacement copy would break the first rule in `CLAUDE.md`:
+
+| Where | What the live page says |
+|---|---|
+| page title, breadcrumb | "Akara Capital Private Limited **test**" |
+| hero description | second half is Muthoot Finance history (1939, gold loans) under an Akara heading; badges say `AA+ / ICRA` and `Est. 1939` while the bonds below are ACUITE BBB+ |
+| FAQ | all eight answers are the same redemption paragraph, with "bond, bond," in it |
+| blog cards | three different titles, all linking to one webinar post |
+| risks | "If **MFL's** financial health deteriorates" — Muthoot again |
+| `<meta name="description">` | ships raw `<p class="ql-align-justify">` markup inside the attribute; we kept the text and dropped the tags |
+
+One image was missing locally and was fetched: `SVG (1).png` (the Read more
+arrow), saved as `SVG-1.png` and recorded in `assets/img-map.tsv`.
 
 ---
 

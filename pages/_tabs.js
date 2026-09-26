@@ -72,7 +72,15 @@
     entries.forEach(function (e) {
       if (!e.isIntersecting) return;
       io.unobserve(e.target);
-      var el = e.target, full = el.textContent, m = full.match(/([\d,]+)/);
+      // Count in the text node holding the digits, so markup around it (the
+      // smaller "Cr+" suffix) survives the animation.
+      var el = e.target, node = null;
+      for (var i = 0; i < el.childNodes.length && !node; i++) {
+        var c = el.childNodes[i];
+        if (c.nodeType === 3 && /\d/.test(c.nodeValue)) node = c;
+      }
+      if (!node) return;
+      var full = node.nodeValue, m = full.match(/([\d,]+)/);
       if (!m) return;
       var target = Number(m[1].replace(/,/g, ''));
       if (!target) return;
@@ -80,7 +88,7 @@
       function step(ts) {
         if (!t0) t0 = ts;
         var p = Math.min((ts - t0) / 1000, 1);
-        el.textContent = full.replace(
+        node.nodeValue = full.replace(
           m[1], Math.round(target * (1 - Math.pow(1 - p, 3))).toLocaleString('en-IN'));
         if (p < 1) requestAnimationFrame(step);
       }

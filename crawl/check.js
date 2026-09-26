@@ -96,10 +96,9 @@ const BEHAVIOUR = {
   // --- live pages -----------------------------------------------------------
   'corporate-bonds.html': async (page) => {
     const problems = await tabChecks(page, { count: 6, firstRows: 4 });
-    await page.locator('[data-count]').first().scrollIntoViewIfNeeded();
-    await page.waitForTimeout(1500);
-    const stat = await page.locator('[data-count]').first().innerText();
-    if (!stat.includes('15')) problems.push(`stat count-up ended at "${stat}"`);
+    // The Milestones count-up was replaced by the Golden Experience strip.
+    const golden = await page.locator('.gp-stats .gp-stats__item').count();
+    if (golden !== 4) problems.push(`Golden Experience strip has ${golden} items, expected 4`);
     return problems.concat(await noneHidden(page));
   },
 

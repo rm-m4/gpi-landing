@@ -19,7 +19,6 @@ captured match says so rather than showing fabricated rows.
 Run: python3 pages/_convert.py
 """
 import os
-import re
 import sys
 
 import _final as F
@@ -162,65 +161,6 @@ def issuer_ctas(html):
     return html
 
 
-def blocks(html, heading, icons):
-    """Turn a row of plain centred cards into issuer-style blocks.
-
-    Same copy, same order; what changes is the shape: white card, 20px radius,
-    light-yellow hairline, and the icon in a gold gradient squircle.
-    """
-    i = html.index(heading)
-    start = html.index('<div class="grid gap-4 sm:grid-cols-3">', i)
-    end = html.index('</div>\n    </div>\n  </section>', start)
-    seg = html[start:end]
-
-    cards = re.findall(
-        r'<div class="gp-card p-6 text-center">\s*'
-        r'<img src="([^"]+)"[^>]*>\s*'
-        r'<h3[^>]*>(.*?)</h3>\s*'
-        r'<p[^>]*>(.*?)</p>\s*</div>', seg, re.S)
-    if len(cards) != len(icons):
-        sys.exit('expected %d cards under %r, found %d' % (len(icons), heading[:30], len(cards)))
-
-    out = ['<div class="grid gap-4 sm:grid-cols-3">']
-    for (_, title, desc), icon in zip(cards, icons):
-        out.append(
-            '        <div class="gp-block">\n'
-            '          <span class="gp-block__icon"><img src="../assets/img/%s" alt=""></span>\n'
-            '          <h3 class="gp-block__title">%s</h3>\n'
-            '          <p class="gp-block__desc">%s</p>\n'
-            '        </div>' % (icon, title.strip(), desc.strip()))
-    out.append('      ')
-    return html[:start] + '\n'.join(out) + html[end:]
-
-
-def faq_with_help(html, contact_href):
-    """Put the FAQ accordion and a Need Help card side by side."""
-    i = html.index('<div class="gp-faq">')
-    j = html.index('</div>', html.rindex('</details>', i)) + len('</div>')
-
-    # Structure matches issuer-need-help exactly: the 237px support illustration,
-    # a small phone icon beside the title, and an arrow inside the CTA.
-    help_card = (
-        '\n\n        <aside class="gp-need-help">\n'
-        '          <img class="gp-need-help__image" src="../assets/img/support-icon.svg"\n'
-        '               alt="" width="237" height="237">\n'
-        '          <p class="gp-need-help__title">\n'
-        '            <img src="../assets/img/phone-icon.svg" alt="" width="20" height="20">\n'
-        '            Need Help\n'
-        '          </p>\n'
-        '          <p class="gp-need-help__desc">Talk to our Support Team for free. We will\n'
-        '            help you through your investment journey.</p>\n'
-        '          <a class="gp-cta gp-cta--primary" href="%s">\n'
-        '            Contact Us\n'
-        '            <img class="gp-cta__arrow" src="../assets/img/arrow-right.svg"\n'
-        '                 alt="" width="16" height="16">\n'
-        '          </a>\n'
-        '        </aside>' % contact_href)
-
-    return (html[:i] + '<div class="gp-faq-layout">\n        ' + html[i:j]
-            + help_card + '\n      </div>' + html[j:])
-
-
 def common(html, slug):
     """Steps every converted page gets."""
     # The -old archives were repointed at each other before this ran, so the
@@ -246,7 +186,7 @@ def common(html, slug):
             html = (html[:i] + '<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">'
                     + html[i + len('<div class="gp-scroller">'):])
             break
-    return html
+    return F.review_marquee(F.blog_cards(html))
 
 
 def bento(html, spans):
@@ -328,6 +268,7 @@ def build_index():
 
     html = bento(html, ['lg:col-span-4', 'lg:col-span-2', 'lg:col-span-2',
                         'lg:col-span-2', 'lg:col-span-2', 'lg:col-span-6'])
+    html = F.faq_with_help(html)
     return scripts(html)
 
 
@@ -387,6 +328,8 @@ def fd_panel(keys):
 # corporate-bonds eyebrow and trust strip would be wrong here. The rate line
 # stays inside the h1, styled as the figure line. The three features sit in one
 # row at desktop, stacked on the icon, with sentence-case captions so they fit.
+# The h1 first line is the product owner's wording (2026-09-26), not the
+# captured "Fixed Deposits Online".
 FD_FEATURES = [
     ("gold-shield.svg", "Upto &#8377;5L Secured", "RBI's DICGC Insurance"),
     ("gold-flash.svg", "Instant Withdrawal", "No penalty on early closure"),
@@ -398,7 +341,7 @@ FD_HERO = '''<div class="grid gap-8 md:grid-cols-[1.1fr_0.9fr] md:items-center">
         <p class="gp-eyebrow mb-5">Invest Online in Under 5 Minutes</p>
 
         <h1 class="t-h1">
-          <span class="t-bronze">Fixed Deposits Online</span>
+          <span class="t-bronze">High Return Fixed Deposits to Invest Online</span>
           <span class="mt-4 block t-h3 text-ink">Earn up to <span class="gp-hero__figure">8.5%% p.a.</span> Interest rate</span>
         </h1>
 
@@ -485,9 +428,9 @@ def build_fd():
     html = html[:start] + cream(tabstrip(tabs)) + "\n" + html[end:]
     html = fd_hero(html)
     html = hero_ground(html)
-    html = blocks(html, 'Why invest in with GoldenPi?',
-                  ['image10.svg', 'image11.svg', 'image12.svg'])
-    html = faq_with_help(html, BASE + '/contact-us')
+    html = F.drop_sections(html)
+    html = F.golden_experience(html, add=True)
+    html = F.faq_with_help(html)
     html = issuer_ctas(html)
     return scripts(html)
 
@@ -559,6 +502,8 @@ def build_ipo():
     html = ipo_hero(html)
     html = hero_ground(html)
     html = count_up(html)
+    html = F.faq_with_help(html)
+    html = F.drop_sections(html)
     return scripts(html, tabs=True)
 
 
@@ -566,7 +511,7 @@ def main():
     for name, fn in (("index.html", build_index),
                      ("fixed-deposits.html", build_fd),
                      ("bond-ipo-online.html", build_ipo)):
-        out = fn()
+        out = F.golden_experience(F.primary_ctas(fn()))
         open(os.path.join(HERE, name), "w", encoding="utf-8").write(out)
         print("%-24s tabs:%d panels:%d final.css:%d" % (
             name, out.count('class="gp-tab"'), out.count('class="gp-panel'),
