@@ -33,6 +33,8 @@ ACTIVE = {
     "corporate-bonds.html": "Bonds",
     "fixed-deposits.html": "FD",
     "bond-ipo-online.html": "Bonds",
+    # Issuer detail page. No nav item is current on the live site.
+    "issuers-akara-capital-advisors-private-limited.html": None,
     "corporate-bonds-alt.html": "Bonds",
     "bond-ipo-online-alt.html": "Bonds",
     "fixed-deposits-alt.html": "FD",

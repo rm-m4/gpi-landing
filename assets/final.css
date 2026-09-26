@@ -345,3 +345,416 @@
 }
 
 .gp-need-help .gp-cta { min-width: 146px; margin-top: 4px; }
+
+/* ===================================================================
+   ISSUER PAGE COMPONENTS
+   The rest of the same reference page. These are the parts only an
+   issuer template has; values are theirs, read out of their compiled
+   stylesheet:
+
+     bond card     linear-gradient(-71.23deg, #cb9b11 1.58%, #eabe42
+                   24.77%, #f7d880 51.26%, #f5dc95 70.66%,
+                   #efcc69 83.91%, #be9009 100%)
+     side rail     191px, 48px of padding before the article
+     divider rule  24x1px, gold fading out to nothing
+     step numeral  900 weight, the gold gradient clipped to the glyphs
+     badge         white pill, 26px min-height, 700 weight
+   =================================================================== */
+
+:root {
+  --gp-gradient-bond-card: linear-gradient(-71.23deg, #cb9b11 1.58%, #eabe42 24.77%,
+    #f7d880 51.26%, #f5dc95 70.66%, #efcc69 83.91%, #be9009 100%);
+}
+
+/* Their eyebrow is a soft light-yellow pill rather than the outlined one the
+   other pages use. Same component, one modifier. */
+.gp-eyebrow--soft {
+  border-color: transparent;
+  background: var(--gp-card-hairline);
+}
+
+/* ------------------------------------------------------------ breadcrumb */
+
+.gp-crumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--subtext);
+}
+
+.gp-crumb a { color: #8a6520; font-weight: 600; text-decoration: none; }
+.gp-crumb a:hover { text-decoration: underline; }
+.gp-crumb [aria-current] { color: var(--app-heading-color); font-weight: 600; }
+
+/* ------------------------------------------------------------- hero grid
+   Copy on the left, the issuer's own bonds on a rail at the right. */
+
+.gp-issuer-hero { display: grid; gap: 32px; }
+
+@media (min-width: 1000px) {
+  .gp-issuer-hero {
+    grid-template-columns: minmax(0, 1fr) 360px;
+    gap: 40px;
+    align-items: start;
+  }
+}
+
+.gp-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.gp-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  background: var(--white);
+  box-shadow: var(--gp-shadow-card);
+  border-bottom: 1px solid var(--gp-card-hairline);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------- bond gold card
+   The card the whole rail is built from. A matured bond keeps the shape and
+   drops to 45% so it reads as past, which is what the live page does. */
+
+.gp-gold-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  border-radius: var(--gp-radius-lg);
+  background: var(--gp-gradient-bond-card);
+  color: var(--app-heading-color);
+  text-decoration: none;
+}
+
+a.gp-gold-card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
+a.gp-gold-card:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(190, 144, 9, 0.28); }
+
+.gp-gold-card--past { opacity: 0.45; }
+
+.gp-gold-card__top { display: flex; align-items: flex-start; gap: 12px; }
+.gp-gold-card__name { font-size: 15px; font-weight: 700; line-height: 1.25; }
+.gp-gold-card__min { font-size: 11px; font-weight: 500; opacity: 0.75; }
+
+.gp-gold-card__rate {
+  margin-left: auto;
+  text-align: right;
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.gp-gold-card__rate sup { font-size: 13px; font-weight: 700; }
+.gp-gold-card__rate small { display: block; font-size: 10px; font-weight: 500; opacity: 0.7; }
+
+.gp-gold-card__tags { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+
+.gp-gold-card__tag {
+  padding: 3px 9px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.45);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.gp-gold-card__sold { margin-left: auto; font-size: 11px; font-weight: 600; opacity: 0.75; }
+
+.gp-gold-card__metrics { display: flex; gap: 24px; margin-top: auto; }
+.gp-gold-card__metric { display: flex; flex-direction: column; gap: 2px; }
+
+.gp-gold-card__metric dt {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.65;
+}
+
+.gp-gold-card__metric dd { margin: 0; font-size: 13px; font-weight: 700; }
+
+.gp-gold-card__foot {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 4px -16px -16px;
+  padding: 7px 16px;
+  background: rgba(255, 255, 255, 0.4);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.gp-rail__head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 12px; }
+.gp-rail__title { font-size: 15px; font-weight: 700; }
+
+.gp-rail__link {
+  margin-left: auto;
+  color: #8a6520;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+}
+
+.gp-rail__link:hover { text-decoration: underline; }
+
+/* ------------------------------------------------------- section divider
+   A centred title with a short gold rule either side. */
+
+.gp-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  color: var(--app-heading-color);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.gp-divider::before,
+.gp-divider::after {
+  content: "";
+  width: 24px;
+  height: 1px;
+  opacity: 0.7;
+  background: linear-gradient(90deg, rgba(212, 175, 55, 0) 0%, var(--mustard) 100%);
+}
+
+.gp-divider::after { transform: scaleX(-1); }
+
+/* ------------------------------------------------------------ stat strip
+   One card, N items, hairline dividers between them. Used twice: the
+   issuer's own record, and the platform's. */
+
+.gp-stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 18px 8px;
+  border-radius: var(--gp-radius-lg);
+  background: var(--white);
+  box-shadow: var(--gp-shadow-card);
+  border-bottom: 1px solid var(--gp-card-hairline);
+}
+
+.gp-stats__item {
+  display: flex;
+  /* 96px basis keeps all three (and the platform strip's four) on one row at
+     390px, which is what their 86px item width does. */
+  flex: 1 1 96px;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  text-align: center;
+}
+
+.gp-stats__item + .gp-stats__item { border-left: 1px solid var(--light-stroke); }
+.gp-stats__item img { width: 36px; height: 36px; object-fit: contain; }
+.gp-stats__value { font-size: 17px; font-weight: 700; line-height: 1.3; }
+.gp-stats__label { color: #8a6520; font-size: 12px; font-weight: 500; }
+
+/* -------------------------------------------------------- nav + article
+   A sticky rail of in-page links beside the long issuer write-up. On
+   phones the rail becomes a scrollable strip above the article -- plain
+   anchors either way, so it works with no script at all. */
+
+.gp-navlayout {
+  display: grid;
+  border-radius: var(--gp-radius-lg);
+  background: var(--white);
+  box-shadow: var(--gp-shadow-card);
+  border-bottom: 1px solid var(--gp-card-hairline);
+  overflow: hidden;
+}
+
+@media (min-width: 900px) {
+  .gp-navlayout { grid-template-columns: 191px minmax(0, 1fr); }
+}
+
+.gp-sidenav {
+  display: flex;
+  gap: 4px;
+  padding: 16px 12px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.gp-sidenav::-webkit-scrollbar { display: none; }
+
+.gp-sidenav a {
+  flex: none;
+  padding: 10px 8px;
+  border-bottom: 2px solid transparent;
+  color: var(--subtext);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.35;
+  text-decoration: none;
+}
+
+.gp-sidenav a:hover { color: var(--app-heading-color); }
+.gp-sidenav a.is-on { border-bottom-color: var(--mustard); color: var(--app-heading-color); font-weight: 700; }
+
+@media (min-width: 900px) {
+  .gp-sidenav {
+    position: sticky;
+    /* clears the 66px sticky header, as --header-height does on theirs */
+    top: 82px;
+    flex-direction: column;
+    align-self: start;
+    padding: 24px 0 24px 20px;
+    overflow: visible;
+  }
+
+  .gp-sidenav a { padding: 12px 12px 12px 0; }
+}
+
+.gp-article { padding: 24px 20px; }
+
+@media (min-width: 900px) {
+  .gp-article { padding: 24px 48px; }
+}
+
+.gp-article h3 {
+  margin: 0 0 12px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.gp-article h4 {
+  margin: 20px 0 8px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.gp-article p {
+  margin: 0 0 14px;
+  color: var(--subtext);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.gp-article ul { margin: 0 0 14px; padding-left: 20px; list-style: disc; }
+
+.gp-article li {
+  margin-bottom: 8px;
+  color: var(--subtext);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.gp-article section + section { margin-top: 34px; }
+
+/* ----------------------------------------------------------- steps card */
+
+.gp-steps {
+  display: grid;
+  gap: 24px;
+  padding: 28px 24px;
+  border-radius: var(--gp-radius-lg);
+  background: var(--white);
+  box-shadow: var(--gp-shadow-card);
+  border-bottom: 1px solid var(--gp-card-hairline);
+}
+
+@media (min-width: 760px) {
+  .gp-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+}
+
+/* The gradient is clipped to the glyphs, so it has to be painted on an
+   element the width of the numeral -- on the full-width <p> the digits would
+   sit in the palest 5% of the ramp and come out almost white. */
+.gp-steps__num {
+  margin: 0 0 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--gp-card-hairline);
+  font-size: 40px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.gp-steps__num span {
+  display: inline-block;
+  background: var(--gp-gradient-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gp-steps__title { font-size: 15px; font-weight: 700; }
+
+.gp-steps__desc {
+  margin: 6px 0 0;
+  color: var(--subtext);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+/* ------------------------------------------------------------ blog card */
+
+.gp-blogcard {
+  display: flex;
+  gap: 16px;
+  padding: 16px 20px;
+  border-radius: var(--gp-radius-lg);
+  background: var(--white);
+  box-shadow: var(--gp-shadow-card);
+  border-bottom: 1px solid var(--gp-card-hairline);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.25s ease;
+}
+
+.gp-blogcard:hover { transform: translateY(-2px); }
+.gp-blogcard__body { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+
+.gp-blogcard__cat {
+  color: #8a6520;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.gp-blogcard__title { font-size: 15px; font-weight: 700; line-height: 1.35; }
+.gp-blogcard__meta { color: var(--subtext); font-size: 12px; }
+
+.gp-blogcard__more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  color: #8a6520;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.gp-blogcard__more img { width: 14px; height: 14px; }
+
+.gp-blogcard__media {
+  flex: none;
+  width: 128px;
+  height: 123px;
+  border-radius: var(--gp-radius-lg);
+  background: linear-gradient(135deg, #f6f2ea, #ece4d5);
+  object-fit: cover;
+}
+
+@media (max-width: 460px) {
+  .gp-blogcard { flex-direction: column-reverse; }
+  .gp-blogcard__media { width: 100%; height: 150px; }
+}
+
+/* The rating agency sits above its grade in their card; keep it subordinate. */
+.gp-gold-card__metric dd small { font-size: 10px; font-weight: 600; opacity: 0.7; }
+
+/* The step card is an <ol>: numbering is the design, not the marker. */
+.gp-steps { list-style: none; margin: 0; padding-left: 24px; padding-right: 24px; }
