@@ -255,28 +255,35 @@ def primary_ctas(html):
     return html.replace('class="gp-btn gp-btn--primary', 'class="gp-cta gp-cta--primary')
 
 
-WHY_HEADINGS = (
+# Sections the product owner removed from the product pages (2026-09-26):
+# the "Why invest" blocks, and the how-to-invest steps.
+DROPPED_HEADINGS = (
     "Why invest in Corporate Bonds with GoldenPi?",
     "Why invest in with GoldenPi?",
     "Why to invest in Bond IPO with GoldenPi",
+    "Invest in Corporate Bonds in 3 easy steps",
+    "How to Invest in Bond IPOs Online",
 )
 
 
-def drop_why(html):
-    """Remove the "Why invest" section (product owner's call, 2026-09-26).
+def drop_sections(html):
+    """Remove each listed section present, banner comment to closing tag.
 
-    Takes the section from its banner comment to its closing tag. The
-    "Why 15 Lakh+ Users Trust GoldenPi" reviews section is a different one
-    and stays.
+    The "Why 15 Lakh+ Users Trust GoldenPi" reviews section is a different
+    one and stays.
     """
-    for heading in WHY_HEADINGS:
+    dropped = 0
+    for heading in DROPPED_HEADINGS:
         needle = '<h2 class="gp-section__title">%s</h2>' % heading
         if needle in html:
             h = html.index(needle)
             start = html.rindex('  <!-- ====', 0, h)
             end = html.index('  </section>\n', h) + len('  </section>\n')
-            return html[:start] + html[end:].lstrip('\n')
-    raise SystemExit("no Why invest section found")
+            html = html[:start] + html[end:].lstrip('\n')
+            dropped += 1
+    if not dropped:
+        raise SystemExit("none of the dropped sections found")
+    return html
 
 
 # The platform strip from the Akara issuer page ("The Golden Experience of
@@ -335,7 +342,7 @@ def main():
               .replace("<!--PANELS-->", panels)
               .replace("<!--TABJS-->", "<script>\n%s</script>" % js))
     path = os.path.join(HERE, "corporate-bonds.html")
-    out = golden_experience(drop_why(primary_ctas(review_marquee(blog_cards(faq_with_help(out))))))
+    out = golden_experience(drop_sections(primary_ctas(review_marquee(blog_cards(faq_with_help(out))))))
     open(path, "w", encoding="utf-8").write(out)
     print("wrote %s  (%d tabs, %d rows)" % (
         os.path.basename(path), len(TABS), sum(len(t["rows"]) for t in TABS)))

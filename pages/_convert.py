@@ -428,7 +428,7 @@ def build_fd():
     html = html[:start] + cream(tabstrip(tabs)) + "\n" + html[end:]
     html = fd_hero(html)
     html = hero_ground(html)
-    html = F.drop_why(html)
+    html = F.drop_sections(html)
     html = F.golden_experience(html, add=True)
     html = F.faq_with_help(html)
     html = issuer_ctas(html)
@@ -503,7 +503,7 @@ def build_ipo():
     html = hero_ground(html)
     html = count_up(html)
     html = F.faq_with_help(html)
-    html = F.drop_why(html)
+    html = F.drop_sections(html)
     return scripts(html, tabs=True)
 
 
