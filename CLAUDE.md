@@ -163,8 +163,8 @@ node crawl/snap.js                  # browser-rendered HTML -> crawl/rendered/ +
 python3 crawl/extract.py            # copy -> content/*.md
 ```
 
-`playwright-core` is the only dependency; it drives the Chromium already cached on
-this machine, so there is no browser download.
+`playwright-core` is the only dependency. It needs a cached Chromium: on a new
+machine run `npm ci && npx playwright install chromium` once.
 
 ## Current state
 

@@ -7,6 +7,18 @@ Every rate, credit rating, issuer name, maturity date and legal line is GoldenPi
 own, captured **2026-09-25** and reproduced unchanged. Nothing about returns,
 ratings or regulatory status was invented.
 
+## Setup
+
+Viewing the pages needs nothing but Python 3 and a browser online: Tailwind and
+the Satoshi font load from their CDNs, so offline the pages render unstyled.
+
+Running the checker or the capture needs Node 18+ and a Chromium for Playwright:
+
+```bash
+npm ci                               # playwright-core, the only dependency
+npx playwright install chromium      # once per machine
+```
+
 ## Look at them
 
 ```bash
@@ -138,8 +150,7 @@ node crawl/snap.js                  # browser-rendered HTML -> crawl/rendered/ +
 python3 crawl/extract.py            # copy -> content/*.md
 ```
 
-`playwright-core` is the only dependency; it drives the Chromium already cached on
-this machine, so there is no browser download.
+These use the same Chromium as the checker (see **Setup**).
 
 The post-login pages need a session. Log in by hand once (mobile/email + OTP;
 Google sign-in refuses automated browsers), then capture with it:

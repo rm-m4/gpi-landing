@@ -5,8 +5,8 @@ These are intentionally duplicated in every .html file -- this is a static
 prototype and developers will rebuild them as components -- but hand-editing four
 copies drifts. corporate-bonds.html is the reference page, and it is generated,
 so edit the shell in _final_shell.html, run _final.py, then run this. The -old
-archives are deliberately absent from ACTIVE: they are frozen snapshots and must
-not be re-synced. Then run:
+archives and the -alt/-taste explorations are deliberately absent from ACTIVE:
+they are frozen and must not be re-synced. Then run:
 
     python3 pages/_build.py
 
@@ -20,24 +20,15 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 REFERENCE = "corporate-bonds.html"
 
-# corporate-bonds-taste*.html and -final.html are deliberately absent: the minimalist-ui direction
-# is standalone and shares no shell with the others.
 
 # page -> (nav label that is active, or None)
 ACTIVE = {
     "index.html": None,
-    "bond-ipo-online-taste.html": "Bonds",
-    "fixed-deposits-taste.html": "FD",
-    "index-taste.html": None,
-    "index-alt.html": None,
     "corporate-bonds.html": "Bonds",
     "fixed-deposits.html": "FD",
     "bond-ipo-online.html": "Bonds",
     # Issuer detail page. No nav item is current on the live site.
     "issuers-akara-capital-advisors-private-limited.html": None,
-    "corporate-bonds-alt.html": "Bonds",
-    "bond-ipo-online-alt.html": "Bonds",
-    "fixed-deposits-alt.html": "FD",
 }
 
 SHELL_START = '<a class="gp-skip"'

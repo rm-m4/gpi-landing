@@ -248,9 +248,13 @@ async function checkAccordion(page) {
 }
 
 function chromiumPath() {
-  const cache = path.join(process.env.HOME, 'Library/Caches/ms-playwright');
+  // macOS and Linux cache locations for `npx playwright install chromium`.
+  const cache = ['Library/Caches/ms-playwright', '.cache/ms-playwright']
+    .map((d) => path.join(process.env.HOME, d)).find((d) => fs.existsSync(d));
+  if (!cache) throw new Error('no Chromium found: run `npx playwright install chromium` once');
   const builds = fs.readdirSync(cache).filter((d) => /^chromium-\d+$/.test(d))
     .sort((a, b) => Number(a.split('-')[1]) - Number(b.split('-')[1]));
+  if (!builds.length) throw new Error('no Chromium found: run `npx playwright install chromium` once');
   const dir = path.join(cache, builds[builds.length - 1]);
   for (const rel of [
     'chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing',
@@ -260,7 +264,7 @@ function chromiumPath() {
     const p = path.join(dir, rel);
     if (fs.existsSync(p)) return p;
   }
-  throw new Error('no chromium found');
+  throw new Error('no Chromium found: run `npx playwright install chromium` once');
 }
 
 const serve = () =>
