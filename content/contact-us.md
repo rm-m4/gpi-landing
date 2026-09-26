@@ -143,3 +143,14 @@
 - [State Government Guaranteed Bonds](/collections/state-government-guranteed-bonds)
 - |
 - [Tax Free Bonds](/collections/tax-free-bonds)
+
+<!-- section: "I am looking for" listbox options (read by opening it on the live page) -->
+
+- Bond Investment
+- KYC Process
+- IPO Application
+- Fixed Deposits
+- Interest Payment & TDS
+- Something Else
+
+- Map: Google Maps embed, title "GoldenPi office location map"

@@ -165,3 +165,33 @@
 - [State Government Guaranteed Bonds](/collections/state-government-guranteed-bonds)
 - |
 - [Tax Free Bonds](/collections/tax-free-bonds)
+
+<!-- section: leader profiles (modal, opened by driving the live page 2026-09-26) -->
+
+### Abhijit Roy
+
+- CEO & Co-Founder
+- A visionary, Abhijit wants to make Bonds and Debentures available to every Indian Household. During his professional stint at Envestnet|Yodlee, one of the largest financial solution providers, he worked in a leadership role managing critical business functions and exploring the fintech space in depth. He has also been instrumental in setting up and scaling other multinational product companies’ divisions in his past roles.
+- He holds an engineering degree from IIT Kharagpur and an MBA degree from IIM Calcutta.
+- An avid reader, Abhijit, reads up any and everything that comes by his way. He is also a foodie at heart and often indulges in experimenting with new cuisines.
+- LinkedIn: https://www.linkedin.com/in/abhijroy
+
+### Samir Baran Pratihar
+
+- CTO & Co-Founder
+- A hardcore technologist, Samir is the backbone of GoldenPi’s technology and products. In his earlier stints, he has played key technical and product leadership roles in leading MNCs, such as Ixia Communications and Juniper Networks, in computer networking and data communication.
+- He holds an engineering degree from Jadavpur University.
+- Samir is vocal about his love for open source software and loves playing football.
+- LinkedIn: https://www.linkedin.com/in/samir-pratihar
+
+### Rajkumar Pahari
+
+- VP, Product & Marketing
+- A growth hacker, Rajkumar drives customer acquisition and business growth in GoldenPi. In his previous stints in Opentext and Tesco, he has built high performing product teams and launched many successful products for both B2C and B2B businesses.
+- An engineering graduate from Jadavpur University, Rajkumar has also completed executive courses in “Innovation & Design Thinking” from MIT Sloan School and "Advanced Strategic Management" from IIM Calcutta.
+- He derives his energy from climbing mountains in the Himalayas and long-distance running. A Design Thinking practitioner, Rajkumar mentors early-stage startups in his free time.
+- LinkedIn: https://www.linkedin.com/in/rajpahari
+
+<!-- section: team gallery -->
+
+- 7.jpg, 4.jpg, 3.jpg, 1.jpg, 6.jpg, 5.jpg (CSS backgrounds, each aria-label "GoldenPi team")

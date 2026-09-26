@@ -206,3 +206,25 @@
 - [State Government Guaranteed Bonds](/collections/state-government-guranteed-bonds)
 - |
 - [Tax Free Bonds](/collections/tax-free-bonds)
+
+<!-- section: tab membership (read by clicking each tab on the live page) -->
+
+#### Engineering
+
+- Full Stack Developer
+- Node JS Developer
+- UI Developer
+- Software Engineer - Test
+
+#### Product & Marketing
+
+- Product Manager
+- Visual and UI designer
+- Email Marketing Specialist
+- Content Marketing Lead
+- Sr Digital Marketing Manager
+
+#### HR & Finance
+
+- Human Resources Manager
+- Finance Specialist

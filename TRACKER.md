@@ -158,6 +158,36 @@ Refer & Earn link now points here, and `_build.py` syncs its shell.
 
 ---
 
+## Company and legal pages (2026-09-26)
+
+`about-us.html`, `careers.html`, `contact-us.html`, `privacy-policy.html`,
+`terms-and-conditions.html`, from the matching uatnew paths. Captured first
+(`crawl/raw/`, `crawl/rendered/`, `crawl/shots/`), copy in `content/*.md`.
+Built on the finalised components; page CSS is the `COMPANY PAGES` block at the
+end of `final.css`. The shared footer's About / Career / Contact / Terms /
+Privacy links now point at these pages. `check.js` clean.
+
+- **Copy that only exists after interaction was read by driving the live page**:
+  leader bios and LinkedIn URLs (profile modal), the six "I am looking for"
+  options (listbox), careers tab membership (each tab clicked), and the full
+  legal text (every accordion opened, `crawl/rendered/*.expanded.html`).
+- **Legal pages are generated**: `python3 pages/_legal.py && python3 pages/_build.py`.
+  `python3 crawl/legal_fidelity.py` asserts the page text matches the capture
+  word for word (4,228 and 5,661 words, identical). Accordions became open
+  sections with a sticky section rail, a scroll-spy and a reading-progress bar.
+- **About**: the licence, vision and partners sections became one three-cell
+  bento; figures count up on a bond-gold card; "View profile" opens a native
+  `<dialog>`; team photos are real `<img>` in a six-cell mosaic.
+- **Careers**: team chips filter the eleven job cards (all show without JS);
+  descriptions are complete in the markup, clamped to three lines as on theirs.
+- **Contact**: form is not wired (theirs posts via reCAPTCHA); Send is inactive
+  until the form is valid, via `:invalid`. Google Maps embed is theirs.
+- **For review**: the "View jobs" button in the careers hero is not on the live
+  careers page (label borrowed from About, pointed at `#openings`); the team
+  photo alt text is ours (the live page labels all six "GoldenPi team").
+
+---
+
 ## Issuer design system components
 
 `/issuers/akara-capital-advisors-private-limited` is a from-scratch page on the new

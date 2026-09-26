@@ -1893,3 +1893,15 @@ a.gp-gold-card:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba
   .gp-about-figures::after { animation: gp-refer-sweep 7s 1s ease-in-out infinite; }
   .gp-about-vision__art { animation: gp-float 6s ease-in-out infinite; }
 }
+
+/* Phones: the section strip rides under the sticky header, so the jump list
+   stays one tap away through a long document. */
+@media (max-width: 899px) {
+  .gp-legal .gp-sidenav {
+    position: sticky;
+    top: var(--gp-legal-strip-top, 64px);
+    z-index: 5;
+    background: var(--white);
+    border-bottom: 1px solid #f1ecdf;
+  }
+}
