@@ -8,4 +8,7 @@ node_modules/
 # once the UAT site changes.
 crawl/local-shots/
 
+# A live login session saved by crawl/login.js. Never commit it.
+crawl/.auth/
+
 .DS_Store

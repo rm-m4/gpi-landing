@@ -1,0 +1,70 @@
+logo.svg	goldenpi - 1st online bonds investment platform in India
+gift.png	
+ref-header.svg	
+search-icon.svg	search
+notify-bell.svg	notify
+close.svg	
+low.svg	risk profile
+medium.svg	risk profile
+high.svg	risk profile
+verified_user.svg	selected profile
+post-desk.png	Pongal Banner
+finance_mode_gold.svg	
+info.svg	tooltip
+highest-yiels-bonds-post-login-home.svg	Tab image
+bonds-at-10k-post-login-home.svg	Tab image
+monthly-bonds.svg	Tab image
+ncd-ipo-post-login-home.svg	Tab image
+cfd-post-login-home.svg	Tab image
+GPID104095.Neogrowth new logo (1).jpg	Logo
+watchlist-not.svg	
+share-icon.svg	Share icon
+GPID102720.AKARA CAPITAL ADVISORS PRIVATE LIMITED@2x.png	Logo
+GPID107347.Best Capital.png	Logo
+post-login-home-assets-product-view-all-arrow.svg	Right arrow
+explore-collection-right-arrow.svg	Right arrow
+GPIDO09029.newly_added_bonds.png	Newly Launched Bonds: Latest Bond Opportunities
+highly-rated-bonds.svg	Highly Rated Bonds (A or Above)
+high-yield-bonds.svg	High Yield Bonds: Earn Higher Returns 14%*
+bonds-to-earn-monthly-fixed-income.svg	Bonds to Earn Monthly Fixed Income
+tent-icon.svg	tent-icon
+testimonial-prev.png	
+sumit.png	User Image
+rating.svg	Rating
+sivasakthi.png	User Image
+shyju.png	User Image
+ankur.png	User Image
+moni.png	User Image
+atanu.png	User Image
+patrique.png	User Image
+bhaskar.png	User Image
+sitikantha.png	User Image
+testimonial-next.png	
+AxisSecurities.png	AxisSecurities - GoldenPi
+AnandRathi.webp	AnandRathi - GoldenPi
+Sakthi-Finance-logo.png	Sakthi-Finance - GoldenPi
+centrum.png	centrum - GoldenPi
+rv-right-arrow.svg	
+need-help-img.svg	
+pi.svg	
+subscribe-done.svg	email subscribe
+goldenpi-logo-white.svg	GoldenPi Logo
+facebook-icon.svg	facebook-icon
+twitter-icon.svg	twitter-icon
+linkdin-icon.svg	linkdin-icon
+Instagram-icon.svg	insta-icon
+Youtube-icon.svg	youtube-icon
+write-to-us.svg	
+thank-you.svg	Thank you
+subscribe-popup.svg	mobile-img
+upload-cloud-img.svg	
+clock-copy.svg	
+customer.svg	manager-icon
+refresh.svg	
+out-of-stock.svg	
+cfd-loader.gif	
+ipo-cancelled.png	
+redo-kyc.svg	redo kyc
+check-kyc.svg	check kyc
+arrow_back_2.svg	arrow back
+mobile-app-qr.svg	Scan to download GoldenPi app and get voucher

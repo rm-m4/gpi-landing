@@ -1,0 +1,59 @@
+logo.svg	goldenpi - 1st online bonds investment platform in India
+gift.png	
+ref-header.svg	
+search-icon.svg	search
+notify-bell.svg	notify
+close.svg	
+low.svg	risk profile
+medium.svg	risk profile
+high.svg	risk profile
+verified_user.svg	selected profile
+cfd-post-login-home.svg	
+post-desk.png	Watchlist banner
+bubble.svg	
+header-bank.png	Bank FD
+header-tax-saving.png	Tax Saving FD
+header-nbfc.png	NBFC FD
+check_circle.svg	
+GPID105192.Unity.png	
+GPID105191.Suryoday.png	
+GPID106947.utkarsh_logo.png	
+GPID100016.Shriram-Squircle.png	Logo
+ipo-2.png	
+ipo-1.png	
+ipo-3.png	
+info.svg	tooltip
+post-login-cfd-home.svg	
+calc.svg	cal img
+rv-right-arrow.svg	
+testimonial-prev.png	
+sumit.png	User Image
+rating.svg	Rating
+sivasakthi.png	User Image
+shyju.png	User Image
+ankur.png	User Image
+moni.png	User Image
+atanu.png	User Image
+patrique.png	User Image
+bhaskar.png	User Image
+sitikantha.png	User Image
+testimonial-next.png	
+AxisSecurities.png	AxisSecurities - GoldenPi
+AnandRathi.webp	AnandRathi - GoldenPi
+Sakthi-Finance-logo.png	Sakthi-Finance - GoldenPi
+centrum.png	centrum - GoldenPi
+need-help-img.svg	
+write-to-us.svg	
+thank-you.svg	Thank you
+pi.svg	
+subscribe-done.svg	email subscribe
+goldenpi-logo-white.svg	GoldenPi Logo
+facebook-icon.svg	facebook-icon
+twitter-icon.svg	twitter-icon
+linkdin-icon.svg	linkdin-icon
+Instagram-icon.svg	insta-icon
+Youtube-icon.svg	youtube-icon
+redo-kyc.svg	redo kyc
+check-kyc.svg	check kyc
+arrow_back_2.svg	arrow back
+mobile-app-qr.svg	Scan to download GoldenPi app and get voucher

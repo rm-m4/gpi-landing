@@ -37,7 +37,7 @@ def candidates(html):
         yield m.group(1) or m.group(2)
 
 
-def normalise(u):
+def normalise(u, base=BASE):
     u = u.strip().rstrip("\\").replace("&amp;", "&")
     if u.startswith("//"):
         u = "https:" + u
@@ -48,7 +48,7 @@ def normalise(u):
             return None
         u = inner
     if u.startswith("/"):
-        u = BASE + u
+        u = base + u
     if not u.startswith("http"):
         return None
     path = urllib.parse.urlparse(u).path
@@ -110,20 +110,41 @@ def main():
                 continue
             with open(os.path.join(d, fn), encoding="utf-8", errors="replace") as f:
                 html = f.read()
+            # prod_ captures come from goldenpi.com; resolve their paths there.
+            base = "https://goldenpi.com" if fn.startswith("prod_") else BASE
             for c in candidates(html):
-                u = normalise(c)
+                u = normalise(c, base)
                 if u:
                     urls.add(u)
 
     print("    %d distinct image URLs" % len(urls))
 
+    # Existing assignments win: pages already reference these file names, so a
+    # new URL must never take one over (production reuses names like centrum.png).
     names = {}
+    map_path = os.path.join(ROOT, "assets", "img-map.tsv")
+    if os.path.exists(map_path):
+        with open(map_path, encoding="utf-8") as f:
+            for r in f.read().splitlines():
+                if "\t" in r:
+                    u0, n0 = r.split("\t", 1)
+                    names[n0] = u0
+    known = set(names.values())
     for u in sorted(urls):
+        if u in known:
+            continue
         n = safe_name(u)
         if n in names:
             # Two different URLs would land on the same file: keep both by falling
             # back to the un-stripped name rather than silently overwriting one.
             n = re.sub(r"[^A-Za-z0-9._-]+", "-", urllib.parse.unquote(u.split("/")[-1]))
+        # Production reuses file names across hosts, so the fallback can clash
+        # too: number it until it is unique.
+        stem, dot, ext = n.rpartition(".")
+        k = 2
+        while n in names:
+            n = "%s-%d.%s" % (stem, k, ext) if dot else "%s-%d" % (n, k)
+            k += 1
         names[n] = u
 
     rows, ok, fail = [], 0, 0
@@ -133,7 +154,9 @@ def main():
         # Re-runs after a naming change: adopt the already-downloaded file.
         legacy = os.path.join(IMG_DIR, re.sub(r"[^A-Za-z0-9._-]+", "-",
                                               urllib.parse.unquote(u.split("/")[-1])))
-        if not os.path.exists(dest) and os.path.exists(legacy):
+        # ...unless that file belongs to another URL, which still needs it.
+        owned = names.get(os.path.basename(legacy), u) != u
+        if not os.path.exists(dest) and os.path.exists(legacy) and not owned:
             os.rename(legacy, dest)
         rows.append("%s\t%s" % (u, name))
         if os.path.exists(dest) and os.path.getsize(dest) > 0:
@@ -145,7 +168,14 @@ def main():
             fail += 1
             print("    MISS %s" % u)
 
-    with open(os.path.join(ROOT, "assets", "img-map.tsv"), "w", encoding="utf-8") as f:
+    # Keep rows added by hand (images taken from outside the captures) that
+    # this scan did not find, rather than dropping them on every re-run.
+    path = os.path.join(ROOT, "assets", "img-map.tsv")
+    if os.path.exists(path):
+        found = set(rows)
+        with open(path, encoding="utf-8") as f:
+            rows += [r for r in f.read().splitlines() if r and r not in found]
+    with open(path, "w", encoding="utf-8") as f:
         f.write("\n".join(rows) + "\n")
     print("    downloaded/present: %d   failed: %d" % (ok, fail))
     return 0

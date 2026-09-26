@@ -1,0 +1,71 @@
+logo.svg	goldenpi - 1st online bonds investment platform in India
+gift.png	
+ref-header.svg	
+search-icon.svg	search
+notify-bell.svg	notify
+close.svg	
+low.svg	risk profile
+medium.svg	risk profile
+high.svg	risk profile
+verified_user.svg	selected profile
+post-login-ncd.svg	
+post-desk.png	Watchlist banner
+highest-yiels-bonds-post-login-home.svg	Tab image
+bonds-at-10k-post-login-home.svg	Tab image
+monthly-bonds.svg	Tab image
+high-rated.svg	Tab image
+ncd-ipo-post-login-home.svg	Tab image
+GPID104095.Neogrowth new logo (1).jpg	Logo
+info.svg	tooltip
+watchlist-not.svg	
+share-icon.svg	Share icon
+GPID102720.AKARA CAPITAL ADVISORS PRIVATE LIMITED@2x.png	Logo
+GPID107347.Best Capital.png	Logo
+post-login-home-assets-product-view-all-arrow.svg	Right arrow
+discover-bonds-filters.svg	
+tent-icon.svg	tent-icon
+explore-collection-right-arrow.svg	Right arrow
+GPIDO09029.newly_added_bonds.png	Newly Launched Bonds: Latest Bond Opportunities
+highly-rated-bonds.svg	Highly Rated Bonds (A or Above)
+high-yield-bonds.svg	High Yield Bonds: Earn Higher Returns 14%*
+bonds-to-earn-monthly-fixed-income.svg	Bonds to Earn Monthly Fixed Income
+bonds-at-discounted-price.svg	Bonds at Discounted Price
+bonds-icon.svg	Bonds Under 10,000
+credit-card.svg	
+encrypted.svg	
+GPID100778.EDELWEISS FINANCIAL SERVICES LIMITED.png	Logo
+star.gif	Star GIF - GoldenPi
+FastFilling.svg	Fast filling icon
+post-login-ncd-info.svg	
+rv-right-arrow.svg	
+testimonial-prev.png	
+sumit.png	User Image
+rating.svg	Rating
+sivasakthi.png	User Image
+shyju.png	User Image
+ankur.png	User Image
+moni.png	User Image
+atanu.png	User Image
+patrique.png	User Image
+bhaskar.png	User Image
+sitikantha.png	User Image
+testimonial-next.png	
+AxisSecurities.png	AxisSecurities - GoldenPi
+AnandRathi.webp	AnandRathi - GoldenPi
+Sakthi-Finance-logo.png	Sakthi-Finance - GoldenPi
+centrum.png	centrum - GoldenPi
+need-help-img.svg	
+write-to-us.svg	
+thank-you.svg	Thank you
+pi.svg	
+subscribe-done.svg	email subscribe
+goldenpi-logo-white.svg	GoldenPi Logo
+facebook-icon.svg	facebook-icon
+twitter-icon.svg	twitter-icon
+linkdin-icon.svg	linkdin-icon
+Instagram-icon.svg	insta-icon
+Youtube-icon.svg	youtube-icon
+redo-kyc.svg	redo kyc
+check-kyc.svg	check kyc
+arrow_back_2.svg	arrow back
+mobile-app-qr.svg	Scan to download GoldenPi app and get voucher

@@ -50,6 +50,40 @@ Scope agreed with the user: 4 pages, static HTML + Tailwind CDN, light theme onl
 
 ---
 
+## Batch 2 — post-login pages (2026-09-26)
+
+Four logged-in pages, captured from **production** (`goldenpi.com`): UAT has only
+two of them, and the user asked for all four from one source.
+
+| Phase | State | Evidence |
+|---|---|---|
+| A · Capture | done | `crawl/rendered/prod_user_*.html`, `crawl/shots/prod_user_*`, 104 new images |
+| B · Extract | done | `content/prod_user_*.md`, read against the screenshots |
+| C · Build | done | `pages/_user.py` → `pages/user-*.html`; `node crawl/check.js` clean, tabs asserted |
+| D · Polish | **not started** | waiting on user review |
+
+Decisions taken while the user was away, for review:
+
+- **Personal data redacted in the capture.** Name → `INVESTOR`, header initials →
+  `IN`, a mobile number and a personal email → placeholders. `snap.js --auth`
+  does it in the page and verifies the saved file.
+- **The MPIN lock screen** production shows on each new session was left out of
+  the build; it overlays the page, it is not page content.
+- **Only the selected tab is rendered live**, so the capture has rows for the first
+  tab only. Other panels reuse the uatnew 2026-09-25 rows the public pages use
+  (marked `DATA:`); FD's Tax Saving / NBFC panels say they were not captured.
+- **Controls that are not links stay buttons**: IPO *Invest*, FD *Invest*, quiz
+  options, KYC. Blog cards link to `/blog` because production opens posts from a
+  click handler with no URL in the markup. Collection cards use paths the crawl saw.
+- **The FD calculator is a static snapshot** of production's defaults (₹2,00,000,
+  60 months, 8.25%, quarterly compounding). Production's numbers differ from the
+  public page's working calculator, so it was not reused as-is; the markup notes
+  how to wire it.
+- **New CSS in `assets/user.css`**, loaded only by the user pages, so the public
+  set is untouched.
+
+---
+
 ## Issuer design system components
 
 `/issuers/akara-capital-advisors-private-limited` is a from-scratch page on the new

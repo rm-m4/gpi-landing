@@ -114,6 +114,15 @@ const BEHAVIOUR = {
 
   'bond-ipo-online.html': async (page) => noneHidden(page),
 
+  // --- post-login pages (pages/_user.py) ------------------------------------
+  'user-explore.html': async (page) =>
+    (await tabChecks(page, { count: 6, firstRows: 4 })).concat(await noneHidden(page)),
+  'user-corporate-bonds.html': async (page) =>
+    (await tabChecks(page, { count: 6, firstRows: 4 })).concat(await noneHidden(page)),
+  'user-fixed-deposits.html': async (page) =>
+    (await tabChecks(page, { count: 3, firstRows: 3 })).concat(await noneHidden(page)),
+  'user-bond-ipo-online.html': async (page) => noneHidden(page),
+
   // --- archives, which keep their original behaviour ------------------------
   'fixed-deposits-old.html': fdChecks,
   'index-old.html': homeChecks,

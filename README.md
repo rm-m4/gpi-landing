@@ -26,7 +26,26 @@ though three of the four pages are generated from templates (see below).
 | `pages/fixed-deposits.html` | `/fixed-deposits` |
 | `pages/bond-ipo-online.html` | `/bond-ipo-online` |
 
-These four are the deliverable. Everything else in `pages/` is history and can be
+### Post-login pages
+
+Captured from production (`goldenpi.com`, logged in) on 2026-09-26, because
+`/user/corporate-bonds` and `/user/bond-ipo-online` do not exist on UAT. Built in
+the same design system as the four above.
+
+| Page | Source URL |
+|---|---|
+| `pages/user-explore.html` | `goldenpi.com/user/explore` |
+| `pages/user-fixed-deposits.html` | `goldenpi.com/user/fixed-deposits` |
+| `pages/user-corporate-bonds.html` | `goldenpi.com/user/corporate-bonds` |
+| `pages/user-bond-ipo-online.html` | `goldenpi.com/user/bond-ipo-online` |
+
+The header is the logged-in one (notification bell and account avatar instead of
+Login). The account holder's first name is shown as `INVESTOR` inside
+`<span data-user="first-name">`: wire it to the session. New components
+(greeting, portfolio card, goal quiz, closed-IPO table, filters) are in
+`assets/user.css`, which only these pages load.
+
+These eight are the deliverable. Everything else in `pages/` is history and can be
 ignored when implementing:
 
 - `*-old.html` — each page as it stood before the 2026-09-26 styling pass, kept so
@@ -96,6 +115,8 @@ next run.
 python3 pages/_final.py      # -> corporate-bonds.html
 python3 pages/_convert.py    # -> index, fixed-deposits, bond-ipo-online
 python3 pages/_build.py      # sync header/footer across pages
+python3 pages/_user.py       # -> the four user-*.html (after _final.py: it lifts
+                             #    the shell from corporate-bonds.html)
 node crawl/check.js          # verify every page
 ```
 
@@ -119,3 +140,18 @@ python3 crawl/extract.py            # copy -> content/*.md
 
 `playwright-core` is the only dependency; it drives the Chromium already cached on
 this machine, so there is no browser download.
+
+The post-login pages need a session. Log in by hand once (mobile/email + OTP;
+Google sign-in refuses automated browsers), then capture with it:
+
+```bash
+node crawl/login.js --prod          # opens a browser; the session -> crawl/.auth/ (git-ignored)
+node crawl/snap.js --auth --prod /user/explore /user/fixed-deposits \
+                                 /user/corporate-bonds /user/bond-ipo-online
+python3 crawl/images.py && python3 crawl/extract.py prod_user_explore ...
+```
+
+With `--auth`, `snap.js` replaces the account holder's name, mobile numbers and
+personal email addresses in the page before anything is saved or screenshotted,
+then refuses to save if any of them survived. `--prod` files carry a `prod_`
+prefix so they never overwrite the UAT capture of the same path.

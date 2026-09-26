@@ -223,10 +223,8 @@ def scripts(html, tabs=True):
 
 # ---------------------------------------------------------------------- index
 
-def build_index():
-    html = open(os.path.join(HERE, "index-old.html"), encoding="utf-8").read()
-    html = common(html, "index")
-
+def home_tabs():
+    """The homepage's six category tabs; user-explore reuses them."""
     rows = lambda rs, c4, c5: "\n\n".join(
         F.row_html(r, i, c4, c5) for i, r in enumerate(rs))
 
@@ -259,6 +257,14 @@ def build_index():
                                ("Highest Returns", "Available Payout", "Insured", "New Bank A/C"),
                                "Compare all fixed deposits", "/fixed-deposits")),
     ]
+    return tabs
+
+
+def build_index():
+    html = open(os.path.join(HERE, "index-old.html"), encoding="utf-8").read()
+    html = common(html, "index")
+
+    tabs = home_tabs()
 
     # Swap the static tab row and the heading beneath it for the real tablist.
     start = html.index('        <div class="gp-scroller !grid-cols-none mb-6"')

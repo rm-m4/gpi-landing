@@ -188,7 +188,12 @@ def render(slug, doc, out, images):
     desc = clean(doc.get("description", ""))
     if desc:
         lines += ["", "**Meta description:** %s" % desc]
-    lines += ["", "**Source:** https://uatnew.goldenpi.com/%s" % ("" if slug == "home" else slug), ""]
+    if slug.startswith("prod_"):
+        # prod_user_explore -> https://goldenpi.com/user/explore
+        src = "https://goldenpi.com/" + slug[len("prod_"):].replace("user_", "user/", 1)
+    else:
+        src = "https://uatnew.goldenpi.com/%s" % ("" if slug == "home" else slug)
+    lines += ["", "**Source:** %s" % src, ""]
 
     prev = None
     for item in out:
