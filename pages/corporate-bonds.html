@@ -109,7 +109,7 @@
       <span>Search for bonds, FD or IPO</span>
     </div>
 
-    <button type="button" class="gp-btn gp-btn--primary gp-btn--sm flex-none ml-auto lg:ml-0">
+    <button type="button" class="gp-cta gp-cta--primary gp-cta--sm flex-none ml-auto lg:ml-0">
       <img src="../assets/img/user-icon.svg" alt="" width="15" height="15"> Login / Sign up
     </button>
   </div>
@@ -145,7 +145,7 @@
           </p>
 
           <div class="mt-8 flex flex-wrap items-center gap-4">
-            <a class="gp-btn gp-btn--primary" href="#corporate-bonds-assets">
+            <a class="gp-cta gp-cta--primary" href="#corporate-bonds-assets">
               Explore Our Corporate Bonds List
             </a>
             <a class="gp-btn gp-btn--ghost" href="bond-ipo-online.html">View live NCD IPOs</a>
@@ -686,53 +686,26 @@
     </div>
   </section>
 
-  <!-- ======================================================== milestones -->
-  <section data-reveal class="gp-section gp-section--tight gp-section--flush-top">
-    <div class="gp-shell grid items-center gap-8 md:grid-cols-[minmax(0,260px)_1fr]">
-      <img src="../assets/img/milestone.png" alt="GoldenPi milestones" width="260" height="260"
-           class="w-full rounded-2xl object-cover">
-      <div>
-        <h2 class="gp-section__title mb-6 text-center md:text-left">Milestones</h2>
-        <dl class="grid gap-6 sm:grid-cols-3 text-center md:text-left">
-          <div>
-            <dt class="t-h1 t-gold" data-count>15L+</dt>
-            <dd class="mt-1 t-small t-muted">Registered users</dd>
-          </div>
-          <div>
-            <dt class="t-h1 t-gold" data-count>&#8377;2,500<span class="text-[18px]">Cr+</span></dt>
-            <dd class="mt-1 t-small t-muted">Bonds available</dd>
-          </div>
-          <div>
-            <dt class="t-h1 t-gold" data-count>&#8377;10,000<span class="text-[18px]">Cr+</span></dt>
-            <dd class="mt-1 t-small t-muted">Transaction value</dd>
-          </div>
-        </dl>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================== why us -->
+  <!-- ================================================ golden experience -->
   <section data-reveal class="gp-section gp-section--tight gp-section--flush-top">
     <div class="gp-shell">
-      <div class="gp-section__head gp-section__head--marked">
-        <h2 class="gp-section__title">Why invest in Corporate Bonds with GoldenPi?</h2>
-      </div>
-
-      <div class="grid gap-4 sm:grid-cols-3">
-        <div class="gp-card p-6 text-center">
-          <img src="../assets/img/online-invest.png" alt="" width="56" height="56" class="mx-auto">
-          <h3 class="mt-4 t-lead font-bold">100% Online</h3>
-          <p class="mt-2 t-small t-muted leading-relaxed">Seamless Investment process</p>
+      <p class="gp-divider">The Golden Experience of Investing</p>
+      <div class="gp-stats">
+        <div class="gp-stats__item">
+          <img src="../assets/img/trophy.png" alt="" width="36" height="36">
+          <span class="gp-stats__value">Zero Defaults</span>
         </div>
-        <div class="gp-card p-6 text-center">
-          <img src="../assets/img/product-info.png" alt="" width="56" height="56" class="mx-auto">
-          <h3 class="mt-4 t-lead font-bold">In-depth Product Information</h3>
-          <p class="mt-2 t-small t-muted leading-relaxed">Review all information before you invest</p>
+        <div class="gp-stats__item">
+          <img src="../assets/img/shield.png" alt="" width="36" height="36">
+          <span class="gp-stats__value">Sebi Registered</span>
         </div>
-        <div class="gp-card p-6 text-center">
-          <img src="../assets/img/sebi-regd.png" alt="" width="56" height="56" class="mx-auto">
-          <h3 class="mt-4 t-lead font-bold">SEBI Registered</h3>
-          <p class="mt-2 t-small t-muted leading-relaxed">Registered debt broker and OBPP license holder</p>
+        <div class="gp-stats__item">
+          <img src="../assets/img/5percent.png" alt="" width="36" height="36">
+          <span class="gp-stats__value">Curated Bonds</span>
+        </div>
+        <div class="gp-stats__item">
+          <img src="../assets/img/users.png" alt="" width="36" height="36">
+          <span class="gp-stats__value">18 lacs+ Users</span>
         </div>
       </div>
     </div>
@@ -1142,7 +1115,15 @@
     entries.forEach(function (e) {
       if (!e.isIntersecting) return;
       io.unobserve(e.target);
-      var el = e.target, full = el.textContent, m = full.match(/([\d,]+)/);
+      // Count in the text node holding the digits, so markup around it (the
+      // smaller "Cr+" suffix) survives the animation.
+      var el = e.target, node = null;
+      for (var i = 0; i < el.childNodes.length && !node; i++) {
+        var c = el.childNodes[i];
+        if (c.nodeType === 3 && /\d/.test(c.nodeValue)) node = c;
+      }
+      if (!node) return;
+      var full = node.nodeValue, m = full.match(/([\d,]+)/);
       if (!m) return;
       var target = Number(m[1].replace(/,/g, ''));
       if (!target) return;
@@ -1150,7 +1131,7 @@
       function step(ts) {
         if (!t0) t0 = ts;
         var p = Math.min((ts - t0) / 1000, 1);
-        el.textContent = full.replace(
+        node.nodeValue = full.replace(
           m[1], Math.round(target * (1 - Math.pow(1 - p, 3))).toLocaleString('en-IN'));
         if (p < 1) requestAnimationFrame(step);
       }

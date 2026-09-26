@@ -245,6 +245,85 @@ def review_marquee(html):
             + html[end:])
 
 
+def primary_ctas(html):
+    """Every primary CTA takes the gradient gp-cta look the FD page uses.
+
+    Ghost buttons are left alone; only fixed-deposits swaps those too.
+    """
+    html = html.replace('class="gp-btn gp-btn--primary gp-btn--sm',
+                        'class="gp-cta gp-cta--primary gp-cta--sm')
+    return html.replace('class="gp-btn gp-btn--primary', 'class="gp-cta gp-cta--primary')
+
+
+WHY_HEADINGS = (
+    "Why invest in Corporate Bonds with GoldenPi?",
+    "Why invest in with GoldenPi?",
+    "Why to invest in Bond IPO with GoldenPi",
+)
+
+
+def drop_why(html):
+    """Remove the "Why invest" section (product owner's call, 2026-09-26).
+
+    Takes the section from its banner comment to its closing tag. The
+    "Why 15 Lakh+ Users Trust GoldenPi" reviews section is a different one
+    and stays.
+    """
+    for heading in WHY_HEADINGS:
+        needle = '<h2 class="gp-section__title">%s</h2>' % heading
+        if needle in html:
+            h = html.index(needle)
+            start = html.rindex('  <!-- ====', 0, h)
+            end = html.index('  </section>\n', h) + len('  </section>\n')
+            return html[:start] + html[end:].lstrip('\n')
+    raise SystemExit("no Why invest section found")
+
+
+# The platform strip from the Akara issuer page ("The Golden Experience of
+# Investing"), copy and icons as captured there. It replaces the Milestones
+# figures inside the reviews section (product owner's call, 2026-09-26).
+GOLDEN = [
+    ("trophy.png", "Zero Defaults"),
+    ("shield.png", "Sebi Registered"),
+    ("5percent.png", "Curated Bonds"),
+    ("users.png", "18 lacs+ Users"),
+]
+
+
+def golden_experience(html, add=False):
+    """Drop the Milestones section; add the Golden Experience strip as its own
+    section just before the reviews, built exactly as on the Akara page.
+
+    Pages that had a Milestones section get the strip; add=True gives it to a
+    page that never had one (fixed-deposits).
+    """
+    banner = '  <!-- ======================================================== milestones -->'
+    if banner in html:
+        start = html.index(banner)
+        end = html.index('  </section>\n', start) + len('  </section>\n')
+        html = html[:start] + html[end:].lstrip('\n')
+    elif not add:
+        return html
+
+    items = "\n".join(
+        '        <div class="gp-stats__item">\n'
+        '          <img src="../assets/img/%s" alt="" width="36" height="36">\n'
+        '          <span class="gp-stats__value">%s</span>\n'
+        '        </div>' % g for g in GOLDEN)
+    section = (
+        '  <!-- ================================================ golden experience -->\n'
+        '  <section data-reveal class="gp-section gp-section--tight gp-section--flush-top">\n'
+        '    <div class="gp-shell">\n'
+        '      <p class="gp-divider">The Golden Experience of Investing</p>\n'
+        '      <div class="gp-stats">\n%s\n      </div>\n'
+        '    </div>\n'
+        '  </section>\n\n' % items)
+    # Its own section, directly before the reviews section.
+    reviews = html.index('<div class="gp-reviews">')
+    banner_at = html.rindex('  <!-- ====', 0, reviews)
+    return html[:banner_at] + section + html[banner_at:]
+
+
 def main():
     buttons, panels = build()
     src = open(os.path.join(HERE, "_final_shell.html"), encoding="utf-8").read()
@@ -256,7 +335,7 @@ def main():
               .replace("<!--PANELS-->", panels)
               .replace("<!--TABJS-->", "<script>\n%s</script>" % js))
     path = os.path.join(HERE, "corporate-bonds.html")
-    out = review_marquee(blog_cards(faq_with_help(out)))
+    out = golden_experience(drop_why(primary_ctas(review_marquee(blog_cards(faq_with_help(out))))))
     open(path, "w", encoding="utf-8").write(out)
     print("wrote %s  (%d tabs, %d rows)" % (
         os.path.basename(path), len(TABS), sum(len(t["rows"]) for t in TABS)))

@@ -879,3 +879,6 @@ a.gp-gold-card:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba
   .gp-reviews { overflow-x: auto; }
   .gp-reviews__track { animation: none; }
 }
+
+/* Small gradient CTA: the size gp-btn--sm had, for row and header buttons. */
+.gp-cta--sm { padding: 9px 18px; font-size: 13px; }
