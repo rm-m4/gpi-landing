@@ -286,7 +286,7 @@ div:has(> .gp-tabs) > .gp-tabs { margin-bottom: 0; }
 .gp-panel .gp-row__value--secured { color: #06963c; font-weight: 700; }
 
 /* Credit rating as a chip: it is a grade, not a quantity. */
-.gp-panel .gp-row > :nth-child(3) .gp-row__value {
+.gp-panel .gp-row > :nth-child(3) .gp-row__value:not(.gp-row__value--secured) {
   display: inline-block;
   padding: 4px 10px;
   border-radius: 999px;
