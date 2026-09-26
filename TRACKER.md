@@ -194,6 +194,14 @@ Bond Utsav link now points here. `check.js` clean.
   a struck-through old yield that no captured card carries (the generator shows
   it only if a `was` field is ever captured). The design's noise overlay was
   not exported as an asset, so it is not used.
+- **Listing cases** (both pages, from `_utsav.py`): a tab with one or two
+  bonds centres them (Govt Backed has two); a grid row where no card has a
+  note drops the strip, flagged per breakpoint (`gp-ucard--bare1/2/3`); a tab
+  with no bonds shows their empty state (icon `empty-state-icon.svg`, "No
+  results found!", alt "No bonds", all from the live bundle). **DUMMY, to
+  remove before handoff:** `DUMMY_WAS` gives four All Bonds cards an old
+  yield to strike through, and `DUMMY_EMPTY_TABS` empties Gold Backed (its 8
+  cards hidden) to show the empty state. Both are marked in the HTML.
 - **Pills now centred on desktop.** `site.css` made `.gp-pills` a flex row, which
   shrank the track and left it off centre. On phones the two rows centre on
   each other and start at the edge when they overflow.

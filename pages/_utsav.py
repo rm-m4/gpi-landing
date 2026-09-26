@@ -86,6 +86,30 @@ STUCK_JS = """
 })();
 """
 
+# DUMMY (user, 2026-09-26): no captured card carries an old yield, so these
+# fill the design's struck-through "was" slot on a few cards, to show the
+# case. Not live data. Keyed by card URL; delete to drop them.
+DUMMY_WAS = {
+    '/bonds/GPID107371/neogrowth-1300-bond-yield?src=view_details&tenureDate=30-Apr-2028': "12.85",  # NEOGROWTH 13.00%
+    '/bonds/GPID107435/akara-1300-bond-yield?src=view_details&tenureDate=03-Dec-2027': "12.80",  # AKARA 13.00%
+    '/bonds/GPID107371/neogrowth-1275-bond-yield?src=view_details&tenureDate=30-Jul-2027': "12.60",  # NEOGROWTH 12.75%
+    '/bonds/GPID107006/spandana-1210-bond-yield?src=view_details&tenureDate=26-Apr-2028': "11.95",  # SPANDANA 12.10%
+}
+
+# DUMMY (user, 2026-09-26): no live tab is empty, so this one is emptied to
+# show the empty state. Its 8 captured cards are not shown. Remove to restore.
+DUMMY_EMPTY_TABS = {"gold-backed-bonds"}
+
+# Their empty state (EmptyState in the live bundle, used by bond-utsav-bonds
+# when a tab has no bonds): icon, alt and text verbatim from uatnew.
+EMPTY = '''<div class="gp-empty-state" role="status">
+            <img src="../assets/img/empty-state-icon.svg" alt="No bonds" width="120" height="120">
+            <p>No results found!</p>
+          </div>'''
+
+# Columns per breakpoint (phone / 640px / 1024px), as .gp-utsav-grid sets them.
+COLUMNS = (1, 2, 3)
+
 e = html.escape
 
 
@@ -114,7 +138,20 @@ def logo_names(tabs):
     return names
 
 
-def card(c, i, logos, pa=False):
+def bare(cards):
+    """Classes for cards whose whole grid row has no note, per breakpoint: that
+    row drops the strip. A row with any note keeps it on every card."""
+    out = [[] for _ in cards]
+    for n in COLUMNS:
+        for r in range(0, len(cards), n):
+            row = range(r, min(r + n, len(cards)))
+            if not any(cards[k]["note"] for k in row):
+                for k in row:
+                    out[k].append(" gp-ucard--bare%d" % n)
+    return ["".join(x) for x in out]
+
+
+def card(c, i, logos, pa=False, flags=""):
     """The card from the user's Figma (HRSMFFccdLgqf1YwD7oyc9, node 1:499), filled
     with the captured fields. Parts the capture lacks are left out: no sold line,
     no tags, no struck-through old yield ("was": the capture has none yet). The
@@ -122,11 +159,13 @@ def card(c, i, logos, pa=False):
     sold = '\n          <p class="gp-ucard__sold">%s</p>' % e(c["sold"]) if c["sold"] else ""
     tags = ('\n    <div class="gp-ucard__tags">%s</div>' % "".join("<span>%s</span>" % e(t) for t in c["tags"])
             if c["tags"] else "")
-    was = '\n      <s class="gp-ucard__was">%s%%</s>' % e(c["was"]) if c.get("was") else ""
+    w = c.get("was") or DUMMY_WAS.get(c["href"])
+    was = ('\n      <s class="gp-ucard__was"><span class="sr-only">was </span>%s%%</s>%s'
+           % (e(w), "" if c.get("was") else " <!-- DUMMY: old yield, not captured -->")) if w else ""
     note = ('<img src="../assets/img/utsav-card-bolt.png" alt="" width="16" height="16"><span>%s</span>' % e(c["note"])
             if c["note"] else "")
     pa = "<small>p.a.</small>" if pa else ""
-    return f'''<a class="gp-ucard" href="{e(UAT + c["href"])}" style="--i:{min(i, 11)}">
+    return f'''<a class="gp-ucard{flags}" href="{e(UAT + c["href"])}" style="--i:{min(i, 11)}">
   <div class="gp-ucard__body">
     <div class="gp-ucard__id">
       <span class="gp-ucard__logo"><img src="../assets/img/{e(logos[c["logo"]])}" alt="" width="42" height="42"></span>
@@ -163,13 +202,18 @@ def listing(tabs, logos, pa=False):
                       aria-controls="panel-{slug}" aria-selected="{str(on).lower()}"{"" if on else ' tabindex="-1"'}>
                 <img src="../assets/img/{icon}" alt="" width="30" height="30">{e(t["label"])}
               </button>''')
-        cards = "\n".join(card(c, i, logos, pa) for i, c in enumerate(t["cards"]))
+        items = [] if t["slug"] in DUMMY_EMPTY_TABS else t["cards"]
+        flags = bare(items)
+        cards = "\n".join(card(c, i, logos, pa, flags[i]) for i, c in enumerate(items))
+        # One or two cards sit centred instead of hugging the left column.
+        few = " gp-utsav-grid--n%d" % len(items) if len(items) in (1, 2) else ""
+        body = (f'''<div class="gp-utsav-grid{few}">
+{cards}
+          </div>''' if items else EMPTY)
         panels.append(
             f'''<div class="gp-panel{" is-on" if on else ""}" id="panel-{slug}"
              role="tabpanel" aria-labelledby="tab-{slug}"{"" if on else " hidden"}>
-          <div class="gp-utsav-grid">
-{cards}
-          </div>
+          {body}
         </div>''')
     rows = [buttons[:ROW_SPLIT], buttons[ROW_SPLIT:]]
     strip = "\n".join('            <div class="gp-pills__row" role="none">\n              %s\n            </div>'

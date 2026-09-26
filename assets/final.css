@@ -2240,3 +2240,29 @@ a.gp-gold-card:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba
 .gp-utsav-listing.gp-utsav-v2 { padding-bottom: var(--head-gap); }
 
 @media (prefers-reduced-motion: reduce) { .gp-utsav-v2 .gp-pill img { transition: none; } }
+
+/* Bond Utsav listing cases (both bond-utsav pages, set by _utsav.py). */
+
+/* A row where no card has a note drops the strip; _utsav.py flags each card
+   by the columns it sits in at every breakpoint. */
+@media (max-width: 639px) { .gp-ucard--bare1 .gp-ucard__note { display: none; } }
+@media (min-width: 640px) and (max-width: 1023px) { .gp-ucard--bare2 .gp-ucard__note { display: none; } }
+@media (min-width: 1024px) { .gp-ucard--bare3 .gp-ucard__note { display: none; } }
+
+/* One or two cards sit centred at their usual width. */
+@media (min-width: 640px) {
+  .gp-utsav-grid--n1 { grid-template-columns: minmax(0, calc((100% - 16px) / 2)); justify-content: center; }
+}
+@media (min-width: 1024px) {
+  .gp-utsav-grid--n1 { grid-template-columns: minmax(0, calc((100% - 40px) / 3)); }
+  .gp-utsav-grid--n2 { grid-template-columns: repeat(2, minmax(0, calc((100% - 40px) / 3))); justify-content: center; }
+}
+
+/* Their empty state, as their gp-empty-state: icon over one line. */
+.gp-utsav-listing .gp-empty-state {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;
+  min-height: 220px; padding: 40px 24px; text-align: center;
+  border: 1px dashed #e6d9b4; border-radius: 24px; background: rgba(255, 255, 255, 0.6);
+}
+.gp-utsav-listing .gp-empty-state img { width: 120px; height: 120px; }
+.gp-utsav-listing .gp-empty-state p { margin: 0; color: var(--darker-brown, #322811); font-size: 16px; font-weight: 500; line-height: 24px; }
