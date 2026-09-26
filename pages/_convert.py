@@ -50,8 +50,18 @@ FD = {
 }
 
 
+# The listing tab's FD rows, from the user's screenshot of the live FD list
+# (2026-09-26): highest returns, secured, tenure. Name, logo and link come
+# from FD above.
+FD_TAB = {
+    "unity": ("8.5%", "Insured upto &#8377;5L", "7 days-60 months"),
+    "suryoday": ("8.5%", "Insured upto &#8377;5L", "7 days-60 months"),
+}
+
+
 def fd_row(key, i):
-    name, logo, ret, payout, insured, newac, href = FD[key]
+    name, logo, _, _, _, _, href = FD[key]
+    ret, secured, tenure = FD_TAB[key]
     return (
         '            <article class="gp-row" style="--r:%d">\n'
         '              <div class="gp-row__identity">\n'
@@ -60,15 +70,16 @@ def fd_row(key, i):
         '              </div>\n'
         '              <div><div class="gp-row__label">Highest Returns</div>'
         '<div class="gp-row__value gp-row__value--returns">%s</div></div>\n'
-        '              <div><div class="gp-row__label">Available Payout</div>'
+        '              <div><div class="gp-row__label">Secured</div>'
+        '<div class="gp-row__value gp-row__value--secured">%s</div></div>\n'
+        '              <div><div class="gp-row__label">Tenure</div>'
         '<div class="gp-row__value">%s</div></div>\n'
-        '              <div><div class="gp-row__label">Insured</div>'
-        '<div class="gp-row__value">%s</div></div>\n'
-        '              <div><div class="gp-row__label">New Bank A/C</div>'
-        '<div class="gp-row__value">%s</div></div>\n'
-        '              <div class="gp-row__actions"></div>\n'
+        '              <div></div>\n'
+        '              <div class="gp-row__actions">\n'
+        '                <button type="button" title="Share"><img src="../assets/img/golden-share.svg" alt="Share"></button>\n'
+        '              </div>\n'
         '            </article>' % (i, logo, BASE, href.replace("&", "&amp;"),
-                                    name, ret, payout, insured, newac))
+                                    name, ret, secured, tenure))
 
 
 CREAM_OPEN = '      <div class="rounded-2xl border border-[#f0e6c8] bg-[#fdf8e9] p-4 sm:p-6">'
@@ -105,18 +116,16 @@ def tabstrip(tabs):
             '        </div>\n\n%s' % ("Categories", "\n\n".join(buttons), "\n\n".join(panels)))
 
 
-def listing_body(rows_html, head, more_label, more_href, note=None):
-    note_html = ('          <p class="gp-panel__note">%s</p>\n' % note) if note else ""
+def listing_body(rows_html, head, more_label, more_href):
     return (
-        '%s'
         '          <div class="gp-rows__head">\n'
-        '            <span>Issuer</span><span>%s</span><span>%s</span>\n'
+        '            <span></span><span>%s</span><span>%s</span>\n'
         '            <span>%s</span><span>%s</span><span></span>\n'
         '          </div>\n\n'
         '          <div class="gp-rows">\n%s\n          </div>\n\n'
         '          <div class="mt-5 text-center">\n'
         '            <a class="t-small font-bold t-bronze underline" href="%s%s">%s</a>\n'
-        '          </div>' % (note_html, head[0], head[1], head[2], head[3],
+        '          </div>' % (head[0], head[1], head[2], head[3],
                               rows_html, BASE, more_href, more_label))
 
 
@@ -238,8 +247,7 @@ def home_tabs():
         dict(id="thirtyk", label="Bonds at &#8377;30K", icon="pre-login-bonds-at-10k.svg",
              body=listing_body(rows([F.MUTH_CAP], "Min. Investment", "Maturity Date"),
                                ("Returns", "Credit Rating", "Min. Investment", "Maturity Date"),
-                               "View bonds under &#8377;10,000", "/collections/bonds-at-10000",
-                               note="Minimum investment as listed by the issuer.")),
+                               "View bonds under &#8377;10,000", "/collections/bonds-at-10000")),
         dict(id="monthly", label="Bonds for Monthly Income", icon="monthly-bonds.svg",
              body=listing_body(rows([F.AKARA_13, F.BEST, F.AKARA_12], "Payout", "Maturity Date"),
                                ("Returns", "Credit Rating", "Payout", "Maturity Date"),
@@ -250,9 +258,8 @@ def home_tabs():
                                ("Returns", "Credit Rating", "Status", "Closes On"),
                                "View all ongoing NCD IPOs", "/collections/best-ongoing-ipos")),
         dict(id="fd", label="Fixed Deposits", icon="cfd-icon.svg",
-             body=listing_body("\n\n".join(fd_row(k, i) for i, k in enumerate(
-                                   ["unity", "suryoday", "utkarsh", "shriram", "mahindra", "bajaj"])),
-                               ("Highest Returns", "Available Payout", "Insured", "New Bank A/C"),
+             body=listing_body("\n\n".join(fd_row(k, i) for i, k in enumerate(FD_TAB)),
+                               ("Highest Returns", "Secured", "Tenure", ""),
                                "Compare all fixed deposits", "/fixed-deposits")),
     ]
     return tabs

@@ -49,30 +49,27 @@ MUTH_CAP = ("MUTHOOT CAPITAL", M, "9.70%", "CRISIL AA-", "&#8377;30,000", "24-Au
 TABS = [
     dict(id="utsav", label="Bond Utsav Deals", icon="pre-login-active-offers.svg",
          col4="Payout", col5="Maturity Date", rows=[AKARA_13, NEO, BEST, AKARA_12],
-         more=("View All", "/bond-utsav"), note=None),
+         more=("View All", "/bond-utsav")),
 
     dict(id="rated", label="High Rated Bonds", icon="pre-login-aaa-rated.svg",
          col4="Status", col5="Closes On", rows=[EDEL, MUTH_IPO],
-         more=("View all highly rated bonds", "/collections/highly-rated-bonds"),
-         note="The highest rated issues in this snapshot are the two live NCD IPOs."),
+         more=("View all highly rated bonds", "/collections/highly-rated-bonds")),
 
     dict(id="thirtyk", label="Bonds at &#8377;30K", icon="pre-login-bonds-at-10k.svg",
          col4="Min. Investment", col5="Maturity Date", rows=[MUTH_CAP],
-         more=("View bonds under &#8377;10,000", "/collections/bonds-at-10000"),
-         note="Minimum investment as listed by the issuer."),
+         more=("View bonds under &#8377;10,000", "/collections/bonds-at-10000")),
 
     dict(id="monthly", label="Bonds for Monthly Income", icon="monthly-bonds.svg",
          col4="Payout", col5="Maturity Date", rows=[AKARA_13, BEST, AKARA_12],
-         more=("View all monthly income bonds", "/collections/bonds-to-earn-monthly-fixed-income"),
-         note=None),
+         more=("View all monthly income bonds", "/collections/bonds-to-earn-monthly-fixed-income")),
 
     dict(id="yield", label="11%+ Yield Bonds", icon="pre-login-home-highest-yield.svg",
          col4="Payout", col5="Maturity Date", rows=[AKARA_13, NEO, BEST, AKARA_12],
-         more=("View all high yield bonds", "/collections/high-yield-bonds"), note=None),
+         more=("View all high yield bonds", "/collections/high-yield-bonds")),
 
     dict(id="ipo", label="NCD IPO", icon="pre-login-ncd-ipo.svg",
          col4="Status", col5="Closes On", rows=[EDEL, MUTH_IPO],
-         more=("View all ongoing NCD IPOs", "/collections/best-ongoing-ipos"), note=None),
+         more=("View all ongoing NCD IPOs", "/collections/best-ongoing-ipos")),
 ]
 
 
@@ -115,15 +112,13 @@ def build():
             '              <img src="../assets/img/%s" alt="">%s\n'
             '            </button>' % (t["id"], t["id"], sel, tabindex, t["icon"], t["label"]))
 
-        note = ('          <p class="gp-panel__note">%s</p>\n' % t["note"]) if t["note"] else ""
         rows = "\n\n".join(row_html(r, i, t["col4"], t["col5"]) for i, r in enumerate(t["rows"]))
         more_label, more_href = t["more"]
         panels.append(
             '        <div class="gp-panel%s" id="panel-%s"\n'
             '             role="tabpanel" aria-labelledby="tab-%s"%s>\n'
-            '%s'
             '          <div class="gp-rows__head">\n'
-            '            <span>Issuer</span><span>Returns</span><span>Credit Rating</span>\n'
+            '            <span></span><span>Returns</span><span>Credit Rating</span>\n'
             '            <span>%s</span><span>%s</span><span></span>\n'
             '          </div>\n\n'
             '          <div class="gp-rows">\n%s\n          </div>\n\n'
@@ -132,7 +127,7 @@ def build():
             '          </div>\n'
             '        </div>' % (
                 " is-on" if k == 0 else "", t["id"], t["id"],
-                "" if k == 0 else " hidden", note,
+                "" if k == 0 else " hidden",
                 t["col4"], t["col5"], rows, BASE, more_href, more_label))
 
     return "\n\n".join(buttons), "\n\n".join(panels)

@@ -1,0 +1,1892 @@
+{
+ "captured": "2026-09-26T13:42:40.688Z",
+ "count": "Showing 80 Bonds",
+ "sortLabel": "Sort By",
+ "sort": [
+  {
+   "text": "Investment - High to Low ↓",
+   "selected": false
+  },
+  {
+   "text": "Investment - Low to High ↑",
+   "selected": false
+  },
+  {
+   "text": "Safety - High to Low ↓",
+   "selected": false
+  },
+  {
+   "text": "Safety - Low to High ↑",
+   "selected": false
+  },
+  {
+   "text": "Yield - High to Low ↓",
+   "selected": true
+  },
+  {
+   "text": "Yield - Low to High ↑",
+   "selected": false
+  },
+  {
+   "text": "Tenure - High to Low ↓",
+   "selected": false
+  },
+  {
+   "text": "Tenure - Low to High ↑",
+   "selected": false
+  }
+ ],
+ "groups": [
+  {
+   "id": "bond-list-accordion-ip",
+   "title": "Investment Purpose",
+   "legend": "Select primary purpose",
+   "options": [
+    {
+     "id": "bond-list-ip-highest-safety",
+     "type": "radio",
+     "text": "Highly Rated (AAA Credit Rating)"
+    },
+    {
+     "id": "bond-list-ip-fixed-regular-income",
+     "type": "radio",
+     "text": "High Returns (Yield more than 11%)"
+    },
+    {
+     "id": "bond-list-ip-tax-free-investment",
+     "type": "radio",
+     "text": "Get Tax Free Return"
+    },
+    {
+     "id": "bond-list-ip-invest-short-time",
+     "type": "radio",
+     "text": "Maturing within 3 Years (Short Term)"
+    }
+   ],
+   "other": []
+  },
+  {
+   "id": "bond-list-accordion-cr",
+   "title": "Safety (Credit Rating)",
+   "legend": "Select safety ratings",
+   "options": [
+    {
+     "id": "bond-list-cr-aaa",
+     "type": "checkbox",
+     "text": "AAA (Low Risk)"
+    },
+    {
+     "id": "bond-list-cr-aa",
+     "type": "checkbox",
+     "text": "AA (Balanced)"
+    },
+    {
+     "id": "bond-list-cr-a",
+     "type": "checkbox",
+     "text": "A & Below (High Yield)"
+    }
+   ],
+   "other": []
+  },
+  {
+   "id": "bond-list-accordion-yield",
+   "title": "Yield",
+   "legend": "Select Yield",
+   "options": [
+    {
+     "id": "bond-list-yield-highly-safe",
+     "type": "checkbox",
+     "text": "Upto 8%"
+    },
+    {
+     "id": "bond-list-yield-safe",
+     "type": "checkbox",
+     "text": "8 - 11%"
+    },
+    {
+     "id": "bond-list-yield-high-returns",
+     "type": "checkbox",
+     "text": "11% +"
+    }
+   ],
+   "other": []
+  },
+  {
+   "id": "bond-list-accordion-ia",
+   "title": "Investment Amount",
+   "legend": "Select Amount",
+   "options": [
+    {
+     "id": "bond-list-ia-less-50k",
+     "type": "radio",
+     "text": "Less than 50k"
+    },
+    {
+     "id": "bond-list-ia-50k-to-2lacs",
+     "type": "radio",
+     "text": "50k to 2 Lac"
+    },
+    {
+     "id": "bond-list-ia-2-5-lacs",
+     "type": "radio",
+     "text": "2 lac to 5 lac"
+    },
+    {
+     "id": "bond-list-ia-5-10-lacs",
+     "type": "radio",
+     "text": "5lac to 10 lac"
+    },
+    {
+     "id": "bond-list-ia-10-50-lacs",
+     "type": "radio",
+     "text": "10-50 Lac"
+    },
+    {
+     "id": "bond-list-ia-more-50-lacs",
+     "type": "radio",
+     "text": "Above 50 lacs"
+    }
+   ],
+   "other": []
+  },
+  {
+   "id": "bond-list-accordion-pf",
+   "title": "Payment Frequency",
+   "legend": "Select Payment Frequency",
+   "options": [
+    {
+     "id": "bond-list-pf-annual",
+     "type": "checkbox",
+     "text": "Annual"
+    },
+    {
+     "id": "bond-list-pf-monthly",
+     "type": "checkbox",
+     "text": "Monthly"
+    },
+    {
+     "id": "bond-list-pf-quarterly",
+     "type": "checkbox",
+     "text": "Quarterly"
+    },
+    {
+     "id": "bond-list-pf-half-yearly",
+     "type": "checkbox",
+     "text": "Half Yearly"
+    },
+    {
+     "id": "bond-list-pf-thrice-yearly",
+     "type": "checkbox",
+     "text": "Thrice Yearly"
+    },
+    {
+     "id": "bond-list-pf-payment-on-maturity",
+     "type": "checkbox",
+     "text": "Payment on maturity"
+    }
+   ],
+   "other": []
+  },
+  {
+   "id": "bond-list-accordion-it",
+   "title": "Issuer Type",
+   "legend": "Select Issuer Type",
+   "options": [
+    {
+     "id": "bond-list-it-government",
+     "type": "checkbox",
+     "text": "State Govt Guaranteed"
+    },
+    {
+     "id": "bond-list-it-psb",
+     "type": "checkbox",
+     "text": "Public Sector Undertaking (Bank)"
+    },
+    {
+     "id": "bond-list-it-psu",
+     "type": "checkbox",
+     "text": "Public Sector Undertaking (Others)"
+    },
+    {
+     "id": "bond-list-it-bank-bonds",
+     "type": "checkbox",
+     "text": "Private Sector Bank"
+    },
+    {
+     "id": "bond-list-it-corporate",
+     "type": "checkbox",
+     "text": "Corporates"
+    },
+    {
+     "id": "bond-list-it-nbfc",
+     "type": "checkbox",
+     "text": "NBFC"
+    }
+   ],
+   "other": []
+  },
+  {
+   "id": "bond-list-accordion-tr",
+   "title": "Tenure Remaining",
+   "legend": "Select Tenure Remaining",
+   "options": [
+    {
+     "id": "bond-list-tr-less-than-1",
+     "type": "radio",
+     "text": "Less than 1 year"
+    },
+    {
+     "id": "bond-list-tr-1-5-yrs",
+     "type": "radio",
+     "text": "1-5 years"
+    },
+    {
+     "id": "bond-list-tr-5-10-yrs",
+     "type": "radio",
+     "text": "5-10 years"
+    },
+    {
+     "id": "bond-list-tr-more-than-10-yrs",
+     "type": "radio",
+     "text": "More than 10 years"
+    }
+   ],
+   "other": []
+  },
+  {
+   "id": "bond-list-accordion-im",
+   "title": "Issuer mode",
+   "legend": "Select Issuer Mode",
+   "options": [
+    {
+     "id": "bond-list-im-public",
+     "type": "radio",
+     "text": "Public placement"
+    },
+    {
+     "id": "bond-list-im-private",
+     "type": "radio",
+     "text": "Private placement"
+    }
+   ],
+   "other": []
+  },
+  {
+   "id": "bond-list-accordion-fv",
+   "title": "Bond Face Value",
+   "legend": "Select Bond Face Value",
+   "options": [
+    {
+     "id": "bond-list-fv-1000",
+     "type": "checkbox",
+     "text": "1000"
+    },
+    {
+     "id": "bond-list-fv-10000",
+     "type": "checkbox",
+     "text": "10,000"
+    },
+    {
+     "id": "bond-list-fv-100000",
+     "type": "checkbox",
+     "text": "1,00,000"
+    },
+    {
+     "id": "bond-list-fv-200000",
+     "type": "checkbox",
+     "text": "2,00,000"
+    },
+    {
+     "id": "bond-list-fv-1000000",
+     "type": "checkbox",
+     "text": "10,00,000"
+    },
+    {
+     "id": "bond-list-fv-Above 10 Lacs",
+     "type": "checkbox",
+     "text": "Above 10 lacs"
+    }
+   ],
+   "other": []
+  },
+  {
+   "id": "bond-list-accordion-taxed",
+   "title": "Taxation on Interest Received",
+   "legend": "Select Taxation On Interest Payment",
+   "options": [
+    {
+     "id": "bond-list-taxed-tax-free",
+     "type": "radio",
+     "text": "Tax free"
+    },
+    {
+     "id": "bond-list-taxed-taxable",
+     "type": "radio",
+     "text": "Taxable"
+    }
+   ],
+   "other": []
+  },
+  {
+   "id": "bond-list-accordion-bpl",
+   "title": "Bond Price Level",
+   "legend": "Select Bond Price Level",
+   "options": [
+    {
+     "id": "bond-list-bpl-Discount value",
+     "type": "radio",
+     "text": "At discount value"
+    },
+    {
+     "id": "bond-list-bpl-At par value",
+     "type": "radio",
+     "text": "At par value"
+    },
+    {
+     "id": "bond-list-bpl-Premium value",
+     "type": "radio",
+     "text": "At premium value"
+    }
+   ],
+   "other": []
+  },
+  {
+   "id": "bond-list-accordion-bbt",
+   "title": "Bank Bond Type",
+   "legend": "Select Bank Bond Type",
+   "options": [
+    {
+     "id": "bond-list-bbt-Tier I",
+     "type": "radio",
+     "text": "Tier I/Additional Tier I"
+    },
+    {
+     "id": "bond-list-bbt-Tier II",
+     "type": "radio",
+     "text": "Tier II"
+    },
+    {
+     "id": "bond-list-bbt-Tier III",
+     "type": "radio",
+     "text": "Tier III"
+    }
+   ],
+   "other": []
+  },
+  {
+   "id": "bond-list-accordion-seniority",
+   "title": "Seniority",
+   "legend": "Select Seniority",
+   "options": [
+    {
+     "id": "bond-list-seniority-Senior",
+     "type": "radio",
+     "text": "Senior"
+    },
+    {
+     "id": "bond-list-seniority-Subordinate",
+     "type": "radio",
+     "text": "Subordinate"
+    }
+   ],
+   "other": []
+  },
+  {
+   "id": "bond-list-accordion-security",
+   "title": "Security",
+   "legend": "Select Security",
+   "options": [
+    {
+     "id": "bond-list-security-Secured",
+     "type": "radio",
+     "text": "Secured"
+    },
+    {
+     "id": "bond-list-security-Unsecured",
+     "type": "radio",
+     "text": "Unsecured"
+    }
+   ],
+   "other": []
+  },
+  {
+   "id": "bond-list-accordion-perpetual",
+   "title": "Perpetual",
+   "legend": "Select Perpetual",
+   "options": [
+    {
+     "id": "bond-list-perpetual-perpetual",
+     "type": "radio",
+     "text": "Yes"
+    },
+    {
+     "id": "bond-list-perpetual-non-perpetual",
+     "type": "radio",
+     "text": "No"
+    }
+   ],
+   "other": []
+  },
+  {
+   "id": "bond-list-accordion-co",
+   "title": "Call Option",
+   "legend": "Select Call Option",
+   "options": [
+    {
+     "id": "bond-list-co-with-call-option",
+     "type": "radio",
+     "text": "Yes"
+    },
+    {
+     "id": "bond-list-co-without-call-option",
+     "type": "radio",
+     "text": "No"
+    }
+   ],
+   "other": []
+  },
+  {
+   "id": "bond-list-accordion-dl",
+   "title": "Depository Listing",
+   "legend": "Select Depository Listing",
+   "options": [
+    {
+     "id": "bond-list-dl-only-nsdl",
+     "type": "radio",
+     "text": "Only NSDL"
+    },
+    {
+     "id": "bond-list-dl-only-cdsl",
+     "type": "radio",
+     "text": "Only CDSL"
+    },
+    {
+     "id": "bond-list-dl-both-nsdl-cdsl",
+     "type": "radio",
+     "text": "Both NSDL & CDSL"
+    }
+   ],
+   "other": []
+  },
+  {
+   "id": "bond-list-accordion-ina",
+   "title": "Investment Asset",
+   "legend": "Investment Asset",
+   "options": [
+    {
+     "id": "bond-list-ina-ncd-ipo",
+     "type": "checkbox",
+     "text": "NCD IPO"
+    },
+    {
+     "id": "bond-list-ina-ncd",
+     "type": "checkbox",
+     "text": "Corporate Bonds"
+    },
+    {
+     "id": "bond-list-ina-gsec",
+     "type": "checkbox",
+     "text": "Government Securities (G-Sec)"
+    }
+   ],
+   "other": []
+  }
+ ],
+ "moreText": "−Less Filters",
+ "help": {
+  "title": "Need Help?",
+  "text": [
+   "Talk to our Support Team for free. We will help you through your investment journey."
+  ],
+  "links": [],
+  "images": [
+   "/_next/static/media/phone-icon.3rswkok7m_838.svg"
+  ]
+ },
+ "states": {
+  "clear": "Clear All",
+  "applied": "2 filter applied",
+  "chips": [
+   {
+    "text": "AAA (Low Risk)",
+    "remove": "Remove filter: AAA (Low Risk)"
+   },
+   {
+    "text": "Yield: 11% +",
+    "remove": "Remove filter: Yield: 11% +"
+   }
+  ],
+  "count": "Showing 0 Bonds",
+  "emptyIcon": "/_next/static/media/empty-state-icon.0sgs31po46ppu.svg",
+  "emptyAlt": "No bonds found",
+  "emptyText": "No bonds match your filters. Try clearing some filters."
+ },
+ "cards": [
+  {
+   "id": "GPID107371",
+   "kind": "bond",
+   "href": "/bonds/INE814O07634/neogrowth-1300-bond-yield?src=view_details&tenureDate=30-Apr-2028",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104095.Neogrowth new logo (1).jpg",
+   "issuer": "NEOGROWTH",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹1L",
+   "yield": "13.00%",
+   "payments": "Half Yearly",
+   "tenure": "1Y 7M",
+   "agency": "ICRA",
+   "grade": "BBB",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID107433",
+   "kind": "bond",
+   "href": "/bonds/INE04UP07246/best-capital-1300-bond-yield?src=view_details&tenureDate=11-Sep-2029",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID107347.Best Capital.png",
+   "issuer": "BEST CAPITAL",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹29.9K",
+   "yield": "13.00%",
+   "payments": "Monthly",
+   "tenure": "3Y",
+   "agency": "IVR",
+   "grade": "BBB",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID107435",
+   "kind": "bond",
+   "href": "/bonds/INE08XP07522/akara-1300-bond-yield?src=view_details&tenureDate=03-Dec-2027",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102720.AKARA CAPITAL ADVISORS PRIVATE LIMITED@2x.png",
+   "issuer": "AKARA",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹1L",
+   "yield": "13.00%",
+   "payments": "Monthly",
+   "tenure": "1Y 2M",
+   "agency": "ACUITE",
+   "grade": "BBB+",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID107435",
+   "kind": "bond",
+   "href": "/bonds/INE08XP07522/akara-1277-bond-yield?src=view_details&tenureDate=03-May-2027",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102720.AKARA CAPITAL ADVISORS PRIVATE LIMITED@2x.png",
+   "issuer": "AKARA",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹1L",
+   "yield": "12.77%",
+   "payments": "Monthly",
+   "tenure": "7M",
+   "agency": "ACUITE",
+   "grade": "BBB+",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID107371",
+   "kind": "bond",
+   "href": "/bonds/INE814O07634/neogrowth-1275-bond-yield?src=view_details&tenureDate=30-Jul-2027",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104095.Neogrowth new logo (1).jpg",
+   "issuer": "NEOGROWTH",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹1L",
+   "yield": "12.75%",
+   "payments": "Half Yearly",
+   "tenure": "10M",
+   "agency": "ICRA",
+   "grade": "BBB",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID107372",
+   "kind": "bond",
+   "href": "/bonds/INE385W07075/dishman-1266-bond-yield?src=view_details&tenureDate=17-Feb-2027",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104220.dishman_carbogen_amcis_logo_under_80kb.png",
+   "issuer": "DISHMAN",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹1L",
+   "yield": "12.66%",
+   "payments": "Half Yearly",
+   "tenure": "5M",
+   "agency": "IND",
+   "grade": "A",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID107348",
+   "kind": "bond",
+   "href": "/bonds/INE04UP07238/best-capital-1255-bond-yield?src=view_details&tenureDate=24-Oct-2027",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID107347.Best Capital.png",
+   "issuer": "BEST CAPITAL",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹30.1K",
+   "yield": "12.55%",
+   "payments": "Monthly",
+   "tenure": "1Y 1M",
+   "agency": "IVR",
+   "grade": "BBB",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID106980",
+   "kind": "bond",
+   "href": "/bonds/INE00DJ07052/tapir-1225-bond-yield?src=view_details&tenureDate=12-Mar-2030",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103646.Tapir Constructions Limited@2x.png",
+   "issuer": "TAPIR",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹1L",
+   "yield": "12.25%",
+   "payments": "Monthly",
+   "tenure": "3Y 6M",
+   "agency": "IVR",
+   "grade": "A-",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID107346",
+   "kind": "bond",
+   "href": "/bonds/INE413U07467/iifl-samasta-1223-bond-yield?src=view_details&tenureDate=12-May-2027",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102664.IIFLLogo.png",
+   "issuer": "IIFL SAMASTA",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹29.5K",
+   "yield": "12.23%",
+   "payments": "Monthly",
+   "tenure": "8M",
+   "agency": "CRISIL",
+   "grade": "AA-",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID107006",
+   "kind": "bond",
+   "href": "/bonds/INE572J07810/spandana-1210-bond-yield?src=view_details&tenureDate=26-Apr-2028",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100700.SPANDANA SPHOORTY FINANCIAL LIMITED@2x.png",
+   "issuer": "SPANDANA",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹30K",
+   "yield": "12.10%",
+   "payments": "Monthly",
+   "tenure": "1Y 7M",
+   "agency": "CRISIL",
+   "grade": "BBB+",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID107296",
+   "kind": "bond",
+   "href": "/bonds/INE734I07115/finkurve-1200-bond-yield?src=view_details&tenureDate=16-Jun-2028",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID107295.arvog_logo.jpg",
+   "issuer": "FINKURVE",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹30K",
+   "yield": "12.00%",
+   "payments": "Half Yearly",
+   "tenure": "1Y 9M",
+   "agency": "CARE",
+   "grade": "BBB+",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID107035",
+   "kind": "bond",
+   "href": "/bonds/INE911L07154/mahaveer-1200-bond-yield?src=view_details&tenureDate=26-Nov-2029",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID107034.mahaveer_finance_india_ltd_logo.jpg",
+   "issuer": "MAHAVEER",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹9.3K",
+   "yield": "12.00%",
+   "payments": "Half Yearly",
+   "tenure": "3Y 3M",
+   "agency": "CARE",
+   "grade": "BBB+",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID107434",
+   "kind": "bond",
+   "href": "/bonds/INE0NES07352/keertana-1200-bond-yield?src=view_details&tenureDate=16-Dec-2028",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102688.keertanafin_logo.jpg.jpeg",
+   "issuer": "KEERTANA",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹30.3K",
+   "yield": "12.00%",
+   "payments": "Monthly",
+   "tenure": "2Y 3M",
+   "agency": "ACUITE",
+   "grade": "A-",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID106988",
+   "kind": "bond",
+   "href": "/bonds/INE0O7U07046/unigold-1197-bond-yield?src=view_details&tenureDate=02-Apr-2028",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID106987.Unigold_3020105861.png",
+   "issuer": "UNIGOLD",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹22.4K",
+   "yield": "11.97%",
+   "payments": "Monthly",
+   "tenure": "1Y 7M",
+   "agency": "CRISIL",
+   "grade": "BBB",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID107006",
+   "kind": "bond",
+   "href": "/bonds/INE572J07810/spandana-1190-bond-yield?src=view_details&tenureDate=26-Jun-2027",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100700.SPANDANA SPHOORTY FINANCIAL LIMITED@2x.png",
+   "issuer": "SPANDANA",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹30K",
+   "yield": "11.90%",
+   "payments": "Monthly",
+   "tenure": "9M",
+   "agency": "CRISIL",
+   "grade": "BBB+",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID107397",
+   "kind": "bond",
+   "href": "/bonds/INE03K307215/satin-finserv-1190-bond-yield?src=view_details&tenureDate=27-Nov-2028",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103817.Screenshot 2024-08-08 165240_11zon.jpg",
+   "issuer": "SATIN FINSERV",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹99.8K",
+   "yield": "11.90%",
+   "payments": "Half Yearly",
+   "tenure": "2Y 2M",
+   "agency": "ICRA",
+   "grade": "A-",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID107399",
+   "kind": "bond",
+   "href": "/bonds/INE14H407157/finnable-1175-bond-yield?src=view_details&tenureDate=31-Jan-2029",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID106733.FINNABLE CREDIT PRIVATE LIMITED@2x.png",
+   "issuer": "FINNABLE",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹29.9K",
+   "yield": "11.75%",
+   "payments": "Monthly",
+   "tenure": "2Y 5M",
+   "agency": "CARE",
+   "grade": "BBB+",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID107397",
+   "kind": "bond",
+   "href": "/bonds/INE03K307215/satin-finserv-1160-bond-yield?src=view_details&tenureDate=27-Aug-2027",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103817.Screenshot 2024-08-08 165240_11zon.jpg",
+   "issuer": "SATIN FINSERV",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹1L",
+   "yield": "11.60%",
+   "payments": "Half Yearly",
+   "tenure": "11M",
+   "agency": "ICRA",
+   "grade": "A-",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID107391",
+   "kind": "bond",
+   "href": "/bonds/INE0BUS07CS3/indel-1145-bond-yield?src=view_details&tenureDate=24-Aug-2029",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102671.INDEL MONEY LIMITED@2x.png",
+   "issuer": "INDEL",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹2.9K",
+   "yield": "11.45%",
+   "payments": "Monthly",
+   "tenure": "2Y 11M",
+   "agency": "IND",
+   "grade": "A-",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID107434",
+   "kind": "bond",
+   "href": "/bonds/INE0NES07352/keertana-1142-bond-yield?src=view_details&tenureDate=16-Jun-2027",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102688.keertanafin_logo.jpg.jpeg",
+   "issuer": "KEERTANA",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹30.3K",
+   "yield": "11.42%",
+   "payments": "Monthly",
+   "tenure": "9M",
+   "agency": "ACUITE",
+   "grade": "A-",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID107399",
+   "kind": "bond",
+   "href": "/bonds/INE14H407157/finnable-1140-bond-yield?src=view_details&tenureDate=26-Aug-2027",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID106733.FINNABLE CREDIT PRIVATE LIMITED@2x.png",
+   "issuer": "FINNABLE",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹30.1K",
+   "yield": "11.40%",
+   "payments": "Monthly",
+   "tenure": "11M",
+   "agency": "CARE",
+   "grade": "BBB+",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID107372",
+   "kind": "bond",
+   "href": "/bonds/INE385W07075/dishman-1140-bond-yield?src=view_details&tenureDate=17-Aug-2027",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104220.dishman_carbogen_amcis_logo_under_80kb.png",
+   "issuer": "DISHMAN",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹1L",
+   "yield": "11.40%",
+   "payments": "Half Yearly",
+   "tenure": "11M",
+   "agency": "IND",
+   "grade": "A",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID107345",
+   "kind": "bond",
+   "href": "/bonds/INE109C07147/arman-1140-bond-yield?src=view_details&tenureDate=25-Sep-2028",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103968.ARMAN FINANCIAL SERVICES LIMITED .png",
+   "issuer": "ARMAN",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹30K",
+   "yield": "11.40%",
+   "payments": "Half Yearly",
+   "tenure": "2Y",
+   "agency": "ACUITE",
+   "grade": "A-",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID107331",
+   "kind": "bond",
+   "href": "/bonds/INE01YL07466/earlysalaryfibe-1130-bond-yield?src=view_details&tenureDate=07-Jun-2029",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103532.EARLYSALARY SERVICES PRIVATE LIMITED@2x.png",
+   "issuer": "EARLYSALARY(FIBE)",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹1L",
+   "yield": "11.30%",
+   "payments": "Yearly",
+   "tenure": "2Y 9M",
+   "agency": "CARE",
+   "grade": "A-",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID107360",
+   "kind": "bond",
+   "href": "/bonds/INE229U07186/namra-1110-bond-yield?src=view_details&tenureDate=24-Apr-2028",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104493.Namra.jpg",
+   "issuer": "NAMRA",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹30.7K",
+   "yield": "11.10%",
+   "payments": "Half Yearly",
+   "tenure": "1Y 7M",
+   "agency": "ACUITE",
+   "grade": "A-",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID107391",
+   "kind": "bond",
+   "href": "/bonds/INE0BUS07CS3/indel-1110-bond-yield?src=view_details&tenureDate=01-Aug-2027",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102671.INDEL MONEY LIMITED@2x.png",
+   "issuer": "INDEL",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹3K",
+   "yield": "11.10%",
+   "payments": "Monthly",
+   "tenure": "10M",
+   "agency": "IND",
+   "grade": "A-",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID107331",
+   "kind": "bond",
+   "href": "/bonds/INE01YL07466/earlysalaryfibe-1100-bond-yield?src=view_details&tenureDate=07-Jun-2027",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103532.EARLYSALARY SERVICES PRIVATE LIMITED@2x.png",
+   "issuer": "EARLYSALARY(FIBE)",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹1L",
+   "yield": "11.00%",
+   "payments": "Yearly",
+   "tenure": "9M",
+   "agency": "CARE",
+   "grade": "A-",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID107351",
+   "kind": "bond",
+   "href": "/bonds/INE0BUS07CN4/indel-1086-bond-yield?src=view_details&tenureDate=30-Mar-2028",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102671.INDEL MONEY LIMITED@2x.png",
+   "issuer": "INDEL",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹29.8K",
+   "yield": "10.86%",
+   "payments": "Monthly",
+   "tenure": "1Y 6M",
+   "agency": "IND",
+   "grade": "A-",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID107370",
+   "kind": "bond",
+   "href": "/bonds/INE932X07056/share-india-1075-bond-yield?src=view_details&tenureDate=10-Aug-2028",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID105130.SHARE INDIA SECURITIES LIMITED.png",
+   "issuer": "SHARE INDIA",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹30K",
+   "yield": "10.75%",
+   "payments": "Monthly",
+   "tenure": "1Y 11M",
+   "agency": "CARE",
+   "grade": "A+",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID107284",
+   "kind": "bond",
+   "href": "/bonds/INE549K08590/muthoot-fincorp-1050-bond-yield?src=view_details&tenureDate=30-Dec-2033",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100936.MUTHOOT FINCORP LIMITED_1@2x.png",
+   "issuer": "MUTHOOT FINCORP",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹10.2K",
+   "yield": "10.50%",
+   "payments": "Monthly",
+   "tenure": "7Y 4M",
+   "agency": "CRISIL",
+   "grade": "AA",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID107370",
+   "kind": "bond",
+   "href": "/bonds/INE932X07056/share-india-1050-bond-yield?src=view_details&tenureDate=10-Aug-2027",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID105130.SHARE INDIA SECURITIES LIMITED.png",
+   "issuer": "SHARE INDIA",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹30K",
+   "yield": "10.50%",
+   "payments": "Monthly",
+   "tenure": "11M",
+   "agency": "CARE",
+   "grade": "A+",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID106817",
+   "kind": "bond",
+   "href": "/bonds/INE342T07668/navi-dec28-1040-bond-yield?src=view_details&tenureDate=31-Dec-2028",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID101068.NAVI FINSERV LIMITED@2x.png",
+   "issuer": "Navi Dec'28",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹10.2K",
+   "yield": "10.40%",
+   "payments": "Monthly",
+   "tenure": "2Y 4M",
+   "agency": "CRISIL",
+   "grade": "A",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID106749",
+   "kind": "bond",
+   "href": "/bonds/INE583D07638/ugro-capital-limited-1035-bond-yield?src=view_details&tenureDate=16-Jun-2029",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID101216.UGRO CAPITAL LIMITED.png",
+   "issuer": "UGRO CAPITAL LIMITED",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹30.2K",
+   "yield": "10.35%",
+   "payments": "Monthly",
+   "tenure": "2Y 9M",
+   "agency": "IND",
+   "grade": "A+",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID107346",
+   "kind": "bond",
+   "href": "/bonds/INE413U07467/iifl-samasta-1025-bond-yield?src=view_details&tenureDate=12-Aug-2029",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102664.IIFLLogo.png",
+   "issuer": "IIFL SAMASTA",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹29.5K",
+   "yield": "10.25%",
+   "payments": "Monthly",
+   "tenure": "2Y 11M",
+   "agency": "CRISIL",
+   "grade": "AA-",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID107398",
+   "kind": "bond",
+   "href": "/bonds/INE101Q07CB5/muthoot-mcred-1020-bond-yield?src=view_details&tenureDate=07-Aug-2029",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103446.MUTHOOTTU MINI FINANCIERS LTD@2x.png",
+   "issuer": "MUTHOOT MCRED",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹9.9K",
+   "yield": "10.20%",
+   "payments": "Monthly",
+   "tenure": "2Y 11M",
+   "agency": "ICRA",
+   "grade": "A",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID104858",
+   "kind": "bond",
+   "href": "/bonds/INE125T07329/varthana-finance-private-limited-1000-bond-yield?src=view_details&tenureDate=05-Feb-2027",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104763.Screenshot 2025-01-23 123637_11zon.png",
+   "issuer": "VARTHANA FINANCE PRIVATE LIMITED",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹30.7K",
+   "yield": "10.00%",
+   "payments": "Half Yearly",
+   "tenure": "4M",
+   "agency": "CRISIL",
+   "grade": "BBB",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID107431",
+   "kind": "ipo",
+   "href": "/bond-ipo/GPID100778/edelweiss-financial-services-limited?src=view_details&tenureDate=NA",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100778.EDELWEISS FINANCIAL SERVICES LIMITED.png",
+   "issuer": "EDELWEISS FINANCIAL SERVICES LIMITED",
+   "ipoTag": "IPO",
+   "closes": "Closes on Oct 5",
+   "minInvestment": "₹10K",
+   "yield": "10.00%",
+   "payments": "Monthly",
+   "tenure": "10Y",
+   "agency": "CRISIL",
+   "grade": "A+",
+   "watchlist": false,
+   "share": true
+  },
+  {
+   "id": "GPID107432",
+   "kind": "ipo",
+   "href": "/bond-ipo/GPID100778/edelweiss-financial-services-limited?src=view_details&tenureDate=NA",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100778.EDELWEISS FINANCIAL SERVICES LIMITED.png",
+   "issuer": "EDELWEISS FINANCIAL SERVICES LIMITED",
+   "ipoTag": "IPO",
+   "closes": "Closes on Oct 5",
+   "minInvestment": "₹10K",
+   "yield": "9.99%",
+   "payments": "Yearly",
+   "tenure": "10Y",
+   "agency": "CRISIL",
+   "grade": "A+",
+   "watchlist": false,
+   "share": true
+  },
+  {
+   "id": "GPID107398",
+   "kind": "bond",
+   "href": "/bonds/INE101Q07CB5/muthoot-mcred-995-bond-yield?src=view_details&tenureDate=10-Aug-2027",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103446.MUTHOOTTU MINI FINANCIERS LTD@2x.png",
+   "issuer": "MUTHOOT MCRED",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹10K",
+   "yield": "9.95%",
+   "payments": "Monthly",
+   "tenure": "11M",
+   "agency": "ICRA",
+   "grade": "A",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID107396",
+   "kind": "bond",
+   "href": "/bonds/INE296G07333/muthoot-capital-970-bond-yield?src=view_details&tenureDate=24-Aug-2029",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102496.MUTHOOT CAPITAL SERVICES LIMITED.png",
+   "issuer": "MUTHOOT CAPITAL",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹30K",
+   "yield": "9.70%",
+   "payments": "Monthly",
+   "tenure": "2Y 11M",
+   "agency": "CRISIL",
+   "grade": "AA-",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID107430",
+   "kind": "ipo",
+   "href": "/bond-ipo/GPID100778/edelweiss-financial-services-limited?src=view_details&tenureDate=NA",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100778.EDELWEISS FINANCIAL SERVICES LIMITED.png",
+   "issuer": "EDELWEISS FINANCIAL SERVICES LIMITED",
+   "ipoTag": "IPO",
+   "closes": "Closes on Oct 5",
+   "minInvestment": "₹10K",
+   "yield": "9.60%",
+   "payments": "On Maturity",
+   "tenure": "5Y",
+   "agency": "CRISIL",
+   "grade": "A+",
+   "watchlist": false,
+   "share": true
+  },
+  {
+   "id": "GPID107428",
+   "kind": "ipo",
+   "href": "/bond-ipo/GPID100778/edelweiss-financial-services-limited?src=view_details&tenureDate=NA",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100778.EDELWEISS FINANCIAL SERVICES LIMITED.png",
+   "issuer": "EDELWEISS FINANCIAL SERVICES LIMITED",
+   "ipoTag": "IPO",
+   "closes": "Closes on Oct 5",
+   "minInvestment": "₹10K",
+   "yield": "9.60%",
+   "payments": "Monthly",
+   "tenure": "5Y",
+   "agency": "CRISIL",
+   "grade": "A+",
+   "watchlist": false,
+   "share": true
+  },
+  {
+   "id": "GPID107429",
+   "kind": "ipo",
+   "href": "/bond-ipo/GPID100778/edelweiss-financial-services-limited?src=view_details&tenureDate=NA",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100778.EDELWEISS FINANCIAL SERVICES LIMITED.png",
+   "issuer": "EDELWEISS FINANCIAL SERVICES LIMITED",
+   "ipoTag": "IPO",
+   "closes": "Closes on Oct 5",
+   "minInvestment": "₹10K",
+   "yield": "9.59%",
+   "payments": "Yearly",
+   "tenure": "5Y",
+   "agency": "CRISIL",
+   "grade": "A+",
+   "watchlist": false,
+   "share": true
+  },
+  {
+   "id": "GPID107396",
+   "kind": "bond",
+   "href": "/bonds/INE296G07333/muthoot-capital-950-bond-yield?src=view_details&tenureDate=24-Aug-2027",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102496.MUTHOOT CAPITAL SERVICES LIMITED.png",
+   "issuer": "MUTHOOT CAPITAL",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹30.1K",
+   "yield": "9.50%",
+   "payments": "Monthly",
+   "tenure": "11M",
+   "agency": "CRISIL",
+   "grade": "AA-",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID107412",
+   "kind": "ipo",
+   "href": "/bond-ipo/GPID100936/muthoot-fincorp-limited?src=view_details&tenureDate=NA",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100936.MUTHOOT FINCORP LIMITED_1@2x.png",
+   "issuer": "MUTHOOT FINCORP LIMITED",
+   "ipoTag": "IPO",
+   "closes": "Closes on Sep 22",
+   "minInvestment": "₹10K",
+   "yield": "9.25%",
+   "payments": "On Maturity",
+   "tenure": "6Y",
+   "agency": "CRISIL",
+   "grade": "AA",
+   "watchlist": false,
+   "share": true
+  },
+  {
+   "id": "GPID107408",
+   "kind": "ipo",
+   "href": "/bond-ipo/GPID100936/muthoot-fincorp-limited?src=view_details&tenureDate=NA",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100936.MUTHOOT FINCORP LIMITED_1@2x.png",
+   "issuer": "MUTHOOT FINCORP LIMITED",
+   "ipoTag": "IPO",
+   "closes": "Closes on Sep 22",
+   "minInvestment": "₹10K",
+   "yield": "9.24%",
+   "payments": "Yearly",
+   "tenure": "6Y",
+   "agency": "CRISIL",
+   "grade": "AA",
+   "watchlist": false,
+   "share": true
+  },
+  {
+   "id": "GPID107404",
+   "kind": "ipo",
+   "href": "/bond-ipo/GPID100936/muthoot-fincorp-limited?src=view_details&tenureDate=NA",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100936.MUTHOOT FINCORP LIMITED_1@2x.png",
+   "issuer": "MUTHOOT FINCORP LIMITED",
+   "ipoTag": "IPO",
+   "closes": "Closes on Sep 22",
+   "minInvestment": "₹10K",
+   "yield": "9.24%",
+   "payments": "Monthly",
+   "tenure": "6Y",
+   "agency": "CRISIL",
+   "grade": "AA",
+   "watchlist": false,
+   "share": true
+  },
+  {
+   "id": "GPID107411",
+   "kind": "ipo",
+   "href": "/bond-ipo/GPID100936/muthoot-fincorp-limited?src=view_details&tenureDate=NA",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100936.MUTHOOT FINCORP LIMITED_1@2x.png",
+   "issuer": "MUTHOOT FINCORP LIMITED",
+   "ipoTag": "IPO",
+   "closes": "Closes on Sep 22",
+   "minInvestment": "₹10K",
+   "yield": "9.20%",
+   "payments": "On Maturity",
+   "tenure": "5Y",
+   "agency": "CRISIL",
+   "grade": "AA",
+   "watchlist": false,
+   "share": true
+  },
+  {
+   "id": "GPID107403",
+   "kind": "ipo",
+   "href": "/bond-ipo/GPID100936/muthoot-fincorp-limited?src=view_details&tenureDate=NA",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100936.MUTHOOT FINCORP LIMITED_1@2x.png",
+   "issuer": "MUTHOOT FINCORP LIMITED",
+   "ipoTag": "IPO",
+   "closes": "Closes on Sep 22",
+   "minInvestment": "₹10K",
+   "yield": "9.20%",
+   "payments": "Monthly",
+   "tenure": "5Y",
+   "agency": "CRISIL",
+   "grade": "AA",
+   "watchlist": false,
+   "share": true
+  },
+  {
+   "id": "GPID107407",
+   "kind": "ipo",
+   "href": "/bond-ipo/GPID100936/muthoot-fincorp-limited?src=view_details&tenureDate=NA",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100936.MUTHOOT FINCORP LIMITED_1@2x.png",
+   "issuer": "MUTHOOT FINCORP LIMITED",
+   "ipoTag": "IPO",
+   "closes": "Closes on Sep 22",
+   "minInvestment": "₹10K",
+   "yield": "9.19%",
+   "payments": "Yearly",
+   "tenure": "5Y",
+   "agency": "CRISIL",
+   "grade": "AA",
+   "watchlist": false,
+   "share": true
+  },
+  {
+   "id": "GPID107427",
+   "kind": "ipo",
+   "href": "/bond-ipo/GPID100778/edelweiss-financial-services-limited?src=view_details&tenureDate=NA",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100778.EDELWEISS FINANCIAL SERVICES LIMITED.png",
+   "issuer": "EDELWEISS FINANCIAL SERVICES LIMITED",
+   "ipoTag": "IPO",
+   "closes": "Closes on Oct 5",
+   "minInvestment": "₹10K",
+   "yield": "9.15%",
+   "payments": "On Maturity",
+   "tenure": "3Y",
+   "agency": "CRISIL",
+   "grade": "A+",
+   "watchlist": false,
+   "share": true
+  },
+  {
+   "id": "GPID107425",
+   "kind": "ipo",
+   "href": "/bond-ipo/GPID100778/edelweiss-financial-services-limited?src=view_details&tenureDate=NA",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100778.EDELWEISS FINANCIAL SERVICES LIMITED.png",
+   "issuer": "EDELWEISS FINANCIAL SERVICES LIMITED",
+   "ipoTag": "IPO",
+   "closes": "Closes on Oct 5",
+   "minInvestment": "₹10K",
+   "yield": "9.15%",
+   "payments": "Monthly",
+   "tenure": "3Y",
+   "agency": "CRISIL",
+   "grade": "A+",
+   "watchlist": false,
+   "share": true
+  },
+  {
+   "id": "GPID107426",
+   "kind": "ipo",
+   "href": "/bond-ipo/GPID100778/edelweiss-financial-services-limited?src=view_details&tenureDate=NA",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100778.EDELWEISS FINANCIAL SERVICES LIMITED.png",
+   "issuer": "EDELWEISS FINANCIAL SERVICES LIMITED",
+   "ipoTag": "IPO",
+   "closes": "Closes on Oct 5",
+   "minInvestment": "₹10K",
+   "yield": "9.14%",
+   "payments": "Yearly",
+   "tenure": "3Y",
+   "agency": "CRISIL",
+   "grade": "A+",
+   "watchlist": false,
+   "share": true
+  },
+  {
+   "id": "GPID107402",
+   "kind": "ipo",
+   "href": "/bond-ipo/GPID100936/muthoot-fincorp-limited?src=view_details&tenureDate=NA",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100936.MUTHOOT FINCORP LIMITED_1@2x.png",
+   "issuer": "MUTHOOT FINCORP LIMITED",
+   "ipoTag": "IPO",
+   "closes": "Closes on Sep 22",
+   "minInvestment": "₹10K",
+   "yield": "9.10%",
+   "payments": "Monthly",
+   "tenure": "3Y",
+   "agency": "CRISIL",
+   "grade": "AA",
+   "watchlist": false,
+   "share": true
+  },
+  {
+   "id": "GPID107410",
+   "kind": "ipo",
+   "href": "/bond-ipo/GPID100936/muthoot-fincorp-limited?src=view_details&tenureDate=NA",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100936.MUTHOOT FINCORP LIMITED_1@2x.png",
+   "issuer": "MUTHOOT FINCORP LIMITED",
+   "ipoTag": "IPO",
+   "closes": "Closes on Sep 22",
+   "minInvestment": "₹10K",
+   "yield": "9.10%",
+   "payments": "On Maturity",
+   "tenure": "3Y",
+   "agency": "CRISIL",
+   "grade": "AA",
+   "watchlist": false,
+   "share": true
+  },
+  {
+   "id": "GPID107358",
+   "kind": "bond",
+   "href": "/bonds/INE146O08415/hinduja-910-bond-yield?src=view_details&tenureDate=14-Dec-2032",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100507.HINDUJA LEYLAND FINANCE LIMITED.png",
+   "issuer": "HINDUJA",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹1L",
+   "yield": "9.10%",
+   "payments": "Yearly",
+   "tenure": "6Y 4M",
+   "agency": "CRISIL",
+   "grade": "AA+",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID107406",
+   "kind": "ipo",
+   "href": "/bond-ipo/GPID100936/muthoot-fincorp-limited?src=view_details&tenureDate=NA",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100936.MUTHOOT FINCORP LIMITED_1@2x.png",
+   "issuer": "MUTHOOT FINCORP LIMITED",
+   "ipoTag": "IPO",
+   "closes": "Closes on Sep 22",
+   "minInvestment": "₹10K",
+   "yield": "9.09%",
+   "payments": "Yearly",
+   "tenure": "3Y",
+   "agency": "CRISIL",
+   "grade": "AA",
+   "watchlist": false,
+   "share": true
+  },
+  {
+   "id": "GPID107441",
+   "kind": "ipo",
+   "href": "/bond-ipo/GPID104322/adani-enterprises-limited?src=view_details&tenureDate=NA",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104322.ADANI ENTERPRISES LIMITED.png",
+   "issuer": "ADANI ENTERPRISES LIMITED",
+   "ipoTag": "IPO",
+   "closes": "Closes on Oct 15",
+   "minInvestment": "₹10K",
+   "yield": "8.90%",
+   "payments": "Half Yearly",
+   "tenure": "5Y",
+   "agency": "CARE",
+   "grade": "AA-",
+   "watchlist": false,
+   "share": true
+  },
+  {
+   "id": "GPID107443",
+   "kind": "ipo",
+   "href": "/bond-ipo/GPID104322/adani-enterprises-limited?src=view_details&tenureDate=NA",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104322.ADANI ENTERPRISES LIMITED.png",
+   "issuer": "ADANI ENTERPRISES LIMITED",
+   "ipoTag": "IPO",
+   "closes": "Closes on Oct 15",
+   "minInvestment": "₹10K",
+   "yield": "8.90%",
+   "payments": "On Maturity",
+   "tenure": "5Y",
+   "agency": "CARE",
+   "grade": "AA-",
+   "watchlist": false,
+   "share": true
+  },
+  {
+   "id": "GPID107409",
+   "kind": "ipo",
+   "href": "/bond-ipo/GPID100936/muthoot-fincorp-limited?src=view_details&tenureDate=NA",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100936.MUTHOOT FINCORP LIMITED_1@2x.png",
+   "issuer": "MUTHOOT FINCORP LIMITED",
+   "ipoTag": "IPO",
+   "closes": "Closes on Sep 22",
+   "minInvestment": "₹10K",
+   "yield": "8.90%",
+   "payments": "On Maturity",
+   "tenure": "2Y",
+   "agency": "CRISIL",
+   "grade": "AA",
+   "watchlist": false,
+   "share": true
+  },
+  {
+   "id": "GPID107401",
+   "kind": "ipo",
+   "href": "/bond-ipo/GPID100936/muthoot-fincorp-limited?src=view_details&tenureDate=NA",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100936.MUTHOOT FINCORP LIMITED_1@2x.png",
+   "issuer": "MUTHOOT FINCORP LIMITED",
+   "ipoTag": "IPO",
+   "closes": "Closes on Sep 22",
+   "minInvestment": "₹10K",
+   "yield": "8.90%",
+   "payments": "Monthly",
+   "tenure": "2Y",
+   "agency": "CRISIL",
+   "grade": "AA",
+   "watchlist": false,
+   "share": true
+  },
+  {
+   "id": "GPID107405",
+   "kind": "ipo",
+   "href": "/bond-ipo/GPID100936/muthoot-fincorp-limited?src=view_details&tenureDate=NA",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100936.MUTHOOT FINCORP LIMITED_1@2x.png",
+   "issuer": "MUTHOOT FINCORP LIMITED",
+   "ipoTag": "IPO",
+   "closes": "Closes on Sep 22",
+   "minInvestment": "₹10K",
+   "yield": "8.89%",
+   "payments": "Yearly",
+   "tenure": "2Y",
+   "agency": "CRISIL",
+   "grade": "AA",
+   "watchlist": false,
+   "share": true
+  },
+  {
+   "id": "GPID107442",
+   "kind": "ipo",
+   "href": "/bond-ipo/GPID104322/adani-enterprises-limited?src=view_details&tenureDate=NA",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104322.ADANI ENTERPRISES LIMITED.png",
+   "issuer": "ADANI ENTERPRISES LIMITED",
+   "ipoTag": "IPO",
+   "closes": "Closes on Oct 15",
+   "minInvestment": "₹10K",
+   "yield": "8.89%",
+   "payments": "Yearly",
+   "tenure": "5Y",
+   "agency": "CARE",
+   "grade": "AA-",
+   "watchlist": false,
+   "share": true
+  },
+  {
+   "id": "GPID100974",
+   "kind": "bond",
+   "href": "/bonds/INE516Y07444/piramal-capital--housing-finance-limited-885-bond-yield?src=view_details&tenureDate=26-Sep-2031",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100793.piramalcpital.png",
+   "issuer": "PIRAMAL CAPITAL & HOUSING FINANCE LIMITED",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹27.2K",
+   "yield": "8.85%",
+   "payments": "Quarterly",
+   "tenure": "5Y 1M",
+   "agency": "CARE",
+   "grade": "AA",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID107440",
+   "kind": "ipo",
+   "href": "/bond-ipo/GPID104322/adani-enterprises-limited?src=view_details&tenureDate=NA",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104322.ADANI ENTERPRISES LIMITED.png",
+   "issuer": "ADANI ENTERPRISES LIMITED",
+   "ipoTag": "IPO",
+   "closes": "Closes on Oct 15",
+   "minInvestment": "₹10K",
+   "yield": "8.75%",
+   "payments": "On Maturity",
+   "tenure": "3Y",
+   "agency": "CARE",
+   "grade": "AA-",
+   "watchlist": false,
+   "share": true
+  },
+  {
+   "id": "GPID107438",
+   "kind": "ipo",
+   "href": "/bond-ipo/GPID104322/adani-enterprises-limited?src=view_details&tenureDate=NA",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104322.ADANI ENTERPRISES LIMITED.png",
+   "issuer": "ADANI ENTERPRISES LIMITED",
+   "ipoTag": "IPO",
+   "closes": "Closes on Oct 15",
+   "minInvestment": "₹10K",
+   "yield": "8.75%",
+   "payments": "Half Yearly",
+   "tenure": "3Y",
+   "agency": "CARE",
+   "grade": "AA-",
+   "watchlist": false,
+   "share": true
+  },
+  {
+   "id": "GPID107439",
+   "kind": "ipo",
+   "href": "/bond-ipo/GPID104322/adani-enterprises-limited?src=view_details&tenureDate=NA",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104322.ADANI ENTERPRISES LIMITED.png",
+   "issuer": "ADANI ENTERPRISES LIMITED",
+   "ipoTag": "IPO",
+   "closes": "Closes on Oct 15",
+   "minInvestment": "₹10K",
+   "yield": "8.74%",
+   "payments": "Yearly",
+   "tenure": "3Y",
+   "agency": "CARE",
+   "grade": "AA-",
+   "watchlist": false,
+   "share": true
+  },
+  {
+   "id": "GPID107424",
+   "kind": "ipo",
+   "href": "/bond-ipo/GPID100778/edelweiss-financial-services-limited?src=view_details&tenureDate=NA",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100778.EDELWEISS FINANCIAL SERVICES LIMITED.png",
+   "issuer": "EDELWEISS FINANCIAL SERVICES LIMITED",
+   "ipoTag": "IPO",
+   "closes": "Closes on Oct 5",
+   "minInvestment": "₹10K",
+   "yield": "8.65%",
+   "payments": "On Maturity",
+   "tenure": "2Y",
+   "agency": "CRISIL",
+   "grade": "A+",
+   "watchlist": false,
+   "share": true
+  },
+  {
+   "id": "GPID107423",
+   "kind": "ipo",
+   "href": "/bond-ipo/GPID100778/edelweiss-financial-services-limited?src=view_details&tenureDate=NA",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100778.EDELWEISS FINANCIAL SERVICES LIMITED.png",
+   "issuer": "EDELWEISS FINANCIAL SERVICES LIMITED",
+   "ipoTag": "IPO",
+   "closes": "Closes on Oct 5",
+   "minInvestment": "₹10K",
+   "yield": "8.64%",
+   "payments": "Yearly",
+   "tenure": "2Y",
+   "agency": "CRISIL",
+   "grade": "A+",
+   "watchlist": false,
+   "share": true
+  },
+  {
+   "id": "GPID107436",
+   "kind": "ipo",
+   "href": "/bond-ipo/GPID104322/adani-enterprises-limited?src=view_details&tenureDate=NA",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104322.ADANI ENTERPRISES LIMITED.png",
+   "issuer": "ADANI ENTERPRISES LIMITED",
+   "ipoTag": "IPO",
+   "closes": "Closes on Oct 15",
+   "minInvestment": "₹10K",
+   "yield": "8.60%",
+   "payments": "Yearly",
+   "tenure": "2Y",
+   "agency": "CARE",
+   "grade": "AA-",
+   "watchlist": false,
+   "share": true
+  },
+  {
+   "id": "GPID107437",
+   "kind": "ipo",
+   "href": "/bond-ipo/GPID104322/adani-enterprises-limited?src=view_details&tenureDate=NA",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104322.ADANI ENTERPRISES LIMITED.png",
+   "issuer": "ADANI ENTERPRISES LIMITED",
+   "ipoTag": "IPO",
+   "closes": "Closes on Oct 15",
+   "minInvestment": "₹10K",
+   "yield": "8.60%",
+   "payments": "On Maturity",
+   "tenure": "2Y",
+   "agency": "CARE",
+   "grade": "AA-",
+   "watchlist": false,
+   "share": true
+  },
+  {
+   "id": "GPID106789",
+   "kind": "bond",
+   "href": "/bonds/INE423A07534/adani-enterprises-limited-850-bond-yield?src=view_details&tenureDate=12-Jan-2029",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104322.ADANI ENTERPRISES LIMITED.png",
+   "issuer": "ADANI ENTERPRISES LIMITED",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹32K",
+   "yield": "8.50%",
+   "payments": "Yearly",
+   "tenure": "2Y 4M",
+   "agency": "CARE",
+   "grade": "AA-",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID107359",
+   "kind": "bond",
+   "href": "/bonds/INE0GCN07054/adani-airport-845-bond-yield?src=view_details&tenureDate=12-Feb-2029",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103845.Screenshot 2024-08-28 171536_11zon.png",
+   "issuer": "ADANI AIRPORT",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹1L",
+   "yield": "8.45%",
+   "payments": "Half Yearly",
+   "tenure": "2Y 5M",
+   "agency": "CRISIL",
+   "grade": "AA-",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID106795",
+   "kind": "bond",
+   "href": "/bonds/INE658F08524/kerala-infrastructure-investment-fund-board-825-bond-yield?src=view_details&tenureDate=21-Jan-2031",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102759.KERALA INFRASTRUCTURE INVESTMENT FUND BOARD.png",
+   "issuer": "KERALA INFRASTRUCTURE INVESTMENT FUND BOARD",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹1.1L",
+   "yield": "8.25%",
+   "payments": "Half Yearly",
+   "tenure": "4Y 5M",
+   "agency": "IND",
+   "grade": "AA",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID106739",
+   "kind": "bond",
+   "href": "/bonds/INE0M2307388/andhra-pradesh-state-beverages-corporation-limited-800-bond-yield?src=view_details&tenureDate=28-Nov-2031",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID101491.ANDHRA PRADESH STATE BEVERAGES CORPORATION LIMITED.png",
+   "issuer": "ANDHRA PRADESH STATE BEVERAGES CORPORATION LIMITED",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹1.1L",
+   "yield": "8.00%",
+   "payments": "Half Yearly",
+   "tenure": "5Y 3M",
+   "agency": "IND",
+   "grade": "AA",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID101395",
+   "kind": "bond",
+   "href": "/bonds/INE306N07MQ4/tata-capital-limited-740-bond-yield?src=view_details&tenureDate=29-Apr-2032",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID101761.TATA CAPITAL LIMITED.png",
+   "issuer": "TATA CAPITAL LIMITED",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹10.4L",
+   "yield": "7.40%",
+   "payments": "Yearly",
+   "tenure": "5Y 8M",
+   "agency": "CRISIL",
+   "grade": "AAA",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID102920",
+   "kind": "bond",
+   "href": "/bonds/INE296A07RW1/bajaj-finance-ltd-695-bond-yield?src=view_details&tenureDate=02-Dec-2031",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100379.Bajaj Finserv.png",
+   "issuer": "BAJAJ FINANCE LTD",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹10.7L",
+   "yield": "6.95%",
+   "payments": "Yearly",
+   "tenure": "5Y 3M",
+   "agency": "CRISIL",
+   "grade": "AAA",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID101066",
+   "kind": "bond",
+   "href": "/bonds/INE134E08LN6/power-finance-corporation-limited-685-bond-yield?src=view_details&tenureDate=14-Apr-2032",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100099.POWER FINANCE CORPORATION LTD.png",
+   "issuer": "Power Finance Corporation Limited",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹10.6L",
+   "yield": "6.85%",
+   "payments": "Yearly",
+   "tenure": "5Y 8M",
+   "agency": "CRISIL",
+   "grade": "AAA",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID107049",
+   "kind": "bond",
+   "href": "/bonds/INE040A08963/hdfc-bank-685-bond-yield?src=view_details&tenureDate=01-Dec-2031",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100004.HDFC BANK LIMITED@2x.png",
+   "issuer": "HDFC BANK",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹10.7L",
+   "yield": "6.85%",
+   "payments": "Yearly",
+   "tenure": "5Y 3M",
+   "agency": "CRISIL",
+   "grade": "AAA",
+   "watchlist": true,
+   "share": true
+  },
+  {
+   "id": "GPID103812",
+   "kind": "bond",
+   "href": "/bonds/INE053F08122/indian-railway-finance-corporation-limited-670-bond-yield?src=view_details&tenureDate=31-Aug-2031",
+   "logo": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100094.INDIAN RAILWAY FINANCE CORPORATION LIMITED.png",
+   "issuer": "Indian Railway Finance Corporation Limited",
+   "ipoTag": "",
+   "closes": "",
+   "minInvestment": "₹10.4L",
+   "yield": "6.70%",
+   "payments": "Yearly",
+   "tenure": "5Y",
+   "agency": "CRISIL",
+   "grade": "AAA",
+   "watchlist": true,
+   "share": true
+  }
+ ],
+ "sheet": {
+  "title": "Filter",
+  "clear": "Clear",
+  "apply": "Apply",
+  "sortTitle": "Sort By"
+ }
+}

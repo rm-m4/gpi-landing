@@ -44,7 +44,7 @@ TAB_ICONS = {
     "non-nbfc-bonds": "all-bonds.svg",
 }
 
-# The pills stick under the header, so a pill chosen deep in a long list
+# In bond-utsav2 the pills stick under the header, so a pill chosen deep in a long list
 # would show the new panel from the middle. Bring its top back into view.
 SCROLL_JS = """
 (function () {

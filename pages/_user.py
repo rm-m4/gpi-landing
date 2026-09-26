@@ -318,7 +318,7 @@ def corporate_tabs():
         t = by_id[tid]
         rows = "\n\n".join(F.row_html(r, i, t["col4"], t["col5"]) for i, r in enumerate(t["rows"]))
         body = C.listing_body(rows, ("Returns", "Credit Rating", t["col4"], t["col5"]),
-                              t["more"][0], t["more"][1], note=t["note"])
+                              t["more"][0], t["more"][1])
         tabs.append(dict(id=tid, label=label, icon=t["icon"], body=body))
     tabs[0]["body"] = explore_tabs()[0]["body"]
     return tabs
@@ -624,7 +624,7 @@ def fd_options():
              '          </ul>\n')
     bank = (feats + '          <!-- DATA: bank FDs, goldenpi.com 2026-09-26. -->\n'
             '          <div class="gp-rows__head">\n'
-            '            <span>Issuer</span><span>Highest Returns</span><span>Secured</span>\n'
+            '            <span></span><span>Highest Returns</span><span>Secured</span>\n'
             '            <span>Tenure</span><span></span><span></span>\n'
             '          </div>\n\n'
             '          <div class="gp-rows">\n%s\n          </div>' % rows)

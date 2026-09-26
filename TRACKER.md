@@ -158,6 +158,56 @@ Refer & Earn link now points here, and `_build.py` syncs its shell.
 
 ---
 
+## Listing tab changes (2026-09-26)
+
+- **No "Issuer" column label** on any listing head (corporate-bonds, index,
+  user pages, Discover Bonds): the logo and name say it. Changed in the four
+  generators (`_final.py`, `_convert.py`, `_user.py`, `_listview.py`).
+- **FD tab rows** (index and user-explore, from `_convert.py`) now carry the
+  user's screenshot data: Highest Returns / Secured / Tenure, share only.
+  Unity and Suryoday, 8.5%, "Insured upto ₹5L", "7 days-60 months" (`FD_TAB`).
+  Utkarsh, Shriram, Mahindra and Bajaj left the tab: the screenshot had no
+  values for them. Secured is gain green, bold (`gp-row__value--secured`).
+- **Panel note removed as a component** (`gp-panel__note`: "Minimum
+  investment as listed by the issuer." on Bonds at ₹30K, "The highest rated
+  issues in this snapshot…" on High Rated): gone from `_final.py`,
+  `listing_body` in `_convert.py`, `_user.py` and `final.css`.
+
+---
+
+## Discover Bonds (2026-09-26)
+
+`pages/investment-options-list-view.html`, from
+`uatnew.goldenpi.com/investment-options/list-view`. **Generated**:
+`python3 pages/_listview.py && python3 pages/_build.py`. Captured first
+(`crawl/raw/`, `crawl/rendered/`, `crawl/shots/`, copy in
+`content/investment-options_list-view.md`), then `crawl/listview_ui.js` drove
+the live page for what needs interaction: all 80 rows, the 18 filter groups
+(11 behind More Filters), the 8 sorts, and the filtered-state copy (Clear All,
+"n filter applied", chips, the no-results state). Page CSS is the
+`DISCOVER BONDS` block at the end of `final.css`; script `pages/_listview.js`.
+`check.js` clean.
+
+- **Rows are the corporate-bonds listing** (`gp-panel` / `gp-rows` /
+  `gp-row`) with their IPO line (tag + "Closes on …"). At the user's request
+  the rating stamp became a Rating chip in place of Min. Investment (still
+  sortable by investment), columns in the corporate-bonds order (Issuer,
+  Yield, Rating, Payments, Tenure), and the cream panel is gone: column labels sit on
+  the page. Watchlist only where live shows it (bonds, not IPOs).
+- **Filters and sort work on the snapshot.** Each row carries the option ids
+  it matches (`data-f`), computed by the generator from its captured values;
+  AAA gives 5 and AAA + 11% gives 0, as live. Options the row data cannot
+  answer (issuer type, tax, seniority, security, face value...) select, count
+  and chip but do not narrow: `data-wired="false"`, they need the API.
+- **Phones:** a Filters | Sort bar; the sidebar becomes a bottom sheet with
+  every group, Clear and Apply, as live. Sort is the native select.
+- **Need Help** reuses the issuer page's block, laid out in a row. Contact Us
+  stays a button, as live.
+- **Not changed:** the issuer page's "VIEW →" still points at uatnew's
+  list-view; it could point here.
+
+---
+
 ## Bond Utsav (2026-09-26)
 
 `pages/bond-utsav.html`, from `uatnew.goldenpi.com/bond-utsav`. **Generated**:
@@ -179,8 +229,9 @@ Bond Utsav link now points here. `check.js` clean.
   pill design): white pills with a cream hairline, icon then label, the open
   one in heading ink. Two rows of five as the live page splits them, centred
   from 768px; on phones one scroller holds both rows so they slide together,
-  with a fade when there is more to the right. The strip sticks under the
-  header, and opening a pill from deep in a list scrolls to its top. Behaviour
+  with a fade when there is more to the right. The strip scrolls with the
+  page (it stuck under the header until the user asked otherwise,
+  2026-09-26; only `bond-utsav2` still sticks). Behaviour
   is the shared `_tabs.js`, whose sliding indicator is now optional and which
   selects by ARIA role (every page inlining it was regenerated; the only diff
   is the script).
