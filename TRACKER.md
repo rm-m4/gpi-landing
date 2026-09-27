@@ -15,18 +15,9 @@ page means something shared broke.
 
 ---
 
-## To be deleted (awaiting the user's go-ahead)
+## To be removed before handoff
 
-Untracked, never committed. Delete only once the user confirms.
-
-- `assets/img/stamp_new.svg`: their rating stamp, unused since Discover Bonds
-  moved rating into a chip column.
-- `content/privacy-policy.expanded.md`, `content/privacy-policy.expanded.assets.txt`,
-  `content/terms-and-conditions.expanded.md`,
-  `content/terms-and-conditions.expanded.assets.txt`: written by an
-  accidental bare `crawl/extract.py` run on 2026-09-26, not part of any page.
-
-Also to remove before handoff (committed, not files): the Bond Utsav dummy
+The Bond Utsav dummy
 data, `DUMMY_WAS` and `DUMMY_EMPTY_TABS` in `pages/_utsav.py` (see Bond
 Utsav below).
 
@@ -729,3 +720,51 @@ nav or footer, as live. `check.js` clean.
   controls at their auth sizes (36px headline, 48px controls). The page fills
   exactly one screen and does not scroll; it scrolls only on screens too short to
   hold the card (under 480px tall, or phones under 700px tall).
+
+---
+
+## Portfolio (2026-09-28)
+
+Six logged-in pages (listed under Iterations → Portfolio in all-pages.html) from the user's Figma section "24 sept"
+(`HRSMFFccdLgqf1YwD7oyc9`, node 4:145). **Generated**:
+`python3 pages/_portfolio.py`. Shell from `_user.shell()` (logged-in header,
+footer), page CSS `assets/portfolio.css`, behaviour `pages/_portfolio.js`
+(inlined), images `assets/img/portfolio/` (Figma exports, downscaled).
+`check.js` clean on all six.
+
+| Page | Figma frame |
+|---|---|
+| `portfolio.html` | Active Holdings 4:146 + Future Repayment 4:5329 |
+| `portfolio-matured.html` | Matured/Closed 4:697 |
+| `portfolio-no-kyc.html` | No KYC no holding 4:2731 |
+| `portfolio-no-holdings.html` | After KYC no holding 4:2282 |
+| `portfolio-bond.html` | Future Repayment finserv 4:1156 |
+| `portfolio-fd.html` | Future Repayment Unity Bank 4:1833 |
+
+- **All figures are the design's sample data** (Rohit Sharma, ₹25 Cr, Navi
+  Finserv...), marked `<!-- DATA: -->`. There is no live capture of these pages.
+- **Working:** Bonds / FD / SIP tabs, Holdings / Future Repayment switch
+  (sliding gold pill), period chips, TDS switch, gold-card and milestone
+  carousels (the milestones rotate on their own), the dark info sheets behind
+  the card (i) buttons (4:6702, 4:6738) and the light Investment Details sheet
+  (4:4015). Phones: gold card first, rows become cards.
+- **Motion:** card catches the light when first seen and on hover, milestone
+  icons bob, panels and rows rise in on tab change, note cards lift, the play
+  button pulses. All off under reduced motion.
+- **Deviations, for review:**
+  - Header is our finalised logged-in header, not the Figma one; the two empty
+    states are shown logged in too (Figma shows Login / Start Investing).
+  - FD tab shows one row built from the Unity Bank page's own figures; SIP shows
+    "No holdings yet". Neither tab is designed.
+  - Every bond row opens the one designed detail page (Navi Finserv).
+  - Empty states use the "Portfolio Amt = Zero" milestone set (4:6602), so No
+    KYC does not show "You Received ₹60,000".
+  - The detail sheet is titled "Investment Details" (Figma: "Sample UI >>
+    actual text in right"). Unity Bank shows the first of three Manage Your FD
+    variants.
+  - Not built: the dark mobile Future Repayment screen and its Future Cashflow
+    sheet (4:6390), the mobile-only TDS not filed / Form 121 card and
+    Transaction Summary pill (4:4562), per-figure TDS values.
+  - Inert: Download Report / Cashflow, Proceed, Proceed to sell, Start KYC, the
+    purpose chips, the explainer play button, the account switcher.
+  - "Regular income" appears twice in the purpose chips, as in the design.
