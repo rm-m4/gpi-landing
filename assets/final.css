@@ -2475,3 +2475,229 @@ a.gp-gold-card:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba
   .gp-lv-filter, .gp-lv-filter.is-open { transition: none; }
   .gp-lv-group summary svg { transition: none; }
 }
+
+/* ==========================================================================
+   SIGN UP (pages/signup.html). Their sign-up popup, set on a page.
+   Values from their auth stylesheet (crawl/rendered/signup.html): card fill
+   174deg white 46% -> #fff9e5 91%, 20px radius, controls on #faf8f2 with a
+   #fdf3d4 drop shadow, CTA 143deg #fdf2d0 -> #e6b325 -> #b38600, OTP cells
+   40x51 at 18px radius on the light stroke. Motion is off under reduced motion.
+   ========================================================================== */
+.gp-auth-page {
+  margin: 0;
+  background:
+    radial-gradient(60% 50% at 85% 0%, #fdf3d4 0%, transparent 70%),
+    radial-gradient(50% 45% at 0% 100%, #fff9e5 0%, transparent 70%),
+    var(--app-page-bg, #f7f5f2);
+}
+.gp-auth {
+  box-sizing: border-box;
+  height: 100dvh;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  place-items: center;
+  padding: 16px;
+}
+.gp-auth *, .gp-auth *::before, .gp-auth *::after { box-sizing: border-box; }
+.gp-auth .sr-only {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
+}
+/* Their --auth-card-max-width / --auth-card-min-height. */
+.gp-auth__card {
+  width: 100%;
+  max-width: 834px;
+  min-height: 443px;
+  display: grid;
+  grid-template-columns: 1fr 392px;
+  border-radius: 20px;
+  background: linear-gradient(174deg, #fff 46%, #fff9e5 91%);
+  box-shadow: 0 12px 40px rgba(50, 40, 17, 0.08), 0 0 0 1px rgba(231, 227, 217, 0.6);
+  animation: gp-auth-rise 0.7s var(--ease, ease) both;
+}
+
+/* Brand side */
+.gp-auth__brand { padding: 38px 24px 28px 60px; }
+.gp-auth__logo img { display: block; width: 136px; height: auto; }
+.gp-auth__headline {
+  margin: 23px 0 0;
+  font-size: 36px;
+  line-height: 42px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #322811;
+}
+.gp-auth__headline span { display: block; animation: gp-auth-up 0.6s var(--ease, ease) both; }
+.gp-auth__headline span:nth-child(1) { animation-delay: 0.15s; }
+.gp-auth__headline span:nth-child(2) { animation-delay: 0.27s; }
+.gp-auth__headline em {
+  font-style: normal;
+  background: linear-gradient(100deg, #d4af37 0%, #e6b325 40%, #f7d880 50%, #d4af37 60%, #c49a20 100%);
+  background-size: 250% 100%;
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent;
+  animation: gp-auth-glint 4.5s ease-in-out 1.2s infinite;
+}
+.gp-auth__rule {
+  display: block; width: 48px; height: 2px; margin-top: 11px;
+  border-radius: 2px; background: #d4af37;
+  transform-origin: left; animation: gp-auth-draw 0.6s var(--ease, ease) 0.5s both;
+}
+.gp-auth__tagline {
+  max-width: 260px; margin: 24px 0 0;
+  font-size: 14px; line-height: 20px; font-weight: 500; color: #322811;
+  animation: gp-auth-up 0.6s var(--ease, ease) 0.4s both;
+}
+.gp-auth__trust {
+  display: flex; margin: 42px 0 0; padding: 0; list-style: none;
+}
+.gp-auth__trust li {
+  width: 112px; display: flex; flex-direction: column; align-items: center; gap: 10px;
+  text-align: center; font-size: 13px; line-height: 18px; font-weight: 500; color: #322811;
+  text-transform: capitalize;
+  animation: gp-auth-up 0.6s var(--ease, ease) both;
+}
+.gp-auth__trust li + li { border-left: 1px solid #e7e3d9; }
+.gp-auth__trust li:nth-child(1) { animation-delay: 0.55s; }
+.gp-auth__trust li:nth-child(2) { animation-delay: 0.65s; }
+.gp-auth__trust li:nth-child(3) { animation-delay: 0.75s; }
+.gp-auth__trust img {
+  height: 44px; width: auto; object-fit: contain;
+  animation: gp-auth-float 5s ease-in-out infinite;
+}
+.gp-auth__trust li:nth-child(2) img { animation-delay: -1.6s; }
+.gp-auth__trust li:nth-child(3) img { animation-delay: -3.2s; }
+
+/* Form side */
+.gp-auth__panel { display: flex; align-items: center; padding: 28px 60px; }
+.gp-auth__step {
+  width: 100%; display: flex; flex-direction: column; align-items: stretch;
+}
+.gp-auth__step[hidden] { display: none; }
+.gp-auth__step.is-in { animation: gp-auth-step 0.45s var(--ease, ease) both; }
+#step-identify > * { animation: gp-auth-up 0.6s var(--ease, ease) both; }
+#step-identify > :nth-child(1) { animation-delay: 0.3s; }
+#step-identify > :nth-child(2) { animation-delay: 0.38s; }
+#step-identify > :nth-child(3) { animation-delay: 0.46s; }
+#step-identify > :nth-child(4) { animation-delay: 0.54s; }
+#step-identify > :nth-child(5) { animation-delay: 0.62s; }
+#step-identify.is-in > * { animation: none; }
+
+.gp-auth__google,
+.gp-auth__input {
+  height: 48px; width: 100%;
+  border: 0; border-radius: 999px;
+  background: #faf8f2;
+  filter: drop-shadow(0 2px 1px #fdf3d4);
+  font-family: inherit; font-size: 15px; font-weight: 500;
+  color: #322811;
+  transition: box-shadow 0.2s, background-color 0.2s, transform 0.2s;
+}
+.gp-auth__google {
+  display: inline-flex; align-items: center; justify-content: center; gap: 14px;
+  cursor: pointer;
+}
+.gp-auth__google:hover { background: #fff; transform: translateY(-1px); }
+.gp-auth__google img { width: 17px; height: 17px; }
+.gp-auth__input { padding: 0 24px; }
+.gp-auth__input::placeholder { color: #8a7f6a; }
+.gp-auth__input:focus-visible { outline: none; background: #fff; box-shadow: 0 0 0 2px #d4af37; }
+.gp-auth__input.is-shake { animation: gp-auth-shake 0.4s; box-shadow: 0 0 0 2px #c0392b; }
+
+.gp-auth__or {
+  display: flex; align-items: center; gap: 16px;
+  margin: 40px 0; font-size: 14px; font-weight: 700; color: #322811;
+}
+.gp-auth__or::before, .gp-auth__or::after { content: ""; flex: 1; height: 1px; background: #d9d9d9; }
+
+.gp-auth__cta {
+  position: relative; overflow: hidden;
+  height: 48px; margin-top: 22px;
+  border: 0; border-radius: 999px; cursor: pointer;
+  background: linear-gradient(143deg, #fdf2d0 0%, #e6b325 50%, #b38600 100%);
+  color: #322811; font: inherit; font-size: 15px; font-weight: 700; letter-spacing: 0.01em;
+  box-shadow: 0 6px 18px rgba(212, 175, 55, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+}
+.gp-auth__cta::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.55) 50%, transparent 70%);
+  transform: translateX(-120%);
+}
+.gp-auth__cta:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 10px 24px rgba(212, 175, 55, 0.4); }
+.gp-auth__cta:hover:not(:disabled)::after { transform: translateX(120%); transition: transform 0.7s ease; }
+.gp-auth__cta:disabled { cursor: not-allowed; opacity: 0.5; box-shadow: none; }
+.gp-auth__cta:focus-visible,
+.gp-auth__google:focus-visible,
+.gp-auth__resend:focus-visible,
+.gp-auth__password:focus-visible,
+.gp-auth__edit:focus-visible { outline: 2px solid #8a6520; outline-offset: 3px; }
+
+.gp-auth__legal {
+  margin: 16px 0 0; text-align: center;
+  font-size: 13px; line-height: 22px; color: #666;
+}
+.gp-auth__legal a { color: #322811; font-weight: 700; text-decoration: none; }
+.gp-auth__legal a:hover { text-decoration: underline; }
+
+/* OTP step */
+.gp-auth__otp-head { display: flex; flex-direction: column; gap: 10px; }
+.gp-auth__otp-title { margin: 0; font-size: 20px; line-height: 1.3; font-weight: 700; color: #322811; outline: none; }
+.gp-auth__sent {
+  display: flex; align-items: center; gap: 8px; margin: 0;
+  font-size: 13px; font-weight: 500; color: #322811; min-width: 0;
+}
+.gp-auth__sent > span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.gp-auth__edit {
+  flex-shrink: 0; display: inline-flex; padding: 4px; border: 0; border-radius: 6px;
+  background: none; color: #a67c00; cursor: pointer;
+}
+.gp-auth__cells {
+  display: flex; gap: 6px; margin: 24px 0 0; padding: 0; border: 0; min-width: 0;
+}
+.gp-auth__cells input {
+  flex: 1 1 0; min-width: 0; max-width: 40px; aspect-ratio: 40 / 51;
+  border: 0; border-radius: 18px; background: #efece4;
+  text-align: center; font: inherit; font-size: 15px; font-weight: 700; color: #322811;
+  caret-color: #322811;
+  transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+.gp-auth__cells input:focus-visible { outline: none; background: #fff; box-shadow: 0 0 0 2px #d4af37; transform: translateY(-2px); }
+.gp-auth__resend,
+.gp-auth__password {
+  align-self: center; margin-top: 14px; padding: 2px 4px;
+  border: 0; background: none; cursor: pointer; font: inherit;
+}
+.gp-auth__resend { font-size: 13px; font-weight: 700; color: #666; }
+.gp-auth__password { margin-top: 8px; font-size: 14px; font-weight: 700; color: #a67c00; text-decoration: underline; }
+
+@keyframes gp-auth-rise { from { opacity: 0; transform: translateY(24px) scale(0.985); } to { opacity: 1; transform: none; } }
+@keyframes gp-auth-up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes gp-auth-draw { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes gp-auth-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+@keyframes gp-auth-glint { 0%, 70% { background-position: 100% 0; } 100% { background-position: 0 0; } }
+@keyframes gp-auth-step { from { opacity: 0; transform: translateX(16px); } to { opacity: 1; transform: none; } }
+@keyframes gp-auth-shake { 25% { transform: translateX(-6px); } 50% { transform: translateX(5px); } 75% { transform: translateX(-3px); } }
+
+@media (max-width: 859px) {
+  .gp-auth { align-items: center; padding: 12px; }
+  .gp-auth__card { grid-template-columns: minmax(0, 1fr); min-height: 0; border-radius: 20px; }
+  .gp-auth__brand { padding: 24px 20px 0; }
+  .gp-auth__headline { margin-top: 16px; font-size: 28px; line-height: 34px; }
+  .gp-auth__tagline { margin-top: 14px; }
+  .gp-auth__trust { margin-top: 18px; }
+  .gp-auth__trust li { flex: 1; width: auto; gap: 6px; }
+  .gp-auth__trust img { height: 36px; }
+  .gp-auth__panel { padding: 36px 20px 24px; }
+  .gp-auth__or { margin: 16px 0; }
+  .gp-auth__cta { margin-top: 14px; }
+  .gp-auth__legal { margin-top: 10px; }
+}
+/* Short screens: let the page scroll rather than clip the form. */
+@media (max-height: 480px), (max-width: 859px) and (max-height: 700px) {
+  .gp-auth { height: auto; min-height: 100dvh; overflow: visible; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gp-auth__card, .gp-auth__card *, .gp-auth__cta::after { animation: none !important; transition: none !important; }
+}

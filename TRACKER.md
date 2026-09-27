@@ -15,6 +15,23 @@ page means something shared broke.
 
 ---
 
+## To be deleted (awaiting the user's go-ahead)
+
+Untracked, never committed. Delete only once the user confirms.
+
+- `assets/img/stamp_new.svg`: their rating stamp, unused since Discover Bonds
+  moved rating into a chip column.
+- `content/privacy-policy.expanded.md`, `content/privacy-policy.expanded.assets.txt`,
+  `content/terms-and-conditions.expanded.md`,
+  `content/terms-and-conditions.expanded.assets.txt`: written by an
+  accidental bare `crawl/extract.py` run on 2026-09-26, not part of any page.
+
+Also to remove before handoff (committed, not files): the Bond Utsav dummy
+data, `DUMMY_WAS` and `DUMMY_EMPTY_TABS` in `pages/_utsav.py` (see Bond
+Utsav below).
+
+---
+
 ## Batch 1 — status
 
 Scope agreed with the user: 4 pages, static HTML + Tailwind CDN, light theme only.
@@ -679,3 +696,36 @@ assertion was negative-tested by re-breaking the page and confirming it fails.
 | Header/footer duplicated, synced by script | four-page prototype; a template system would be unused complexity |
 | Light theme first | layouts still in flux; dark is a mechanical pass once they settle |
 | Keep Tailwind + Satoshi on their CDNs; do **not** vendor them locally | user's call, 2026-09-25. Pages need a network connection for layout and typography; all content, images and data are local and work offline. Acceptable for a reference artifact — revisit only if it has to be handed over for offline use |
+
+---
+
+## Sign up (2026-09-28)
+
+`pages/signup.html`, from `uatnew.goldenpi.com/signup`. Captured first
+(`crawl/raw/`, `crawl/rendered/`, `crawl/shots/`), copy in `content/signup.md`
+(auth strings read from the page's translation bundle, appended by hand).
+Hand-built; page CSS is the `SIGN UP` block at the end of `final.css`. No shared
+nav or footer, as live. `check.js` clean.
+
+- **Laid out as their sign-up popup** (user-supplied screenshot), set on a page:
+  split card, brand side left, form right, their card fill and control shadows.
+  The popup strings are used (Continue with Google, Enter Phone Number or
+  Email, Get OTP, "By continuing, I agree Privacy Policy and T&C"); the /signup
+  page's own variants (Get Started, Sign in with Google, Continue) are in
+  `content/signup.md` if the page should keep them. No close button: on a page
+  there is nothing to close. The live page's separate logo header is folded
+  into the card's logo, which links home.
+- **OTP step** built from captured strings only, switched locally (Google,
+  send and verify OTP are not wired). **For review:** six cells is assumed, the
+  bundle does not state the length; the validity timer and resend countdown are
+  left out because their values were not captured.
+- **Motion:** card rises, headline and trust items stagger, gold rule draws,
+  "Better." glints, trust icons float, CTA sheen on hover, invalid input
+  shakes, steps slide. All off under reduced motion.
+- `crawl/snap.js` no longer treats a capture of `/signup` itself as a
+  redirect to sign-up.
+- **Resized to the popup (same day, user's reference screenshot).** Card is
+  their 834×443 (`--auth-card-max-width` / `--auth-card-min-height`), type and
+  controls at their auth sizes (36px headline, 48px controls). The page fills
+  exactly one screen and does not scroll; it scrolls only on screens too short to
+  hold the card (under 480px tall, or phones under 700px tall).

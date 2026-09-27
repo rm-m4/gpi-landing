@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sign up | GoldenPi</title>
+<!-- Sign up, rebuilt from uatnew.goldenpi.com/signup (captured 2026-09-28).
+     Layout follows their sign-up popup (user-supplied screenshot), so the popup
+     strings from their `auth` bundle are used; the /signup page variants are in
+     content/signup.md. Page CSS is the SIGN UP block at the end of final.css. -->
+<meta name="description" content="Buy Bonds, Debentures &amp; Fixed Income investments online in India. SEBI-registered debt broker and OBPP license holder.">
+<link rel="icon" href="../assets/img/goldenpi-logo.svg">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/final.css">
+</head>
+<body class="gp-auth-page">
+<a class="gp-skip" href="#main-content">Skip to main content</a>
+
+<main id="main-content" class="gp-auth">
+  <div class="gp-auth__card">
+
+    <!-- Brand side -->
+    <section class="gp-auth__brand" aria-labelledby="auth-title">
+      <a class="gp-auth__logo" href="index.html"><img src="../assets/img/goldenpi-logo.svg" alt="GoldenPi" width="136" height="38"></a>
+      <h1 id="auth-title" class="gp-auth__headline">
+        <span>Invest Smarter.</span>
+        <span>Earn <em>Better.</em></span>
+      </h1>
+      <span class="gp-auth__rule" aria-hidden="true"></span>
+      <p class="gp-auth__tagline">India’s trusted bond investment platform with returns up to 14%</p>
+      <ul class="gp-auth__trust">
+        <li><img src="../assets/img/trust-users.png" alt="Illustration of GoldenPi users" width="68" height="60"><span>16 lacs+<br>Users</span></li>
+        <li><img src="../assets/img/trust-sebi.png" alt="SEBI registered shield" width="40" height="60"><span>SEBI<br>Registered</span></li>
+        <li><img src="../assets/img/trust-zero-default.png" alt="Zero default record" width="47" height="60"><span>Zero<br>Default</span></li>
+      </ul>
+    </section>
+
+    <!-- Form side. API: Google sign-in and send/verify OTP are not wired;
+         the steps switch locally so the flow can be reviewed. -->
+    <div class="gp-auth__panel">
+
+      <form class="gp-auth__step" id="step-identify" novalidate>
+        <button type="button" class="gp-auth__google">
+          <img src="../assets/img/google-g.png" alt="" width="17" height="17">
+          Continue with Google
+        </button>
+        <div class="gp-auth__or" role="separator"><span>or</span></div>
+        <input class="gp-auth__input" id="identifier" name="identifier" type="text"
+               inputmode="email" autocomplete="username"
+               placeholder="Enter Phone Number or Email" aria-label="Email or mobile number" required>
+        <button type="submit" class="gp-auth__cta">Get OTP</button>
+        <p class="gp-auth__legal">By continuing, I agree <a href="privacy-policy.html">Privacy Policy</a> and <a href="terms-and-conditions.html">T&amp;C</a></p>
+      </form>
+
+      <form class="gp-auth__step" id="step-otp" hidden novalidate>
+        <div class="gp-auth__otp-head">
+          <h2 class="gp-auth__otp-title" tabindex="-1">OTP Verification</h2>
+          <p class="gp-auth__sent">
+            <span>We’ve sent an OTP to <strong data-contact></strong></span>
+            <button type="button" class="gp-auth__edit" aria-label="Edit email or phone number">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+            </button>
+          </p>
+        </div>
+        <!-- DATA: six cells assumed; the captured bundle does not state the OTP length. -->
+        <fieldset class="gp-auth__cells">
+          <legend class="sr-only">One-time password</legend>
+          <input inputmode="numeric" maxlength="1" autocomplete="one-time-code" aria-label="OTP digit 1">
+          <input inputmode="numeric" maxlength="1" aria-label="OTP digit 2">
+          <input inputmode="numeric" maxlength="1" aria-label="OTP digit 3">
+          <input inputmode="numeric" maxlength="1" aria-label="OTP digit 4">
+          <input inputmode="numeric" maxlength="1" aria-label="OTP digit 5">
+          <input inputmode="numeric" maxlength="1" aria-label="OTP digit 6">
+        </fieldset>
+        <button type="submit" class="gp-auth__cta" disabled>Proceed</button>
+        <button type="button" class="gp-auth__resend">Resend OTP</button>
+        <button type="button" class="gp-auth__password">Login with password</button>
+      </form>
+
+    </div>
+  </div>
+</main>
+
+<script>
+// Two steps, local only. Without JS the first step still renders complete.
+(() => {
+  const one = document.getElementById('step-identify');
+  const two = document.getElementById('step-otp');
+  const id = document.getElementById('identifier');
+  const cells = [...two.querySelectorAll('.gp-auth__cells input')];
+  const proceed = two.querySelector('.gp-auth__cta');
+  const PHONE = /^[6-9]\d{9}$/, EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  const swap = (from, to) => {
+    from.hidden = true; to.hidden = false;
+    to.classList.remove('is-in'); void to.offsetWidth; to.classList.add('is-in');
+  };
+
+  one.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const v = id.value.trim().replace(/^\+?91[\s-]?/, '').replace(/\s/g, '');
+    const ok = PHONE.test(v) || EMAIL.test(id.value.trim());
+    id.setCustomValidity(ok ? '' : ' ');
+    if (!ok) { id.classList.remove('is-shake'); void id.offsetWidth; id.classList.add('is-shake'); id.focus(); return; }
+    two.querySelector('[data-contact]').textContent = id.value.trim();
+    swap(one, two);
+    cells[0].focus();
+  });
+  id.addEventListener('input', () => id.setCustomValidity(''));
+
+  two.querySelector('.gp-auth__edit').addEventListener('click', () => {
+    cells.forEach((c) => (c.value = '')); proceed.disabled = true;
+    swap(two, one); id.focus();
+  });
+
+  const sync = () => (proceed.disabled = !cells.every((c) => /^\d$/.test(c.value)));
+  cells.forEach((c, i) => {
+    c.addEventListener('input', () => {
+      c.value = c.value.replace(/\D/g, '').slice(-1);
+      if (c.value && cells[i + 1]) cells[i + 1].focus();
+      sync();
+    });
+    c.addEventListener('keydown', (e) => {
+      if (e.key === 'Backspace' && !c.value && cells[i - 1]) cells[i - 1].focus();
+    });
+    c.addEventListener('paste', (e) => {
+      const d = (e.clipboardData.getData('text').match(/\d/g) || []).slice(0, cells.length);
+      if (!d.length) return;
+      e.preventDefault();
+      d.forEach((n, k) => (cells[k].value = n));
+      cells[Math.min(d.length, cells.length - 1)].focus();
+      sync();
+    });
+  });
+  two.addEventListener('submit', (e) => e.preventDefault()); // API: verify OTP
+})();
+</script>
+</body>
+</html>

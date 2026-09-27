@@ -109,7 +109,7 @@ async function snap(ctx, urlPath, auth) {
   const slug = slugify(urlPath);
   const page = await ctx.newPage();
   await page.goto(BASE + urlPath, { waitUntil: 'networkidle', timeout: 120000 });
-  if (/\/signup/.test(page.url()) || (urlPath.startsWith('/user/') && !page.url().includes('/user/'))) {
+  if ((/\/signup/.test(page.url()) && !urlPath.startsWith('/signup')) || (urlPath.startsWith('/user/') && !page.url().includes('/user/'))) {
     await page.close();
     throw new Error(`redirected to ${page.url()}: session missing or expired, run node crawl/login.js${PROD ? ' --prod' : ''}`);
   }
