@@ -47,6 +47,7 @@ ACTIVE = {
     "government-securities.html": None,
     "bond-better-return-fds.html": None,
     "media.html": None,
+    "invest-in-bonds.html": None,
 }
 
 SHELL_START = '<a class="gp-skip"'

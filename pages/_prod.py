@@ -876,8 +876,233 @@ def media():
          "Media, rebuilt from goldenpi.com/media on corporate-bonds.html's components.", body, tabs_js)
 
 
+# ==================================================== invest in bonds
+
+def invest():
+    """goldenpi.com/invest-in-bonds: a sign-up landing. Every CTA on the live
+    page is a button that brings the visitor to the form, so here they are
+    in-page links to #signup."""
+    s = "invest-in-bonds"
+    h = capture(s)
+    i = h.index("<vertical-carousel")
+    seg = h[i:h.index("</vertical-carousel>", i)]
+    raw = re.findall(r'<img alt="User Image" class="user-image" src="[^"]*/([^"/]+)">.*?'
+                     r'<h2 class="user-name">(.*?)</h2>.*?<span class="rating-date">(.*?)</span>.*?'
+                     r'<div class="comment"><p>(.*?)</p>', seg, re.S)
+    seen, revs = set(), []
+    for img, name, when, text in raw:
+        name = html.unescape(name).strip()
+        if name in seen:
+            continue
+        seen.add(name)
+        revs.append((img, name, html.unescape(when).strip(),
+                     re.sub(r"\s+", " ", html.unescape(re.sub("<[^>]+>", "", text))).strip()))
+    if len(revs) != 9:
+        raise SystemExit("invest-in-bonds: expected 9 reviews, found %d" % len(revs))
+
+    def rev(r, hidden=False):
+        img, name, when, text = r
+        return """            <figure class="gp-vreview"%s>
+              <figcaption class="gp-vreview__head">
+                <img class="gp-vreview__photo" src="../assets/img/%s" alt="" width="40" height="40">
+                <span>
+                  <span class="gp-vreview__name">%s</span>
+                  <span class="gp-vreview__meta"><span class="gp-review__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> %s</span>
+                </span>
+              </figcaption>
+              <blockquote class="gp-vreview__text">%s</blockquote>
+            </figure>""" % (' aria-hidden="true"' if hidden else "", img, esc(name), esc(when), esc(text))
+
+    options = ["Looking for better returns than traditional FDs", "Diversify my investment portfolio",
+               "Learning about bonds and fixed-income products", "Wide selection of bonds with competitive pricing",
+               "Heard about GoldenPi from a friend"]
+
+    body = """
+  <!-- ============================================================== hero -->
+  <!-- Their dark navy campaign hero, on the set's light hero wash so the
+       page keeps one theme. The form is the page's one action. -->
+  <section class="gp-hero gp-prod-hero">
+    <div class="gp-shell pt-10 pb-4">
+      <div class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+        <div data-reveal>
+          <h1 class="t-h1 gp-iib-h1">Earn <span class="t-bronze">Fixed Return</span> in<br> Volatile Market</h1>
+          <p class="mt-5 t-h3 font-medium">Get a return as high as <span class="gp-hero__figure">15%% p.a*</span></p>
+        </div>
+
+        <!-- Not wired: the live form posts to their sign-up API. Sign Up is
+             inactive until every field is valid, as the contact page's Send. -->
+        <form class="gp-signup" id="signup" novalidate>
+          <img class="gp-signup__coin" src="../assets/img/Money-Growth.png" alt="" width="80" height="80">
+          <h2 class="gp-signup__title">Sign Up to Get Started</h2>
+          <div class="gp-field">
+            <label for="iib-name">Name</label>
+            <input id="iib-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="gp-field">
+            <label for="iib-email">Email</label>
+            <input id="iib-email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="gp-field">
+            <label for="iib-topic">What makes you interested in GoldenPi?</label>
+            <select id="iib-topic" name="topic" required>
+              <option value="" selected disabled>What makes you interested in GoldenPi?</option>
+%s
+            </select>
+          </div>
+          <label class="gp-signup__agree">
+            <input type="checkbox" name="agree" required>
+            <span>I agree to the <a class="underline" href="terms-and-conditions.html">Terms &amp; Conditions</a> and <a class="underline" href="privacy-policy.html">Privacy Policy</a></span>
+          </label>
+          <button type="submit" class="gp-cta gp-cta--primary gp-signup__send">Sign Up</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================= stats -->
+  <section class="gp-shell mt-10 mb-14" data-reveal>
+    <dl class="gp-stats gp-iib-stats">
+      <div class="gp-stats__item">
+        <dd class="gp-stats__value">&#8377;<span data-count>6300</span> Cr+</dd>
+        <dt class="gp-stats__label">total transaction through our platform</dt>
+      </div>
+      <div class="gp-stats__item">
+        <dd class="gp-stats__value"><span data-count>18</span> Lac+</dd>
+        <dt class="gp-stats__label">registered users &amp; growing</dt>
+      </div>
+      <div class="gp-stats__item">
+        <dd class="gp-stats__value"><img src="../assets/img/sebi-logo.svg" alt="SEBI" width="88" height="41"></dd>
+        <dt class="gp-stats__label">SEBI Registered debt broker</dt>
+      </div>
+    </dl>
+  </section>
+""" % "\n".join("              <option>%s</option>" % o for o in options)
+
+    # One account: the cream panel, text left, their illustration right.
+    body += section("""      <div class="gp-panel-warm grid items-center gap-8 overflow-hidden rounded-3xl p-6 sm:p-10 md:grid-cols-[1.2fr_1fr]">
+        <div>
+          <h2 class="gp-section__title text-left">One Account for Multiple Fixed Income Assets</h2>
+          <p class="mt-3 t-body t-muted">Corporate Bonds, FDs, NCD or Bond IPOs, Sovereign Gold Bond</p>
+          <a class="gp-cta gp-cta--primary mt-6" href="#signup">Sign Up for Free</a>
+        </div>
+        <img class="gp-float w-full max-w-[360px] justify-self-center" src="../assets/img/one-account-icon.png" alt="" width="406" height="277" loading="lazy">
+      </div>""")
+
+    body += section("""      <div class="text-center">
+        <h2 class="gp-section__title">Trusted Partners</h2>
+        <p class="mt-2 t-body t-muted mx-auto">Our technology &amp; process is trusted by leading brokers/market leaders.</p>
+      </div>
+      <div class="mt-8">
+%s
+      </div>""" % partners(""))
+
+    # Why invest: the claim left, their comparison as a card right.
+    body += section("""      <div class="grid items-center gap-8 md:grid-cols-[1fr_1fr] md:gap-14">
+        <div>
+          <p class="gp-eyebrow mb-4">WHY INVEST IN BONDS</p>
+          <h2 class="gp-section__title text-left">Get better Returns than Bank FDs</h2>
+          <p class="mt-4 t-body t-muted">Bonds can offer higher returns, diversification, liquidity, and tax benefits compared to fixed deposits, with some risks involved.</p>
+        </div>
+        <figure class="gp-card m-0 p-6 sm:p-8">
+          <p class="t-body">1&nbsp;Lac Invested could earn <span class="gp-hero__figure">&#8377; <span data-count data-sep>15,000</span></span> more in 5 years</p>
+          <div class="gp-vbars mt-6" data-reveal>
+            <div class="gp-vbars__col" style="--h:%.0f%%"><span class="gp-vbars__val">6.80%%</span><span class="gp-vbars__bar"></span><span class="gp-vbars__label">Bank Deposit</span></div>
+            <div class="gp-vbars__col gp-vbars__col--bond" style="--h:100%%"><span class="gp-vbars__val">11.02%%</span><span class="gp-vbars__bar"></span><span class="gp-vbars__label">Bond</span></div>
+          </div>
+          <figcaption class="mt-5 t-small t-muted">Based on pre-tax returns of high rated bonds (AA rated ) &amp; SBI FD returns (AAA rated)**</figcaption>
+        </figure>
+      </div>""" % (6.80 / 11.02 * 100))
+
+    # Maximize: the one gold banner on the page.
+    body += section("""      <div class="gp-gold-card gp-iib-banner">
+        <div>
+          <h2 class="gp-section__title text-left">Maximize Your Investments</h2>
+          <p class="mt-2 t-body">Find the right bonds to fulfill your financial goals!</p>
+          <a class="gp-cta gp-iib-banner__cta mt-6" href="#signup">Get Started</a>
+        </div>
+        <img class="gp-float" src="../assets/img/maximize-investments.webp" alt="" width="249" height="237" loading="lazy">
+      </div>""")
+
+    # Why choose: four figure tiles beside the claim.
+    body += section("""      <div class="grid items-center gap-10 lg:grid-cols-[1fr_1fr]">
+        <div class="grid grid-cols-2 gap-4 gp-stagger" data-reveal>
+          <div class="gp-card gp-iib-tile"><p class="gp-iib-figure"><span data-count>100</span>%</p><p class="gp-iib-tile__label">Online investment experience.</p></div>
+          <div class="gp-card gp-iib-tile"><p class="gp-iib-figure">4.7 <img src="../assets/img/stars.png" alt="" width="84" height="14" class="gp-iib-stars"></p><p class="gp-iib-tile__label">Overall Google Rating.</p></div>
+          <div class="gp-card gp-iib-tile"><p class="gp-iib-figure">&#8377;<span data-count>3000</span> Cr+</p><p class="gp-iib-tile__label">worth of bonds available on the platform everyday</p></div>
+          <div class="gp-card gp-iib-tile gp-iib-tile--gold"><p class="gp-iib-tile__label gp-iib-tile__label--top">Invest as low as</p><p class="gp-iib-figure">&#8377;10,000</p></div>
+        </div>
+        <div>
+          <p class="gp-eyebrow mb-4">WHY CHOOSE GOLDENPI</p>
+          <h2 class="gp-section__title text-left"><span class="t-bronze">No Brokerage<br>No Charges</span><br>Dedicated Account Manager</h2>
+          <p class="mt-4 t-body t-muted">Discover GoldenPi and enjoy secure and hassle-free investing with excellent customer service, and an easy-to-follow and safe process.</p>
+        </div>
+      </div>""")
+
+    body += section("""      <div class="grid items-center gap-8 md:grid-cols-[1.1fr_0.9fr] md:gap-14">
+        <div>
+          <h2 class="gp-section__title text-left">Diversify Your Portfolio with Bonds</h2>
+          <p class="mt-4 t-body t-muted">Don't put all your eggs in one basket. Take advantage of opportunities amid a new market environment of high- interest rates, inflation, and volatility. Bonds have historically demonstrated a lower correlation with equities, making them an effective tool for reducing volatility.</p>
+          <p class="mt-4 t-small t-muted">*This information should not be relied upon as research, investment advice or a recommendation regarding the funds or any security in particular. This information is strictly for illustrative and educational purposes and is subject to change.</p>
+        </div>
+        <img class="gp-spin-in gp-iib-chart w-full max-w-[440px] justify-self-center" src="../assets/img/diversify-portfolio-d.webp" alt="A chart of a portfolio split between Bonds/NCDs and Equity Investment" width="1971" height="1603" loading="lazy" data-reveal>
+      </div>""")
+
+    body += section("""      <div class="grid items-center gap-8 md:grid-cols-[1.2fr_0.8fr]">
+        <div>
+          <h2 class="gp-section__title text-left">Invest in 3 Simple Steps</h2>
+          <ol class="gp-steps mt-6" data-reveal>
+            <li><p class="gp-steps__num"><span>01</span></p><p class="gp-steps__title">Complete KYC</p></li>
+            <li><p class="gp-steps__num"><span>02</span></p><p class="gp-steps__title">Choose Bond</p></li>
+            <li><p class="gp-steps__num"><span>03</span></p><p class="gp-steps__title">Make Investment</p></li>
+          </ol>
+          <a class="gp-cta gp-cta--primary mt-6" href="#signup">Sign Up Now!</a>
+        </div>
+        <img class="gp-float w-full max-w-[260px] justify-self-center" src="../assets/img/invest-3-Steps.webp" alt="" width="297" height="363" loading="lazy">
+      </div>""")
+
+    # Testimonials: their vertical carousel as a slow column that drifts up
+    # (the page's one marquee), paused on hover, static under reduced motion.
+    body += section("""      <div class="gp-iib-reviews">
+        <div>
+          <p class="gp-eyebrow mb-4">TESTIMONIALS</p>
+          <h2 class="gp-section__title text-left">Read What our customers<br>have to say</h2>
+          <p class="mt-4 t-body t-muted">Hear it straight from those who have successfully modernized their portfolios with GoldenPi.</p>
+          <dl class="mt-8 flex gap-10">
+            <div><dt class="t-small t-muted">Registered Users</dt><dd class="mt-1 gp-iib-figure">18 Lac+</dd></div>
+            <div><dt class="t-small t-muted">Overall Google Rating</dt><dd class="mt-1 gp-iib-figure">4.7 <img class="inline-block align-middle" src="../assets/img/stars.png" alt="Rating" width="105" height="17"></dd></div>
+          </dl>
+        </div>
+        <!-- DATA: Google reviews, as production shows them on %s. -->
+        <div class="gp-vmarquee">
+          <div class="gp-vmarquee__track">
+%s
+%s
+          </div>
+        </div>
+      </div>""" % (SNAPSHOT, "\n".join(rev(r) for r in revs), "\n".join(rev(r, True) for r in revs)))
+
+    body += section("""      <div class="gp-panel-warm grid items-center gap-8 rounded-3xl p-6 sm:p-10 md:grid-cols-[1.3fr_0.7fr]">
+        <div>
+          <h2 class="gp-section__title text-left">Turn your investment into income.</h2>
+          <p class="mt-3 t-body t-muted">Invest in highly rated fixed income assets, get help from your dedicated account manager &#8212; all on one easy-to-use platform</p>
+          <a class="gp-cta gp-cta--primary mt-6" href="#signup">Get Started</a>
+        </div>
+        <img class="gp-float w-full max-w-[220px] justify-self-center" src="../assets/img/investment-income.webp" alt="" width="241" height="318" loading="lazy">
+      </div>
+      <div class="mt-8 space-y-3 t-small t-muted">
+        <p>References: The returns indicated are based on max pre-tax IPO returns of the IPO issue with SBI Fixed deposit (AAA rated) returns 7% p.a for tenure between 2 years to less than 3 years for Deposits below Rs. 2 Cr as rated w.e.f. 27/12/2023, * The graph representation includes the returns from Navi Finserv Limited (A rated) at 11.02% closed on 13/07/2023, as reference. *Returns can vary based on the market behavior. Investor discretion is required.</p>
+        <p>Disclaimer: Investments in debt securities/municipal debt securities/securitized debt instruments are subject to risks including delay and/or default in payment. Read all the offer-related documents carefully.</p>
+      </div>""")
+
+    page(s, "Invest in Bonds | Get returns up to 12% | GoldenPi",
+         "GoldenPi is India's first online platform to buy Bonds and Debentures. Invest in bonds online and get better returns than bank FD. Invest now with GoldenPi",
+         "Invest in Bonds, rebuilt from goldenpi.com/invest-in-bonds on corporate-bonds.html's components.",
+         body)
+
+
 if __name__ == "__main__":
     sgb()
     gsec()
     better()
     media()
+    invest()

@@ -195,6 +195,40 @@ For review:
 - The live "Current IPO" (Edelweiss) and past SGB series are dated
   `DATA:` snapshots of 2026-09-28.
 
+
+---
+
+## Invest in Bonds (2026-09-28)
+
+`pages/invest-in-bonds.html`, from `goldenpi.com/invest-in-bonds` (uatnew
+serves a placeholder). **Generated** by `invest()` in `pages/_prod.py`;
+CSS is the `invest-in-bonds` block at the end of `final.css`. Captured first
+(`crawl/raw/`, `crawl/rendered/`, `crawl/shots/`), copy and hand-checked
+controls in `content/prod_invest-in-bonds.md`. Nine reviews read from the
+capture. Not run through `check.js` (user batch-tests).
+
+- **A sign-up landing on the set's parts:** light hero with the form as the
+  one action (gold top edge, their coin sticker bobbing), stat strip with
+  their SEBI logo, cream panels, one gold banner (Maximize), four figure
+  tiles beside Why Choose, steps, their reviews as a slow vertical column
+  (the page's one marquee), closing panel, references and disclaimer.
+- **Motion:** figures count up, the FD bars grow, the donut turns in, the
+  illustrations bob; all off under reduced motion.
+- **Redesign pass (same day, redesign-skill):** hero headline at display
+  size in their two lines; the form rings once in gold when a CTA lands on
+  it and carries a soft gold halo; stat figures enlarged; the four Why
+  Choose tiles share one structure (figure, then label; the entry price on
+  the bond gold) instead of mixing figures with faint grey icons; the donut
+  in a deliberate card; the select clears its arrow on phones; the banner
+  illustration capped on phones. `check.js invest-in-bonds.html` clean.
+- **For review:** the live page has a logo-only header and a dark navy hero;
+  here it uses the shared header/footer and the light hero so the set keeps
+  one theme. All CTAs (Sign Up For Free, Get Started, Sign Up Now!) are
+  buttons on live that lead to the form; here they link to `#signup`. The
+  form is not wired and Sign Up stays inactive until it is valid. The
+  FD comparison says ₹15,000 here but ₹21,100 on bond-better-return-fds:
+  both as captured. "all on one easy-to-use platform" keeps their dash.
+
 ---
 
 ## Refer & Earn (2026-09-26)
