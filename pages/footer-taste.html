@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Footer, Figma UI | GoldenPi</title>
+<title>Footer, taste | GoldenPi</title>
 <!-- The goldenpi.com footer, redesigned. Copy and links are from the production
      homepage, captured 2026-09-28 into content/prod_footer.md: the <footer> and
      the <footer-qna> block under it, regrouped into two parts:
      1) navigation, documents, disclosures, copyright; 2) SEO copy and links.
-     The same blocks as footer.html in the light scheme of Figma frame 242:21690. Paths this repo has a
+     Important Information uses the Important links chips. Paths this repo has a
      page for point at that page; everything else points at goldenpi.com. -->
 <meta name="description" content="GoldenPi site footer: navigation, collections, investor documents and regulatory disclosures.">
 <link rel="icon" href="../assets/img/goldenpi-logo.svg">
@@ -18,17 +18,15 @@
 <link rel="stylesheet" href="../assets/final.css">
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
-  /* Variant 3: the light scheme from the GoldenPi Web Design Figma, footer
-     frame 242:21690. Same blocks as footer.html; only colour and chrome change. */
+  /* Dark ground is the harvested dark theme (--app-page-bg #1a1510, heading
+     #f4e9c8), so the footer is the one place the dark tokens show. */
   .ft {
-    --ft-bg: #fcfbfa;          /* Figma "bg ligh" */
-    --ft-band: #f0ece6;        /* lower band, sampled from the frame */
-    --ft-ink: #322811;         /* "darker brown" */
-    --ft-muted: #514834;       /* "brown dark" */
-    --ft-faint: #666666;       /* "subtext" */
-    --ft-line: #e7e3d999;      /* "stroke light" */
-    --ft-card: #ffffff;
-    --ft-accent: #a67c00;      /* "icon" */
+    --ft-bg: #1a1510;
+    --ft-ink: #f4e9c8;
+    --ft-muted: rgba(244, 233, 200, 0.64);
+    --ft-faint: rgba(244, 233, 200, 0.46);
+    --ft-line: rgba(244, 233, 200, 0.1);
+    --ft-card: rgba(244, 233, 200, 0.04);
     position: relative;
     overflow: hidden;
     margin-top: 72px;
@@ -39,7 +37,7 @@
   }
   .ft a { color: inherit; text-decoration: none; }
   .ft a:focus-visible, .ft button:focus-visible, .ft summary:focus-visible {
-    outline: 2px solid var(--ft-accent);
+    outline: 2px solid var(--mustard);
     outline-offset: 3px;
     border-radius: 6px;
   }
@@ -71,24 +69,24 @@
     border: 1px solid var(--ft-line); border-radius: 50%;
     transition: transform 0.25s var(--ease), background-color 0.25s, border-color 0.25s;
   }
-  .ft-social a:hover { transform: translateY(-3px); background: rgba(212, 175, 55, 0.16); border-color: var(--ft-accent); }
+  .ft-social a:hover { transform: translateY(-3px); background: rgba(212, 175, 55, 0.16); border-color: var(--mustard); }
   .ft-social img { width: 16px; height: 16px; object-fit: contain; }
-  .ft-col h2 { margin-bottom: 16px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ft-accent); }
+  .ft-col h2 { margin-bottom: 16px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mustard); }
   .ft-col li + li { margin-top: 10px; }
   /* Gold underline grows from the left on hover. */
-  .ft-link { background: linear-gradient(var(--ft-accent), var(--ft-accent)) 0 100% / 0 1px no-repeat; transition: background-size 0.3s var(--ease), color 0.2s; }
+  .ft-link { background: linear-gradient(var(--mustard), var(--mustard)) 0 100% / 0 1px no-repeat; transition: background-size 0.3s var(--ease), color 0.2s; }
   .ft-link:hover { color: var(--ft-ink); background-size: 100% 1px; }
 
   /* ----------------------------------------------------------- link bands */
   .ft-band { padding-block: 28px; border-top: 1px solid var(--ft-line); }
-  .ft-band > h2 { margin-bottom: 14px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ft-accent); }
+  .ft-band > h2 { margin-bottom: 14px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mustard); }
   .ft-chips { display: flex; flex-wrap: wrap; gap: 8px; }
   .ft-chips a {
     padding: 6px 14px; border: 1px solid var(--ft-line); border-radius: 999px;
     background: var(--ft-card); font-size: 13px;
     transition: border-color 0.2s, color 0.2s, background-color 0.2s;
   }
-  .ft-chips a:hover { border-color: var(--ft-accent); color: var(--ft-ink); background: rgba(212, 175, 55, 0.1); }
+  .ft-chips a:hover { border-color: var(--mustard); color: var(--ft-ink); background: rgba(212, 175, 55, 0.1); }
   .ft-chips--ext a::after { content: " \2197"; color: var(--ft-faint); }
 
   .ft-docs { display: grid; gap: 8px; }
@@ -99,8 +97,8 @@
     border: 1px solid var(--ft-line); border-radius: 12px; background: var(--ft-card);
     transition: border-color 0.2s, transform 0.25s var(--ease), color 0.2s;
   }
-  .ft-docs a:hover { border-color: var(--ft-accent); color: var(--ft-ink); transform: translateX(3px); }
-  .ft-docs svg { flex: none; width: 18px; height: 18px; color: var(--ft-accent); }
+  .ft-docs a:hover { border-color: rgba(212, 175, 55, 0.5); color: var(--ft-ink); transform: translateX(3px); }
+  .ft-docs svg { flex: none; width: 18px; height: 18px; color: var(--mustard); }
   .ft-docs span { flex: 1; }
   .ft-docs small { color: var(--ft-faint); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; }
 
@@ -112,9 +110,9 @@
   .ft-legal h2 { margin-bottom: 12px; font-size: 16px; }
   .ft-legal p + p { margin-top: 10px; }
   .ft-legal a.u { color: var(--ft-muted); text-decoration: underline; text-underline-offset: 3px; }
-  .ft-legal a.u:hover { color: var(--ft-accent); }
+  .ft-legal a.u:hover { color: var(--mustard); }
   .ft-legal strong { color: var(--ft-muted); }
-  .ft-more > summary { display: inline-flex; margin-top: 12px; color: var(--ft-accent); font-weight: 700; cursor: pointer; list-style: none; }
+  .ft-more > summary { display: inline-flex; margin-top: 12px; color: var(--mustard); font-weight: 700; cursor: pointer; list-style: none; }
   .ft-more > summary::-webkit-details-marker { display: none; }
   .ft-more[open] > summary { display: none; }
 
@@ -124,7 +122,7 @@
   .ft-faq summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 16px; cursor: pointer; list-style: none; }
   .ft-faq summary::-webkit-details-marker { display: none; }
   .ft-faq summary h2 { margin: 0; font-size: 15px; }
-  .ft-faq summary::after { content: "+"; flex: none; color: var(--ft-accent); font-size: 22px; line-height: 1; transition: transform 0.3s var(--ease); }
+  .ft-faq summary::after { content: "+"; flex: none; color: var(--mustard); font-size: 22px; line-height: 1; transition: transform 0.3s var(--ease); }
   .ft-faq details[open] summary::after { transform: rotate(45deg); }
   .ft-faq details > div { padding-bottom: 18px; }
   .ft-faq ul { margin-top: 8px; padding-left: 18px; list-style: disc; }
@@ -139,7 +137,7 @@
      part 2 (SEO) sits on the darker band. */
   .ft-legal--reg { padding-block: 32px; background: none; }
   .ft-seo .ft-band { margin-top: 32px; }
-  .ft-legal .ft-band > h2 { margin-bottom: 14px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ft-accent); }
+  .ft-legal .ft-band > h2 { margin-bottom: 14px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mustard); }
 
   @media (prefers-reduced-motion: reduce) {
     .ft__pi { animation: none; }
@@ -148,30 +146,6 @@
   @media (max-width: 639px) {
     .ft__pi { width: 260px; right: -90px; }
   }
-
-  /* ---------------------------------------------- Figma 242:21690 chrome */
-  .ft { margin-top: 0; border-top: 1px solid var(--ft-line); }
-  .ft__pi { display: none; }
-  .ft-main { border-bottom: 1px solid var(--ft-line); }
-  .ft-brand address, .ft-brand p { font-size: 13px; }
-  .ft-col h2 { padding-bottom: 12px; border-bottom: 1px solid var(--ft-line); color: var(--ft-faint); font-weight: 500; letter-spacing: 0.12em; }
-  .ft-col a { color: var(--ft-ink); }
-  .ft-social a { border-radius: 8px; background: #fff; border-color: var(--ft-line); box-shadow: 0 1px 2px rgba(50, 40, 17, 0.04); }
-  .ft-social a:hover { background: #fff; border-color: var(--ft-accent); }
-  .ft-social img { filter: brightness(0); opacity: 0.85; }
-  .ft-band { border-top: 0; }
-  .ft-band > h2, .ft-legal .ft-band > h2 { color: var(--ft-ink); font-size: 15px; letter-spacing: 0; text-transform: none; }
-  .ft-chips a { border-color: transparent; background: #fff; color: var(--ft-ink); box-shadow: 0 1px 2px rgba(50, 40, 17, 0.05); }
-  .ft-chips a:hover { border-color: var(--ft-accent); background: #fff; color: var(--ft-ink); }
-  .ft-chips--ext a::after { content: none; }
-  .ft-legal { background: var(--ft-band); color: var(--ft-faint); }
-  .ft-legal--reg { background: none; }
-  .ft-legal a.u { color: var(--ft-ink); font-weight: 500; }
-  .ft-legal a.u:hover { color: var(--ft-accent); }
-  .ft-legal strong { color: var(--ft-muted); }
-  .ft-more > summary { color: var(--ft-ink); text-decoration: underline; text-underline-offset: 3px; }
-  .ft-reg div { border-color: var(--ft-line); background: #fff; }
-  .ft-copy { color: var(--ft-ink); font-weight: 700; }
 </style>
 </head>
 <body>
@@ -191,7 +165,7 @@
 
     <div class="ft-main">
       <div class="ft-brand" data-reveal>
-        <img src="../assets/img/goldenpi-logo.svg" alt="GoldenPi" width="148" height="44">
+        <img src="../assets/img/goldenpi-logo-white.svg" alt="GoldenPi" width="148" height="44">
         <p class="ft-brand__co">GoldenPi Securities Pvt Ltd</p>
         <p>(A wholly owned subsidiary of GoldenPi Technologies Pvt Ltd)</p>
         <address>
