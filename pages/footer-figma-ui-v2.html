@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Footer, Figma UI v2 | GoldenPi</title>
+<!-- The goldenpi.com footer, redesigned. Copy and links are from the production
+     homepage, captured 2026-09-28 into content/prod_footer.md: the <footer> and
+     the <footer-qna> block under it, regrouped into two parts:
+     1) navigation, documents, disclosures, copyright; 2) SEO copy and links.
+     The same blocks as footer.html in the light scheme of Figma frame 242:21690. Paths this repo has a
+     page for point at that page; everything else points at goldenpi.com. -->
+<meta name="description" content="GoldenPi site footer: navigation, collections, investor documents and regulatory disclosures.">
+<link rel="icon" href="../assets/img/goldenpi-logo.svg">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/final.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  /* Variant 3: the light scheme from the GoldenPi Web Design Figma, footer
+     frame 242:21690, with the font weights reduced to three roles (v2). Same blocks as footer.html; only colour and chrome change. */
+  .ft {
+    --ft-bg: #fcfbfa;          /* Figma "bg ligh" */
+    --ft-band: #f0ece6;        /* lower band, sampled from the frame */
+    --ft-ink: #322811;         /* "darker brown" */
+    --ft-muted: #514834;       /* "brown dark" */
+    --ft-faint: #666666;       /* "subtext" */
+    --ft-line: #e7e3d999;      /* "stroke light" */
+    --ft-card: #ffffff;
+    --ft-accent: #a67c00;      /* "icon" */
+    position: relative;
+    overflow: hidden;
+    margin-top: 72px;
+    background: var(--ft-bg);
+    color: var(--ft-muted);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .ft a { color: inherit; text-decoration: none; }
+  .ft a:focus-visible, .ft button:focus-visible, .ft summary:focus-visible {
+    outline: 2px solid var(--ft-accent);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  .ft h2, .ft h3 { color: var(--ft-ink); font-weight: 700; }
+
+  /* The pi mark the live footer carries, drifting slowly top right. */
+  .ft__pi {
+    position: absolute;
+    top: -40px;
+    right: -60px;
+    width: 420px;
+    pointer-events: none;
+    animation: ft-drift 18s ease-in-out infinite alternate;
+  }
+  @keyframes ft-drift { to { transform: translate(-24px, 28px) rotate(-4deg); } }
+
+  .ft__inner { position: relative; }
+
+  /* ----------------------------------------------------------- main grid */
+  .ft-main { display: grid; gap: 40px 32px; padding-block: 56px 44px; }
+  @media (min-width: 640px) { .ft-main { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .ft-main { grid-template-columns: 1.5fr repeat(4, 1fr); } }
+  .ft-brand address { margin-top: 12px; font-style: normal; }
+  .ft-brand__co { margin-top: 20px; color: var(--ft-ink); font-weight: 700; }
+  .ft-brand__tel a { color: var(--ft-ink); font-weight: 700; }
+  .ft-social { display: flex; gap: 10px; margin-top: 22px; }
+  .ft-social a {
+    display: grid; place-items: center; width: 40px; height: 40px;
+    border: 1px solid var(--ft-line); border-radius: 50%;
+    transition: transform 0.25s var(--ease), background-color 0.25s, border-color 0.25s;
+  }
+  .ft-social a:hover { transform: translateY(-3px); background: rgba(212, 175, 55, 0.16); border-color: var(--ft-accent); }
+  .ft-social img { width: 16px; height: 16px; object-fit: contain; }
+  .ft-col h2 { margin-bottom: 16px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ft-accent); }
+  .ft-col li + li { margin-top: 10px; }
+  /* Gold underline grows from the left on hover. */
+  .ft-link { background: linear-gradient(var(--ft-accent), var(--ft-accent)) 0 100% / 0 1px no-repeat; transition: background-size 0.3s var(--ease), color 0.2s; }
+  .ft-link:hover { color: var(--ft-ink); background-size: 100% 1px; }
+
+  /* ----------------------------------------------------------- link bands */
+  .ft-band { padding-block: 28px; border-top: 1px solid var(--ft-line); }
+  .ft-band > h2 { margin-bottom: 14px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ft-accent); }
+  .ft-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .ft-chips a {
+    padding: 6px 14px; border: 1px solid var(--ft-line); border-radius: 999px;
+    background: var(--ft-card); font-size: 13px;
+    transition: border-color 0.2s, color 0.2s, background-color 0.2s;
+  }
+  .ft-chips a:hover { border-color: var(--ft-accent); color: var(--ft-ink); background: rgba(212, 175, 55, 0.1); }
+  .ft-chips--ext a::after { content: " \2197"; color: var(--ft-faint); }
+
+  .ft-docs { display: grid; gap: 8px; }
+  @media (min-width: 640px) { .ft-docs { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .ft-docs { grid-template-columns: repeat(3, 1fr); } }
+  .ft-docs a {
+    display: flex; align-items: center; gap: 12px; padding: 12px 14px;
+    border: 1px solid var(--ft-line); border-radius: 12px; background: var(--ft-card);
+    transition: border-color 0.2s, transform 0.25s var(--ease), color 0.2s;
+  }
+  .ft-docs a:hover { border-color: var(--ft-accent); color: var(--ft-ink); transform: translateX(3px); }
+  .ft-docs svg { flex: none; width: 18px; height: 18px; color: var(--ft-accent); }
+  .ft-docs span { flex: 1; }
+  .ft-docs small { color: var(--ft-faint); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; }
+
+  .ft-copy { padding-block: 20px; border-top: 1px solid var(--ft-line); color: var(--ft-faint); font-size: 13px; }
+
+  /* ---------------------------------------------------------------- legal */
+  .ft-legal { padding-block: 40px 56px; background: rgba(0, 0, 0, 0.22); font-size: 13px; line-height: 1.7; color: var(--ft-faint); }
+  .ft-legal section + section { margin-top: 36px; }
+  .ft-legal h2 { margin-bottom: 12px; font-size: 16px; }
+  .ft-legal p + p { margin-top: 10px; }
+  .ft-legal a.u { color: var(--ft-muted); text-decoration: underline; text-underline-offset: 3px; }
+  .ft-legal a.u:hover { color: var(--ft-accent); }
+  .ft-legal strong { color: var(--ft-muted); }
+  .ft-more > summary { display: inline-flex; margin-top: 12px; color: var(--ft-accent); font-weight: 700; cursor: pointer; list-style: none; }
+  .ft-more > summary::-webkit-details-marker { display: none; }
+  .ft-more[open] > summary { display: none; }
+
+
+  .ft-faq { border-top: 1px solid var(--ft-line); }
+  .ft-faq details { border-bottom: 1px solid var(--ft-line); }
+  .ft-faq summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 16px; cursor: pointer; list-style: none; }
+  .ft-faq summary::-webkit-details-marker { display: none; }
+  .ft-faq summary h2 { margin: 0; font-size: 15px; }
+  .ft-faq summary::after { content: "+"; flex: none; color: var(--ft-accent); font-size: 22px; line-height: 1; transition: transform 0.3s var(--ease); }
+  .ft-faq details[open] summary::after { transform: rotate(45deg); }
+  .ft-faq details > div { padding-bottom: 18px; }
+  .ft-faq ul { margin-top: 8px; padding-left: 18px; list-style: disc; }
+
+  .ft-reg { display: grid; gap: 10px; margin-block: 18px; }
+  @media (min-width: 640px) { .ft-reg { grid-template-columns: repeat(3, 1fr); } }
+  .ft-reg div { padding: 16px 18px; border: 1px solid rgba(212, 175, 55, 0.24); border-radius: 14px; background: rgba(212, 175, 55, 0.06); }
+  .ft-reg dt { font-size: 12px; }
+  .ft-reg dd { margin-top: 4px; color: var(--ft-ink); font-size: 20px; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: 0.02em; }
+
+  /* Two parts: part 1 carries the regulatory copy inline on the main ground;
+     part 2 (SEO) sits on the darker band. */
+  .ft-legal--reg { padding-block: 32px; background: none; }
+  .ft-seo .ft-band { margin-top: 32px; }
+  .ft-legal .ft-band > h2 { margin-bottom: 14px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ft-accent); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ft__pi { animation: none; }
+    .ft-social a, .ft-docs a { transition: none; }
+  }
+  @media (max-width: 639px) {
+    .ft__pi { width: 260px; right: -90px; }
+  }
+
+  /* ---------------------------------------------- Figma 242:21690 chrome */
+  .ft { margin-top: 0; border-top: 1px solid var(--ft-line); }
+  .ft__pi { display: none; }
+  .ft-main { border-bottom: 1px solid var(--ft-line); }
+  .ft-brand address, .ft-brand p { font-size: 13px; }
+  .ft-col h2 { padding-bottom: 12px; border-bottom: 1px solid var(--ft-line); color: var(--ft-faint); font-weight: 500; letter-spacing: 0.12em; }
+  .ft-col a { color: var(--ft-ink); }
+  .ft-social a { border-radius: 8px; background: #fff; border-color: var(--ft-line); box-shadow: 0 1px 2px rgba(50, 40, 17, 0.04); }
+  .ft-social a:hover { background: #fff; border-color: var(--ft-accent); }
+  .ft-social img { filter: brightness(0); opacity: 0.85; }
+  .ft-band { border-top: 0; }
+  .ft-band > h2, .ft-legal .ft-band > h2 { color: var(--ft-ink); font-size: 15px; letter-spacing: 0; text-transform: none; }
+  .ft-chips a { border-color: transparent; background: #fff; color: var(--ft-ink); box-shadow: 0 1px 2px rgba(50, 40, 17, 0.05); }
+  .ft-chips a:hover { border-color: var(--ft-accent); background: #fff; color: var(--ft-ink); }
+  .ft-chips--ext a::after { content: none; }
+  .ft-legal { background: var(--ft-band); color: var(--ft-faint); }
+  .ft-legal--reg { background: none; }
+  .ft-legal a.u { color: var(--ft-ink); font-weight: 500; }
+  .ft-legal a.u:hover { color: var(--ft-accent); }
+  .ft-legal strong { color: var(--ft-muted); }
+  .ft-more > summary { color: var(--ft-ink); text-decoration: underline; text-underline-offset: 3px; }
+  .ft-reg div { border-color: var(--ft-line); background: #fff; }
+  .ft-copy { color: var(--ft-ink); font-weight: 700; }
+
+  /* ------------------------------------------------ type weights (v2)
+     Three weights, one job each. 700 marks the company name only; 500 is
+     headings, figures and interactive text; 400 is everything else. The
+     headings share one size so size, not bold, sets the hierarchy. */
+  .ft-band > h2, .ft-legal .ft-band > h2,
+  .ft-legal h2, .ft-faq summary h2 { font-size: 17px; font-weight: 500; letter-spacing: -0.01em; }
+  .ft-faq summary h2 { font-size: 16px; }
+  .ft-brand__tel a, .ft-copy, .ft-more > summary, .ft-legal strong { font-weight: 500; }
+  .ft-copy { color: var(--ft-muted); }
+  .ft-reg dd { font-size: 22px; font-weight: 500; letter-spacing: 0; }
+</style>
+</head>
+<body>
+
+<a class="gp-skip" href="#footer">Skip to footer</a>
+
+<main>
+  <h1 class="sr-only">GoldenPi footer</h1>
+</main>
+
+<!-- ============================================================== footer -->
+<footer class="ft" id="footer">
+  <img class="ft__pi" src="../assets/img/pi.svg" alt="" width="331" height="298">
+
+  <!-- Part 1: navigation, documents, regulatory disclosures, copyright. -->
+  <div class="gp-shell ft__inner">
+
+    <div class="ft-main">
+      <div class="ft-brand" data-reveal>
+        <img src="../assets/img/goldenpi-logo.svg" alt="GoldenPi" width="148" height="44">
+        <p class="ft-brand__co">GoldenPi Securities Pvt Ltd</p>
+        <p>(A wholly owned subsidiary of GoldenPi Technologies Pvt Ltd)</p>
+        <address>
+          Indiqube Orion, 24th Main, 1st Sector,<br>
+          HSR Layout, Bangalore South,<br>
+          Bangalore, Karnataka - 560102
+        </address>
+        <p class="ft-brand__tel mt-3">Contact Us: <a href="tel:08045685666">080-45685666</a></p>
+        <p>CIN: U65990KA2022PTC164941</p>
+        <div class="ft-social">
+          <a href="https://www.facebook.com/goldenpitech" aria-label="GoldenPi on Facebook"><img src="../assets/img/facebook-icon.svg" alt=""></a>
+          <a href="https://twitter.com/GoldenPiTech" aria-label="GoldenPi on X (Twitter)"><img src="../assets/img/twitter-icon.svg" alt=""></a>
+          <a href="https://www.linkedin.com/company/goldenpi/" aria-label="GoldenPi on LinkedIn"><img src="../assets/img/linkdin-icon.svg" alt=""></a>
+          <a href="https://www.instagram.com/goldenpi_/" aria-label="GoldenPi on Instagram"><img src="../assets/img/Instagram-icon.svg" alt=""></a>
+          <a href="https://www.youtube.com/@goldenpi" aria-label="GoldenPi on YouTube"><img src="../assets/img/Youtube-icon.svg" alt=""></a>
+        </div>
+      </div>
+
+      <nav class="ft-col" aria-labelledby="ft-invest" data-reveal>
+        <h2 id="ft-invest">Invest with us</h2>
+        <ul>
+          <li><a class="ft-link" href="bond-ipo-online.html">Bond IPOs</a></li>
+          <li><a class="ft-link" href="corporate-bonds.html">Bonds</a></li>
+          <li><a class="ft-link" href="fixed-deposits.html">Fixed Deposits</a></li>
+          <li><a class="ft-link" href="https://goldenpi.com/sovereign-gold-bond">Sovereign Gold Bond</a></li>
+          <li><a class="ft-link" href="https://goldenpi.com/government-securities">Government Securities</a></li>
+        </ul>
+      </nav>
+
+      <nav class="ft-col" aria-labelledby="ft-company" data-reveal>
+        <h2 id="ft-company">Company</h2>
+        <ul>
+          <li><a class="ft-link" href="about-us.html">About us</a></li>
+          <li><a class="ft-link" href="https://goldenpi.com/media">Media</a></li>
+          <li><a class="ft-link" href="careers.html">Career at GoldenPi</a></li>
+          <li><a class="ft-link" href="https://goldenpi.com/faq">FAQs</a></li>
+          <li><a class="ft-link" href="contact-us.html">Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <nav class="ft-col" aria-labelledby="ft-new" data-reveal>
+        <h2 id="ft-new">New to GoldenPi</h2>
+        <ul>
+          <li><a class="ft-link" href="https://goldenpi.com/blog">GoldenPi Blogs</a></li>
+          <li><a class="ft-link" href="https://goldenpi.com/find-first-bond?ia=2-5-lac&amp;tr=5-10-yrs&amp;it=all&amp;sortBy=yield-high-to-low">Find Your First Bond</a></li>
+          <li><a class="ft-link" href="https://goldenpi.com/bond-vs-fd?ia=200000&amp;tr=3">Bond vs Fixed Deposit</a></li>
+        </ul>
+      </nav>
+
+      <nav class="ft-col" aria-labelledby="ft-read" data-reveal>
+        <h2 id="ft-read">Read more about bond investments</h2>
+        <ul>
+          <li><a class="ft-link" href="https://goldenpi.com/blog/essentials/bond-introduction/bond-glossary-20-terms-definitions-you-need-to-know">Bond Definitions</a></li>
+          <li><a class="ft-link" href="https://goldenpi.com/blog/essentials/bond-market/what-are-state-government-guaranteed-bonds-should-you-invest/">State Government Guaranteed Bonds</a></li>
+          <li><a class="ft-link" href="https://goldenpi.com/blog/investment-guide">Bond Investment Guide</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <nav class="ft-band" aria-labelledby="ft-info" data-reveal>
+      <h2 id="ft-info">Important Information</h2>
+      <div class="ft-chips ft-chips--ext">
+        <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/GoldenPi_Investor_Charter.pdf">Investor Charter</a>
+        <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/INVESTOR+GRIEVANCE+REDRESSAL+MECHANISM+Goldenpi.pdf">Investor Grievance</a>
+        <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/Investor+Complaint+Report.pdf">Investor Complaints</a>
+        <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/InvestorAdvisoryNote.pdf">Investor Advisory Note</a>
+        <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/Conflict+of+Interest.pdf">Conflict of Interest</a>
+        <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/Regulatory+disclosure.pdf">Regulatory Disclosure</a>
+        <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/Policies+for+Information.pdf">Policies for Information</a>
+        <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/RIGHTS+AND+OBLIGATIONS+OF+STOCK+BROKERS+AND+CLIENTS.pdf">Rights &amp; Obligations</a>
+        <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Escalation_Matrix/Escalation_Matrix.pdf">Escalation Matrix</a>
+        <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/DOs+AND+DONTs.pdf">Dos &amp; Donts</a>
+        <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/RISK+DISCLOSURE+DOCUMENT+FOR+CAPITAL+MARKET+AND+DERIVATIVES+SEGMENTS.pdf">Risk Disclosure</a>
+        <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/goldenpi_RDDvernacular.zip">RDD In Vernacular</a>
+        <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Freezing_Blocking_Account/Policy_on_Voluntary_Freezing.pdf">Voluntary Freezing/Blocking of Account</a>
+        <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Account_Opening/Account+Opening+Process.pdf">Account Opening Process</a>
+        <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Account_Closure/Account_Closure_Policy.pdf">Account Closure Process</a>
+        <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Advisory_to_Clients/Advisory_to_Clients.zip">Advisory to Clients</a>
+      </div>
+    </nav>
+    <nav class="ft-band" aria-labelledby="ft-links" data-reveal>
+      <h2 id="ft-links">Important links</h2>
+      <div class="ft-chips ft-chips--ext">
+        <a href="https://www.icclindia.com/">ICCL</a>
+        <a href="https://www.nscclindia.com/">NSCCL</a>
+        <a href="https://www.cdslindia.com/">CDSL</a>
+        <a href="https://nsdl.co.in/">NSDL</a>
+        <a href="https://www.bseindia.com/">BSE</a>
+        <a href="https://www.nseindia.com/">NSE</a>
+        <a href="https://www.sebi.gov.in/">SEBI</a>
+      </div>
+    </nav>
+
+    <div class="ft-band ft-legal ft-legal--reg">
+        <section data-reveal>
+          <h2>Note to Investors</h2>
+          <p>GoldenPi Securities Pvt. Ltd. (&ldquo;GSPL&rdquo;) is a wholly owned subsidiary of GoldenPi Technologies Pvt. Ltd. (&ldquo;GTPL&rdquo;) and is a SEBI registered broker under BSE new debt segment allowing investors to trade in secondary bonds &amp; debentures through exchange.</p>
+          <p>Fixed returns do not constitute guaranteed or assured returns. Investments in corporate debt securities, municipal debt securities/securitised debt instruments are subject to credit risks, market risks and default risks including delay and/or default in payment. Read all the offer related documents carefully.</p>
+          <p>Investors can update their email id and mobile number with their stock broker / depository participant and receive OTP directly from the depository on email id and/or mobile number to create a pledge. Investors can check their securities / MF / bonds in the consolidated account statement issued by NSDL/CDSL every month.</p>
+          <p>The FAQs on the platform are exclusively for educational information/knowledge and do not influence the investment/sale decisions of any investors.As you are aware, under the rapidly evolving dynamics of financial markets, it is crucial for investors to remain updated and well-informed about various aspects of investing in securities market. In this connection, please find a link to the BSE Investor Protection Fund website where you will find some useful educative material in the form of text and videos, so as to become an informed investor.</p>
+          <p><a class="u" href="https://www.bseipf.com/investors_education.html">https://www.bseipf.com/investors_education.html</a></p>
+          <p><strong>We believe that an educated investor is a protected investor !!!</strong></p>
+          <details class="ft-more">
+            <summary>Read More</summary>
+            <p>The information shown on the website should not be construed as financial advice or as an offer or recommendation to buy or sell any security or any products/services of GSPL or any product/services of its third-party client(s). The user should act and rely on the information/data shown on the website only after understanding all associated risk parameters. Any action/decision taken by the user on the basis of the information shown on this website shall be the sole responsibility of the user. Neither GSPL nor its directors, employees, associates, representatives, or agents shall be liable for any damages whether direct, indirect, special, or consequential including lost revenue or lost profits that may arise to the user from or in connection with the use of the information/data shown on this website.</p>
+            <p>We understand that certain investment advisors may be approaching members of the public including our clients, representing that they are our partners, or representing that their investment advice is based on our research. Please note that we have not engaged any third parties to render any investment advisory services on our behalf nor are we providing any stock recommendations/tips/research report/advisory. Persons making investments on the basis of such advice may lose all or a part of their investments along with the fee paid to such unscrupulous persons. Please be cautious about any phone call that you may receive from persons representing to be such investment advisors, or a part of research firm offering advice on securities. Do not make payments through e-mail links, WhatsApp or SMS. Please do not share your personal or financial information with any person without proper verification. Always trade through a registered broker.</p>
+            <p>We collect, retain, and use your contact information for legitimate business purposes only, to contact you and to provide you information &amp; latest updates regarding our products &amp; services.</p>
+            <p>Fixed Deposits are offered in the capacity of a distributor and all disputes with respect to distribution activity, would not have access to exchange investor redressal forum or arbitration mechanism.</p>
+            <p>Attention Investors - Check your securities / MF / bonds in the consolidated account statement issued by NSDL/CDSL every month. Issued in the interest of Investors</p>
+          </details>
+        </section>
+
+        <section data-reveal>
+          <h2>Filling complaints on <a class="u" href="https://smartodr.in/login">SMARTODR</a> &amp; <a class="u" href="https://scores.sebi.gov.in/">SCORES</a> - Easy &amp; Quick</h2>
+          <p>a. Register on the portal | b. Mandatory details for register and filing complaints - Name, PAN, Address, Mobile Number, E-mail ID | c. Benefits: i. Effective Communication ii. Speedy redressal of the grievances | d. Complaints against the companies shall be subject to the SMARTODR/SCORES guidelines</p>
+        </section>
+
+        <section data-reveal>
+          <h2>Risk Disclosure &amp; Regulatory Information</h2>
+          <p>Fixed returns do not mean guaranteed or assured returns. Investments in corporate debt securities, municipal debt securities, and securitised debt instruments carry credit risk, market risk, and default risk, including delay or default in payment. Please read all offer-related documents carefully before you invest.</p>
+          <p>The online bond platform goldenpi.com is owned by GoldenPi Securities Pvt Ltd (GSPL), an OBPP and debt broker registered with SEBI. GSPL is a wholly owned subsidiary of GoldenPi Technologies Pvt Ltd (GTPL).</p>
+          <dl class="ft-reg">
+            <div><dt>SEBI Registration No.:</dt><dd>INZ000310732</dd></div>
+            <div><dt>BSE Member ID:</dt><dd>6809</dd></div>
+            <div><dt>NSE Member ID:</dt><dd>90331</dd></div>
+          </dl>
+          <p>Compliance Officer: Kunal Sharma, Tel. No.: <a class="u" href="tel:080-45685666">080-45685666</a>, Email ID: <a class="u" href="mailto:grievance-gspl@goldenpi.com">grievance-gspl@goldenpi.com</a> (for any compliance &amp; grievance related complaints)</p>
+          <p>Key Managerial Personnel: Abhijit Roy - Designated Director &amp; CEO, Samir Baran Pratihar - Designated Director &amp; CTO</p>
+          <p>Tel. No.: 080-45685666 | Email: <a class="u" href="mailto:contact-us@goldenpi.com">contact-us@goldenpi.com</a></p>
+        </section>
+    </div>
+
+    <p class="ft-copy">&copy; Copyright 2017 - 2026 | GoldenPi Securities Pvt. Ltd.</p>
+  </div>
+
+  <!-- Part 2: SEO copy and SEO links (the About GoldenPi Q&As, collections). -->
+  <div class="ft-legal ft-seo">
+    <div class="gp-shell">
+
+      <section class="ft-faq" data-reveal>
+        <details open>
+          <summary><h2>About GoldenPi</h2></summary>
+          <div>
+            <p>GoldenPi is one of India's most trusted fintech companies, enabling individual investors to invest in Bonds and Debentures online through a simple, secure, and transparent platform.</p>
+            <p>For a long time, Bonds were regarded as a dependable way to earn a steady secondary income, yet access to them remained largely confined to financial institutions and High Net-Worth Individuals (HNIs). GoldenPi was founded in 2017 with a clear purpose: to open up this opportunity and make Bonds and Debentures accessible to every retail investor in India.</p>
+            <p>The platform goldenpi.com is owned by GoldenPi Securities Pvt Ltd (GSPL), a SEBI-registered Online Bond Platform Provider (OBPP) and debt broker, and a wholly owned subsidiary of GoldenPi Technologies Pvt Ltd (GTPL). In January 2023, GoldenPi became the first online bond platform to receive a debt broker licence under SEBI's OBPP framework. Today, investors can explore a wide range of fixed-income options on a single platform, including Corporate Bonds, Government Bonds, NCD IPOs, and Fixed Deposits.</p>
+            <p>More than 16 lakh users have registered with GoldenPi, investing over ₹5,512 crore through the platform with zero defaults to date. The company is further backed by Zerodha's Rainmatter, which strengthens the trust and credibility it has built among investors.</p>
+          </div>
+        </details>
+        <details>
+          <summary><h2>As an Individual, What is the Need for You to Invest?</h2></summary>
+          <div>
+            <p>Investing means using a part of your money to buy assets, so that your money can grow over time. But why is it needed?</p>
+            <p>The money you earn from work usually has a limit. A salary can rise only up to a point, the hours you can work each week are fixed, and a business can take in only so much capital. Because of this, your income tends to stay more or less the same over time.</p>
+            <p>Your expenses, however, do not stay fixed. As you move forward in life, your responsibilities grow. You may need to buy a home, pay for your children's education, handle a medical emergency, or plan for retirement. All of these cost money, and often a large amount.</p>
+            <p>This is why investing is important. It gives you a second source of income that you can depend on. It also helps you set aside money on a regular basis. Over time, this builds strong financial habits.</p>
+          </div>
+        </details>
+        <details>
+          <summary><h2>What are the Different Types of Investments?</h2></summary>
+          <div>
+            <p>There are many types of investments. But most of them fall into two main groups: Active Investments and Passive Investments.</p>
+            <p>Active Investments need your time and effort. You must understand how the market works and stay closely involved. Passive Investments work in a different way. Here, you invest your money without being involved every day. The most common method is "buy and hold." You buy the asset and keep it for a fixed period to earn the expected returns.</p>
+            <p>Bonds and Debentures are good examples of safe and passive investments. You can invest in them and allow your money to grow over time, without watching the market daily.</p>
+          </div>
+        </details>
+        <details>
+          <summary><h2>What are Bonds and Debentures?</h2></summary>
+          <div>
+            <p>Bonds are issued by government bodies. Debentures are issued by private companies, public sector units, banks, and NBFCs. Both are used to raise money. When you buy a Bond or a Debenture, you are lending money to the issuer. In return, the issuer pays you interest and returns your money on a fixed date. In simple terms, Bonds work much like loans. Both have a fixed maturity date. Based on the terms set at the time of issue, you earn interest at regular intervals.</p>
+            <p><strong>Note:</strong> Please read all the terms and conditions of each instrument carefully before you invest, and always consider the market risks involved.</p>
+          </div>
+        </details>
+        <details>
+          <summary><h2>What Are The Different Types Of Bonds and Debentures In India?</h2></summary>
+          <div>
+            <p>Here are some of the popular types of Bonds and Debentures available in India:</p>
+            <ul>
+              <li>Central Government Bonds</li>
+              <li>State Government Bonds</li>
+              <li>Municipal And Local Authority Bonds</li>
+              <li>Corporate Bonds</li>
+              <li>Public Sector Bonds</li>
+              <li>Tax-Free Bonds</li>
+            </ul>
+          </div>
+        </details>
+      </section>
+
+      <nav class="ft-band" aria-labelledby="ft-collections" data-reveal>
+        <h2 id="ft-collections">Collections</h2>
+        <div class="ft-chips">
+          <a href="https://goldenpi.com/collections/best-ongoing-ipos">Ongoing NCD IPOs</a>
+          <a href="https://goldenpi.com/collections/high-yield-bonds">High Yield Bonds (Yield more than 11%)</a>
+          <a href="https://goldenpi.com/collections/highly-rated-bonds">Highly Rated Bonds (AAA Rated)</a>
+          <a href="https://goldenpi.com/collections/bonds-to-earn-monthly-fixed-income">Bonds to Earn Regular Monthly Income</a>
+          <a href="https://goldenpi.com/collections/bonds-maturing-within-a-year">Bonds Maturing within a Year</a>
+          <a href="https://goldenpi.com/collections/state-government-guranteed-bonds">State Government Guaranteed Bonds</a>
+          <a href="https://goldenpi.com/collections/tax-free-bonds">Tax Free Bonds</a>
+          <a href="https://goldenpi.com/collections/public-sector-bank-bonds">Public Sector Bank Bonds</a>
+          <a href="https://goldenpi.com/collections/bonds-at-discounted-price">Bonds at Discounted Price</a>
+          <a href="https://goldenpi.com/collections/bonds-for-short-term-investment">Bonds Maturing within 3 Years (Short Term)</a>
+          <a href="https://goldenpi.com/collections/private-sector-bank">Private Sector Bank Bonds</a>
+          <a href="https://goldenpi.com/collections/psu-bonds">Public Sector Undertaking Bonds</a>
+          <a href="https://goldenpi.com/collections/bonds-for-long-term-investment">Bonds Maturing after 5 Years (Long Term)</a>
+          <a href="https://goldenpi.com/collections/nbfc-bonds">NBFC Bonds</a>
+          <a href="https://goldenpi.com/collections/bonds-to-earn-quaterly-fixed-income">Bonds to Earn Quarterly Fixed Income</a>
+          <a href="https://goldenpi.com/collections/nri-eligible-bonds">NRI Eligible Bonds</a>
+          <a href="https://goldenpi.com/collections/floating-rate-bonds">Floating Rate Bonds</a>
+          <a href="https://goldenpi.com/collections/fixed-rate-bonds">Fixed Rate Bonds</a>
+          <a href="https://goldenpi.com/collections/inflation-indexed-bonds">Inflation Indexed Bonds</a>
+          <a href="https://goldenpi.com/collections/zero-coupon-bonds">Zero Coupon Bonds</a>
+          <a href="https://goldenpi.com/collections/secured-bonds">Secured Bonds</a>
+          <a href="https://goldenpi.com/collections/government-bonds">Govt Bonds</a>
+          <a href="https://goldenpi.com/collections/54-ec-capital-gain-bonds">Capital Gain Bonds</a>
+          <a href="https://goldenpi.com/collections/bank-bonds-in-india">Bank Bonds</a>
+          <a href="https://goldenpi.com/collections/gold-backed-bonds">Gold Backed Bonds</a>
+        </div>
+      </nav>
+
+    </div>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal, same as pages/_reveal.js. Content stays visible without it.
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.documentElement.classList.add('reveal-ready');
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('is-in');
+      io.unobserve(e.target);
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.04 });
+  document.querySelectorAll('[data-reveal]').forEach(function (el) { io.observe(el); });
+})();
+</script>
+
+</body>
+</html>
