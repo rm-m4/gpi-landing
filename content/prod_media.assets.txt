@@ -1,0 +1,33 @@
+prev.svg	
+alert.svg	
+next.svg	
+close-white.svg	Close notification
+logo.svg	goldenpi - 1st online bonds investment platform in India
+gift.png	
+ref-header.svg	
+search-icon.svg	search
+user-icon.svg	sign up icon
+close.svg	
+low.svg	risk profile
+medium.svg	risk profile
+high.svg	risk profile
+verified_user.svg	selected profile
+media_76.jpg	story-img
+media_75.jpg	story-img
+media_74.jpg	story-img
+media_73.jpg	story-img
+media_72.jpg	story-img
+media_71.png	story-img
+down-arrow.svg	Expand media coverage
+pi.svg	
+subscribe-done.svg	email subscribe
+goldenpi-logo-white.svg	GoldenPi Logo
+facebook-icon.svg	facebook-icon
+twitter-icon.svg	twitter-icon
+linkdin-icon.svg	linkdin-icon
+Instagram-icon.svg	insta-icon
+Youtube-icon.svg	youtube-icon
+redo-kyc.svg	redo kyc
+check-kyc.svg	check kyc
+arrow_back_2.svg	arrow back
+mobile-app-qr.svg	Scan to download GoldenPi app and get voucher

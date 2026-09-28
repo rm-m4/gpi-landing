@@ -1,0 +1,47 @@
+prev.svg	
+alert.svg	
+next.svg	
+close-white.svg	Close notification
+logo.svg	goldenpi - 1st online bonds investment platform in India
+gift.png	
+ref-header.svg	
+search-icon.svg	search
+user-icon.svg	sign up icon
+close.svg	
+low.svg	risk profile
+medium.svg	risk profile
+high.svg	risk profile
+verified_user.svg	selected profile
+ipo-breadcrum-arrow.svg	Breadcrum Arrow
+sgb-no-instrument-img.svg	No instrumet icon
+sgb-hero-section-man-icon.png	
+dashed-bg.svg	
+stamp-gsec.png	
+better-returns.svg	
+cal.png	
+no-tax.png	
+info.svg	tooltip
+tick-sgb.svg	
+close-sgb.svg	
+sgb-prospects.svg	
+investment-process.gif	steps
+milestone.png	
+phaniraj.png	Phaniraj - GoldenPi
+5-star-rating.svg	
+neeraj-sharma.png	Neeraj Sharma - GoldenPi
+reenu-jojy-mathew.png	Reenu Jojy Mathew - GoldenPi
+latha-abhimannue-thayyil.png	Latha Abhimannue Thayyil - GoldenPi
+harish-iyer.png	Harish Iyer - GoldenPi
+pi.svg	
+subscribe-done.svg	email subscribe
+goldenpi-logo-white.svg	GoldenPi Logo
+facebook-icon.svg	facebook-icon
+twitter-icon.svg	twitter-icon
+linkdin-icon.svg	linkdin-icon
+Instagram-icon.svg	insta-icon
+Youtube-icon.svg	youtube-icon
+subscribe-popup.svg	mobile-img
+redo-kyc.svg	redo kyc
+check-kyc.svg	check kyc
+arrow_back_2.svg	arrow back
+mobile-app-qr.svg	Scan to download GoldenPi app and get voucher

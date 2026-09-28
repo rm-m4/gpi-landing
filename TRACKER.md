@@ -2,7 +2,7 @@
 
 Project context and rules live in `CLAUDE.md`. This file tracks state only.
 
-**Last updated:** 2026-09-26
+**Last updated:** 2026-09-28
 **Content snapshot:** 2026-09-25 (all hardcoded data carries this date)
 **Now:** All four landing pages converted to the agreed styling and promoted.
 
@@ -125,6 +125,75 @@ Awaiting the user:
   `pfc-logo.png` are crops of a screenshot; those two Recently Viewed cards do
   not link because no URL was ever seen.
 - Try Again, delete and the "Corporate Bonds" chip in Pending Orders are inert.
+
+---
+
+## Product and media pages from production (2026-09-28)
+
+`sovereign-gold-bond.html`, `government-securities.html`,
+`bond-better-return-fds.html`, `media.html`. **Generated**:
+`python3 pages/_prod.py && python3 pages/_build.py`. Page CSS is the
+`PRODUCT PAGES` block at the end of `final.css`. `check.js` clean.
+
+- **Source is production.** uatnew returns a 2.8 MB placeholder for all four
+  paths (title = the slug, no content), so `goldenpi.com` was captured:
+  `crawl/raw/prod_*.html`, `node crawl/snap.js --prod`, copy in
+  `content/prod_*.md`.
+- **Interaction captured by `crawl/prod_interact.js`**: all 75 media cards
+  (SEE MORE clicked until gone), the 12 tooltip texts (hover), Closed IPOs.
+  CTA destinations and the two video files were found by clicking; all
+  appended to the content files as hand-captured sections.
+- **Copy is read from the capture, not retyped**, where it is long: FAQ
+  answers, reviews (full text, with their photos), blog cards, media cards.
+- **Kept as their art**: the SGB and G-Sec hero photos and the IPO phone
+  mockup carry baked-in claims ("Start As Low As ₹100", "Approx 7.5% Avg.
+  Return", "Discount of 50rs per gram"...). Not re-typeset; the alt text
+  carries them.
+- **Rebuilt on corporate-bonds' components (same day)** after the user
+  found the first pass broken: its hero grid, `gp-block`, `gp-stats`,
+  `gp-steps`, `gp-reviews`, `gp-blogcard`, FAQ + Need Help, and the FD
+  page's partner strip, comparison table and cream panel. The dark bands,
+  custom matrix, milestone photo card and media year rail are gone; the
+  `PRODUCT PAGES` block keeps only tooltips, FD bars, video cards and the
+  media card. Media is one section per year, all 75 cards. Not re-tested
+  (user batch-tests).
+- **Redesign pass (same day), taste-skill `redesign-skill`**, after the
+  user reverted a design-taste-frontend pass. Targeted fixes scoped to
+  `body.gp-prod`, the `redesign pass` block at the end of `final.css`:
+  balanced headings and tabular figures; smooth in-page anchors that clear
+  the sticky header; one accent (the blue tiles and FD bar are gone); warm
+  tinted shadows and gradient panels; the three-equal-card rows broken up
+  (how-to beside their process animation, G-Sec statement beside stacked
+  benefits, the trusted card beside the three process cards); "BEST" in
+  the bond gold and a gold SGB column in the comparison; reviewers' real
+  photos; "Compare with Bank FD" back to a text link as on live; media
+  year links with six per year and the rest behind SEE MORE; pressed
+  states, focus rings, staggered reveals; og: meta tags. Not tested
+  (user batch-tests). No images generated: Weave is not linked.
+
+- **Media, taste-skill pass (same day).** Rebuilt at the user's request on
+  existing parts: corporate-bonds' folder tabs for the years (shared
+  `_tabs.js`), each year a cream `gp-panel`. Cards follow their live media card
+  (user's screenshot) in the set's schema: title (3 lines), summary (2),
+  **publication**, date pinned to the bottom, square photo right; white
+  20px card with the gold hairline. Three across, nine shown (a short year
+  shows a multiple of three), the rest behind SEE MORE. The newest story sits in
+  the 2024 tab with the rest (moved out of the hero at the user's request). Cards arrive in order when a
+  year opens; spring lift on hover. Sticky numerals and year chips removed.
+
+For review:
+
+- **Their first two media cards carry each other's descriptions**
+  (reproduced as captured).
+- **Closed IPOs left out** of better-than-FDs: its toggle loaded no rows.
+- **"Explore G-Sec Bonds"** is a button that does nothing on live; here it
+  jumps to the availability card. Notify Me stays a button.
+- **Need Help card** beside each FAQ, as on fixed-deposits (not on live).
+- **Footer not changed**: production's footer links SGB, G-Secs and Media;
+  ours (from uatnew) does not, so these pages are reached from
+  `all-pages.html` only. Adding them touches every page's shared footer.
+- The live "Current IPO" (Edelweiss) and past SGB series are dated
+  `DATA:` snapshots of 2026-09-28.
 
 ---
 
