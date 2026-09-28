@@ -229,6 +229,49 @@ capture. Not run through `check.js` (user batch-tests).
   FD comparison says ₹15,000 here but ₹21,100 on bond-better-return-fds:
   both as captured. "all on one easy-to-use platform" keeps their dash.
 
+
+---
+
+## Collections (2026-09-28)
+
+`collections-<slug>.html`, 11 pages, one per pill, from
+`uatnew.goldenpi.com/collections/<slug>`. **Generated**:
+`python3 pages/_collections.py && python3 pages/_build.py`. Captured by the new
+`crawl/collections_tabs.js` → `crawl/rendered/collections.tabs.json` and
+`crawl/rendered/collections_<slug>.html`; copy in `content/collections_*.md`.
+CSS is the `COLLECTIONS` block at the end of `final.css`. The shared nav's
+Collection item and corporate-bonds' "View all Bond Collections" now point
+here (`_final_shell.html`, then `_final.py` and `_build.py`).
+
+- **Pills load pages, as on live.** Each live pill is a button that loads
+  `/collections/<slug>`, a separate page with its own intro, bonds and CMS
+  copy. Here each pill links to its sibling page; pages cross-fade with
+  cross-document View Transitions (title and pill row held still), off
+  under reduced motion.
+- **Everything captured by driving the page:** every card after the list
+  finished rendering (198 across the 11), the intro after Read More, each
+  FAQ answer opened in turn, CMS blocks in document order (about copy,
+  the article with its section rail, the link list, FAQ).
+- **Finalised parts:** the Bond Utsav card (the user's Figma) and pill,
+  corporate-bonds' stat strip, the issuer page's section rail, FAQ + Need
+  Help. Their layout kept: list left, sidebar right (their banner art, the
+  explainer video card, Refer & Earn). Two cards across beside the sidebar.
+- **Logos:** the collection cards have none; 195 of 198 are matched to the
+  Bond Utsav capture by bond slug + tenure date (the two captures use GPID
+  vs ISIN ids), IRFC and PFC come from the production logo set, REC 54EC
+  shows its initial.
+
+For review:
+
+- The "Golden Experience" strip repeats after every six cards on live; it
+  is shown once here.
+- Sort is shown as their label only (not a working sort).
+- NCD IPO renders no empty state on live; it gets Tax Free's
+  "Currently no bond available for this collection".
+- UAT data as captured: Gold Backed and Starts ₹10k list the same 36 bonds;
+  Public Sector Bank's FAQ is "Testing FAQ 1"; its link list reads "Akara
+  Capital Bonds retunr upto 13%".
+
 ---
 
 ## Refer & Earn (2026-09-26)

@@ -316,7 +316,7 @@ def reviews(slug):
         name, img, text = r
         return """          <figure class="gp-review"%s>
             <figcaption class="gp-review__head">
-              <img class="gp-review__avatar gp-review__avatar--photo" src="../assets/img/%s" alt="" width="56" height="56" loading="lazy">
+              <img class="gp-review__avatar gp-review__avatar--photo" src="../assets/img/%s" alt="" width="56" height="56">
               <span>
                 <span class="gp-review__name">%s</span>
                 <span class="gp-review__stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
@@ -819,7 +819,7 @@ def media():
                 <span class="gp-presscard__desc">%s</span>
                 <span class="gp-presscard__source"><b>%s</b>%s</span>
               </span>
-              <span class="gp-presscard__frame"><img src="../assets/img/%s" alt="" width="160" height="160" loading="lazy"></span>
+              <span class="gp-presscard__frame"><img src="../assets/img/%s" alt="" width="160" height="160"></span>
             </a>""" % (esc(href), esc(t), esc(d), esc(pub), (", " + esc(when)) if when else "", img)
 
     years = sorted(groups, reverse=True)

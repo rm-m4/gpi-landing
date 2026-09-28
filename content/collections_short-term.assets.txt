@@ -1,0 +1,21 @@
+alert.svg	bell
+goldenpi-logo.2qzc6yjkqzeqc.svg	GoldenPi
+header-nav-bonds.1h3kbznfomfnx.svg	
+header-nav-fd.2fybbqt4y5m_8.svg	
+header-nav-collection-selected.2-5an_ol1l7oo.svg	
+header-nav-bond-utsav.1hztj7yt4kmfg.svg	
+header-nav-ref-earn.3h7zk2vgdlva2.svg	
+header-search.2k7bdlgsxljnb.svg	
+user-icon.1ytalgivehf56.svg	
+All_Bonds.svg	
+high-rated-collection.png	
+Trophy.png	
+short-term.png	
+gold.svg	
+IPO.png	
+image1.svg	
+Goverment.png	
+Monthly_Payout.png	
+tax-free-bonds.svg	
+Banner2.png	Banner2
+mobile-app-qr.3wptrea2l_26s.svg	Scan to download GoldenPi app and get voucher

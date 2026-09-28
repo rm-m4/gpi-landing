@@ -1,0 +1,5202 @@
+{
+  "captured": "2026-09-28",
+  "pills": [
+    {
+      "slug": "all-bonds",
+      "label": "All Bonds",
+      "icon": "https://d35kx21znie3xm.cloudfront.net/images/All_Bonds.svg"
+    },
+    {
+      "slug": "highly-rated",
+      "label": "Highly Rated",
+      "icon": "https://d35kx21znie3xm.cloudfront.net/images/high-rated-collection.png"
+    },
+    {
+      "slug": "high-returns",
+      "label": "High Returns",
+      "icon": "https://d35kx21znie3xm.cloudfront.net/images/Trophy.png"
+    },
+    {
+      "slug": "short-term",
+      "label": "Short Term",
+      "icon": "https://d35kx21znie3xm.cloudfront.net/images/short-term.png"
+    },
+    {
+      "slug": "gold-backed",
+      "label": "Gold Backed",
+      "icon": "https://d35kx21znie3xm.cloudfront.net/images/gold.svg"
+    },
+    {
+      "slug": "ncd-ipo",
+      "label": "NCD IPO",
+      "icon": "https://d35kx21znie3xm.cloudfront.net/images/IPO.png"
+    },
+    {
+      "slug": "starts-10k",
+      "label": "Starts ₹10k",
+      "icon": "https://d35kx21znie3xm.cloudfront.net/images/image1.svg"
+    },
+    {
+      "slug": "government-bonds",
+      "label": "Government Bonds",
+      "icon": "https://d35kx21znie3xm.cloudfront.net/images/Goverment.png"
+    },
+    {
+      "slug": "monthly-payout",
+      "label": "Monthly Payout",
+      "icon": "https://d35kx21znie3xm.cloudfront.net/images/Monthly_Payout.png"
+    },
+    {
+      "slug": "tax-free-bonds",
+      "label": "Tax Free Bonds",
+      "icon": "https://d35kx21znie3xm.cloudfront.net/images/tax-free-bonds.svg"
+    },
+    {
+      "slug": "public-sector-bank-bonds",
+      "label": "Public Bank Bonds",
+      "icon": "https://d35kx21znie3xm.cloudfront.net/images/All_Bonds.svg"
+    }
+  ],
+  "tabs": {
+    "all-bonds": {
+      "title": "All Bonds",
+      "docTitle": "Buy Bonds & Fixed Income Investments Online in India | GoldenPi",
+      "metaDesc": "Buy Bonds, Debentures & Fixed Income investments online in India. SEBI-registered debt broker and OBPP license holder.",
+      "introHtml": "<div style=\"\" class=\"gp-rich-text payload-richtext gp-collapsible-rich-text [&amp;&gt;:last-child]:mb-0 gp-rich-text\"><p>Explore all bonds available on GoldenPi in one place to match your investment goals and diversify portfolio.<br>Compare these fixed-income opportunities based on returns, tenure, credit rating, investment amount and more <button type=\"button\" class=\"gp-read-more\" data-read-toggle=\"collapse\" aria-expanded=\"true\" aria-label=\"Read less about the note to investors\">Read Less</button></p></div>",
+      "count": "Showing 50 Bonds",
+      "sort": "Sort By: Yield - High to Low ↓",
+      "empty": "",
+      "cards": [
+        {
+          "href": "/bonds/INE814O07634/neogrowth-1300-bond-yield?src=view_details&tenureDate=30-Apr-2028",
+          "issuer": "NEOGROWTH",
+          "tags": [
+            "High YTM",
+            "Newly Launched"
+          ],
+          "rate": "13.00 %",
+          "meta": "77.56% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "BBB"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "1Y 7M"
+            ]
+          ],
+          "note": "⚡ Equity Investors: Omidyar Network & IIFL Venture CMS"
+        },
+        {
+          "href": "/bonds/INE04UP07246/best-capital-1300-bond-yield?src=view_details&tenureDate=11-Sep-2029",
+          "issuer": "BEST CAPITAL",
+          "tags": [],
+          "rate": "13.00 %",
+          "meta": "10.04% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "BBB"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "3Y"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE08XP07522/akara-1300-bond-yield?src=view_details&tenureDate=03-Dec-2027",
+          "issuer": "AKARA",
+          "tags": [
+            "Newly Launched",
+            "High Yield"
+          ],
+          "rate": "13.00 %",
+          "meta": "46.38% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "BBB+"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "1Y 2M"
+            ]
+          ],
+          "note": "⚡ Marquee Equity Global Investors Tencent, Blowfish"
+        },
+        {
+          "href": "/bonds/INE08XP07522/akara-1277-bond-yield?src=view_details&tenureDate=03-May-2027",
+          "issuer": "AKARA",
+          "tags": [
+            "Newly Launched",
+            "High Yield"
+          ],
+          "rate": "12.77 %",
+          "meta": "46.38% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "BBB+"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "7M"
+            ]
+          ],
+          "note": "⚡ Marquee Equity Global Investors Tencent, Blowfish"
+        },
+        {
+          "href": "/bonds/INE814O07634/neogrowth-1275-bond-yield?src=view_details&tenureDate=30-Jul-2027",
+          "issuer": "NEOGROWTH",
+          "tags": [
+            "High YTM",
+            "Newly Launched"
+          ],
+          "rate": "12.75 %",
+          "meta": "77.56% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "BBB"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "10M"
+            ]
+          ],
+          "note": "⚡ Equity Investors: Omidyar Network & IIFL Venture CMS"
+        },
+        {
+          "href": "/bonds/INE385W07075/dishman-1266-bond-yield?src=view_details&tenureDate=17-Feb-2027",
+          "issuer": "DISHMAN",
+          "tags": [],
+          "rate": "12.66 %",
+          "meta": "63.68% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "5M"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE04UP07238/best-capital-1255-bond-yield?src=view_details&tenureDate=24-Oct-2027",
+          "issuer": "BEST CAPITAL",
+          "tags": [],
+          "rate": "12.55 %",
+          "meta": "94.32% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "BBB"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "1Y 1M"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE00DJ07052/tapir-1225-bond-yield?src=view_details&tenureDate=12-Mar-2030",
+          "issuer": "TAPIR",
+          "tags": [],
+          "rate": "12.25 %",
+          "meta": "95.05% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "3Y 6M"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE413U07467/iifl-samasta-1223-bond-yield?src=view_details&tenureDate=12-May-2027",
+          "issuer": "IIFL SAMASTA",
+          "tags": [],
+          "rate": "12.23 %",
+          "meta": "91.23% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "8M"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE572J07810/spandana-1210-bond-yield?src=view_details&tenureDate=26-Apr-2028",
+          "issuer": "SPANDANA",
+          "tags": [],
+          "rate": "12.10 %",
+          "meta": "94.26% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "BBB+"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "1Y 7M"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE734I07115/finkurve-1200-bond-yield?src=view_details&tenureDate=16-Jun-2028",
+          "issuer": "FINKURVE",
+          "tags": [
+            "Gold Loan Backed",
+            "High YTM"
+          ],
+          "rate": "12.00 %",
+          "meta": "82.75% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "BBB+"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "1Y 9M"
+            ]
+          ],
+          "note": "⚡ Emerging Gold Loan NBFC backed by Augmont Group"
+        },
+        {
+          "href": "/bonds/INE911L07154/mahaveer-1200-bond-yield?src=view_details&tenureDate=26-Nov-2029",
+          "issuer": "MAHAVEER",
+          "tags": [
+            "High Yield"
+          ],
+          "rate": "12.00 %",
+          "meta": "72.48% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "BBB+"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "3Y 3M"
+            ]
+          ],
+          "note": "⚡ 40+ years of Financing expertise & Strong Capital base"
+        },
+        {
+          "href": "/bonds/INE0NES07352/keertana-1200-bond-yield?src=view_details&tenureDate=16-Dec-2028",
+          "issuer": "KEERTANA",
+          "tags": [
+            "Newly Launched",
+            "High Yield"
+          ],
+          "rate": "12.00 %",
+          "meta": "30.29% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "2Y 3M"
+            ]
+          ],
+          "note": "⚡ Fast Growing Gold Lender"
+        },
+        {
+          "href": "/bonds/INE0O7U07046/unigold-1197-bond-yield?src=view_details&tenureDate=02-Apr-2028",
+          "issuer": "UNIGOLD",
+          "tags": [
+            "Newly Launched",
+            "Gold Loan Backed"
+          ],
+          "rate": "11.97 %",
+          "meta": "92.09% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "BBB"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "1Y 7M"
+            ]
+          ],
+          "note": "⚡ Fast Growing Gold Loan Lender"
+        },
+        {
+          "href": "/bonds/INE572J07810/spandana-1190-bond-yield?src=view_details&tenureDate=26-Jun-2027",
+          "issuer": "SPANDANA",
+          "tags": [
+            "Newly Launched",
+            "High Yield"
+          ],
+          "rate": "11.90 %",
+          "meta": "94.26% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "BBB+"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "9M"
+            ]
+          ],
+          "note": "⚡ Equity Listed with ₹2,400 Cr+ Market Cap"
+        },
+        {
+          "href": "/bonds/INE03K307215/satin-finserv-1190-bond-yield?src=view_details&tenureDate=27-Nov-2028",
+          "issuer": "SATIN FINSERV",
+          "tags": [
+            "High Rated",
+            "High YTM"
+          ],
+          "rate": "11.90 %",
+          "meta": "65% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "2Y 2M"
+            ]
+          ],
+          "note": "⚡ Emerging MSME focused NBFC backed by Satin Group"
+        },
+        {
+          "href": "/bonds/INE14H407157/finnable-1175-bond-yield?src=view_details&tenureDate=31-Jan-2029",
+          "issuer": "FINNABLE",
+          "tags": [
+            "Newly Launched",
+            "High Yield"
+          ],
+          "rate": "11.75 %",
+          "meta": "33.99% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "BBB+"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "2Y 5M"
+            ]
+          ],
+          "note": "⚡ Equity Investors: TVS Capital and Matrix Partners"
+        },
+        {
+          "href": "/bonds/INE03K307215/satin-finserv-1160-bond-yield?src=view_details&tenureDate=27-Aug-2027",
+          "issuer": "SATIN FINSERV",
+          "tags": [
+            "High Rated",
+            "High YTM"
+          ],
+          "rate": "11.60 %",
+          "meta": "65% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "11M"
+            ]
+          ],
+          "note": "⚡ Emerging MSME focused NBFC backed by Satin Group"
+        },
+        {
+          "href": "/bonds/INE0BUS07CS3/indel-1145-bond-yield?src=view_details&tenureDate=24-Aug-2029",
+          "issuer": "INDEL",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "11.45 %",
+          "meta": "67.29% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "2Y 11M"
+            ]
+          ],
+          "note": "⚡ Gold Loan Dominant & Established Regional Presence"
+        },
+        {
+          "href": "/bonds/INE0NES07352/keertana-1142-bond-yield?src=view_details&tenureDate=16-Jun-2027",
+          "issuer": "KEERTANA",
+          "tags": [
+            "Newly Launched",
+            "High Yield"
+          ],
+          "rate": "11.42 %",
+          "meta": "30.29% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "9M"
+            ]
+          ],
+          "note": "⚡ Fast Growing Gold Lender"
+        },
+        {
+          "href": "/bonds/INE14H407157/finnable-1140-bond-yield?src=view_details&tenureDate=26-Aug-2027",
+          "issuer": "FINNABLE",
+          "tags": [
+            "Newly Launched",
+            "High Yield"
+          ],
+          "rate": "11.40 %",
+          "meta": "33.99% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "BBB+"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "11M"
+            ]
+          ],
+          "note": "⚡ Equity Investors: TVS Capital and Matrix Partners"
+        },
+        {
+          "href": "/bonds/INE109C07147/arman-1140-bond-yield?src=view_details&tenureDate=25-Sep-2028",
+          "issuer": "ARMAN",
+          "tags": [
+            "Newly Launched",
+            "High Yield"
+          ],
+          "rate": "11.40 %",
+          "meta": "87.22% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "2Y"
+            ]
+          ],
+          "note": "⚡ Equity Listed with ₹2,000 Cr+ Market Cap"
+        },
+        {
+          "href": "/bonds/INE385W07075/dishman-1140-bond-yield?src=view_details&tenureDate=17-Aug-2027",
+          "issuer": "DISHMAN",
+          "tags": [
+            "Newly Launched"
+          ],
+          "rate": "11.40 %",
+          "meta": "63.68% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "11M"
+            ]
+          ],
+          "note": "⚡ Listed Entity with ₹2,700 Cr+ Market Cap"
+        },
+        {
+          "href": "/bonds/INE01YL07466/earlysalaryfibe-1130-bond-yield?src=view_details&tenureDate=07-Jun-2029",
+          "issuer": "EARLYSALARY(FIBE)",
+          "tags": [
+            "High Rated",
+            "High YTM"
+          ],
+          "rate": "11.30 %",
+          "meta": "69.85% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "2Y 9M"
+            ]
+          ],
+          "note": "⚡ Upcoming Equity Listing"
+        },
+        {
+          "href": "/bonds/INE0BUS07CS3/indel-1110-bond-yield?src=view_details&tenureDate=01-Aug-2027",
+          "issuer": "INDEL",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "11.10 %",
+          "meta": "67.29% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "10M"
+            ]
+          ],
+          "note": "⚡ Gold Loan Dominant & Established Regional Presence"
+        },
+        {
+          "href": "/bonds/INE229U07186/namra-1110-bond-yield?src=view_details&tenureDate=24-Apr-2028",
+          "issuer": "NAMRA",
+          "tags": [
+            "High Rated",
+            "High Yield",
+            "₹30k Bond"
+          ],
+          "rate": "11.10 %",
+          "meta": "18.78% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "1Y 7M"
+            ]
+          ],
+          "note": "⚡ MSME & Secured Lending Focus & Growing AUM Base"
+        },
+        {
+          "href": "/bonds/INE01YL07466/earlysalaryfibe-1100-bond-yield?src=view_details&tenureDate=07-Jun-2027",
+          "issuer": "EARLYSALARY(FIBE)",
+          "tags": [
+            "High Rated",
+            "High YTM"
+          ],
+          "rate": "11.00 %",
+          "meta": "69.85% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "9M"
+            ]
+          ],
+          "note": "⚡ Upcoming Equity Listing"
+        },
+        {
+          "href": "/bonds/INE0BUS07CN4/indel-1086-bond-yield?src=view_details&tenureDate=30-Mar-2028",
+          "issuer": "INDEL",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "10.86 %",
+          "meta": "98.03% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "1Y 6M"
+            ]
+          ],
+          "note": "⚡ Gold Loan Dominant & Established Regional Presence"
+        },
+        {
+          "href": "/bonds/INE932X07056/share-india-1075-bond-yield?src=view_details&tenureDate=10-Aug-2028",
+          "issuer": "SHARE INDIA",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "10.75 %",
+          "meta": "74.31% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A+"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "1Y 11M"
+            ]
+          ],
+          "note": "⚡ Equity Listed with ₹3,660 Cr+ Market Cap"
+        },
+        {
+          "href": "/bonds/INE932X07056/share-india-1050-bond-yield?src=view_details&tenureDate=10-Aug-2027",
+          "issuer": "SHARE INDIA",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "10.50 %",
+          "meta": "74.31% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A+"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "11M"
+            ]
+          ],
+          "note": "⚡ Equity Listed with ₹3,660 Cr+ Market Cap"
+        },
+        {
+          "href": "/bonds/INE549K08590/muthoot-fincorp-1050-bond-yield?src=view_details&tenureDate=30-Dec-2033",
+          "issuer": "MUTHOOT FINCORP",
+          "tags": [
+            "High Rated"
+          ],
+          "rate": "10.50 %",
+          "meta": "87.56% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "7Y 4M"
+            ]
+          ],
+          "note": "⚡ Backed by a 130+ years Legacy of Trust and Growth"
+        },
+        {
+          "href": "/bonds/INE342T07668/navi-dec28-1040-bond-yield?src=view_details&tenureDate=31-Dec-2028",
+          "issuer": "Navi Dec'28",
+          "tags": [
+            "Popular Choice",
+            "₹10K Bond"
+          ],
+          "rate": "10.40 %",
+          "meta": "91.23% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "2Y 4M"
+            ]
+          ],
+          "note": "⚡ Leading Digitial NBFC Backed by Sachin Bansal"
+        },
+        {
+          "href": "/bonds/INE583D07638/ugro-capital-limited-1035-bond-yield?src=view_details&tenureDate=16-Jun-2029",
+          "issuer": "UGRO CAPITAL LIMITED",
+          "tags": [
+            "Public Listed",
+            "₹10K Bond"
+          ],
+          "rate": "10.35 %",
+          "meta": "42.45% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A+"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "2Y 9M"
+            ]
+          ],
+          "note": "⚡ A+ Rated MSME Lender & ₹15K+ Cr AUM"
+        },
+        {
+          "href": "/bonds/INE413U07467/iifl-samasta-1025-bond-yield?src=view_details&tenureDate=12-Aug-2029",
+          "issuer": "IIFL SAMASTA",
+          "tags": [
+            "High Rated"
+          ],
+          "rate": "10.25 %",
+          "meta": "91.23% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "2Y 11M"
+            ]
+          ],
+          "note": "⚡ Group AUM is above 98K Cr+"
+        },
+        {
+          "href": "/bonds/INE101Q07CB5/muthoot-mcred-1020-bond-yield?src=view_details&tenureDate=07-Aug-2029",
+          "issuer": "MUTHOOT MCRED",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "10.20 %",
+          "meta": "99.4% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "2Y 11M"
+            ]
+          ],
+          "note": "⚡ 100% Promoter Owned & Gold backed"
+        },
+        {
+          "href": "/bonds/INE125T07329/varthana-finance-private-limited-1000-bond-yield?src=view_details&tenureDate=05-Feb-2027",
+          "issuer": "VARTHANA FINANCE PRIVATE LIMITED",
+          "tags": [
+            "Senior",
+            "Secured"
+          ],
+          "rate": "10.00 %",
+          "meta": "6.34% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "BBB"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "4M"
+            ]
+          ],
+          "note": "⚡ Recently acquired by TVS Group"
+        },
+        {
+          "href": "/bonds/INE101Q07CB5/muthoot-mcred-995-bond-yield?src=view_details&tenureDate=10-Aug-2027",
+          "issuer": "MUTHOOT MCRED",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "9.95 %",
+          "meta": "99.4% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "11M"
+            ]
+          ],
+          "note": "⚡ 100% Promoter Owned & Gold backed"
+        },
+        {
+          "href": "/bonds/INE296G07333/muthoot-capital-970-bond-yield?src=view_details&tenureDate=24-Aug-2029",
+          "issuer": "MUTHOOT CAPITAL",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "9.70 %",
+          "meta": "56.4% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "2Y 11M"
+            ]
+          ],
+          "note": "⚡ Credit Rating Upgraded from CRISIL A+"
+        },
+        {
+          "href": "/bonds/INE296G07333/muthoot-capital-950-bond-yield?src=view_details&tenureDate=24-Aug-2027",
+          "issuer": "MUTHOOT CAPITAL",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "9.50 %",
+          "meta": "56.4% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "11M"
+            ]
+          ],
+          "note": "⚡ Credit Rating Upgraded from CRISIL A+"
+        },
+        {
+          "href": "/bonds/INE146O08415/hinduja-910-bond-yield?src=view_details&tenureDate=14-Dec-2032",
+          "issuer": "HINDUJA",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "9.10 %",
+          "meta": "54.21% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA+"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "6Y 4M"
+            ]
+          ],
+          "note": "⚡ Backed by the Hinduja Group and Ashok Leyland."
+        },
+        {
+          "href": "/bonds/INE516Y07444/piramal-capital--housing-finance-limited-885-bond-yield?src=view_details&tenureDate=26-Sep-2031",
+          "issuer": "PIRAMAL CAPITAL & HOUSING FINANCE LIMITED",
+          "tags": [],
+          "rate": "8.85 %",
+          "meta": "45.54% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA"
+            ],
+            [
+              "PAYOUT",
+              "Quarterly"
+            ],
+            [
+              "TENURE",
+              "5Y 1M"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE423A07534/adani-enterprises-limited-850-bond-yield?src=view_details&tenureDate=12-Jan-2029",
+          "issuer": "ADANI ENTERPRISES LIMITED",
+          "tags": [],
+          "rate": "8.50 %",
+          "meta": "83.58% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA-"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "2Y 4M"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE0GCN07054/adani-airport-845-bond-yield?src=view_details&tenureDate=12-Feb-2029",
+          "issuer": "ADANI AIRPORT",
+          "tags": [],
+          "rate": "8.45 %",
+          "meta": "64.33% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA-"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "2Y 5M"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE658F08524/kerala-infrastructure-investment-fund-board-825-bond-yield?src=view_details&tenureDate=21-Jan-2031",
+          "issuer": "KERALA INFRASTRUCTURE INVESTMENT FUND BOARD",
+          "tags": [],
+          "rate": "8.25 %",
+          "meta": "8% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "4Y 5M"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE0M2307388/andhra-pradesh-state-beverages-corporation-limited-800-bond-yield?src=view_details&tenureDate=28-Nov-2031",
+          "issuer": "ANDHRA PRADESH STATE BEVERAGES CORPORATION LIMITED",
+          "tags": [],
+          "rate": "8.00 %",
+          "meta": "99.89% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "5Y 3M"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE306N07MQ4/tata-capital-limited-740-bond-yield?src=view_details&tenureDate=29-Apr-2032",
+          "issuer": "TATA CAPITAL LIMITED",
+          "tags": [],
+          "rate": "7.40 %",
+          "meta": "50% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AAA"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "5Y 8M"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE296A07RW1/bajaj-finance-ltd-695-bond-yield?src=view_details&tenureDate=02-Dec-2031",
+          "issuer": "BAJAJ FINANCE LTD",
+          "tags": [],
+          "rate": "6.95 %",
+          "meta": "2% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AAA"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "5Y 3M"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE040A08963/hdfc-bank-685-bond-yield?src=view_details&tenureDate=01-Dec-2031",
+          "issuer": "HDFC BANK",
+          "tags": [],
+          "rate": "6.85 %",
+          "meta": "2% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AAA"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "5Y 3M"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE134E08LN6/power-finance-corporation-limited-685-bond-yield?src=view_details&tenureDate=14-Apr-2032",
+          "issuer": "Power Finance Corporation Limited",
+          "tags": [
+            "Tag 1",
+            "Tag 2",
+            "Tag 3"
+          ],
+          "rate": "6.85 %",
+          "meta": "",
+          "metrics": [
+            [
+              "RATING",
+              "AAA"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "5Y 8M"
+            ]
+          ],
+          "note": "⚡ Hurry up!"
+        },
+        {
+          "href": "/bonds/INE053F08122/indian-railway-finance-corporation-limited-670-bond-yield?src=view_details&tenureDate=31-Aug-2031",
+          "issuer": "Indian Railway Finance Corporation Limited",
+          "tags": [],
+          "rate": "6.70 %",
+          "meta": "2% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AAA"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "5Y"
+            ]
+          ],
+          "note": ""
+        }
+      ],
+      "body": [
+        {
+          "kind": "about",
+          "html": "<h2>More About Bonds</h2><p>Bonds are fixed-income investments where investors lend money to a company, financial institution, or government entity for a defined period. In return, the issuer generally pays interest at predetermined intervals and returns the principal amount on maturity.</p><p>The Indian bond market offers a wide range of opportunities across corporate bonds, government securities, public sector bonds, secured bonds, and other fixed-income instruments. The right bond can provide predictable cash flows and help diversify an investment portfolio beyond traditional savings and deposits.</p><p>However, bonds are not risk-free investments. Interest rates, credit quality, liquidity, tenure, security, and the financial position of the issuer can all affect the outcome. Understanding these factors is important before investing.</p>"
+        },
+        {
+          "kind": "article",
+          "nav": [
+            [
+              "#what-are-bonds",
+              "What Are Bonds?"
+            ],
+            [
+              "#how-to-invest-in-bonds-on-goldenpi",
+              "How to Invest in Bonds on GoldenPi?"
+            ],
+            [
+              "#taxation-on-bonds",
+              "Taxation on Bonds"
+            ],
+            [
+              "#top-bonds-available",
+              "Top Bonds Available"
+            ],
+            [
+              "#why-consider-bonds",
+              "Why Consider Bonds?"
+            ]
+          ],
+          "sections": [
+            {
+              "id": "what-are-bonds",
+              "html": "<h3>What Are Bonds?</h3><p>A bond is a debt instrument through which an investor lends money to an issuer for a specified period. The issuer agrees to pay interest, known as the coupon, according to the terms of the bond and repay the principal at maturity.</p><p>For example, when you invest in a corporate bond, the company issuing the bond raises funds from investors. In return, you receive interest payments based on the coupon structure and, subject to the issuer meeting its obligations, your principal is repaid on the maturity date.</p><p>The return from a bond depends on factors such as its coupon rate, purchase price, maturity period, credit rating, and prevailing market conditions.</p><p><br></p><h3>Types of Bonds Available</h3><p>Bonds can differ significantly based on the issuer, security, maturity, credit rating, and structure.</p><p>Some commonly available categories include:</p><ul class=\"list-bullet\"><li class=\"\" style=\"\" value=\"1\"><strong>Corporate Bonds</strong> – Debt issued by companies to raise funds for business requirements.</li><li class=\"\" style=\"\" value=\"2\"><strong>Government Bonds</strong> – Debt securities issued by central or state governments.</li><li class=\"\" style=\"\" value=\"3\"><strong>Public Sector Bonds</strong> – Bonds issued by government-owned or government-backed entities.</li><li class=\"\" style=\"\" value=\"4\"><strong>Secured Bonds</strong> – Bonds backed by specified assets or security, subject to the terms of the issue.</li><li class=\"\" style=\"\" value=\"5\"><strong>Unsecured Bonds</strong> – Bonds that do not have specific collateral backing.</li><li class=\"\" style=\"\" value=\"6\"><strong>Highly Rated Bonds</strong> – Bonds carrying higher credit ratings from recognised rating agencies.</li><li class=\"\" style=\"\" value=\"7\"><strong>Tax-Saving Bonds</strong> – Certain bonds may offer tax-related benefits subject to applicable rules.</li><li class=\"\" style=\"\" value=\"8\"><strong>Short-Term Bonds</strong> – Bonds with relatively shorter remaining maturity periods.</li><li class=\"\" style=\"\" value=\"9\"><strong>Long-Term Bonds</strong> – Bonds with longer maturity periods and potentially different interest-rate sensitivity.</li></ul><p>Investors should evaluate the individual bond terms rather than relying only on the category or credit rating.</p><h3></h3>"
+            },
+            {
+              "id": "how-to-invest-in-bonds-on-goldenpi",
+              "html": "<h3>How to Invest in Bonds on GoldenPi</h3><p>Investing in bonds starts with understanding the investment opportunity and evaluating the bond's key parameters.</p><p>Before investing, consider:</p><ol class=\"list-number\"><li class=\"\" style=\"\" value=\"1\"><strong>Credit Rating</strong> – Review the rating assigned by the relevant credit rating agency.</li><li class=\"\" style=\"\" value=\"2\"><strong>Issuer</strong> – Understand who is borrowing the money and assess the issuer's financial profile.</li><li class=\"\" style=\"\" value=\"3\"><strong>Coupon Rate</strong> – Check the interest rate and payment frequency.</li><li class=\"\" style=\"\" value=\"4\"><strong>Yield</strong> – Compare the expected yield with other available fixed-income opportunities.</li><li class=\"\" style=\"\" value=\"5\"><strong>Maturity</strong> – Consider whether the maturity aligns with your investment horizon.</li><li class=\"\" style=\"\" value=\"6\"><strong>Security</strong> – Check whether the bond is secured or unsecured and understand the security structure.</li><li class=\"\" style=\"\" value=\"7\"><strong>Liquidity</strong> – Consider the possibility of selling the bond before maturity.</li><li class=\"\" style=\"\" value=\"8\"><strong>Cash Flows</strong> – Review the expected interest and principal repayment schedule.</li></ol><p>On GoldenPi, investors can explore available bonds, compare important bond parameters, review cash flows, and select investments based on their individual</p>"
+            },
+            {
+              "id": "taxation-on-bonds",
+              "html": "<h3>Taxation on Bonds</h3><p>The taxation of bond investments depends on factors such as the type of bond, interest income, holding period, transaction structure, and applicable tax laws.</p><p>Interest or coupon income from bonds may be taxable as per the investor's applicable tax provisions. Capital gains may also arise when a bond is sold or transferred at a price different from its purchase price.</p><p>Tax treatment can vary across different bond products and may change when tax laws are amended. Investors should review the applicable tax rules for the specific bond before investing and consult a qualified tax professional where required.</p>"
+            },
+            {
+              "id": "top-bonds-available",
+              "html": "<h3>Top Bonds Available</h3><p>The bond market includes opportunities across different issuers, credit ratings, tenures, yields, and structures.</p><p>Instead of selecting a bond solely because it offers a higher coupon or yield, investors should compare multiple parameters, including:</p><ul class=\"list-bullet\"><li class=\"\" style=\"\" value=\"1\">Credit rating</li><li class=\"\" style=\"\" value=\"2\">Issuer financial strength</li><li class=\"\" style=\"\" value=\"3\">Yield to maturity</li><li class=\"\" style=\"\" value=\"4\">Coupon rate</li><li class=\"\" style=\"\" value=\"5\">Maturity date</li><li class=\"\" style=\"\" value=\"6\">Secured or unsecured structure</li><li class=\"\" style=\"\" value=\"7\">Interest payment frequency</li><li class=\"\" style=\"\" value=\"8\">Minimum investment amount</li><li class=\"\" style=\"\" value=\"9\">Liquidity</li><li class=\"\" style=\"\" value=\"10\">Repayment structure</li></ul><p>A bond offering a higher return may also involve higher credit, liquidity, or market risk. The most suitable bond depends on the investor's financial objectives, risk appetite, and investment horizon.</p>"
+            },
+            {
+              "id": "why-consider-bonds",
+              "html": "<h3>Why Consider Bonds?</h3><p>Bonds can play an important role in a diversified investment portfolio by providing scheduled interest payments and a defined maturity structure.</p><p>Depending on the bond, investors may use fixed-income investments to:</p><ul class=\"list-bullet\"><li class=\"\" style=\"\" value=\"1\">Generate periodic income</li><li class=\"\" style=\"\" value=\"2\">Diversify an investment portfolio</li><li class=\"\" style=\"\" value=\"3\">Invest for a defined time horizon</li><li class=\"\" style=\"\" value=\"4\">Explore opportunities beyond traditional deposits</li><li class=\"\" style=\"\" value=\"5\">Potentially benefit from attractive yields</li><li class=\"\" style=\"\" value=\"6\">Build a fixed-income allocation based on their risk profile</li></ul><p>However, every bond should be evaluated individually. Past performance, credit ratings, or advertised yields do not guarantee future returns or repayment.</p>"
+            }
+          ]
+        },
+        {
+          "kind": "faq",
+          "title": "Frequently Asked Questions About Bonds"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "What is a bond?",
+          "a": "<p>A bond is a fixed-income investment through which an investor lends money to a company, government, or financial institution for a specified period. In return, the issuer generally pays interest and repays the principal amount at maturity, subject to the terms of the bond.</p>"
+        },
+        {
+          "q": "How do bonds work?",
+          "a": "<p>When you invest in a bond, you provide funds to the issuer. The issuer pays interest according to the bond's coupon schedule and returns the principal at maturity, provided the issuer fulfils its repayment obligations.</p><p><br></p>"
+        },
+        {
+          "q": "What types of bonds are available?",
+          "a": "<p>Bonds can include corporate bonds, government bonds, public sector bonds, secured and unsecured bonds, highly rated bonds, and bonds with different maturities and interest structures.</p>"
+        },
+        {
+          "q": "Are bonds safe investments?",
+          "a": "<p>Bonds are not completely risk-free. The level of risk depends on factors such as the issuer's creditworthiness, credit rating, security, maturity, liquidity, and prevailing market conditions.</p>"
+        },
+        {
+          "q": "What is a bond's credit rating?",
+          "a": "<p>A credit rating is an assessment of an issuer's ability to meet its debt obligations. Ratings are assigned by credit rating agencies and can help investors evaluate credit risk, but a rating does not guarantee repayment.</p>"
+        },
+        {
+          "q": "What is the difference between coupon rate and yield?",
+          "a": "<p>The coupon rate is the interest rate specified on the bond's face value. Yield reflects the potential return based on factors such as the bond's purchase price, coupon payments, and remaining maturity.</p>"
+        },
+        {
+          "q": "What is Yield to Maturity (YTM) in bonds?",
+          "a": "<p>Yield to Maturity is an estimated annualised return an investor may earn if the bond is held until maturity, assuming the issuer makes all scheduled payments and other calculation assumptions remain applicable.</p>"
+        }
+      ],
+      "url": "https://uatnew.goldenpi.com/collections/all-bonds"
+    },
+    "highly-rated": {
+      "title": "Highly Rated (A or Above)",
+      "docTitle": "Buy Bonds & Fixed Income Investments Online in India | GoldenPi",
+      "metaDesc": "Buy Bonds, Debentures & Fixed Income investments online in India. SEBI-registered debt broker and OBPP license holder.",
+      "introHtml": "<div style=\"\" class=\"gp-rich-text payload-richtext gp-collapsible-rich-text [&amp;&gt;:last-child]:mb-0 gp-rich-text\"><p>The investment grade fixed income bonds which have been rated as ‘A’, ‘AA’ or ‘AAA’ by credit rating agencies.<br>These bonds are considered to have low to negligible probability of default. Offering impressive coupon rates between 9% and 13% per year. <button type=\"button\" class=\"gp-read-more\" data-read-toggle=\"collapse\" aria-expanded=\"true\" aria-label=\"Read less about the note to investors\">Read Less</button></p></div>",
+      "count": "Showing 16 Bonds",
+      "sort": "Sort By: Yield - High to Low ↓",
+      "empty": "",
+      "cards": [
+        {
+          "href": "/bonds/INE413U07467/iifl-samasta-1223-bond-yield?src=view_details&tenureDate=12-May-2027",
+          "issuer": "IIFL SAMASTA",
+          "tags": [
+            "High Rated"
+          ],
+          "rate": "12.23 %",
+          "meta": "91.23% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "8M"
+            ]
+          ],
+          "note": "⚡ Group AUM is above 98K Cr+"
+        },
+        {
+          "href": "/bonds/INE549K08590/muthoot-fincorp-1050-bond-yield?src=view_details&tenureDate=30-Dec-2033",
+          "issuer": "MUTHOOT FINCORP",
+          "tags": [
+            "High Rated"
+          ],
+          "rate": "10.50 %",
+          "meta": "87.56% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "7Y 4M"
+            ]
+          ],
+          "note": "⚡ Backed by a 130+ years Legacy of Trust and Growth"
+        },
+        {
+          "href": "/bonds/INE413U07467/iifl-samasta-1025-bond-yield?src=view_details&tenureDate=12-Aug-2029",
+          "issuer": "IIFL SAMASTA",
+          "tags": [
+            "High Rated"
+          ],
+          "rate": "10.25 %",
+          "meta": "91.23% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "2Y 11M"
+            ]
+          ],
+          "note": "⚡ Group AUM is above 98K Cr+"
+        },
+        {
+          "href": "/bonds/INE296G07333/muthoot-capital-970-bond-yield?src=view_details&tenureDate=24-Aug-2029",
+          "issuer": "MUTHOOT CAPITAL",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "9.70 %",
+          "meta": "56.4% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "2Y 11M"
+            ]
+          ],
+          "note": "⚡ Credit Rating Upgraded from CRISIL A+"
+        },
+        {
+          "href": "/bonds/INE296G07333/muthoot-capital-950-bond-yield?src=view_details&tenureDate=24-Aug-2027",
+          "issuer": "MUTHOOT CAPITAL",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "9.50 %",
+          "meta": "56.4% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "11M"
+            ]
+          ],
+          "note": "⚡ Credit Rating Upgraded from CRISIL A+"
+        },
+        {
+          "href": "/bonds/INE146O08415/hinduja-910-bond-yield?src=view_details&tenureDate=14-Dec-2032",
+          "issuer": "HINDUJA",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "9.10 %",
+          "meta": "54.21% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA+"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "6Y 4M"
+            ]
+          ],
+          "note": "⚡ Backed by the Hinduja Group and Ashok Leyland."
+        },
+        {
+          "href": "/bonds/INE516Y07444/piramal-capital--housing-finance-limited-885-bond-yield?src=view_details&tenureDate=26-Sep-2031",
+          "issuer": "PIRAMAL CAPITAL & HOUSING FINANCE LIMITED",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "8.85 %",
+          "meta": "45.54% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA"
+            ],
+            [
+              "PAYOUT",
+              "Quarterly"
+            ],
+            [
+              "TENURE",
+              "5Y 1M"
+            ]
+          ],
+          "note": "⚡ Equity Listed with ₹47,500 Cr+ Market Cap"
+        },
+        {
+          "href": "/bonds/INE423A07534/adani-enterprises-limited-850-bond-yield?src=view_details&tenureDate=12-Jan-2029",
+          "issuer": "ADANI ENTERPRISES LIMITED",
+          "tags": [
+            "High rated"
+          ],
+          "rate": "8.50 %",
+          "meta": "83.58% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA-"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "2Y 4M"
+            ]
+          ],
+          "note": "⚡ Equity Listed with ₹4 Lakhs Cr+ Market Cap"
+        },
+        {
+          "href": "/bonds/INE0GCN07054/adani-airport-845-bond-yield?src=view_details&tenureDate=12-Feb-2029",
+          "issuer": "ADANI AIRPORT",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "8.45 %",
+          "meta": "64.33% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA-"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "2Y 5M"
+            ]
+          ],
+          "note": "⚡ Backed by Adani Groups Strong Infrastructure Legacy"
+        },
+        {
+          "href": "/bonds/INE658F08524/kerala-infrastructure-investment-fund-board-825-bond-yield?src=view_details&tenureDate=21-Jan-2031",
+          "issuer": "KERALA INFRASTRUCTURE INVESTMENT FUND BOARD",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "8.25 %",
+          "meta": "8% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "4Y 5M"
+            ]
+          ],
+          "note": "⚡ Govt of Kerala Backed & Funding Kerala’s Infrastructure Growth"
+        },
+        {
+          "href": "/bonds/INE0M2307388/andhra-pradesh-state-beverages-corporation-limited-800-bond-yield?src=view_details&tenureDate=28-Nov-2031",
+          "issuer": "ANDHRA PRADESH STATE BEVERAGES CORPORATION LIMITED",
+          "tags": [],
+          "rate": "8.00 %",
+          "meta": "99.89% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "5Y 3M"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE306N07MQ4/tata-capital-limited-740-bond-yield?src=view_details&tenureDate=29-Apr-2032",
+          "issuer": "TATA CAPITAL LIMITED",
+          "tags": [],
+          "rate": "7.40 %",
+          "meta": "50% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AAA"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "5Y 8M"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE296A07RW1/bajaj-finance-ltd-695-bond-yield?src=view_details&tenureDate=02-Dec-2031",
+          "issuer": "BAJAJ FINANCE LTD",
+          "tags": [],
+          "rate": "6.95 %",
+          "meta": "2% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AAA"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "5Y 3M"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE134E08LN6/power-finance-corporation-limited-685-bond-yield?src=view_details&tenureDate=14-Apr-2032",
+          "issuer": "Power Finance Corporation Limited",
+          "tags": [
+            "Tag 1",
+            "Tag 2",
+            "Tag 3"
+          ],
+          "rate": "6.85 %",
+          "meta": "",
+          "metrics": [
+            [
+              "RATING",
+              "AAA"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "5Y 8M"
+            ]
+          ],
+          "note": "⚡ Hurry up!"
+        },
+        {
+          "href": "/bonds/INE040A08963/hdfc-bank-685-bond-yield?src=view_details&tenureDate=01-Dec-2031",
+          "issuer": "HDFC BANK",
+          "tags": [],
+          "rate": "6.85 %",
+          "meta": "2% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AAA"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "5Y 3M"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE053F08122/indian-railway-finance-corporation-limited-670-bond-yield?src=view_details&tenureDate=31-Aug-2031",
+          "issuer": "Indian Railway Finance Corporation Limited",
+          "tags": [],
+          "rate": "6.70 %",
+          "meta": "2% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AAA"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "5Y"
+            ]
+          ],
+          "note": ""
+        }
+      ],
+      "body": [
+        {
+          "kind": "about",
+          "html": "<h2>More About Highly Rated Bonds (A or Above)</h2><p><a href=\"https://goldenpi.com/collections/highly-rated-bonds\" rel=\"noopener noreferrer\" target=\"_blank\">Highly rated bonds</a> are debt securities issued by companies, financial institutions, and other eligible entities that have received relatively strong credit ratings from recognised credit rating agencies. These ratings are intended to provide an assessment of the issuer's ability to meet its debt obligations.</p><p>For investors looking for fixed-income opportunities, highly rated bonds can offer a balance between potential returns and credit quality. However, a higher credit rating does not mean that a bond is completely risk-free. Investors should consider the issuer, maturity, yield, security, liquidity, and other terms before investing.</p><p>Credit rating is an important starting point for bond analysis, but it should not be the only factor considered. Ratings can change over time based on changes in the issuer's financial position, business environment, or other relevant factors.</p>"
+        },
+        {
+          "kind": "article",
+          "nav": [
+            [
+              "#highly-rated-bonds-vs-fixed-deposits",
+              "Highly Rated Bonds vs Fixed Deposits"
+            ],
+            [
+              "#what-are-highly-rated-bonds",
+              "What Are Highly Rated Bonds?"
+            ],
+            [
+              "#how-do-highly-rated-bonds-work",
+              "How Do Highly Rated Bonds Work?"
+            ],
+            [
+              "#understanding-credit-ratings",
+              "Understanding Credit Ratings"
+            ],
+            [
+              "#how-to-invest-in-highly-rated-bonds-on-goldenpi",
+              "How to Invest in Highly Rated Bonds on GoldenPi"
+            ]
+          ],
+          "sections": [
+            {
+              "id": "highly-rated-bonds-vs-fixed-deposits",
+              "html": "<h3>Highly Rated Bonds vs Fixed Deposits</h3><p>Highly rated bonds and fixed deposits are both commonly considered fixed-income investment options, but they have different characteristics.</p>"
+            },
+            {
+              "id": "what-are-highly-rated-bonds",
+              "html": "<h3>What Are Highly Rated Bonds?</h3><p>Highly rated bonds are bonds that have received a relatively strong credit rating from a recognised credit rating agency.</p><p>In India, credit rating agencies such as CRISIL Ratings, ICRA, CARE Ratings, and India Ratings &amp; Research assess debt instruments based on factors including the issuer's financial strength, ability to repay debt, business profile, and other relevant risks.</p><p>Ratings such as AAA, AA+, AA, AA-, and other investment-grade ratings can indicate different levels of assessed creditworthiness.</p><p>However, a credit rating is an opinion about credit risk and does not guarantee that an issuer will always make payments on time.</p>"
+            },
+            {
+              "id": "how-do-highly-rated-bonds-work",
+              "html": "<h3>How Do Highly Rated Bonds Work?</h3><p>When you invest in a highly rated bond, you are lending money to the issuer for a specified period.</p><p>The issuer generally agrees to:</p><ul class=\"list-bullet\"><li class=\"\" style=\"\" value=\"1\">Pay interest according to the bond's coupon schedule.</li><li class=\"\" style=\"\" value=\"2\">Repay the principal amount on maturity.</li><li class=\"\" style=\"\" value=\"3\">Follow the terms and conditions specified for the bond.</li></ul><p>The actual return from a bond depends on factors such as its purchase price, coupon, yield, maturity, and cash-flow structure.</p>"
+            },
+            {
+              "id": "understanding-credit-ratings",
+              "html": "<h3>Understanding Credit Ratings</h3><p>Credit ratings help investors evaluate the creditworthiness of a bond or its issuer.</p><p>A higher rating generally indicates a stronger assessment of the issuer's ability to meet its financial obligations. However, ratings are not guarantees of repayment and can change over time.</p><p>For example, a bond's rating may be affected by:</p><ul class=\"list-bullet\"><li class=\"\" style=\"\" value=\"1\">Changes in the issuer's financial performance</li><li class=\"\" style=\"\" value=\"2\">Increase in the issuer's debt</li><li class=\"\" style=\"\" value=\"3\">Changes in business conditions</li><li class=\"\" style=\"\" value=\"4\">Sector-specific risks</li><li class=\"\" style=\"\" value=\"5\">Changes in liquidity or funding conditions</li><li class=\"\" style=\"\" value=\"6\">Significant deterioration in the issuer's ability to service debt</li></ul><p>Investors should therefore review the latest available rating and relevant disclosures before investing.</p>"
+            },
+            {
+              "id": "how-to-invest-in-highly-rated-bonds-on-goldenpi",
+              "html": "<h3>How to Invest in Highly Rated Bonds on GoldenPi</h3><p>Before investing in a highly rated bond, investors should evaluate more than just the rating.</p><p>Consider the following:</p><ol class=\"list-number\"><li class=\"\" style=\"\" value=\"1\"><strong>Credit Rating</strong> – Check the latest rating and rating outlook.</li><li class=\"\" style=\"\" value=\"2\"><strong>Issuer</strong> – Understand the issuer and its financial profile.</li><li class=\"\" style=\"\" value=\"3\"><strong>Yield to Maturity</strong> – Evaluate the potential annualised return based on the bond's current price and cash flows.</li><li class=\"\" style=\"\" value=\"4\"><strong>Coupon Rate</strong> – Check the interest rate and payment frequency.</li><li class=\"\" style=\"\" value=\"5\"><strong>Maturity</strong> – Ensure the maturity period fits your investment horizon.</li><li class=\"\" style=\"\" value=\"6\"><strong>Security</strong> – Check whether the bond is secured or unsecured.</li><li class=\"\" style=\"\" value=\"7\"><strong>Liquidity</strong> – Consider whether the bond can be sold easily before maturity.</li><li class=\"\" style=\"\" value=\"8\"><strong>Cash Flow</strong> – Review interest payment dates and principal repayment.</li><li class=\"\" style=\"\" value=\"9\"><strong>Minimum Investment</strong> – Check the minimum amount required to invest.</li><li class=\"\" style=\"\" value=\"10\"><strong>Risk Factors</strong> – Read the relevant disclosures and understand the risks.</li></ol><p>GoldenPi allows investors to explore and compare available bonds based on parameters such as rating, yield, maturity, coupon and issuer details.</p>"
+            }
+          ]
+        },
+        {
+          "kind": "faq",
+          "title": "Frequently asked questions"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "What are highly rated bonds?",
+          "a": "<p>Highly rated bonds are debt securities that have received relatively strong credit ratings from recognised credit rating agencies. These ratings indicate the agency's assessment of the issuer's ability to meet its debt obligations.</p>"
+        },
+        {
+          "q": "What does an A or above bond rating mean?",
+          "a": "<p>An A or above rating generally indicates a relatively strong level of creditworthiness according to the relevant rating agency's rating scale. The exact meaning depends on the rating agency and rating category. A rating is not a guarantee of repayment.</p>"
+        },
+        {
+          "q": "Are highly rated bonds safe?",
+          "a": "<p>Highly rated bonds may have lower assessed credit risk than lower-rated bonds, but they are not completely risk-free. Investors remain exposed to credit, interest-rate, liquidity, rating, and other investment risks.</p>"
+        },
+        {
+          "q": "Are AAA bonds safer than AA bonds?",
+          "a": "<p>Generally, a AAA rating represents a stronger credit assessment than an AA rating within the same rating agency's scale. However, investors should not treat either rating as a guarantee of repayment and should review the latest rating and bond-specific information.</p>"
+        },
+        {
+          "q": "Which agencies rate bonds in India?",
+          "a": "<p>Recognised credit rating agencies in India include CRISIL Ratings, ICRA, CARE Ratings, and India Ratings &amp; Research, among others. Investors should refer to the latest rating information provided for the specific bond.</p>"
+        },
+        {
+          "q": "Can the credit rating of a bond change?",
+          "a": "<p>Yes. Credit ratings can be upgraded, downgraded, or placed under review depending on changes in the issuer's financial position, business conditions, debt levels, liquidity, and other factors.</p>"
+        },
+        {
+          "q": "Do highly rated bonds provide guaranteed returns?",
+          "a": "<p>No. A credit rating does not guarantee returns. The investor's actual outcome depends on the bond's cash flows, purchase price, maturity, issuer's ability to meet its obligations, and other market factors.</p>"
+        },
+        {
+          "q": "What is the difference between highly rated bonds and fixed deposits?",
+          "a": "<p>Highly rated bonds are market-linked debt securities whose prices can change before maturity. Fixed deposits generally offer predetermined interest according to their terms. They also differ in issuer, liquidity, risk, taxation, and applicable protections.</p>"
+        }
+      ],
+      "url": "https://uatnew.goldenpi.com/collections/highly-rated"
+    },
+    "high-returns": {
+      "title": "High Returns",
+      "docTitle": "Buy Bonds & Fixed Income Investments Online in India | GoldenPi",
+      "metaDesc": "Buy Bonds, Debentures & Fixed Income investments online in India. SEBI-registered debt broker and OBPP license holder.",
+      "introHtml": "<div style=\"\" class=\"gp-rich-text payload-richtext gp-collapsible-rich-text [&amp;&gt;:last-child]:mb-0 gp-rich-text\"><p>High-returns bonds are debt securities that pay coupons noticeably above what A-rated or sovereign paper. These offers in return for taking on more credit risk. In India, these typically come from BBB- to A+-rated issuers, with coupons ranging 9% to 13% <button type=\"button\" class=\"gp-read-more\" data-read-toggle=\"collapse\" aria-expanded=\"true\" aria-label=\"Read less about the note to investors\">Read Less</button></p></div>",
+      "count": "Showing 13 Bonds",
+      "sort": "Sort By: Yield - Low to High ↑",
+      "empty": "",
+      "cards": [
+        {
+          "href": "/bonds/INE229U07186/namra-1110-bond-yield?src=view_details&tenureDate=24-Apr-2028",
+          "issuer": "NAMRA",
+          "tags": [
+            "High Rated",
+            "High Yield",
+            "₹30k Bond"
+          ],
+          "rate": "11.10 %",
+          "meta": "18.78% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "1Y 7M"
+            ]
+          ],
+          "note": "⚡ MSME & Secured Lending Focus & Growing AUM Base"
+        },
+        {
+          "href": "/bonds/INE0BUS07CS3/indel-1110-bond-yield?src=view_details&tenureDate=01-Aug-2027",
+          "issuer": "INDEL",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "11.10 %",
+          "meta": "67.29% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "10M"
+            ]
+          ],
+          "note": "⚡ Gold Loan Dominant & Established Regional Presence"
+        },
+        {
+          "href": "/bonds/INE01YL07466/earlysalaryfibe-1130-bond-yield?src=view_details&tenureDate=07-Jun-2029",
+          "issuer": "EARLYSALARY(FIBE)",
+          "tags": [
+            "High Rated",
+            "High YTM"
+          ],
+          "rate": "11.30 %",
+          "meta": "69.85% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "2Y 9M"
+            ]
+          ],
+          "note": "⚡ Upcoming Equity Listing"
+        },
+        {
+          "href": "/bonds/INE109C07147/arman-1140-bond-yield?src=view_details&tenureDate=25-Sep-2028",
+          "issuer": "ARMAN",
+          "tags": [
+            "Newly Launched",
+            "High Yield"
+          ],
+          "rate": "11.40 %",
+          "meta": "87.22% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "2Y"
+            ]
+          ],
+          "note": "⚡ Equity Listed with ₹2,000 Cr+ Market Cap"
+        },
+        {
+          "href": "/bonds/INE385W07075/dishman-1140-bond-yield?src=view_details&tenureDate=17-Aug-2027",
+          "issuer": "DISHMAN",
+          "tags": [
+            "Newly Launched"
+          ],
+          "rate": "11.40 %",
+          "meta": "63.68% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "11M"
+            ]
+          ],
+          "note": "⚡ Listed Entity with ₹2,700 Cr+ Market Cap"
+        },
+        {
+          "href": "/bonds/INE0NES07352/keertana-1142-bond-yield?src=view_details&tenureDate=16-Jun-2027",
+          "issuer": "KEERTANA",
+          "tags": [
+            "Newly Launched",
+            "High Yield"
+          ],
+          "rate": "11.42 %",
+          "meta": "30.29% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "9M"
+            ]
+          ],
+          "note": "⚡ Fast Growing Gold Lender"
+        },
+        {
+          "href": "/bonds/INE0BUS07CS3/indel-1145-bond-yield?src=view_details&tenureDate=24-Aug-2029",
+          "issuer": "INDEL",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "11.45 %",
+          "meta": "67.29% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "2Y 11M"
+            ]
+          ],
+          "note": "⚡ Gold Loan Dominant & Established Regional Presence"
+        },
+        {
+          "href": "/bonds/INE03K307215/satin-finserv-1160-bond-yield?src=view_details&tenureDate=27-Aug-2027",
+          "issuer": "SATIN FINSERV",
+          "tags": [
+            "High Rated",
+            "High YTM"
+          ],
+          "rate": "11.60 %",
+          "meta": "65% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "11M"
+            ]
+          ],
+          "note": "⚡ Emerging MSME focused NBFC backed by Satin Group"
+        },
+        {
+          "href": "/bonds/INE03K307215/satin-finserv-1190-bond-yield?src=view_details&tenureDate=27-Nov-2028",
+          "issuer": "SATIN FINSERV",
+          "tags": [
+            "High Rated",
+            "High YTM"
+          ],
+          "rate": "11.90 %",
+          "meta": "65% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "2Y 2M"
+            ]
+          ],
+          "note": "⚡ Emerging MSME focused NBFC backed by Satin Group"
+        },
+        {
+          "href": "/bonds/INE0NES07352/keertana-1200-bond-yield?src=view_details&tenureDate=16-Dec-2028",
+          "issuer": "KEERTANA",
+          "tags": [
+            "Newly Launched",
+            "High Yield"
+          ],
+          "rate": "12.00 %",
+          "meta": "30.29% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "2Y 3M"
+            ]
+          ],
+          "note": "⚡ Fast Growing Gold Lender"
+        },
+        {
+          "href": "/bonds/INE413U07467/iifl-samasta-1223-bond-yield?src=view_details&tenureDate=12-May-2027",
+          "issuer": "IIFL SAMASTA",
+          "tags": [
+            "High Rated"
+          ],
+          "rate": "12.23 %",
+          "meta": "91.23% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "8M"
+            ]
+          ],
+          "note": "⚡ Group AUM is above 98K Cr+"
+        },
+        {
+          "href": "/bonds/INE00DJ07052/tapir-1225-bond-yield?src=view_details&tenureDate=12-Mar-2030",
+          "issuer": "TAPIR",
+          "tags": [
+            "Selling Out Fast",
+            "Corp Bond"
+          ],
+          "rate": "12.25 %",
+          "meta": "95.05% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "3Y 6M"
+            ]
+          ],
+          "note": "⚡ Part of ₹50K Crs+ Market Cap Embassy Group"
+        },
+        {
+          "href": "/bonds/INE385W07075/dishman-1266-bond-yield?src=view_details&tenureDate=17-Feb-2027",
+          "issuer": "DISHMAN",
+          "tags": [
+            "Newly Launched"
+          ],
+          "rate": "12.66 %",
+          "meta": "63.68% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "5M"
+            ]
+          ],
+          "note": "⚡ Listed Entity with ₹2,700 Cr+ Market Cap"
+        }
+      ],
+      "body": [],
+      "faqs": [],
+      "url": "https://uatnew.goldenpi.com/collections/high-returns"
+    },
+    "short-term": {
+      "title": "Short Term",
+      "docTitle": "Buy Bonds & Fixed Income Investments Online in India | GoldenPi",
+      "metaDesc": "Buy Bonds, Debentures & Fixed Income investments online in India. SEBI-registered debt broker and OBPP license holder.",
+      "introHtml": "<div style=\"\" class=\"gp-rich-text payload-richtext gp-collapsible-rich-text [&amp;&gt;:last-child]:mb-0 gp-rich-text\"><p>Short-Term Bonds Maturing within a Year are bonds where the time to maturity is 6 months or less. <br>The category exists for investors who want to put money into fixed income for under a year and get their principal back at the end <button type=\"button\" class=\"gp-read-more\" data-read-toggle=\"collapse\" aria-expanded=\"true\" aria-label=\"Read less about the note to investors\">Read Less</button></p></div>",
+      "count": "Showing 1 Bonds",
+      "sort": "Sort By: Yield - Low to High ↑",
+      "empty": "",
+      "cards": [
+        {
+          "href": "/bonds/INE385W07075/dishman-1266-bond-yield?src=view_details&tenureDate=17-Feb-2027",
+          "issuer": "DISHMAN",
+          "tags": [
+            "Newly Launched"
+          ],
+          "rate": "12.66 %",
+          "meta": "63.68% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "5M"
+            ]
+          ],
+          "note": "⚡ Listed Entity with ₹2,700 Cr+ Market Cap"
+        }
+      ],
+      "body": [
+        {
+          "kind": "about",
+          "html": "<p>The shorter holding period also limits how much the bond's market price can swing between purchase and maturity. That is a feature investors with near-term goals tend to look for.</p><h2><strong>What are Short-Term Bonds?</strong></h2><p>Short-term bonds are listed debt securities with a remaining tenure of under 36 months. The category covers corporate NCDs (<a href=\"https://goldenpi.com/bond-ipo-online\">Non-Convertible Debentures</a>), PSU bonds, government securities, and select bank bonds, as long as the maturity date sits within the next three years.</p><p>When you buy one, you are lending money to the issuer for that period. The issuer pays a fixed coupon over the tenure. On the maturity date, your principal returns to your bank account. These are sometimes called short-term debt instruments in <a href=\"https://goldenpi.com/collections/bonds-to-earn-monthly-fixed-income\">fixed-income markets</a>. The category also overlaps with what investors call liquid fixed-income options, since the short tenure brings money back relatively quickly.</p><h2><strong>Why Investors Pick a Short Tenure</strong></h2><p>A short tenure has three common reasons behind it:</p><ol class=\"list-number\"><li class=\"\" style=\"\" value=\"1\">Defined goal. If you have a known cash need in the next 1-3 years (a school fee, a vehicle, or a planned home move), the bond's maturity date can line up with the goal.</li><li class=\"\" style=\"\" value=\"2\">Lower interest rate sensitivity. Long-tenure bonds react more sharply when market rates change. Short-tenure bonds move less because they are closer to maturity.</li><li class=\"\" style=\"\" value=\"3\">Faster reinvestment. As the bond matures, you can redeploy the money into fresh listings at the rates available at that time.</li></ol><h2><strong>Current Yields on Short-Term Debt Instruments On GoldenPi</strong></h2><p>Today, short-term debt instruments in this category are mostly NBFC NCDs. Ratings sit in the BBB to A band. Yields run from 11.40% to 14%.&nbsp;</p><p><strong>Issuer</strong></p><p><strong>Rating</strong></p><p><strong>Yield</strong></p><p><strong>Tenure</strong></p><p><strong>Payments</strong></p><p>Akara Capital</p><p>ICRA BBB</p><p>Up to 14%</p><p>8M to 24M</p><p>Monthly</p><p>Keertana Finserv</p><p>IND BBB+</p><p>Up to 13.5%</p><p>10M to 16M</p><p>Monthly</p><p>Spandana Sphoorty</p><p>ICRA BBB+</p><p>Up to 12.9%</p><p>11M to 23M</p><p>Monthly</p><p>Midland Microfin</p><p>ACUITE A-</p><p>Up to 12.65%</p><p>8M to 16M</p><p>Monthly</p><p>Lucina Development</p><p>IVR A-</p><p>12.50%</p><p>Until 30-Jan-2029</p><p>Monthly</p><p>Unigold Finance</p><p>CRISIL BBB</p><p>Up to 11.85%</p><p>9M to 22M</p><p>Monthly</p><p>Indel Money</p><p>IND A-</p><p>Up to 11.8%</p><p>10M to 35M</p><p>Monthly</p><p>Arman Financial</p><p>ACUITE A-</p><p>Up to 11.76%</p><p>8M to 26M</p><p>Quarterly</p><p>Namra Finance</p><p>ACUITE A-</p><p>Up to 11.5%</p><p>10M to 28M</p><p>Quarterly</p><p>Satin Creditcare</p><p>ICRA A</p><p>Up to 11.4%</p><p>7M to 20M</p><p>Monthly</p><p>The list rotates as new bonds get added and existing ones close.</p><h2><strong>A Simple Example</strong></h2><p>Suppose you invest Rs. 30,000 in a <a href=\"https://goldenpi.com/collections/bonds-for-short-term-investment\">24-month bond</a> paying 12% per year, with monthly payouts. Annual interest works out to Rs. 3,600, which is roughly Rs. 300 a month. Over 24 months, the total interest comes to Rs. 7,200. At maturity, your Rs. 30,000 principal returns.</p><h2><strong>Risks to Understand</strong></h2><p>A short maturity does not remove credit risk. Three risks matter:</p><ol class=\"list-number\"><li class=\"\" style=\"\" value=\"1\">Credit risk. The issuer may fail to pay you on time. NBFCs in the BBB to A band are more sensitive to sector cycles and loan-book stress than AAA paper.</li><li class=\"\" style=\"\" value=\"2\">Liquidity risk. The secondary market for some of these bonds can be thin. If you want to exit before maturity, the price you get may be lower than you expected.</li><li class=\"\" style=\"\" value=\"3\">Reinvestment risk. When the bond matures, the new rates available may be lower than the rate you locked at issue. This is a normal feature of any short-maturity holding.</li></ol><h2><br><strong>How to Invest on GoldenPi:</strong></h2><p>GoldenPi is a SEBI-registered <a href=\"https://goldenpi.com/\">Online Bond Platform Provider</a>. The steps to invest in short-term bonds:</p><ol class=\"list-number\"><li class=\"\" style=\"\" value=\"1\">Log in to your KYC-verified account.</li><li class=\"\" style=\"\" value=\"2\">Open the Bonds Maturing within 3 Years (Short Term) section.</li><li class=\"\" style=\"\" value=\"3\">Filter by rating, yield, payout frequency, or issuer.</li><li class=\"\" style=\"\" value=\"4\">Read the bond details and the offer document.</li><li class=\"\" style=\"\" value=\"5\">Pay through NEFT, RTGS or UPI from your bank account.</li><li class=\"\" style=\"\" value=\"6\">The bond enters your demat after settlement.</li></ol><h3><strong>Taxation</strong></h3><p>Interest is added to your total income and taxed at your slab rate. Once annual interest from one issuer crosses Rs. 10,000, TDS at 10% applies on listed corporate NCDs under Section 193 of the Income Tax Act.</p><p>If you sell within 12 months, the profit is taxed at a slab. Beyond 12 months, the long-term capital gain on a listed bond is taxed at 12.5% without indexation under the Finance (No. 2) Act, 2024.<br></p><h2><strong>Conclusion:</strong></h2><p>Short-term bonds suit investors with a defined need in the 1-3 year window. The shorter wait keeps interest rate exposure low and brings the principal back sooner for redeployment. Many investors treat this segment as part of their liquid fixed-income options, where the maturity profile matches near-term needs.</p><p>The trade-off is credit risk. Most listings sit in the BBB to A band and offer higher yields to compensate for the lower rating. The <a href=\"https://goldenpi.com/blog/investment-guide/impact-of-indias-credit-rating-upgrade-on-bond-returns/\">credit rating</a>, the security cover, and the issuer's recent financials matter as much as the headline coupon.</p><p>GoldenPi keeps the listings updated as new bonds get added and existing ones close. Ratings and yields reflect the latest disclosures from each issuer.</p>"
+        }
+      ],
+      "faqs": [],
+      "url": "https://uatnew.goldenpi.com/collections/short-term"
+    },
+    "gold-backed": {
+      "title": "Gold Backed",
+      "docTitle": "Buy Bonds & Fixed Income Investments Online in India | GoldenPi",
+      "metaDesc": "Buy Bonds, Debentures & Fixed Income investments online in India. SEBI-registered debt broker and OBPP license holder.",
+      "introHtml": "<div style=\"\" class=\"gp-rich-text payload-richtext gp-collapsible-rich-text [&amp;&gt;:last-child]:mb-0 gp-rich-text\"><p>A collection of gold-backed bonds available on GoldenPi.</p><ul class=\"list-bullet\"><li class=\"\" style=\"\" value=\"1\">Invest in bonds backed by gold assets, offering an additional layer of collateral.</li><li class=\"\" style=\"\" value=\"2\">Suitable for investors looking to diversify their portfolio with asset-backed fixed-income opportunities.</li><li class=\"\" style=\"\" value=\"3\">Designed for investors seeking structured income opportunities backed by underlying gold assets.</li><li class=\"\" style=\"\" value=\"4\">These bonds can help add diversification to your portfolio alongside traditional fixed-income instruments. <button type=\"button\" class=\"gp-read-more\" data-read-toggle=\"collapse\" aria-expanded=\"true\" aria-label=\"Read less about the note to investors\">Read Less</button></li></ul></div>",
+      "count": "Showing 36 Bonds",
+      "sort": "Sort By: Yield - Low to High ↑",
+      "empty": "",
+      "cards": [
+        {
+          "href": "/bonds/INE053F08122/indian-railway-finance-corporation-limited-670-bond-yield?src=view_details&tenureDate=31-Aug-2031",
+          "issuer": "Indian Railway Finance Corporation Limited",
+          "tags": [],
+          "rate": "6.70 %",
+          "meta": "2% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AAA"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "5Y"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE134E08LN6/power-finance-corporation-limited-685-bond-yield?src=view_details&tenureDate=14-Apr-2032",
+          "issuer": "Power Finance Corporation Limited",
+          "tags": [
+            "Tag 1",
+            "Tag 2",
+            "Tag 3"
+          ],
+          "rate": "6.85 %",
+          "meta": "",
+          "metrics": [
+            [
+              "RATING",
+              "AAA"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "5Y 8M"
+            ]
+          ],
+          "note": "⚡ Hurry up!"
+        },
+        {
+          "href": "/bonds/INE040A08963/hdfc-bank-685-bond-yield?src=view_details&tenureDate=01-Dec-2031",
+          "issuer": "HDFC BANK",
+          "tags": [],
+          "rate": "6.85 %",
+          "meta": "2% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AAA"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "5Y 3M"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE296A07RW1/bajaj-finance-ltd-695-bond-yield?src=view_details&tenureDate=02-Dec-2031",
+          "issuer": "BAJAJ FINANCE LTD",
+          "tags": [],
+          "rate": "6.95 %",
+          "meta": "2% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AAA"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "5Y 3M"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE306N07MQ4/tata-capital-limited-740-bond-yield?src=view_details&tenureDate=29-Apr-2032",
+          "issuer": "TATA CAPITAL LIMITED",
+          "tags": [],
+          "rate": "7.40 %",
+          "meta": "50% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AAA"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "5Y 8M"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE0M2307388/andhra-pradesh-state-beverages-corporation-limited-800-bond-yield?src=view_details&tenureDate=28-Nov-2031",
+          "issuer": "ANDHRA PRADESH STATE BEVERAGES CORPORATION LIMITED",
+          "tags": [],
+          "rate": "8.00 %",
+          "meta": "99.89% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "5Y 3M"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE658F08524/kerala-infrastructure-investment-fund-board-825-bond-yield?src=view_details&tenureDate=21-Jan-2031",
+          "issuer": "KERALA INFRASTRUCTURE INVESTMENT FUND BOARD",
+          "tags": [],
+          "rate": "8.25 %",
+          "meta": "8% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "4Y 5M"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE0GCN07054/adani-airport-845-bond-yield?src=view_details&tenureDate=12-Feb-2029",
+          "issuer": "ADANI AIRPORT",
+          "tags": [],
+          "rate": "8.45 %",
+          "meta": "64.33% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA-"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "2Y 5M"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE423A07534/adani-enterprises-limited-850-bond-yield?src=view_details&tenureDate=12-Jan-2029",
+          "issuer": "ADANI ENTERPRISES LIMITED",
+          "tags": [],
+          "rate": "8.50 %",
+          "meta": "83.58% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA-"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "2Y 4M"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE516Y07444/piramal-capital--housing-finance-limited-885-bond-yield?src=view_details&tenureDate=26-Sep-2031",
+          "issuer": "PIRAMAL CAPITAL & HOUSING FINANCE LIMITED",
+          "tags": [],
+          "rate": "8.85 %",
+          "meta": "45.54% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA"
+            ],
+            [
+              "PAYOUT",
+              "Quarterly"
+            ],
+            [
+              "TENURE",
+              "5Y 1M"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE146O08415/hinduja-910-bond-yield?src=view_details&tenureDate=14-Dec-2032",
+          "issuer": "HINDUJA",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "9.10 %",
+          "meta": "54.21% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA+"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "6Y 4M"
+            ]
+          ],
+          "note": "⚡ Backed by the Hinduja Group and Ashok Leyland."
+        },
+        {
+          "href": "/bonds/INE296G07333/muthoot-capital-950-bond-yield?src=view_details&tenureDate=24-Aug-2027",
+          "issuer": "MUTHOOT CAPITAL",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "9.50 %",
+          "meta": "56.4% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "11M"
+            ]
+          ],
+          "note": "⚡ Credit Rating Upgraded from CRISIL A+"
+        },
+        {
+          "href": "/bonds/INE296G07333/muthoot-capital-970-bond-yield?src=view_details&tenureDate=24-Aug-2029",
+          "issuer": "MUTHOOT CAPITAL",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "9.70 %",
+          "meta": "56.4% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "2Y 11M"
+            ]
+          ],
+          "note": "⚡ Credit Rating Upgraded from CRISIL A+"
+        },
+        {
+          "href": "/bonds/INE101Q07CB5/muthoot-mcred-995-bond-yield?src=view_details&tenureDate=10-Aug-2027",
+          "issuer": "MUTHOOT MCRED",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "9.95 %",
+          "meta": "99.4% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "11M"
+            ]
+          ],
+          "note": "⚡ 100% Promoter Owned & Gold backed"
+        },
+        {
+          "href": "/bonds/INE101Q07CB5/muthoot-mcred-1020-bond-yield?src=view_details&tenureDate=07-Aug-2029",
+          "issuer": "MUTHOOT MCRED",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "10.20 %",
+          "meta": "99.4% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "2Y 11M"
+            ]
+          ],
+          "note": "⚡ 100% Promoter Owned & Gold backed"
+        },
+        {
+          "href": "/bonds/INE413U07467/iifl-samasta-1025-bond-yield?src=view_details&tenureDate=12-Aug-2029",
+          "issuer": "IIFL SAMASTA",
+          "tags": [
+            "High Rated"
+          ],
+          "rate": "10.25 %",
+          "meta": "91.23% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "2Y 11M"
+            ]
+          ],
+          "note": "⚡ Group AUM is above 98K Cr+"
+        },
+        {
+          "href": "/bonds/INE583D07638/ugro-capital-limited-1035-bond-yield?src=view_details&tenureDate=16-Jun-2029",
+          "issuer": "UGRO CAPITAL LIMITED",
+          "tags": [
+            "Public Listed",
+            "₹10K Bond"
+          ],
+          "rate": "10.35 %",
+          "meta": "42.45% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A+"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "2Y 9M"
+            ]
+          ],
+          "note": "⚡ A+ Rated MSME Lender & ₹15K+ Cr AUM"
+        },
+        {
+          "href": "/bonds/INE342T07668/navi-dec28-1040-bond-yield?src=view_details&tenureDate=31-Dec-2028",
+          "issuer": "Navi Dec'28",
+          "tags": [
+            "Popular Choice",
+            "₹10K Bond"
+          ],
+          "rate": "10.40 %",
+          "meta": "91.23% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "2Y 4M"
+            ]
+          ],
+          "note": "⚡ Leading Digitial NBFC Backed by Sachin Bansal"
+        },
+        {
+          "href": "/bonds/INE932X07056/share-india-1050-bond-yield?src=view_details&tenureDate=10-Aug-2027",
+          "issuer": "SHARE INDIA",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "10.50 %",
+          "meta": "74.31% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A+"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "11M"
+            ]
+          ],
+          "note": "⚡ Equity Listed with ₹3,660 Cr+ Market Cap"
+        },
+        {
+          "href": "/bonds/INE549K08590/muthoot-fincorp-1050-bond-yield?src=view_details&tenureDate=30-Dec-2033",
+          "issuer": "MUTHOOT FINCORP",
+          "tags": [
+            "High Rated"
+          ],
+          "rate": "10.50 %",
+          "meta": "87.56% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "7Y 4M"
+            ]
+          ],
+          "note": "⚡ Backed by a 130+ years Legacy of Trust and Growth"
+        },
+        {
+          "href": "/bonds/INE932X07056/share-india-1075-bond-yield?src=view_details&tenureDate=10-Aug-2028",
+          "issuer": "SHARE INDIA",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "10.75 %",
+          "meta": "74.31% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A+"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "1Y 11M"
+            ]
+          ],
+          "note": "⚡ Equity Listed with ₹3,660 Cr+ Market Cap"
+        },
+        {
+          "href": "/bonds/INE0BUS07CN4/indel-1086-bond-yield?src=view_details&tenureDate=30-Mar-2028",
+          "issuer": "INDEL",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "10.86 %",
+          "meta": "98.03% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "1Y 6M"
+            ]
+          ],
+          "note": "⚡ Gold Loan Dominant & Established Regional Presence"
+        },
+        {
+          "href": "/bonds/INE01YL07466/earlysalaryfibe-1100-bond-yield?src=view_details&tenureDate=07-Jun-2027",
+          "issuer": "EARLYSALARY(FIBE)",
+          "tags": [
+            "High Rated",
+            "High YTM"
+          ],
+          "rate": "11.00 %",
+          "meta": "69.85% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "9M"
+            ]
+          ],
+          "note": "⚡ Upcoming Equity Listing"
+        },
+        {
+          "href": "/bonds/INE229U07186/namra-1110-bond-yield?src=view_details&tenureDate=24-Apr-2028",
+          "issuer": "NAMRA",
+          "tags": [
+            "High Rated",
+            "High Yield",
+            "₹30k Bond"
+          ],
+          "rate": "11.10 %",
+          "meta": "18.78% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "1Y 7M"
+            ]
+          ],
+          "note": "⚡ MSME & Secured Lending Focus & Growing AUM Base"
+        },
+        {
+          "href": "/bonds/INE0BUS07CS3/indel-1110-bond-yield?src=view_details&tenureDate=01-Aug-2027",
+          "issuer": "INDEL",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "11.10 %",
+          "meta": "67.29% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "10M"
+            ]
+          ],
+          "note": "⚡ Gold Loan Dominant & Established Regional Presence"
+        },
+        {
+          "href": "/bonds/INE01YL07466/earlysalaryfibe-1130-bond-yield?src=view_details&tenureDate=07-Jun-2029",
+          "issuer": "EARLYSALARY(FIBE)",
+          "tags": [
+            "High Rated",
+            "High YTM"
+          ],
+          "rate": "11.30 %",
+          "meta": "69.85% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "2Y 9M"
+            ]
+          ],
+          "note": "⚡ Upcoming Equity Listing"
+        },
+        {
+          "href": "/bonds/INE385W07075/dishman-1140-bond-yield?src=view_details&tenureDate=17-Aug-2027",
+          "issuer": "DISHMAN",
+          "tags": [
+            "Newly Launched"
+          ],
+          "rate": "11.40 %",
+          "meta": "63.68% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "11M"
+            ]
+          ],
+          "note": "⚡ Listed Entity with ₹2,700 Cr+ Market Cap"
+        },
+        {
+          "href": "/bonds/INE109C07147/arman-1140-bond-yield?src=view_details&tenureDate=25-Sep-2028",
+          "issuer": "ARMAN",
+          "tags": [
+            "Newly Launched",
+            "High Yield"
+          ],
+          "rate": "11.40 %",
+          "meta": "87.22% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "2Y"
+            ]
+          ],
+          "note": "⚡ Equity Listed with ₹2,000 Cr+ Market Cap"
+        },
+        {
+          "href": "/bonds/INE0NES07352/keertana-1142-bond-yield?src=view_details&tenureDate=16-Jun-2027",
+          "issuer": "KEERTANA",
+          "tags": [
+            "Newly Launched",
+            "High Yield"
+          ],
+          "rate": "11.42 %",
+          "meta": "30.29% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "9M"
+            ]
+          ],
+          "note": "⚡ Fast Growing Gold Lender"
+        },
+        {
+          "href": "/bonds/INE0BUS07CS3/indel-1145-bond-yield?src=view_details&tenureDate=24-Aug-2029",
+          "issuer": "INDEL",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "11.45 %",
+          "meta": "67.29% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "2Y 11M"
+            ]
+          ],
+          "note": "⚡ Gold Loan Dominant & Established Regional Presence"
+        },
+        {
+          "href": "/bonds/INE03K307215/satin-finserv-1160-bond-yield?src=view_details&tenureDate=27-Aug-2027",
+          "issuer": "SATIN FINSERV",
+          "tags": [
+            "High Rated",
+            "High YTM"
+          ],
+          "rate": "11.60 %",
+          "meta": "65% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "11M"
+            ]
+          ],
+          "note": "⚡ Emerging MSME focused NBFC backed by Satin Group"
+        },
+        {
+          "href": "/bonds/INE03K307215/satin-finserv-1190-bond-yield?src=view_details&tenureDate=27-Nov-2028",
+          "issuer": "SATIN FINSERV",
+          "tags": [
+            "High Rated",
+            "High YTM"
+          ],
+          "rate": "11.90 %",
+          "meta": "65% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "2Y 2M"
+            ]
+          ],
+          "note": "⚡ Emerging MSME focused NBFC backed by Satin Group"
+        },
+        {
+          "href": "/bonds/INE0NES07352/keertana-1200-bond-yield?src=view_details&tenureDate=16-Dec-2028",
+          "issuer": "KEERTANA",
+          "tags": [
+            "Newly Launched",
+            "High Yield"
+          ],
+          "rate": "12.00 %",
+          "meta": "30.29% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "2Y 3M"
+            ]
+          ],
+          "note": "⚡ Fast Growing Gold Lender"
+        },
+        {
+          "href": "/bonds/INE413U07467/iifl-samasta-1223-bond-yield?src=view_details&tenureDate=12-May-2027",
+          "issuer": "IIFL SAMASTA",
+          "tags": [
+            "High Rated"
+          ],
+          "rate": "12.23 %",
+          "meta": "91.23% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "8M"
+            ]
+          ],
+          "note": "⚡ Group AUM is above 98K Cr+"
+        },
+        {
+          "href": "/bonds/INE00DJ07052/tapir-1225-bond-yield?src=view_details&tenureDate=12-Mar-2030",
+          "issuer": "TAPIR",
+          "tags": [
+            "Selling Out Fast",
+            "Corp Bond"
+          ],
+          "rate": "12.25 %",
+          "meta": "95.05% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "3Y 6M"
+            ]
+          ],
+          "note": "⚡ Part of ₹50K Crs+ Market Cap Embassy Group"
+        },
+        {
+          "href": "/bonds/INE385W07075/dishman-1266-bond-yield?src=view_details&tenureDate=17-Feb-2027",
+          "issuer": "DISHMAN",
+          "tags": [
+            "Newly Launched"
+          ],
+          "rate": "12.66 %",
+          "meta": "63.68% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "5M"
+            ]
+          ],
+          "note": "⚡ Listed Entity with ₹2,700 Cr+ Market Cap"
+        }
+      ],
+      "body": [],
+      "faqs": [],
+      "url": "https://uatnew.goldenpi.com/collections/gold-backed"
+    },
+    "ncd-ipo": {
+      "title": "NCD IPO",
+      "docTitle": "Buy Bonds & Fixed Income Investments Online in India | GoldenPi",
+      "metaDesc": "Buy Bonds, Debentures & Fixed Income investments online in India. SEBI-registered debt broker and OBPP license holder.",
+      "introHtml": "<div style=\"--gp-collapsible-min-body-lines:2\" class=\"gp-rich-text payload-richtext gp-collapsible-rich-text [&amp;&gt;:last-child]:mb-0 gp-collapsible-rich-text--reserve-body gp-rich-text\"><p>NCD IPO</p></div>",
+      "count": "",
+      "sort": "",
+      "empty": "",
+      "cards": [],
+      "body": [],
+      "faqs": [],
+      "url": "https://uatnew.goldenpi.com/collections/ncd-ipo"
+    },
+    "starts-10k": {
+      "title": "Starts ₹10k",
+      "docTitle": "Buy Bonds & Fixed Income Investments Online in India | GoldenPi",
+      "metaDesc": "Buy Bonds, Debentures & Fixed Income investments online in India. SEBI-registered debt broker and OBPP license holder.",
+      "introHtml": "<div style=\"\" class=\"gp-rich-text payload-richtext gp-collapsible-rich-text [&amp;&gt;:last-child]:mb-0 gp-rich-text\"><p><strong>Starts ₹10k</strong><br><br>Bonds starting from ₹10,000 offer an accessible way to invest in fixed-income securities with a lower initial investment.</p><ul class=\"list-bullet\"><li class=\"\" style=\"\" value=\"1\">Start investing with as little as ₹10,000.</li><li class=\"\" style=\"\" value=\"2\">Diversify your portfolio across different issuers and bond categories.</li><li class=\"\" style=\"\" value=\"3\">Choose bonds based on yield, rating, tenure, and payout frequency.</li><li class=\"\" style=\"\" value=\"4\">Suitable for investors seeking regular interest income with a lower entry point.</li></ul><p><br> <button type=\"button\" class=\"gp-read-more\" data-read-toggle=\"collapse\" aria-expanded=\"true\" aria-label=\"Read less about the note to investors\">Read Less</button></p></div>",
+      "count": "Showing 36 Bonds",
+      "sort": "Sort By: Yield - Low to High ↑",
+      "empty": "",
+      "cards": [
+        {
+          "href": "/bonds/INE053F08122/indian-railway-finance-corporation-limited-670-bond-yield?src=view_details&tenureDate=31-Aug-2031",
+          "issuer": "Indian Railway Finance Corporation Limited",
+          "tags": [],
+          "rate": "6.70 %",
+          "meta": "2% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AAA"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "5Y"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE134E08LN6/power-finance-corporation-limited-685-bond-yield?src=view_details&tenureDate=14-Apr-2032",
+          "issuer": "Power Finance Corporation Limited",
+          "tags": [
+            "Tag 1",
+            "Tag 2",
+            "Tag 3"
+          ],
+          "rate": "6.85 %",
+          "meta": "",
+          "metrics": [
+            [
+              "RATING",
+              "AAA"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "5Y 8M"
+            ]
+          ],
+          "note": "⚡ Hurry up!"
+        },
+        {
+          "href": "/bonds/INE040A08963/hdfc-bank-685-bond-yield?src=view_details&tenureDate=01-Dec-2031",
+          "issuer": "HDFC BANK",
+          "tags": [],
+          "rate": "6.85 %",
+          "meta": "2% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AAA"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "5Y 3M"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE296A07RW1/bajaj-finance-ltd-695-bond-yield?src=view_details&tenureDate=02-Dec-2031",
+          "issuer": "BAJAJ FINANCE LTD",
+          "tags": [],
+          "rate": "6.95 %",
+          "meta": "2% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AAA"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "5Y 3M"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE306N07MQ4/tata-capital-limited-740-bond-yield?src=view_details&tenureDate=29-Apr-2032",
+          "issuer": "TATA CAPITAL LIMITED",
+          "tags": [],
+          "rate": "7.40 %",
+          "meta": "50% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AAA"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "5Y 8M"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE0M2307388/andhra-pradesh-state-beverages-corporation-limited-800-bond-yield?src=view_details&tenureDate=28-Nov-2031",
+          "issuer": "ANDHRA PRADESH STATE BEVERAGES CORPORATION LIMITED",
+          "tags": [],
+          "rate": "8.00 %",
+          "meta": "99.89% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "5Y 3M"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE658F08524/kerala-infrastructure-investment-fund-board-825-bond-yield?src=view_details&tenureDate=21-Jan-2031",
+          "issuer": "KERALA INFRASTRUCTURE INVESTMENT FUND BOARD",
+          "tags": [],
+          "rate": "8.25 %",
+          "meta": "8% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "4Y 5M"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE0GCN07054/adani-airport-845-bond-yield?src=view_details&tenureDate=12-Feb-2029",
+          "issuer": "ADANI AIRPORT",
+          "tags": [],
+          "rate": "8.45 %",
+          "meta": "64.33% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA-"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "2Y 5M"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE423A07534/adani-enterprises-limited-850-bond-yield?src=view_details&tenureDate=12-Jan-2029",
+          "issuer": "ADANI ENTERPRISES LIMITED",
+          "tags": [],
+          "rate": "8.50 %",
+          "meta": "83.58% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA-"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "2Y 4M"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE516Y07444/piramal-capital--housing-finance-limited-885-bond-yield?src=view_details&tenureDate=26-Sep-2031",
+          "issuer": "PIRAMAL CAPITAL & HOUSING FINANCE LIMITED",
+          "tags": [],
+          "rate": "8.85 %",
+          "meta": "45.54% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA"
+            ],
+            [
+              "PAYOUT",
+              "Quarterly"
+            ],
+            [
+              "TENURE",
+              "5Y 1M"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE146O08415/hinduja-910-bond-yield?src=view_details&tenureDate=14-Dec-2032",
+          "issuer": "HINDUJA",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "9.10 %",
+          "meta": "54.21% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA+"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "6Y 4M"
+            ]
+          ],
+          "note": "⚡ Backed by the Hinduja Group and Ashok Leyland."
+        },
+        {
+          "href": "/bonds/INE296G07333/muthoot-capital-950-bond-yield?src=view_details&tenureDate=24-Aug-2027",
+          "issuer": "MUTHOOT CAPITAL",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "9.50 %",
+          "meta": "56.4% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "11M"
+            ]
+          ],
+          "note": "⚡ Credit Rating Upgraded from CRISIL A+"
+        },
+        {
+          "href": "/bonds/INE296G07333/muthoot-capital-970-bond-yield?src=view_details&tenureDate=24-Aug-2029",
+          "issuer": "MUTHOOT CAPITAL",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "9.70 %",
+          "meta": "56.4% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "2Y 11M"
+            ]
+          ],
+          "note": "⚡ Credit Rating Upgraded from CRISIL A+"
+        },
+        {
+          "href": "/bonds/INE101Q07CB5/muthoot-mcred-995-bond-yield?src=view_details&tenureDate=10-Aug-2027",
+          "issuer": "MUTHOOT MCRED",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "9.95 %",
+          "meta": "99.4% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "11M"
+            ]
+          ],
+          "note": "⚡ 100% Promoter Owned & Gold backed"
+        },
+        {
+          "href": "/bonds/INE101Q07CB5/muthoot-mcred-1020-bond-yield?src=view_details&tenureDate=07-Aug-2029",
+          "issuer": "MUTHOOT MCRED",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "10.20 %",
+          "meta": "99.4% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "2Y 11M"
+            ]
+          ],
+          "note": "⚡ 100% Promoter Owned & Gold backed"
+        },
+        {
+          "href": "/bonds/INE413U07467/iifl-samasta-1025-bond-yield?src=view_details&tenureDate=12-Aug-2029",
+          "issuer": "IIFL SAMASTA",
+          "tags": [
+            "High Rated"
+          ],
+          "rate": "10.25 %",
+          "meta": "91.23% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "2Y 11M"
+            ]
+          ],
+          "note": "⚡ Group AUM is above 98K Cr+"
+        },
+        {
+          "href": "/bonds/INE583D07638/ugro-capital-limited-1035-bond-yield?src=view_details&tenureDate=16-Jun-2029",
+          "issuer": "UGRO CAPITAL LIMITED",
+          "tags": [
+            "Public Listed",
+            "₹10K Bond"
+          ],
+          "rate": "10.35 %",
+          "meta": "42.45% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A+"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "2Y 9M"
+            ]
+          ],
+          "note": "⚡ A+ Rated MSME Lender & ₹15K+ Cr AUM"
+        },
+        {
+          "href": "/bonds/INE342T07668/navi-dec28-1040-bond-yield?src=view_details&tenureDate=31-Dec-2028",
+          "issuer": "Navi Dec'28",
+          "tags": [
+            "Popular Choice",
+            "₹10K Bond"
+          ],
+          "rate": "10.40 %",
+          "meta": "91.23% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "2Y 4M"
+            ]
+          ],
+          "note": "⚡ Leading Digitial NBFC Backed by Sachin Bansal"
+        },
+        {
+          "href": "/bonds/INE932X07056/share-india-1050-bond-yield?src=view_details&tenureDate=10-Aug-2027",
+          "issuer": "SHARE INDIA",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "10.50 %",
+          "meta": "74.31% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A+"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "11M"
+            ]
+          ],
+          "note": "⚡ Equity Listed with ₹3,660 Cr+ Market Cap"
+        },
+        {
+          "href": "/bonds/INE549K08590/muthoot-fincorp-1050-bond-yield?src=view_details&tenureDate=30-Dec-2033",
+          "issuer": "MUTHOOT FINCORP",
+          "tags": [
+            "High Rated"
+          ],
+          "rate": "10.50 %",
+          "meta": "87.56% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "7Y 4M"
+            ]
+          ],
+          "note": "⚡ Backed by a 130+ years Legacy of Trust and Growth"
+        },
+        {
+          "href": "/bonds/INE932X07056/share-india-1075-bond-yield?src=view_details&tenureDate=10-Aug-2028",
+          "issuer": "SHARE INDIA",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "10.75 %",
+          "meta": "74.31% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A+"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "1Y 11M"
+            ]
+          ],
+          "note": "⚡ Equity Listed with ₹3,660 Cr+ Market Cap"
+        },
+        {
+          "href": "/bonds/INE0BUS07CN4/indel-1086-bond-yield?src=view_details&tenureDate=30-Mar-2028",
+          "issuer": "INDEL",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "10.86 %",
+          "meta": "98.03% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "1Y 6M"
+            ]
+          ],
+          "note": "⚡ Gold Loan Dominant & Established Regional Presence"
+        },
+        {
+          "href": "/bonds/INE01YL07466/earlysalaryfibe-1100-bond-yield?src=view_details&tenureDate=07-Jun-2027",
+          "issuer": "EARLYSALARY(FIBE)",
+          "tags": [
+            "High Rated",
+            "High YTM"
+          ],
+          "rate": "11.00 %",
+          "meta": "69.85% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "9M"
+            ]
+          ],
+          "note": "⚡ Upcoming Equity Listing"
+        },
+        {
+          "href": "/bonds/INE229U07186/namra-1110-bond-yield?src=view_details&tenureDate=24-Apr-2028",
+          "issuer": "NAMRA",
+          "tags": [
+            "High Rated",
+            "High Yield",
+            "₹30k Bond"
+          ],
+          "rate": "11.10 %",
+          "meta": "18.78% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "1Y 7M"
+            ]
+          ],
+          "note": "⚡ MSME & Secured Lending Focus & Growing AUM Base"
+        },
+        {
+          "href": "/bonds/INE0BUS07CS3/indel-1110-bond-yield?src=view_details&tenureDate=01-Aug-2027",
+          "issuer": "INDEL",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "11.10 %",
+          "meta": "67.29% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "10M"
+            ]
+          ],
+          "note": "⚡ Gold Loan Dominant & Established Regional Presence"
+        },
+        {
+          "href": "/bonds/INE01YL07466/earlysalaryfibe-1130-bond-yield?src=view_details&tenureDate=07-Jun-2029",
+          "issuer": "EARLYSALARY(FIBE)",
+          "tags": [
+            "High Rated",
+            "High YTM"
+          ],
+          "rate": "11.30 %",
+          "meta": "69.85% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "2Y 9M"
+            ]
+          ],
+          "note": "⚡ Upcoming Equity Listing"
+        },
+        {
+          "href": "/bonds/INE385W07075/dishman-1140-bond-yield?src=view_details&tenureDate=17-Aug-2027",
+          "issuer": "DISHMAN",
+          "tags": [
+            "Newly Launched"
+          ],
+          "rate": "11.40 %",
+          "meta": "63.68% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "11M"
+            ]
+          ],
+          "note": "⚡ Listed Entity with ₹2,700 Cr+ Market Cap"
+        },
+        {
+          "href": "/bonds/INE109C07147/arman-1140-bond-yield?src=view_details&tenureDate=25-Sep-2028",
+          "issuer": "ARMAN",
+          "tags": [
+            "Newly Launched",
+            "High Yield"
+          ],
+          "rate": "11.40 %",
+          "meta": "87.22% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "2Y"
+            ]
+          ],
+          "note": "⚡ Equity Listed with ₹2,000 Cr+ Market Cap"
+        },
+        {
+          "href": "/bonds/INE0NES07352/keertana-1142-bond-yield?src=view_details&tenureDate=16-Jun-2027",
+          "issuer": "KEERTANA",
+          "tags": [
+            "Newly Launched",
+            "High Yield"
+          ],
+          "rate": "11.42 %",
+          "meta": "30.29% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "9M"
+            ]
+          ],
+          "note": "⚡ Fast Growing Gold Lender"
+        },
+        {
+          "href": "/bonds/INE0BUS07CS3/indel-1145-bond-yield?src=view_details&tenureDate=24-Aug-2029",
+          "issuer": "INDEL",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "11.45 %",
+          "meta": "67.29% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "2Y 11M"
+            ]
+          ],
+          "note": "⚡ Gold Loan Dominant & Established Regional Presence"
+        },
+        {
+          "href": "/bonds/INE03K307215/satin-finserv-1160-bond-yield?src=view_details&tenureDate=27-Aug-2027",
+          "issuer": "SATIN FINSERV",
+          "tags": [
+            "High Rated",
+            "High YTM"
+          ],
+          "rate": "11.60 %",
+          "meta": "65% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "11M"
+            ]
+          ],
+          "note": "⚡ Emerging MSME focused NBFC backed by Satin Group"
+        },
+        {
+          "href": "/bonds/INE03K307215/satin-finserv-1190-bond-yield?src=view_details&tenureDate=27-Nov-2028",
+          "issuer": "SATIN FINSERV",
+          "tags": [
+            "High Rated",
+            "High YTM"
+          ],
+          "rate": "11.90 %",
+          "meta": "65% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "2Y 2M"
+            ]
+          ],
+          "note": "⚡ Emerging MSME focused NBFC backed by Satin Group"
+        },
+        {
+          "href": "/bonds/INE0NES07352/keertana-1200-bond-yield?src=view_details&tenureDate=16-Dec-2028",
+          "issuer": "KEERTANA",
+          "tags": [
+            "Newly Launched",
+            "High Yield"
+          ],
+          "rate": "12.00 %",
+          "meta": "30.29% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "2Y 3M"
+            ]
+          ],
+          "note": "⚡ Fast Growing Gold Lender"
+        },
+        {
+          "href": "/bonds/INE413U07467/iifl-samasta-1223-bond-yield?src=view_details&tenureDate=12-May-2027",
+          "issuer": "IIFL SAMASTA",
+          "tags": [
+            "High Rated"
+          ],
+          "rate": "12.23 %",
+          "meta": "91.23% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "8M"
+            ]
+          ],
+          "note": "⚡ Group AUM is above 98K Cr+"
+        },
+        {
+          "href": "/bonds/INE00DJ07052/tapir-1225-bond-yield?src=view_details&tenureDate=12-Mar-2030",
+          "issuer": "TAPIR",
+          "tags": [
+            "Selling Out Fast",
+            "Corp Bond"
+          ],
+          "rate": "12.25 %",
+          "meta": "95.05% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "3Y 6M"
+            ]
+          ],
+          "note": "⚡ Part of ₹50K Crs+ Market Cap Embassy Group"
+        },
+        {
+          "href": "/bonds/INE385W07075/dishman-1266-bond-yield?src=view_details&tenureDate=17-Feb-2027",
+          "issuer": "DISHMAN",
+          "tags": [
+            "Newly Launched"
+          ],
+          "rate": "12.66 %",
+          "meta": "63.68% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "5M"
+            ]
+          ],
+          "note": "⚡ Listed Entity with ₹2,700 Cr+ Market Cap"
+        }
+      ],
+      "body": [],
+      "faqs": [],
+      "url": "https://uatnew.goldenpi.com/collections/starts-10k"
+    },
+    "government-bonds": {
+      "title": "Government Bonds",
+      "docTitle": "Buy Bonds & Fixed Income Investments Online in India | GoldenPi",
+      "metaDesc": "Buy Bonds, Debentures & Fixed Income investments online in India. SEBI-registered debt broker and OBPP license holder.",
+      "introHtml": "<div style=\"\" class=\"gp-rich-text payload-richtext gp-collapsible-rich-text [&amp;&gt;:last-child]:mb-0 gp-rich-text\"><h1>Government Bonds in India 2026: Invest in Govt Backed Securities</h1><p>Government bonds in India are fixed-income debt securities issued by the Central or State Governments to raise funds for public expenditure, infrastructure projects, and fiscal requirements. They are generally considered low-risk investments because they carry sovereign or state government backing and offer investors regular interest payments along with repayment of principal at maturity. <button type=\"button\" class=\"gp-read-more\" data-read-toggle=\"collapse\" aria-expanded=\"true\" aria-label=\"Read less about the note to investors\">Read Less</button></p></div>",
+      "count": "Showing 2 Bonds",
+      "sort": "Sort By: Yield - Low to High ↑",
+      "empty": "",
+      "cards": [
+        {
+          "href": "/bonds/INE0M2307388/andhra-pradesh-state-beverages-corporation-limited-800-bond-yield?src=view_details&tenureDate=28-Nov-2031",
+          "issuer": "ANDHRA PRADESH STATE BEVERAGES CORPORATION LIMITED",
+          "tags": [
+            "State Govt Backed",
+            "State Guarantee"
+          ],
+          "rate": "8.00 %",
+          "meta": "99.89% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "5Y 3M"
+            ]
+          ],
+          "note": "⚡ Guaranteed by Govt of Andhra Pradesh"
+        },
+        {
+          "href": "/bonds/INE658F08524/kerala-infrastructure-investment-fund-board-825-bond-yield?src=view_details&tenureDate=21-Jan-2031",
+          "issuer": "KERALA INFRASTRUCTURE INVESTMENT FUND BOARD",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "8.25 %",
+          "meta": "8% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "4Y 5M"
+            ]
+          ],
+          "note": "⚡ Govt of Kerala Backed & Funding Kerala’s Infrastructure Growth"
+        }
+      ],
+      "body": [],
+      "faqs": [],
+      "url": "https://uatnew.goldenpi.com/collections/government-bonds"
+    },
+    "monthly-payout": {
+      "title": "Monthly Payout",
+      "docTitle": "Buy Bonds & Fixed Income Investments Online in India | GoldenPi",
+      "metaDesc": "Buy Bonds, Debentures & Fixed Income investments online in India. SEBI-registered debt broker and OBPP license holder.",
+      "introHtml": "<div style=\"\" class=\"gp-rich-text payload-richtext gp-collapsible-rich-text [&amp;&gt;:last-child]:mb-0 gp-rich-text\"><h1>Bonds to Earn Monthly Fixed Income</h1><p>A collection of bonds which provide fixed interest payout every month.</p><ul class=\"list-bullet\"><li class=\"\" style=\"\" value=\"1\">These bonds provide better cashflow as they pay monthly interest.</li><li class=\"\" style=\"\" value=\"2\">They can help to meet the monthly expenses like rent, tuition fees, EMIs, etc.</li><li class=\"\" style=\"\" value=\"3\">These are good for senior citizens. <button type=\"button\" class=\"gp-read-more\" data-read-toggle=\"collapse\" aria-expanded=\"true\" aria-label=\"Read less about the note to investors\">Read Less</button></li></ul></div>",
+      "count": "Showing 36 Bonds",
+      "sort": "Sort By: Tenure - Low to High ↑",
+      "empty": "",
+      "cards": [
+        {
+          "href": "/bonds/INE385W07075/dishman-1266-bond-yield?src=view_details&tenureDate=17-Feb-2027",
+          "issuer": "DISHMAN",
+          "tags": [
+            "Newly Launched"
+          ],
+          "rate": "12.66 %",
+          "meta": "63.68% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "5M"
+            ]
+          ],
+          "note": "⚡ Listed Entity with ₹2,700 Cr+ Market Cap"
+        },
+        {
+          "href": "/bonds/INE413U07467/iifl-samasta-1223-bond-yield?src=view_details&tenureDate=12-May-2027",
+          "issuer": "IIFL SAMASTA",
+          "tags": [
+            "High Rated"
+          ],
+          "rate": "12.23 %",
+          "meta": "91.23% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "8M"
+            ]
+          ],
+          "note": "⚡ Group AUM is above 98K Cr+"
+        },
+        {
+          "href": "/bonds/INE0NES07352/keertana-1142-bond-yield?src=view_details&tenureDate=16-Jun-2027",
+          "issuer": "KEERTANA",
+          "tags": [
+            "Newly Launched",
+            "High Yield"
+          ],
+          "rate": "11.42 %",
+          "meta": "30.29% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "9M"
+            ]
+          ],
+          "note": "⚡ Fast Growing Gold Lender"
+        },
+        {
+          "href": "/bonds/INE01YL07466/earlysalaryfibe-1100-bond-yield?src=view_details&tenureDate=07-Jun-2027",
+          "issuer": "EARLYSALARY(FIBE)",
+          "tags": [
+            "High Rated",
+            "High YTM"
+          ],
+          "rate": "11.00 %",
+          "meta": "69.85% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "9M"
+            ]
+          ],
+          "note": "⚡ Upcoming Equity Listing"
+        },
+        {
+          "href": "/bonds/INE0BUS07CS3/indel-1110-bond-yield?src=view_details&tenureDate=01-Aug-2027",
+          "issuer": "INDEL",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "11.10 %",
+          "meta": "67.29% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "10M"
+            ]
+          ],
+          "note": "⚡ Gold Loan Dominant & Established Regional Presence"
+        },
+        {
+          "href": "/bonds/INE385W07075/dishman-1140-bond-yield?src=view_details&tenureDate=17-Aug-2027",
+          "issuer": "DISHMAN",
+          "tags": [
+            "Newly Launched"
+          ],
+          "rate": "11.40 %",
+          "meta": "63.68% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "11M"
+            ]
+          ],
+          "note": "⚡ Listed Entity with ₹2,700 Cr+ Market Cap"
+        },
+        {
+          "href": "/bonds/INE101Q07CB5/muthoot-mcred-995-bond-yield?src=view_details&tenureDate=10-Aug-2027",
+          "issuer": "MUTHOOT MCRED",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "9.95 %",
+          "meta": "99.4% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "11M"
+            ]
+          ],
+          "note": "⚡ 100% Promoter Owned & Gold backed"
+        },
+        {
+          "href": "/bonds/INE932X07056/share-india-1050-bond-yield?src=view_details&tenureDate=10-Aug-2027",
+          "issuer": "SHARE INDIA",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "10.50 %",
+          "meta": "74.31% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A+"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "11M"
+            ]
+          ],
+          "note": "⚡ Equity Listed with ₹3,660 Cr+ Market Cap"
+        },
+        {
+          "href": "/bonds/INE296G07333/muthoot-capital-950-bond-yield?src=view_details&tenureDate=24-Aug-2027",
+          "issuer": "MUTHOOT CAPITAL",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "9.50 %",
+          "meta": "56.4% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "11M"
+            ]
+          ],
+          "note": "⚡ Credit Rating Upgraded from CRISIL A+"
+        },
+        {
+          "href": "/bonds/INE03K307215/satin-finserv-1160-bond-yield?src=view_details&tenureDate=27-Aug-2027",
+          "issuer": "SATIN FINSERV",
+          "tags": [
+            "High Rated",
+            "High YTM"
+          ],
+          "rate": "11.60 %",
+          "meta": "65% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "11M"
+            ]
+          ],
+          "note": "⚡ Emerging MSME focused NBFC backed by Satin Group"
+        },
+        {
+          "href": "/bonds/INE0BUS07CN4/indel-1086-bond-yield?src=view_details&tenureDate=30-Mar-2028",
+          "issuer": "INDEL",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "10.86 %",
+          "meta": "98.03% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "1Y 6M"
+            ]
+          ],
+          "note": "⚡ Gold Loan Dominant & Established Regional Presence"
+        },
+        {
+          "href": "/bonds/INE229U07186/namra-1110-bond-yield?src=view_details&tenureDate=24-Apr-2028",
+          "issuer": "NAMRA",
+          "tags": [
+            "High Rated",
+            "High Yield",
+            "₹30k Bond"
+          ],
+          "rate": "11.10 %",
+          "meta": "18.78% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "1Y 7M"
+            ]
+          ],
+          "note": "⚡ MSME & Secured Lending Focus & Growing AUM Base"
+        },
+        {
+          "href": "/bonds/INE932X07056/share-india-1075-bond-yield?src=view_details&tenureDate=10-Aug-2028",
+          "issuer": "SHARE INDIA",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "10.75 %",
+          "meta": "74.31% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A+"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "1Y 11M"
+            ]
+          ],
+          "note": "⚡ Equity Listed with ₹3,660 Cr+ Market Cap"
+        },
+        {
+          "href": "/bonds/INE109C07147/arman-1140-bond-yield?src=view_details&tenureDate=25-Sep-2028",
+          "issuer": "ARMAN",
+          "tags": [
+            "Newly Launched",
+            "High Yield"
+          ],
+          "rate": "11.40 %",
+          "meta": "87.22% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "2Y"
+            ]
+          ],
+          "note": "⚡ Equity Listed with ₹2,000 Cr+ Market Cap"
+        },
+        {
+          "href": "/bonds/INE03K307215/satin-finserv-1190-bond-yield?src=view_details&tenureDate=27-Nov-2028",
+          "issuer": "SATIN FINSERV",
+          "tags": [
+            "High Rated",
+            "High YTM"
+          ],
+          "rate": "11.90 %",
+          "meta": "65% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "2Y 2M"
+            ]
+          ],
+          "note": "⚡ Emerging MSME focused NBFC backed by Satin Group"
+        },
+        {
+          "href": "/bonds/INE0NES07352/keertana-1200-bond-yield?src=view_details&tenureDate=16-Dec-2028",
+          "issuer": "KEERTANA",
+          "tags": [
+            "Newly Launched",
+            "High Yield"
+          ],
+          "rate": "12.00 %",
+          "meta": "30.29% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "2Y 3M"
+            ]
+          ],
+          "note": "⚡ Fast Growing Gold Lender"
+        },
+        {
+          "href": "/bonds/INE342T07668/navi-dec28-1040-bond-yield?src=view_details&tenureDate=31-Dec-2028",
+          "issuer": "Navi Dec'28",
+          "tags": [
+            "Popular Choice",
+            "₹10K Bond"
+          ],
+          "rate": "10.40 %",
+          "meta": "91.23% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "2Y 4M"
+            ]
+          ],
+          "note": "⚡ Leading Digitial NBFC Backed by Sachin Bansal"
+        },
+        {
+          "href": "/bonds/INE423A07534/adani-enterprises-limited-850-bond-yield?src=view_details&tenureDate=12-Jan-2029",
+          "issuer": "ADANI ENTERPRISES LIMITED",
+          "tags": [
+            "High rated"
+          ],
+          "rate": "8.50 %",
+          "meta": "83.58% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA-"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "2Y 4M"
+            ]
+          ],
+          "note": "⚡ Equity Listed with ₹4 Lakhs Cr+ Market Cap"
+        },
+        {
+          "href": "/bonds/INE0GCN07054/adani-airport-845-bond-yield?src=view_details&tenureDate=12-Feb-2029",
+          "issuer": "ADANI AIRPORT",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "8.45 %",
+          "meta": "64.33% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA-"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "2Y 5M"
+            ]
+          ],
+          "note": "⚡ Backed by Adani Groups Strong Infrastructure Legacy"
+        },
+        {
+          "href": "/bonds/INE01YL07466/earlysalaryfibe-1130-bond-yield?src=view_details&tenureDate=07-Jun-2029",
+          "issuer": "EARLYSALARY(FIBE)",
+          "tags": [
+            "High Rated",
+            "High YTM"
+          ],
+          "rate": "11.30 %",
+          "meta": "69.85% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "2Y 9M"
+            ]
+          ],
+          "note": "⚡ Upcoming Equity Listing"
+        },
+        {
+          "href": "/bonds/INE583D07638/ugro-capital-limited-1035-bond-yield?src=view_details&tenureDate=16-Jun-2029",
+          "issuer": "UGRO CAPITAL LIMITED",
+          "tags": [
+            "Public Listed",
+            "₹10K Bond"
+          ],
+          "rate": "10.35 %",
+          "meta": "42.45% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A+"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "2Y 9M"
+            ]
+          ],
+          "note": "⚡ A+ Rated MSME Lender & ₹15K+ Cr AUM"
+        },
+        {
+          "href": "/bonds/INE101Q07CB5/muthoot-mcred-1020-bond-yield?src=view_details&tenureDate=07-Aug-2029",
+          "issuer": "MUTHOOT MCRED",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "10.20 %",
+          "meta": "99.4% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "2Y 11M"
+            ]
+          ],
+          "note": "⚡ 100% Promoter Owned & Gold backed"
+        },
+        {
+          "href": "/bonds/INE413U07467/iifl-samasta-1025-bond-yield?src=view_details&tenureDate=12-Aug-2029",
+          "issuer": "IIFL SAMASTA",
+          "tags": [
+            "High Rated"
+          ],
+          "rate": "10.25 %",
+          "meta": "91.23% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "2Y 11M"
+            ]
+          ],
+          "note": "⚡ Group AUM is above 98K Cr+"
+        },
+        {
+          "href": "/bonds/INE296G07333/muthoot-capital-970-bond-yield?src=view_details&tenureDate=24-Aug-2029",
+          "issuer": "MUTHOOT CAPITAL",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "9.70 %",
+          "meta": "56.4% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "2Y 11M"
+            ]
+          ],
+          "note": "⚡ Credit Rating Upgraded from CRISIL A+"
+        },
+        {
+          "href": "/bonds/INE0BUS07CS3/indel-1145-bond-yield?src=view_details&tenureDate=24-Aug-2029",
+          "issuer": "INDEL",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "11.45 %",
+          "meta": "67.29% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "2Y 11M"
+            ]
+          ],
+          "note": "⚡ Gold Loan Dominant & Established Regional Presence"
+        },
+        {
+          "href": "/bonds/INE00DJ07052/tapir-1225-bond-yield?src=view_details&tenureDate=12-Mar-2030",
+          "issuer": "TAPIR",
+          "tags": [
+            "Selling Out Fast",
+            "Corp Bond"
+          ],
+          "rate": "12.25 %",
+          "meta": "95.05% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "A-"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "3Y 6M"
+            ]
+          ],
+          "note": "⚡ Part of ₹50K Crs+ Market Cap Embassy Group"
+        },
+        {
+          "href": "/bonds/INE658F08524/kerala-infrastructure-investment-fund-board-825-bond-yield?src=view_details&tenureDate=21-Jan-2031",
+          "issuer": "KERALA INFRASTRUCTURE INVESTMENT FUND BOARD",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "8.25 %",
+          "meta": "8% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "4Y 5M"
+            ]
+          ],
+          "note": "⚡ Govt of Kerala Backed & Funding Kerala’s Infrastructure Growth"
+        },
+        {
+          "href": "/bonds/INE053F08122/indian-railway-finance-corporation-limited-670-bond-yield?src=view_details&tenureDate=31-Aug-2031",
+          "issuer": "Indian Railway Finance Corporation Limited",
+          "tags": [
+            "High Rated"
+          ],
+          "rate": "6.70 %",
+          "meta": "2% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AAA"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "5Y"
+            ]
+          ],
+          "note": "⚡ Dedicated Financing Arm of Indian Railways"
+        },
+        {
+          "href": "/bonds/INE516Y07444/piramal-capital--housing-finance-limited-885-bond-yield?src=view_details&tenureDate=26-Sep-2031",
+          "issuer": "PIRAMAL CAPITAL & HOUSING FINANCE LIMITED",
+          "tags": [
+            "Newly Launched",
+            "High Rated"
+          ],
+          "rate": "8.85 %",
+          "meta": "45.54% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA"
+            ],
+            [
+              "PAYOUT",
+              "Quarterly"
+            ],
+            [
+              "TENURE",
+              "5Y 1M"
+            ]
+          ],
+          "note": "⚡ Equity Listed with ₹47,500 Cr+ Market Cap"
+        },
+        {
+          "href": "/bonds/INE0M2307388/andhra-pradesh-state-beverages-corporation-limited-800-bond-yield?src=view_details&tenureDate=28-Nov-2031",
+          "issuer": "ANDHRA PRADESH STATE BEVERAGES CORPORATION LIMITED",
+          "tags": [
+            "State Govt Backed",
+            "State Guarantee"
+          ],
+          "rate": "8.00 %",
+          "meta": "99.89% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA"
+            ],
+            [
+              "PAYOUT",
+              "Half Yearly"
+            ],
+            [
+              "TENURE",
+              "5Y 3M"
+            ]
+          ],
+          "note": "⚡ Guaranteed by Govt of Andhra Pradesh"
+        },
+        {
+          "href": "/bonds/INE296A07RW1/bajaj-finance-ltd-695-bond-yield?src=view_details&tenureDate=02-Dec-2031",
+          "issuer": "BAJAJ FINANCE LTD",
+          "tags": [],
+          "rate": "6.95 %",
+          "meta": "2% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AAA"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "5Y 3M"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE040A08963/hdfc-bank-685-bond-yield?src=view_details&tenureDate=01-Dec-2031",
+          "issuer": "HDFC BANK",
+          "tags": [],
+          "rate": "6.85 %",
+          "meta": "2% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AAA"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "5Y 3M"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE134E08LN6/power-finance-corporation-limited-685-bond-yield?src=view_details&tenureDate=14-Apr-2032",
+          "issuer": "Power Finance Corporation Limited",
+          "tags": [
+            "Tag 1",
+            "Tag 2",
+            "Tag 3"
+          ],
+          "rate": "6.85 %",
+          "meta": "",
+          "metrics": [
+            [
+              "RATING",
+              "AAA"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "5Y 8M"
+            ]
+          ],
+          "note": "⚡ Hurry up!"
+        },
+        {
+          "href": "/bonds/INE306N07MQ4/tata-capital-limited-740-bond-yield?src=view_details&tenureDate=29-Apr-2032",
+          "issuer": "TATA CAPITAL LIMITED",
+          "tags": [],
+          "rate": "7.40 %",
+          "meta": "50% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AAA"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "5Y 8M"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE146O08415/hinduja-910-bond-yield?src=view_details&tenureDate=14-Dec-2032",
+          "issuer": "HINDUJA",
+          "tags": [],
+          "rate": "9.10 %",
+          "meta": "54.21% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA+"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "6Y 4M"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE549K08590/muthoot-fincorp-1050-bond-yield?src=view_details&tenureDate=30-Dec-2033",
+          "issuer": "MUTHOOT FINCORP",
+          "tags": [],
+          "rate": "10.50 %",
+          "meta": "87.56% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AA"
+            ],
+            [
+              "PAYOUT",
+              "Monthly"
+            ],
+            [
+              "TENURE",
+              "7Y 4M"
+            ]
+          ],
+          "note": ""
+        }
+      ],
+      "body": [],
+      "faqs": [],
+      "url": "https://uatnew.goldenpi.com/collections/monthly-payout"
+    },
+    "tax-free-bonds": {
+      "title": "Tax Free Bonds",
+      "docTitle": "Buy Bonds & Fixed Income Investments Online in India | GoldenPi",
+      "metaDesc": "Buy Bonds, Debentures & Fixed Income investments online in India. SEBI-registered debt broker and OBPP license holder.",
+      "introHtml": "<div style=\"\" class=\"gp-rich-text payload-richtext gp-collapsible-rich-text [&amp;&gt;:last-child]:mb-0 gp-rich-text\"><p><strong> Tax Free Bonds</strong><br><br>A collection of bonds where Income tax is not applicable on the interest amount received.</p><ul class=\"list-bullet\"><li class=\"\" style=\"\" value=\"1\">Ideal for HNIs planning to diversify their portfolio.</li><li class=\"\" style=\"\" value=\"2\">A few of tax free bonds can also be used to pledge in Futures &amp; Options trading.</li></ul><p><br></p><p><br></p><p><br> <button type=\"button\" class=\"gp-read-more\" data-read-toggle=\"collapse\" aria-expanded=\"true\" aria-label=\"Read less about the note to investors\">Read Less</button></p></div>",
+      "count": "",
+      "sort": "",
+      "empty": "Currently no bond available for this collection",
+      "cards": [],
+      "body": [],
+      "faqs": [],
+      "url": "https://uatnew.goldenpi.com/collections/tax-free-bonds"
+    },
+    "public-sector-bank-bonds": {
+      "title": "Public Sector Bank Bonds",
+      "docTitle": "Buy Bonds & Fixed Income Investments Online in India | GoldenPi",
+      "metaDesc": "Buy Bonds, Debentures & Fixed Income investments online in India. SEBI-registered debt broker and OBPP license holder.",
+      "introHtml": "<div style=\"--gp-collapsible-min-body-lines:2\" class=\"gp-rich-text payload-richtext gp-collapsible-rich-text [&amp;&gt;:last-child]:mb-0 gp-collapsible-rich-text--reserve-body gp-rich-text\"><p>Public sector banks in India are 12 government-controlled commercial institutions where the central government holds a majority stake of at least 51%</p></div>",
+      "count": "Showing 8 Bonds",
+      "sort": "Sort By: Yield - Low to High ↑",
+      "empty": "",
+      "cards": [
+        {
+          "href": "/bonds/GPID100072/rec-54ec-bond-525-bond-yield?src=view_details",
+          "issuer": "REC 54EC Bond",
+          "tags": [],
+          "rate": "5.25 %",
+          "meta": "",
+          "metrics": [
+            [
+              "RATING",
+              "AAA"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "5Y"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/GPID101324/power-finance-corporation-limited-525-bond-yield?src=view_details",
+          "issuer": "Power Finance Corporation Limited",
+          "tags": [],
+          "rate": "5.25 %",
+          "meta": "",
+          "metrics": [
+            [
+              "RATING",
+              "AAA"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "5Y"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/GPID101325/indian-railway-finance-corporation-limited-525-bond-yield?src=view_details",
+          "issuer": "Indian Railway Finance Corporation Limited",
+          "tags": [],
+          "rate": "5.25 %",
+          "meta": "",
+          "metrics": [
+            [
+              "RATING",
+              "AAA"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "5Y"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE053F08122/indian-railway-finance-corporation-limited-670-bond-yield?src=view_details&tenureDate=31-Aug-2031",
+          "issuer": "Indian Railway Finance Corporation Limited",
+          "tags": [],
+          "rate": "6.70 %",
+          "meta": "2% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AAA"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "5Y"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE134E08LN6/power-finance-corporation-limited-685-bond-yield?src=view_details&tenureDate=14-Apr-2032",
+          "issuer": "Power Finance Corporation Limited",
+          "tags": [
+            "Tag 1",
+            "Tag 2",
+            "Tag 3"
+          ],
+          "rate": "6.85 %",
+          "meta": "",
+          "metrics": [
+            [
+              "RATING",
+              "AAA"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "5Y 8M"
+            ]
+          ],
+          "note": "⚡ Hurry up!"
+        },
+        {
+          "href": "/bonds/INE040A08963/hdfc-bank-685-bond-yield?src=view_details&tenureDate=01-Dec-2031",
+          "issuer": "HDFC BANK",
+          "tags": [],
+          "rate": "6.85 %",
+          "meta": "2% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AAA"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "5Y 3M"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE296A07RW1/bajaj-finance-ltd-695-bond-yield?src=view_details&tenureDate=02-Dec-2031",
+          "issuer": "BAJAJ FINANCE LTD",
+          "tags": [],
+          "rate": "6.95 %",
+          "meta": "2% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AAA"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "5Y 3M"
+            ]
+          ],
+          "note": ""
+        },
+        {
+          "href": "/bonds/INE306N07MQ4/tata-capital-limited-740-bond-yield?src=view_details&tenureDate=29-Apr-2032",
+          "issuer": "TATA CAPITAL LIMITED",
+          "tags": [],
+          "rate": "7.40 %",
+          "meta": "50% Sold",
+          "metrics": [
+            [
+              "RATING",
+              "AAA"
+            ],
+            [
+              "PAYOUT",
+              "Yearly"
+            ],
+            [
+              "TENURE",
+              "5Y 8M"
+            ]
+          ],
+          "note": ""
+        }
+      ],
+      "body": [
+        {
+          "kind": "links",
+          "text": "Recently Launched Bonds\nKeertana Bonds returns upto 14%\nAkara Capital Bonds retunr upto 13%",
+          "html": "<section class=\"cms-link-list\" aria-labelledby=\"cms-link-list-title-2\"><h2 id=\"cms-link-list-title-2\" class=\"cms-link-list__title\">Recently Launched Bonds</h2><ul class=\"cms-link-list__items\"><li><a class=\"cms-link-list__link\" href=\"#\"><span class=\"cms-link-list__icon cms-link-list__icon--placeholder\"></span><span class=\"cms-link-list__label\">Keertana Bonds returns upto 14%</span></a></li><li><a class=\"cms-link-list__link\" href=\"#\"><span class=\"cms-link-list__icon cms-link-list__icon--placeholder\"></span><span class=\"cms-link-list__label\">Akara Capital Bonds retunr upto 13%</span></a></li></ul></section>"
+        },
+        {
+          "kind": "about",
+          "html": "<p>These banks play a major role in the country's financial system by offering affordable loans, supporting government schemes, and expanding banking access to rural and semi-urban areas.</p><h2>List of 12 Public Sector Banks in India</h2><ul class=\"list-bullet\"><li class=\"\" style=\"\" value=\"1\">State Bank of India (SBI)</li><li class=\"\" style=\"\" value=\"2\">Punjab National Bank (PNB)</li><li class=\"\" style=\"\" value=\"3\">Bank of Baroda</li><li class=\"\" style=\"\" value=\"4\">Canara Bank</li><li class=\"\" style=\"\" value=\"5\">Union Bank of India</li><li class=\"\" style=\"\" value=\"6\">Indian Bank</li><li class=\"\" style=\"\" value=\"7\">Bank of India</li><li class=\"\" style=\"\" value=\"8\">Central Bank of India</li><li class=\"\" style=\"\" value=\"9\">Indian Overseas Bank</li><li class=\"\" style=\"\" value=\"10\">UCO Bank</li><li class=\"\" style=\"\" value=\"11\">Bank of Maharashtra</li><li class=\"\" style=\"\" value=\"12\">Punjab &amp; Sind Bank </li></ul><h2>Key Characteristics</h2><ul class=\"list-bullet\"><li class=\"\" style=\"\" value=\"1\"><strong>Ownership:</strong> The Government of India owns more than half of the total shares.</li><li class=\"\" style=\"\" value=\"2\"><strong>Stability:</strong> They are widely trusted by citizens due to direct government backing. </li><li class=\"\" style=\"\" value=\"3\"><strong>Inclusion:</strong> They focus heavily on financial inclusion and priority sector lending. </li></ul>"
+        },
+        {
+          "kind": "faq",
+          "title": "FAQ"
+        }
+      ],
+      "faqs": [
+        {
+          "q": "Testing FAQ 1",
+          "a": "<p>Answer faq 1</p>"
+        }
+      ],
+      "url": "https://uatnew.goldenpi.com/collections/public-sector-bank-bonds"
+    }
+  },
+  "furniture": {
+    "asideText": "",
+    "asideHtml": "<nav aria-label=\"Page sections\"><ul class=\"collection-sidenav\"><li class=\"collection-sidenav__item collection-sidenav__item--active\"><a href=\"#what-are-bonds\" class=\"collection-sidenav__link\"><span class=\"collection-sidenav__label\">What Are Bonds?</span></a></li><li class=\"collection-sidenav__item\"><a href=\"#how-to-invest-in-bonds-on-goldenpi\" class=\"collection-sidenav__link\"><span class=\"collection-sidenav__label\">How to Invest in Bonds on GoldenPi?</span></a></li><li class=\"collection-sidenav__item\"><a href=\"#taxation-on-bonds\" class=\"collection-sidenav__link\"><span class=\"collection-sidenav__label\">Taxation on Bonds</span></a></li><li class=\"collection-sidenav__item\"><a href=\"#top-bonds-available\" class=\"collection-sidenav__link\"><span class=\"collection-sidenav__label\">Top Bonds Available</span></a></li><li class=\"collection-sidenav__item\"><a href=\"#why-consider-bonds\" class=\"collection-sidenav__link\"><span class=\"collection-sidenav__label\">Why Consider Bonds?</span></a></li></ul></nav>",
+    "stripText": "",
+    "stripHtml": "",
+    "moreAboutHtml": "<div class=\"gp-rich-text payload-richtext gp-rich-text\"><h2>More About Bonds</h2><p>Bonds are fixed-income investments where investors lend money to a company, financial institution, or government entity for a defined period. In return, the issuer generally pays interest at predetermined intervals and returns the principal amount on maturity.</p><p>The Indian bond market offers a wide range of opportunities across corporate bonds, government securities, public sector bonds, secured bonds, and other fixed-income instruments. The right bond can provide predictable cash flows and help diversify an investment portfolio beyond traditional savings and deposits.</p><p>However, bonds are not risk-free investments. Interest rates, credit quality, liquidity, tenure, security, and the financial position of the issuer can all affect the outcome. Understanding these factors is important before investing.</p></div>"
+  }
+}
