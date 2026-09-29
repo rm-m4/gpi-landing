@@ -215,6 +215,32 @@ SHEET_DETAILS = (
     '    </dl>\n  </div>\n</dialog>\n') % (img("cross-dark.svg"), R, R, R, R)
 
 
+# Phones replace the period chips, summary and payout table with one card per
+# period that opens the breakdown (Figma 4:6291, sheet 4:6561). The design
+# draws the sheet dark; it is built light, like the Investment Details sheet.
+RANGES = ('  <!-- DATA: total payout per period; every card opens that period\'s breakdown. -->\n'
+          '  <div class="pf-ranges">%s</div>\n' % "".join(
+              '<button type="button" class="pf-range" data-sheet="sheet-cash" aria-haspopup="dialog">'
+              '<span><span class="pf-range__name">%s</span><span class="pf-range__sum">%s67,700</span></span>'
+              '<span class="pf-range__go">%s</span></button>' % (t, R, img("chevron-down.svg", w=14, h=14))
+              for t in ("This Month", "This Quarter", "Next Quarter")))
+
+CASH = [("15 Jan 2025", "Interest", "Navi Finserv Aug&rsquo;28<br>INE001A07QN4", R + "6,750"),
+        ("15 April 2025", "Principal", "Bajaj Finance FD", R + "6,750"),
+        ("15 Jul 2025", "Interest + Principal (I)", "Bajaj Finance FD", R + "6,750 + " + R + "65,750"),
+        ("15 Sep 2025", "Interest", "Bajaj Finance FD", R + "2,50,000")]
+
+SHEET_CASH = (
+    '<dialog class="pf-sheet pf-sheet--light pf-sheet--cash" id="sheet-cash" aria-labelledby="sheet-cash-t">\n'
+    '  <div class="pf-sheet__head"><span class="pf-sheet__handle"></span>'
+    '<button type="button" class="pf-sheet__close" data-close aria-label="Close">%s</button></div>\n'
+    '  <div class="pf-sheet__body">\n    <h2 id="sheet-cash-t">Future Cashflow</h2>\n'
+    '    <!-- DATA: payouts in the chosen period. -->\n    <ul class="pf-cash" role="list">\n%s    </ul>\n'
+    '  </div>\n</dialog>\n') % (img("cross-dark.svg"), "".join(
+        '      <li><p class="pf-cash__top"><b>%s</b><span class="pf-cash__type">%s</span></p>'
+        '<p class="pf-cash__row"><span>%s</span><b>%s</b></p></li>\n' % c for c in CASH))
+
+
 # ------------------------------------------------------------- pieces
 
 def crumb(current="Portfolio", parent=None):
@@ -248,14 +274,16 @@ def panel(id_, k, inner, selected=0):
             % (id_, k, id_, k, " is-on" if k == selected else "", "" if k == selected else " hidden", inner))
 
 
-def kv(title, items, cls="", title_cls="", after_title=""):
-    cells = "".join('<div><dt>%s</dt><dd%s>%s</dd></div>' % (k, ' class="pf-gain"' if g else "", v)
-                    for k, v, g in items)
-    return ('  <section class="pf-panel">\n    <h2 class="pf-panel__title%s">%s%s</h2>\n'
-            '    <dl class="pf-kv%s">%s</dl>\n  </section>\n' % (title_cls, title, after_title, cls, cells))
+def kv(title, items, cls="", title_cls="", after_title="", sec_cls=""):
+    # An optional fourth item, True, marks a lead cell: the headline row of a phone summary card.
+    cells = "".join('<div%s><dt>%s</dt><dd%s>%s</dd></div>'
+                    % (' class="pf-kv__lead"' if lead else "", k, ' class="pf-gain"' if g else "", v)
+                    for k, v, g, *lead in items)
+    return ('  <section class="pf-panel%s">\n    <h2 class="pf-panel__title%s">%s%s</h2>\n'
+            '    <dl class="pf-kv%s">%s</dl>\n  </section>\n' % (sec_cls, title_cls, title, after_title, cls, cells))
 
 
-def table(caption, heads, rows, hide=()):
+def table(caption, heads, rows, hide=(), card=""):
     """rows: list of lists of (html, label, cls). First cell is the row's name."""
     th = "".join('<th scope="col"%s>%s</th>' % (' class="pf-hide-sm"' if k in hide else "", h)
                  for k, h in enumerate(heads))
@@ -266,9 +294,9 @@ def table(caption, heads, rows, hide=()):
             classes = " ".join(c for c in (cls, "pf-hide-sm" if k in hide else "") if c)
             tds += '<td data-label="%s"%s>%s</td>' % (heads[k], ' class="%s"' % classes if classes else "", html)
         body += "        <tr>%s</tr>\n" % tds
-    return ('  <div class="pf-tablecard">\n    <table class="pf-table">\n      <caption class="sr-only">%s</caption>\n'
+    return ('  <div class="pf-tablecard%s">\n    <table class="pf-table">\n      <caption class="sr-only">%s</caption>\n'
             '      <thead><tr>%s</tr></thead>\n      <tbody>\n%s      </tbody>\n    </table>\n  </div>\n'
-            % (caption, th, body))
+            % (card, caption, th, body))
 
 
 CHEV = '<span class="pf-chev" aria-hidden="true">%s</span>' % img("chevron-down.svg", w=14, h=14)
@@ -293,8 +321,8 @@ def page_portfolio():
     holdings_panel = (
         "  <!-- DATA: active bond holdings. Rows open the holding; the design has one bond detail page. -->\n"
         + kv("Active Investment", [("Total Invested", R + "100 Cr", False), ("Repaid", R + "80 Cr", False),
-                                   ("Outstanding", R + "25 Cr", False), ("Gains", R + "5 Cr", False),
-                                   ("Returns (XIRR)", "14.8%", True)])
+                                   ("Outstanding", R + "25 Cr", False), ("Gains", R + "5 Cr", False, True),
+                                   ("Returns (XIRR)", "14.8%", True, True)], sec_cls=" pf-sum pf-sum--swap")
         + table("Active bond holdings", ["Name", "Invested", "Repaid", "Outstanding", "Maturity"], hold_rows, hide=(4,)))
 
     payouts = [("08 Jun", "26", "Bajaj Finance Bond", "5,000", "Interest"),
@@ -309,10 +337,12 @@ def page_portfolio():
         '    <button type="button" class="pf-switch" role="switch" aria-checked="false">'
         '<span class="pf-switch__track"></span>TDS Breakdown</button>\n  </div>\n' % chips
         + "  <!-- DATA: payouts in the selected period. -->\n"
+        + '  <div class="pf-byperiod pf-stack">\n'
         + kv("Repayment Summary", [("Upcoming Payouts", "4", False), ("Total Cashflow", R + "19,950", False),
                                    ("Interest Expected", R + "10,950", False), ("Principal Repayment", R + "9,000", False)],
              cls=" pf-kv--sub pf-kv--ink")
-        + table("Upcoming bond payouts", ["Dates", "Name", "Payout Amount", "Payout Type"], pay_rows))
+        + table("Upcoming bond payouts", ["Dates", "Name", "Payout Amount", "Payout Type"], pay_rows)
+        + '  </div>\n' + RANGES)
 
     fd_rows = [[(name_link("Unity Bank", "portfolio-fd.html"), "pf-name"), (R + "2,50,000", ""), (R + "28,000", "pf-up"),
                 (R + "30,000", ""), ('<span class="pf-date"><b>15 Mar</b> <span>2027</span></span>', "pf-soft")]]
@@ -331,7 +361,7 @@ def page_portfolio():
                    "View past Investments", "portfolio-matured.html")
             + note("check-green.svg", "You Received %s50,000 in Interest" % R,
                    "Credited directly to your linked bank account. You deserve that overdue vacation.", ring=True))
-    return layout(main, hero, side) + SHEETS
+    return layout(main, hero, side) + SHEETS + SHEET_CASH
 
 
 SIMILAR = [("Akara Capital",), ("Midland Microfin",), ("Lucina Development",)]
@@ -354,19 +384,22 @@ def similar():
 def page_matured():
     rows = [("Kotak Mahindra Prime Limited", "Matured"), ("Poonawalla Fincorp Limited", "Matured"),
             ("Kotak Mahindra Prime Limited", "Sold")]
-    trs = [[('%s<br><span class="pf-tag">%s</span>' % (n, s), "pf-name"), ("19 Jun &lsquo;26", "pf-soft"),
+    # Phones fold the date into the tag and drop Date and Returns (Figma 4:4392).
+    trs = [[('%s<br><span class="pf-tag">%s<span class="pf-tag__on">&nbsp;on 19 Jun &lsquo;26</span></span>'
+             % (name_link(n, "portfolio-bond.html"), s), "pf-name"), ("19 Jun &lsquo;26", "pf-soft"),
             (R + "4.00L", "pf-soft"), (R + "2,60,000", ""), ("14.8%", "pf-soft")] for n, s in rows]
     main = (titlerow("Matured") + USER
             + tablist("pf-assets", "asset", ["Bonds", "FD", "SIP"], "Asset type")
             + panel("asset", 0, "  <!-- DATA: matured and sold bond holdings. -->\n"
-                    + kv("Matured/Sold Investment", [("Returns (XIRR)", "14.8%", True), ("Invested", R + "5.0L", False),
-                                                     ("Amount Received", R + "28,000", False), ("Gains", R + "30,000", False)])
-                    + table("Matured and sold bonds", ["Name", "Date", "Amount Received", "Invested", "Returns"], trs))
+                    + kv("Matured/Sold Investment", [("Returns (XIRR)", "14.8%", True, True), ("Invested", R + "5.0L", False),
+                                                     ("Amount Received", R + "28,000", False), ("Gains", R + "30,000", False)],
+                         sec_cls=" pf-sum")
+                    + table("Matured and sold bonds", ["Name", "Date", "Amount Received", "Invested", "Returns"], trs, hide=(1, 4), card=" pf-tablecard--closed"))
             + panel("asset", 1, '  <div class="pf-empty">%s<h2>No holdings yet</h2></div>\n' % img("briefcase.svg", w=60, h=60))
             + panel("asset", 2, '  <div class="pf-empty">%s<h2>No holdings yet</h2></div>\n' % img("briefcase.svg", w=60, h=60)))
     hero = note("bond-cert.png", "Explore your current Holding", "you&rsquo;ve received %s3,40,046 from them" % R,
                 "Active Portfolio", "portfolio.html")
-    return layout(main, hero, similar(), crumbs=crumb("Matured", "portfolio.html"))
+    return layout(main, hero, similar(), crumbs=crumb("Matured", "portfolio.html"), detail=True)
 
 
 TRUST = [("trust-zero-default.png", "Zero Defaults"), ("trust-sebi.png", "Sebi Registered"),
@@ -436,26 +469,34 @@ DETAILS_INFO = info_btn("sheet-details", "What these figures mean")
 
 
 def page_bond():
+    # Below 1024px the Figma mobile frames (4:4764 Holdings, 4:3855 Future
+    # Repayment) turn Investment Details into a summary card and split the rest
+    # into two tabs; at desktop both panels show and the tabs are hidden.
+    repaid = "Repaid Till Date" + info_btn("sheet-details", "What these figures mean", "pf-info pf-sm-only")
     inv = ("  <!-- DATA: this holding's figures. -->\n"
-           + kv("Investment Details", [("Invested", R + "2,50,000", False), ("Repaid Till Date", R + "28,000", False),
-                                        ("Outstanding", R + "30,000", False), ("Expected Gains", R + "10,000 (14.2%)", False)],
-                cls=" pf-kv--ink", title_cls=" pf-panel__title--ink", after_title=DETAILS_INFO))
+           + kv("Investment Details", [("Invested", R + "2,50,000", False), (repaid, R + "28,000", False),
+                                        ("Outstanding", R + "30,000", False),
+                                        ("Expected Gains", R + '10,000 <small class="pf-sum__ytm">(14.2%<span class="pf-sm-only"> YTM</span>)</small>', False, True)],
+                cls=" pf-kv--ink", title_cls=" pf-panel__title--ink", after_title=DETAILS_INFO, sec_cls=" pf-sum pf-sum--bare"))
     bond = kv("Bond Details", [("Total Units", "200", False), ("ISIN", "INE001A07QN4", False),
                                ("Maturity Date", "15 Mar 2027", False), ("Interest Payout", "Monthly", False),
-                               ("Coupon", "11.2%", False)], cls=" pf-kv--ink", title_cls=" pf-panel__title--ink")
+                               ("Coupon", "11.2%", False)], cls=" pf-kv--ink pf-kv--rows", title_cls=" pf-panel__title--ink")
     fut = [("15 Jan 25", "&#8377;6,750", "Interest"), ("19 March26", "&#8377;6,750", "Interest"),
            ("15 Jan 25", "&#8377;6,750", "Interest + Principal"), ("19 March26", "2,50,000", "Maturity")]
-    fut_rows = [[(d, "pf-name"), (a, ""), (t, "pf-soft")] for d, a, t in fut]
+    fut_rows = [[(d, "pf-name"), (a, "pf-amt"), (t, "pf-soft pf-type")] for d, a, t in fut]
     tx = [[('15 Jan 25<br><span class="pf-tag pf-tag--buy">Buy</span>', "pf-name"), (R + "6,750", ""), ("+120", "pf-soft"), ("14.2%", "pf-soft")],
           [('19 Mar 26<br><span class="pf-tag">Sold</span>', "pf-name"), (R + "6,750", ""), ("-80", "pf-soft"), ("13.8%", "pf-soft")]]
+    future = ('  <div class="pf-filters"><h2 class="pf-h2">Future Repayment</h2>'
+              '<button type="button" class="pf-switch" role="switch" aria-checked="true"><span class="pf-switch__track"></span>TDS</button></div>\n'
+              + "  <!-- DATA: this holding's payout schedule. -->\n"
+              + table("Future repayments", ["Date", "Payout Amount", "Payout Type"], fut_rows, card=" pf-tablecard--pay"))
     main = (holder("navi-logo.png", "Navi Finserv", "Senior &middot; Secured &middot; Listed<br>A+ Rated")
-            + inv + bond
-            + '  <div class="pf-filters"><h2 class="pf-h2">Future Repayment</h2>'
-            '<button type="button" class="pf-switch" role="switch" aria-checked="true"><span class="pf-switch__track"></span>TDS</button></div>\n'
-            + "  <!-- DATA: this holding's payout schedule. -->\n"
-            + table("Future repayments", ["Date", "Payout Amount", "Payout Type"], fut_rows)
-            + '  <h2 class="pf-h2">Transaction Summary</h2>\n'
-            + table("Transactions", ["Date", "Amount", "Units", "Yield"], tx))
+            + inv
+            + tablist("pf-seg pf-bondtabs", "bond", ["Holdings", "Future Repayment"], "Holding view", ink=True)
+            + panel("bond", 0, bond).replace('class="pf-stack', 'class="pf-bondpanel pf-stack', 1)
+            + panel("bond", 1, future).replace('class="pf-stack', 'class="pf-bondpanel pf-stack', 1)
+            + '  <div class="pf-tx pf-stack">\n  <h2 class="pf-h2">Transaction Summary</h2>\n'
+            + table("Transactions", ["Date", "Amount", "Units", "Yield"], tx) + '  </div>\n')
     stat = ('  <!-- DATA: issuer track record. -->\n'
             '  <div class="pf-stats">'
             '<div>%s<b>Zero</b><span>Defaults Ever</span></div>'
@@ -474,19 +515,21 @@ def page_bond():
 
 
 def page_fd():
+    repaid = "Repaid Till Date" + info_btn("sheet-details", "What these figures mean", "pf-info pf-sm-only")
     inv = ("  <!-- DATA: this deposit's figures. -->\n"
-           + kv("Investment Details", [("Invested", R + "2,50,000", False), ("Repaid Till Date", R + "28,000", False),
-                                        ("Outstanding", R + "30,000", False), ("Total Interest", R + "10,000 (9.2%)", False)],
-                cls=" pf-kv--ink", title_cls=" pf-panel__title--ink", after_title=DETAILS_INFO)
+           + kv("Investment Details", [("Invested", R + "2,50,000", False), (repaid, R + "28,000", False),
+                                        ("Outstanding", R + "30,000", False),
+                                        ("Total Interest", R + '10,000 <small class="pf-sum__ytm">(9.2%)</small>', False, True)],
+                cls=" pf-kv--ink", title_cls=" pf-panel__title--ink", after_title=DETAILS_INFO, sec_cls=" pf-sum pf-sum--bare")
            + kv("Transaction Details", [("Invested On", "15 Jun 2023", False), ("Maturity On", "15 Mar 2027", False),
                                          ("Interest", "11.2%", False), ("Payout", "Yearly", False)],
                 cls=" pf-kv--ink", title_cls=" pf-panel__title--ink"))
     rep = [("15 Jan 25", "Interest"), ("19 March26", "Interest"), ("15 Jan 25", "Interest"), ("19 March26", "Interest + Principal")]
-    rows = [[(d, "pf-name"), (R + "6,750", ""), (t, "pf-soft")] for d, t in rep]
+    rows = [[(d, "pf-name"), (R + "6,750", "pf-amt"), (t, "pf-soft pf-type")] for d, t in rep]
     main = (holder("unity-logo.png", "Unity Bank", "DICGC Insured upto %s5L" % R, fill=True)
             + inv + '  <h2 class="pf-h2">Repayment</h2>\n'
             + "  <!-- DATA: this deposit's payout schedule. -->\n"
-            + table("Repayments", ["Dates", "Payout Amount", "Payout Type"], rows))
+            + table("Repayments", ["Dates", "Payout Amount", "Payout Type"], rows, card=" pf-tablecard--pay"))
     manage = note("bank.png", "Manage Your FD", None, "Proceed", extra=(
         '<ul class="pf-note__list"><li>Early withdrawals</li><li>View FD receipt</li>'
         '<li>Nominee update</li><li>Bank account updates</li></ul>'))

@@ -96,7 +96,7 @@
       <a class="gp-nav__link" href="user-fixed-deposits.html">
         <img src="../assets/img/header-nav-fd.svg" alt=""> FD
       </a>
-      <a class="gp-nav__link" href="https://uatnew.goldenpi.com/collections/all-bonds">
+      <a class="gp-nav__link" href="collections-all-bonds.html">
         <img src="../assets/img/header-nav-collection.svg" alt=""> Collection
       </a>
       <a class="gp-nav__link" href="bond-utsav.html">
@@ -136,28 +136,34 @@
 <div class="pf-main">
   <div class="pf-holder"><span class="pf-holder__logo"><img src="../assets/img/portfolio/navi-logo.png" alt="Navi Finserv logo"></span><div><h1>Navi Finserv</h1><p class="pf-holder__meta">Senior &middot; Secured &middot; Listed<br>A+ Rated</p></div></div>
   <!-- DATA: this holding's figures. -->
-  <section class="pf-panel">
+  <section class="pf-panel pf-sum pf-sum--bare">
     <h2 class="pf-panel__title pf-panel__title--ink">Investment Details<button type="button" class="pf-info" data-sheet="sheet-details" aria-label="What these figures mean"><img src="../assets/img/portfolio/info.svg" alt="" width="12" height="12"></button></h2>
-    <dl class="pf-kv pf-kv--ink"><div><dt>Invested</dt><dd>&#8377;2,50,000</dd></div><div><dt>Repaid Till Date</dt><dd>&#8377;28,000</dd></div><div><dt>Outstanding</dt><dd>&#8377;30,000</dd></div><div><dt>Expected Gains</dt><dd>&#8377;10,000 (14.2%)</dd></div></dl>
+    <dl class="pf-kv pf-kv--ink"><div><dt>Invested</dt><dd>&#8377;2,50,000</dd></div><div><dt>Repaid Till Date<button type="button" class="pf-info pf-sm-only" data-sheet="sheet-details" aria-label="What these figures mean"><img src="../assets/img/portfolio/info.svg" alt="" width="12" height="12"></button></dt><dd>&#8377;28,000</dd></div><div><dt>Outstanding</dt><dd>&#8377;30,000</dd></div><div class="pf-kv__lead"><dt>Expected Gains</dt><dd>&#8377;10,000 <small class="pf-sum__ytm">(14.2%<span class="pf-sm-only"> YTM</span>)</small></dd></div></dl>
   </section>
+  <div class="pf-seg pf-bondtabs" role="tablist" aria-label="Holding view" data-pf-tabs><span class="pf-seg__ink" aria-hidden="true"></span><button type="button" role="tab" id="bond-t0" aria-controls="bond-p0" aria-selected="true">Holdings</button><button type="button" role="tab" id="bond-t1" aria-controls="bond-p1" aria-selected="false" tabindex="-1">Future Repayment</button></div>
+  <div role="tabpanel" id="bond-p0" aria-labelledby="bond-t0" class="pf-bondpanel pf-stack is-on">
   <section class="pf-panel">
     <h2 class="pf-panel__title pf-panel__title--ink">Bond Details</h2>
-    <dl class="pf-kv pf-kv--ink"><div><dt>Total Units</dt><dd>200</dd></div><div><dt>ISIN</dt><dd>INE001A07QN4</dd></div><div><dt>Maturity Date</dt><dd>15 Mar 2027</dd></div><div><dt>Interest Payout</dt><dd>Monthly</dd></div><div><dt>Coupon</dt><dd>11.2%</dd></div></dl>
+    <dl class="pf-kv pf-kv--ink pf-kv--rows"><div><dt>Total Units</dt><dd>200</dd></div><div><dt>ISIN</dt><dd>INE001A07QN4</dd></div><div><dt>Maturity Date</dt><dd>15 Mar 2027</dd></div><div><dt>Interest Payout</dt><dd>Monthly</dd></div><div><dt>Coupon</dt><dd>11.2%</dd></div></dl>
   </section>
+  </div>
+  <div role="tabpanel" id="bond-p1" aria-labelledby="bond-t1" class="pf-bondpanel pf-stack" hidden>
   <div class="pf-filters"><h2 class="pf-h2">Future Repayment</h2><button type="button" class="pf-switch" role="switch" aria-checked="true"><span class="pf-switch__track"></span>TDS</button></div>
   <!-- DATA: this holding's payout schedule. -->
-  <div class="pf-tablecard">
+  <div class="pf-tablecard pf-tablecard--pay">
     <table class="pf-table">
       <caption class="sr-only">Future repayments</caption>
       <thead><tr><th scope="col">Date</th><th scope="col">Payout Amount</th><th scope="col">Payout Type</th></tr></thead>
       <tbody>
-        <tr><td data-label="Date" class="pf-name">15 Jan 25</td><td data-label="Payout Amount">&#8377;6,750</td><td data-label="Payout Type" class="pf-soft">Interest</td></tr>
-        <tr><td data-label="Date" class="pf-name">19 March26</td><td data-label="Payout Amount">&#8377;6,750</td><td data-label="Payout Type" class="pf-soft">Interest</td></tr>
-        <tr><td data-label="Date" class="pf-name">15 Jan 25</td><td data-label="Payout Amount">&#8377;6,750</td><td data-label="Payout Type" class="pf-soft">Interest + Principal</td></tr>
-        <tr><td data-label="Date" class="pf-name">19 March26</td><td data-label="Payout Amount">2,50,000</td><td data-label="Payout Type" class="pf-soft">Maturity</td></tr>
+        <tr><td data-label="Date" class="pf-name">15 Jan 25</td><td data-label="Payout Amount" class="pf-amt">&#8377;6,750</td><td data-label="Payout Type" class="pf-soft pf-type">Interest</td></tr>
+        <tr><td data-label="Date" class="pf-name">19 March26</td><td data-label="Payout Amount" class="pf-amt">&#8377;6,750</td><td data-label="Payout Type" class="pf-soft pf-type">Interest</td></tr>
+        <tr><td data-label="Date" class="pf-name">15 Jan 25</td><td data-label="Payout Amount" class="pf-amt">&#8377;6,750</td><td data-label="Payout Type" class="pf-soft pf-type">Interest + Principal</td></tr>
+        <tr><td data-label="Date" class="pf-name">19 March26</td><td data-label="Payout Amount" class="pf-amt">2,50,000</td><td data-label="Payout Type" class="pf-soft pf-type">Maturity</td></tr>
       </tbody>
     </table>
   </div>
+  </div>
+  <div class="pf-tx pf-stack">
   <h2 class="pf-h2">Transaction Summary</h2>
   <div class="pf-tablecard">
     <table class="pf-table">
@@ -168,6 +174,7 @@
         <tr><td data-label="Date" class="pf-name">19 Mar 26<br><span class="pf-tag">Sold</span></td><td data-label="Amount">&#8377;6,750</td><td data-label="Units" class="pf-soft">-80</td><td data-label="Yield" class="pf-soft">13.8%</td></tr>
       </tbody>
     </table>
+  </div>
   </div>
 </div>
 <aside class="pf-hero" aria-label="Portfolio summary">

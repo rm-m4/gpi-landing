@@ -96,7 +96,7 @@
       <a class="gp-nav__link" href="user-fixed-deposits.html">
         <img src="../assets/img/header-nav-fd.svg" alt=""> FD
       </a>
-      <a class="gp-nav__link" href="https://uatnew.goldenpi.com/collections/all-bonds">
+      <a class="gp-nav__link" href="collections-all-bonds.html">
         <img src="../assets/img/header-nav-collection.svg" alt=""> Collection
       </a>
       <a class="gp-nav__link" href="bond-utsav.html">
@@ -140,9 +140,9 @@
   <div class="pf-seg" role="tablist" aria-label="Bond view" data-pf-tabs><span class="pf-seg__ink" aria-hidden="true"></span><button type="button" role="tab" id="view-t0" aria-controls="view-p0" aria-selected="true">Holdings</button><button type="button" role="tab" id="view-t1" aria-controls="view-p1" aria-selected="false" tabindex="-1">Future Repayment</button></div>
   <div role="tabpanel" id="view-p0" aria-labelledby="view-t0" class="pf-stack is-on">
   <!-- DATA: active bond holdings. Rows open the holding; the design has one bond detail page. -->
-  <section class="pf-panel">
+  <section class="pf-panel pf-sum pf-sum--swap">
     <h2 class="pf-panel__title">Active Investment</h2>
-    <dl class="pf-kv"><div><dt>Total Invested</dt><dd>&#8377;100 Cr</dd></div><div><dt>Repaid</dt><dd>&#8377;80 Cr</dd></div><div><dt>Outstanding</dt><dd>&#8377;25 Cr</dd></div><div><dt>Gains</dt><dd>&#8377;5 Cr</dd></div><div><dt>Returns (XIRR)</dt><dd class="pf-gain">14.8%</dd></div></dl>
+    <dl class="pf-kv"><div><dt>Total Invested</dt><dd>&#8377;100 Cr</dd></div><div><dt>Repaid</dt><dd>&#8377;80 Cr</dd></div><div><dt>Outstanding</dt><dd>&#8377;25 Cr</dd></div><div class="pf-kv__lead"><dt>Gains</dt><dd>&#8377;5 Cr</dd></div><div class="pf-kv__lead"><dt>Returns (XIRR)</dt><dd class="pf-gain">14.8%</dd></div></dl>
   </section>
   <div class="pf-tablecard">
     <table class="pf-table">
@@ -162,6 +162,7 @@
     <button type="button" class="pf-switch" role="switch" aria-checked="false"><span class="pf-switch__track"></span>TDS Breakdown</button>
   </div>
   <!-- DATA: payouts in the selected period. -->
+  <div class="pf-byperiod pf-stack">
   <section class="pf-panel">
     <h2 class="pf-panel__title">Repayment Summary</h2>
     <dl class="pf-kv pf-kv--sub pf-kv--ink"><div><dt>Upcoming Payouts</dt><dd>4</dd></div><div><dt>Total Cashflow</dt><dd>&#8377;19,950</dd></div><div><dt>Interest Expected</dt><dd>&#8377;10,950</dd></div><div><dt>Principal Repayment</dt><dd>&#8377;9,000</dd></div></dl>
@@ -178,6 +179,9 @@
       </tbody>
     </table>
   </div>
+  </div>
+  <!-- DATA: total payout per period; every card opens that period's breakdown. -->
+  <div class="pf-ranges"><button type="button" class="pf-range" data-sheet="sheet-cash" aria-haspopup="dialog"><span><span class="pf-range__name">This Month</span><span class="pf-range__sum">&#8377;67,700</span></span><span class="pf-range__go"><img src="../assets/img/portfolio/chevron-down.svg" alt="" width="14" height="14"></span></button><button type="button" class="pf-range" data-sheet="sheet-cash" aria-haspopup="dialog"><span><span class="pf-range__name">This Quarter</span><span class="pf-range__sum">&#8377;67,700</span></span><span class="pf-range__go"><img src="../assets/img/portfolio/chevron-down.svg" alt="" width="14" height="14"></span></button><button type="button" class="pf-range" data-sheet="sheet-cash" aria-haspopup="dialog"><span><span class="pf-range__name">Next Quarter</span><span class="pf-range__sum">&#8377;67,700</span></span><span class="pf-range__go"><img src="../assets/img/portfolio/chevron-down.svg" alt="" width="14" height="14"></span></button></div>
   </div>
   </div>
   <div role="tabpanel" id="asset-p1" aria-labelledby="asset-t1" class="pf-stack" hidden>
@@ -259,6 +263,19 @@
       <div class="pf-def"><div class="pf-def__head"><span><span class="pf-def__icon"><img src="../assets/img/portfolio/info-invested.png" alt=""></span>Total Invested</span></div><p>Total amount invested in all your lifetime investments, including active, matured, and sold investments.</p></div>
       <div class="pf-def"><div class="pf-def__head"><span><span class="pf-def__icon"><img src="../assets/img/portfolio/info-gains.png" alt=""></span>Gains</span><span class="pf-ytm">10.75% YTM</span></div><p>Total gains from your lifetime investments, including interest that has been repaid and accrued</p></div>
       <div class="pf-def"><div class="pf-def__head"><span><span class="pf-def__icon"><img src="../assets/img/portfolio/info-repaid.png" alt=""></span>Repaid</span></div><p>Total amount repaid to you across all your lifetime investments, including matured and sold investments.</p></div>
+  </div>
+</dialog>
+<dialog class="pf-sheet pf-sheet--light pf-sheet--cash" id="sheet-cash" aria-labelledby="sheet-cash-t">
+  <div class="pf-sheet__head"><span class="pf-sheet__handle"></span><button type="button" class="pf-sheet__close" data-close aria-label="Close"><img src="../assets/img/portfolio/cross-dark.svg" alt=""></button></div>
+  <div class="pf-sheet__body">
+    <h2 id="sheet-cash-t">Future Cashflow</h2>
+    <!-- DATA: payouts in the chosen period. -->
+    <ul class="pf-cash" role="list">
+      <li><p class="pf-cash__top"><b>15 Jan 2025</b><span class="pf-cash__type">Interest</span></p><p class="pf-cash__row"><span>Navi Finserv Aug&rsquo;28<br>INE001A07QN4</span><b>&#8377;6,750</b></p></li>
+      <li><p class="pf-cash__top"><b>15 April 2025</b><span class="pf-cash__type">Principal</span></p><p class="pf-cash__row"><span>Bajaj Finance FD</span><b>&#8377;6,750</b></p></li>
+      <li><p class="pf-cash__top"><b>15 Jul 2025</b><span class="pf-cash__type">Interest + Principal (I)</span></p><p class="pf-cash__row"><span>Bajaj Finance FD</span><b>&#8377;6,750 + &#8377;65,750</b></p></li>
+      <li><p class="pf-cash__top"><b>15 Sep 2025</b><span class="pf-cash__type">Interest</span></p><p class="pf-cash__row"><span>Bajaj Finance FD</span><b>&#8377;2,50,000</b></p></li>
+    </ul>
   </div>
 </dialog>
 

@@ -500,3 +500,105 @@
 @media (prefers-reduced-motion: reduce) {
   .pf *, .pf *::after, .pf-sheet, .pf-sheet::backdrop { animation: none !important; transition: none !important; }
 }
+
+/* ------------------------------------ bond holding: phone summary + tabs */
+/* Figma mobile frames 4:4764 (Holdings) and 4:3855 (Future Repayment). */
+.pf-sum__ytm { font-size: inherit; }
+@media (min-width: 640px) { .pf-sm-only { display: none; } }
+@media (min-width: 1024px) {
+  .pf-bondtabs { display: none; }
+  .pf-bondpanel[hidden] { display: flex; }
+}
+@media (max-width: 1023px) {
+  /* Future Repayment tab: the Holdings-only blocks step aside. */
+  .pf-grid--detail:has(#bond-t1[aria-selected="true"]) :is(.pf-tx, .pf-hero) { display: none; }
+}
+@media (max-width: 639px) {
+  .pf-holder { flex-direction: column; gap: 8px; text-align: center; }
+  .pf-holder__logo { width: 75px; height: 75px; }
+  .pf-holder h1 { font-size: 20px; }
+
+  .pf-sum { border-radius: 18px; }
+  /* The bond page's card has no heading in the design; the others keep it. */
+  .pf-sum--bare .pf-panel__title {
+    position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+  }
+  .pf-sum--bare .pf-kv { margin: 0; }
+  .pf-sum .pf-kv { gap: 20px 12px; grid-template-columns: repeat(3, auto); justify-content: space-between; }
+  .pf-sum .pf-kv dt { white-space: nowrap; }
+  /* Lead cells (gains, returns, yield) form the headline row: one spans it, two share it. */
+  .pf-sum .pf-kv__lead { order: -1; grid-column: 1 / -1; }
+  .pf-sum .pf-kv__lead:has(+ .pf-kv__lead) { grid-column: auto; }
+  .pf-sum .pf-kv__lead + .pf-kv__lead { grid-column: span 2; }
+  /* Active Investment leads with Returns (XIRR), then Gains; desktop keeps source order. */
+  .pf-sum--swap .pf-kv__lead:has(+ .pf-kv__lead) { grid-row: 1; grid-column: 2 / span 2; }
+  .pf-sum--swap .pf-kv__lead + .pf-kv__lead { grid-row: 1; grid-column: 1; }
+  .pf-sum .pf-kv > .pf-kv__lead dd { margin-top: 4px; font-size: 24px; line-height: 1.2; font-weight: 500; letter-spacing: -0.35px; }
+  .pf-sum .pf-kv dd { margin-top: 0; font-size: 14px; line-height: 1.3; letter-spacing: -0.35px; }
+  .pf-sum__ytm { font-size: 12px; font-weight: 700; color: #00b256; }
+
+  .pf-kv--rows { display: flex; flex-direction: column; gap: 8px; }
+  .pf-kv--rows > div { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .pf-kv--rows dt { font-size: 12px; font-weight: 700; letter-spacing: 0.12px; color: #666; }
+  .pf-kv--rows dd { margin: 0; font-size: 12px; line-height: 24px; letter-spacing: 0; }
+
+  .pf-bondpanel .pf-filters .pf-h2 { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .pf-tablecard--pay .pf-table tbody { gap: 12px; }
+  .pf-tablecard--pay .pf-table tr {
+    grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "date type" "amt amt";
+    gap: 4px; padding: 13px 17px; border-radius: 20px;
+  }
+  .pf-tablecard--pay .pf-table .pf-name { grid-area: date; padding: 0; font-size: 14px; line-height: 22.5px; letter-spacing: -0.375px; }
+  .pf-tablecard--pay .pf-table .pf-amt {
+    grid-area: amt; display: flex; justify-content: space-between; align-items: center;
+    font-size: 14px; font-weight: 700; line-height: 22.5px; letter-spacing: -0.375px; color: #322811;
+  }
+  .pf-tablecard--pay .pf-table .pf-amt::before { content: "Amount"; margin: 0; font-size: 14px; font-weight: 700; line-height: 22.5px; color: #666; }
+  .pf-tablecard--pay .pf-table .pf-type {
+    grid-area: type; align-self: center; padding: 0 10px !important; border-radius: 9999px !important;
+    background: rgba(234, 179, 8, 0.15) !important; color: #eab308;
+    font-size: 8px; line-height: 20px; font-weight: 900; letter-spacing: 1px; text-transform: uppercase;
+  }
+  .pf-tablecard--pay .pf-table .pf-type::before { display: none; }
+}
+
+/* ------------------------------------- matured: phone holding cards */
+/* Figma mobile frame 4:4392. */
+@media (min-width: 720px) { .pf-tag__on { display: none; } }
+@media (max-width: 719px) {
+  .pf-tablecard--closed .pf-table tr { grid-template-columns: repeat(2, auto); justify-content: start; gap: 11px 48px; }
+  /* Invested first, then Amount Received in green. */
+  .pf-tablecard--closed .pf-table td:nth-child(3) { order: 1; color: #22c55e; }
+  .pf-tablecard--closed .pf-table td:nth-child(3)::before { color: #322811; }
+  .pf-tablecard--closed .pf-table td:nth-child(4) { font-weight: 700; }
+  .pf-tablecard--closed .pf-tag { margin-top: 11px; }
+}
+
+/* --------------------------------- portfolio: phone repayment periods */
+/* Figma 4:6291 (period cards) and 4:6561 (sheet, drawn dark, built light). */
+.pf-ranges { display: none; }
+@media (max-width: 719px) {
+  #view-p1 .pf-chips, .pf-byperiod { display: none; }
+  .pf-ranges { display: grid; gap: 12px; }
+  .pf-range {
+    display: flex; align-items: center; justify-content: space-between; min-height: 86px; padding: 0 14px;
+    border: 0; border-bottom: 1px solid #fdf2d0; border-radius: 15px; background: #fff; cursor: pointer;
+    font: inherit; text-align: left; filter: drop-shadow(0 2px 1px rgba(0, 0, 0, 0.02));
+  }
+  .pf-range > span:first-child { display: grid; gap: 11px; }
+  .pf-range__name { font-size: 14px; line-height: 1; font-weight: 700; letter-spacing: -0.375px; color: #322811; }
+  .pf-range__sum { font-size: 14px; line-height: 1; font-weight: 700; letter-spacing: -0.306px; color: #00b256; }
+  .pf-range__go { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: #fcfbfa; }
+  .pf-range__go img { transform: rotate(-90deg); }
+  .pf-range:focus-visible { outline: 2px solid #8a6520; outline-offset: 2px; }
+}
+.pf-cash { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.pf-cash li { display: grid; gap: 8px; padding: 16px 18px; border-radius: 20px; background: #f7f5f2; }
+.pf-cash p { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 0; font-size: 14px; }
+.pf-cash__top b { color: #322811; }
+.pf-cash__type {
+  flex: none; padding: 4px 8px; border-radius: 20px; background: rgba(234, 179, 8, 0.15);
+  font-size: 12px; line-height: 1; font-weight: 500; letter-spacing: 0.5px; color: #a67c00;
+}
+.pf-cash__row span { line-height: 21px; font-weight: 500; color: #666; }
+.pf-cash__row b { flex: none; text-align: right; color: #322811; }
