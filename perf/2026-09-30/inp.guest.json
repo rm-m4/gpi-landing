@@ -1,0 +1,687 @@
+{
+  "captured": "2026-09-30T10:12:35.571Z",
+  "rows": [
+    {
+      "slug": "home",
+      "path": "/",
+      "taps": [
+        {
+          "kind": "tab",
+          "label": "Bond Utsav Deals",
+          "type": "pointerdown",
+          "duration": 96,
+          "inputDelay": 24,
+          "processing": 0,
+          "presentation": 72
+        },
+        {
+          "kind": "button",
+          "label": "Add to watchlist",
+          "type": "pointerdown",
+          "duration": 168,
+          "inputDelay": 32,
+          "processing": 1,
+          "presentation": 136
+        },
+        {
+          "kind": "toggle",
+          "label": "Share",
+          "error": "locator.tap: Timeout 3000ms exceeded."
+        }
+      ],
+      "finalUrl": "/"
+    },
+    {
+      "slug": "signup",
+      "path": "/signup",
+      "taps": [],
+      "finalUrl": "/signup"
+    },
+    {
+      "slug": "corporate-bonds",
+      "path": "/corporate-bonds",
+      "taps": [
+        {
+          "kind": "tab",
+          "label": "Bond Utsav Deals",
+          "type": "click",
+          "duration": 80,
+          "inputDelay": 32,
+          "processing": 1,
+          "presentation": 47
+        },
+        {
+          "kind": "button",
+          "label": "Add to watchlist",
+          "type": "pointerdown",
+          "duration": 136,
+          "inputDelay": 33,
+          "processing": 0,
+          "presentation": 103
+        },
+        {
+          "kind": "toggle",
+          "label": "Share",
+          "error": "locator.tap: Timeout 3000ms exceeded."
+        }
+      ],
+      "finalUrl": "/corporate-bonds"
+    },
+    {
+      "slug": "fixed-deposits",
+      "path": "/fixed-deposits",
+      "taps": [
+        {
+          "kind": "tab",
+          "label": "Bank FD",
+          "type": "click",
+          "duration": 96,
+          "inputDelay": 33,
+          "processing": 8,
+          "presentation": 55
+        },
+        {
+          "kind": "header button",
+          "label": "Open search",
+          "type": "click",
+          "duration": 104,
+          "inputDelay": 34,
+          "processing": 20,
+          "presentation": 50
+        }
+      ],
+      "finalUrl": "/fixed-deposits"
+    },
+    {
+      "slug": "bond-ipo-online",
+      "path": "/bond-ipo-online",
+      "taps": [
+        {
+          "kind": "button",
+          "label": "Start Investing",
+          "type": "pointerdown",
+          "duration": 168,
+          "inputDelay": 32,
+          "processing": 6,
+          "presentation": 130
+        },
+        {
+          "kind": "header button",
+          "label": "Open search",
+          "error": "locator.tap: Timeout 3000ms exceeded."
+        }
+      ],
+      "finalUrl": "/bond-ipo-online"
+    },
+    {
+      "slug": "bond-utsav",
+      "path": "/bond-utsav",
+      "taps": [
+        {
+          "kind": "tab",
+          "label": "All Bonds",
+          "type": "pointerdown",
+          "duration": 104,
+          "inputDelay": 32,
+          "processing": 5,
+          "presentation": 68
+        },
+        {
+          "kind": "header button",
+          "label": "Open search",
+          "type": "click",
+          "duration": 104,
+          "inputDelay": 35,
+          "processing": 20,
+          "presentation": 49
+        }
+      ],
+      "finalUrl": "/bond-utsav"
+    },
+    {
+      "slug": "refer-and-earn",
+      "path": "/refer-and-earn",
+      "taps": [
+        {
+          "kind": "button",
+          "label": "Sign up to get your referral link",
+          "type": "pointerdown",
+          "duration": 168,
+          "inputDelay": 31,
+          "processing": 6,
+          "presentation": 131
+        },
+        {
+          "kind": "header button",
+          "label": "Open search",
+          "error": "locator.tap: Timeout 3000ms exceeded."
+        }
+      ],
+      "finalUrl": "/refer-and-earn"
+    },
+    {
+      "slug": "list-view",
+      "path": "/investment-options/list-view",
+      "taps": [
+        {
+          "kind": "button",
+          "label": "Filters",
+          "type": "click",
+          "duration": 120,
+          "inputDelay": 40,
+          "processing": 44,
+          "presentation": 36
+        },
+        {
+          "kind": "toggle",
+          "label": "Share",
+          "error": "locator.tap: Timeout 3000ms exceeded."
+        },
+        {
+          "kind": "header button",
+          "label": "Open search",
+          "error": "locator.tap: Timeout 3000ms exceeded."
+        }
+      ],
+      "finalUrl": "/investment-options/list-view"
+    },
+    {
+      "slug": "collections-all-bonds",
+      "path": "/collections/all-bonds",
+      "taps": [
+        {
+          "kind": "button",
+          "label": "All Bonds",
+          "type": "click",
+          "duration": 88,
+          "inputDelay": 42,
+          "processing": 1,
+          "presentation": 45
+        },
+        {
+          "kind": "header button",
+          "label": "Open search",
+          "type": "pointerdown",
+          "duration": 104,
+          "inputDelay": 33,
+          "processing": 1,
+          "presentation": 70
+        }
+      ],
+      "finalUrl": "/collections/all-bonds"
+    },
+    {
+      "slug": "ipo-detail-edelweiss",
+      "path": "/bond-ipo/GPID100778/edelweiss-financial-services-limited?src=preview",
+      "taps": [
+        {
+          "kind": "toggle",
+          "label": "Share IPO",
+          "type": "click",
+          "duration": 64,
+          "inputDelay": 39,
+          "processing": 4,
+          "presentation": 22
+        },
+        {
+          "kind": "button",
+          "label": "10%120MMonthly PayoutHighest Return",
+          "error": "locator.tap: Timeout 3000ms exceeded."
+        }
+      ],
+      "finalUrl": "/bond-ipo/GPID100778/edelweiss-financial-services-limited?src=preview"
+    },
+    {
+      "slug": "faq",
+      "path": "/faq",
+      "taps": [
+        {
+          "kind": "header button",
+          "label": "Open search",
+          "type": "pointerdown",
+          "duration": 88,
+          "inputDelay": 32,
+          "processing": 5,
+          "presentation": 51
+        }
+      ],
+      "finalUrl": "/faq"
+    },
+    {
+      "slug": "about-us",
+      "path": "/about-us",
+      "taps": [
+        {
+          "kind": "header button",
+          "label": "Open search",
+          "type": "click",
+          "duration": 88,
+          "inputDelay": 40,
+          "processing": 7,
+          "presentation": 41
+        }
+      ],
+      "finalUrl": "/about-us"
+    },
+    {
+      "slug": "contact-us",
+      "path": "/contact-us",
+      "taps": [
+        {
+          "kind": "toggle",
+          "label": "I am looking for",
+          "type": "click",
+          "duration": 104,
+          "inputDelay": 41,
+          "processing": 2,
+          "presentation": 61
+        },
+        {
+          "kind": "header button",
+          "label": "Open search",
+          "type": "pointerdown",
+          "duration": 104,
+          "inputDelay": 31,
+          "processing": 0,
+          "presentation": 73
+        }
+      ],
+      "finalUrl": "/contact-us"
+    },
+    {
+      "slug": "careers",
+      "path": "/careers",
+      "taps": [
+        {
+          "kind": "button",
+          "label": "All11",
+          "type": "pointerdown",
+          "duration": 104,
+          "inputDelay": 28,
+          "processing": 1,
+          "presentation": 75
+        },
+        {
+          "kind": "header button",
+          "label": "Open search",
+          "type": "pointerdown",
+          "duration": 88,
+          "inputDelay": 31,
+          "processing": 1,
+          "presentation": 56
+        }
+      ],
+      "finalUrl": "/careers"
+    },
+    {
+      "slug": "media",
+      "path": "/media",
+      "taps": [
+        {
+          "kind": "tab",
+          "label": "2024",
+          "type": "pointerdown",
+          "duration": 104,
+          "inputDelay": 31,
+          "processing": 6,
+          "presentation": 67
+        },
+        {
+          "kind": "header button",
+          "label": "Open search",
+          "type": "pointerdown",
+          "duration": 88,
+          "inputDelay": 32,
+          "processing": 0,
+          "presentation": 56
+        }
+      ],
+      "finalUrl": "/media"
+    },
+    {
+      "slug": "privacy-policy",
+      "path": "/privacy-policy",
+      "taps": [
+        {
+          "kind": "header button",
+          "label": "Open search",
+          "type": "pointerup",
+          "duration": 88,
+          "inputDelay": 38,
+          "processing": 0,
+          "presentation": 49
+        }
+      ],
+      "finalUrl": "/privacy-policy"
+    },
+    {
+      "slug": "terms-and-conditions",
+      "path": "/terms-and-conditions",
+      "taps": [
+        {
+          "kind": "header button",
+          "label": "Open search",
+          "type": "pointerdown",
+          "duration": 88,
+          "inputDelay": 31,
+          "processing": 5,
+          "presentation": 51
+        }
+      ],
+      "finalUrl": "/terms-and-conditions"
+    },
+    {
+      "slug": "sovereign-gold-bond",
+      "path": "/sovereign-gold-bond",
+      "taps": [
+        {
+          "kind": "button",
+          "label": "Notify Me",
+          "type": "pointerup",
+          "duration": 152,
+          "inputDelay": 36,
+          "processing": 1,
+          "presentation": 115
+        },
+        {
+          "kind": "header button",
+          "label": "Open search",
+          "error": "locator.tap: Timeout 3000ms exceeded."
+        }
+      ],
+      "finalUrl": "/sovereign-gold-bond"
+    },
+    {
+      "slug": "government-securities",
+      "path": "/government-securities",
+      "taps": [
+        {
+          "kind": "button",
+          "label": "Notify Me",
+          "type": "click",
+          "duration": 136,
+          "inputDelay": 40,
+          "processing": 65,
+          "presentation": 31
+        },
+        {
+          "kind": "header button",
+          "label": "Open search",
+          "error": "locator.tap: Timeout 3000ms exceeded."
+        }
+      ],
+      "finalUrl": "/government-securities"
+    },
+    {
+      "slug": "bond-better-return-fds",
+      "path": "/bond-better-return-fds",
+      "taps": [
+        {
+          "kind": "button",
+          "label": "View Latest IPOs",
+          "type": "click",
+          "duration": 88,
+          "inputDelay": 42,
+          "processing": 1,
+          "presentation": 45
+        },
+        {
+          "kind": "header button",
+          "label": "Open search",
+          "type": "pointerup",
+          "duration": 88,
+          "inputDelay": 33,
+          "processing": 0,
+          "presentation": 55
+        }
+      ],
+      "finalUrl": "/bond-better-return-fds"
+    },
+    {
+      "slug": "invest-in-bonds",
+      "path": "/invest-in-bonds",
+      "taps": [],
+      "finalUrl": "/invest-in-bonds"
+    },
+    {
+      "slug": "issuer-akara",
+      "path": "/issuers/akara-capital-advisors-private-limited",
+      "taps": [
+        {
+          "kind": "toggle",
+          "label": "History & Overview",
+          "type": "pointerdown",
+          "duration": 88,
+          "inputDelay": 31,
+          "processing": 0,
+          "presentation": 57
+        },
+        {
+          "kind": "header button",
+          "label": "Open search",
+          "type": "click",
+          "duration": 104,
+          "inputDelay": 35,
+          "processing": 18,
+          "presentation": 52
+        }
+      ],
+      "finalUrl": "/issuers/akara-capital-advisors-private-limited"
+    },
+    {
+      "slug": "collections-highly-rated",
+      "path": "/collections/highly-rated",
+      "taps": [
+        {
+          "kind": "button",
+          "label": "All Bonds",
+          "error": "navigated"
+        },
+        {
+          "kind": "header button",
+          "label": "Open search",
+          "type": "click",
+          "duration": 104,
+          "inputDelay": 38,
+          "processing": 6,
+          "presentation": 60
+        }
+      ],
+      "finalUrl": "/collections/highly-rated"
+    },
+    {
+      "slug": "collections-high-returns",
+      "path": "/collections/high-returns",
+      "taps": [
+        {
+          "kind": "button",
+          "label": "Highly Rated",
+          "error": "navigated"
+        },
+        {
+          "kind": "header button",
+          "label": "Open search",
+          "type": "pointerdown",
+          "duration": 88,
+          "inputDelay": 31,
+          "processing": 3,
+          "presentation": 54
+        }
+      ],
+      "finalUrl": "/collections/high-returns"
+    },
+    {
+      "slug": "collections-short-term",
+      "path": "/collections/short-term",
+      "taps": [
+        {
+          "kind": "button",
+          "label": "High Returns",
+          "error": "navigated"
+        },
+        {
+          "kind": "header button",
+          "label": "Open search",
+          "type": "pointerdown",
+          "duration": 88,
+          "inputDelay": 32,
+          "processing": 3,
+          "presentation": 53
+        }
+      ],
+      "finalUrl": "/collections/short-term"
+    },
+    {
+      "slug": "collections-gold-backed",
+      "path": "/collections/gold-backed",
+      "taps": [
+        {
+          "kind": "button",
+          "label": "Short Term",
+          "error": "navigated"
+        },
+        {
+          "kind": "header button",
+          "label": "Open search",
+          "type": "pointerdown",
+          "duration": 104,
+          "inputDelay": 31,
+          "processing": 4,
+          "presentation": 69
+        }
+      ],
+      "finalUrl": "/collections/gold-backed"
+    },
+    {
+      "slug": "collections-ncd-ipo",
+      "path": "/collections/ncd-ipo",
+      "taps": [
+        {
+          "kind": "button",
+          "label": "Short Term",
+          "error": "navigated"
+        },
+        {
+          "kind": "toggle",
+          "label": "Share",
+          "type": "pointerdown",
+          "duration": 88,
+          "inputDelay": 33,
+          "processing": 2,
+          "presentation": 53
+        },
+        {
+          "kind": "header button",
+          "label": "Open search",
+          "error": "locator.tap: Timeout 3000ms exceeded."
+        }
+      ],
+      "finalUrl": "/collections/ncd-ipo"
+    },
+    {
+      "slug": "collections-starts-10k",
+      "path": "/collections/starts-10k",
+      "taps": [
+        {
+          "kind": "button",
+          "label": "All Bonds",
+          "error": "navigated"
+        },
+        {
+          "kind": "header button",
+          "label": "Open search",
+          "type": "click",
+          "duration": 104,
+          "inputDelay": 39,
+          "processing": 6,
+          "presentation": 59
+        }
+      ],
+      "finalUrl": "/collections/starts-10k"
+    },
+    {
+      "slug": "collections-government-bonds",
+      "path": "/collections/government-bonds",
+      "taps": [
+        {
+          "kind": "button",
+          "label": "All Bonds",
+          "error": "navigated"
+        },
+        {
+          "kind": "header button",
+          "label": "Open search",
+          "type": "click",
+          "duration": 88,
+          "inputDelay": 37,
+          "processing": 7,
+          "presentation": 45
+        }
+      ],
+      "finalUrl": "/collections/government-bonds"
+    },
+    {
+      "slug": "collections-monthly-payout",
+      "path": "/collections/monthly-payout",
+      "taps": [
+        {
+          "kind": "button",
+          "label": "All Bonds",
+          "error": "navigated"
+        },
+        {
+          "kind": "header button",
+          "label": "Open search",
+          "type": "pointerdown",
+          "duration": 88,
+          "inputDelay": 32,
+          "processing": 3,
+          "presentation": 53
+        }
+      ],
+      "finalUrl": "/collections/monthly-payout"
+    },
+    {
+      "slug": "collections-tax-free-bonds",
+      "path": "/collections/tax-free-bonds",
+      "taps": [
+        {
+          "kind": "button",
+          "label": "All Bonds",
+          "error": "navigated"
+        },
+        {
+          "kind": "header button",
+          "label": "Open search",
+          "type": "click",
+          "duration": 88,
+          "inputDelay": 38,
+          "processing": 6,
+          "presentation": 44
+        }
+      ],
+      "finalUrl": "/collections/tax-free-bonds"
+    },
+    {
+      "slug": "collections-public-sector-bank-bonds",
+      "path": "/collections/public-sector-bank-bonds",
+      "taps": [
+        {
+          "kind": "button",
+          "label": "All Bonds",
+          "error": "navigated"
+        },
+        {
+          "kind": "header button",
+          "label": "Open search",
+          "type": "pointerdown",
+          "duration": 88,
+          "inputDelay": 31,
+          "processing": 4,
+          "presentation": 54
+        }
+      ],
+      "finalUrl": "/collections/public-sector-bank-bonds"
+    }
+  ]
+}

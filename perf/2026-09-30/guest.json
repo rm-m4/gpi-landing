@@ -1,0 +1,130 @@
+[
+ {
+  "slug": "home",
+  "path": "/"
+ },
+ {
+  "slug": "signup",
+  "path": "/signup"
+ },
+ {
+  "slug": "corporate-bonds",
+  "path": "/corporate-bonds"
+ },
+ {
+  "slug": "fixed-deposits",
+  "path": "/fixed-deposits"
+ },
+ {
+  "slug": "bond-ipo-online",
+  "path": "/bond-ipo-online"
+ },
+ {
+  "slug": "bond-utsav",
+  "path": "/bond-utsav"
+ },
+ {
+  "slug": "refer-and-earn",
+  "path": "/refer-and-earn"
+ },
+ {
+  "slug": "list-view",
+  "path": "/investment-options/list-view"
+ },
+ {
+  "slug": "collections-all-bonds",
+  "path": "/collections/all-bonds"
+ },
+ {
+  "slug": "ipo-detail-edelweiss",
+  "path": "/bond-ipo/GPID100778/edelweiss-financial-services-limited?src=preview"
+ },
+ {
+  "slug": "faq",
+  "path": "/faq"
+ },
+ {
+  "slug": "about-us",
+  "path": "/about-us"
+ },
+ {
+  "slug": "contact-us",
+  "path": "/contact-us"
+ },
+ {
+  "slug": "careers",
+  "path": "/careers"
+ },
+ {
+  "slug": "media",
+  "path": "/media"
+ },
+ {
+  "slug": "privacy-policy",
+  "path": "/privacy-policy"
+ },
+ {
+  "slug": "terms-and-conditions",
+  "path": "/terms-and-conditions"
+ },
+ {
+  "slug": "sovereign-gold-bond",
+  "path": "/sovereign-gold-bond"
+ },
+ {
+  "slug": "government-securities",
+  "path": "/government-securities"
+ },
+ {
+  "slug": "bond-better-return-fds",
+  "path": "/bond-better-return-fds"
+ },
+ {
+  "slug": "invest-in-bonds",
+  "path": "/invest-in-bonds"
+ },
+ {
+  "slug": "issuer-akara",
+  "path": "/issuers/akara-capital-advisors-private-limited"
+ },
+ {
+  "slug": "collections-highly-rated",
+  "path": "/collections/highly-rated"
+ },
+ {
+  "slug": "collections-high-returns",
+  "path": "/collections/high-returns"
+ },
+ {
+  "slug": "collections-short-term",
+  "path": "/collections/short-term"
+ },
+ {
+  "slug": "collections-gold-backed",
+  "path": "/collections/gold-backed"
+ },
+ {
+  "slug": "collections-ncd-ipo",
+  "path": "/collections/ncd-ipo"
+ },
+ {
+  "slug": "collections-starts-10k",
+  "path": "/collections/starts-10k"
+ },
+ {
+  "slug": "collections-government-bonds",
+  "path": "/collections/government-bonds"
+ },
+ {
+  "slug": "collections-monthly-payout",
+  "path": "/collections/monthly-payout"
+ },
+ {
+  "slug": "collections-tax-free-bonds",
+  "path": "/collections/tax-free-bonds"
+ },
+ {
+  "slug": "collections-public-sector-bank-bonds",
+  "path": "/collections/public-sector-bank-bonds"
+ }
+]

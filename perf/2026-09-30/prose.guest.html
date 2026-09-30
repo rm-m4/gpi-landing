@@ -1,0 +1,179 @@
+<title>UAT Web Vitals · 30 Sep</title>
+{{style}}
+
+<div class="wrap">
+
+<header class="head">
+  <div class="eyebrow">Performance audit · uatnew.goldenpi.com · guest pages</div>
+  <h1>Core Web Vitals on the UAT site</h1>
+  <p>Lighthouse lab runs on 32 logged-out pages: three mobile runs per page (median shown) and one desktop run each, plus a lab tap probe for INP. Field data (CrUX) is not available for this staging host, so every number here is lab data. The logged-in pages have their own report.</p>
+  <div class="meta">
+    <span><b>Measured</b> 2026-09-30</span>
+    <span><b>Lighthouse</b> 13.5.0</span>
+    <span><b>Chrome</b> 151.0.0.0 headless</span>
+    <span><b>Runs</b> 99 mobile · 33 desktop · 40 taps</span>
+  </div>
+</header>
+
+<section>
+  <div class="eyebrow">Summary</div>
+  <h2>Loading is still the problem. Responsiveness and stability pass.</h2>
+  <div class="tiles">
+    <div class="tile poor"><div class="tname"><b>LCP</b> Largest Contentful Paint</div><div class="tval">2.6–20.3 s</div><span class="pill poor">Poor</span><p>Mobile median per page. 30 of 32 pages are poor (over 4 s) and the other two need work. Desktop: 0.9–5.7 s, with 25 of 32 good.</p></div>
+    <div class="tile good"><div class="tname"><b>INP</b> Interaction to Next Paint</div><div class="tval">64–168 ms</div><span class="pill good">Good</span><p>Lab probe, 40 real taps on 30 guest pages at 4× CPU slowdown. Every one is under the 200 ms limit.</p></div>
+    <div class="tile good"><div class="tname"><b>CLS</b> Cumulative Layout Shift</div><div class="tval">0–0.091</div><span class="pill good">Good</span><p>Mobile median. All 32 pages pass, but 29 of them sit at 0.087–0.091, close to the 0.1 limit. One desktop page goes over it (0.102).</p></div>
+    <div class="tile good"><div class="tname"><b>TBT</b> Total Blocking Time (lab proxy for INP)</div><div class="tval">53–168 ms</div><span class="pill good">Good</span><p>Mobile median. No page crosses 200 ms. Desktop TBT is 0–5 ms.</p></div>
+  </div>
+  <div class="callout">
+    <b>Field data: unavailable.</b>
+    <span class="muted">uatnew.goldenpi.com is a staging host with no Chrome UX Report record, so real-user p75 values cannot be quoted. That does not mean the pages pass. Once the site is live, check CrUX for goldenpi.com, or add first-party RUM with the <code>web-vitals</code> library, before treating these lab numbers as user outcomes.</span>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Since the last audit</div>
+  <h2>Mobile LCP, 28 Sep against 30 Sep</h2>
+  <p class="muted">The eight pages both audits measured, same method both times. Changes under one second are inside the spread between runs on the same day, so they are marked as no real change.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Page</th><th>LCP 28 Sep</th><th>LCP 30 Sep</th><th>Change</th><th>Score 28 Sep</th><th>Score 30 Sep</th></tr></thead>
+    <tbody>{{compare_rows}}</tbody>
+  </table></div>
+  <p class="muted">Two things did change in the build. The homepage hero image is now in the initial HTML with a fetch priority, so its discovery check passes (it failed on 28 Sep). The global stylesheet grew from 129 KB to 138 KB.</p>
+</section>
+
+<section>
+  <div class="eyebrow">All parameters · mobile</div>
+  <h2>Mobile (Moto G Power profile, slow 4G, 4× CPU)</h2>
+  <div class="legend">
+    <span style="--c:var(--good)"><i></i>Good</span><span style="--c:var(--warn)"><i></i>Needs work</span><span style="--c:var(--poor)"><i></i>Poor</span>
+    <span>Median of 3 runs (6 for the homepage), with the range underneath.</span>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Page</th><th>LCP<small>≤2.5 s</small></th><th>CLS<small>≤0.1</small></th><th>TBT<small>≤200 ms</small></th><th>FCP<small>≤1.8 s</small></th><th>Speed Index<small>≤3.4 s</small></th><th>TTFB<small>≤800 ms</small></th><th>TTI<small>≤3.8 s</small></th><th>LH score<small>/100</small></th></tr></thead>
+    <tbody>{{mobile}}</tbody>
+  </table></div>
+  <p class="muted"><code>/signup</code> and <code>/invest-in-bonds</code> rendered only about 50 elements in the lab, so their better numbers describe a near-empty page and not a full landing page.</p>
+</section>
+
+<section>
+  <div class="eyebrow">All parameters · desktop</div>
+  <h2>Desktop (1350×940, no CPU slowdown, fast connection)</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Page</th><th>LCP<small>≤2.5 s</small></th><th>CLS<small>≤0.1</small></th><th>TBT<small>≤200 ms</small></th><th>FCP<small>≤1.8 s</small></th><th>Speed Index<small>≤3.4 s</small></th><th>TTFB<small>≤800 ms</small></th><th>TTI<small>≤3.8 s</small></th><th>LH score<small>/100</small></th></tr></thead>
+    <tbody>{{desktop}}</tbody>
+  </table></div>
+  <p class="muted">The bands use the mobile thresholds on both tables. Desktop is one run per page, so treat single values within about 10% of a threshold as borderline.</p>
+</section>
+
+<section>
+  <div class="eyebrow">LCP breakdown</div>
+  <h2>What the LCP element is, and where its time goes</h2>
+  <p class="muted">Taken from the mobile run with the median LCP. The phase timings come from the unthrottled trace that Lighthouse records before it simulates the mobile network. They show which phase dominates, but they will not add up to the simulated LCP in the table above. Load delay and load time only exist when the LCP element is an image.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Page</th><th>LCP element</th><th>TTFB</th><th>Load delay</th><th>Load time</th><th>Render delay</th><th>Discovery</th></tr></thead>
+    <tbody>{{lcp_rows}}</tbody>
+  </table></div>
+</section>
+
+<section>
+  <div class="eyebrow">INP probe</div>
+  <h2>Responsiveness to real taps</h2>
+  <p class="muted">Mobile viewport at 4× CPU slowdown. Up to three controls per page were tapped after the page settled: a tab, an accordion or toggle, and a button, plus the header menu button. Links were skipped so the page stays put. The slowest tap per page is shown, split into input delay, handler time and the wait for the next frame. Lab taps are single samples, not a field p75.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Page</th><th>Slowest tap<small>≤200 ms</small></th><th>Control</th><th>Input delay</th><th>Processing</th><th>Presentation</th></tr></thead>
+    <tbody>{{inp_rows}}</tbody>
+  </table></div>
+</section>
+
+<section>
+  <div class="eyebrow">Page weight</div>
+  <h2>What each page downloads on mobile</h2>
+  <p class="muted">Transfer sizes from the median mobile run, cold cache. Third-party means any host other than uatnew.goldenpi.com, which here is mostly the S3 and CloudFront image buckets.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Page</th><th>Total</th><th>Requests</th><th>JavaScript</th><th>CSS</th><th>Images</th><th>Fonts</th><th>Third-party</th><th>DOM elements</th></tr></thead>
+    <tbody>{{weight_rows}}</tbody>
+  </table></div>
+</section>
+
+<section>
+  <div class="eyebrow">Findings</div>
+  <h2>Ranked by impact on the failing metric</h2>
+  <ol class="find">
+    <li class="poor">
+      <h3>Mobile LCP is poor on 30 of 32 pages <span class="tag">Measured</span></h3>
+      <p>Median mobile LCP runs from <b>2.6 s</b> (<code>/invest-in-bonds</code>) to <b>20.3 s</b> (<code>/collections/government-bonds</code>), against a 2.5 s target. Most landing pages are between 6 and 9 s and most collections pages between 8 and 13 s. First Contentful Paint is 2.1–2.5 s on every page, so users see a blank page for about two seconds before anything paints. On desktop, 25 pages pass; five collections pages are poor at <b>4.4–5.7 s</b>.</p>
+    </li>
+    <li class="poor">
+      <h3>The homepage HTML takes 3.4 s to finish arriving <span class="tag">Measured</span></h3>
+      <p>Five plain <code>curl</code> requests for <code>/</code> each got the first byte in 0.15–0.25 s but the last byte at <b>3.38–3.46 s</b>. The same test on <code>/corporate-bonds</code> finished in 0.60–0.71 s. In the Lighthouse traces the document request stays open for 3.5–8.5 s, and the hero paints <b>2.6–5.7 s</b> after its image has already downloaded. In two of the six mobile runs the first byte itself took 2.1 s; in the other four it took 0.13–0.25 s. The server is streaming the page and holding the end of it on something slow.</p>
+      <div class="fix"><b>Fix:</b> find the data call the homepage server render waits on and take it off the blocking path: cache it, or put the section that needs it behind its own Suspense boundary so the hero flushes first. The hero carries <code>data-has-banner="true"</code>, so the banner lookup is the first place to check. That is an inference from the markup, not something the trace proves.</div>
+    </li>
+    <li class="poor">
+      <h3>One 138 KB stylesheet blocks rendering on every page <span class="tag">Trace-backed</span></h3>
+      <p><code>/_next/static/chunks/087yhe5wlsb2s.css</code> (138 KB) is render-blocking on all 32 pages, with an estimated <b>700–900 ms</b> of First Contentful Paint to recover on each. Two to six smaller CSS chunks block alongside it. This is the floor under FCP and it delays every text LCP. It was 129 KB on 28 Sep.</p>
+      <div class="fix"><b>Fix:</b> move page-specific styles out of the global bundle (CSS modules per route), inline critical above-the-fold CSS, and load the rest non-blocking. Check whether Tailwind's safelist or unused design-token blocks are inflating the bundle.</div>
+    </li>
+    <li class="poor">
+      <h3>Collections, FAQ, issuer and FD pages ship 5–8 MB of images <span class="tag">Trace-backed</span></h3>
+      <p>All 11 collections pages transfer <b>5.9–7.6 MB</b>, of which 4.7–6.3 MB is images. The sidebar collection art is the cause: <code>Goverment.png</code> 820 KB, <code>refer-earn-gift.png</code> 639 KB, <code>high-rated-collection.png</code> 600 KB, <code>short-term.png</code> 550 KB, <code>Trophy.png</code> 538 KB, plus SVGs of 0.5–0.8 MB each. Lighthouse estimates 2.5–3.6 MB could be saved per collections page. <code>/faq</code> (6.9 MB) and the issuer page (5.4 MB) load SVGs of up to 1.2 MB each from <code>d35kx21znie3xm.cloudfront.net/images/</code>. <code>/fixed-deposits</code> (4.8 MB) bundles <code>gold-shield.svg</code> at 1.1 MB and <code>cal.svg</code> at 1.0 MB in its own build. On slow 4G these downloads compete with the content that becomes LCP.</p>
+      <div class="fix"><b>Fix:</b> re-export the collection art at display size as WebP or AVIF (tens of KB each). An SVG of 0.5–1.2 MB almost always has a bitmap embedded in it; export those as real vectors or as WebP. Serve CMS images through <code>next/image</code> so they are resized per device, and lazy-load everything below the first screen.</div>
+    </li>
+    <li class="poor">
+      <h3>Hero images get no fetch priority on 14 pages <span class="tag">Trace-backed</span></h3>
+      <p>The LCP discovery check fails on every page with an image LCP except the homepage. The hero <code>&lt;img&gt;</code> on Corporate Bonds, Fixed Deposits, NCD IPO, Sovereign Gold Bond, Government Securities and Better-than-FDs has no <code>fetchpriority</code>, and the browser waited <b>1.4 s</b> (FD) and <b>3.1 s</b> (G-Sec) before starting the download. The Careers hero is a CSS background that is not in the HTML at all. On <code>/collections/government-bonds</code> and <code>/collections/tax-free-bonds</code> the banner that becomes LCP is lazy-loaded.</p>
+      <div class="fix"><b>Fix:</b> add <code>priority</code> to each hero <code>next/image</code> (or <code>fetchpriority="high"</code> on a plain <code>&lt;img&gt;</code>), as the homepage now does. Render the Careers hero as an image element. Remove <code>loading="lazy"</code> from the first collections banner.</div>
+    </li>
+    <li class="warn">
+      <h3>One layout shift of 0.087 repeats on 29 of 32 pages <span class="tag">Trace-backed</span></h3>
+      <p>On mobile the whole <code>main#main-content</code> block moves once, scoring <b>0.087</b>, on every page except Signup, Invest in Bonds and the IPO detail page. The same shift scores 0.033–0.041 on desktop. It is one shift of the same element every time, which points to something being inserted above the main content after first paint. It passes today with 0.013 to spare, so any second shift pushes a page over. <code>/collections/public-sector-bank-bonds</code> already reaches <b>0.102</b> on desktop.</p>
+      <div class="fix"><b>Fix:</b> record a trace on one page, find what is added above <code>main</code>, and reserve its height in the server-rendered HTML. Fixing it once in the shared layout clears all 29 pages.</div>
+    </li>
+    <li class="warn">
+      <h3>S3 and CloudFront images are served with no cache lifetime <span class="tag">Trace-backed</span></h3>
+      <p>Lighthouse flags cache policy on 30 of 32 pages. Images from <code>s3.ap-south-1.amazonaws.com/production.goldenpi.com</code> and <code>d35kx21znie3xm.cloudfront.net</code>, including the homepage hero banner, come back with a cache lifetime of zero. On collections pages that is <b>4.5–6.1 MB</b> fetched again on every visit.</p>
+      <div class="fix"><b>Fix:</b> set <code>Cache-Control: public, max-age=31536000, immutable</code> on versioned assets in both buckets, or a shorter lifetime with revalidation where file names are reused.</div>
+    </li>
+    <li class="info">
+      <h3>130–150 KB of unused JavaScript on every page <span class="tag">Lighthouse estimate</span></h3>
+      <p>Most pages transfer 746–809 KB of JavaScript, of which Lighthouse estimates <b>131–152 KB</b> is never run during load. <code>/contact-us</code> is the outlier at 1.6 MB: it loads Google reCAPTCHA (355 KB, 188 KB unused) up front, along with a Roboto font that has no <code>font-display</code>. Blocking time still passes, so this costs download time more than responsiveness.</p>
+      <div class="fix"><b>Fix:</b> load reCAPTCHA when the contact form is focused, not on page load. Check the shared chunk <code>2cd3sg-d1ayj5.js</code> (133 KB, 59 KB unused) for components that can be dynamically imported.</div>
+    </li>
+    <li class="info">
+      <h3>Smaller items <span class="tag">Trace-backed</span></h3>
+      <p>Images without width and height on 12 pages, ten of them issuer logos on <code>/investment-options/list-view</code>. Forced reflow during load on the list view and four collections pages. Main-thread work is 1.3–4.8 s on mobile, mostly style, layout and script evaluation, without long blocking tasks.</p>
+    </li>
+  </ol>
+</section>
+
+<section>
+  <div class="eyebrow">What is already good</div>
+  <div class="good-list">
+    <div><b>TTFB 73–201 ms</b>The median first byte is fast on every page. The homepage's slow finish is covered above.</div>
+    <div><b>TBT 53–168 ms</b>No page crosses 200 ms on mobile, and desktop TBT is 0–5 ms.</div>
+    <div><b>Homepage hero is prioritised</b>It is in the initial HTML with a fetch priority. This failed on 28 Sep.</div>
+    <div><b>INP probe 64–168 ms</b>Tabs, toggles, buttons and the header menu all respond inside the 200 ms limit.</div>
+    <div><b>DOM size passes everywhere</b>47 to 1,563 elements per page, and no duplicated JavaScript modules.</div>
+    <div><b>Desktop FCP 0.5–0.8 s</b>Every page paints first content well inside the 1.8 s limit on desktop.</div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Method</div>
+  <h2>Test conditions</h2>
+  <dl class="cond">
+    <dt>Pages</dt><dd>32 routes on uatnew.goldenpi.com, logged out, with the <code>gp-locale=en</code> cookie (without it, <code>/</code> redirects to itself)</dd>
+    <dt>Mobile</dt><dd>Lighthouse default: 412×823 at 1.75× DPR, simulated slow 4G (150 ms RTT, 1.6 Mbps), 4× CPU slowdown, cold cache, 3 runs (6 on the homepage), median by metric</dd>
+    <dt>Desktop</dt><dd>Lighthouse desktop preset: 1350×940, 40 ms RTT, 10 Mbps, no CPU slowdown, 1 run</dd>
+    <dt>INP</dt><dd>Playwright on Chromium, 412×823 touch emulation, 4× CPU throttle, Event Timing entries per tap, taps made after the page settled</dd>
+    <dt>Server timing</dt><dd><code>curl</code> with compression, 5 requests each for <code>/</code> and <code>/corporate-bonds</code></dd>
+    <dt>Host</dt><dd>macOS, headless Chrome for Testing, one run at a time</dd>
+  </dl>
+  <ul class="plain">
+    <li>UAT data changes often. Bond, FD and IPO rows are client-fetched, so page weight and LCP on listing pages vary with what is live on the day.</li>
+    <li>Several pages have a wide LCP range across their three runs (for example 4.1–21.3 s on <code>/collections/government-bonds</code>). Read the median with its range, not as a fixed value.</li>
+    <li>Lighthouse scores are summaries whose weighting changes between versions. Compare the metric values, not the score.</li>
+    <li>The savings quoted above are Lighthouse estimates, not measured gains. Re-run the same three-run mobile median after each fix to confirm.</li>
+  </ul>
+</section>
+
+</div>

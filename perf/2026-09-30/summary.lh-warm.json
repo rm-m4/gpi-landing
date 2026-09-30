@@ -1,0 +1,6616 @@
+{
+ "lighthouse": "13.5.0",
+ "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36",
+ "fetched": "2026-09-30T09:52:31.332Z",
+ "rows": [
+  {
+   "slug": "user-explore",
+   "path": "/user/explore",
+   "group": "auth",
+   "mobile": {
+    "n": 3,
+    "metrics": {
+     "lcp": {
+      "med": 4519.866128729248,
+      "min": 4419.7683,
+      "max": 5277.256828729248
+     },
+     "cls": {
+      "med": 0.09296377734941362,
+      "min": 0.08800130223460406,
+      "max": 0.093197591692867
+     },
+     "tbt": {
+      "med": 187,
+      "min": 175.5,
+      "max": 220
+     },
+     "fcp": {
+      "med": 1590.8309,
+      "min": 1569.7683,
+      "max": 1598.2215999999999
+     },
+     "si": {
+      "med": 3295.314723556746,
+      "min": 2734.5342050132513,
+      "max": 5555.361658735947
+     },
+     "ttfb": {
+      "med": 110,
+      "min": 99,
+      "max": 113
+     },
+     "tti": {
+      "med": 4572.769651602173,
+      "min": 4479.7683,
+      "max": 8147.164505
+     },
+     "score": {
+      "med": 77,
+      "min": 71,
+      "max": 78
+     }
+    },
+    "finalUrl": "/user/explore",
+    "error": null,
+    "phases": {
+     "timeToFirstByte": 100,
+     "resourceLoadDelay": 1571,
+     "resourceLoadDuration": 2,
+     "elementRenderDelay": 66
+    },
+    "lcpNode": {
+     "selector": "section.post-login-banners > div.post-login-banners__frame > a.post-login-banners__link > img.post-login-banners__img",
+     "nodeLabel": "UniGold - 160926",
+     "snippet": "<img alt=\"UniGold - 160926\" loading=\"lazy\" width=\"640\" height=\"200\" decoding=\"async\" data-nimg=\"1\" class=\"post-login-banners__img post-login-banners__img--mobile\" src=\"https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/\u2026\" style=\"color: transparent;\">"
+    },
+    "discovery": {
+     "priorityHinted": false,
+     "requestDiscoverable": false,
+     "eagerlyLoaded": false
+    },
+    "observed": {
+     "observedFirstContentfulPaint": 222,
+     "observedLargestContentfulPaint": 1738,
+     "observedLoad": 249,
+     "observedDomContentLoaded": 214
+    },
+    "resources": {
+     "total": [
+      177,
+      673643
+     ],
+     "other": [
+      82,
+      284042
+     ],
+     "script": [
+      45,
+      152091
+     ],
+     "document": [
+      1,
+      112486
+     ],
+     "image": [
+      36,
+      81090
+     ],
+     "stylesheet": [
+      10,
+      33794
+     ],
+     "font": [
+      3,
+      10140
+     ],
+     "media": [
+      0,
+      0
+     ],
+     "third-party": [
+      12,
+      0
+     ]
+    },
+    "bytes": 677010,
+    "dom": {
+     "Total elements": 1133,
+     "DOM depth": 14,
+     "Most children": 60
+    },
+    "insights": {
+     "render-blocking-insight": {
+      "score": 0,
+      "display": "Est savings of 110\u00a0ms",
+      "savings": {
+       "FCP": 100,
+       "LCP": 0
+      },
+      "items": [
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/2947j964lnhaa.css",
+        "totalBytes": 3378
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/3blc2epuh-eiq.css",
+        "totalBytes": 3380,
+        "wastedMs": 150
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/1tbob8xxlx5ep.css",
+        "totalBytes": 3380
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/43hbds1qt2y6s.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/17pwubqu62-0_.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/1fxy6r6q5-za-.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/2t9mg_sfv3157.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/087yhe5wlsb2s.css",
+        "totalBytes": 3381
+       }
+      ],
+      "count": 8
+     },
+     "document-latency-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "image-delivery-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [],
+      "count": 0
+     },
+     "cache-insight": {
+      "score": 0.5,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/goldenPiBanner/marketing-banner/b8d94299-877e-44b9-abd6-ee920989d1eb-marketing-banner-mobile.jpg",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://d35kx21znie3xm.cloudfront.net/webtheme/homePostLoginStrip-mobile.webp",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://d35kx21znie3xm.cloudfront.net/webtheme/homePostLoginStrip-desktop.webp",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104095.Neogrowth%20new%20logo%20(1).jpg",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/blogImages/Blogs-3.jpg",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/blogImages/Blogs-1.jpg",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102720.AKARA%20CAPITAL%20ADVISORS%20PRIVATE%20LIMITED@2x.png",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/blogImages/Blogs-4.jpg",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       }
+      ],
+      "count": 10
+     },
+     "unused-javascript": {
+      "score": 1,
+      "display": "",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [],
+      "count": 0
+     },
+     "unused-css-rules": {
+      "score": 1,
+      "display": "",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "legacy-javascript-insight": {
+      "score": 0,
+      "display": "Est savings of 14\u00a0KiB",
+      "savings": {
+       "FCP": 0,
+       "LCP": 50
+      }
+     },
+     "duplicated-javascript-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "font-display-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "INP": 0
+      }
+     },
+     "cls-culprits-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "CLS": 0
+      }
+     },
+     "forced-reflow-insight": {
+      "score": 1,
+      "display": null,
+      "savings": null
+     },
+     "dom-size-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "INP": 0
+      }
+     },
+     "third-parties-insight": {
+      "score": 1,
+      "display": null,
+      "savings": null
+     },
+     "unsized-images": {
+      "score": 0.5,
+      "display": null,
+      "savings": {
+       "CLS": 0
+      },
+      "items": [
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104095.Neogrowth%20new%20logo%20(1).jpg"
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102720.AKARA%20CAPITAL%20ADVISORS%20PRIVATE%20LIMITED@2x.png"
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102720.AKARA%20CAPITAL%20ADVISORS%20PRIVATE%20LIMITED@2x.png"
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID107347.Best%20Capital.png"
+       }
+      ],
+      "count": 4
+     },
+     "mainthread-work-breakdown": {
+      "score": 0,
+      "display": "3.5\u00a0s",
+      "savings": {
+       "TBT": 200
+      },
+      "items": [
+       {
+        "group": "other",
+        "groupLabel": "Other",
+        "duration": 1538.9439999999947
+       },
+       {
+        "group": "scriptEvaluation",
+        "groupLabel": "Script Evaluation",
+        "duration": 1122.456000000021
+       },
+       {
+        "group": "styleLayout",
+        "groupLabel": "Style & Layout",
+        "duration": 419.88400000000104
+       },
+       {
+        "group": "paintCompositeRender",
+        "groupLabel": "Rendering",
+        "duration": 342.70000000001454
+       },
+       {
+        "group": "scriptParseCompile",
+        "groupLabel": "Script Parsing & Compilation",
+        "duration": 81.38800000000005
+       },
+       {
+        "group": "parseHTML",
+        "groupLabel": "Parse HTML & CSS",
+        "duration": 33.391999999999996
+       },
+       {
+        "group": "garbageCollection",
+        "groupLabel": "Garbage Collection",
+        "duration": 6.115999999999998
+       }
+      ],
+      "count": 7
+     },
+     "bootup-time": {
+      "score": 1,
+      "display": "1.1\u00a0s",
+      "savings": {
+       "TBT": 150
+      },
+      "items": [
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/2cd3sg-d1ayj5.js",
+        "total": 1978.4440000000013,
+        "scripting": 508.79600000000426
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/1a4sugo6bp6vz.js",
+        "total": 488.47600000000546,
+        "scripting": 417.6880000000055
+       },
+       {
+        "url": "Unattributable",
+        "total": 445.77600000000615,
+        "scripting": 40.908000000000094
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/user/explore",
+        "total": 397.9640000000001,
+        "scripting": 8.963999999999995
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/1lecf9xdi7bp8.js",
+        "total": 92.78799999999997,
+        "scripting": 78.79599999999996
+       }
+      ],
+      "count": 5
+     },
+     "network-dependency-tree-insight": {
+      "score": 0,
+      "display": null,
+      "savings": {
+       "LCP": 0
+      }
+     },
+     "modern-http-insight": {
+      "score": 0.5,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "non-composited-animations": {
+      "score": 1,
+      "display": "2 animated elements found",
+      "savings": {
+       "CLS": 0
+      }
+     }
+    },
+    "shifts": [
+     {
+      "score": 0.0875,
+      "node": "body.satoshi_fe624234-module__joJDfq__className > main#main-content",
+      "label": "Hi RAMAN!\n\nWelcome back, let\u2019s grow your portfolio and Increase your returns\n\nD\u2026"
+     },
+     {
+      "score": 0.002,
+      "node": "div.post-login-home > div.gp-page-shell > div.post-login-snapshot > section.welcome-portfolio",
+      "label": "Diversify your portfolio today!\n\nCurrent Value\n\n\u20b9 12,090\n\nTotal Invested\n\n\u20b9 314\u2026"
+     },
+     {
+      "score": 0.0002,
+      "node": "body.satoshi_fe624234-module__joJDfq__className > div.mobile-app-download-nudge > div.mobile-app-download-nudge__cta-wrap > button.mobile-app-download-nudge__cta",
+      "label": "Download App"
+     },
+     {
+      "score": 0.0002,
+      "node": "body.satoshi_fe624234-module__joJDfq__className > div.mobile-app-download-nudge > div.mobile-app-download-nudge__cta-wrap > button.mobile-app-download-nudge__cta",
+      "label": "Download App"
+     }
+    ],
+    "thirdParties": []
+   },
+   "desktop": {
+    "n": 1,
+    "metrics": {
+     "lcp": {
+      "med": 801.895928729248,
+      "min": 801.895928729248,
+      "max": 801.895928729248
+     },
+     "cls": {
+      "med": 0.07056389430654057,
+      "min": 0.07056389430654057,
+      "max": 0.07056389430654057
+     },
+     "tbt": {
+      "med": 0,
+      "min": 0,
+      "max": 0
+     },
+     "fcp": {
+      "med": 417.8607,
+      "min": 417.8607,
+      "max": 417.8607
+     },
+     "si": {
+      "med": 926.0606663743484,
+      "min": 926.0606663743484,
+      "max": 926.0606663743484
+     },
+     "ttfb": {
+      "med": 110,
+      "min": 110,
+      "max": 110
+     },
+     "tti": {
+      "med": 812.2994516021729,
+      "min": 812.2994516021729,
+      "max": 812.2994516021729
+     },
+     "score": {
+      "med": 98,
+      "min": 98,
+      "max": 98
+     }
+    },
+    "finalUrl": "/user/explore",
+    "error": null,
+    "phases": {
+     "timeToFirstByte": 110,
+     "resourceLoadDelay": 1089,
+     "resourceLoadDuration": 2,
+     "elementRenderDelay": 91
+    },
+    "lcpNode": {
+     "selector": "div.post-login-home > div.gp-page-shell > a.post-login-strip > img.post-login-strip__img",
+     "nodeLabel": "Download the GoldenPi app",
+     "snippet": "<img alt=\"Download the GoldenPi app\" width=\"1200\" height=\"160\" decoding=\"async\" data-nimg=\"1\" class=\"post-login-strip__img post-login-strip__img--desktop\" src=\"https://d35kx21znie3xm.cloudfront.net/webtheme/homePostLoginStrip-desktop.\u2026\" style=\"color: transparent;\">"
+    },
+    "discovery": {
+     "priorityHinted": false,
+     "requestDiscoverable": true,
+     "eagerlyLoaded": true
+    },
+    "observed": {
+     "observedFirstContentfulPaint": 226,
+     "observedLargestContentfulPaint": 1293,
+     "observedLoad": 249,
+     "observedDomContentLoaded": 0
+    },
+    "resources": {
+     "total": [
+      175,
+      673356
+     ],
+     "other": [
+      80,
+      283702
+     ],
+     "script": [
+      45,
+      152091
+     ],
+     "document": [
+      1,
+      112538
+     ],
+     "image": [
+      37,
+      84470
+     ],
+     "stylesheet": [
+      9,
+      30415
+     ],
+     "font": [
+      3,
+      10140
+     ],
+     "media": [
+      0,
+      0
+     ],
+     "third-party": [
+      12,
+      0
+     ]
+    },
+    "bytes": 692443,
+    "dom": {
+     "Total elements": 1127,
+     "DOM depth": 14,
+     "Most children": 59
+    },
+    "insights": {
+     "render-blocking-insight": {
+      "score": 0.5,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/1fxy6r6q5-za-.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/2947j964lnhaa.css",
+        "totalBytes": 3378
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/2t9mg_sfv3157.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/3blc2epuh-eiq.css",
+        "totalBytes": 3380
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/087yhe5wlsb2s.css",
+        "totalBytes": 3381
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/1tbob8xxlx5ep.css",
+        "totalBytes": 3380
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/43hbds1qt2y6s.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/17pwubqu62-0_.css",
+        "totalBytes": 3379
+       }
+      ],
+      "count": 8
+     },
+     "document-latency-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "image-delivery-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [],
+      "count": 0
+     },
+     "cache-insight": {
+      "score": 0.5,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/goldenPiBanner/marketing-banner/b8d94299-877e-44b9-abd6-ee920989d1eb-marketing-banner-desktop.jpg",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://d35kx21znie3xm.cloudfront.net/webtheme/homePostLoginStrip-mobile.webp",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://d35kx21znie3xm.cloudfront.net/webtheme/homePostLoginStrip-desktop.webp",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104095.Neogrowth%20new%20logo%20(1).jpg",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/blogImages/Blogs-3.jpg",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/blogImages/Blogs-1.jpg",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102720.AKARA%20CAPITAL%20ADVISORS%20PRIVATE%20LIMITED@2x.png",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/blogImages/Blogs-4.jpg",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       }
+      ],
+      "count": 10
+     },
+     "unused-javascript": {
+      "score": 1,
+      "display": "",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [],
+      "count": 0
+     },
+     "unused-css-rules": {
+      "score": 1,
+      "display": "",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "legacy-javascript-insight": {
+      "score": 0.5,
+      "display": "Est savings of 14\u00a0KiB",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "duplicated-javascript-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "font-display-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "INP": 0
+      }
+     },
+     "cls-culprits-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "CLS": 0
+      }
+     },
+     "forced-reflow-insight": {
+      "score": 1,
+      "display": null,
+      "savings": null
+     },
+     "dom-size-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "INP": 0
+      }
+     },
+     "third-parties-insight": {
+      "score": 1,
+      "display": null,
+      "savings": null
+     },
+     "unsized-images": {
+      "score": 0.5,
+      "display": null,
+      "savings": {
+       "CLS": 0
+      },
+      "items": [
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104095.Neogrowth%20new%20logo%20(1).jpg"
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102720.AKARA%20CAPITAL%20ADVISORS%20PRIVATE%20LIMITED@2x.png"
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102720.AKARA%20CAPITAL%20ADVISORS%20PRIVATE%20LIMITED@2x.png"
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID107347.Best%20Capital.png"
+       }
+      ],
+      "count": 4
+     },
+     "mainthread-work-breakdown": {
+      "score": 1,
+      "display": "0.8\u00a0s",
+      "savings": {
+       "TBT": 0
+      },
+      "items": [
+       {
+        "group": "other",
+        "groupLabel": "Other",
+        "duration": 329.18699999999853
+       },
+       {
+        "group": "scriptEvaluation",
+        "groupLabel": "Script Evaluation",
+        "duration": 261.7450000000045
+       },
+       {
+        "group": "styleLayout",
+        "groupLabel": "Style & Layout",
+        "duration": 82.93300000000016
+       },
+       {
+        "group": "paintCompositeRender",
+        "groupLabel": "Rendering",
+        "duration": 69.80999999999962
+       },
+       {
+        "group": "scriptParseCompile",
+        "groupLabel": "Script Parsing & Compilation",
+        "duration": 20.29900000000001
+       },
+       {
+        "group": "parseHTML",
+        "groupLabel": "Parse HTML & CSS",
+        "duration": 8.881999999999998
+       }
+      ],
+      "count": 6
+     },
+     "bootup-time": {
+      "score": 1,
+      "display": "0.2\u00a0s",
+      "savings": {
+       "TBT": 0
+      },
+      "items": [
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/2cd3sg-d1ayj5.js",
+        "total": 435.3670000000004,
+        "scripting": 119.36800000000135
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/1a4sugo6bp6vz.js",
+        "total": 116.77300000000125,
+        "scripting": 99.95600000000125
+       },
+       {
+        "url": "Unattributable",
+        "total": 91.08400000000057,
+        "scripting": 9.231000000000014
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/user/explore",
+        "total": 76.94600000000001,
+        "scripting": 2.364
+       }
+      ],
+      "count": 4
+     },
+     "network-dependency-tree-insight": {
+      "score": 0,
+      "display": null,
+      "savings": {
+       "LCP": 0
+      }
+     },
+     "modern-http-insight": {
+      "score": 0.5,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "non-composited-animations": {
+      "score": null,
+      "display": null,
+      "savings": {
+       "CLS": 0
+      }
+     }
+    },
+    "shifts": [
+     {
+      "score": 0.0352,
+      "node": "main#main-content > div.post-login-home > div.gp-page-shell > section.home-assets",
+      "label": "Special Corporate Bond Deals for you!\n\nExplore our curated selection of investm\u2026"
+     },
+     {
+      "score": 0.0326,
+      "node": "body.satoshi_fe624234-module__joJDfq__className > main#main-content",
+      "label": "Hi RAMAN!\n\nWelcome back, let\u2019s grow your portfolio and Increase your returns\n\nD\u2026"
+     },
+     {
+      "score": 0.0028,
+      "node": "body.satoshi_fe624234-module__joJDfq__className > div.mobile-app-download-nudge > div.mobile-app-download-nudge__card",
+      "label": "\u00d7"
+     }
+    ],
+    "thirdParties": []
+   }
+  },
+  {
+   "slug": "user-fixed-deposits",
+   "path": "/user/fixed-deposits",
+   "group": "auth",
+   "mobile": {
+    "n": 3,
+    "metrics": {
+     "lcp": {
+      "med": 4422.1146,
+      "min": 4276.7426,
+      "max": 6151.6275000000005
+     },
+     "cls": {
+      "med": 0.08748481166464156,
+      "min": 0.0040747828578149925,
+      "max": 0.10672143732741948
+     },
+     "tbt": {
+      "med": 104,
+      "min": 102.5,
+      "max": 132
+     },
+     "fcp": {
+      "med": 1576.6275,
+      "min": 1572.1145999999999,
+      "max": 1576.7426
+     },
+     "si": {
+      "med": 3609.213045074159,
+      "min": 3236.8461091567156,
+      "max": 4086.7893106044867
+     },
+     "ttfb": {
+      "med": 126,
+      "min": 125,
+      "max": 163
+     },
+     "tti": {
+      "med": 4467.1146,
+      "min": 4321.7426000000005,
+      "max": 6234.1275000000005
+     },
+     "score": {
+      "med": 80,
+      "min": 72,
+      "max": 83
+     }
+    },
+    "finalUrl": "/user/fixed-deposits",
+    "error": null,
+    "phases": {
+     "timeToFirstByte": 127,
+     "resourceLoadDelay": 2090,
+     "resourceLoadDuration": 1,
+     "elementRenderDelay": 68
+    },
+    "lcpNode": {
+     "selector": "div.fixed-deposits-main > div.fixed-deposits-shell > section.fd-promo > img.fd-promo__img",
+     "nodeLabel": "Download the GoldenPi app",
+     "snippet": "<img class=\"fd-promo__img fd-promo__img--mobile\" alt=\"Download the GoldenPi app\" src=\"https://d35kx21znie3xm.cloudfront.net/webtheme/assetsLanding-mobile.webp\">"
+    },
+    "discovery": {
+     "priorityHinted": false,
+     "requestDiscoverable": false,
+     "eagerlyLoaded": true
+    },
+    "observed": {
+     "observedFirstContentfulPaint": 253,
+     "observedLargestContentfulPaint": 2286,
+     "observedLoad": 276,
+     "observedDomContentLoaded": 226
+    },
+    "resources": {
+     "total": [
+      168,
+      645584
+     ],
+     "other": [
+      72,
+      264349
+     ],
+     "script": [
+      47,
+      158850
+     ],
+     "document": [
+      1,
+      113967
+     ],
+     "image": [
+      36,
+      67862
+     ],
+     "stylesheet": [
+      9,
+      30416
+     ],
+     "font": [
+      3,
+      10140
+     ],
+     "media": [
+      0,
+      0
+     ],
+     "third-party": [
+      16,
+      344
+     ]
+    },
+    "bytes": 664680,
+    "dom": {
+     "Total elements": 1055,
+     "DOM depth": 16,
+     "Most children": 62
+    },
+    "insights": {
+     "render-blocking-insight": {
+      "score": 0,
+      "display": "Est savings of 130\u00a0ms",
+      "savings": {
+       "FCP": 150,
+       "LCP": 0
+      },
+      "items": [
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/2t9mg_sfv3157.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/3blc2epuh-eiq.css",
+        "totalBytes": 3380,
+        "wastedMs": 150
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/087yhe5wlsb2s.css",
+        "totalBytes": 3381
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/17pwubqu62-0_.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/1fxy6r6q5-za-.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/43hbds1qt2y6s.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/1tbob8xxlx5ep.css",
+        "totalBytes": 3380
+       }
+      ],
+      "count": 7
+     },
+     "document-latency-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "image-delivery-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [],
+      "count": 0
+     },
+     "cache-insight": {
+      "score": 0.5,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [
+       {
+        "url": "https://d35kx21znie3xm.cloudfront.net/webtheme/assetsLanding-mobile.webp",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://d35kx21znie3xm.cloudfront.net/webtheme/assetsLanding-desktop.webp",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/collection_icons/bonds-at-discounted-price.svg",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/collection_icons/highly-rated-bonds.svg",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/collection_icons/bonds-to-earn-monthly-fixed-income.svg",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPIDO09029.newly_added_bonds.png",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/collection_icons/high-yield-bonds.svg",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/blogImages/CFD-4.png",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       }
+      ],
+      "count": 15
+     },
+     "unused-javascript": {
+      "score": 1,
+      "display": "",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [],
+      "count": 0
+     },
+     "unused-css-rules": {
+      "score": 1,
+      "display": "",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "legacy-javascript-insight": {
+      "score": 0.5,
+      "display": "Est savings of 14\u00a0KiB",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "duplicated-javascript-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "font-display-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "INP": 0
+      }
+     },
+     "cls-culprits-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "CLS": 0
+      }
+     },
+     "forced-reflow-insight": {
+      "score": 1,
+      "display": null,
+      "savings": null
+     },
+     "dom-size-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "INP": 0
+      }
+     },
+     "third-parties-insight": {
+      "score": 1,
+      "display": null,
+      "savings": null
+     },
+     "unsized-images": {
+      "score": 0.5,
+      "display": null,
+      "savings": {
+       "CLS": 0
+      },
+      "items": [
+       {
+        "url": "https://d35kx21znie3xm.cloudfront.net/webtheme/assetsLanding-mobile.webp"
+       }
+      ],
+      "count": 1
+     },
+     "mainthread-work-breakdown": {
+      "score": 0,
+      "display": "3.9\u00a0s",
+      "savings": {
+       "TBT": 150
+      },
+      "items": [
+       {
+        "group": "other",
+        "groupLabel": "Other",
+        "duration": 1860.1159999999982
+       },
+       {
+        "group": "scriptEvaluation",
+        "groupLabel": "Script Evaluation",
+        "duration": 981.8840000000121
+       },
+       {
+        "group": "styleLayout",
+        "groupLabel": "Style & Layout",
+        "duration": 574.3359999999997
+       },
+       {
+        "group": "paintCompositeRender",
+        "groupLabel": "Rendering",
+        "duration": 325.85200000001686
+       },
+       {
+        "group": "scriptParseCompile",
+        "groupLabel": "Script Parsing & Compilation",
+        "duration": 93.42000000000004
+       },
+       {
+        "group": "parseHTML",
+        "groupLabel": "Parse HTML & CSS",
+        "duration": 30.063999999999993
+       }
+      ],
+      "count": 6
+     },
+     "bootup-time": {
+      "score": 1,
+      "display": "0.9\u00a0s",
+      "savings": {
+       "TBT": 100
+      },
+      "items": [
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/2cd3sg-d1ayj5.js",
+        "total": 2383.4240000000054,
+        "scripting": 512.032000000009
+       },
+       {
+        "url": "Unattributable",
+        "total": 439.50000000000597,
+        "scripting": 42.063999999999986
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/user/fixed-deposits",
+        "total": 420.7439999999998,
+        "scripting": 7.128
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/1a4sugo6bp6vz.js",
+        "total": 348.12000000000194,
+        "scripting": 269.9560000000019
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/1lecf9xdi7bp8.js",
+        "total": 95.48400000000007,
+        "scripting": 77.24000000000008
+       }
+      ],
+      "count": 5
+     },
+     "network-dependency-tree-insight": {
+      "score": 0,
+      "display": null,
+      "savings": {
+       "LCP": 0
+      }
+     },
+     "modern-http-insight": {
+      "score": 0.5,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "non-composited-animations": {
+      "score": 1,
+      "display": "2 animated elements found",
+      "savings": {
+       "CLS": 0
+      }
+     }
+    },
+    "shifts": [
+     {
+      "score": 0.0875,
+      "node": "body.satoshi_fe624234-module__joJDfq__className > main#main-content",
+      "label": "Hi RAMAN, Explore Fixed Deposit\n\nInvest in RBI-regulated small banks and NBFCs \u2026"
+     },
+     {
+      "score": 0.0002,
+      "node": "body.satoshi_fe624234-module__joJDfq__className > div.mobile-app-download-nudge > div.mobile-app-download-nudge__cta-wrap > button.mobile-app-download-nudge__cta",
+      "label": "Download App"
+     },
+     {
+      "score": 0.0002,
+      "node": "body.satoshi_fe624234-module__joJDfq__className > div.mobile-app-download-nudge > div.mobile-app-download-nudge__cta-wrap > button.mobile-app-download-nudge__cta",
+      "label": "Download App"
+     },
+     {
+      "score": 0.0002,
+      "node": "body.satoshi_fe624234-module__joJDfq__className > div.mobile-app-download-nudge > div.mobile-app-download-nudge__cta-wrap > button.mobile-app-download-nudge__cta",
+      "label": "Download App"
+     }
+    ],
+    "thirdParties": [
+     {
+      "entity": "Amazon Web Services",
+      "bytes": 344,
+      "ms": 0
+     }
+    ]
+   },
+   "desktop": {
+    "n": 1,
+    "metrics": {
+     "lcp": {
+      "med": 892.2598,
+      "min": 892.2598,
+      "max": 892.2598
+     },
+     "cls": {
+      "med": 0.0354341646236465,
+      "min": 0.0354341646236465,
+      "max": 0.0354341646236465
+     },
+     "tbt": {
+      "med": 0,
+      "min": 0,
+      "max": 0
+     },
+     "fcp": {
+      "med": 395.2598,
+      "min": 395.2598,
+      "max": 395.2598
+     },
+     "si": {
+      "med": 1427.3912906662572,
+      "min": 1427.3912906662572,
+      "max": 1427.3912906662572
+     },
+     "ttfb": {
+      "med": 98,
+      "min": 98,
+      "max": 98
+     },
+     "tti": {
+      "med": 902.2598000000002,
+      "min": 902.2598000000002,
+      "max": 902.2598000000002
+     },
+     "score": {
+      "med": 98,
+      "min": 98,
+      "max": 98
+     }
+    },
+    "finalUrl": "/user/fixed-deposits",
+    "error": null,
+    "phases": {
+     "timeToFirstByte": 99,
+     "resourceLoadDelay": 2220,
+     "resourceLoadDuration": 1,
+     "elementRenderDelay": 73
+    },
+    "lcpNode": {
+     "selector": "div.fixed-deposits-main > div.fixed-deposits-shell > section.fd-promo > img.fd-promo__img",
+     "nodeLabel": "Download the GoldenPi app",
+     "snippet": "<img class=\"fd-promo__img fd-promo__img--desktop\" alt=\"Download the GoldenPi app\" src=\"https://d35kx21znie3xm.cloudfront.net/webtheme/assetsLanding-desktop.webp\">"
+    },
+    "discovery": {
+     "priorityHinted": false,
+     "requestDiscoverable": false,
+     "eagerlyLoaded": true
+    },
+    "observed": {
+     "observedFirstContentfulPaint": 193,
+     "observedLargestContentfulPaint": 2393,
+     "observedLoad": 232,
+     "observedDomContentLoaded": 192
+    },
+    "resources": {
+     "total": [
+      170,
+      617061
+     ],
+     "other": [
+      70,
+      235819
+     ],
+     "script": [
+      51,
+      158850
+     ],
+     "document": [
+      1,
+      113973
+     ],
+     "image": [
+      37,
+      71242
+     ],
+     "stylesheet": [
+      8,
+      27037
+     ],
+     "font": [
+      3,
+      10140
+     ],
+     "media": [
+      0,
+      0
+     ],
+     "third-party": [
+      20,
+      344
+     ]
+    },
+    "bytes": 636166,
+    "dom": {
+     "Total elements": 1053,
+     "DOM depth": 16,
+     "Most children": 65
+    },
+    "insights": {
+     "render-blocking-insight": {
+      "score": 0.5,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/3blc2epuh-eiq.css",
+        "totalBytes": 3380
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/1tbob8xxlx5ep.css",
+        "totalBytes": 3380
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/43hbds1qt2y6s.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/17pwubqu62-0_.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/1fxy6r6q5-za-.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/087yhe5wlsb2s.css",
+        "totalBytes": 3381
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/2t9mg_sfv3157.css",
+        "totalBytes": 3379
+       }
+      ],
+      "count": 7
+     },
+     "document-latency-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "image-delivery-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [],
+      "count": 0
+     },
+     "cache-insight": {
+      "score": 0.5,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [
+       {
+        "url": "https://d35kx21znie3xm.cloudfront.net/webtheme/assetsLanding-mobile.webp",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://d35kx21znie3xm.cloudfront.net/webtheme/assetsLanding-desktop.webp",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/collection_icons/bonds-at-discounted-price.svg",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/collection_icons/highly-rated-bonds.svg",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/collection_icons/bonds-to-earn-monthly-fixed-income.svg",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPIDO09029.newly_added_bonds.png",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/collection_icons/high-yield-bonds.svg",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/blogImages/CFD-4.png",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       }
+      ],
+      "count": 15
+     },
+     "unused-javascript": {
+      "score": 1,
+      "display": "",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [],
+      "count": 0
+     },
+     "unused-css-rules": {
+      "score": 1,
+      "display": "",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "legacy-javascript-insight": {
+      "score": 0.5,
+      "display": "Est savings of 14\u00a0KiB",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "duplicated-javascript-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "font-display-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "INP": 0
+      }
+     },
+     "cls-culprits-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "CLS": 0
+      }
+     },
+     "forced-reflow-insight": {
+      "score": 1,
+      "display": null,
+      "savings": null
+     },
+     "dom-size-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "INP": 0
+      }
+     },
+     "third-parties-insight": {
+      "score": 1,
+      "display": null,
+      "savings": null
+     },
+     "unsized-images": {
+      "score": 0.5,
+      "display": null,
+      "savings": {
+       "CLS": 0
+      },
+      "items": [
+       {
+        "url": "https://d35kx21znie3xm.cloudfront.net/webtheme/assetsLanding-desktop.webp"
+       }
+      ],
+      "count": 1
+     },
+     "mainthread-work-breakdown": {
+      "score": 1,
+      "display": "1.1\u00a0s",
+      "savings": {
+       "TBT": 0
+      },
+      "items": [
+       {
+        "group": "other",
+        "groupLabel": "Other",
+        "duration": 449.4759999999987
+       },
+       {
+        "group": "scriptEvaluation",
+        "groupLabel": "Script Evaluation",
+        "duration": 257.7220000000008
+       },
+       {
+        "group": "styleLayout",
+        "groupLabel": "Style & Layout",
+        "duration": 185.64499999999998
+       },
+       {
+        "group": "paintCompositeRender",
+        "groupLabel": "Rendering",
+        "duration": 117.75000000000168
+       },
+       {
+        "group": "scriptParseCompile",
+        "groupLabel": "Script Parsing & Compilation",
+        "duration": 44.185000000000024
+       },
+       {
+        "group": "parseHTML",
+        "groupLabel": "Parse HTML & CSS",
+        "duration": 7.684999999999991
+       }
+      ],
+      "count": 6
+     },
+     "bootup-time": {
+      "score": 1,
+      "display": "0.2\u00a0s",
+      "savings": {
+       "TBT": 0
+      },
+      "items": [
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/2cd3sg-d1ayj5.js",
+        "total": 704.1690000000023,
+        "scripting": 148.18300000000076
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/user/fixed-deposits",
+        "total": 92.91000000000014,
+        "scripting": 2.1560000000000006
+       },
+       {
+        "url": "Unattributable",
+        "total": 92.66400000000012,
+        "scripting": 9.068000000000008
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/1a4sugo6bp6vz.js",
+        "total": 80.694,
+        "scripting": 61.71199999999999
+       }
+      ],
+      "count": 4
+     },
+     "network-dependency-tree-insight": {
+      "score": 0,
+      "display": null,
+      "savings": {
+       "LCP": 0
+      }
+     },
+     "modern-http-insight": {
+      "score": 0.5,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "non-composited-animations": {
+      "score": null,
+      "display": null,
+      "savings": {
+       "CLS": 0
+      }
+     }
+    },
+    "shifts": [
+     {
+      "score": 0.0326,
+      "node": "body.satoshi_fe624234-module__joJDfq__className > main#main-content",
+      "label": "Hi RAMAN, Explore Fixed Deposit\n\nInvest in RBI-regulated small banks and NBFCs \u2026"
+     },
+     {
+      "score": 0.0028,
+      "node": "body.satoshi_fe624234-module__joJDfq__className > div.mobile-app-download-nudge > div.mobile-app-download-nudge__card",
+      "label": "\u00d7"
+     },
+     {
+      "score": 0.0001,
+      "node": "div#ssr-bootstrap-loader > p.text-muted-foreground",
+      "label": "Buy Bonds, Debentures & Fixed Income investments online in India. SEBI-register\u2026"
+     }
+    ],
+    "thirdParties": [
+     {
+      "entity": "Google Tag Manager",
+      "bytes": 0,
+      "ms": 25
+     },
+     {
+      "entity": "Amazon Web Services",
+      "bytes": 344,
+      "ms": 0
+     }
+    ]
+   }
+  },
+  {
+   "slug": "user-bond-ipo-online",
+   "path": "/user/bond-ipo-online",
+   "group": "auth",
+   "mobile": {
+    "n": 3,
+    "metrics": {
+     "lcp": {
+      "med": 3395.6911,
+      "min": 3379.4906,
+      "max": 3436.3814
+     },
+     "cls": {
+      "med": 0.08748481166464156,
+      "min": 0.08748481166464156,
+      "max": 0.08800130223460406
+     },
+     "tbt": {
+      "med": 140.5,
+      "min": 132.5,
+      "max": 143.5
+     },
+     "fcp": {
+      "med": 1595.6911,
+      "min": 1579.4906,
+      "max": 1685.3814
+     },
+     "si": {
+      "med": 2770.584434459078,
+      "min": 2604.5960404327097,
+      "max": 2901.6150653768536
+     },
+     "ttfb": {
+      "med": 102,
+      "min": 101,
+      "max": 106
+     },
+     "tti": {
+      "med": 4727.3814,
+      "min": 4597.417025361634,
+      "max": 5336.2411
+     },
+     "score": {
+      "med": 87,
+      "min": 87,
+      "max": 88
+     }
+    },
+    "finalUrl": "/user/bond-ipo-online",
+    "error": null,
+    "phases": {
+     "timeToFirstByte": 102,
+     "resourceLoadDelay": 967,
+     "resourceLoadDuration": 2,
+     "elementRenderDelay": 58
+    },
+    "lcpNode": {
+     "selector": "div.bond-ipo-online-main > div.bond-ipo-online-shell > section.bio-promo > img.bio-promo__img",
+     "nodeLabel": "Download the GoldenPi app",
+     "snippet": "<img class=\"bio-promo__img bio-promo__img--mobile\" alt=\"Download the GoldenPi app\" src=\"https://d35kx21znie3xm.cloudfront.net/webtheme/homePostLoginStrip-mobile.w\u2026\">"
+    },
+    "discovery": {
+     "priorityHinted": false,
+     "requestDiscoverable": false,
+     "eagerlyLoaded": true
+    },
+    "observed": {
+     "observedFirstContentfulPaint": 228,
+     "observedLargestContentfulPaint": 1128,
+     "observedLoad": 275,
+     "observedDomContentLoaded": 224
+    },
+    "resources": {
+     "total": [
+      154,
+      696871
+     ],
+     "other": [
+      62,
+      233182
+     ],
+     "script": [
+      49,
+      165231
+     ],
+     "image": [
+      30,
+      144641
+     ],
+     "document": [
+      1,
+      113261
+     ],
+     "stylesheet": [
+      9,
+      30416
+     ],
+     "font": [
+      3,
+      10140
+     ],
+     "media": [
+      0,
+      0
+     ],
+     "third-party": [
+      22,
+      82402
+     ]
+    },
+    "bytes": 715967,
+    "dom": {
+     "Total elements": 1073,
+     "DOM depth": 17,
+     "Most children": 64
+    },
+    "insights": {
+     "render-blocking-insight": {
+      "score": 0,
+      "display": "Est savings of 130\u00a0ms",
+      "savings": {
+       "FCP": 150,
+       "LCP": 0
+      },
+      "items": [
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/3blc2epuh-eiq.css",
+        "totalBytes": 3380,
+        "wastedMs": 150
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/1tbob8xxlx5ep.css",
+        "totalBytes": 3380
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/43hbds1qt2y6s.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/17pwubqu62-0_.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/087yhe5wlsb2s.css",
+        "totalBytes": 3381
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/1fxy6r6q5-za-.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/2t9mg_sfv3157.css",
+        "totalBytes": 3379
+       }
+      ],
+      "count": 7
+     },
+     "document-latency-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "image-delivery-insight": {
+      "score": 0.5,
+      "display": "Est savings of 29\u00a0KiB",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/blogImages/IPO-5.png",
+        "totalBytes": 23540,
+        "wastedBytes": 13060
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102671.INDEL%20MONEY%20LIMITED@2x.png",
+        "totalBytes": 7221,
+        "wastedBytes": 7113
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100936.MUTHOOT%20FINCORP%20LIMITED_1@2x.png",
+        "totalBytes": 5756,
+        "wastedBytes": 5503
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103761.Screenshot%202024-08-08%20171759_11zon.jpg",
+        "totalBytes": 4359,
+        "wastedBytes": 4269
+       }
+      ],
+      "count": 4
+     },
+     "cache-insight": {
+      "score": 0.5,
+      "display": "Est savings of 47\u00a0KiB",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/blogImages/IPO-5.png",
+        "totalBytes": 23956,
+        "wastedBytes": 23956,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102671.INDEL%20MONEY%20LIMITED@2x.png",
+        "totalBytes": 7651,
+        "wastedBytes": 7651,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100936.MUTHOOT%20FINCORP%20LIMITED_1@2x.png",
+        "totalBytes": 6186,
+        "wastedBytes": 6186,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103761.Screenshot%202024-08-08%20171759_11zon.jpg",
+        "totalBytes": 4789,
+        "wastedBytes": 4789,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100133.Kosamattam%20Finance%20Limited.png",
+        "totalBytes": 2949,
+        "wastedBytes": 2949,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104322.ADANI%20ENTERPRISES%20LIMITED.png",
+        "totalBytes": 2886,
+        "wastedBytes": 2886,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://wisepops.net/h/njNmZygqbr/loader.js?v=3",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 1800000
+       },
+       {
+        "url": "https://d35kx21znie3xm.cloudfront.net/webtheme/homePostLoginStrip-mobile.webp",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       }
+      ],
+      "count": 11
+     },
+     "unused-javascript": {
+      "score": 1,
+      "display": "",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [],
+      "count": 0
+     },
+     "unused-css-rules": {
+      "score": 1,
+      "display": "",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "legacy-javascript-insight": {
+      "score": 0,
+      "display": "Est savings of 14\u00a0KiB",
+      "savings": {
+       "FCP": 0,
+       "LCP": 150
+      }
+     },
+     "duplicated-javascript-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "font-display-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "INP": 0
+      }
+     },
+     "cls-culprits-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "CLS": 0
+      }
+     },
+     "forced-reflow-insight": {
+      "score": 1,
+      "display": null,
+      "savings": null
+     },
+     "dom-size-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "INP": 0
+      }
+     },
+     "third-parties-insight": {
+      "score": 1,
+      "display": null,
+      "savings": null
+     },
+     "unsized-images": {
+      "score": 0.5,
+      "display": null,
+      "savings": {
+       "CLS": 0
+      },
+      "items": [
+       {
+        "url": "https://d35kx21znie3xm.cloudfront.net/webtheme/homePostLoginStrip-mobile.webp"
+       }
+      ],
+      "count": 1
+     },
+     "mainthread-work-breakdown": {
+      "score": 0,
+      "display": "35.1\u00a0s",
+      "savings": {
+       "TBT": 150
+      },
+      "items": [
+       {
+        "group": "other",
+        "groupLabel": "Other",
+        "duration": 18882.756000000732
+       },
+       {
+        "group": "paintCompositeRender",
+        "groupLabel": "Rendering",
+        "duration": 5637.367999997819
+       },
+       {
+        "group": "scriptEvaluation",
+        "groupLabel": "Script Evaluation",
+        "duration": 5175.027999999912
+       },
+       {
+        "group": "styleLayout",
+        "groupLabel": "Style & Layout",
+        "duration": 5109.152000000001
+       },
+       {
+        "group": "scriptParseCompile",
+        "groupLabel": "Script Parsing & Compilation",
+        "duration": 228.57199999999997
+       },
+       {
+        "group": "garbageCollection",
+        "groupLabel": "Garbage Collection",
+        "duration": 70.28000000000003
+       },
+       {
+        "group": "parseHTML",
+        "groupLabel": "Parse HTML & CSS",
+        "duration": 29.41599999999998
+       }
+      ],
+      "count": 7
+     },
+     "bootup-time": {
+      "score": 0,
+      "display": "5.3\u00a0s",
+      "savings": {
+       "TBT": 150
+      },
+      "items": [
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/2cd3sg-d1ayj5.js",
+        "total": 29285.039999998276,
+        "scripting": 4666.359999999926
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/user/bond-ipo-online",
+        "total": 3659.131999999999,
+        "scripting": 4.380000000000001
+       },
+       {
+        "url": "Unattributable",
+        "total": 1429.9919999998215,
+        "scripting": 55.40399999999997
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/1a4sugo6bp6vz.js",
+        "total": 252.54799999999992,
+        "scripting": 198.4359999999999
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/1lecf9xdi7bp8.js",
+        "total": 148.70400000000004,
+        "scripting": 124.98400000000004
+       },
+       {
+        "url": "https://www.googletagmanager.com/gtm.js?id=GTM-WGQMBZ4",
+        "total": 121.38799999999992,
+        "scripting": 41.07199999999991
+       },
+       {
+        "url": "https://www.googletagmanager.com/gtag/js?id=G-MKP9LYMXNK&cx=c&gtm=4e69s1",
+        "total": 97.23199999999997,
+        "scripting": 33.43599999999998
+       }
+      ],
+      "count": 7
+     },
+     "network-dependency-tree-insight": {
+      "score": 0,
+      "display": null,
+      "savings": {
+       "LCP": 0
+      }
+     },
+     "modern-http-insight": {
+      "score": 0.5,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "non-composited-animations": {
+      "score": 1,
+      "display": "2 animated elements found",
+      "savings": {
+       "CLS": 0
+      }
+     }
+    },
+    "shifts": [
+     {
+      "score": 0.0875,
+      "node": "body.satoshi_fe624234-module__joJDfq__className > main#main-content",
+      "label": "Hi RAMAN, Explore NCD IPOs\n\nEarn more than bank FDs, with returns as high as 12\u2026"
+     },
+     {
+      "score": 0.0005,
+      "node": null,
+      "label": null
+     },
+     {
+      "score": 0.0002,
+      "node": "body.satoshi_fe624234-module__joJDfq__className > div.mobile-app-download-nudge > div.mobile-app-download-nudge__cta-wrap > button.mobile-app-download-nudge__cta",
+      "label": "Download App"
+     },
+     {
+      "score": 0.0002,
+      "node": "body.satoshi_fe624234-module__joJDfq__className > div.mobile-app-download-nudge > div.mobile-app-download-nudge__cta-wrap > button.mobile-app-download-nudge__cta",
+      "label": "Download App"
+     }
+    ],
+    "thirdParties": [
+     {
+      "entity": "Google Tag Manager",
+      "bytes": 0,
+      "ms": 49
+     },
+     {
+      "entity": "wisepops.net",
+      "bytes": 893,
+      "ms": 3
+     },
+     {
+      "entity": "Amazon Web Services",
+      "bytes": 81240,
+      "ms": 0
+     },
+     {
+      "entity": "WisePops",
+      "bytes": 249,
+      "ms": 0
+     },
+     {
+      "entity": "Google Analytics",
+      "bytes": 20,
+      "ms": 0
+     }
+    ]
+   },
+   "desktop": {
+    "n": 1,
+    "metrics": {
+     "lcp": {
+      "med": 771.6321956237794,
+      "min": 771.6321956237794,
+      "max": 771.6321956237794
+     },
+     "cls": {
+      "med": 0.035352167060677696,
+      "min": 0.035352167060677696,
+      "max": 0.035352167060677696
+     },
+     "tbt": {
+      "med": 0,
+      "min": 0,
+      "max": 0
+     },
+     "fcp": {
+      "med": 387.6284,
+      "min": 387.6284,
+      "max": 387.6284
+     },
+     "si": {
+      "med": 941.1049648926657,
+      "min": 941.1049648926657,
+      "max": 941.1049648926657
+     },
+     "ttfb": {
+      "med": 101,
+      "min": 101,
+      "max": 101
+     },
+     "tti": {
+      "med": 782.0325751861574,
+      "min": 782.0325751861574,
+      "max": 782.0325751861574
+     },
+     "score": {
+      "med": 99,
+      "min": 99,
+      "max": 99
+     }
+    },
+    "finalUrl": "/user/bond-ipo-online",
+    "error": null,
+    "phases": {
+     "timeToFirstByte": 102,
+     "resourceLoadDelay": 1038,
+     "resourceLoadDuration": 1,
+     "elementRenderDelay": 65
+    },
+    "lcpNode": {
+     "selector": "div.bond-ipo-online-main > div.bond-ipo-online-shell > section.bio-promo > img.bio-promo__img",
+     "nodeLabel": "Download the GoldenPi app",
+     "snippet": "<img class=\"bio-promo__img bio-promo__img--desktop\" alt=\"Download the GoldenPi app\" src=\"https://d35kx21znie3xm.cloudfront.net/webtheme/homePostLoginStrip-desktop.\u2026\">"
+    },
+    "discovery": {
+     "priorityHinted": false,
+     "requestDiscoverable": false,
+     "eagerlyLoaded": true
+    },
+    "observed": {
+     "observedFirstContentfulPaint": 239,
+     "observedLargestContentfulPaint": 1206,
+     "observedLoad": 332,
+     "observedDomContentLoaded": 214
+    },
+    "resources": {
+     "total": [
+      157,
+      607519
+     ],
+     "other": [
+      60,
+      239126
+     ],
+     "script": [
+      49,
+      152358
+     ],
+     "document": [
+      1,
+      113183
+     ],
+     "image": [
+      36,
+      65675
+     ],
+     "stylesheet": [
+      8,
+      27037
+     ],
+     "font": [
+      3,
+      10140
+     ],
+     "media": [
+      0,
+      0
+     ],
+     "third-party": [
+      27,
+      2223
+     ]
+    },
+    "bytes": 626597,
+    "dom": {
+     "Total elements": 1070,
+     "DOM depth": 17,
+     "Most children": 64
+    },
+    "insights": {
+     "render-blocking-insight": {
+      "score": 0.5,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/3blc2epuh-eiq.css",
+        "totalBytes": 3380
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/1tbob8xxlx5ep.css",
+        "totalBytes": 3380
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/43hbds1qt2y6s.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/17pwubqu62-0_.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/087yhe5wlsb2s.css",
+        "totalBytes": 3381
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/1fxy6r6q5-za-.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/2t9mg_sfv3157.css",
+        "totalBytes": 3379
+       }
+      ],
+      "count": 7
+     },
+     "document-latency-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "image-delivery-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [],
+      "count": 0
+     },
+     "cache-insight": {
+      "score": 0.5,
+      "display": "Est savings of 0\u00a0KiB",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [
+       {
+        "url": "https://wisepops.net/h/njNmZygqbr/loader.js?v=3",
+        "totalBytes": 267,
+        "wastedBytes": 230.28750000000002,
+        "cacheLifetimeMs": 1800000
+       },
+       {
+        "url": "https://d35kx21znie3xm.cloudfront.net/webtheme/homePostLoginStrip-mobile.webp",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://d35kx21znie3xm.cloudfront.net/webtheme/homePostLoginStrip-desktop.webp",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/collection_icons/bonds-at-discounted-price.svg",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/collection_icons/highly-rated-bonds.svg",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/blogImages/IPO-5.png",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/collection_icons/bonds-to-earn-monthly-fixed-income.svg",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPIDO09029.newly_added_bonds.png",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       }
+      ],
+      "count": 16
+     },
+     "unused-javascript": {
+      "score": 1,
+      "display": "",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [],
+      "count": 0
+     },
+     "unused-css-rules": {
+      "score": 1,
+      "display": "",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "legacy-javascript-insight": {
+      "score": 0.5,
+      "display": "Est savings of 14\u00a0KiB",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "duplicated-javascript-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "font-display-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "INP": 0
+      }
+     },
+     "cls-culprits-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "CLS": 0
+      }
+     },
+     "forced-reflow-insight": {
+      "score": 1,
+      "display": null,
+      "savings": null
+     },
+     "dom-size-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "INP": 0
+      }
+     },
+     "third-parties-insight": {
+      "score": 1,
+      "display": null,
+      "savings": null
+     },
+     "unsized-images": {
+      "score": 0.5,
+      "display": null,
+      "savings": {
+       "CLS": 0
+      },
+      "items": [
+       {
+        "url": "https://d35kx21znie3xm.cloudfront.net/webtheme/homePostLoginStrip-desktop.webp"
+       }
+      ],
+      "count": 1
+     },
+     "mainthread-work-breakdown": {
+      "score": 0.5,
+      "display": "9.0\u00a0s",
+      "savings": {
+       "TBT": 0
+      },
+      "items": [
+       {
+        "group": "other",
+        "groupLabel": "Other",
+        "duration": 4766.45500000057
+       },
+       {
+        "group": "paintCompositeRender",
+        "groupLabel": "Rendering",
+        "duration": 1667.6889999994935
+       },
+       {
+        "group": "scriptEvaluation",
+        "groupLabel": "Script Evaluation",
+        "duration": 1301.0849999999944
+       },
+       {
+        "group": "styleLayout",
+        "groupLabel": "Style & Layout",
+        "duration": 1192.8910000000026
+       },
+       {
+        "group": "scriptParseCompile",
+        "groupLabel": "Script Parsing & Compilation",
+        "duration": 56.67500000000002
+       },
+       {
+        "group": "garbageCollection",
+        "groupLabel": "Garbage Collection",
+        "duration": 17.293000000000006
+       },
+       {
+        "group": "parseHTML",
+        "groupLabel": "Parse HTML & CSS",
+        "duration": 6.981000000000007
+       }
+      ],
+      "count": 7
+     },
+     "bootup-time": {
+      "score": 1,
+      "display": "1.2\u00a0s",
+      "savings": {
+       "TBT": 0
+      },
+      "items": [
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/2cd3sg-d1ayj5.js",
+        "total": 8091.594999999473,
+        "scripting": 1178.146999999995
+       },
+       {
+        "url": "Unattributable",
+        "total": 398.16799999991696,
+        "scripting": 14.092999999999991
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/user/bond-ipo-online",
+        "total": 333.1529999999999,
+        "scripting": 0.9250000000000003
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/1a4sugo6bp6vz.js",
+        "total": 62.11499999999993,
+        "scripting": 47.37899999999993
+       }
+      ],
+      "count": 4
+     },
+     "network-dependency-tree-insight": {
+      "score": 0,
+      "display": null,
+      "savings": {
+       "LCP": 0
+      }
+     },
+     "modern-http-insight": {
+      "score": 0.5,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "non-composited-animations": {
+      "score": null,
+      "display": null,
+      "savings": {
+       "CLS": 0
+      }
+     }
+    },
+    "shifts": [
+     {
+      "score": 0.0326,
+      "node": "body.satoshi_fe624234-module__joJDfq__className > main#main-content",
+      "label": "Hi RAMAN, Explore NCD IPOs\n\nEarn more than bank FDs, with returns as high as 12\u2026"
+     },
+     {
+      "score": 0.0028,
+      "node": "body.satoshi_fe624234-module__joJDfq__className > div.mobile-app-download-nudge > div.mobile-app-download-nudge__card",
+      "label": "\u00d7"
+     }
+    ],
+    "thirdParties": [
+     {
+      "entity": "Google Tag Manager",
+      "bytes": 0,
+      "ms": 47
+     },
+     {
+      "entity": "wisepops.net",
+      "bytes": 1187,
+      "ms": 3
+     },
+     {
+      "entity": "Amazon Web Services",
+      "bytes": 688,
+      "ms": 0
+     },
+     {
+      "entity": "WisePops",
+      "bytes": 328,
+      "ms": 0
+     },
+     {
+      "entity": "Google Analytics",
+      "bytes": 20,
+      "ms": 0
+     }
+    ]
+   }
+  },
+  {
+   "slug": "user-notifications",
+   "path": "/user/notifications",
+   "group": "auth",
+   "mobile": {
+    "n": 3,
+    "metrics": {
+     "lcp": {
+      "med": 2857.8535,
+      "min": 2765.517,
+      "max": 3226.7333
+     },
+     "cls": {
+      "med": 0.10304968493677916,
+      "min": 0.0155648732721376,
+      "max": 0.10356617550674166
+     },
+     "tbt": {
+      "med": 6.5,
+      "min": 0,
+      "max": 19
+     },
+     "fcp": {
+      "med": 1444.8535,
+      "min": 1428.517,
+      "max": 1465.7332999999999
+     },
+     "si": {
+      "med": 2058.9489290832094,
+      "min": 2017.0218819222798,
+      "max": 2127.6298533490963
+     },
+     "ttfb": {
+      "med": 109,
+      "min": 108,
+      "max": 135
+     },
+     "tti": {
+      "med": 2865.3535,
+      "min": 2780.517,
+      "max": 3226.7333
+     },
+     "score": {
+      "med": 93,
+      "min": 92,
+      "max": 93
+     }
+    },
+    "finalUrl": "/user/notifications",
+    "error": null,
+    "phases": {
+     "timeToFirstByte": 110,
+     "resourceLoadDelay": 729,
+     "resourceLoadDuration": 237,
+     "elementRenderDelay": 69
+    },
+    "lcpNode": {
+     "selector": "div.notifications-page > div.notifications-page__shell > div.notifications-page__empty > img.notifications-page__empty-img",
+     "nodeLabel": "div.notifications-page > div.notifications-page__shell > div.notifications-page__empty > img.notifications-page__empty-img",
+     "snippet": "<img alt=\"\" aria-hidden=\"true\" loading=\"lazy\" width=\"200\" height=\"160\" decoding=\"async\" data-nimg=\"1\" class=\"notifications-page__empty-img\" src=\"/_next/static/media/no-notification.29mxielc3nhyr.svg\" style=\"color: transparent;\">"
+    },
+    "discovery": {
+     "priorityHinted": false,
+     "requestDiscoverable": false,
+     "eagerlyLoaded": false
+    },
+    "observed": {
+     "observedFirstContentfulPaint": 245,
+     "observedLargestContentfulPaint": 1145,
+     "observedLoad": 277,
+     "observedDomContentLoaded": 214
+    },
+    "resources": {
+     "total": [
+      106,
+      498536
+     ],
+     "other": [
+      37,
+      160049
+     ],
+     "script": [
+      44,
+      148711
+     ],
+     "document": [
+      1,
+      112062
+     ],
+     "image": [
+      12,
+      37158
+     ],
+     "stylesheet": [
+      9,
+      30416
+     ],
+     "font": [
+      3,
+      10140
+     ],
+     "media": [
+      0,
+      0
+     ],
+     "third-party": [
+      1,
+      0
+     ]
+    },
+    "bytes": 517623,
+    "dom": {
+     "Total elements": 542,
+     "DOM depth": 14,
+     "Most children": 60
+    },
+    "insights": {
+     "render-blocking-insight": {
+      "score": 0.5,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/2vkfidlnkcxa4.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/43hbds1qt2y6s.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/2t9mg_sfv3157.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/17pwubqu62-0_.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/1fxy6r6q5-za-.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/087yhe5wlsb2s.css",
+        "totalBytes": 3381
+       }
+      ],
+      "count": 6
+     },
+     "document-latency-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "image-delivery-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [],
+      "count": 0
+     },
+     "cache-insight": {
+      "score": 0.5,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/images/alert.svg",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       }
+      ],
+      "count": 1
+     },
+     "unused-javascript": {
+      "score": 1,
+      "display": "",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [],
+      "count": 0
+     },
+     "unused-css-rules": {
+      "score": 1,
+      "display": "",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "legacy-javascript-insight": {
+      "score": 0.5,
+      "display": "Est savings of 14\u00a0KiB",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "duplicated-javascript-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "font-display-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "INP": 0
+      }
+     },
+     "cls-culprits-insight": {
+      "score": 0,
+      "display": null,
+      "savings": {
+       "CLS": 0
+      }
+     },
+     "forced-reflow-insight": {
+      "score": 1,
+      "display": null,
+      "savings": null
+     },
+     "dom-size-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "INP": 0
+      }
+     },
+     "third-parties-insight": {
+      "score": 1,
+      "display": null,
+      "savings": null
+     },
+     "unsized-images": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "CLS": 0
+      },
+      "items": [],
+      "count": 0
+     },
+     "mainthread-work-breakdown": {
+      "score": 0.5,
+      "display": "2.2\u00a0s",
+      "savings": {
+       "TBT": 0
+      },
+      "items": [
+       {
+        "group": "other",
+        "groupLabel": "Other",
+        "duration": 930.1679999999951
+       },
+       {
+        "group": "scriptEvaluation",
+        "groupLabel": "Script Evaluation",
+        "duration": 705.2720000000057
+       },
+       {
+        "group": "styleLayout",
+        "groupLabel": "Style & Layout",
+        "duration": 287.652
+       },
+       {
+        "group": "paintCompositeRender",
+        "groupLabel": "Rendering",
+        "duration": 168.16399999999902
+       },
+       {
+        "group": "scriptParseCompile",
+        "groupLabel": "Script Parsing & Compilation",
+        "duration": 82.27199999999999
+       },
+       {
+        "group": "parseHTML",
+        "groupLabel": "Parse HTML & CSS",
+        "duration": 27.051999999999992
+       },
+       {
+        "group": "garbageCollection",
+        "groupLabel": "Garbage Collection",
+        "duration": 3.664
+       }
+      ],
+      "count": 7
+     },
+     "bootup-time": {
+      "score": 1,
+      "display": "0.7\u00a0s",
+      "savings": {
+       "TBT": 0
+      },
+      "items": [
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/2cd3sg-d1ayj5.js",
+        "total": 1225.272000000002,
+        "scripting": 453.1880000000002
+       },
+       {
+        "url": "Unattributable",
+        "total": 334.40800000000104,
+        "scripting": 30.14799999999997
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/user/notifications",
+        "total": 316.65199999999993,
+        "scripting": 7.396000000000001
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/1lecf9xdi7bp8.js",
+        "total": 162.2559999999999,
+        "scripting": 142.9999999999999
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/1a4sugo6bp6vz.js",
+        "total": 77.49199999999992,
+        "scripting": 58.21199999999993
+       }
+      ],
+      "count": 5
+     },
+     "network-dependency-tree-insight": {
+      "score": 0,
+      "display": null,
+      "savings": {
+       "LCP": 0
+      }
+     },
+     "modern-http-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "non-composited-animations": {
+      "score": 1,
+      "display": "2 animated elements found",
+      "savings": {
+       "CLS": 0
+      }
+     }
+    },
+    "shifts": [
+     {
+      "score": 0.0875,
+      "node": "body.satoshi_fe624234-module__joJDfq__className > main#main-content",
+      "label": "You have no notifications"
+     },
+     {
+      "score": 0.0145,
+      "node": "main#main-content > div.notifications-page > div.notifications-page__shell > div.notifications-page__empty",
+      "label": "You have no notifications"
+     },
+     {
+      "score": 0.0011,
+      "node": "div.notifications-page > div.notifications-page__shell > div.notifications-page__empty > p.notifications-page__empty-text",
+      "label": "You have no notifications"
+     },
+     {
+      "score": 0.0005,
+      "node": null,
+      "label": null
+     }
+    ],
+    "thirdParties": []
+   },
+   "desktop": {
+    "n": 1,
+    "metrics": {
+     "lcp": {
+      "med": 605.2057,
+      "min": 605.2057,
+      "max": 605.2057
+     },
+     "cls": {
+      "med": 0.09783580328999213,
+      "min": 0.09783580328999213,
+      "max": 0.09783580328999213
+     },
+     "tbt": {
+      "med": 0,
+      "min": 0,
+      "max": 0
+     },
+     "fcp": {
+      "med": 385.2057,
+      "min": 385.2057,
+      "max": 385.2057
+     },
+     "si": {
+      "med": 626.999866251299,
+      "min": 626.999866251299,
+      "max": 626.999866251299
+     },
+     "ttfb": {
+      "med": 105,
+      "min": 105,
+      "max": 105
+     },
+     "tti": {
+      "med": 607.2057,
+      "min": 607.2057,
+      "max": 607.2057
+     },
+     "score": {
+      "med": 97,
+      "min": 97,
+      "max": 97
+     }
+    },
+    "finalUrl": "/user/notifications",
+    "error": null,
+    "phases": {
+     "timeToFirstByte": 105,
+     "resourceLoadDelay": 738,
+     "resourceLoadDuration": 74,
+     "elementRenderDelay": 48
+    },
+    "lcpNode": {
+     "selector": "div.notifications-page > div.notifications-page__shell > div.notifications-page__empty > img.notifications-page__empty-img",
+     "nodeLabel": "div.notifications-page > div.notifications-page__shell > div.notifications-page__empty > img.notifications-page__empty-img",
+     "snippet": "<img alt=\"\" aria-hidden=\"true\" loading=\"lazy\" width=\"200\" height=\"160\" decoding=\"async\" data-nimg=\"1\" class=\"notifications-page__empty-img\" src=\"/_next/static/media/no-notification.29mxielc3nhyr.svg\" style=\"color: transparent;\">"
+    },
+    "discovery": {
+     "priorityHinted": false,
+     "requestDiscoverable": false,
+     "eagerlyLoaded": false
+    },
+    "observed": {
+     "observedFirstContentfulPaint": 216,
+     "observedLargestContentfulPaint": 966,
+     "observedLoad": 267,
+     "observedDomContentLoaded": 209
+    },
+    "resources": {
+     "total": [
+      128,
+      592979
+     ],
+     "other": [
+      57,
+      247753
+     ],
+     "script": [
+      45,
+      152090
+     ],
+     "document": [
+      1,
+      112042
+     ],
+     "image": [
+      13,
+      40538
+     ],
+     "stylesheet": [
+      9,
+      30416
+     ],
+     "font": [
+      3,
+      10140
+     ],
+     "media": [
+      0,
+      0
+     ],
+     "third-party": [
+      1,
+      0
+     ]
+    },
+    "bytes": 596346,
+    "dom": {
+     "Total elements": 539,
+     "DOM depth": 14,
+     "Most children": 60
+    },
+    "insights": {
+     "render-blocking-insight": {
+      "score": 0.5,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/2vkfidlnkcxa4.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/1fxy6r6q5-za-.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/43hbds1qt2y6s.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/17pwubqu62-0_.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/087yhe5wlsb2s.css",
+        "totalBytes": 3381
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/2t9mg_sfv3157.css",
+        "totalBytes": 3379
+       }
+      ],
+      "count": 6
+     },
+     "document-latency-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "image-delivery-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [],
+      "count": 0
+     },
+     "cache-insight": {
+      "score": 0.5,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/images/alert.svg",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       }
+      ],
+      "count": 1
+     },
+     "unused-javascript": {
+      "score": 1,
+      "display": "",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [],
+      "count": 0
+     },
+     "unused-css-rules": {
+      "score": 1,
+      "display": "",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "legacy-javascript-insight": {
+      "score": 0.5,
+      "display": "Est savings of 14\u00a0KiB",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "duplicated-javascript-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "font-display-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "INP": 0
+      }
+     },
+     "cls-culprits-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "CLS": 0
+      }
+     },
+     "forced-reflow-insight": {
+      "score": 1,
+      "display": null,
+      "savings": null
+     },
+     "dom-size-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "INP": 0
+      }
+     },
+     "third-parties-insight": {
+      "score": 1,
+      "display": null,
+      "savings": null
+     },
+     "unsized-images": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "CLS": 0
+      },
+      "items": [],
+      "count": 0
+     },
+     "mainthread-work-breakdown": {
+      "score": 1,
+      "display": "0.5\u00a0s",
+      "savings": {
+       "TBT": 0
+      },
+      "items": [
+       {
+        "group": "other",
+        "groupLabel": "Other",
+        "duration": 202.4449999999982
+       },
+       {
+        "group": "scriptEvaluation",
+        "groupLabel": "Script Evaluation",
+        "duration": 185.1860000000016
+       },
+       {
+        "group": "styleLayout",
+        "groupLabel": "Style & Layout",
+        "duration": 50.22899999999999
+       },
+       {
+        "group": "paintCompositeRender",
+        "groupLabel": "Rendering",
+        "duration": 28.453000000000223
+       },
+       {
+        "group": "scriptParseCompile",
+        "groupLabel": "Script Parsing & Compilation",
+        "duration": 22.757000000000005
+       },
+       {
+        "group": "parseHTML",
+        "groupLabel": "Parse HTML & CSS",
+        "duration": 7.471000000000005
+       }
+      ],
+      "count": 6
+     },
+     "bootup-time": {
+      "score": 1,
+      "display": "0.1\u00a0s",
+      "savings": {
+       "TBT": 0
+      },
+      "items": [
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/2cd3sg-d1ayj5.js",
+        "total": 243.6980000000003,
+        "scripting": 105.3910000000002
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/user/notifications",
+        "total": 79.25000000000001,
+        "scripting": 2.028
+       },
+       {
+        "url": "Unattributable",
+        "total": 72.17300000000061,
+        "scripting": 9.853999999999996
+       }
+      ],
+      "count": 3
+     },
+     "network-dependency-tree-insight": {
+      "score": 0,
+      "display": null,
+      "savings": {
+       "LCP": 0
+      }
+     },
+     "modern-http-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "non-composited-animations": {
+      "score": null,
+      "display": null,
+      "savings": {
+       "CLS": 0
+      }
+     }
+    },
+    "shifts": [
+     {
+      "score": 0.0546,
+      "node": "body.satoshi_fe624234-module__joJDfq__className > footer#footer",
+      "label": "GoldenPi Securities Pvt Ltd\n\n(A wholly owned subsidiary of GoldenPi Technologie\u2026"
+     },
+     {
+      "score": 0.0326,
+      "node": "body.satoshi_fe624234-module__joJDfq__className > footer#footer",
+      "label": "GoldenPi Securities Pvt Ltd\n\n(A wholly owned subsidiary of GoldenPi Technologie\u2026"
+     },
+     {
+      "score": 0.0079,
+      "node": "body.satoshi_fe624234-module__joJDfq__className > footer#footer",
+      "label": "GoldenPi Securities Pvt Ltd\n\n(A wholly owned subsidiary of GoldenPi Technologie\u2026"
+     },
+     {
+      "score": 0.0028,
+      "node": "body.satoshi_fe624234-module__joJDfq__className > div.mobile-app-download-nudge > div.mobile-app-download-nudge__card",
+      "label": "\u00d7"
+     }
+    ],
+    "thirdParties": []
+   }
+  },
+  {
+   "slug": "profile",
+   "path": "/profile",
+   "group": "auth",
+   "mobile": {
+    "n": 3,
+    "metrics": {
+     "lcp": {
+      "med": 2026.9555,
+      "min": 1672.2197999999999,
+      "max": 2281.4548999999997
+     },
+     "cls": {
+      "med": 0.10407911934265729,
+      "min": 0.10407911934265729,
+      "max": 0.10459560991261979
+     },
+     "tbt": {
+      "med": 16.5,
+      "min": 7.5,
+      "max": 41.5
+     },
+     "fcp": {
+      "med": 1487.2197999999999,
+      "min": 1439.9555,
+      "max": 1522.4549
+     },
+     "si": {
+      "med": 1930.4965596251536,
+      "min": 1909.895631879921,
+      "max": 2070.8512157941195
+     },
+     "ttfb": {
+      "med": 113,
+      "min": 107,
+      "max": 120
+     },
+     "tti": {
+      "med": 2748.6055000000006,
+      "min": 2621.1049,
+      "max": 2828.7198
+     },
+     "score": {
+      "med": 96,
+      "min": 95,
+      "max": 96
+     }
+    },
+    "finalUrl": "/profile",
+    "error": null,
+    "phases": {
+     "timeToFirstByte": 113,
+     "elementRenderDelay": 146
+    },
+    "observed": {
+     "observedFirstContentfulPaint": 259,
+     "observedLargestContentfulPaint": 259,
+     "observedLoad": 287,
+     "observedDomContentLoaded": 0
+    },
+    "resources": {
+     "total": [
+      113,
+      530065
+     ],
+     "other": [
+      41,
+      169042
+     ],
+     "script": [
+      45,
+      163688
+     ],
+     "document": [
+      1,
+      112366
+     ],
+     "image": [
+      14,
+      44413
+     ],
+     "stylesheet": [
+      9,
+      30416
+     ],
+     "font": [
+      3,
+      10140
+     ],
+     "media": [
+      0,
+      0
+     ],
+     "third-party": [
+      1,
+      0
+     ]
+    },
+    "bytes": 549152,
+    "dom": {
+     "Total elements": 681,
+     "DOM depth": 14,
+     "Most children": 59
+    },
+    "insights": {
+     "render-blocking-insight": {
+      "score": 0.5,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/43hbds1qt2y6s.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/087yhe5wlsb2s.css",
+        "totalBytes": 3381
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/1fxy6r6q5-za-.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/17pwubqu62-0_.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/2t9mg_sfv3157.css",
+        "totalBytes": 3379
+       }
+      ],
+      "count": 5
+     },
+     "document-latency-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "image-delivery-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [],
+      "count": 0
+     },
+     "cache-insight": {
+      "score": 0.5,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/images/alert.svg",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       }
+      ],
+      "count": 1
+     },
+     "unused-javascript": {
+      "score": 1,
+      "display": "",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [],
+      "count": 0
+     },
+     "unused-css-rules": {
+      "score": 1,
+      "display": "",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "legacy-javascript-insight": {
+      "score": 0.5,
+      "display": "Est savings of 14\u00a0KiB",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "duplicated-javascript-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "font-display-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "INP": 0
+      }
+     },
+     "cls-culprits-insight": {
+      "score": 0,
+      "display": null,
+      "savings": {
+       "CLS": 0
+      }
+     },
+     "forced-reflow-insight": {
+      "score": 1,
+      "display": null,
+      "savings": null
+     },
+     "dom-size-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "INP": 0
+      }
+     },
+     "third-parties-insight": {
+      "score": 1,
+      "display": null,
+      "savings": null
+     },
+     "unsized-images": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "CLS": 0
+      },
+      "items": [],
+      "count": 0
+     },
+     "mainthread-work-breakdown": {
+      "score": 0,
+      "display": "2.1\u00a0s",
+      "savings": {
+       "TBT": 50
+      },
+      "items": [
+       {
+        "group": "other",
+        "groupLabel": "Other",
+        "duration": 888.6360000000014
+       },
+       {
+        "group": "scriptEvaluation",
+        "groupLabel": "Script Evaluation",
+        "duration": 704.5960000000057
+       },
+       {
+        "group": "styleLayout",
+        "groupLabel": "Style & Layout",
+        "duration": 277.6199999999999
+       },
+       {
+        "group": "paintCompositeRender",
+        "groupLabel": "Rendering",
+        "duration": 139.34799999999964
+       },
+       {
+        "group": "scriptParseCompile",
+        "groupLabel": "Script Parsing & Compilation",
+        "duration": 82.40400000000002
+       },
+       {
+        "group": "parseHTML",
+        "groupLabel": "Parse HTML & CSS",
+        "duration": 26.61199999999999
+       },
+       {
+        "group": "garbageCollection",
+        "groupLabel": "Garbage Collection",
+        "duration": 9.491999999999994
+       }
+      ],
+      "count": 7
+     },
+     "bootup-time": {
+      "score": 1,
+      "display": "0.7\u00a0s",
+      "savings": {
+       "TBT": 0
+      },
+      "items": [
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/2cd3sg-d1ayj5.js",
+        "total": 1110.8560000000023,
+        "scripting": 444.2120000000015
+       },
+       {
+        "url": "Unattributable",
+        "total": 374.4119999999948,
+        "scripting": 29.659999999999975
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/profile",
+        "total": 307.54,
+        "scripting": 7.744000000000001
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/1a4sugo6bp6vz.js",
+        "total": 97.25999999999999,
+        "scripting": 75.032
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/1lecf9xdi7bp8.js",
+        "total": 91.90800000000002,
+        "scripting": 78.20000000000002
+       }
+      ],
+      "count": 5
+     },
+     "network-dependency-tree-insight": {
+      "score": 0,
+      "display": null,
+      "savings": {
+       "LCP": 0
+      }
+     },
+     "modern-http-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "non-composited-animations": {
+      "score": 1,
+      "display": "2 animated elements found",
+      "savings": {
+       "CLS": 0
+      }
+     }
+    },
+    "shifts": [
+     {
+      "score": 0.0875,
+      "node": "body.satoshi_fe624234-module__joJDfq__className > main#main-content",
+      "label": "User Details\nDemat\nPersonal Details\nInvestor Details\nBank\nExchange Details\nRepo\u2026"
+     },
+     {
+      "score": 0.0166,
+      "node": "div.profile-panel__body > section.profile-card > div.profile-fields > div.profile-field",
+      "label": "Default Communication Language\n\nEnglish"
+     },
+     {
+      "score": 0.0005,
+      "node": null,
+      "label": null
+     },
+     {
+      "score": 0.0002,
+      "node": "body.satoshi_fe624234-module__joJDfq__className > div.mobile-app-download-nudge > div.mobile-app-download-nudge__cta-wrap > button.mobile-app-download-nudge__cta",
+      "label": "Download App"
+     }
+    ],
+    "thirdParties": []
+   },
+   "desktop": {
+    "n": 1,
+    "metrics": {
+     "lcp": {
+      "med": 569.6187,
+      "min": 569.6187,
+      "max": 569.6187
+     },
+     "cls": {
+      "med": 0.050142962671102936,
+      "min": 0.050142962671102936,
+      "max": 0.050142962671102936
+     },
+     "tbt": {
+      "med": 0,
+      "min": 0,
+      "max": 0
+     },
+     "fcp": {
+      "med": 412.6187,
+      "min": 412.6187,
+      "max": 412.6187
+     },
+     "si": {
+      "med": 549.5410269585109,
+      "min": 549.5410269585109,
+      "max": 549.5410269585109
+     },
+     "ttfb": {
+      "med": 108,
+      "min": 108,
+      "max": 108
+     },
+     "tti": {
+      "med": 569.6187,
+      "min": 569.6187,
+      "max": 569.6187
+     },
+     "score": {
+      "med": 100,
+      "min": 100,
+      "max": 100
+     }
+    },
+    "finalUrl": "/profile",
+    "error": null,
+    "phases": {
+     "timeToFirstByte": 108,
+     "resourceLoadDelay": 170,
+     "resourceLoadDuration": 54,
+     "elementRenderDelay": 35
+    },
+    "lcpNode": {
+     "selector": "body.satoshi_fe624234-module__joJDfq__className > div.mobile-app-download-nudge > div.mobile-app-download-nudge__card > img.mobile-app-download-nudge__qr",
+     "nodeLabel": "Scan to download GoldenPi app and get voucher",
+     "snippet": "<img alt=\"Scan to download GoldenPi app and get voucher\" loading=\"lazy\" width=\"153\" height=\"189\" decoding=\"async\" data-nimg=\"1\" class=\"mobile-app-download-nudge__qr\" src=\"/_next/static/media/mobile-app-qr.3wptrea2l_26s.svg\" style=\"color: transparent;\">"
+    },
+    "discovery": {
+     "priorityHinted": false,
+     "requestDiscoverable": true,
+     "eagerlyLoaded": false
+    },
+    "observed": {
+     "observedFirstContentfulPaint": 234,
+     "observedLargestContentfulPaint": 368,
+     "observedLoad": 330,
+     "observedDomContentLoaded": 213
+    },
+    "resources": {
+     "total": [
+      120,
+      548409
+     ],
+     "other": [
+      46,
+      188857
+     ],
+     "script": [
+      46,
+      155471
+     ],
+     "document": [
+      1,
+      112403
+     ],
+     "image": [
+      15,
+      46981
+     ],
+     "stylesheet": [
+      9,
+      34557
+     ],
+     "font": [
+      3,
+      10140
+     ],
+     "media": [
+      0,
+      0
+     ],
+     "third-party": [
+      1,
+      0
+     ]
+    },
+    "bytes": 551776,
+    "dom": {
+     "Total elements": 678,
+     "DOM depth": 14,
+     "Most children": 59
+    },
+    "insights": {
+     "render-blocking-insight": {
+      "score": 0.5,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/43hbds1qt2y6s.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/17pwubqu62-0_.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/087yhe5wlsb2s.css",
+        "totalBytes": 3381
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/1fxy6r6q5-za-.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/2t9mg_sfv3157.css",
+        "totalBytes": 3379
+       }
+      ],
+      "count": 5
+     },
+     "document-latency-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "image-delivery-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [],
+      "count": 0
+     },
+     "cache-insight": {
+      "score": 0.5,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/images/alert.svg",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       }
+      ],
+      "count": 1
+     },
+     "unused-javascript": {
+      "score": 0.5,
+      "display": "Est savings of 127\u00a0KiB",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [
+       {
+        "url": "https://www.googletagmanager.com/gtag/js?id=G-MKP9LYMXNK&cx=c&gtm=4e69s1",
+        "totalBytes": 174795,
+        "wastedBytes": 74181
+       },
+       {
+        "url": "https://www.googletagmanager.com/gtm.js?id=GTM-WGQMBZ4",
+        "totalBytes": 125779,
+        "wastedBytes": 55603
+       }
+      ],
+      "count": 2
+     },
+     "unused-css-rules": {
+      "score": 1,
+      "display": "",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "legacy-javascript-insight": {
+      "score": 0.5,
+      "display": "Est savings of 14\u00a0KiB",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "duplicated-javascript-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "font-display-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "INP": 0
+      }
+     },
+     "cls-culprits-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "CLS": 0
+      }
+     },
+     "forced-reflow-insight": {
+      "score": 1,
+      "display": null,
+      "savings": null
+     },
+     "dom-size-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "INP": 0
+      }
+     },
+     "third-parties-insight": {
+      "score": 1,
+      "display": null,
+      "savings": null
+     },
+     "unsized-images": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "CLS": 0
+      },
+      "items": [],
+      "count": 0
+     },
+     "mainthread-work-breakdown": {
+      "score": 1,
+      "display": "0.6\u00a0s",
+      "savings": {
+       "TBT": 0
+      },
+      "items": [
+       {
+        "group": "other",
+        "groupLabel": "Other",
+        "duration": 259.2849999999969
+       },
+       {
+        "group": "scriptEvaluation",
+        "groupLabel": "Script Evaluation",
+        "duration": 226.582000000001
+       },
+       {
+        "group": "styleLayout",
+        "groupLabel": "Style & Layout",
+        "duration": 60.106
+       },
+       {
+        "group": "paintCompositeRender",
+        "groupLabel": "Rendering",
+        "duration": 37.51700000000013
+       },
+       {
+        "group": "scriptParseCompile",
+        "groupLabel": "Script Parsing & Compilation",
+        "duration": 22.563000000000024
+       },
+       {
+        "group": "parseHTML",
+        "groupLabel": "Parse HTML & CSS",
+        "duration": 8.03599999999999
+       }
+      ],
+      "count": 6
+     },
+     "bootup-time": {
+      "score": 1,
+      "display": "0.2\u00a0s",
+      "savings": {
+       "TBT": 0
+      },
+      "items": [
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/2cd3sg-d1ayj5.js",
+        "total": 362.59000000000117,
+        "scripting": 158.12600000000063
+       },
+       {
+        "url": "Unattributable",
+        "total": 83.97900000000078,
+        "scripting": 11.669999999999991
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/profile",
+        "total": 81.03800000000004,
+        "scripting": 2.1270000000000002
+       }
+      ],
+      "count": 3
+     },
+     "network-dependency-tree-insight": {
+      "score": 0,
+      "display": null,
+      "savings": {
+       "LCP": 0
+      }
+     },
+     "modern-http-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "non-composited-animations": {
+      "score": null,
+      "display": null,
+      "savings": {
+       "CLS": 0
+      }
+     }
+    },
+    "shifts": [
+     {
+      "score": 0.0326,
+      "node": "body.satoshi_fe624234-module__joJDfq__className > main#main-content",
+      "label": "Selected Profile\n\nRM\n\nRAMAN MAURYA\n\nUser Details\nDemat\nPersonal Details\nInvesto\u2026"
+     },
+     {
+      "score": 0.0142,
+      "node": "div.profile-panel__body > section.profile-card > div.profile-fields > div.profile-field",
+      "label": "Default Communication Language\n\nEnglish"
+     },
+     {
+      "score": 0.0028,
+      "node": "body.satoshi_fe624234-module__joJDfq__className > div.mobile-app-download-nudge > div.mobile-app-download-nudge__card",
+      "label": "\u00d7"
+     },
+     {
+      "score": 0.0005,
+      "node": "div.profile-page__shell > aside.profile-sidebar > div.profile-sidebar__card > ul.profile-sidebar__nav",
+      "label": "Logout"
+     }
+    ],
+    "thirdParties": []
+   }
+  },
+  {
+   "slug": "profile-orders",
+   "path": "/profile/orders",
+   "group": "auth",
+   "mobile": {
+    "n": 3,
+    "metrics": {
+     "lcp": {
+      "med": 2193.4683999999997,
+      "min": 2107.4865,
+      "max": 2410.0824000000002
+     },
+     "cls": {
+      "med": 0.25472057445961316,
+      "min": 0.1667192722250091,
+      "max": 0.3025997008710126
+     },
+     "tbt": {
+      "med": 9,
+      "min": 0,
+      "max": 9
+     },
+     "fcp": {
+      "med": 1481.4684,
+      "min": 1447.4865,
+      "max": 1483.0824
+     },
+     "si": {
+      "med": 1766.575366885978,
+      "min": 1745.3978184805246,
+      "max": 1857.2150213415314
+     },
+     "ttfb": {
+      "med": 127,
+      "min": 121,
+      "max": 128
+     },
+     "tti": {
+      "med": 2854.6184,
+      "min": 2417.5824000000002,
+      "max": 2891.4865
+     },
+     "score": {
+      "med": 85,
+      "min": 83,
+      "max": 90
+     }
+    },
+    "finalUrl": "/profile/orders",
+    "error": null,
+    "phases": {
+     "timeToFirstByte": 128,
+     "elementRenderDelay": 164
+    },
+    "observed": {
+     "observedFirstContentfulPaint": 292,
+     "observedLargestContentfulPaint": 292,
+     "observedLoad": 378,
+     "observedDomContentLoaded": 0
+    },
+    "resources": {
+     "total": [
+      119,
+      519380
+     ],
+     "other": [
+      40,
+      166462
+     ],
+     "script": [
+      46,
+      155470
+     ],
+     "document": [
+      1,
+      112976
+     ],
+     "image": [
+      20,
+      43916
+     ],
+     "stylesheet": [
+      9,
+      30416
+     ],
+     "font": [
+      3,
+      10140
+     ],
+     "media": [
+      0,
+      0
+     ],
+     "third-party": [
+      7,
+      0
+     ]
+    },
+    "bytes": 538467,
+    "dom": {
+     "Total elements": 836,
+     "DOM depth": 14,
+     "Most children": 59
+    },
+    "insights": {
+     "render-blocking-insight": {
+      "score": 0.5,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/43hbds1qt2y6s.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/087yhe5wlsb2s.css",
+        "totalBytes": 3381
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/2t9mg_sfv3157.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/17pwubqu62-0_.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/1fxy6r6q5-za-.css",
+        "totalBytes": 3379
+       }
+      ],
+      "count": 5
+     },
+     "document-latency-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "image-delivery-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [],
+      "count": 0
+     },
+     "cache-insight": {
+      "score": 0.5,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104095.Neogrowth%20new%20logo%20(1).jpg",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102720.AKARA%20CAPITAL%20ADVISORS%20PRIVATE%20LIMITED@2x.png",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103446.MUTHOOTTU%20MINI%20FINANCIERS%20LTD@2x.png",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102419.Screenshot%202025-12-12%20103529_11zon.png",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID107347.Best%20Capital.png",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104322.ADANI%20ENTERPRISES%20LIMITED.png",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/images/alert.svg",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       }
+      ],
+      "count": 7
+     },
+     "unused-javascript": {
+      "score": 1,
+      "display": "",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [],
+      "count": 0
+     },
+     "unused-css-rules": {
+      "score": 1,
+      "display": "",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "legacy-javascript-insight": {
+      "score": 0.5,
+      "display": "Est savings of 14\u00a0KiB",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "duplicated-javascript-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "font-display-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "INP": 0
+      }
+     },
+     "cls-culprits-insight": {
+      "score": 0,
+      "display": null,
+      "savings": {
+       "CLS": 0
+      }
+     },
+     "forced-reflow-insight": {
+      "score": 1,
+      "display": null,
+      "savings": null
+     },
+     "dom-size-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "INP": 0
+      }
+     },
+     "third-parties-insight": {
+      "score": 1,
+      "display": null,
+      "savings": null
+     },
+     "unsized-images": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "CLS": 0
+      },
+      "items": [],
+      "count": 0
+     },
+     "mainthread-work-breakdown": {
+      "score": 0.5,
+      "display": "2.5\u00a0s",
+      "savings": {
+       "TBT": 0
+      },
+      "items": [
+       {
+        "group": "other",
+        "groupLabel": "Other",
+        "duration": 1004.6639999999925
+       },
+       {
+        "group": "scriptEvaluation",
+        "groupLabel": "Script Evaluation",
+        "duration": 852.812000000002
+       },
+       {
+        "group": "styleLayout",
+        "groupLabel": "Style & Layout",
+        "duration": 297.7
+       },
+       {
+        "group": "paintCompositeRender",
+        "groupLabel": "Rendering",
+        "duration": 177.91199999999841
+       },
+       {
+        "group": "scriptParseCompile",
+        "groupLabel": "Script Parsing & Compilation",
+        "duration": 89.19200000000002
+       },
+       {
+        "group": "parseHTML",
+        "groupLabel": "Parse HTML & CSS",
+        "duration": 33.20000000000002
+       },
+       {
+        "group": "garbageCollection",
+        "groupLabel": "Garbage Collection",
+        "duration": 4.655999999999998
+       }
+      ],
+      "count": 7
+     },
+     "bootup-time": {
+      "score": 1,
+      "display": "0.9\u00a0s",
+      "savings": {
+       "TBT": 0
+      },
+      "items": [
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/2cd3sg-d1ayj5.js",
+        "total": 1353.984000000007,
+        "scripting": 547.2200000000056
+       },
+       {
+        "url": "Unattributable",
+        "total": 371.5920000000016,
+        "scripting": 33.028
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/profile/orders",
+        "total": 330.9720000000002,
+        "scripting": 8.428
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/1a4sugo6bp6vz.js",
+        "total": 199.8039999999996,
+        "scripting": 158.2599999999996
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/1lecf9xdi7bp8.js",
+        "total": 94.69999999999999,
+        "scripting": 79.51199999999999
+       }
+      ],
+      "count": 5
+     },
+     "network-dependency-tree-insight": {
+      "score": 0,
+      "display": null,
+      "savings": {
+       "LCP": 0
+      }
+     },
+     "modern-http-insight": {
+      "score": 0.5,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "non-composited-animations": {
+      "score": 1,
+      "display": "2 animated elements found",
+      "savings": {
+       "CLS": 0
+      }
+     }
+    },
+    "shifts": [
+     {
+      "score": 0.1667,
+      "node": "div.profile-page > div.profile-page__shell > div.profile-page__main > section.orders-page__history",
+      "label": "Order history\n\nAKARA\n\nINE08XP07522\n\nDate\n\n1-Oct-2026\n\nInvestment\n\n\u20b9 1,00,169.51\u2026"
+     },
+     {
+      "score": 0.0875,
+      "node": "body.satoshi_fe624234-module__joJDfq__className > main#main-content",
+      "label": "Orders\n\nFilter by\n\nIPO\nSecondary market\nFixed Deposit\nSovereign Gold Bonds\nPend\u2026"
+     },
+     {
+      "score": 0.0005,
+      "node": null,
+      "label": null
+     },
+     {
+      "score": 0.0002,
+      "node": "body.satoshi_fe624234-module__joJDfq__className > div.mobile-app-download-nudge > div.mobile-app-download-nudge__cta-wrap > button.mobile-app-download-nudge__cta",
+      "label": "Download App"
+     }
+    ],
+    "thirdParties": []
+   },
+   "desktop": {
+    "n": 1,
+    "metrics": {
+     "lcp": {
+      "med": 557.6123,
+      "min": 557.6123,
+      "max": 557.6123
+     },
+     "cls": {
+      "med": 0.09547495169716605,
+      "min": 0.09547495169716605,
+      "max": 0.09547495169716605
+     },
+     "tbt": {
+      "med": 0,
+      "min": 0,
+      "max": 0
+     },
+     "fcp": {
+      "med": 397.6123,
+      "min": 397.6123,
+      "max": 397.6123
+     },
+     "si": {
+      "med": 604.8716706216035,
+      "min": 604.8716706216035,
+      "max": 604.8716706216035
+     },
+     "ttfb": {
+      "med": 106,
+      "min": 106,
+      "max": 106
+     },
+     "tti": {
+      "med": 557.6123,
+      "min": 557.6123,
+      "max": 557.6123
+     },
+     "score": {
+      "med": 98,
+      "min": 98,
+      "max": 98
+     }
+    },
+    "finalUrl": "/profile/orders",
+    "error": null,
+    "phases": {
+     "timeToFirstByte": 107,
+     "resourceLoadDelay": 188,
+     "resourceLoadDuration": 51,
+     "elementRenderDelay": 39
+    },
+    "lcpNode": {
+     "selector": "body.satoshi_fe624234-module__joJDfq__className > div.mobile-app-download-nudge > div.mobile-app-download-nudge__card > img.mobile-app-download-nudge__qr",
+     "nodeLabel": "Scan to download GoldenPi app and get voucher",
+     "snippet": "<img alt=\"Scan to download GoldenPi app and get voucher\" loading=\"lazy\" width=\"153\" height=\"189\" decoding=\"async\" data-nimg=\"1\" class=\"mobile-app-download-nudge__qr\" src=\"/_next/static/media/mobile-app-qr.3wptrea2l_26s.svg\" style=\"color: transparent;\">"
+    },
+    "discovery": {
+     "priorityHinted": false,
+     "requestDiscoverable": false,
+     "eagerlyLoaded": false
+    },
+    "observed": {
+     "observedFirstContentfulPaint": 235,
+     "observedLargestContentfulPaint": 385,
+     "observedLoad": 283,
+     "observedDomContentLoaded": 212
+    },
+    "resources": {
+     "total": [
+      122,
+      530311
+     ],
+     "other": [
+      42,
+      174021
+     ],
+     "script": [
+      46,
+      155470
+     ],
+     "document": [
+      1,
+      112967
+     ],
+     "image": [
+      21,
+      47296
+     ],
+     "stylesheet": [
+      9,
+      30417
+     ],
+     "font": [
+      3,
+      10140
+     ],
+     "media": [
+      0,
+      0
+     ],
+     "third-party": [
+      7,
+      0
+     ]
+    },
+    "bytes": 549407,
+    "dom": {
+     "Total elements": 833,
+     "DOM depth": 14,
+     "Most children": 59
+    },
+    "insights": {
+     "render-blocking-insight": {
+      "score": 0.5,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/1fxy6r6q5-za-.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/43hbds1qt2y6s.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/17pwubqu62-0_.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/087yhe5wlsb2s.css",
+        "totalBytes": 3381
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/2t9mg_sfv3157.css",
+        "totalBytes": 3379
+       }
+      ],
+      "count": 5
+     },
+     "document-latency-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "image-delivery-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [],
+      "count": 0
+     },
+     "cache-insight": {
+      "score": 0.5,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104095.Neogrowth%20new%20logo%20(1).jpg",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102720.AKARA%20CAPITAL%20ADVISORS%20PRIVATE%20LIMITED@2x.png",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID103446.MUTHOOTTU%20MINI%20FINANCIERS%20LTD@2x.png",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102419.Screenshot%202025-12-12%20103529_11zon.png",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID107347.Best%20Capital.png",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104322.ADANI%20ENTERPRISES%20LIMITED.png",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/images/alert.svg",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       }
+      ],
+      "count": 7
+     },
+     "unused-javascript": {
+      "score": 1,
+      "display": "",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [],
+      "count": 0
+     },
+     "unused-css-rules": {
+      "score": 1,
+      "display": "",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "legacy-javascript-insight": {
+      "score": 0.5,
+      "display": "Est savings of 14\u00a0KiB",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "duplicated-javascript-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "font-display-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "INP": 0
+      }
+     },
+     "cls-culprits-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "CLS": 0
+      }
+     },
+     "forced-reflow-insight": {
+      "score": 1,
+      "display": null,
+      "savings": null
+     },
+     "dom-size-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "INP": 0
+      }
+     },
+     "third-parties-insight": {
+      "score": 1,
+      "display": null,
+      "savings": null
+     },
+     "unsized-images": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "CLS": 0
+      },
+      "items": [],
+      "count": 0
+     },
+     "mainthread-work-breakdown": {
+      "score": 1,
+      "display": "0.6\u00a0s",
+      "savings": {
+       "TBT": 0
+      },
+      "items": [
+       {
+        "group": "other",
+        "groupLabel": "Other",
+        "duration": 235.65700000000075
+       },
+       {
+        "group": "scriptEvaluation",
+        "groupLabel": "Script Evaluation",
+        "duration": 197.85900000000126
+       },
+       {
+        "group": "styleLayout",
+        "groupLabel": "Style & Layout",
+        "duration": 57.19299999999998
+       },
+       {
+        "group": "paintCompositeRender",
+        "groupLabel": "Rendering",
+        "duration": 32.509000000000576
+       },
+       {
+        "group": "scriptParseCompile",
+        "groupLabel": "Script Parsing & Compilation",
+        "duration": 21.633000000000003
+       },
+       {
+        "group": "parseHTML",
+        "groupLabel": "Parse HTML & CSS",
+        "duration": 7.0579999999999945
+       },
+       {
+        "group": "garbageCollection",
+        "groupLabel": "Garbage Collection",
+        "duration": 5.239999999999995
+       }
+      ],
+      "count": 7
+     },
+     "bootup-time": {
+      "score": 1,
+      "display": "0.1\u00a0s",
+      "savings": {
+       "TBT": 0
+      },
+      "items": [
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/2cd3sg-d1ayj5.js",
+        "total": 264.2950000000013,
+        "scripting": 118.1060000000011
+       },
+       {
+        "url": "Unattributable",
+        "total": 109.06300000000007,
+        "scripting": 9.028000000000002
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/profile/orders",
+        "total": 83.68799999999999,
+        "scripting": 1.8810000000000002
+       }
+      ],
+      "count": 3
+     },
+     "network-dependency-tree-insight": {
+      "score": 0,
+      "display": null,
+      "savings": {
+       "LCP": 0
+      }
+     },
+     "modern-http-insight": {
+      "score": 0.5,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "non-composited-animations": {
+      "score": null,
+      "display": null,
+      "savings": {
+       "CLS": 0
+      }
+     }
+    },
+    "shifts": [
+     {
+      "score": 0.0596,
+      "node": "div.profile-page > div.profile-page__shell > div.profile-page__main > section.orders-page__history",
+      "label": "Order history\n\nAKARA\n\nINE08XP07522\n\nDate\n\n1-Oct-2026\n\nInvestment\n\n\u20b9 1,00,169.51\u2026"
+     },
+     {
+      "score": 0.0326,
+      "node": "body.satoshi_fe624234-module__joJDfq__className > main#main-content",
+      "label": "Selected Profile\n\nRM\n\nRAMAN MAURYA\n\nUser Details\nDemat\nPersonal Details\nInvesto\u2026"
+     },
+     {
+      "score": 0.0028,
+      "node": "body.satoshi_fe624234-module__joJDfq__className > div.mobile-app-download-nudge > div.mobile-app-download-nudge__card",
+      "label": "\u00d7"
+     },
+     {
+      "score": 0.0005,
+      "node": "div.profile-page__shell > aside.profile-sidebar > div.profile-sidebar__card > ul.profile-sidebar__nav",
+      "label": "Logout"
+     }
+    ],
+    "thirdParties": []
+   }
+  },
+  {
+   "slug": "user-corporate-bonds",
+   "path": "/user/corporate-bonds",
+   "group": "auth",
+   "mobile": {
+    "n": 3,
+    "metrics": {
+     "lcp": {
+      "med": 3960.5753999999997,
+      "min": 3778.8905999999997,
+      "max": 4061.6721
+     },
+     "cls": {
+      "med": 0.08748481166464156,
+      "min": 0.08748481166464156,
+      "max": 0.08748481166464156
+     },
+     "tbt": {
+      "med": 72.5,
+      "min": 55.5,
+      "max": 115.5
+     },
+     "fcp": {
+      "med": 1603.8906,
+      "min": 1586.6721,
+      "max": 1635.5754
+     },
+     "si": {
+      "med": 2857.220820501997,
+      "min": 2683.081054440149,
+      "max": 2983.1068769954936
+     },
+     "ttfb": {
+      "med": 115,
+      "min": 108,
+      "max": 136
+     },
+     "tti": {
+      "med": 4027.6254,
+      "min": 3801.3905999999997,
+      "max": 4084.1721
+     },
+     "score": {
+      "med": 85,
+      "min": 83,
+      "max": 86
+     }
+    },
+    "finalUrl": "/user/corporate-bonds",
+    "error": null,
+    "phases": {
+     "timeToFirstByte": 115,
+     "resourceLoadDelay": 1431,
+     "resourceLoadDuration": 1,
+     "elementRenderDelay": 69
+    },
+    "lcpNode": {
+     "selector": "div.corporate-bonds-main > div.corporate-bonds-shell > section.cb-promo > img.cb-promo__img",
+     "nodeLabel": "Bond Utsav offers on GoldenPi",
+     "snippet": "<img class=\"cb-promo__img cb-promo__img--mobile\" alt=\"Bond Utsav offers on GoldenPi\" src=\"https://d35kx21znie3xm.cloudfront.net/webtheme/homePostLoginStrip-mobile.w\u2026\">"
+    },
+    "discovery": {
+     "priorityHinted": false,
+     "requestDiscoverable": false,
+     "eagerlyLoaded": true
+    },
+    "observed": {
+     "observedFirstContentfulPaint": 300,
+     "observedLargestContentfulPaint": 1616,
+     "observedLoad": 443,
+     "observedDomContentLoaded": 306
+    },
+    "resources": {
+     "total": [
+      152,
+      692345
+     ],
+     "other": [
+      60,
+      228484
+     ],
+     "image": [
+      36,
+      147346
+     ],
+     "script": [
+      43,
+      145331
+     ],
+     "document": [
+      1,
+      130628
+     ],
+     "stylesheet": [
+      9,
+      30416
+     ],
+     "font": [
+      3,
+      10140
+     ],
+     "media": [
+      0,
+      0
+     ],
+     "third-party": [
+      12,
+      52313
+     ]
+    },
+    "bytes": 711441,
+    "dom": {
+     "Total elements": 1513,
+     "DOM depth": 17,
+     "Most children": 71
+    },
+    "insights": {
+     "render-blocking-insight": {
+      "score": 0,
+      "display": "Est savings of 80\u00a0ms",
+      "savings": {
+       "FCP": 100,
+       "LCP": 0
+      },
+      "items": [
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/0n_2y6ar-tmeo.css",
+        "totalBytes": 3380
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/3blc2epuh-eiq.css",
+        "totalBytes": 3380
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/17pwubqu62-0_.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/1tbob8xxlx5ep.css",
+        "totalBytes": 3380
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/43hbds1qt2y6s.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/1fxy6r6q5-za-.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/087yhe5wlsb2s.css",
+        "totalBytes": 3381
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/2t9mg_sfv3157.css",
+        "totalBytes": 3379,
+        "wastedMs": 150
+       }
+      ],
+      "count": 8
+     },
+     "document-latency-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "image-delivery-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [],
+      "count": 0
+     },
+     "cache-insight": {
+      "score": 0.5,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [
+       {
+        "url": "https://d35kx21znie3xm.cloudfront.net/webtheme/homePostLoginStrip-mobile.webp",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://d35kx21znie3xm.cloudfront.net/webtheme/homePostLoginStrip-desktop.webp",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104095.Neogrowth%20new%20logo%20(1).jpg",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102720.AKARA%20CAPITAL%20ADVISORS%20PRIVATE%20LIMITED@2x.png",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100936.MUTHOOT%20FINCORP%20LIMITED_1@2x.png",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID107347.Best%20Capital.png",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100778.EDELWEISS%20FINANCIAL%20SERVICES%20LIMITED.png",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104322.ADANI%20ENTERPRISES%20LIMITED.png",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       }
+      ],
+      "count": 9
+     },
+     "unused-javascript": {
+      "score": 1,
+      "display": "",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [],
+      "count": 0
+     },
+     "unused-css-rules": {
+      "score": 1,
+      "display": "",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "legacy-javascript-insight": {
+      "score": 0.5,
+      "display": "Est savings of 14\u00a0KiB",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "duplicated-javascript-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "font-display-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "INP": 0
+      }
+     },
+     "cls-culprits-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "CLS": 0
+      }
+     },
+     "forced-reflow-insight": {
+      "score": 1,
+      "display": null,
+      "savings": null
+     },
+     "dom-size-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "INP": 0
+      }
+     },
+     "third-parties-insight": {
+      "score": 1,
+      "display": null,
+      "savings": null
+     },
+     "unsized-images": {
+      "score": 0.5,
+      "display": null,
+      "savings": {
+       "CLS": 0
+      },
+      "items": [
+       {
+        "url": "https://d35kx21znie3xm.cloudfront.net/webtheme/homePostLoginStrip-mobile.webp"
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104095.Neogrowth%20new%20logo%20(1).jpg"
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104095.Neogrowth%20new%20logo%20(1).jpg"
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102720.AKARA%20CAPITAL%20ADVISORS%20PRIVATE%20LIMITED@2x.png"
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102720.AKARA%20CAPITAL%20ADVISORS%20PRIVATE%20LIMITED@2x.png"
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102720.AKARA%20CAPITAL%20ADVISORS%20PRIVATE%20LIMITED@2x.png"
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102720.AKARA%20CAPITAL%20ADVISORS%20PRIVATE%20LIMITED@2x.png"
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID107347.Best%20Capital.png"
+       }
+      ],
+      "count": 9
+     },
+     "mainthread-work-breakdown": {
+      "score": 0,
+      "display": "3.4\u00a0s",
+      "savings": {
+       "TBT": 50
+      },
+      "items": [
+       {
+        "group": "other",
+        "groupLabel": "Other",
+        "duration": 1509.899999999993
+       },
+       {
+        "group": "scriptEvaluation",
+        "groupLabel": "Script Evaluation",
+        "duration": 867.7720000000131
+       },
+       {
+        "group": "styleLayout",
+        "groupLabel": "Style & Layout",
+        "duration": 498.96400000000057
+       },
+       {
+        "group": "paintCompositeRender",
+        "groupLabel": "Rendering",
+        "duration": 366.4520000000092
+       },
+       {
+        "group": "scriptParseCompile",
+        "groupLabel": "Script Parsing & Compilation",
+        "duration": 95.12800000000007
+       },
+       {
+        "group": "parseHTML",
+        "groupLabel": "Parse HTML & CSS",
+        "duration": 36.431999999999995
+       }
+      ],
+      "count": 6
+     },
+     "bootup-time": {
+      "score": 1,
+      "display": "0.9\u00a0s",
+      "savings": {
+       "TBT": 100
+      },
+      "items": [
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/2cd3sg-d1ayj5.js",
+        "total": 2106.0639999999985,
+        "scripting": 530.5320000000047
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/user/corporate-bonds",
+        "total": 441.7039999999999,
+        "scripting": 8.739999999999998
+       },
+       {
+        "url": "Unattributable",
+        "total": 360.9160000000022,
+        "scripting": 33.26400000000004
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/1a4sugo6bp6vz.js",
+        "total": 263.7559999999991,
+        "scripting": 202.5239999999991
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/1lecf9xdi7bp8.js",
+        "total": 76.03999999999995,
+        "scripting": 63.395999999999944
+       }
+      ],
+      "count": 5
+     },
+     "network-dependency-tree-insight": {
+      "score": 0,
+      "display": null,
+      "savings": {
+       "LCP": 0
+      }
+     },
+     "modern-http-insight": {
+      "score": 0.5,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "non-composited-animations": {
+      "score": 1,
+      "display": "2 animated elements found",
+      "savings": {
+       "CLS": 0
+      }
+     }
+    },
+    "shifts": [
+     {
+      "score": 0.0875,
+      "node": "body.satoshi_fe624234-module__joJDfq__className > main#main-content",
+      "label": "Hi RAMAN, Explore Corporate Bonds\n\nDiscover reliable income and stable capital \u2026"
+     },
+     {
+      "score": 0.0002,
+      "node": "body.satoshi_fe624234-module__joJDfq__className > div.mobile-app-download-nudge > div.mobile-app-download-nudge__cta-wrap > button.mobile-app-download-nudge__cta",
+      "label": "Download App"
+     },
+     {
+      "score": 0.0002,
+      "node": "body.satoshi_fe624234-module__joJDfq__className > div.mobile-app-download-nudge > div.mobile-app-download-nudge__cta-wrap > button.mobile-app-download-nudge__cta",
+      "label": "Download App"
+     },
+     {
+      "score": 0.0002,
+      "node": "body.satoshi_fe624234-module__joJDfq__className > div.mobile-app-download-nudge > div.mobile-app-download-nudge__cta-wrap > button.mobile-app-download-nudge__cta",
+      "label": "Download App"
+     }
+    ],
+    "thirdParties": [
+     {
+      "entity": "Amazon Web Services",
+      "bytes": 52313,
+      "ms": 0
+     }
+    ]
+   },
+   "desktop": {
+    "n": 1,
+    "metrics": {
+     "lcp": {
+      "med": 817.7012,
+      "min": 817.7012,
+      "max": 817.7012
+     },
+     "cls": {
+      "med": 0.035352167060677696,
+      "min": 0.035352167060677696,
+      "max": 0.035352167060677696
+     },
+     "tbt": {
+      "med": 0,
+      "min": 0,
+      "max": 0
+     },
+     "fcp": {
+      "med": 437.7012,
+      "min": 437.7012,
+      "max": 437.7012
+     },
+     "si": {
+      "med": 987.8203148424747,
+      "min": 987.8203148424747,
+      "max": 987.8203148424747
+     },
+     "ttfb": {
+      "med": 112,
+      "min": 112,
+      "max": 112
+     },
+     "tti": {
+      "med": 823.7012,
+      "min": 823.7012,
+      "max": 823.7012
+     },
+     "score": {
+      "med": 99,
+      "min": 99,
+      "max": 99
+     }
+    },
+    "finalUrl": "/user/corporate-bonds",
+    "error": null,
+    "phases": {
+     "timeToFirstByte": 113,
+     "resourceLoadDelay": 1553,
+     "resourceLoadDuration": 2,
+     "elementRenderDelay": 70
+    },
+    "lcpNode": {
+     "selector": "div.corporate-bonds-main > div.corporate-bonds-shell > section.cb-promo > img.cb-promo__img",
+     "nodeLabel": "Bond Utsav offers on GoldenPi",
+     "snippet": "<img class=\"cb-promo__img cb-promo__img--desktop\" alt=\"Bond Utsav offers on GoldenPi\" src=\"https://d35kx21znie3xm.cloudfront.net/webtheme/homePostLoginStrip-desktop.\u2026\">"
+    },
+    "discovery": {
+     "priorityHinted": false,
+     "requestDiscoverable": false,
+     "eagerlyLoaded": true
+    },
+    "observed": {
+     "observedFirstContentfulPaint": 237,
+     "observedLargestContentfulPaint": 1737,
+     "observedLoad": 338,
+     "observedDomContentLoaded": 0
+    },
+    "resources": {
+     "total": [
+      160,
+      682476
+     ],
+     "other": [
+      67,
+      280480
+     ],
+     "script": [
+      43,
+      145331
+     ],
+     "document": [
+      1,
+      130619
+     ],
+     "image": [
+      38,
+      88869
+     ],
+     "stylesheet": [
+      8,
+      27037
+     ],
+     "font": [
+      3,
+      10140
+     ],
+     "media": [
+      0,
+      0
+     ],
+     "third-party": [
+      12,
+      1032
+     ]
+    },
+    "bytes": 701563,
+    "dom": {
+     "Total elements": 1510,
+     "DOM depth": 17,
+     "Most children": 71
+    },
+    "insights": {
+     "render-blocking-insight": {
+      "score": 0.5,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/087yhe5wlsb2s.css",
+        "totalBytes": 3381
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/1tbob8xxlx5ep.css",
+        "totalBytes": 3380
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/17pwubqu62-0_.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/0n_2y6ar-tmeo.css",
+        "totalBytes": 3380
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/3blc2epuh-eiq.css",
+        "totalBytes": 3380
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/2t9mg_sfv3157.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/43hbds1qt2y6s.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/1fxy6r6q5-za-.css",
+        "totalBytes": 3379
+       }
+      ],
+      "count": 8
+     },
+     "document-latency-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "image-delivery-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [],
+      "count": 0
+     },
+     "cache-insight": {
+      "score": 0.5,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [
+       {
+        "url": "https://d35kx21znie3xm.cloudfront.net/webtheme/homePostLoginStrip-mobile.webp",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://d35kx21znie3xm.cloudfront.net/webtheme/homePostLoginStrip-desktop.webp",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104095.Neogrowth%20new%20logo%20(1).jpg",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102720.AKARA%20CAPITAL%20ADVISORS%20PRIVATE%20LIMITED@2x.png",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100936.MUTHOOT%20FINCORP%20LIMITED_1@2x.png",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID107347.Best%20Capital.png",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID100778.EDELWEISS%20FINANCIAL%20SERVICES%20LIMITED.png",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104322.ADANI%20ENTERPRISES%20LIMITED.png",
+        "totalBytes": 0,
+        "wastedBytes": 0,
+        "cacheLifetimeMs": 0
+       }
+      ],
+      "count": 9
+     },
+     "unused-javascript": {
+      "score": 1,
+      "display": "",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [],
+      "count": 0
+     },
+     "unused-css-rules": {
+      "score": 1,
+      "display": "",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "legacy-javascript-insight": {
+      "score": 0.5,
+      "display": "Est savings of 14\u00a0KiB",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "duplicated-javascript-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "font-display-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "INP": 0
+      }
+     },
+     "cls-culprits-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "CLS": 0
+      }
+     },
+     "forced-reflow-insight": {
+      "score": 1,
+      "display": null,
+      "savings": null
+     },
+     "dom-size-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "INP": 0
+      }
+     },
+     "third-parties-insight": {
+      "score": 1,
+      "display": null,
+      "savings": null
+     },
+     "unsized-images": {
+      "score": 0.5,
+      "display": null,
+      "savings": {
+       "CLS": 0
+      },
+      "items": [
+       {
+        "url": "https://d35kx21znie3xm.cloudfront.net/webtheme/homePostLoginStrip-desktop.webp"
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104095.Neogrowth%20new%20logo%20(1).jpg"
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID104095.Neogrowth%20new%20logo%20(1).jpg"
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102720.AKARA%20CAPITAL%20ADVISORS%20PRIVATE%20LIMITED@2x.png"
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102720.AKARA%20CAPITAL%20ADVISORS%20PRIVATE%20LIMITED@2x.png"
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102720.AKARA%20CAPITAL%20ADVISORS%20PRIVATE%20LIMITED@2x.png"
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID102720.AKARA%20CAPITAL%20ADVISORS%20PRIVATE%20LIMITED@2x.png"
+       },
+       {
+        "url": "https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID107347.Best%20Capital.png"
+       }
+      ],
+      "count": 9
+     },
+     "mainthread-work-breakdown": {
+      "score": 1,
+      "display": "0.8\u00a0s",
+      "savings": {
+       "TBT": 0
+      },
+      "items": [
+       {
+        "group": "other",
+        "groupLabel": "Other",
+        "duration": 337.7169999999988
+       },
+       {
+        "group": "scriptEvaluation",
+        "groupLabel": "Script Evaluation",
+        "duration": 234.46800000000238
+       },
+       {
+        "group": "styleLayout",
+        "groupLabel": "Style & Layout",
+        "duration": 116.85700000000008
+       },
+       {
+        "group": "paintCompositeRender",
+        "groupLabel": "Rendering",
+        "duration": 78.8860000000001
+       },
+       {
+        "group": "scriptParseCompile",
+        "groupLabel": "Script Parsing & Compilation",
+        "duration": 20.676999999999996
+       },
+       {
+        "group": "parseHTML",
+        "groupLabel": "Parse HTML & CSS",
+        "duration": 8.209
+       }
+      ],
+      "count": 6
+     },
+     "bootup-time": {
+      "score": 1,
+      "display": "0.2\u00a0s",
+      "savings": {
+       "TBT": 0
+      },
+      "items": [
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/2cd3sg-d1ayj5.js",
+        "total": 490.0850000000008,
+        "scripting": 121.71500000000101
+       },
+       {
+        "url": "Unattributable",
+        "total": 88.05500000000033,
+        "scripting": 9.620000000000012
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/1a4sugo6bp6vz.js",
+        "total": 81.61299999999981,
+        "scripting": 63.654999999999816
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/user/corporate-bonds",
+        "total": 73.18299999999999,
+        "scripting": 1.9389999999999998
+       }
+      ],
+      "count": 4
+     },
+     "network-dependency-tree-insight": {
+      "score": 0,
+      "display": null,
+      "savings": {
+       "LCP": 0
+      }
+     },
+     "modern-http-insight": {
+      "score": 0.5,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "non-composited-animations": {
+      "score": null,
+      "display": null,
+      "savings": {
+       "CLS": 0
+      }
+     }
+    },
+    "shifts": [
+     {
+      "score": 0.0326,
+      "node": "body.satoshi_fe624234-module__joJDfq__className > main#main-content",
+      "label": "Hi RAMAN, Explore Corporate Bonds\n\nDiscover reliable income and stable capital \u2026"
+     },
+     {
+      "score": 0.0028,
+      "node": "body.satoshi_fe624234-module__joJDfq__className > div.mobile-app-download-nudge > div.mobile-app-download-nudge__card",
+      "label": "\u00d7"
+     }
+    ],
+    "thirdParties": [
+     {
+      "entity": "Amazon Web Services",
+      "bytes": 1032,
+      "ms": 0
+     }
+    ]
+   }
+  },
+  {
+   "slug": "portfolio",
+   "path": "/portfolio",
+   "group": "auth",
+   "mobile": {
+    "n": 3,
+    "metrics": {
+     "lcp": {
+      "med": 1709.0971,
+      "min": 1701.1995,
+      "max": 1858.8979
+     },
+     "cls": {
+      "med": 0.0036436866962172533,
+      "min": 0.0036283875422173342,
+      "max": 0.003717699573210805
+     },
+     "tbt": {
+      "med": 11,
+      "min": 10.999999999999773,
+      "max": 11
+     },
+     "fcp": {
+      "med": 1270.0971,
+      "min": 1263.1995,
+      "max": 1270.8979
+     },
+     "si": {
+      "med": 1270.0971,
+      "min": 1263.1995,
+      "max": 1270.8979
+     },
+     "ttfb": {
+      "med": 98,
+      "min": 94,
+      "max": 99
+     },
+     "tti": {
+      "med": 2069.8979,
+      "min": 2062.1994999999997,
+      "max": 2070.0971
+     },
+     "score": {
+      "med": 100,
+      "min": 99,
+      "max": 100
+     }
+    },
+    "finalUrl": "/portfolio",
+    "error": null,
+    "phases": {
+     "timeToFirstByte": 95,
+     "elementRenderDelay": 112
+    },
+    "lcpNode": {
+     "selector": "div#ssr-bootstrap-loader > p.text-muted-foreground",
+     "nodeLabel": "Buy Bonds, Debentures & Fixed Income investments online in India. SEBI-register\u2026",
+     "snippet": "<p class=\"text-muted-foreground desc-txt mt-3 max-w-lg text-sm leading-relaxed\">"
+    },
+    "observed": {
+     "observedFirstContentfulPaint": 207,
+     "observedLargestContentfulPaint": 207,
+     "observedLoad": 220,
+     "observedDomContentLoaded": 175
+    },
+    "resources": {
+     "total": [
+      51,
+      259377
+     ],
+     "script": [
+      32,
+      108154
+     ],
+     "document": [
+      1,
+      88150
+     ],
+     "other": [
+      10,
+      36034
+     ],
+     "stylesheet": [
+      4,
+      13519
+     ],
+     "font": [
+      3,
+      10140
+     ],
+     "image": [
+      1,
+      3380
+     ],
+     "media": [
+      0,
+      0
+     ],
+     "third-party": [
+      0,
+      0
+     ]
+    },
+    "bytes": 278464,
+    "dom": {
+     "Total elements": 55,
+     "DOM depth": 7,
+     "Most children": 40
+    },
+    "insights": {
+     "render-blocking-insight": {
+      "score": 0.5,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/2t9mg_sfv3157.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/1fxy6r6q5-za-.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/087yhe5wlsb2s.css",
+        "totalBytes": 3381
+       }
+      ],
+      "count": 3
+     },
+     "document-latency-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "image-delivery-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [],
+      "count": 0
+     },
+     "cache-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [],
+      "count": 0
+     },
+     "unused-javascript": {
+      "score": 1,
+      "display": "",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [],
+      "count": 0
+     },
+     "unused-css-rules": {
+      "score": 1,
+      "display": "",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "legacy-javascript-insight": {
+      "score": 0.5,
+      "display": "Est savings of 14\u00a0KiB",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "duplicated-javascript-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "font-display-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "INP": 0
+      }
+     },
+     "cls-culprits-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "CLS": 0
+      }
+     },
+     "forced-reflow-insight": {
+      "score": 1,
+      "display": null,
+      "savings": null
+     },
+     "dom-size-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "INP": 0
+      }
+     },
+     "third-parties-insight": {
+      "score": 1,
+      "display": null,
+      "savings": null
+     },
+     "unsized-images": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "CLS": 0
+      },
+      "items": [],
+      "count": 0
+     },
+     "mainthread-work-breakdown": {
+      "score": 1,
+      "display": "0.8\u00a0s",
+      "savings": {
+       "TBT": 0
+      },
+      "items": [
+       {
+        "group": "other",
+        "groupLabel": "Other",
+        "duration": 276.3399999999999
+       },
+       {
+        "group": "scriptEvaluation",
+        "groupLabel": "Script Evaluation",
+        "duration": 273.6959999999983
+       },
+       {
+        "group": "styleLayout",
+        "groupLabel": "Style & Layout",
+        "duration": 80.62400000000002
+       },
+       {
+        "group": "scriptParseCompile",
+        "groupLabel": "Script Parsing & Compilation",
+        "duration": 65.67599999999995
+       },
+       {
+        "group": "paintCompositeRender",
+        "groupLabel": "Rendering",
+        "duration": 49.683999999999926
+       },
+       {
+        "group": "parseHTML",
+        "groupLabel": "Parse HTML & CSS",
+        "duration": 17.831999999999997
+       }
+      ],
+      "count": 6
+     },
+     "bootup-time": {
+      "score": 1,
+      "display": "0.2\u00a0s",
+      "savings": {
+       "TBT": 0
+      },
+      "items": [
+       {
+        "url": "https://uatnew.goldenpi.com/portfolio",
+        "total": 308.1200000000003,
+        "scripting": 5.555999999999999
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/2cd3sg-d1ayj5.js",
+        "total": 179.2800000000012,
+        "scripting": 138.2200000000012
+       },
+       {
+        "url": "Unattributable",
+        "total": 100.072,
+        "scripting": 9.823999999999998
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/turbopack-0ukgsku-mgulz.js",
+        "total": 58.97600000000003,
+        "scripting": 58.328000000000024
+       }
+      ],
+      "count": 4
+     },
+     "network-dependency-tree-insight": {
+      "score": 0,
+      "display": null,
+      "savings": {
+       "LCP": 0
+      }
+     },
+     "modern-http-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "non-composited-animations": {
+      "score": 1,
+      "display": "2 animated elements found",
+      "savings": {
+       "CLS": 0
+      }
+     }
+    },
+    "shifts": [
+     {
+      "score": 0.0005,
+      "node": "div#ssr-bootstrap-loader > p.text-muted-foreground",
+      "label": "Buy Bonds, Debentures & Fixed Income investments online in India. SEBI-register\u2026"
+     },
+     {
+      "score": 0.0002,
+      "node": "body.satoshi_fe624234-module__joJDfq__className > div.mobile-app-download-nudge > div.mobile-app-download-nudge__cta-wrap > button.mobile-app-download-nudge__cta",
+      "label": "Download App"
+     },
+     {
+      "score": 0.0002,
+      "node": "body.satoshi_fe624234-module__joJDfq__className > div.mobile-app-download-nudge > div.mobile-app-download-nudge__cta-wrap > button.mobile-app-download-nudge__cta",
+      "label": "Download App"
+     },
+     {
+      "score": 0.0002,
+      "node": "body.satoshi_fe624234-module__joJDfq__className > div.mobile-app-download-nudge > div.mobile-app-download-nudge__cta-wrap > button.mobile-app-download-nudge__cta",
+      "label": "Download App"
+     }
+    ],
+    "thirdParties": []
+   },
+   "desktop": {
+    "n": 1,
+    "metrics": {
+     "lcp": {
+      "med": 528.7126000000001,
+      "min": 528.7126000000001,
+      "max": 528.7126000000001
+     },
+     "cls": {
+      "med": 0.002759574468085106,
+      "min": 0.002759574468085106,
+      "max": 0.002759574468085106
+     },
+     "tbt": {
+      "med": 0,
+      "min": 0,
+      "max": 0
+     },
+     "fcp": {
+      "med": 392.7126,
+      "min": 392.7126,
+      "max": 392.7126
+     },
+     "si": {
+      "med": 392.7126,
+      "min": 392.7126,
+      "max": 392.7126
+     },
+     "ttfb": {
+      "med": 101,
+      "min": 101,
+      "max": 101
+     },
+     "tti": {
+      "med": 528.7126000000001,
+      "min": 528.7126000000001,
+      "max": 528.7126000000001
+     },
+     "score": {
+      "med": 100,
+      "min": 100,
+      "max": 100
+     }
+    },
+    "finalUrl": "/portfolio",
+    "error": null,
+    "phases": {
+     "timeToFirstByte": 102,
+     "resourceLoadDelay": 166,
+     "resourceLoadDuration": 44,
+     "elementRenderDelay": 26
+    },
+    "lcpNode": {
+     "selector": "body.satoshi_fe624234-module__joJDfq__className > div.mobile-app-download-nudge > div.mobile-app-download-nudge__card > img.mobile-app-download-nudge__qr",
+     "nodeLabel": "Scan to download GoldenPi app and get voucher",
+     "snippet": "<img alt=\"Scan to download GoldenPi app and get voucher\" loading=\"lazy\" width=\"153\" height=\"189\" decoding=\"async\" data-nimg=\"1\" class=\"mobile-app-download-nudge__qr\" src=\"/_next/static/media/mobile-app-qr.3wptrea2l_26s.svg\" style=\"color: transparent;\">"
+    },
+    "discovery": {
+     "priorityHinted": false,
+     "requestDiscoverable": false,
+     "eagerlyLoaded": false
+    },
+    "observed": {
+     "observedFirstContentfulPaint": 254,
+     "observedLargestContentfulPaint": 338,
+     "observedLoad": 247,
+     "observedDomContentLoaded": 246
+    },
+    "resources": {
+     "total": [
+      52,
+      264596
+     ],
+     "script": [
+      32,
+      108154
+     ],
+     "document": [
+      1,
+      88148
+     ],
+     "other": [
+      10,
+      37875
+     ],
+     "stylesheet": [
+      4,
+      13519
+     ],
+     "font": [
+      3,
+      10140
+     ],
+     "image": [
+      2,
+      6760
+     ],
+     "media": [
+      0,
+      0
+     ],
+     "third-party": [
+      0,
+      0
+     ]
+    },
+    "bytes": 283692,
+    "dom": {
+     "Total elements": 55,
+     "DOM depth": 7,
+     "Most children": 40
+    },
+    "insights": {
+     "render-blocking-insight": {
+      "score": 0.5,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/2t9mg_sfv3157.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/1fxy6r6q5-za-.css",
+        "totalBytes": 3379
+       },
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/087yhe5wlsb2s.css",
+        "totalBytes": 3381
+       }
+      ],
+      "count": 3
+     },
+     "document-latency-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "image-delivery-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [],
+      "count": 0
+     },
+     "cache-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [],
+      "count": 0
+     },
+     "unused-javascript": {
+      "score": 1,
+      "display": "",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      },
+      "items": [],
+      "count": 0
+     },
+     "unused-css-rules": {
+      "score": 1,
+      "display": "",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "legacy-javascript-insight": {
+      "score": 0.5,
+      "display": "Est savings of 14\u00a0KiB",
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "duplicated-javascript-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "font-display-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "INP": 0
+      }
+     },
+     "cls-culprits-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "CLS": 0
+      }
+     },
+     "forced-reflow-insight": {
+      "score": 1,
+      "display": null,
+      "savings": null
+     },
+     "dom-size-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "INP": 0
+      }
+     },
+     "third-parties-insight": {
+      "score": 1,
+      "display": null,
+      "savings": null
+     },
+     "unsized-images": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "CLS": 0
+      },
+      "items": [],
+      "count": 0
+     },
+     "mainthread-work-breakdown": {
+      "score": 1,
+      "display": "0.2\u00a0s",
+      "savings": {
+       "TBT": 0
+      },
+      "items": [
+       {
+        "group": "scriptEvaluation",
+        "groupLabel": "Script Evaluation",
+        "duration": 71.05399999999952
+       },
+       {
+        "group": "other",
+        "groupLabel": "Other",
+        "duration": 51.29800000000002
+       },
+       {
+        "group": "scriptParseCompile",
+        "groupLabel": "Script Parsing & Compilation",
+        "duration": 16.998999999999985
+       },
+       {
+        "group": "styleLayout",
+        "groupLabel": "Style & Layout",
+        "duration": 9.376999999999997
+       },
+       {
+        "group": "parseHTML",
+        "groupLabel": "Parse HTML & CSS",
+        "duration": 4.437
+       },
+       {
+        "group": "paintCompositeRender",
+        "groupLabel": "Rendering",
+        "duration": 1.7999999999999994
+       }
+      ],
+      "count": 6
+     },
+     "bootup-time": {
+      "score": 1,
+      "display": "0.1\u00a0s",
+      "savings": {
+       "TBT": 0
+      },
+      "items": [
+       {
+        "url": "https://uatnew.goldenpi.com/_next/static/chunks/2cd3sg-d1ayj5.js",
+        "total": 69.15600000000012,
+        "scripting": 48.72100000000011
+       }
+      ],
+      "count": 1
+     },
+     "network-dependency-tree-insight": {
+      "score": 0,
+      "display": null,
+      "savings": {
+       "LCP": 0
+      }
+     },
+     "modern-http-insight": {
+      "score": 1,
+      "display": null,
+      "savings": {
+       "FCP": 0,
+       "LCP": 0
+      }
+     },
+     "non-composited-animations": {
+      "score": null,
+      "display": null,
+      "savings": {
+       "CLS": 0
+      }
+     }
+    },
+    "shifts": [
+     {
+      "score": 0.0028,
+      "node": "body.satoshi_fe624234-module__joJDfq__className > div.mobile-app-download-nudge > div.mobile-app-download-nudge__card",
+      "label": "\u00d7"
+     }
+    ],
+    "thirdParties": []
+   }
+  }
+ ]
+}

@@ -1,0 +1,196 @@
+{
+  "captured": "2026-09-30T10:08:35.785Z",
+  "rows": [
+    {
+      "slug": "user-explore",
+      "path": "/user/explore",
+      "taps": [
+        {
+          "kind": "toggle",
+          "label": "Collapse pending orders",
+          "type": "pointerdown",
+          "duration": 104,
+          "inputDelay": 31,
+          "processing": 1,
+          "presentation": 72
+        },
+        {
+          "kind": "button",
+          "label": "Corporate Bonds",
+          "type": "click",
+          "duration": 104,
+          "inputDelay": 33,
+          "processing": 4,
+          "presentation": 67
+        },
+        {
+          "kind": "header button",
+          "label": "Open search",
+          "type": "click",
+          "duration": 104,
+          "inputDelay": 35,
+          "processing": 6,
+          "presentation": 64
+        }
+      ],
+      "finalUrl": "/user/explore"
+    },
+    {
+      "slug": "user-fixed-deposits",
+      "path": "/user/fixed-deposits",
+      "taps": [
+        {
+          "kind": "tab",
+          "label": "Bank FD",
+          "type": "click",
+          "duration": 104,
+          "inputDelay": 37,
+          "processing": 1,
+          "presentation": 66
+        },
+        {
+          "kind": "header button",
+          "label": "Open search",
+          "type": "click",
+          "duration": 88,
+          "inputDelay": 36,
+          "processing": 6,
+          "presentation": 47
+        }
+      ],
+      "finalUrl": "/user/fixed-deposits"
+    },
+    {
+      "slug": "user-bond-ipo-online",
+      "path": "/user/bond-ipo-online",
+      "taps": [
+        {
+          "kind": "toggle",
+          "label": "Share",
+          "type": "pointerdown",
+          "duration": 104,
+          "inputDelay": 31,
+          "processing": 1,
+          "presentation": 72
+        },
+        {
+          "kind": "header button",
+          "label": "Open search",
+          "error": "locator.tap: Timeout 3000ms exceeded."
+        }
+      ],
+      "finalUrl": "/user/bond-ipo-online"
+    },
+    {
+      "slug": "user-notifications",
+      "path": "/user/notifications",
+      "taps": [
+        {
+          "kind": "header button",
+          "label": "Open search",
+          "type": "pointerdown",
+          "duration": 104,
+          "inputDelay": 32,
+          "processing": 2,
+          "presentation": 70
+        }
+      ],
+      "finalUrl": "/user/notifications"
+    },
+    {
+      "slug": "profile",
+      "path": "/profile",
+      "taps": [
+        {
+          "kind": "tab",
+          "label": "User Details",
+          "type": "pointerdown",
+          "duration": 104,
+          "inputDelay": 32,
+          "processing": 2,
+          "presentation": 70
+        },
+        {
+          "kind": "toggle",
+          "label": "English",
+          "type": "click",
+          "duration": 88,
+          "inputDelay": 35,
+          "processing": 2,
+          "presentation": 51
+        },
+        {
+          "kind": "button",
+          "label": "Edit",
+          "error": "locator.tap: Timeout 3000ms exceeded."
+        }
+      ],
+      "finalUrl": "/profile"
+    },
+    {
+      "slug": "profile-orders",
+      "path": "/profile/orders",
+      "taps": [
+        {
+          "kind": "tab",
+          "label": "IPO",
+          "type": "pointerdown",
+          "duration": 88,
+          "inputDelay": 34,
+          "processing": 2,
+          "presentation": 53
+        },
+        {
+          "kind": "header button",
+          "label": "Open search",
+          "type": "click",
+          "duration": 88,
+          "inputDelay": 34,
+          "processing": 7,
+          "presentation": 47
+        }
+      ],
+      "finalUrl": "/profile/orders"
+    },
+    {
+      "slug": "user-corporate-bonds",
+      "path": "/user/corporate-bonds",
+      "taps": [
+        {
+          "kind": "tab",
+          "label": "Bond Utsav Deals",
+          "type": "pointerdown",
+          "duration": 104,
+          "inputDelay": 30,
+          "processing": 1,
+          "presentation": 73
+        },
+        {
+          "kind": "button",
+          "label": "Add to watchlist",
+          "type": "click",
+          "duration": 104,
+          "inputDelay": 38,
+          "processing": 3,
+          "presentation": 63
+        },
+        {
+          "kind": "toggle",
+          "label": "Share",
+          "type": "click",
+          "duration": 104,
+          "inputDelay": 34,
+          "processing": 4,
+          "presentation": 66
+        }
+      ],
+      "finalUrl": "/user/corporate-bonds"
+    },
+    {
+      "slug": "portfolio",
+      "path": "/portfolio",
+      "taps": [],
+      "finalUrl": "/portfolio"
+    }
+  ]
+}

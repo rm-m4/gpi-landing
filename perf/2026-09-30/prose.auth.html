@@ -1,0 +1,175 @@
+<title>UAT Logged-in Vitals · 30 Sep</title>
+{{style}}
+
+<div class="wrap">
+
+<header class="head">
+  <div class="eyebrow">Performance audit · uatnew.goldenpi.com · logged-in pages</div>
+  <h1>Core Web Vitals behind the login</h1>
+  <p>Lighthouse lab runs on 8 pages that need a session: three cold-cache mobile runs per page (median shown) and one desktop run each, plus a lab tap probe for INP. Field data (CrUX) is not available for this staging host, so every number here is lab data. The guest pages have their own report.</p>
+  <div class="meta">
+    <span><b>Measured</b> 2026-09-30</span>
+    <span><b>Lighthouse</b> 13.5.0</span>
+    <span><b>Chrome</b> 151.0.0.0 headless</span>
+    <span><b>Runs</b> 24 mobile · 8 desktop · 14 taps</span>
+  </div>
+</header>
+
+<section>
+  <div class="eyebrow">Summary</div>
+  <h2>Loading is slow here too, and layout stability fails on five of eight pages.</h2>
+  <div class="tiles">
+    <div class="tile poor"><div class="tname"><b>LCP</b> Largest Contentful Paint</div><div class="tval">2.9–12.2 s</div><span class="pill poor">Poor</span><p>Mobile median per page. The four listing pages and Notifications are poor at 8.7–12.2 s. Profile and Orders need work at 3.2–3.4 s. Desktop: 1.0–2.8 s.</p></div>
+    <div class="tile good"><div class="tname"><b>INP</b> Interaction to Next Paint</div><div class="tval">88–104 ms</div><span class="pill good">Good</span><p>Lab probe, 14 real taps on 7 pages at 4× CPU slowdown. Every one is under the 200 ms limit.</p></div>
+    <div class="tile poor"><div class="tname"><b>CLS</b> Cumulative Layout Shift</div><div class="tval">0.004–0.276</div><span class="pill poor">Poor</span><p>Mobile median. Orders is poor at 0.276. Four more pages are over the 0.1 limit at 0.103–0.203. Explore and Corporate Bonds pass.</p></div>
+    <div class="tile warn"><div class="tname"><b>TBT</b> Total Blocking Time (lab proxy for INP)</div><div class="tval">63–229 ms</div><span class="pill warn">Needs work</span><p>Mobile median. Explore (229 ms) and Corporate Bonds (224 ms) are just over the 200 ms limit. Desktop TBT is 0 ms.</p></div>
+  </div>
+  <div class="callout">
+    <b>The Portfolio row is a "Page not found" screen.</b>
+    <span class="muted"><code>/portfolio</code> is not a route on UAT: it shows a loader and then the 404 screen. The real portfolio is at <code>/profile/portfolio</code>. The row below therefore measures the not-found page, so do not read its scores as the portfolio passing. A re-test of the real route got one valid mobile run (LCP 3.4 s, CLS 0.087, TBT 290 ms) before the test session expired; one run is an indication, not a result.</span>
+  </div>
+  <div class="callout">
+    <b>Field data: unavailable.</b>
+    <span class="muted">uatnew.goldenpi.com is a staging host with no Chrome UX Report record, and logged-in pages would need first-party RUM in any case. Add the <code>web-vitals</code> library before treating these lab numbers as user outcomes.</span>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">All parameters · mobile</div>
+  <h2>Mobile, first visit (Moto G Power profile, slow 4G, 4× CPU)</h2>
+  <div class="legend">
+    <span style="--c:var(--good)"><i></i>Good</span><span style="--c:var(--warn)"><i></i>Needs work</span><span style="--c:var(--poor)"><i></i>Poor</span>
+    <span>Median of 3 cold-cache runs, with the range underneath.</span>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr><th>Page</th><th>LCP<small>≤2.5 s</small></th><th>CLS<small>≤0.1</small></th><th>TBT<small>≤200 ms</small></th><th>FCP<small>≤1.8 s</small></th><th>Speed Index<small>≤3.4 s</small></th><th>TTFB<small>≤800 ms</small></th><th>TTI<small>≤3.8 s</small></th><th>LH score<small>/100</small></th></tr></thead>
+    <tbody>{{mobile}}</tbody>
+  </table></div>
+</section>
+
+<section>
+  <div class="eyebrow">All parameters · mobile, repeat visit</div>
+  <h2>Mobile with a warm cache</h2>
+  <p class="muted">The same pages and throttling, but with the browser cache left in place from an earlier load, as a returning customer would have it. CSS, JavaScript and fonts come from cache. This is a separate set of three runs per page.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Page</th><th>LCP<small>≤2.5 s</small></th><th>CLS<small>≤0.1</small></th><th>TBT<small>≤200 ms</small></th><th>FCP<small>≤1.8 s</small></th><th>Speed Index<small>≤3.4 s</small></th><th>TTFB<small>≤800 ms</small></th><th>TTI<small>≤3.8 s</small></th><th>LH score<small>/100</small></th></tr></thead>
+    <tbody>{{mobile_warm}}</tbody>
+  </table></div>
+  <p class="muted">Caching cuts LCP by more than half on the listing pages, but only Profile, Orders and Portfolio get under 2.5 s. The layout shifts do not go away with a warm cache.</p>
+</section>
+
+<section>
+  <div class="eyebrow">All parameters · desktop</div>
+  <h2>Desktop (1350×940, no CPU slowdown, fast connection)</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Page</th><th>LCP<small>≤2.5 s</small></th><th>CLS<small>≤0.1</small></th><th>TBT<small>≤200 ms</small></th><th>FCP<small>≤1.8 s</small></th><th>Speed Index<small>≤3.4 s</small></th><th>TTFB<small>≤800 ms</small></th><th>TTI<small>≤3.8 s</small></th><th>LH score<small>/100</small></th></tr></thead>
+    <tbody>{{desktop}}</tbody>
+  </table></div>
+  <p class="muted">The bands use the mobile thresholds on both tables. Desktop is one cold-cache run per page, so treat single values within about 10% of a threshold as borderline. The 6.9 s TTFB on <code>/user/notifications</code> was recorded minutes after that page returned 502 three times; see the findings.</p>
+</section>
+
+<section>
+  <div class="eyebrow">LCP breakdown</div>
+  <h2>What the LCP element is, and where its time goes</h2>
+  <p class="muted">Taken from the mobile run with the median LCP. The phase timings come from the unthrottled trace that Lighthouse records before it simulates the mobile network. They show which phase dominates, but they will not add up to the simulated LCP in the table above. Load delay and load time only exist when the LCP element is an image.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Page</th><th>LCP element</th><th>TTFB</th><th>Load delay</th><th>Load time</th><th>Render delay</th><th>Discovery</th></tr></thead>
+    <tbody>{{lcp_rows}}</tbody>
+  </table></div>
+</section>
+
+<section>
+  <div class="eyebrow">INP probe</div>
+  <h2>Responsiveness to real taps</h2>
+  <p class="muted">Mobile viewport at 4× CPU slowdown, logged in. Up to three controls per page were tapped after the page settled: a tab, an accordion or toggle, and a button, plus the header search button. Links were skipped so the page stays put. The slowest tap per page is shown, split into input delay, handler time and the wait for the next frame. Lab taps are single samples, not a field p75.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Page</th><th>Slowest tap<small>≤200 ms</small></th><th>Control</th><th>Input delay</th><th>Processing</th><th>Presentation</th></tr></thead>
+    <tbody>{{inp_rows}}</tbody>
+  </table></div>
+</section>
+
+<section>
+  <div class="eyebrow">Page weight</div>
+  <h2>What each page downloads on mobile</h2>
+  <p class="muted">Transfer sizes from the median mobile run, cold cache. Third-party means any host other than uatnew.goldenpi.com: Google Tag Manager, WisePops, and the S3 and CloudFront image buckets.</p>
+  <div class="tbl"><table>
+    <thead><tr><th>Page</th><th>Total</th><th>Requests</th><th>JavaScript</th><th>CSS</th><th>Images</th><th>Fonts</th><th>Third-party</th><th>DOM elements</th></tr></thead>
+    <tbody>{{weight_rows}}</tbody>
+  </table></div>
+</section>
+
+<section>
+  <div class="eyebrow">Findings</div>
+  <h2>Ranked by impact on the failing metric</h2>
+  <ol class="find">
+    <li class="poor">
+      <h3>Mobile LCP is poor on 5 of 8 pages <span class="tag">Measured</span></h3>
+      <p>On a first visit the logged-in listing pages are slower than their guest versions: Corporate Bonds <b>12.2 s</b> (guest 8.1 s), Fixed Deposits <b>10.3 s</b> (guest 8.6 s), NCD IPO <b>8.7 s</b> (guest 7.6 s). Explore is at 10.4 s and Notifications at 10.2 s. First Contentful Paint is 2.0–2.3 s on every page. With a warm cache the same pages come in at 2.9–4.5 s, which is still over the 2.5 s target.</p>
+    </li>
+    <li class="poor">
+      <h3>The LCP image is added by JavaScript, late and without priority <span class="tag">Trace-backed</span></h3>
+      <p>On five pages the largest element is an image that is not in the server HTML, so the browser cannot start it until the app has booted: the post-login banner on Explore (download starts <b>1.7 s</b> late), the app-download promo on Fixed Deposits (<b>2.1 s</b>) and NCD IPO, the Bond Utsav promo on Corporate Bonds (<b>1.4 s</b>, then 1.0 s to download), and the empty-state illustration on Notifications. None has a fetch priority, and three of them are lazy-loaded.</p>
+      <div class="fix"><b>Fix:</b> server-render the first banner or promo with its image URL, mark it <code>priority</code>, and drop <code>loading="lazy"</code> on it. Where the largest element is decoration (the Notifications empty state), size it down so the heading becomes the LCP.</div>
+    </li>
+    <li class="poor">
+      <h3>Layout shifts fail on five pages <span class="tag">Trace-backed</span></h3>
+      <p><code>/profile/orders</code> scores <b>0.276</b> on all three runs: the order history section (<code>section.orders-page__history</code>) moves by 0.189 when orders arrive, on top of the 0.087 shift of <code>main#main-content</code> that every page shares. <code>/user/fixed-deposits</code> reaches 0.194 when <code>#explore-fds</code> shifts by 0.103, and <code>/user/bond-ipo-online</code> reaches 0.203 when <code>#explore-ipos</code> shifts by 0.116. Profile (0.104) and Notifications (0.103) are pushed over the limit by the shared shift plus one small shift of their own. On desktop, <code>/profile</code> scores <b>0.234</b> from a single shift of the whole main block.</p>
+      <div class="fix"><b>Fix:</b> give the orders list, the FD list and the IPO list a skeleton with the same height as the loaded rows, so data arriving does not push content. Fix the shared <code>main</code> shift once in the layout, as in the guest report.</div>
+    </li>
+    <li class="poor">
+      <h3>/user/bond-ipo-online never settles <span class="tag">Trace-backed</span></h3>
+      <p>All four cold runs and the warm run of this page hit Lighthouse's 60-second trace limit, with <b>35–37 s</b> of main-thread work on mobile. The guest <code>/bond-ipo-online</code> settles in about 4 s with 3.3 s of work. Explore and logged-in Corporate Bonds did the same in one of their three runs each. Blocking time stays low (139 ms), so this is steady background work and not long tasks: it will not show in INP, but it keeps a phone's CPU busy for as long as the page is open.</p>
+      <div class="fix"><b>Fix:</b> record a performance trace on the page for 30 seconds after load and look for a timer, polling request or animation that never stops. In two of the runs the page also requested two bond detail routes that returned 502, so check whether those are being retried. That last point is a lead from the network log, not a proven cause.</div>
+    </li>
+    <li class="poor">
+      <h3>The same 138 KB stylesheet blocks rendering <span class="tag">Trace-backed</span></h3>
+      <p><code>/_next/static/chunks/087yhe5wlsb2s.css</code> is render-blocking on all 8 pages, with an estimated <b>710–890 ms</b> of First Contentful Paint to recover on each. The fix is the one in the guest report.</p>
+    </li>
+    <li class="warn">
+      <h3>Requests fail while the pages load <span class="tag">Measured</span></h3>
+      <p>On every load of <code>/user/explore</code>, <code>/api/gpi/v0/cms/get-faqs</code> returns <b>400</b> five times and <code>/api/gpi/v0/landing-page/fetch-json-data</code> returns <b>500</b> once. <code>/user/corporate-bonds</code> gets one 400 from <code>get-faqs</code> per load. In two of its four runs, <code>/user/bond-ipo-online</code> requested two bond detail routes that returned 502. During the pass, <code>/user/notifications</code> itself returned <b>502</b> on three attempts in a row, then loaded normally a few minutes later.</p>
+      <div class="fix"><b>Fix:</b> these are functional bugs more than performance ones, but each failed call is a wasted round trip on slow 4G. Fix the <code>get-faqs</code> request parameters and stop calling it five times per page.</div>
+    </li>
+    <li class="warn">
+      <h3>Logged-in pages load 300 KB of tag-manager script <span class="tag">Trace-backed</span></h3>
+      <p>Google Tag Manager and gtag add <b>301 KB</b> on every logged-in page; the guest pages did not load them in the lab. JavaScript is 0.8–1.3 MB per page against 0.75–0.81 MB for guests, and Lighthouse estimates 127–348 KB of it goes unused during load.</p>
+      <div class="fix"><b>Fix:</b> load the tag manager after the page is interactive, and review which tags the container fires on account pages.</div>
+    </li>
+    <li class="info">
+      <h3>The portfolio was tested at the wrong address <span class="tag">Measured</span></h3>
+      <p><code>/portfolio</code> returns the not-found screen on UAT, logged in or out, which is why it rendered 58 elements and no portfolio request. The portfolio lives at <code>/profile/portfolio</code>. That route still needs a full three-run pass with a fresh login.</p>
+    </li>
+  </ol>
+</section>
+
+<section>
+  <div class="eyebrow">What is already good</div>
+  <div class="good-list">
+    <div><b>INP probe 88–104 ms</b>Tabs, toggles, watchlist and search buttons all respond inside the 200 ms limit.</div>
+    <div><b>TTFB 96–192 ms</b>The median first byte is fast on every page on mobile.</div>
+    <div><b>Desktop LCP 1.0–2.8 s</b>Seven of eight pages are good on desktop; Corporate Bonds is just over.</div>
+    <div><b>Small image payloads</b>Every page ships under 1 MB of images, against 5–8 MB on guest collections pages.</div>
+    <div><b>Repeat visits are much faster</b>With a warm cache LCP falls to 1.7–4.5 s.</div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Method</div>
+  <h2>Test conditions</h2>
+  <dl class="cond">
+    <dt>Pages</dt><dd>8 routes on uatnew.goldenpi.com, logged in with a saved UAT test session. Each run was confirmed signed in by a 200 from <code>customer/get-profile</code>.</dd>
+    <dt>Mobile</dt><dd>Lighthouse default: 412×823 at 1.75× DPR, simulated slow 4G (150 ms RTT, 1.6 Mbps), 4× CPU slowdown, 3 runs, median by metric. Lighthouse attached to a logged-in headless Chrome; cookies and storage kept, HTTP cache emptied before every run.</dd>
+    <dt>Repeat visit</dt><dd>Same setup without emptying the cache, 3 runs</dd>
+    <dt>Desktop</dt><dd>Lighthouse desktop preset: 1350×940, 40 ms RTT, 10 Mbps, no CPU slowdown, cold cache, 1 run</dd>
+    <dt>INP</dt><dd>Playwright on Chromium, 412×823 touch emulation, 4× CPU throttle, Event Timing entries per tap, taps made after the page settled</dd>
+    <dt>Host</dt><dd>macOS, headless Chrome for Testing, one run at a time</dd>
+  </dl>
+  <ul class="plain">
+    <li>The numbers depend on the test account: its orders, holdings, notifications and KYC state decide how much each page renders.</li>
+    <li>The three mobile runs of <code>/user/notifications</code> were repeated after the 502 responses; the figures shown are from the repeat.</li>
+    <li>Lighthouse scores are summaries whose weighting changes between versions. Compare the metric values, not the score.</li>
+    <li>The savings quoted above are Lighthouse estimates, not measured gains. Re-run the same three-run mobile median after each fix to confirm.</li>
+  </ul>
+</section>
+
+</div>
