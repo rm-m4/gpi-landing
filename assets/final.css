@@ -3262,7 +3262,11 @@ a.gp-colside__card { justify-content: flex-start; }
    Motion is small and all off under prefers-reduced-motion.
    =================================================================== */
 
+/* These pages load no Tailwind, so nothing resets the body margin or the box
+   model: without both rules the page is taller than the screen and scrolls. */
+.gp-state-page { margin: 0; }
 .gp-state {
+  box-sizing: border-box;
   min-height: 100dvh;
   display: grid;
   place-items: center;
@@ -3291,6 +3295,12 @@ a.gp-colside__card { justify-content: flex-start; }
 .gp-state .gp-cta:focus-visible { outline: 2px solid var(--app-heading-color); outline-offset: 3px; }
 
 .gp-state__float, .gp-state__spin, .gp-state__ring { transform-box: fill-box; transform-origin: center; }
+
+/* A phone on its side: a smaller illustration keeps the page to one screen. */
+@media (max-height: 480px) {
+  .gp-state { padding: 16px 20px; }
+  .gp-state__art { width: 120px; margin-bottom: 0; }
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .gp-state__body > * { animation: gp-state-rise 0.6s cubic-bezier(0.16, 1, 0.3, 1) both; }

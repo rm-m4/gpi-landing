@@ -153,6 +153,7 @@ live site uses.
 python3 pages/_final.py      # -> corporate-bonds.html
 python3 pages/_convert.py    # -> index, fixed-deposits, bond-ipo-online
 python3 pages/_utsav.py      # -> bond-utsav.html (from crawl/rendered/bond-utsav.tabs.json)
+python3 pages/_profile.py    # -> profile.html, profile-no-kyc.html (content/profile.md + Figma 21:2427)
 python3 pages/_build.py      # sync header/footer across pages
 node crawl/check.js          # verify every page, run after any change
 python3 -m http.server 8000  # then open /pages/<name>.html
@@ -166,6 +167,7 @@ node crawl/snap.js                  # browser-rendered HTML -> crawl/rendered/ +
 ./crawl/assets.sh                   # images + design tokens -> assets/
 python3 crawl/extract.py            # copy -> content/*.md
 node crawl/utsav_tabs.js            # every Bond Utsav tab -> bond-utsav.tabs.json
+node crawl/profile_tabs.js          # every /profile section (logged in) -> a temp dir, never the repo: it holds personal data
 ```
 
 `playwright-core` is the only dependency. It needs a cached Chromium: on a new

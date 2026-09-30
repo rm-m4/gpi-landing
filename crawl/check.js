@@ -10,7 +10,7 @@ const { chromium } = require('playwright-core');
 
 const ROOT = path.join(__dirname, '..');
 const OUT = path.join(ROOT, 'crawl', 'local-shots');
-const PORT = 8123;
+const PORT = Number(process.env.PORT) || 8123;
 
 const TYPES = {
   '.html': 'text/html', '.css': 'text/css', '.js': 'text/javascript',
@@ -92,6 +92,26 @@ async function homeChecks(page) {
   return problems;
 }
 
+// The profile sidebar shows one panel at a time and follows the hash.
+async function profileChecks(page, count) {
+  const problems = [];
+  const panels = await page.locator('[data-panel]').count();
+  if (panels !== count) problems.push(`${panels} profile panels, expected ${count}`);
+  const open = () => page.locator('[data-panel]:not([hidden])').evaluateAll((els) => els.map((e) => e.id).join());
+  if ((await open()) !== 'user-details') problems.push(`opens on "${await open()}", expected user-details (script missing?)`);
+  await page.locator('.pr-nav a[href="#orders"]').click();
+  await page.waitForTimeout(500);
+  if ((await open()) !== 'orders') problems.push(`Orders link opened "${await open()}"`);
+  if (!page.url().endsWith('#orders')) problems.push('Orders link did not set the hash');
+  const current = await page.locator('.pr-nav a[aria-current="page"]').innerText();
+  if (current.trim() !== 'Orders') problems.push(`sidebar marks "${current.trim()}" as current, expected Orders`);
+  await page.locator('#orders [role="tab"]').last().click();
+  if (!(await page.locator('#orders-p3').isVisible())) problems.push('order tabs did not switch');
+  const radius = await page.locator('.pr-side').evaluate((el) => getComputedStyle(el).borderRadius);
+  if (parseFloat(radius) !== 20) problems.push(`.pr-side is unstyled (border-radius ${radius}) - profile.css missing?`);
+  return problems;
+}
+
 const BEHAVIOUR = {
   // --- live pages -----------------------------------------------------------
   'corporate-bonds.html': async (page) => {
@@ -122,6 +142,10 @@ const BEHAVIOUR = {
   'user-fixed-deposits.html': async (page) =>
     (await tabChecks(page, { count: 3, firstRows: 3 })).concat(await noneHidden(page)),
   'user-bond-ipo-online.html': async (page) => noneHidden(page),
+
+  // --- profile (pages/_profile.py) ------------------------------------------
+  'profile.html': (page) => profileChecks(page, 8),
+  'profile-no-kyc.html': (page) => profileChecks(page, 2),
 
   // --- archives, which keep their original behaviour ------------------------
   'fixed-deposits-old.html': fdChecks,

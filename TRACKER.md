@@ -932,3 +932,47 @@ footer), page CSS `assets/portfolio.css`, behaviour `pages/_portfolio.js`
   - Inert: Download Report / Cashflow, Proceed, Proceed to sell, Start KYC, the
     purpose chips, the explainer play button, the account switcher.
   - "Regular income" appears twice in the purpose chips, as in the design.
+
+---
+
+## Profile (2026-09-30)
+
+`/profile` for a logged-in user, from the uatnew capture of 2026-09-30 and the
+Figma section 21:2427 (Demat, Nominee Details, Add a new nominee).
+
+| Phase | State | Evidence |
+|---|---|---|
+| A · Capture | done | `node crawl/profile_tabs.js` clicks every sidebar item, expands the Form 121 FAQ, opens each order tab. Output goes to a temp dir: it holds the account holder's details |
+| B · Extract | done | `content/profile.md`, redacted transcription, read against the capture screenshots |
+| C · Build | done | `pages/_profile.py` → `profile.html`, `profile-no-kyc.html`; `assets/profile.css`, `pages/_profile.js`; `check.js` asserts the panel switch, the hash and the order tabs |
+| D · Polish | done with C | Panel entrance, copy feedback, nominee sheet; reduced motion honoured |
+
+Decisions, for review:
+
+- **Sidebar grouping**, as asked: User Details holds Profile, Contact, Personal
+  Details and Investor Details; Demat holds the demat account and Exchange
+  Details; Bank is its own item; Nominee Details is added from Figma. Then
+  Reports And Documents, Account Closure, Orders, Portfolio (links to
+  `portfolio.html`), Form 121 Center, Logout.
+- **One page, panels by hash** (`profile.html#orders`). On the live site Orders
+  and Form 121 Center are routes (`/profile/orders`, `/profile/form121-center`).
+- **Phones** open on the menu and step into a section with a back bar, as the
+  Figma mobile frames do. The live site uses a horizontal tablist instead.
+- **Demat follows Figma, not live**: ACTIVE badge, copy buttons, Account Type,
+  linked bank, lifetime-free note, Close Demat Account. Live has a "Demat
+  Details" card with a Default badge and an edit pencil.
+- **Every value is a placeholder.** Personal values are the Figma persona (Rohit
+  Sharma) or plainly made-up samples (DOB, address, IFSC, UCC); nothing from the
+  captured account. Order and Form 121 rows keep the UAT test account's issuers
+  and figures; the IPO tab's PAN and UPI handle are masked.
+- **"Why does this matter for you? SEO"**: the trailing "SEO" on the UAT FAQ
+  reads as a stray CMS token and is left out. Recorded in `content/profile.md`.
+- **The e-sign notice** on Nominee Details is in the mobile frame only; it is
+  shown at every width.
+- **"Add more nominees"** opens the Figma empty state ("Add a new nominee") as a
+  sheet. The add-nominee form itself is not designed yet, so none was built.
+- **No-KYC page**: from the user's screenshot (short sidebar, red "Complete
+  KYC"). Its Orders tabs show the live empty copy; Form 121 for such an account
+  was not captured, so that item opens `profile.html#form-121`.
+- **Not captured, so not built**: the edit modals behind each pencil, the profile
+  switcher, the language options beyond English.
