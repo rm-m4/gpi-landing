@@ -2,7 +2,7 @@
 
 Project context and rules live in `CLAUDE.md`. This file tracks state only.
 
-**Last updated:** 2026-09-28
+**Last updated:** 2026-09-30
 **Content snapshot:** 2026-09-25 (all hardcoded data carries this date)
 **Now:** All four landing pages converted to the agreed styling and promoted.
 
@@ -833,6 +833,24 @@ assertion was negative-tested by re-breaking the page and confirming it fails.
 | Header/footer duplicated, synced by script | four-page prototype; a template system would be unused complexity |
 | Light theme first | layouts still in flux; dark is a mechanical pass once they settle |
 | Keep Tailwind + Satoshi on their CDNs; do **not** vendor them locally | user's call, 2026-09-25. Pages need a network connection for layout and typography; all content, images and data are local and work offline. Acceptable for a reference artifact — revisit only if it has to be handed over for offline use |
+
+---
+
+## System states (2026-09-30)
+
+`404.html`, `error.html`, `offline.html`, `maintenance.html`. Hand-built, one
+full-screen layout (inline SVG illustration, message, one action), no logo, nav
+or footer. CSS is the `SYSTEM STATES` block at the end of `final.css`; listed
+under Final → System states. `check.js` clean on all four.
+
+- **Generic, not captured from UAT**, at the user's instruction. The wording is
+  plain and matches what uatnew shows for the same four states.
+- **Actions:** 404 links home; error and offline reload ("Try again"); offline
+  also reloads itself when the connection returns; maintenance has no action.
+- **Motion:** content rises in; the glass drifts, the chart line draws, the
+  signal arcs pulse, the gears turn. All off under reduced motion.
+- **Not done:** Netlify still serves its own 404. Pointing it at `404.html`
+  is a small `netlify.toml` change, not made without the user's say.
 
 ---
 

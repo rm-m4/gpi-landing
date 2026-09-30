@@ -3253,3 +3253,67 @@ a.gp-colside__card { justify-content: flex-start; }
   .gp-colpills__row { gap: 8px; }
   .gp-colstrip .gp-stats__item:nth-child(4) { display: none; }
 }
+
+
+/* ===================================================================
+   SYSTEM STATES (pages/404.html, error.html, offline.html,
+   maintenance.html). One full-screen layout: illustration, message,
+   one action. Built on the tokens and gp-cta above.
+   Motion is small and all off under prefers-reduced-motion.
+   =================================================================== */
+
+.gp-state {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 40px 20px;
+}
+.gp-state__body {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  max-width: 480px;
+  text-align: center;
+}
+.gp-state__art { width: min(240px, 64vw); height: auto; margin-bottom: 12px; overflow: visible; }
+.gp-state__code { margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.04em; color: #8a6520; }
+.gp-state__title {
+  margin: 0;
+  font-size: clamp(28px, 5vw, 36px);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--app-heading-color);
+  text-wrap: balance;
+}
+.gp-state__text { margin: 0; max-width: 40ch; font-size: 16px; line-height: 1.55; color: var(--subtext); }
+.gp-state .gp-cta { margin-top: 16px; border: 0.5px solid #fdf2d0; }
+.gp-state .gp-cta:focus-visible { outline: 2px solid var(--app-heading-color); outline-offset: 3px; }
+
+.gp-state__float, .gp-state__spin, .gp-state__ring { transform-box: fill-box; transform-origin: center; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .gp-state__body > * { animation: gp-state-rise 0.6s cubic-bezier(0.16, 1, 0.3, 1) both; }
+  .gp-state__body > :nth-child(2) { animation-delay: 0.08s; }
+  .gp-state__body > :nth-child(3) { animation-delay: 0.14s; }
+  .gp-state__body > :nth-child(4) { animation-delay: 0.2s; }
+  .gp-state__body > :nth-child(5) { animation-delay: 0.26s; }
+
+  /* 404: the glass searches the empty slot. */
+  .gp-state__float { animation: gp-state-float 4s ease-in-out infinite; }
+  /* error: the line draws up to the break, which pings once. */
+  .gp-state__draw { stroke-dasharray: 1; animation: gp-state-draw 1.1s 0.3s ease-out both; }
+  .gp-state__ring { animation: gp-state-ping 2.4s 1.2s ease-out infinite; }
+  /* offline: the signal keeps looking. */
+  .gp-state__arc { animation: gp-state-arc 2.1s calc(var(--i) * 0.3s) ease-in-out infinite; }
+  /* maintenance: 8 teeth drive 6, so the small gear turns back faster. */
+  .gp-state__spin { animation: gp-state-spin 12s linear infinite; }
+  .gp-state__spin--back { animation-duration: 9s; animation-direction: reverse; }
+}
+
+@keyframes gp-state-rise { from { opacity: 0; transform: translateY(12px); } }
+@keyframes gp-state-float { 50% { transform: translate(-7px, 5px); } }
+@keyframes gp-state-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes gp-state-ping { 0% { transform: scale(1); opacity: 0.9; } 60%, 100% { transform: scale(1.9); opacity: 0; } }
+@keyframes gp-state-arc { 0%, 100% { opacity: 0.35; } 40% { opacity: 1; } }
+@keyframes gp-state-spin { to { transform: rotate(360deg); } }
