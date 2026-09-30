@@ -3259,38 +3259,67 @@ a.gp-colside__card { justify-content: flex-start; }
    HOME PROOF (pages/index.html, written by _convert.home_proof()):
    the SEO heading, three milestone cards and the partner logo strip that
    sit between the hero and the asset tabs.
-   The card widths follow the length of each label, so none of them wraps
-   on a desktop and the row does not read as three identical boxes.
+   - Card widths follow the length of each label, so none wraps on a
+     desktop and the row does not read as three identical boxes.
+   - The cards arrive one after another (gp-stagger) and each figure rolls
+     up into place once; the figure itself is never rewritten.
+   - Hover lifts a card and draws the gold hairline on its bottom edge,
+     the same accent the other cards on these pages use.
    =================================================================== */
 .gp-proof { padding-block: 44px 12px; }
 .gp-proof__title {
   margin: 0; font-size: clamp(22px, 2.4vw, 30px); line-height: 1.25; font-weight: 700;
   letter-spacing: -0.3px; color: var(--app-heading-color); text-wrap: balance;
 }
-.gp-proof__stats { display: grid; gap: 12px; margin: 24px 0 0; }
-.gp-proof__stat {
-  display: flex; align-items: center; gap: 16px; min-width: 0; padding: 20px 24px;
-  border: 1px solid #fdf3d4; border-radius: 20px; background: var(--white);
-  box-shadow: 0 2px 1px rgba(50, 40, 17, 0.02);
-  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), border-color 0.3s;
-}
-.gp-proof__stat:hover { transform: translateY(-3px); border-color: #ecd9a0; box-shadow: 0 14px 28px rgba(50, 40, 17, 0.08); }
-.gp-proof__stat img { flex: none; width: 52px; height: 52px; object-fit: contain; transition: transform 0.4s var(--ease); }
-.gp-proof__stat:hover img { transform: scale(1.08) rotate(-3deg); }
-.gp-proof__value { font-size: 24px; line-height: 1.2; font-weight: 700; letter-spacing: -0.2px; color: var(--app-heading-color); }
-.gp-proof__value small { font-size: 0.72em; font-weight: 700; }
-.gp-proof__what { margin: 4px 0 0; font-size: 14px; line-height: 1.4; color: var(--subtext); }
+/* One weight, two inks: the promise first, the product list after it. */
+.gp-proof__title span { color: #8a6520; }
 
-.gp-proof__partners { display: grid; align-items: center; gap: 16px 40px; margin-top: 36px; }
-.gp-proof__label { margin: 0; font-size: 17px; line-height: 1.3; font-weight: 700; color: var(--app-heading-color); }
+.gp-proof__stats { display: grid; gap: 12px; margin: 24px 0 0; padding: 0; list-style: none; }
+.gp-proof__stat { min-width: 0; }
+.gp-proof__card {
+  position: relative; display: flex; align-items: center; gap: 16px; height: 100%; padding: 20px 22px;
+  overflow: hidden; border: 1px solid #fdf3d4; border-radius: 20px;
+  background: linear-gradient(180deg, var(--white) 55%, #fffcf3);
+  box-shadow: 0 2px 1px rgba(50, 40, 17, 0.02);
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s;
+}
+.gp-proof__card::after {
+  content: ""; position: absolute; inset: auto 0 0; height: 3px;
+  background: linear-gradient(90deg, #fdf2d0, #e6b325 50%, #b38600);
+  transform: scaleX(0); transform-origin: left; transition: transform 0.5s var(--ease);
+}
+.gp-proof__card:hover { transform: translateY(-4px); border-color: #ecd9a0; box-shadow: 0 16px 32px rgba(50, 40, 17, 0.09); }
+.gp-proof__card:hover::after { transform: scaleX(1); }
+
+.gp-proof__icon {
+  display: grid; place-items: center; flex: none; width: 64px; height: 64px; border-radius: 18px;
+  background: radial-gradient(circle at 30% 22%, #fffef9, #fdf2d0);
+  box-shadow: inset 0 0 0 1px rgba(212, 175, 55, 0.22), inset 0 1px 0 var(--white);
+}
+.gp-proof__icon img { width: 42px; height: 42px; object-fit: contain; transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.gp-proof__card:hover .gp-proof__icon img { transform: translateY(-3px) scale(1.1); }
+
+.gp-proof__value { margin: 0; font-size: 26px; line-height: 1.25; font-weight: 700; letter-spacing: -0.3px; color: var(--app-heading-color); }
+.gp-proof__value small { font-size: 0.62em; font-weight: 700; letter-spacing: 0; color: #8a6520; }
+.gp-proof__roll { display: inline-flex; overflow: hidden; vertical-align: bottom; }
+.gp-proof__what { margin: 2px 0 0; font-size: 14px; line-height: 1.4; color: var(--subtext); }
+
+.gp-proof__partners { display: grid; align-items: center; gap: 16px 0; margin-top: 36px; }
+.gp-proof__label { display: flex; align-items: center; gap: 10px; margin: 0; font-size: 17px; line-height: 1.3; font-weight: 700; color: var(--app-heading-color); }
+.gp-proof__label img { flex: none; width: 16px; height: 21px; }
 .gp-logos {
   min-width: 0; overflow: hidden;
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
   mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
 }
-.gp-logos__track { display: flex; align-items: center; width: max-content; margin: 0; padding: 6px 0; list-style: none; animation: gp-marquee 38s linear infinite; }
-.gp-logos__track li { flex: none; margin-right: 64px; }
-.gp-logos__track img { display: block; width: auto; height: 40px; object-fit: contain; }
+.gp-logos__track { display: flex; align-items: center; width: max-content; margin: 0; padding: 6px 0; list-style: none; animation: gp-marquee 42s linear infinite; }
+.gp-logos__track li {
+  display: grid; place-items: center; flex: none; height: 60px; margin-right: 16px; padding: 0 24px;
+  border: 1px solid #f3ecd8; border-radius: 16px; background: var(--white);
+  transition: transform 0.3s var(--ease), border-color 0.3s;
+}
+.gp-logos__track li:hover { transform: translateY(-2px); border-color: #e6c766; }
+.gp-logos__track img { display: block; width: auto; max-width: 170px; height: 30px; object-fit: contain; }
 .gp-logos:hover .gp-logos__track { animation-play-state: paused; }
 
 @media (min-width: 640px) and (max-width: 899px) {
@@ -3298,25 +3327,147 @@ a.gp-colside__card { justify-content: flex-start; }
   .gp-proof__stat:last-child { grid-column: 1 / -1; }
 }
 @media (min-width: 900px) {
-  .gp-proof__stats { grid-template-columns: 1fr 1.3fr 1.6fr; gap: 20px; }
+  .gp-proof__stats { grid-template-columns: 1.12fr 1.3fr 1.58fr; gap: 20px; }
   .gp-proof__partners { grid-template-columns: auto minmax(0, 1fr); }
+  .gp-proof__label { margin-right: 28px; padding-right: 28px; border-right: 1px solid var(--light-stroke); }
 }
 @media (max-width: 639px) {
   .gp-proof { padding-block: 32px 4px; }
-  .gp-proof__stat { padding: 16px 18px; gap: 14px; }
-  .gp-proof__stat img { width: 44px; height: 44px; }
-  .gp-proof__value { font-size: 20px; }
+  .gp-proof__card { padding: 16px 18px; gap: 14px; }
+  .gp-proof__icon { width: 54px; height: 54px; border-radius: 16px; }
+  .gp-proof__icon img { width: 36px; height: 36px; }
+  .gp-proof__value { font-size: 22px; }
+  .gp-proof__label { font-size: 16px; }
   .gp-proof__partners { margin-top: 28px; }
-  .gp-logos__track li { margin-right: 40px; }
-  .gp-logos__track img { height: 30px; }
+  .gp-logos__track li { height: 50px; margin-right: 12px; padding: 0 18px; border-radius: 14px; }
+  .gp-logos__track img { height: 24px; max-width: 130px; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-ready .gp-proof__roll > span { display: inline-block; transform: translateY(115%); transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.15s; }
+  .reveal-ready .is-in .gp-proof__roll > span { transform: none; }
+  .reveal-ready .is-in > :nth-child(2) .gp-proof__roll > span { transition-delay: 0.23s; }
+  .reveal-ready .is-in > :nth-child(3) .gp-proof__roll > span { transition-delay: 0.31s; }
+  .reveal-ready .gp-proof__partners[data-reveal] { transition-delay: 0.12s; }
 }
 /* Still: one set of logos, wrapped, and nothing drifting. */
 @media (prefers-reduced-motion: reduce) {
   .gp-logos { -webkit-mask-image: none; mask-image: none; }
-  .gp-logos__track { width: auto; flex-wrap: wrap; row-gap: 16px; animation: none; }
+  .gp-logos__track { width: auto; flex-wrap: wrap; row-gap: 12px; animation: none; }
   .gp-logos__track li:nth-child(n + 5) { display: none; }
-  .gp-proof__stat, .gp-proof__stat img { transition: none; }
-  .gp-proof__stat:hover, .gp-proof__stat:hover img { transform: none; }
+  .gp-proof__card, .gp-proof__card::after, .gp-proof__icon img, .gp-logos__track li { transition: none; }
+  .gp-proof__card:hover, .gp-proof__card:hover .gp-proof__icon img, .gp-logos__track li:hover { transform: none; }
+}
+
+/* -------------------------------------------------------------------
+   gp-proof--band (index.html): the numbers and the logos as one band.
+   It is not a card. The band runs edge to edge on a ground of its own,
+   white with a warm glow behind the heading, closed above and below by
+   gold hairlines that fade out at both ends, so it stands off the page
+   without a box around it. Inside, the figures are large centred
+   columns parted by fading rules, and the partner logos run along the
+   foot. The rules above still draw the earlier layout, kept at
+   pages/index-proof-cards.html.
+   ------------------------------------------------------------------- */
+/* Spacing is the page's own rhythm (see "Heading rhythm" above). The section
+   before ends two head-gaps above the band and the webinar starts two below.
+   Inside, the band is kept low: 1.25 head-gaps of padding, and three quarters
+   of one between heading, figures and logos, so it reads as one strip. */
+.gp-proof--band {
+  position: relative; margin-bottom: calc(var(--head-gap) * 2); padding-block: calc(var(--head-gap) * 1.25);
+  background:
+    radial-gradient(60% 85% at 50% 0%, rgba(253, 242, 208, 0.8), transparent 72%),
+    linear-gradient(180deg, #fffdf7, var(--white) 42%, #fffcf3);
+}
+.gp-proof--band::before, .gp-proof--band::after {
+  content: ""; position: absolute; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, #dfbe5c 22%, #dfbe5c 78%, transparent);
+}
+.gp-proof--band::before { top: 0; }
+.gp-proof--band::after { bottom: 0; }
+.gp-proof__head { text-align: center; }
+.gp-proof__panel { margin-top: calc(var(--head-gap) * 0.75); }
+/* The asset tabs open the page under the hero: same measure above them. */
+.home-hero + #home-assets { padding-top: calc(var(--head-gap) * 2); }
+.gp-proof__sub { margin: 4px 0 0; font-size: 15px; line-height: 1.5; color: var(--subtext); text-wrap: balance; }
+
+.gp-proof--band .gp-proof__stats { gap: 0; margin: 0; }
+.gp-proof--band .gp-proof__stat + .gp-proof__stat { border-top: 1px solid #f1e6c4; }
+.gp-proof--band .gp-proof__card {
+  justify-content: center; gap: 16px; padding: 6px 20px; overflow: visible;
+  border: 0; border-radius: 0; background: none; box-shadow: none;
+}
+.gp-proof--band .gp-proof__card::after { inset: auto 28% -2px; border-radius: 3px; transform-origin: center; }
+.gp-proof--band .gp-proof__card:hover { transform: none; box-shadow: none; }
+/* The medallion: a gold ring round a white core, so the icon sits on the band. */
+.gp-proof--band .gp-proof__icon {
+  width: 56px; height: 56px; border-radius: 50%; background: radial-gradient(circle at 32% 24%, var(--white) 35%, #fdf2d0);
+  box-shadow: inset 0 0 0 1px rgba(212, 175, 55, 0.4), 0 0 0 5px rgba(253, 242, 208, 0.55), 0 8px 18px -8px rgba(179, 134, 0, 0.45);
+}
+.gp-proof--band .gp-proof__icon img { width: 36px; height: 36px; }
+.gp-proof--band .gp-proof__value { font-size: clamp(26px, 2.7vw, 36px); line-height: 1.1; letter-spacing: -0.6px; }
+.gp-proof--band .gp-proof__value small { font-size: 0.5em; letter-spacing: 0; }
+.gp-proof--band .gp-proof__what { margin-top: 3px; font-size: 13px; }
+/* The heading names the partners, so the foot is the logos alone. */
+.gp-proof--band .gp-proof__partners { position: relative; display: block; margin: calc(var(--head-gap) * 0.75) 0 0; padding: 14px 0 0; }
+.gp-proof--band .gp-proof__partners::before {
+  content: ""; position: absolute; inset: 0 0 auto; height: 1px;
+  background: linear-gradient(90deg, transparent, #ecdcae 20%, #ecdcae 80%, transparent);
+}
+/* In the band the logos need no chips of their own. */
+.gp-proof--band .gp-logos__track { padding: 0; }
+.gp-proof--band .gp-logos__track li { height: 40px; margin-right: 56px; padding: 0; border: 0; border-radius: 0; background: none; }
+.gp-proof--band .gp-logos__track li:hover { transform: none; }
+.gp-proof--band .gp-logos__track img { height: 28px; }
+
+@media (min-width: 640px) {
+  /* Icon beside figure, centred in its column, each column parted by a rule
+     that fades out. Widths follow the labels so none of them wraps. */
+  .gp-proof--band .gp-proof__stats { grid-template-columns: 1fr 1.2fr 1.4fr; }
+  .gp-proof--band .gp-proof__stat:last-child { grid-column: auto; }
+  .gp-proof--band .gp-proof__stat + .gp-proof__stat {
+    border-top: 0; border-left: 1px solid;
+    border-image: linear-gradient(180deg, transparent, #e6d197 22%, #e6d197 78%, transparent) 1;
+  }
+}
+@media (max-width: 639px) {
+  .gp-proof--band .gp-proof__card { justify-content: flex-start; gap: 14px; padding: 10px 4px; }
+  .gp-proof--band .gp-proof__card::after { display: none; }
+  .gp-proof--band .gp-proof__icon { width: 46px; height: 46px; }
+  .gp-proof--band .gp-proof__icon img { width: 30px; height: 30px; }
+  .gp-proof--band .gp-proof__value { font-size: 24px; }
+  .gp-proof--band .gp-proof__partners { padding-top: 12px; }
+  .gp-proof--band .gp-logos__track li { height: 34px; margin-right: 36px; }
+  .gp-proof--band .gp-logos__track img { height: 24px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  /* The band is already there when its columns arrive. */
+  .reveal-ready .gp-proof--band .gp-proof__stats[data-reveal] { transition-delay: 0s; }
+  /* The two hairlines draw outward from the centre as the band arrives. */
+  .reveal-ready .gp-proof--band::before, .reveal-ready .gp-proof--band::after { transform: scaleX(0); transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.15s; }
+  .reveal-ready .gp-proof--band.is-in::before, .reveal-ready .gp-proof--band.is-in::after { transform: none; }
+  /* The band fades in where it stands: a full-width ground should not slide. */
+  .reveal-ready .gp-proof--band[data-reveal] { transform: none; }
+}
+
+/* ===================================================================
+   HOME HERO ON PHONES (pages/index.html).
+   Marketing's mobile banner (813 x 1346) is drawn for this: the bond card
+   fills the top two fifths and the rest is left dark for the copy. The
+   page's own <style> set it to cover the whole hero behind the copy, so
+   the card sat under the badges and the heading. Here the banner keeps
+   its own proportions from the top edge and the copy starts below the
+   card. The art itself is untouched. "section" outranks the page rule.
+   =================================================================== */
+@media (max-width: 767px) {
+  section.home-hero { background-color: #0b0806; background-size: 100% auto; background-position: center top; }
+  /* Clear over the card, then dark enough to carry the copy and to hide
+     where the banner ends on a long hero. */
+  section.home-hero::before {
+    background: linear-gradient(180deg, rgba(11, 8, 6, 0) 0, rgba(11, 8, 6, 0) 54vw, rgba(11, 8, 6, 0.72) 70vw, #0b0806 150vw);
+  }
+  /* The card ends about 61% of the banner's width down. */
+  .home-hero > .gp-shell { padding-top: 64vw; }
 }
 
 /* ===================================================================

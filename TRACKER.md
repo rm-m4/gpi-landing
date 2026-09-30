@@ -998,7 +998,49 @@ in `final.css`. It replaces the plain centred logo row.
   two-plus-one from 640px, stacked on phones.
 - **Figures are not counted up**: the count-up reformats 6300 as 6,300.
 - **Logo strip** pauses on hover; under reduced motion it is one still, wrapped set.
+- **Polish pass (same day):** heading in two inks (promise, then product list);
+  icons on cream tiles; cards stagger in (`gp-stagger`) and each figure rolls up
+  once; hover lifts the card and draws the gold hairline on its bottom edge;
+  logos sit in white chips; a shield icon (`verified_user.svg`) leads the partner
+  label. The milestones are a `<ul>` so the card can be a wrapper inside the
+  staggered item.
 - Regenerating also moved "View all Bond Collections" on fixed-deposits and
   bond-ipo-online to `collections-all-bonds.html`, which the shell already said.
 - **Pre-existing, not touched:** the listing rows overflow by 61px at about 820px
   wide on index and corporate-bonds (`.gp-row__actions`).
+- **Combined panel (same day):** numbers and logos now share one panel on
+  `index.html` (`gp-proof--band`): the three figures as columns split by
+  hairlines, the partner logos as the panel's foot, no chips. The cards-plus-chips
+  version is frozen at `index-proof-cards.html` (Iterations → Homepage); it is a
+  hand-kept copy, no generator writes it, and the base `.gp-proof` rules in
+  `final.css` still draw it.
+- **Heading changed at the user's instruction (same day):** the block is headed
+  "Trusted by 18 Lac+ users and leading institutions" (the user's wording, not
+  captured copy); the SEO line "Buy Bonds Online in India - ..." sits under it as
+  a sub-line, and the "Trusted by leading financial institutions" label over the
+  logos is gone. Noted in `content/home.md`.
+- **Centred, no card (same day):** the heading and its sub-line are centred and
+  the white panel is gone: figures and logos sit on the page ground, split by
+  hairlines, with a soft white tint on hover.
+- **Moved ahead of the webinar (same day):** the proof block now sits after the
+  asset tabs and before the webinar, not under the hero. It follows the page's
+  heading rhythm: flush to the section before, one head-gap from heading to
+  figures, two below (64 / 32 / 64px on desktop, 40 / 20 / 40px on phones,
+  measured). The asset tabs, now first under the hero, take the same two
+  head-gaps above their heading instead of `pt-4`.
+- **A ground of its own, still no card (same day):** on the bare page the block
+  read as bland. It is now a full-width band: white with a warm glow behind the
+  heading, closed above and below by gold hairlines that fade at both ends and
+  draw outward on arrival. Figures are large and centred, each under an icon
+  medallion, parted by fading rules; phones keep icon-left rows. Spacing: two
+  head-gaps outside the band on each side and two inside it (64px on desktop,
+  40px on phones), one from heading to figures.
+- **Band made lower (same day):** about 515px to 319px on desktop and 453px on
+  phones. Icon sits beside the figure instead of above it, inner padding is 1.25
+  head-gaps (was 2), heading, figures and logos are three quarters of a head-gap
+  apart, and the logo row is 40px. The space outside the band is unchanged.
+- **Home hero on phones (same day):** the mobile banner keeps its own
+  proportions from the top edge and the copy starts below the bond card, instead
+  of the banner covering the whole hero behind the copy (as it had since the
+  first commit). `HOME HERO ON PHONES` block in `final.css`; desktop and the art
+  itself are untouched.

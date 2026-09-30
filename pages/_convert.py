@@ -275,39 +275,58 @@ MILESTONES = [("users.png", "18", "Lac+", "registered users &amp; growing"),
 
 def home_proof():
     """The heading, milestone cards and partner marquee between the hero and the
-    asset tabs. Copy is from the uatnew message bundle (landing.stats.heading and
-    the milestone strings), read 2026-09-30; the layout follows the user's
-    screenshot of the home section, which uatnew does not serve yet."""
+    asset tabs. The milestones and the sub-line are from the uatnew message
+    bundle (landing.stats.heading and the milestone strings), read 2026-09-30.
+    The heading is the user's own wording, given 2026-09-30; it takes the place
+    of the "Trusted by leading financial institutions" label over the logos."""
+    # The card is a wrapper inside each item: the item staggers in (gp-stagger
+    # owns its transition), the card answers the pointer.
     stats = "".join(
-        '      <div class="gp-proof__stat">\n'
-        '        <img src="../assets/img/%s" alt="" width="52" height="52">\n'
-        '        <div><dt class="gp-proof__value">%s <small>%s</small></dt>'
-        '<dd class="gp-proof__what">%s</dd></div>\n      </div>\n' % m for m in MILESTONES)
+        '        <li class="gp-proof__stat"><div class="gp-proof__card">\n'
+        '          <span class="gp-proof__icon"><img src="../assets/img/%s" alt="" width="42" height="42"></span>\n'
+        '          <div><p class="gp-proof__value"><span class="gp-proof__roll"><span>%s <small>%s</small></span></span></p>'
+        '<p class="gp-proof__what">%s</p></div>\n        </div></li>\n' % m for m in MILESTONES)
     # Two sets per half so the strip outruns a wide screen; the second half is
     # the copy that makes the loop seamless.
-    logos = "".join('<li><img src="../assets/img/%s" alt="%s" height="40"></li>' % p for p in PARTNERS) * 2
-    clones = "".join('<li aria-hidden="true"><img src="../assets/img/%s" alt="" height="40"></li>' % f
+    logos = "".join('<li><img src="../assets/img/%s" alt="%s" height="30"></li>' % p for p in PARTNERS) * 2
+    clones = "".join('<li aria-hidden="true"><img src="../assets/img/%s" alt="" height="30"></li>' % f
                      for f, _ in PARTNERS) * 2
+    # gp-proof--band: numbers and logos are one full-width band with a ground of
+    # its own, under a centred heading: the figures as columns and the partner
+    # logos as its foot. The earlier layout, separate cards above a
+    # row of logo chips, is kept at index-proof-cards.html.
     return ('  <!-- ============================================================ proof -->\n'
-            '  <section data-reveal class="gp-shell gp-proof" aria-labelledby="home-proof-title">\n'
-            '    <h2 class="gp-proof__title" id="home-proof-title">Buy Bonds Online in India - '
-            'Corporate Bonds, NCD IPOs &amp; Fixed Deposits</h2>\n'
-            '    <!-- DATA: platform milestones. -->\n'
-            '    <dl class="gp-proof__stats">\n%s    </dl>\n'
-            '    <div class="gp-proof__partners">\n'
-            '      <h3 class="gp-proof__label">Trusted by leading financial institutions</h3>\n'
-            '      <div class="gp-logos"><ul class="gp-logos__track" role="list">%s%s</ul></div>\n'
-            '    </div>\n  </section>\n\n' % (stats, logos, clones))
+            '  <section data-reveal class="gp-proof gp-proof--band" aria-labelledby="home-proof-title">\n'
+            '  <div class="gp-shell">\n'
+            '    <div data-reveal class="gp-proof__head">\n'
+            '      <h2 class="gp-proof__title" id="home-proof-title">Trusted by 18 Lac+ users '
+            '<span>and leading institutions</span></h2>\n'
+            '      <p class="gp-proof__sub">Buy Bonds Online in India - Corporate Bonds, NCD IPOs &amp; Fixed Deposits</p>\n'
+            '    </div>\n'
+            '    <div data-reveal class="gp-proof__panel">\n'
+            '      <!-- DATA: platform milestones. -->\n'
+            '      <ul data-reveal class="gp-proof__stats gp-stagger" role="list">\n%s      </ul>\n'
+            '      <div class="gp-proof__partners">\n'
+            '        <div class="gp-logos"><ul class="gp-logos__track" role="list">%s%s</ul></div>\n'
+            '      </div>\n    </div>\n  </div>\n  </section>\n\n' % (stats, logos, clones))
 
 
 def build_index():
     html = open(os.path.join(HERE, "index-old.html"), encoding="utf-8").read()
     html = common(html, "index")
 
-    # The plain "trusted by" row becomes the proof section.
+    # The plain "trusted by" row under the hero goes; the proof section that
+    # replaces it sits after the asset tabs, ahead of the webinar.
     start = html.index('  <!-- ========================================================== trusted -->')
     end = html.index('  <!-- ====================================================== asset explorer -->', start)
-    html = html[:start] + home_proof() + html[end:]
+    html = html[:start] + html[end:]
+    # The tabs now follow the hero directly, so they take the section rhythm
+    # from final.css instead of the small top padding they had under that row.
+    tight = '<section data-reveal class="gp-section pt-4" id="home-assets">'
+    assert tight in html
+    html = html.replace(tight, '<section data-reveal class="gp-section" id="home-assets">', 1)
+    at = html.index('  <!-- =========================================================== webinar -->')
+    html = html[:at] + home_proof() + html[at:]
 
     tabs = home_tabs()
 

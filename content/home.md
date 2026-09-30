@@ -81,6 +81,11 @@
 - ₹6300 Cr+ / total transaction through our platform
 - ₹3000 Cr+ / worth of bonds available on the platform everyday
 
+<!-- 2026-09-30, user's wording: the built page heads this block "Trusted by
+     18 Lac+ users and leading institutions", keeps the line above as its
+     sub-line and drops the label below from over the logos. The message bundle
+     also has "Trusted by 18 Lac+ users and Market Leaders" (logged-in home). -->
+
 ### Trusted by leading financial institutions
 
 <!-- section: home-assets -->
