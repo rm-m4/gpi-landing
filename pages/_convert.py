@@ -265,9 +265,49 @@ def home_tabs():
     return tabs
 
 
+PARTNERS = [("Sakthi-Finance-logo.png", "Sakthi Finance"), ("centrum.png", "Centrum"),
+            ("axis-securities.png", "Axis Securities"), ("anand-rathi.webp", "Anand Rathi")]
+# (icon, value, unit, label): the platform milestones.
+MILESTONES = [("users.png", "18", "Lac+", "registered users &amp; growing"),
+              ("portfolio/info-gains.png", "&#8377;6300", "Cr+", "total transaction through our platform"),
+              ("portfolio/cash.png", "&#8377;3000", "Cr+", "worth of bonds available on the platform everyday")]
+
+
+def home_proof():
+    """The heading, milestone cards and partner marquee between the hero and the
+    asset tabs. Copy is from the uatnew message bundle (landing.stats.heading and
+    the milestone strings), read 2026-09-30; the layout follows the user's
+    screenshot of the home section, which uatnew does not serve yet."""
+    stats = "".join(
+        '      <div class="gp-proof__stat">\n'
+        '        <img src="../assets/img/%s" alt="" width="52" height="52">\n'
+        '        <div><dt class="gp-proof__value">%s <small>%s</small></dt>'
+        '<dd class="gp-proof__what">%s</dd></div>\n      </div>\n' % m for m in MILESTONES)
+    # Two sets per half so the strip outruns a wide screen; the second half is
+    # the copy that makes the loop seamless.
+    logos = "".join('<li><img src="../assets/img/%s" alt="%s" height="40"></li>' % p for p in PARTNERS) * 2
+    clones = "".join('<li aria-hidden="true"><img src="../assets/img/%s" alt="" height="40"></li>' % f
+                     for f, _ in PARTNERS) * 2
+    return ('  <!-- ============================================================ proof -->\n'
+            '  <section data-reveal class="gp-shell gp-proof" aria-labelledby="home-proof-title">\n'
+            '    <h2 class="gp-proof__title" id="home-proof-title">Buy Bonds Online in India - '
+            'Corporate Bonds, NCD IPOs &amp; Fixed Deposits</h2>\n'
+            '    <!-- DATA: platform milestones. -->\n'
+            '    <dl class="gp-proof__stats">\n%s    </dl>\n'
+            '    <div class="gp-proof__partners">\n'
+            '      <h3 class="gp-proof__label">Trusted by leading financial institutions</h3>\n'
+            '      <div class="gp-logos"><ul class="gp-logos__track" role="list">%s%s</ul></div>\n'
+            '    </div>\n  </section>\n\n' % (stats, logos, clones))
+
+
 def build_index():
     html = open(os.path.join(HERE, "index-old.html"), encoding="utf-8").read()
     html = common(html, "index")
+
+    # The plain "trusted by" row becomes the proof section.
+    start = html.index('  <!-- ========================================================== trusted -->')
+    end = html.index('  <!-- ====================================================== asset explorer -->', start)
+    html = html[:start] + home_proof() + html[end:]
 
     tabs = home_tabs()
 

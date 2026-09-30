@@ -976,3 +976,29 @@ Decisions, for review:
   was not captured, so that item opens `profile.html#form-121`.
 - **Not captured, so not built**: the edit modals behind each pencil, the profile
   switcher, the language options beyond English.
+
+---
+
+## Home proof section (2026-09-30)
+
+`index.html`, between the hero and the asset tabs: the heading "Buy Bonds Online
+in India - Corporate Bonds, NCD IPOs & Fixed Deposits", three milestone cards and
+the partner logos as a moving strip beside "Trusted by leading financial
+institutions". Written by `_convert.home_proof()`; CSS is the `HOME PROOF` block
+in `final.css`. It replaces the plain centred logo row.
+
+- **Source:** copy is in the uatnew message bundle (`landing.stats.heading`, the
+  milestone strings); uatnew does not render the block yet, so the layout is from
+  the user's screenshot. Recorded in `content/home.md`.
+- **Heading is an `<h2>`**: the hero keeps the page's one `<h1>`.
+- **Icons:** `users.png` and `portfolio/cash.png` match the screenshot. The middle
+  one (chart with coins) is not in the repo or on the CDN; `portfolio/info-gains.png`
+  is the closest and stands in until the real asset is supplied.
+- **Card widths follow label length** (1 : 1.3 : 1.6) so no label wraps on desktop;
+  two-plus-one from 640px, stacked on phones.
+- **Figures are not counted up**: the count-up reformats 6300 as 6,300.
+- **Logo strip** pauses on hover; under reduced motion it is one still, wrapped set.
+- Regenerating also moved "View all Bond Collections" on fixed-deposits and
+  bond-ipo-online to `collections-all-bonds.html`, which the shell already said.
+- **Pre-existing, not touched:** the listing rows overflow by 61px at about 820px
+  wide on index and corporate-bonds (`.gp-row__actions`).

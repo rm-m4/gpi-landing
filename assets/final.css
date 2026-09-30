@@ -3256,6 +3256,70 @@ a.gp-colside__card { justify-content: flex-start; }
 
 
 /* ===================================================================
+   HOME PROOF (pages/index.html, written by _convert.home_proof()):
+   the SEO heading, three milestone cards and the partner logo strip that
+   sit between the hero and the asset tabs.
+   The card widths follow the length of each label, so none of them wraps
+   on a desktop and the row does not read as three identical boxes.
+   =================================================================== */
+.gp-proof { padding-block: 44px 12px; }
+.gp-proof__title {
+  margin: 0; font-size: clamp(22px, 2.4vw, 30px); line-height: 1.25; font-weight: 700;
+  letter-spacing: -0.3px; color: var(--app-heading-color); text-wrap: balance;
+}
+.gp-proof__stats { display: grid; gap: 12px; margin: 24px 0 0; }
+.gp-proof__stat {
+  display: flex; align-items: center; gap: 16px; min-width: 0; padding: 20px 24px;
+  border: 1px solid #fdf3d4; border-radius: 20px; background: var(--white);
+  box-shadow: 0 2px 1px rgba(50, 40, 17, 0.02);
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease), border-color 0.3s;
+}
+.gp-proof__stat:hover { transform: translateY(-3px); border-color: #ecd9a0; box-shadow: 0 14px 28px rgba(50, 40, 17, 0.08); }
+.gp-proof__stat img { flex: none; width: 52px; height: 52px; object-fit: contain; transition: transform 0.4s var(--ease); }
+.gp-proof__stat:hover img { transform: scale(1.08) rotate(-3deg); }
+.gp-proof__value { font-size: 24px; line-height: 1.2; font-weight: 700; letter-spacing: -0.2px; color: var(--app-heading-color); }
+.gp-proof__value small { font-size: 0.72em; font-weight: 700; }
+.gp-proof__what { margin: 4px 0 0; font-size: 14px; line-height: 1.4; color: var(--subtext); }
+
+.gp-proof__partners { display: grid; align-items: center; gap: 16px 40px; margin-top: 36px; }
+.gp-proof__label { margin: 0; font-size: 17px; line-height: 1.3; font-weight: 700; color: var(--app-heading-color); }
+.gp-logos {
+  min-width: 0; overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
+}
+.gp-logos__track { display: flex; align-items: center; width: max-content; margin: 0; padding: 6px 0; list-style: none; animation: gp-marquee 38s linear infinite; }
+.gp-logos__track li { flex: none; margin-right: 64px; }
+.gp-logos__track img { display: block; width: auto; height: 40px; object-fit: contain; }
+.gp-logos:hover .gp-logos__track { animation-play-state: paused; }
+
+@media (min-width: 640px) and (max-width: 899px) {
+  .gp-proof__stats { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .gp-proof__stat:last-child { grid-column: 1 / -1; }
+}
+@media (min-width: 900px) {
+  .gp-proof__stats { grid-template-columns: 1fr 1.3fr 1.6fr; gap: 20px; }
+  .gp-proof__partners { grid-template-columns: auto minmax(0, 1fr); }
+}
+@media (max-width: 639px) {
+  .gp-proof { padding-block: 32px 4px; }
+  .gp-proof__stat { padding: 16px 18px; gap: 14px; }
+  .gp-proof__stat img { width: 44px; height: 44px; }
+  .gp-proof__value { font-size: 20px; }
+  .gp-proof__partners { margin-top: 28px; }
+  .gp-logos__track li { margin-right: 40px; }
+  .gp-logos__track img { height: 30px; }
+}
+/* Still: one set of logos, wrapped, and nothing drifting. */
+@media (prefers-reduced-motion: reduce) {
+  .gp-logos { -webkit-mask-image: none; mask-image: none; }
+  .gp-logos__track { width: auto; flex-wrap: wrap; row-gap: 16px; animation: none; }
+  .gp-logos__track li:nth-child(n + 5) { display: none; }
+  .gp-proof__stat, .gp-proof__stat img { transition: none; }
+  .gp-proof__stat:hover, .gp-proof__stat:hover img { transform: none; }
+}
+
+/* ===================================================================
    SYSTEM STATES (pages/404.html, error.html, offline.html,
    maintenance.html). One full-screen layout: illustration, message,
    one action. Built on the tokens and gp-cta above.

@@ -69,6 +69,18 @@
 
 <!-- section: gp-page-shell -->
 
+### Buy Bonds Online in India - Corporate Bonds, NCD IPOs & Fixed Deposits
+
+<!-- Added by hand 2026-09-30. The heading is `landing.stats.heading` in the
+     uatnew message bundle; the three figures are the milestone strings in the
+     same bundle (also on production's SGB and G-Sec pages). uatnew does not
+     render this block yet: the layout (heading, three cards, then the partner
+     logos as a strip beside their label) is from the user's screenshot. -->
+
+- 18 Lac+ / registered users & growing
+- ₹6300 Cr+ / total transaction through our platform
+- ₹3000 Cr+ / worth of bonds available on the platform everyday
+
 ### Trusted by leading financial institutions
 
 <!-- section: home-assets -->
