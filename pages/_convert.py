@@ -336,6 +336,30 @@ def build_index():
     end = html.index('</div>', html.index('View All</a>', end)) + len('</div>')
     html = html[:start] + tabstrip(tabs) + "\n" + html[end:]
 
+    # Hero stats: three tiles, one row at every width; the Minimum
+    # Investment tile was dropped at the user's request (2026-10-01).
+    tile = html.index('        <div class="rounded-xl border border-[#4a3f2a] bg-[#241c14]/70 p-4">\n'
+                      '          <img src="../assets/img/coin-icon.png"')
+    html = html[:tile] + html[html.index('</div>\n', tile) + len('</div>\n'):]
+    # From sm the grid keeps its four columns so each tile keeps its old
+    # width; the fourth slot stays empty. Phones get the three in one row.
+    grid = '<dl class="mt-8 grid max-w-2xl grid-cols-2 gap-3 sm:grid-cols-4">'
+    assert grid in html
+    html = html.replace(grid, '<dl class="mt-8 grid max-w-2xl grid-cols-3 gap-2 sm:grid-cols-4 sm:gap-3">', 1)
+
+    # The heading's asset rolls through the three products (user request,
+    # 2026-10-01). The heading's text stays the live one for screen readers
+    # and search; the roller is decoration, and stops on NCD IPOs without motion.
+    word = '<span class="text-gold">NCD IPOs</span>'
+    assert word in html
+    html = html.replace(word, (
+        '<span class="sr-only">NCD IPOs</span>'
+        '<span class="gp-roll text-gold" aria-hidden="true"><span class="gp-roll__track">'
+        '<span>NCD IPOs</span><span>Fixed Deposits</span><span>Corporate Bonds</span><span>NCD IPOs</span>'
+        '</span></span>'), 1)
+    html = html.replace('<div class="rounded-xl border border-[#4a3f2a] bg-[#241c14]/70 p-4">',
+                        '<div class="rounded-xl border border-[#4a3f2a] bg-[#241c14]/70 p-3 sm:p-4">', 3)
+
     html = collections(html)
     html = F.faq_with_help(html)
     return scripts(html)

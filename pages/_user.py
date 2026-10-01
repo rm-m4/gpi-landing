@@ -2,6 +2,7 @@
 """Generate the four post-login landing pages from the goldenpi.com capture.
 
     user-explore.html          <- https://goldenpi.com/user/explore
+    user-explore-no-kyc.html   <- the same, no banner configured, KYC incomplete
     user-fixed-deposits.html   <- https://goldenpi.com/user/fixed-deposits
     user-corporate-bonds.html  <- https://goldenpi.com/user/corporate-bonds
     user-bond-ipo-online.html  <- https://goldenpi.com/user/bond-ipo-online
@@ -244,25 +245,118 @@ def product_carousel():
         '      </script>\n') % (slides, dots)
 
 
-def portfolio():
-    stats = [("Current Value", "&#8377; 0"), ("Total Invested", "&#8377; 0"),
-             ("Principal Repaid", "&#8377; 0"), ("Interest Earned", "&#8377; 0")]
+# Definitions from the portfolio page's Active investment sheet
+# (_portfolio.SHEETS, Figma 4:6702), word for word.
+ACTIVE_TIPS = {
+    "Outstanding": "The value of all your active investments. This is the amount you will receive if holding "
+                   "the investments till maturity. This excludes already sold or matured investments.",
+    "Total Invested": "Total amount invested in all your active investments.",
+    "Repaid": "Total amount repaid to you across all your active investments including both interest and "
+              "principal repayment",
+    "Gains": "Total gains from your active investments, including interest that has been repaid and accrued",
+}
+
+
+def tip(label):
+    """The product pages' info tooltip (.gp-tip): hover or focus shows it."""
+    return ('<span class="gp-tip"><button type="button" class="gp-tip__btn" aria-label="What is %s?">'
+            '<img src="../assets/img/info.svg" alt="" width="14" height="14"></button>'
+            '<span class="gp-tip__text" role="tooltip">%s</span></span>') % (label, ACTIVE_TIPS[label])
+
+
+def active_portfolio():
+    """Portfolio card, invested state: Outstanding leads, the other three
+    figures sit below it. Labels and sample values follow the portfolio
+    page's Active investment card."""
+    rest = [("Total Invested", "100 Cr", ""), ("Repaid", "80 Cr", ""),
+            ("Gains", "5 Cr", ' class="gp-active__gain"')]
     cells = "\n".join(
-        '          <div>\n            <dt>%s</dt>\n            <dd>%s</dd>\n          </div>' % s
-        for s in stats)
-    card = (
-        '      <!-- DATA: the account\'s portfolio, all zero on this capture (KYC incomplete). -->\n'
-        '      <div class="gp-portfolio">\n'
+        '            <div>\n              <dt>%s%s</dt>\n              <dd%s>&#8377;%s</dd>\n            </div>'
+        % (k, tip(k), cls, v) for k, v, cls in rest)
+    return (
+        '      <!-- DATA: active investment totals; sample values from the design, as on'
+        ' portfolio.html. -->\n'
+        '      <div class="gp-portfolio gp-portfolio--active">\n'
         '        <p class="gp-portfolio__strip">\n'
         '          <img src="../assets/img/finance_mode_gold.svg" alt="" width="18" height="18">\n'
         '          You have joined 9Lakh+ users!\n        </p>\n'
-        '        <dl class="gp-portfolio__stats">\n%s\n        </dl>\n'
-        '        <div class="gp-portfolio__kyc">\n'
-        '          <span class="gp-portfolio__ring" aria-hidden="true">100%%</span>\n'
-        '          <p>Complete your KYC to start investing</p>\n'
-        '          <button type="button" class="gp-cta gp-cta--primary gp-cta--sm">Complete KYC</button>\n'
-        '        </div>\n      </div>\n') % cells
+        '        <div class="gp-active">\n'
+        '          <p class="gp-active__title">Active portfolio</p>\n'
+        '          <p class="gp-active__lead"><span>Outstanding%s</span>'
+        '<strong>&#8377;25 Cr</strong></p>\n'
+        '          <dl class="gp-active__rest">\n%s\n          </dl>\n'
+        '        </div>\n'
+        '      </div>\n') % (tip("Outstanding"), cells)
+
+
+def portfolio(card):
     return section("portfolio", '      <div class="gp-snapshot">\n' + product_carousel() + card + '      </div>')
+
+
+
+# Shown when no promo banner is configured. Every string is captured copy:
+# "500+ Bonds" / "₹3000 Cr+" from the trust stats, "View All" from the
+# listing; the heading is the section's job, Explore all bonds.
+FALLBACK_BANNER = (
+    '  <!-- ====================================================== banner (fallback) -->\n'
+    '  <!-- Rendered when the CMS returns no banner; same box as the banner image.\n'
+    '       Stats are the trust-strip figures of 2026-09-26. -->\n'
+    '  <section class="gp-shell gp-banner">\n'
+    '    <div class="gp-fallback">\n'
+    '      <div class="gp-fallback__inner">\n'
+    '        <div>\n'
+    '          <h2 class="gp-fallback__title">Explore all bonds</h2>\n'
+    '          <ul class="gp-fallback__stats">\n'
+    '            <li><strong>500+ Bonds</strong>explore from variety of bonds</li>\n'
+    '            <li><strong>&#8377;3000 Cr+</strong>worth of bonds available on the platform everyday</li>\n'
+    '          </ul>\n'
+    '        </div>\n'
+    '        <img class="gp-fallback__art" src="../assets/img/All_Bonds.svg" alt="" width="160" height="160">\n'
+    '        <a class="gp-cta gp-cta--primary gp-cta--sm gp-fallback__cta" href="collections-all-bonds.html"'
+    ' aria-label="Explore all bonds">\n'
+    '          <span class="gp-fallback__label">View All</span>\n'
+    '          <img class="gp-fallback__arrow" src="../assets/img/explore-collection-right-arrow.svg" alt=""'
+    ' width="14" height="14">\n'
+    '        </a>\n'
+    '      </div>\n'
+    '    </div>\n'
+    '  </section>\n')
+
+
+def portfolio_no_kyc():
+    """Portfolio card for an account without KYC: no values, one message,
+    and two ways forward. Heading, support line and CTA were supplied by the
+    user on 2026-10-01, not captured from the live site."""
+    return (
+        '      <!-- Shown instead of the portfolio card until KYC is complete. -->\n'
+        '      <div class="gp-portfolio gp-portfolio--nokyc">\n'
+        '        <span class="gp-nokyc__icon"><img src="../assets/img/check-kyc.svg" alt=""'
+        ' width="26" height="26"></span>\n'
+        '        <p class="gp-nokyc__title">Complete KYC to start investing</p>\n'
+        '        <p class="gp-nokyc__sub">Need help with KYC or bond investing? Our Support Team is here to help you understand how bonds work.</p>\n'
+        '        <div class="gp-nokyc__ctas">\n'
+        '          <button type="button" class="gp-cta gp-cta--primary">Continue KYC</button>\n'
+        '          <a class="gp-cta gp-cta--secondary" href="tel:080-45685666">\n'
+        '            <img src="../assets/img/phone-icon.svg" alt="" width="14" height="14">080-45685666</a>\n'
+        '        </div>\n'
+        '      </div>\n')
+
+
+def page_explore_no_kyc():
+    """Explore with no banner configured and KYC incomplete. Pending orders
+    is dropped: an account without KYC cannot place one."""
+    return [
+        greet("Hi %s!" % NAME, "Let GoldenPi help you start your fixed-income investment journey"),
+        FALLBACK_BANNER,
+        portfolio(portfolio_no_kyc()),
+        listing("Special Corporate Bond Deals for you!", explore_tabs()),
+        recently_viewed(),
+        collections(),
+        quiz(),
+        trusted("explore"),
+        blog_section("explore"),
+        faq("explore"),
+    ]
 
 
 # Rows exactly as the capture shows them: the new yield, the old one struck.
@@ -583,7 +677,7 @@ def page_explore():
     return [
         greet("Hi %s!" % NAME, "Let GoldenPi help you start your fixed-income investment journey"),
         BANNER,
-        portfolio(),
+        portfolio(active_portfolio()),
         pending_orders(),
         listing("Special Corporate Bond Deals for you!", explore_tabs()),
         recently_viewed(),
@@ -838,6 +932,7 @@ def page_ipo():
 
 PAGES = [
     ("user-explore.html", "explore", None, page_explore),
+    ("user-explore-no-kyc.html", "explore", None, page_explore_no_kyc),
     ("user-fixed-deposits.html", "fixed-deposits", "fd", page_fd),
     ("user-corporate-bonds.html", "corporate-bonds", "bonds", page_corporate),
     ("user-bond-ipo-online.html", "bond-ipo-online", None, page_ipo),

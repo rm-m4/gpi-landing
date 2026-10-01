@@ -87,47 +87,79 @@
   font-weight: 700;
 }
 
-.gp-portfolio__stats {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px 24px;
-  margin: 0;
-  padding: 22px 24px;
-}
-
-.gp-portfolio__stats dt { color: var(--subtext); font-size: 13px; }
-.gp-portfolio__stats dd {
-  margin: 4px 0 0;
-  color: var(--app-heading-color);
-  font-size: 22px;
-  font-weight: 700;
-  font-variant-numeric: tabular-nums;
-}
-
-.gp-portfolio__kyc {
+/* Invested state: Outstanding is the headline figure, the other three sit
+   in a quieter row. Warm tint and a gold-tinted shadow, as the strip above. */
+.gp-portfolio--active {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 12px 16px;
-  margin: 0 16px 16px;
-  padding: 14px 16px;
-  border-radius: 14px;
-  background: #fbf6ea;
+  flex-direction: column;
+  background:
+    radial-gradient(circle at 100% 100%, rgba(212, 175, 55, 0.12), transparent 45%),
+    #fff;
+  box-shadow: 0 10px 30px rgba(166, 124, 0, 0.08);
 }
-
-.gp-portfolio__kyc p { flex: 1 1 180px; margin: 0; font-size: 14px; font-weight: 600; }
-
-.gp-portfolio__ring {
-  display: grid;
-  place-items: center;
-  flex: none;
-  width: 52px;
-  height: 52px;
-  border: 4px solid var(--mustard);
-  border-radius: 999px;
+.gp-active {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  padding: 22px 28px 26px;
+}
+.gp-active__title {
+  margin: 0 0 14px;
   color: #8a6520;
   font-size: 13px;
   font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.gp-active__lead { display: grid; gap: 4px; margin: 0; }
+.gp-active__lead > span { color: var(--subtext); font-size: 14px; font-weight: 500; }
+.gp-active__lead strong {
+  color: var(--app-heading-color);
+  font-size: clamp(32px, 3vw, 40px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  font-variant-numeric: tabular-nums;
+}
+.gp-active__rest {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 20px 0 0;
+  padding-top: 18px;
+  border-top: 1px dashed #efe3bf;
+}
+.gp-active__rest dt { color: var(--subtext); font-size: 13px; font-weight: 500; }
+.gp-active__rest dd {
+  margin: 4px 0 0;
+  color: var(--app-heading-color);
+  font-size: 18px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.gp-active__rest .gp-active__gain { color: #06963c; }
+/* Tooltips: the card lets them overflow (its strip keeps the top corners),
+   and each opens away from the nearest card edge so none leaves a phone screen. */
+.gp-portfolio--active { overflow: visible; }
+.gp-portfolio--active .gp-portfolio__strip { border-radius: var(--gp-radius-lg) var(--gp-radius-lg) 0 0; }
+.gp-active__lead > span, .gp-active__rest dt { display: flex; align-items: center; gap: 2px; white-space: nowrap; }
+.gp-active .gp-tip__btn { width: 20px; height: 20px; }
+.gp-active .gp-tip__text { max-width: 240px; white-space: normal; font-weight: 500; }
+.gp-active__lead .gp-tip__text,
+.gp-active__rest div:first-child .gp-tip__text { left: -10px; transform: none; }
+.gp-active__rest div:last-child .gp-tip__text { left: auto; right: -10px; transform: none; }
+@media (max-width: 520px) {
+  .gp-active { padding: 20px; }
+  .gp-active__rest { gap: 8px; }
+  .gp-active__rest dt { font-size: 12px; }
+  .gp-active__rest .gp-tip__btn { width: 18px; height: 18px; }
+  .gp-active__rest dd { font-size: 16px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .gp-active > * { animation: gp-rise 0.6s cubic-bezier(0.16, 1, 0.3, 1) both; }
+  .gp-active > :nth-child(2) { animation-delay: 0.08s; }
+  .gp-active > :nth-child(3) { animation-delay: 0.16s; }
 }
 
 /* ------------------------------------------------------------ listing bits */
@@ -584,3 +616,269 @@ img.gp-review__avatar { object-fit: cover; background: #fbf3d5; }
 .gp-recent__id h3 { display: flex; flex-direction: column; margin: 0; color: var(--app-heading-color); font-size: 20px; font-weight: 700; }
 .gp-recent__id h3 span { color: var(--subtext); font-size: 16px; font-weight: 500; }
 a.gp-recent__card .gp-recent__id::after { content: "\203A"; margin-left: auto; color: var(--app-heading-color); font-size: 28px; }
+
+/* ------------------------------------------------- banner fallback (no CMS)
+   Takes the configured banner's exact box (post-desk.png, 4801 x 790), so
+   the page does not move whether or not marketing has set one. Type scales
+   with the box through container units; under 560px wide the box is only
+   ~90px tall, so it drops to the heading and the arrow. */
+.gp-fallback {
+  position: relative;
+  container-type: inline-size;
+  aspect-ratio: 4801 / 790;
+  overflow: hidden;
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at 74% 50%, rgba(212, 175, 55, 0.30), transparent 34%),
+    linear-gradient(115deg, #15110a 0%, #241b0d 55%, #3a2c12 100%);
+}
+.gp-fallback__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 4cqw;
+  height: 100%;
+  padding: 0 4.5cqw;
+}
+.gp-fallback__title {
+  margin: 0;
+  color: var(--mustard);
+  font-size: clamp(17px, 3.4cqw, 40px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+.gp-fallback__stats {
+  display: flex;
+  gap: 1cqw;
+  margin: 1.3cqw 0 0;
+  padding: 0;
+  list-style: none;
+}
+.gp-fallback__stats li {
+  padding: 0.7cqw 1.3cqw;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  border-radius: 12px;
+  background: rgba(253, 248, 233, 0.06);
+  color: rgba(253, 248, 233, 0.72);
+  font-size: clamp(11px, 1.05cqw, 13px);
+  white-space: nowrap;
+}
+.gp-fallback__stats strong { display: block; color: #fdf8e9; font-size: 1.25em; font-weight: 700; }
+.gp-fallback__art { width: auto; height: 72%; filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.45)); }
+.gp-fallback__cta { white-space: nowrap; }
+/* The whole banner is the link target, as a banner image would be. */
+.gp-fallback__cta::before { content: ""; position: absolute; inset: 0; }
+.gp-fallback__cta:focus-visible { outline: none; }
+.gp-fallback:has(.gp-fallback__cta:focus-visible) { outline: 2px solid var(--mustard); outline-offset: 3px; }
+.gp-fallback__arrow { display: none; }
+
+@container (max-width: 760px) {
+  .gp-fallback__stats li:nth-child(2) { display: none; }
+}
+@container (max-width: 560px) {
+  .gp-fallback__inner { grid-template-columns: auto minmax(0, 1fr) auto; gap: 12px; padding: 0 16px; }
+  .gp-fallback__art { order: -1; height: 64%; }
+  .gp-fallback__stats, .gp-fallback__label { display: none; }
+  .gp-fallback__cta { padding: 0; width: 34px; height: 34px; justify-content: center; border-radius: 999px; }
+  .gp-fallback__arrow { display: block; }
+}
+
+/* ------------------------------------------------------ portfolio, no KYC
+   One message and two ways forward: do the KYC, or call first. Keeps the
+   portfolio card's cream-and-gold surface. Fixed at 295px beside the
+   carousel so the row keeps its height. */
+.gp-portfolio--nokyc {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 28px 32px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(212, 175, 55, 0.24), transparent 50%),
+    linear-gradient(180deg, #fcf3d9 0%, #fffdf7 80%);
+}
+@media (min-width: 900px) {
+  .gp-snapshot:has(.gp-portfolio--nokyc) { height: 295px; }
+  .gp-snapshot:has(.gp-portfolio--nokyc) .gp-carousel__art { max-height: 180px; }
+  .gp-portfolio--nokyc { height: 295px; }
+}
+@media (min-width: 900px) and (max-width: 1099px) {
+  .gp-portfolio--nokyc { padding-inline: 22px; }
+  .gp-nokyc__ctas { gap: 8px; }
+  .gp-nokyc__ctas .gp-cta { padding: 10px 14px; font-size: 13px; }
+}
+.gp-nokyc__icon {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid #f0e6c8;
+  border-radius: 14px;
+  background: #fff;
+}
+.gp-nokyc__title {
+  margin: 16px 0 6px;
+  color: var(--app-heading-color);
+  font-size: clamp(19px, 1.8vw, 23px);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+}
+.gp-nokyc__sub { margin: 0; color: var(--subtext); font-size: 14px; }
+.gp-nokyc__ctas { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+.gp-nokyc__ctas .gp-cta { gap: 8px; white-space: nowrap; }
+.gp-nokyc__ctas .gp-cta:focus-visible { outline: 2px solid var(--mustard); outline-offset: 2px; }
+@media (max-width: 520px) {
+  .gp-portfolio--nokyc { padding: 24px 20px; }
+  .gp-nokyc__ctas .gp-cta { flex: 1 1 auto; justify-content: center; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .gp-fallback__inner > * { animation: gp-rise 0.6s cubic-bezier(0.16, 1, 0.3, 1) both; }
+  .gp-fallback__inner > :nth-child(2) { animation-delay: 0.08s; }
+  .gp-fallback__inner > :nth-child(3) { animation-delay: 0.16s; }
+  .gp-fallback__art { animation: gp-rise 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both, gp-float 6s ease-in-out 0.7s infinite; }
+  .gp-portfolio--nokyc > * { animation: gp-rise 0.6s cubic-bezier(0.16, 1, 0.3, 1) both; }
+  .gp-portfolio--nokyc > :nth-child(2) { animation-delay: 0.08s; }
+  .gp-portfolio--nokyc > :nth-child(3) { animation-delay: 0.14s; }
+  .gp-portfolio--nokyc > :nth-child(4) { animation-delay: 0.2s; }
+}
+@keyframes gp-rise { from { opacity: 0; transform: translateY(12px); } }
+@keyframes gp-float { 50% { transform: translateY(-6px); } }
+
+
+/* ------------------------------------------------- referral summary + list
+   refer-and-earn-with-referral.html. The balance leads on the cream-gold
+   panel the caps card and portfolio strip use; the four counts sit beside it. */
+.gp-rsum {
+  display: grid;
+  overflow: hidden;
+  border-radius: var(--gp-radius-lg);
+  background: var(--white);
+  box-shadow: var(--gp-shadow-card);
+  border-bottom: 1px solid var(--gp-card-hairline);
+}
+@media (min-width: 768px) { .gp-rsum { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); } }
+.gp-rsum__balance {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 18px;
+  padding: 28px 32px;
+  background:
+    radial-gradient(circle at 0% 100%, rgba(212, 175, 55, 0.22), transparent 55%),
+    linear-gradient(135deg, #fdf8e9 0%, #fcf1d2 100%);
+}
+.gp-rsum__title { margin: 0; color: var(--app-heading-color); font-size: clamp(20px, 2vw, 24px); font-weight: 700; letter-spacing: -0.01em; }
+.gp-rsum__amount { display: flex; align-items: center; gap: 14px; }
+.gp-rsum__amount p { display: grid; gap: 2px; margin: 0; }
+.gp-rsum__amount span { color: var(--subtext); font-size: 13px; font-weight: 500; }
+.gp-rsum__amount strong {
+  color: #8a6520;
+  font-size: clamp(28px, 3vw, 36px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+.gp-rsum__stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
+}
+.gp-rsum__stats > div { padding: 22px 28px; border-left: 1px solid var(--light-stroke); }
+.gp-rsum__stats > div:nth-child(-n + 2) { border-bottom: 1px solid var(--light-stroke); }
+.gp-rsum__stats dt { color: var(--subtext); font-size: 13px; font-weight: 500; }
+.gp-rsum__stats dd {
+  margin: 6px 0 0;
+  color: var(--app-heading-color);
+  font-size: 22px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+@media (max-width: 767px) {
+  .gp-rsum__balance { padding: 22px 20px; }
+  .gp-rsum__stats > div { padding: 16px 20px; }
+  .gp-rsum__stats > div:nth-child(odd) { border-left: 0; }
+  .gp-rsum__stats dd { font-size: 18px; }
+}
+
+.gp-rnote { max-width: 110ch; margin: 14px 4px 0; color: var(--subtext); font-size: 12.5px; line-height: 1.55; }
+
+.gp-rtable {
+  overflow: hidden;
+  border-radius: var(--gp-radius-lg);
+  background: var(--white);
+  box-shadow: var(--gp-shadow-card);
+  border-bottom: 1px solid var(--gp-card-hairline);
+}
+.gp-rtable table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.gp-rtable th {
+  padding: 14px 24px;
+  background: #fdf8e9;
+  color: #8a6520;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-align: left;
+  text-transform: uppercase;
+}
+.gp-rtable td { padding: 14px 24px; border-top: 1px solid var(--light-stroke); color: var(--app-heading-color); vertical-align: middle; }
+.gp-rtable tbody tr { transition: background-color 0.2s ease; }
+.gp-rtable tbody tr:hover { background: #fffdf7; }
+.gp-rtable td:nth-child(2) { color: var(--subtext); font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+.gp-rref { display: inline-flex; align-items: center; gap: 12px; font-weight: 600; }
+.gp-rref__avatar {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: #fbf3db;
+  color: #8a6520;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.gp-rstatus { font-size: 13px; font-weight: 600; }
+.gp-rstatus--pending {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 8px;
+  background: #fff4e0;
+  color: #9a5b00;
+}
+.gp-rstatus--earned { display: inline-grid; gap: 6px; color: #06963c; font-variant-numeric: tabular-nums; }
+.gp-rstatus meter { width: 120px; height: 6px; }
+.gp-rstatus meter::-webkit-meter-bar { border: 0; border-radius: 99px; background: #e6f4ea; }
+.gp-rstatus meter::-webkit-meter-optimum-value { border-radius: 99px; background: #06963c; }
+.gp-rstatus meter::-moz-meter-bar { border-radius: 99px; background: #06963c; }
+
+.gp-rpager { display: flex; justify-content: flex-end; gap: 6px; padding: 14px 20px; border-top: 1px solid var(--light-stroke); }
+.gp-rpager button {
+  min-width: 34px;
+  height: 34px;
+  padding: 0 8px;
+  border: 1px solid #f0e6c8;
+  border-radius: 10px;
+  background: var(--white);
+  color: var(--app-heading-color);
+  font-weight: 700;
+  transition: background-color 0.2s ease;
+}
+.gp-rpager button:hover:not(:disabled) { background: #fdf8e9; }
+.gp-rpager button[aria-current="page"] { border-color: transparent; background: var(--gp-gradient-gold); }
+.gp-rpager button:disabled { opacity: 0.4; cursor: default; }
+.gp-rpager button:focus-visible { outline: 2px solid var(--mustard); outline-offset: 2px; }
+
+/* Phones: each referral becomes a small card, labels from data-label. */
+@media (max-width: 640px) {
+  .gp-rtable thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  .gp-rtable tr { display: grid; grid-template-columns: 1fr auto; gap: 8px 12px; padding: 14px 16px; border-top: 1px solid var(--light-stroke); }
+  .gp-rtable tbody tr:first-child { border-top: 0; }
+  .gp-rtable td { padding: 0; border: 0; }
+  .gp-rtable td:nth-child(2) { align-self: center; font-size: 12.5px; }
+  .gp-rtable td:nth-child(3) { grid-column: 1 / -1; padding-left: 46px; }
+}

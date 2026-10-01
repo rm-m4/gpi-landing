@@ -95,7 +95,7 @@
       <a class="gp-nav__link" href="user-fixed-deposits.html">
         <img src="../assets/img/header-nav-fd.svg" alt=""> FD
       </a>
-      <a class="gp-nav__link" href="https://uatnew.goldenpi.com/collections/all-bonds">
+      <a class="gp-nav__link" href="collections-all-bonds.html">
         <img src="../assets/img/header-nav-collection.svg" alt=""> Collection
       </a>
       <a class="gp-nav__link" href="bond-utsav.html">
@@ -194,34 +194,29 @@
         }, { passive: true });
       })();
       </script>
-      <!-- DATA: the account's portfolio, all zero on this capture (KYC incomplete). -->
-      <div class="gp-portfolio">
+      <!-- DATA: active investment totals; sample values from the design, as on portfolio.html. -->
+      <div class="gp-portfolio gp-portfolio--active">
         <p class="gp-portfolio__strip">
           <img src="../assets/img/finance_mode_gold.svg" alt="" width="18" height="18">
           You have joined 9Lakh+ users!
         </p>
-        <dl class="gp-portfolio__stats">
-          <div>
-            <dt>Current Value</dt>
-            <dd>&#8377; 0</dd>
-          </div>
-          <div>
-            <dt>Total Invested</dt>
-            <dd>&#8377; 0</dd>
-          </div>
-          <div>
-            <dt>Principal Repaid</dt>
-            <dd>&#8377; 0</dd>
-          </div>
-          <div>
-            <dt>Interest Earned</dt>
-            <dd>&#8377; 0</dd>
-          </div>
-        </dl>
-        <div class="gp-portfolio__kyc">
-          <span class="gp-portfolio__ring" aria-hidden="true">100%</span>
-          <p>Complete your KYC to start investing</p>
-          <button type="button" class="gp-cta gp-cta--primary gp-cta--sm">Complete KYC</button>
+        <div class="gp-active">
+          <p class="gp-active__title">Active portfolio</p>
+          <p class="gp-active__lead"><span>Outstanding<span class="gp-tip"><button type="button" class="gp-tip__btn" aria-label="What is Outstanding?"><img src="../assets/img/info.svg" alt="" width="14" height="14"></button><span class="gp-tip__text" role="tooltip">The value of all your active investments. This is the amount you will receive if holding the investments till maturity. This excludes already sold or matured investments.</span></span></span><strong>&#8377;25 Cr</strong></p>
+          <dl class="gp-active__rest">
+            <div>
+              <dt>Total Invested<span class="gp-tip"><button type="button" class="gp-tip__btn" aria-label="What is Total Invested?"><img src="../assets/img/info.svg" alt="" width="14" height="14"></button><span class="gp-tip__text" role="tooltip">Total amount invested in all your active investments.</span></span></dt>
+              <dd>&#8377;100 Cr</dd>
+            </div>
+            <div>
+              <dt>Repaid<span class="gp-tip"><button type="button" class="gp-tip__btn" aria-label="What is Repaid?"><img src="../assets/img/info.svg" alt="" width="14" height="14"></button><span class="gp-tip__text" role="tooltip">Total amount repaid to you across all your active investments including both interest and principal repayment</span></span></dt>
+              <dd>&#8377;80 Cr</dd>
+            </div>
+            <div>
+              <dt>Gains<span class="gp-tip"><button type="button" class="gp-tip__btn" aria-label="What is Gains?"><img src="../assets/img/info.svg" alt="" width="14" height="14"></button><span class="gp-tip__text" role="tooltip">Total gains from your active investments, including interest that has been repaid and accrued</span></span></dt>
+              <dd class="gp-active__gain">&#8377;5 Cr</dd>
+            </div>
+          </dl>
         </div>
       </div>
       </div>
@@ -720,7 +715,7 @@
       </div>
 
       <div class="mt-6 text-center">
-        <a class="t-small font-bold t-bronze underline" href="https://goldenpi.com/collections/all-bonds">View all Bond Collections</a>
+        <a class="t-small font-bold t-bronze underline" href="collections-all-bonds.html">View all Bond Collections</a>
       </div>
     </div>
   </section>
