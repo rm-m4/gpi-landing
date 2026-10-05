@@ -346,9 +346,13 @@ const serve = () =>
     await page.waitForTimeout(1200);
     await scrollThrough(page);
 
-    // Images that resolved but never produced pixels.
+    // Images that resolved but never produced pixels. A loading="lazy" image the
+    // browser never fetched (in a closed tab panel, or off-screen in a sideways
+    // scroller) is not broken: it is still incomplete. Once fetched, a bad file is
+    // complete with no width, and a missing one is a 404 above, so both still fail.
     const broken = await page.evaluate(() =>
-      [...document.images].filter((i) => !i.complete || i.naturalWidth === 0).map((i) => i.getAttribute('src')));
+      [...document.images].filter((i) => !(i.loading === 'lazy' && !i.complete))
+        .filter((i) => !i.complete || i.naturalWidth === 0).map((i) => i.getAttribute('src')));
     broken.forEach((s) => bad.push(`image did not decode: ${s}`));
 
     const slug = file.replace(/\.html$/, '');

@@ -2,7 +2,7 @@
 
 Project context and rules live in `CLAUDE.md`. This file tracks state only.
 
-**Last updated:** 2026-09-30
+**Last updated:** 2026-10-05
 **Content snapshot:** 2026-09-25 (all hardcoded data carries this date)
 **Now:** All four landing pages converted to the agreed styling and promoted.
 
@@ -125,6 +125,51 @@ Awaiting the user:
   `pfc-logo.png` are crops of a screenshot; those two Recently Viewed cards do
   not link because no URL was ever seen.
 - Try Again, delete and the "Corporate Bonds" chip in Pending Orders are inert.
+
+---
+
+## Blog (2026-10-05)
+
+`blog.html`, `blog-minimal.html`, `blog-post.html`, `blog-post-minimal.html`, from
+`goldenpi.com/blog` and one article (`/blog/fixed-deposit/hdfc-bank-fixed-deposits-fds-and-interest-rates/`).
+The blog is WordPress (Soledad theme), the same on uatnew. **Generated**:
+`python3 pages/_blog.py`. Captured with `crawl/snap.js --prod`, read into JSON by the
+new `crawl/blog_extract.js` (copy for review in `content/prod_blog*.md`), images by
+the new `crawl/blog_images.sh` (JPEG at 1200 and 640px for srcset; 9.2 MB of originals
+down to 4.5 MB, originals gitignored). CSS is the `BLOG` block at the end of
+`final.css`, scoped to `body.gp-blog`. Listed under Iterations > Blog.
+`check.js` clean on all four.
+
+- **Two directions per page.** *Redesigned*: hero with search and category chips,
+  the first slide as the lead story beside a Latest list (the other seven slides),
+  their seven category blocks as the shared folder tabs, newsletter panel; the
+  article gets a framed banner in the reading column, a sticky contents rail with
+  scroll-spy, rate table with the highest-rate row marked (the row their copy
+  names), related posts as a scroll-snap rail. *Minimal*: their layout as it is
+  (slider, seven blocks of three with View All; article with image, centred title,
+  contents inside the summary, sidebar), on the set's type, ground, cards, buttons.
+- **Blue.** Gold stays the action colour (buttons). The blog's navy `#19386d` is the
+  reading colour: category labels, links, callouts, contents rail. On the redesign
+  every thumbnail but the lead sits under a navy `color`-blend tint that lifts on
+  hover. It keeps each image's light and dark, so baked-in titles still read, and
+  makes the mixed art (black-and-gold, white, bright blue) one set. It is CSS, so
+  future uploads need no editing. Minimal leaves images untouched.
+- **Thumbnails are never cropped.** Their banners are 16:9 or 2.11:1 with titles
+  to the edge, so each is `contain`ed in a 16:9 box and the spare band is the same
+  art blurred (a background set by `_blog.py`).
+- **`check.js` change:** a `loading="lazy"` image the browser never fetched (closed
+  tab panel, off-screen slide) no longer counts as "did not decode". Fetched-but-bad
+  images and 404s still fail.
+
+For review:
+
+- Search, newsletter and comment forms are not wired. Search keeps their action
+  (`goldenpi.com/blog/?s=`).
+- Dropped from the build: the like counter, the emoji before "Quick Summary" and
+  before the Guide excerpt, their autoplay on the slider (the minimal slider scrolls
+  by hand). The view count ("158 views") is a dated snapshot.
+- Light theme only, as for the rest of the set.
+- `sips` writes AVIF that decodes to a size but paints nothing in Chrome, so no AVIF.
 
 ---
 

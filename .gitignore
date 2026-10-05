@@ -12,3 +12,6 @@ crawl/local-shots/
 crawl/.auth/
 
 .DS_Store
+
+# Full-size blog originals from crawl/blog_images.sh; assets/img/blog/ holds the web copies.
+crawl/blog-orig/
