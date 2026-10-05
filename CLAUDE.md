@@ -153,6 +153,7 @@ live site uses.
 python3 pages/_final.py      # -> corporate-bonds.html
 python3 pages/_convert.py    # -> index, fixed-deposits, bond-ipo-online
 python3 pages/_utsav.py      # -> bond-utsav.html (from crawl/rendered/bond-utsav.tabs.json)
+python3 pages/_utsav_live.py # -> bond-utsav-live.html (production UI, from prod_bond-utsav.tabs.json)
 python3 pages/_profile.py    # -> profile.html, profile-no-kyc.html (content/profile.md + Figma 21:2427)
 python3 pages/_refer.py      # -> refer-and-earn-with-referral.html (refer-and-earn.html + staging capture)
 python3 pages/_build.py      # sync header/footer across pages
@@ -168,6 +169,7 @@ node crawl/snap.js                  # browser-rendered HTML -> crawl/rendered/ +
 ./crawl/assets.sh                   # images + design tokens -> assets/
 python3 crawl/extract.py            # copy -> content/*.md
 node crawl/utsav_tabs.js            # every Bond Utsav tab -> bond-utsav.tabs.json
+node crawl/utsav_prod_tabs.js       # same on goldenpi.com -> prod_bond-utsav.tabs.json
 node crawl/profile_tabs.js          # every /profile section (logged in) -> a temp dir, never the repo: it holds personal data
 ```
 
