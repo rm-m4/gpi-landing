@@ -4114,7 +4114,7 @@ a.gp-bcat:hover { background: var(--blog-navy); color: #fff; }
 .ft-ids { display: flex; flex-wrap: wrap; margin: 0 0 14px -18px; clip-path: inset(-6px -6px -6px 2px); }
 .ft-ids div { display: flex; align-items: baseline; gap: 8px; padding: 2px 18px; border-left: 1.5px solid rgba(50, 40, 17, 0.32); }
 .ft-ids dt { color: var(--ft-faint); }
-.ft-ids dd { color: var(--ft-ink); font-size: 15px; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: 0.02em; }
+.ft-ids dd { color: var(--ft-ink); font-size: inherit; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: 0.02em; }
 .ft-regs p + p { margin-top: 4px; }
 /* The link columns already close with a rule; do not draw a second one. */
 .ft-main + .ft-regs { border-top: 0; }
@@ -4130,11 +4130,11 @@ a.gp-bcat:hover { background: var(--blog-navy); color: #fff; }
    address read as one unit, and the social row closes up under them. */
 .ft-brand .ft-brand__co + address { margin-top: 6px; }
 /* The company name leads the block (index, and user-explore's dark copy of it). */
-.ft:has(.ft-fold) .ft-brand .ft-brand__co, .ft--dark .ft-brand .ft-brand__co { font-size: 18px; line-height: 1.35; }
+.ft:has(.ft-fold) .ft-brand .ft-brand__co, .ft--dark .ft-brand .ft-brand__co { font-size: 18px; font-weight: 500; line-height: 1.35; }
 
-/* user-explore footer: the index.html footer without its fold, dark
-   (pages/_user.py dark_footer). Only the footer's tokens and its few
-   light-only surfaces change; layout is index's. Warm off-black, not #000. */
+/* Dark footer, index.html and user-explore (F.dark_footer in pages/_final.py).
+   Only the footer's tokens and its few light-only surfaces change; layout is
+   each page's own. Warm off-black, not #000. */
 .ft.ft--dark {
   --ft-bg: #0b0a08; --ft-band: #14120e; --ft-ink: #f5f1e6;
   --ft-muted: rgba(245, 241, 230, 0.68); --ft-faint: rgba(245, 241, 230, 0.48);
@@ -4145,5 +4145,116 @@ a.gp-bcat:hover { background: var(--blog-navy); color: #fff; }
 .ft--dark .ft-social img { filter: none; }
 .ft--dark .ft-ids div { border-left-color: rgba(245, 241, 230, 0.22); }
 .ft--dark .ft-regs a.u { text-decoration-color: rgba(245, 241, 230, 0.25); }
-@media (min-width: 1024px) { .ft--dark .ft-main { grid-template-columns: 1.5fr repeat(3, 1fr); } }
+@media (min-width: 1024px) { .ft--cols3 .ft-main { grid-template-columns: 1.5fr repeat(3, 1fr); } }
+/* index.html's fold, in dark: the Collections pipes and the disclosure band. */
+.ft--dark .ft-fold .ft-seo .ft-chips a { border-left-color: rgba(245, 241, 230, 0.22); }
+.ft--dark .ft-legal { background: var(--ft-band); }
+.ft--dark .ft-legal--reg { background: none; }
+/* footer-login.html: softer text on the dark ground. Cream rather than
+   near-white, each tier stepped down; still WCAG AA (faint is about 5.5:1). */
+.ft.ft--dark.ft--soft {
+  --ft-ink: #d9d1c0;
+  --ft-muted: rgba(217, 209, 192, 0.74);
+  --ft-faint: rgba(217, 209, 192, 0.54);
+}
 .ft--dark .ft-copy--bar { padding-block: 20px 28px; color: var(--ft-faint); font-weight: 500; }
+
+/* Index footer: "Investor Education", a heading inside Note to Investors
+   (pages/_convert.py fold_footer). Same size as the section headings. */
+.ft-legal h2.ft-sub { margin: 22px 0 8px; color: var(--ft-ink); font-size: 16px; font-weight: 700; }
+
+/* footer-login3.html: "Loved by 20 Lac+ Indians" over three real reviews
+   (pages/_user.py loved_band). Headline left, voices right; the reviewers'
+   initials are the imagery, the lit one is the review on screen. The quotes
+   share one grid cell, so the band never changes height as they crossfade.
+   Shape: circles for avatars, the footer's 16px for nothing else here. */
+.ft-love {
+  display: grid; gap: 28px 64px; align-items: center;
+  padding-block: 56px 48px; border-bottom: 1px solid var(--ft-line);
+}
+@media (min-width: 1024px) { .ft-love { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); } }
+.ft-love__title {
+  max-width: 14ch; color: var(--ft-ink); font-size: clamp(30px, 4.2vw, 46px);
+  font-weight: 500; line-height: 1.08; letter-spacing: -0.025em;
+}
+.ft-love__n { color: #d4af37; font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.ft-love__voices { display: grid; gap: 18px; }
+.ft-love__faces { display: flex; }
+.ft-love__face {
+  display: grid; place-items: center; width: 44px; height: 44px; margin-left: -10px; padding: 0;
+  border: 2px solid var(--ft-bg); border-radius: 50%; cursor: pointer;
+  background: #1f1b14; color: var(--ft-muted); font-family: inherit; font-size: 13px; font-weight: 700; letter-spacing: 0.02em;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+.ft-love__face:first-child { margin-left: 0; }
+.ft-love__face:nth-child(2) { background: #26211a; }
+.ft-love__face:nth-child(3) { background: #2d2619; }
+.ft-love__face:hover { color: var(--ft-ink); transform: translateY(-2px); }
+.ft-love__face[aria-pressed="true"] {
+  position: relative; z-index: 1; background: rgba(212, 175, 55, 0.16); color: #e9cf7a;
+  box-shadow: 0 0 0 1.5px rgba(212, 175, 55, 0.7);
+}
+.ft-love__face:focus-visible { outline: 2px solid #d4af37; outline-offset: 3px; }
+.ft-love__quotes { display: grid; }
+.ft-love__q {
+  grid-area: 1 / 1; margin: 0; opacity: 0; visibility: hidden;
+  transform: translateY(6px); transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s 0.5s;
+}
+.ft-love__q.is-on { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
+.ft-love__q blockquote { max-width: 56ch; color: var(--ft-ink); font-size: 17px; line-height: 1.55; }
+.ft-love__q figcaption { margin-top: 10px; color: var(--ft-faint); font-size: 13px; font-weight: 500; text-transform: capitalize; }
+@media (max-width: 639px) {
+  .ft-love { padding-block: 44px 36px; }
+  .ft-love__q blockquote { font-size: 15.5px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ft-love__face, .ft-love__q { transition: none; }
+}
+
+/* footer-login4.html: company block left, the loved-by band right, then the
+   copyright bar (pages/_user.py). One vertical rule separates identity from
+   proof on wide screens; on phones they stack, company first. */
+.ft-l4 { display: grid; gap: 44px; padding-block: 64px 52px; }
+@media (min-width: 1024px) {
+  .ft-l4 { grid-template-columns: minmax(0, 1fr) minmax(0, 1.9fr); gap: 0; align-items: center; }
+  .ft-l4 .ft-love--side { padding-left: 64px; border-left: 1px solid var(--ft-line); }
+}
+.ft-love.ft-love--side { grid-template-columns: none; gap: 24px; padding-block: 0; border-bottom: 0; }
+.ft-love--side .ft-love__title { max-width: none; }
+
+/* footer-login5.html: the loved-by side with proof instead of reviews
+   (pages/_user.py proof_band). Credentials as pills (the page's interactive
+   shape is round, and these read as badges, not buttons), then the three
+   platform figures split by hairlines, not boxed: they rise in turn when
+   the band is revealed, the figure leading its label. */
+.ft-proof__chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.ft-proof__chips li {
+  display: inline-flex; align-items: center; gap: 10px; height: 34px; padding: 0 14px;
+  border: 1px solid rgba(212, 175, 55, 0.28); border-radius: 999px; background: rgba(212, 175, 55, 0.06);
+  color: var(--ft-ink); font-size: 13px; font-weight: 500; white-space: nowrap;
+}
+.ft-proof__chips img { width: 38px; height: auto; filter: brightness(0) invert(1); opacity: 0.8; }
+.ft-proof__stats {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 6px 0 0;
+  border-top: 1px solid var(--ft-line);
+}
+.ft-proof__stats div { display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 6px; padding: 18px 20px 0; }
+.ft-proof__stats div:first-child { padding-left: 0; }
+.ft-proof__stats div + div { border-left: 1px solid var(--ft-line); }
+.ft-proof__stats dd { color: var(--ft-ink); font-size: 24px; font-weight: 700; letter-spacing: -0.01em; font-variant-numeric: tabular-nums; }
+.ft-proof__stats dt { color: var(--ft-faint); font-size: 13px; line-height: 1.45; }
+.ft-proof__stats dt::first-letter { text-transform: uppercase; }
+@media (max-width: 639px) {
+  .ft-proof__stats { grid-template-columns: none; }
+  .ft-proof__stats div, .ft-proof__stats div:first-child { padding: 14px 0; }
+  .ft-proof__stats div + div { border-left: 0; border-top: 1px solid var(--ft-line); }
+  .ft-proof__stats dd { font-size: 22px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-ready .ft-proof .ft-proof__stats div {
+    opacity: 0; transform: translateY(10px);
+    transition: opacity 0.6s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: calc(0.25s + var(--i) * 0.12s);
+  }
+  .reveal-ready .ft-proof.is-in .ft-proof__stats div { opacity: 1; transform: none; }
+}

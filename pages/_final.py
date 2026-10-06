@@ -257,6 +257,15 @@ def legal_col(ft):
             + '        </ul>\n      </nav>')
 
 
+def dark_footer(page, extra=""):
+    """Put the footer-landing footer in its dark theme: the ft--dark tokens in
+    assets/final.css and the white logo. Used by index.html and user-explore."""
+    k = page.index('<footer class="ft"')
+    page = page[:k] + '<footer class="ft ft--dark%s"' % extra + page[k + len('<footer class="ft"'):]
+    return page.replace('<img src="../assets/img/goldenpi-logo.svg" alt="GoldenPi" width="148" height="44">',
+                        '<img src="../assets/img/goldenpi-logo-white.svg" alt="GoldenPi" width="148" height="44">', 1)
+
+
 def new_footer(page):
     """Swap in the redesigned footer from footer-landing.html (its <style> and <footer>,
     read at build time so the two cannot drift)."""

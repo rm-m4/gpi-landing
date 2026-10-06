@@ -673,6 +673,23 @@ def fold_footer(html):
     if not more:
         raise SystemExit("fold_footer: Note to Investors read-more not found")
     html = html[:more.start()] + more.group(1) + html[more.end():]
+    # Important Information goes, after the fold is built on it (it holds the Important links too, merged above).
+    info = re.search(r'\n    <nav class="ft-band" aria-labelledby="ft-info".*?</nav>', html, re.S)
+    if not info:
+        raise SystemExit("fold_footer: Important Information band not found")
+    html = html[:info.start()] + html[info.end():]
+    # A heading for the BSE Investor Protection Fund link, inside Note to Investors.
+    bse = '\n          <p><a class="u" href="https://www.bseipf.com/investors_education.html">'
+    if html.count(bse) != 1:
+        raise SystemExit("fold_footer: BSE IPF link not found")
+    html = html.replace(bse, '\n          <h2 class="ft-sub">Investor Education</h2>' + bse, 1)
+    # Its three paragraphs (the link, the "educated investor" line and the
+    # first disclaimer) read as one, the line no longer bold.
+    edu = re.search(r'\n          <p>(<a class="u" href="https://www\.bseipf\.com/[^"]*">[^<]*</a>)</p>'
+                    r'\n *<p><strong>([^<]*)</strong></p>\n *<p>(The information shown on the website[^<]*)</p>', html)
+    if not edu:
+        raise SystemExit("fold_footer: Investor Education paragraphs not found")
+    html = html[:edu.start()] + '\n          <p>%s %s %s</p>' % edu.groups() + html[edu.end():]
     return html.replace("\n</footer>", "\n  </details>\n</footer>", 1)
 
 
@@ -682,7 +699,7 @@ def main():
                      ("bond-ipo-online.html", build_ipo)):
         out = F.webinar(F.golden_experience(F.primary_ctas(fn())))
         if name == "index.html":
-            out = fold_footer(F.new_footer(out))
+            out = F.dark_footer(fold_footer(F.new_footer(out)))
         open(os.path.join(HERE, name), "w", encoding="utf-8").write(out)
         print("%-24s tabs:%d panels:%d final.css:%d" % (
             name, out.count('class="gp-tab"'), out.count('class="gp-panel'),

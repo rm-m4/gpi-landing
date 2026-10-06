@@ -949,6 +949,7 @@ def main():
         page = F.primary_ctas(top + "\n" + body + bottom)
         if out == "user-explore.html":
             page = dark_footer(page)
+            write_footer_page(page)
         with open(os.path.join(HERE, out), "w", encoding="utf-8") as f:
             f.write(page)
         print("%-28s %6d bytes" % (out, len(page)))
@@ -958,7 +959,7 @@ def dark_footer(page):
     """user-explore only: the index.html footer (same build, F.new_footer then
     C.fold_footer), without its Read More fold and what the fold holds and
     without the New to GoldenPi column, in a
-    dark theme: the ft--dark tokens in assets/final.css and the white logo."""
+    dark theme (F.dark_footer)."""
     page = C.fold_footer(F.new_footer(page))
     i = page.index('  <details class="ft-fold">')
     j = page.index("\n  </details>\n</footer>", i) + len("\n  </details>\n")
@@ -969,10 +970,150 @@ def dark_footer(page):
     # Three link columns here: New to GoldenPi is dropped.
     new = re.search(r'\n\n      <nav class="ft-col" aria-labelledby="ft-new".*?</nav>', page, re.S)
     page = page[:new.start()] + page[new.end():]
-    k = page.index('<footer class="ft"')
-    page = page[:k] + '<footer class="ft ft--dark"' + page[k + len('<footer class="ft"'):]
-    return page.replace('<img src="../assets/img/goldenpi-logo.svg" alt="GoldenPi" width="148" height="44">',
-                        '<img src="../assets/img/goldenpi-logo-white.svg" alt="GoldenPi" width="148" height="44">', 1)
+    return F.dark_footer(page, " ft--cols3")
+
+
+LOVED_REVIEWS = ("sumit dhar", "Shyju K.J", "Ankur Arya")  # the three shortest, quoted whole
+
+
+def loved_band():
+    """footer-login3.html: "Loved by 20 Lac+ Indians" over three real reviews
+    from the goldenpi.com logged-in home (content/prod_user_explore.md),
+    quoted whole. The reviewers' initials are the avatars; the lit one is
+    the voice on screen, and choosing one shows theirs."""
+    quotes = dict(reviews("explore"))
+    faces, figs = [], []
+    for n, name in enumerate(LOVED_REVIEWS):
+        initials = "".join(w[0] for w in re.split(r"[\s.]+", name) if w)[:2].upper()
+        on = n == 0
+        faces.append('        <button type="button" class="ft-love__face" aria-pressed="%s" aria-controls="ft-q%d" '
+                     'aria-label="Review by %s">%s</button>\n' % ("true" if on else "false", n, esc(name), initials))
+        figs.append('        <figure class="ft-love__q%s" id="ft-q%d"%s>\n'
+                    '          <blockquote>&ldquo;%s&rdquo;</blockquote>\n'
+                    '          <figcaption>%s</figcaption>\n        </figure>\n'
+                    % (" is-on" if on else "", n, "" if on else ' aria-hidden="true"', esc(quotes[name]), esc(name)))
+    return ('    <!-- COPY: "20 Lac+" is from the brief. goldenpi.com says "18 Lac+ registered users"\n'
+            '         (content/prod_user_explore.md). Confirm the figure before this ships. -->\n'
+            '    <!-- DATA: reviews, from the goldenpi.com reviews block. -->\n'
+            '    <section class="ft-love" aria-labelledby="ft-love-title" data-reveal>\n'
+            '      <h2 class="ft-love__title" id="ft-love-title">Loved by <span class="ft-love__n" data-count>20<span> Lac+</span></span> Indians</h2>\n'
+            '      <div class="ft-love__voices">\n'
+            '      <div class="ft-love__faces" role="group" aria-label="Reviews">\n%s      </div>\n'
+            '      <div class="ft-love__quotes">\n%s      </div>\n'
+            '      </div>\n'
+            '    </section>\n') % ("".join(faces), "".join(figs))
+
+
+def proof_band():
+    """footer-login5.html: "Loved by 20 Lac+ Indians" with the credentials
+    from the homepage hero (content/home.md) and the platform figures from the
+    logged-in home (content/prod_user_explore.md), verbatim. The user count in
+    that block is left out: it says 18 Lac+, the headline says 20 Lac+."""
+    with open(os.path.join(ROOT, "content", "home.md"), encoding="utf-8") as f:
+        home = f.read()
+    chips = [c for c in ("SEBI registered Debt Broker", "OBPP license holder") if "- %s\n" % c in home]
+    text = md("explore")
+    block = text[text.index("### Trusted by 18 Lac+"):]
+    block = block[:block.index("\n### ", 4)]
+    items = re.findall(r"^- (.+)$", block, re.M)
+    stats = [(v, l) for v, l in zip(items[::2], items[1::2]) if "Lac" not in v]
+    chip_html = "".join('          <li>%s<span>%s</span></li>\n' % (
+        '<img src="../assets/img/sebi-logo.svg" alt="" width="44" height="20">' if n == 0 else "", esc(c))
+        for n, c in enumerate(chips))
+    stat_html = "".join(
+        '          <div style="--i: %d"><dt>%s</dt><dd>%s</dd></div>\n' % (n, esc(l), esc(v).replace("\u20b9", "&#8377;"))
+        for n, (v, l) in enumerate(stats))
+    return ('    <!-- COPY: "20 Lac+" is from the brief. goldenpi.com says "18 Lac+ registered users"\n'
+            '         (content/prod_user_explore.md). Confirm the figure before this ships. -->\n'
+            '    <!-- DATA: platform figures, from the goldenpi.com logged-in home. -->\n'
+            '    <section class="ft-love ft-love--side ft-proof" aria-labelledby="ft-love-title" data-reveal>\n'
+            '      <h2 class="ft-love__title" id="ft-love-title">Loved by <span class="ft-love__n" data-count>20<span> Lac+</span></span> Indians</h2>\n'
+            '      <ul class="ft-proof__chips">\n%s      </ul>\n'
+            '      <dl class="ft-proof__stats">\n%s      </dl>\n'
+            '    </section>\n') % (chip_html, stat_html)
+
+
+LOVED_JS = r"""<script>
+// footer-login3: the reviews crossfade every 6s while the band is on screen,
+// pause on hover or focus, and stop under reduced motion. The initials pick
+// a review directly. Without script the first review shows.
+(function () {
+  var band = document.querySelector('.ft-love');
+  if (!band) return;
+  var faces = band.querySelectorAll('.ft-love__face');
+  var figs = band.querySelectorAll('.ft-love__q');
+  var at = 0, timer = null, held = false, seen = false;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function show(n) {
+    at = n;
+    figs.forEach(function (f, i) { f.classList.toggle('is-on', i === n); f.setAttribute('aria-hidden', i === n ? 'false' : 'true'); });
+    faces.forEach(function (b, i) { b.setAttribute('aria-pressed', i === n ? 'true' : 'false'); });
+  }
+  function run() {
+    clearInterval(timer);
+    if (reduce || held || !seen) return;
+    timer = setInterval(function () { show((at + 1) % figs.length); }, 6000);
+  }
+  faces.forEach(function (b, i) { b.addEventListener('click', function () { show(i); run(); }); });
+  band.addEventListener('pointerenter', function () { held = true; run(); });
+  band.addEventListener('pointerleave', function () { held = false; run(); });
+  band.addEventListener('focusin', function () { held = true; run(); });
+  band.addEventListener('focusout', function (e) { if (!band.contains(e.relatedTarget)) { held = false; run(); } });
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) { seen = es[0].isIntersecting; run(); }, { threshold: 0.3 }).observe(band);
+  }
+})();
+</script>
+"""
+
+
+def write_footer_page(page):
+    """footer-login.html: user-explore's footer on a page of its own, like
+    footer-landing.html. Head, footer and trailing scripts are user-explore's,
+    so the two cannot drift."""
+    head = page[:page.index("<body>")]
+    head = re.sub(r"<title>.*?</title>", "<title>Footer, logged in | GoldenPi</title>", head, count=1, flags=re.S)
+    head = re.sub(r'<meta name="description" content="[^"]*">',
+                  '<meta name="description" content="GoldenPi site footer for logged-in pages: navigation, '
+                  'registration details and compliance contacts.">', head, count=1)
+    head = head.replace("<!-- Post-login page, generated by pages/_user.py",
+                        "<!-- The user-explore.html footer on its own, generated by pages/_user.py", 1)
+    head = re.sub(r"<!-- FINAL\. This is corporate-bonds\.html.*?-->\n", "", head, count=1, flags=re.S)
+    i = page.index('<footer class="ft')
+    body = ('<body>\n\n<a class="gp-skip" href="#footer">Skip to footer</a>\n\n'
+            '<main>\n  <h1 class="sr-only">GoldenPi footer, logged in</h1>\n</main>\n\n'
+            '<!-- ============================================================== footer -->\n')
+    # footer-login.html softens the text (ft--soft); footer-login2.html keeps
+    # user-explore's colours as they are.
+    soft = page[i:].replace('<footer class="ft ft--dark', '<footer class="ft ft--dark ft--soft', 1)
+    loved = soft.replace('  <div class="gp-shell ft__inner">\n', '  <div class="gp-shell ft__inner">\n' + loved_band(), 1)
+    loved = loved.replace("</body>", LOVED_JS + "</body>", 1)
+    # footer-login4.html: only the company block and the loved-by band, then
+    # the copyright bar.
+    brand = re.search(r'      <div class="ft-brand" data-reveal>.*?\n      </div>\n', soft, re.S).group(0)
+    bar = soft[soft.rindex('  <div class="gp-shell ft__inner">\n    <p class="ft-copy ft-copy--bar">'):]
+    side = loved_band().replace('<section class="ft-love"', '<section class="ft-love ft-love--side"', 1)
+    l4 = ('<footer class="ft ft--dark ft--soft" id="footer">\n'
+          '  <div class="gp-shell ft__inner">\n    <div class="ft-l4">\n' + brand + side +
+          '    </div>\n  </div>\n\n' + bar)
+    l4 = l4.replace("</body>", LOVED_JS + "</body>", 1)
+    # footer-login5.html: footer-login4 with the reviews swapped for proof
+    # the capture holds: the SEBI / OBPP credentials and the platform figures.
+    l5 = l4.replace(side, proof_band(), 1).replace(LOVED_JS, "", 1)
+    for out, foot in (("footer-login.html", soft), ("footer-login2.html", page[i:]),
+                      ("footer-login3.html", loved), ("footer-login4.html", l4),
+                      ("footer-login5.html", l5)):
+        with open(os.path.join(HERE, out), "w", encoding="utf-8") as f:
+            f.write(head.replace("Footer, logged in |", "Footer, logged in, original colours |", 1)
+                    if out == "footer-login2.html" else
+                    head.replace("Footer, logged in |", "Footer, logged in, loved by |", 1)
+                    if out == "footer-login3.html" else
+                    head.replace("Footer, logged in |", "Footer, logged in, minimal |", 1)
+                    if out == "footer-login4.html" else
+                    head.replace("Footer, logged in |", "Footer, logged in, credentials |", 1)
+                    if out == "footer-login5.html" else head)
+            f.write(body + foot)
+        print("%-28s" % out)
 
 
 if __name__ == "__main__":
