@@ -572,6 +572,25 @@ def main():
         with open(os.path.join(HERE, out), "w", encoding="utf-8") as f:
             f.write(page)
         print("%-28s %6d bytes" % (out, len(page)))
+        write_inter(out, page)
+
+
+INTER = "-inter"
+
+
+def write_inter(out, page):
+    """Same page set in Inter instead of Satoshi, linking only to its -inter siblings."""
+    page = page.replace(
+        '<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap">',
+        '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap">', 1)
+    page = page.replace("""sans: ['"Satoshi"',""", """sans: ['"Inter"',""", 1)
+    page = page.replace("</head>", '<style>body { font-family: "Inter", ui-sans-serif, system-ui, sans-serif; }</style>\n</head>', 1)
+    for name, _, _ in PAGES:
+        page = page.replace('href="%s"' % name, 'href="%s"' % name.replace(".html", INTER + ".html"))
+    out = out.replace(".html", INTER + ".html")
+    with open(os.path.join(HERE, out), "w", encoding="utf-8") as f:
+        f.write(page)
+    print("%-28s %6d bytes" % (out, len(page)))
 
 
 if __name__ == "__main__":
