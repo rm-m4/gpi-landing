@@ -123,8 +123,10 @@ def main():
 
         i, j = slice_between(page, SHELL_START, SHELL_END, "shell", name)
         page = page[:i] + set_active(shell, active) + page[j:]
-        fi, fj = slice_between(page, FOOTER_START, FOOTER_END, "footer", name, inclusive=True)
-        page = page[:fi] + footer + page[fj:]
+        # Pages carrying the redesigned footer-landing.html footer (F.new_footer) keep it.
+        if '<footer class="ft"' not in page:
+            fi, fj = slice_between(page, FOOTER_START, FOOTER_END, "footer", name, inclusive=True)
+            page = page[:fi] + footer + page[fj:]
 
         if page != before:
             open(path, "w", encoding="utf-8").write(page)

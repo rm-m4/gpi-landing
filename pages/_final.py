@@ -240,6 +240,35 @@ def review_marquee(html):
             + html[end:])
 
 
+def legal_col(ft):
+    """The footer's Legal column: the terms, the policy, investor resources and
+    the information policies. Links are read from the footer's Important
+    Information band, so they stay what footer-landing.html says."""
+    s = ft.index('<nav class="ft-band" aria-labelledby="ft-info"')
+    docs = re.findall(r'        (<a href="[^"]+">[^<]+</a>)\n', ft[s:ft.index("</nav>", s)])
+    pick = lambda label: next(x for x in docs if ">%s<" % label in x)
+    # Investor Resources is not in the footer's bands; its URL is from the brief.
+    keep = [pick("Terms &amp; Conditions"), pick("Privacy Policy"),
+            '<a href="https://goldenpi.com/investor-resources">Investor Resources</a>',
+            pick("Policies for Information")]
+    return ('      <nav class="ft-col" aria-labelledby="ft-legal" data-reveal>\n'
+            '        <h2 id="ft-legal">Legal</h2>\n        <ul>\n'
+            + "".join('          <li>%s</li>\n' % x.replace("<a ", '<a class="ft-link" ', 1) for x in keep)
+            + '        </ul>\n      </nav>')
+
+
+def new_footer(page):
+    """Swap in the redesigned footer from footer-landing.html (its <style> and <footer>,
+    read at build time so the two cannot drift)."""
+    with open(os.path.join(HERE, "footer-landing.html"), encoding="utf-8") as f:
+        ft = f.read()
+    style = re.search(r"<style>.*?</style>", ft, re.S).group(0)
+    footer = re.search(r'<footer class="ft".*?</footer>', ft, re.S).group(0)
+    page = page.replace("</head>", style + "\n</head>", 1)
+    page = re.sub(r'<footer class="gp-footer">.*?</footer>', lambda m: footer, page, count=1, flags=re.S)
+    return page
+
+
 def primary_ctas(html):
     """Every primary CTA takes the gradient gp-cta look the FD page uses.
 

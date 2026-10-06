@@ -4053,3 +4053,97 @@ a.gp-bcat:hover { background: var(--blog-navy); color: #fff; }
   .gp-lrow, .gp-lrow__amo { transition: none; }
   .gp-lrow:hover { transform: none; }
 }
+
+/* Index footer: the copyright row is the <summary>; the right edge toggles the
+   disclosures and SEO copy below it (pages/_convert.py fold_footer). Closed by
+   default; <details>, no script. */
+.ft-fold > summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  cursor: pointer; list-style: none;
+  /* The rule spans the content column, not the shell's side padding. */
+  background: linear-gradient(var(--ft-line), var(--ft-line)) 20px 0 / calc(100% - 40px) 1px no-repeat;
+}
+.ft-fold > summary::-webkit-details-marker { display: none; }
+.ft-fold > summary .ft-copy { display: block; border-top: 0; }
+.ft-fold__btn {
+  display: inline-flex; flex: none; align-items: center; gap: 8px;
+  color: var(--ft-ink); font-size: 13px; font-weight: 700; transition: color 0.2s;
+}
+.ft-fold__btn::after {
+  content: ""; width: 6px; height: 6px; border: solid currentColor; border-width: 0 1.5px 1.5px 0;
+  transform: translateY(-2px) rotate(45deg); transition: transform 0.25s;
+}
+.ft-fold > summary:hover .ft-fold__btn { color: var(--ft-accent); }
+.ft-fold[open] .ft-fold__btn::after { transform: translateY(1px) rotate(-135deg); }
+.ft-fold > summary:focus-visible { outline: none; }
+.ft-fold > summary:focus-visible .ft-fold__btn { outline: 2px solid var(--ft-accent); outline-offset: 3px; border-radius: 4px; }
+@media (prefers-reduced-motion: reduce) { .ft-fold__btn, .ft-fold__btn::after { transition: none; } }
+
+
+/* Index footer, Collections (inside the fold): pills become underlined text
+   links split by thin pipes. Each link carries its pipe as a left border; the
+   row is pulled left by one gutter and clipped by 1px, so the pipe that would
+   open each wrapped line is hidden. Hover sweeps a gold underline in from the
+   left over the resting hairline. */
+.ft-fold .ft-seo .ft-chips {
+  display: block; margin-left: -18px; line-height: 1.5;
+  clip-path: inset(-6px -6px -6px 2px);
+}
+.ft-fold .ft-seo .ft-chips a {
+  display: inline-block; white-space: nowrap; padding: 0 16px 0 18px; margin-right: -4px;
+  border: 0; border-left: 1.5px solid rgba(50, 40, 17, 0.32); border-radius: 0; box-shadow: none;
+  font-size: 14px; color: var(--ft-muted);
+  background:
+    linear-gradient(#d4af37, #d4af37) 18px 100% / 0 2px no-repeat,
+    linear-gradient(var(--ft-line), var(--ft-line)) 18px 100% / calc(100% - 34px) 1px no-repeat;
+  margin-block: 6px; padding-bottom: 3px;
+  transition: background-size 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s;
+}
+.ft-fold .ft-seo .ft-chips a:hover {
+  color: var(--ft-ink);
+  background-size: calc(100% - 34px) 2px, calc(100% - 34px) 1px;
+}
+.ft-fold .ft-seo .ft-chips a:focus-visible { outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .ft-fold .ft-seo .ft-chips a { transition: color 0.2s; } }
+
+/* Index footer: registration IDs and compliance contacts, moved out of Risk
+   Disclosure to sit under the link columns (pages/_convert.py fold_footer).
+   Plain facts, no cards: one line of label + value pairs split by the same
+   pipes as Collections, then the contact lines in small muted text. */
+.ft-regs { padding-block: 24px 28px; border-top: 1px solid var(--ft-line); font-size: 13px; line-height: 1.7; color: var(--ft-faint); }
+.ft-ids { display: flex; flex-wrap: wrap; margin: 0 0 14px -18px; clip-path: inset(-6px -6px -6px 2px); }
+.ft-ids div { display: flex; align-items: baseline; gap: 8px; padding: 2px 18px; border-left: 1.5px solid rgba(50, 40, 17, 0.32); }
+.ft-ids dt { color: var(--ft-faint); }
+.ft-ids dd { color: var(--ft-ink); font-size: 15px; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: 0.02em; }
+.ft-regs p + p { margin-top: 4px; }
+/* The link columns already close with a rule; do not draw a second one. */
+.ft-main + .ft-regs { border-top: 0; }
+.ft-regs a.u[href^="tel:"] { white-space: nowrap; }
+.ft-regs a.u { color: var(--ft-ink); font-weight: 500; text-decoration: underline; text-decoration-color: var(--ft-line); text-underline-offset: 3px; transition: text-decoration-color 0.2s; }
+.ft-regs a.u:hover { text-decoration-color: #d4af37; }
+@media (max-width: 639px) {
+  .ft-ids { flex-direction: column; margin-left: 0; clip-path: none; gap: 6px; }
+  .ft-ids div { padding: 0; border: 0; justify-content: space-between; }
+}
+
+/* Index footer brand block, without the subsidiary line: the company name and
+   address read as one unit, and the social row closes up under them. */
+.ft-brand .ft-brand__co + address { margin-top: 6px; }
+/* The company name leads the block (index, and user-explore's dark copy of it). */
+.ft:has(.ft-fold) .ft-brand .ft-brand__co, .ft--dark .ft-brand .ft-brand__co { font-size: 18px; line-height: 1.35; }
+
+/* user-explore footer: the index.html footer without its fold, dark
+   (pages/_user.py dark_footer). Only the footer's tokens and its few
+   light-only surfaces change; layout is index's. Warm off-black, not #000. */
+.ft.ft--dark {
+  --ft-bg: #0b0a08; --ft-band: #14120e; --ft-ink: #f5f1e6;
+  --ft-muted: rgba(245, 241, 230, 0.68); --ft-faint: rgba(245, 241, 230, 0.48);
+  --ft-line: rgba(245, 241, 230, 0.1); --ft-card: rgba(245, 241, 230, 0.04); --ft-accent: #d4af37;
+  border-top-color: rgba(212, 175, 55, 0.35);
+}
+.ft--dark .ft-social a, .ft--dark .ft-social a:hover { background: var(--ft-card); box-shadow: none; }
+.ft--dark .ft-social img { filter: none; }
+.ft--dark .ft-ids div { border-left-color: rgba(245, 241, 230, 0.22); }
+.ft--dark .ft-regs a.u { text-decoration-color: rgba(245, 241, 230, 0.25); }
+@media (min-width: 1024px) { .ft--dark .ft-main { grid-template-columns: 1.5fr repeat(3, 1fr); } }
+.ft--dark .ft-copy--bar { padding-block: 20px 28px; color: var(--ft-faint); font-weight: 500; }

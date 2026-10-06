@@ -19,6 +19,7 @@ captured match says so rather than showing fabricated rows.
 Run: python3 pages/_convert.py
 """
 import os
+import re
 import sys
 
 import _final as F
@@ -602,11 +603,86 @@ def build_ipo():
     return scripts(html, tabs=True)
 
 
+def fold_footer(html):
+    """Index only: the copyright line becomes a full-width row under the link
+    columns, its right edge the toggle for everything after it (documents,
+    disclosures, SEO copy), which starts closed."""
+    copy = '    <p class="ft-copy">&copy; Copyright 2017 - 2026 | GoldenPi Securities Pvt. Ltd.</p>\n'
+    bands = '\n    <nav class="ft-band" aria-labelledby="ft-info"'
+    for s in (copy, bands, "\n</footer>"):
+        if html.count(s) != 1:
+            raise SystemExit("fold_footer: footer markup changed, %r not found once" % s.strip()[:40])
+    # Columns: Invest, Company, Legal, then New to GoldenPi with the
+    # "Read more about bond investments" links folded into it.
+    read = re.search(r'\n\n      <nav class="ft-col" aria-labelledby="ft-read".*?</nav>', html, re.S)
+    new = re.search(r'      <nav class="ft-col" aria-labelledby="ft-new".*?(        </ul>)', html, re.S)
+    if not (read and new):
+        raise SystemExit("fold_footer: footer link columns not found")
+    items = "".join(re.findall(r" *<li>.*?</li>\n", read.group(0)))
+    html = (html[:new.start()] + F.legal_col(html) + "\n\n" + html[new.start():new.start(1)]
+            + items + html[new.start(1):read.start()] + html[read.end():])
+    # The Important links chips join the end of Important Information.
+    links = re.search(r'\n    <nav class="ft-band" aria-labelledby="ft-links".*?</nav>', html, re.S)
+    info = re.search(r'<nav class="ft-band" aria-labelledby="ft-info".*?(\n      </div>\n    </nav>)', html, re.S)
+    if not (links and info):
+        raise SystemExit("fold_footer: Important links / Important Information bands not found")
+    chips = "".join(re.findall(r"\n        <a [^\n]*</a>", links.group(0)))
+    html = html[:info.start(1)] + chips + html[info.start(1):links.start()] + html[links.end():]
+    # Terms and Privacy now live in the Legal column, so the band drops them.
+    for label in ("Terms &amp; Conditions", "Privacy Policy"):
+        chip = re.search(r'\n        <a href="[^"]+">%s</a>' % re.escape(label), html)
+        if not chip:
+            raise SystemExit("fold_footer: %s chip not found" % label)
+        html = html[:chip.start()] + html[chip.end():]
+    # The registration IDs and compliance contacts leave Risk Disclosure and
+    # sit, always visible, under the link columns: plain lines, no cards.
+    reg = re.search(r'\n *<dl class="ft-reg">\n(.*?)\n *</dl>((?:\n *<p>.*?</p>){3})', html, re.S)
+    if not reg:
+        raise SystemExit("fold_footer: registration block not found")
+    ids = re.sub(r"(?m)^ *", "        ", reg.group(1))
+    paras = re.sub(r"(?m)^ *<p>", "      <p>", reg.group(2))
+    html = html[:reg.start()] + html[reg.end():]
+    # Contact Us and CIN leave the brand block; CIN joins the IDs after SEBI.
+    brand = re.search(r'\n *<p class="ft-brand__tel[^"]*">Contact Us: .*?</p>\n *<p>CIN: ([^<]+)</p>', html)
+    if not brand:
+        raise SystemExit("fold_footer: brand Contact Us / CIN lines not found")
+    html = html[:brand.start()] + html[brand.end():]
+    sub = "\n        <p>(A wholly owned subsidiary of GoldenPi Technologies Pvt Ltd)</p>"
+    if html.count(sub) != 1:
+        raise SystemExit("fold_footer: subsidiary line not found")
+    html = html.replace(sub, "", 1)
+    sebi = re.search(r"(?m)^ *<div><dt>SEBI Registration No\.:</dt>.*?</div>", ids)
+    ids = ids[:sebi.end()] + "\n        <div><dt>CIN:</dt><dd>%s</dd></div>" % brand.group(1) + ids[sebi.end():]
+    end_cols = '\n    </div>\n\n    <nav class="ft-band" aria-labelledby="ft-info"'
+    if html.count(end_cols) != 1:
+        raise SystemExit("fold_footer: end of link columns not found")
+    html = html.replace(end_cols, '\n    </div>\n\n'
+                        '    <div class="ft-regs" data-reveal>\n'
+                        '      <dl class="ft-ids">\n' + ids + '\n      </dl>' + paras + '\n    </div>\n'
+                        + end_cols[len('\n    </div>\n'):], 1)
+    html = html.replace(copy, "", 1)
+    html = html.replace(bands, "\n  </div>\n\n"
+                        '  <details class="ft-fold">\n'
+                        '    <summary class="gp-shell">\n'
+                        '      <span class="ft-copy">&copy; Copyright 2017 - 2026 | GoldenPi Securities Pvt. Ltd.</span>\n'
+                        '      <span class="ft-fold__btn">Read More</span>\n'
+                        '    </summary>\n'
+                        '  <div class="gp-shell ft__inner">\n' + bands, 1)
+    # The outer fold is the only toggle: Note to Investors shows in full once open.
+    more = re.search(r'\n *<details class="ft-more">\n *<summary>Read More</summary>(.*?)\n *</details>', html, re.S)
+    if not more:
+        raise SystemExit("fold_footer: Note to Investors read-more not found")
+    html = html[:more.start()] + more.group(1) + html[more.end():]
+    return html.replace("\n</footer>", "\n  </details>\n</footer>", 1)
+
+
 def main():
     for name, fn in (("index.html", build_index),
                      ("fixed-deposits.html", build_fd),
                      ("bond-ipo-online.html", build_ipo)):
         out = F.webinar(F.golden_experience(F.primary_ctas(fn())))
+        if name == "index.html":
+            out = fold_footer(F.new_footer(out))
         open(os.path.join(HERE, name), "w", encoding="utf-8").write(out)
         print("%-24s tabs:%d panels:%d final.css:%d" % (
             name, out.count('class="gp-tab"'), out.count('class="gp-panel'),

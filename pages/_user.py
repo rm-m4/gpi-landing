@@ -947,9 +947,32 @@ def main():
         top, bottom = shell(esc(title), html.escape(desc), current)
         body = "\n".join(build())
         page = F.primary_ctas(top + "\n" + body + bottom)
+        if out == "user-explore.html":
+            page = dark_footer(page)
         with open(os.path.join(HERE, out), "w", encoding="utf-8") as f:
             f.write(page)
         print("%-28s %6d bytes" % (out, len(page)))
+
+
+def dark_footer(page):
+    """user-explore only: the index.html footer (same build, F.new_footer then
+    C.fold_footer), without its Read More fold and what the fold holds and
+    without the New to GoldenPi column, in a
+    dark theme: the ft--dark tokens in assets/final.css and the white logo."""
+    page = C.fold_footer(F.new_footer(page))
+    i = page.index('  <details class="ft-fold">')
+    j = page.index("\n  </details>\n</footer>", i) + len("\n  </details>\n")
+    copy = re.search(r'<span class="ft-copy">(.*?)</span>', page[i:j]).group(1)
+    page = page[:i] + ('  <div class="gp-shell ft__inner">\n'
+                       '    <p class="ft-copy ft-copy--bar">%s</p>\n'
+                       '  </div>\n' % copy) + page[j:]
+    # Three link columns here: New to GoldenPi is dropped.
+    new = re.search(r'\n\n      <nav class="ft-col" aria-labelledby="ft-new".*?</nav>', page, re.S)
+    page = page[:new.start()] + page[new.end():]
+    k = page.index('<footer class="ft"')
+    page = page[:k] + '<footer class="ft ft--dark"' + page[k + len('<footer class="ft"'):]
+    return page.replace('<img src="../assets/img/goldenpi-logo.svg" alt="GoldenPi" width="148" height="44">',
+                        '<img src="../assets/img/goldenpi-logo-white.svg" alt="GoldenPi" width="148" height="44">', 1)
 
 
 if __name__ == "__main__":
