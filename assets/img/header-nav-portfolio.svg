@@ -1,0 +1,5 @@
+<svg width="24" height="24" viewBox="18 18 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<!-- The briefcase from the portfolio Figma (assets/img/portfolio/briefcase.svg,
+     "bytesize:portfolio"), cropped to a nav icon and drawn in the nav's #666. -->
+<path d="M39.75 30.75V39H20.25V30.75M30 34.5V31.5M33 24C33 24 33 21 30 21C27 21 27 24 27 24M19.5 24H40.5V30C40.5 30 36 33 30 33C24 33 19.5 30 19.5 30V24Z" stroke="#666666" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
