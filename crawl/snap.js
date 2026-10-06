@@ -12,7 +12,9 @@ const { chromium } = require('playwright-core');
 // --prod captures goldenpi.com instead, for pages UAT does not have. Its files
 // get a prod_ prefix so they never overwrite the UAT capture of the same path.
 const PROD = process.argv.includes('--prod');
-const HOST = PROD ? 'goldenpi.com' : 'uatnew.goldenpi.com';
+// --beta captures beta.goldenpi.com, prefixed beta_ for the same reason.
+const BETA = process.argv.includes('--beta');
+const HOST = PROD ? 'goldenpi.com' : BETA ? 'beta.goldenpi.com' : 'uatnew.goldenpi.com';
 const BASE = `https://${HOST}`;
 const OUT_HTML = path.join(__dirname, 'rendered');
 const OUT_SHOTS = path.join(__dirname, 'shots');
@@ -43,8 +45,8 @@ function chromiumPath() {
   throw new Error(`no chromium executable under ${dir}`);
 }
 
-const slugify = (p) => (PROD ? 'prod_' : '')
-  + (p.replace(/^\/|\/$/g, '').replace(/[/?=&]/g, '_') || 'home');
+const slugify = (p) => (PROD ? 'prod_' : BETA ? 'beta_' : '')
+  + (p.replace(/\?.*$/, '').replace(/^\/|\/$/g, '').replace(/[/?=&]/g, '_') || 'home');
 
 // Lazy sections mount on intersection, so nothing below the fold renders until scrolled.
 async function scrollThrough(page) {

@@ -1,0 +1,10 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<foreignObject x="-20.6786" y="-20.6786" width="81.3571" height="81.3571"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(10.34px);clip-path:url(#bgblur_0_235_4319_clip_path);height:100%;width:100%"></div></foreignObject><g data-figma-bg-blur-radius="20.6786">
+<path d="M20 0.430664C30.8078 0.430664 39.5693 9.19223 39.5693 20C39.5693 30.8078 30.8078 39.5693 20 39.5693C9.19223 39.5693 0.430664 30.8078 0.430664 20C0.430664 9.19223 9.19223 0.430664 20 0.430664Z" stroke="#FDF3D4" stroke-width="0.861607"/>
+<path d="M19.9974 26.3307L14.1641 20.4974L19.9974 14.6641" stroke="#A67C00" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M25.8307 20.5H14.1641" stroke="#A67C00" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="bgblur_0_235_4319_clip_path" transform="translate(20.6786 20.6786)"><path d="M20 0.430664C30.8078 0.430664 39.5693 9.19223 39.5693 20C39.5693 30.8078 30.8078 39.5693 20 39.5693C9.19223 39.5693 0.430664 30.8078 0.430664 20C0.430664 9.19223 9.19223 0.430664 20 0.430664Z"/>
+</clipPath></defs>
+</svg>

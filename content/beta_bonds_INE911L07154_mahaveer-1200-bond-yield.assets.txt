@@ -1,0 +1,16 @@
+alert.svg	Announcement image
+goldenpi-logo.2qzc6yjkqzeqc.svg	GoldenPi
+header-nav-bonds.1h3kbznfomfnx.svg	Icon
+header-nav-fd.2fybbqt4y5m_8.svg	Icon
+header-nav-collection.3lf2k697lopur.svg	Icon
+header-nav-bond-utsav.3gib2nc3fo5df.webp	Icon
+header-nav-ref-earn.3h7zk2vgdlva2.svg	Icon
+header-search.2k7bdlgsxljnb.svg	Search
+user-icon.1ytalgivehf56.svg	User account
+mobile-back.3xpea1swp1ojl.svg	Icon
+share-action-desktop.2j-atjt_xvh2t.svg	Icon
+watchlist-action-desktop-add.1-28m_b47x7ry.svg	Icon
+image	Icon
+rating-meter.0opuf09cmncks.svg	Credit rating meter
+company-financials-tab-underline.1z5upzfnx1ej_.svg	Icon
+mobile-app-qr.3wptrea2l_26s.svg	Scan to download GoldenPi app and get voucher

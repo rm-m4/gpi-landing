@@ -1,0 +1,152 @@
+Cashflow Timeline
+Cashflow Timeline
+Investment Amount
+₹ 9,368.14
+Total Receivable
+₹ 11,108.45
+Date	Total Receivable*	After 10% TDS*
+›
+2026	₹ 976.43	₹ 950.21
+Date	Total Receivable*	Payout
+26 Nov
+(Part Maturity)
+	
+₹ 262.14 + ₹ 714.29
+Interest + 7.1429% Principal
+	
+₹ 235.92 + ₹ 714.29
+Interest + 7.1429% Principal
+
+
+›
+2027	₹ 3,696.83	₹ 3,612.86
+Date	Total Receivable*	Payout
+26 Feb
+(Part Maturity)
+	
+₹ 241.97 + ₹ 714.29
+Interest + 7.1429% Principal
+	
+₹ 217.78 + ₹ 714.29
+Interest + 7.1429% Principal
+
+
+26 May
+(Part Maturity)
+	
+₹ 214.58 + ₹ 714.29
+Interest + 7.1429% Principal
+	
+₹ 193.12 + ₹ 714.29
+Interest + 7.1429% Principal
+
+
+26 Aug
+(Part Maturity)
+	
+₹ 201.64 + ₹ 714.29
+Interest + 7.1429% Principal
+	
+₹ 181.48 + ₹ 714.29
+Interest + 7.1429% Principal
+
+
+26 Nov
+(Part Maturity)
+	
+₹ 181.48 + ₹ 714.29
+Interest + 7.1429% Principal
+	
+₹ 163.33 + ₹ 714.29
+Interest + 7.1429% Principal
+
+
+›
+2028	₹ 3,378.37	₹ 3,326.25
+Date	Total Receivable*	Payout
+26 Feb
+(Part Maturity)
+	
+₹ 161.32 + ₹ 714.29
+Interest + 7.1429% Principal
+	
+₹ 145.18 + ₹ 714.29
+Interest + 7.1429% Principal
+
+
+26 May
+(Part Maturity)
+	
+₹ 138.08 + ₹ 714.29
+Interest + 7.1429% Principal
+	
+₹ 124.27 + ₹ 714.29
+Interest + 7.1429% Principal
+
+
+26 Aug
+(Part Maturity)
+	
+₹ 120.99 + ₹ 714.29
+Interest + 7.1429% Principal
+	
+₹ 108.89 + ₹ 714.29
+Interest + 7.1429% Principal
+
+
+26 Nov
+(Part Maturity)
+	
+₹ 100.82 + ₹ 714.29
+Interest + 7.1429% Principal
+	
+₹ 90.74 + ₹ 714.29
+Interest + 7.1429% Principal
+
+
+›
+2029	₹ 3,056.83	₹ 3,036.86
+Date	Total Receivable*	Payout
+26 Feb
+(Part Maturity)
+	
+₹ 80.66 + ₹ 714.29
+Interest + 7.1429% Principal
+	
+₹ 72.59 + ₹ 714.29
+Interest + 7.1429% Principal
+
+
+26 May
+(Part Maturity)
+	
+₹ 58.52 + ₹ 714.29
+Interest + 7.1429% Principal
+	
+₹ 52.67 + ₹ 714.29
+Interest + 7.1429% Principal
+
+
+26 Aug
+(Part Maturity)
+	
+₹ 40.33 + ₹ 714.29
+Interest + 7.1429% Principal
+	
+₹ 36.30 + ₹ 714.29
+Interest + 7.1429% Principal
+
+
+26 Nov
+(Maturity)
+	
+₹ 20.16 + ₹ 714.29
+Interest + 7.1429% Principal
+	
+₹ 18.15 + ₹ 714.29
+Interest + 7.1429% Principal
+
+*10% TDS For Resident Indians. File Form 121 To Avoid TDS
+
+Download Cashflow
+Invest Now
