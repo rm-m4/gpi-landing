@@ -58,6 +58,15 @@
   .ap-tabs button:focus-visible { outline: 2px solid #8a6520; outline-offset: 2px; }
   .ap-count { margin-left: 6px; font-weight: 500; opacity: 0.7; }
   .ap-list span { color: var(--subtext); font-size: 13px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+  /* Filters: tabs and group chips stay pinned while the list scrolls. */
+  .ap-bar { position: sticky; top: 0; z-index: 5; margin: 0 -16px; padding: 12px 16px; background: var(--app-page-bg); box-shadow: 0 1px 0 var(--light-stroke); }
+  .ap-bar .ap-tabs { margin: 0; }
+  .ap-bar__row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .ap-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .ap-chips button { flex: none; padding: 6px 12px; border: 1px solid var(--light-stroke); border-radius: 999px; background: var(--white); color: var(--subtext); font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; white-space: nowrap; }
+  .ap-chips button[aria-pressed="true"] { border-color: #d4af37; background: #fdf3d4; color: var(--app-heading-color); }
+  .ap-chips button:focus-visible { outline: 2px solid #8a6520; outline-offset: 2px; }
+  .ap-chips span { margin-left: 4px; font-weight: 500; opacity: 0.7; }
 </style>
 </head>
 <body>
@@ -66,9 +75,14 @@
   <h1>All Pages</h1>
   <p class="ap-sub">Every page in this repo. Final pages are the deliverable; iterations are frozen records of what was tried.</p>
 
-  <div class="ap-tabs" role="tablist" aria-label="Page sets" hidden>
-    <button type="button" role="tab" id="tab-final" aria-controls="panel-final" aria-selected="true">Final<span class="ap-count"></span></button>
-    <button type="button" role="tab" id="tab-iterations" aria-controls="panel-iterations" aria-selected="false" tabindex="-1">Iterations<span class="ap-count"></span></button>
+  <div class="ap-bar">
+    <div class="ap-bar__row">
+      <div class="ap-tabs" role="tablist" aria-label="Page sets" hidden>
+        <button type="button" role="tab" id="tab-final" aria-controls="panel-final" aria-selected="true">Final<span class="ap-count"></span></button>
+        <button type="button" role="tab" id="tab-iterations" aria-controls="panel-iterations" aria-selected="false" tabindex="-1">Iterations<span class="ap-count"></span></button>
+      </div>
+    </div>
+    <div class="ap-chips" role="group" aria-label="Groups" hidden></div>
   </div>
 
   <!-- ================================================================ final -->
@@ -90,7 +104,9 @@
     <li><a href="investment-options-list-view.html"><strong>Discover Bonds</strong><span>investment-options-list-view.html</span></a></li>
     <li><a href="signup.html"><strong>Sign up</strong><span>signup.html</span></a></li>
     <li><a href="issuers-akara-capital-advisors-private-limited.html"><strong>Issuer: Akara Capital Advisors</strong><span>issuers-akara-capital-advisors-private-limited.html</span></a></li>
-    <li><a href="bond-mahaveer.html"><strong>Bond: Mahaveer Finance (beta)</strong><span>bond-mahaveer.html</span></a></li>
+    <li><a href="bond-details.html"><strong>Bond: Mahaveer Finance (beta)</strong><span>bond-details.html</span></a></li>
+    <li><a href="bond-details2.html"><strong>Bond: Mahaveer Finance (beta, financials and ratios merged)</strong><span>bond-details2.html</span></a></li>
+    <li><a href="bond-details3.html"><strong>Bond: Mahaveer Finance (beta, design pass on v2)</strong><span>bond-details3.html</span></a></li>
   </ul>
 
   <h3>Collections</h3>
@@ -287,6 +303,59 @@
 
   // #iterations in the URL opens that tab, so a link can point straight at it.
   select(document.getElementById('tab-' + location.hash.slice(1)) || tabs[0]);
+})();
+
+// Filters: one chip per group (h3) of the open tab; picking one shows only it.
+(function () {
+  var chips = document.querySelector('.ap-chips');
+  var group = '';
+  chips.hidden = false;
+
+  function panel() { return document.querySelector('[role="tabpanel"]:not([hidden])'); }
+  function groups(p) {
+    return [].slice.call(p.querySelectorAll('h3')).map(function (h) { return { h: h, ul: h.nextElementSibling }; });
+  }
+
+  function apply() {
+    groups(panel()).forEach(function (g) {
+      var inGroup = !group || g.h.textContent === group;
+      var n = 0;
+      g.ul.querySelectorAll('li').forEach(function (li) {
+        var on = inGroup;
+        li.hidden = !on;
+        if (on) n++;
+      });
+      g.h.hidden = g.ul.hidden = !n;
+    });
+  }
+
+  function chip(label, value, count) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.textContent = label;
+    var c = document.createElement('span');
+    c.textContent = count;
+    b.appendChild(c);
+    b.setAttribute('aria-pressed', value === group);
+    b.addEventListener('click', function () {
+      group = value;
+      chips.querySelectorAll('button').forEach(function (x) { x.setAttribute('aria-pressed', x === b); });
+      apply();
+    });
+    chips.appendChild(b);
+  }
+
+  function rebuild() {
+    group = '';
+    chips.textContent = '';
+    var gs = groups(panel());
+    chip('All', '', panel().querySelectorAll('li').length);
+    gs.forEach(function (g) { chip(g.h.textContent, g.h.textContent, g.ul.querySelectorAll('li').length); });
+    apply();
+  }
+
+  document.querySelectorAll('[role="tab"]').forEach(function (t) { t.addEventListener('click', rebuild); t.addEventListener('keydown', function (e) { if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') setTimeout(rebuild); }); });
+  rebuild();
 })();
 </script>
 </body>
