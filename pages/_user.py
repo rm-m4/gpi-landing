@@ -1033,6 +1033,24 @@ def proof_band():
             '    </section>\n') % (chip_html, stat_html)
 
 
+HEART_JS = r"""<script>
+// footer-login6: the heart beats once, as the 20 Lac+ count-up lands (it runs
+// for 1s from the moment the band is 60% in view). Nothing under reduced motion.
+(function () {
+  var heart = document.querySelector('.ft-proof__heart');
+  if (!heart || !('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var io = new IntersectionObserver(function (es) {
+    if (!es[0].isIntersecting) return;
+    io.disconnect();
+    setTimeout(function () { heart.classList.add('is-beat'); }, 950);
+  }, { threshold: 0.6 });
+  io.observe(document.querySelector('.ft-love__n'));
+})();
+</script>
+"""
+
+
 LOVED_JS = r"""<script>
 // footer-login3: the reviews crossfade every 6s while the band is on screen,
 // pause on hover or focus, and stop under reduced motion. The initials pick
@@ -1100,9 +1118,20 @@ def write_footer_page(page):
     # footer-login5.html: footer-login4 with the reviews swapped for proof
     # the capture holds: the SEBI / OBPP credentials and the platform figures.
     l5 = l4.replace(side, proof_band(), 1).replace(LOVED_JS, "", 1)
+    # footer-login6.html: footer-login5 with icons, one family (Phosphor): a
+    # heart beside the headline and a seal on OBPP; the figures stay plain.
+    l6 = l5.replace('<section class="ft-love ft-love--side ft-proof"', '<section class="ft-love ft-love--side ft-proof ft-proof--icons"', 1)
+    l6 = l6.replace('      <h2 class="ft-love__title" id="ft-love-title">',
+                    '      <div class="ft-proof__head">\n'
+                    '        <span class="ft-proof__heart" aria-hidden="true"><i class="ph-fill ph-heart"></i></span>\n'
+                    '        <h2 class="ft-love__title" id="ft-love-title">', 1)
+    l6 = l6.replace(' Indians</h2>\n', ' Indians</h2>\n      </div>\n', 1)
+    l6 = l6.replace('<li><span>OBPP license holder</span></li>',
+                    '<li><i class="ph ph-seal-check" aria-hidden="true"></i><span>OBPP license holder</span></li>', 1)
+    l6 = l6.replace("</body>", HEART_JS + "</body>", 1)
     for out, foot in (("footer-login.html", soft), ("footer-login2.html", page[i:]),
                       ("footer-login3.html", loved), ("footer-login4.html", l4),
-                      ("footer-login5.html", l5)):
+                      ("footer-login5.html", l5), ("footer-login6.html", l6)):
         with open(os.path.join(HERE, out), "w", encoding="utf-8") as f:
             f.write(head.replace("Footer, logged in |", "Footer, logged in, original colours |", 1)
                     if out == "footer-login2.html" else
@@ -1111,7 +1140,11 @@ def write_footer_page(page):
                     head.replace("Footer, logged in |", "Footer, logged in, minimal |", 1)
                     if out == "footer-login4.html" else
                     head.replace("Footer, logged in |", "Footer, logged in, credentials |", 1)
-                    if out == "footer-login5.html" else head)
+                    if out == "footer-login5.html" else
+                    head.replace("Footer, logged in |", "Footer, logged in, with icons |", 1).replace(
+                        "</head>", '<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">\n'
+                        '<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">\n</head>', 1)
+                    if out == "footer-login6.html" else head)
             f.write(body + foot)
         print("%-28s" % out)
 

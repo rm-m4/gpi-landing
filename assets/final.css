@@ -4258,3 +4258,21 @@ a.gp-bcat:hover { background: var(--blog-navy); color: #fff; }
   }
   .reveal-ready .ft-proof.is-in .ft-proof__stats div { opacity: 1; transform: none; }
 }
+
+/* footer-login6.html: footer-login5 with icons, one family (Phosphor regular,
+   fill for the heart). The heart sits in a round gold-tinted badge beside the
+   headline and beats once as the count-up lands (feedback for the figure,
+   not a loop). The figures carry no icons. */
+.ft-proof__head { display: flex; align-items: center; gap: 16px; }
+.ft-proof__heart {
+  flex: none; display: grid; place-items: center; width: 52px; height: 52px; border-radius: 50%;
+  border: 1px solid rgba(212, 175, 55, 0.3); background: rgba(212, 175, 55, 0.1); color: #d4af37; font-size: 24px;
+}
+.ft-proof__heart.is-beat i { animation: ft-beat 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
+@keyframes ft-beat { 0% { transform: scale(1); } 18% { transform: scale(1.28); } 36% { transform: scale(0.94); } 54% { transform: scale(1.14); } 100% { transform: scale(1); } }
+.ft-proof--icons .ft-proof__heart i { display: block; }
+.ft-proof--icons .ft-proof__chips .ph { color: #d4af37; font-size: 17px; }
+@media (max-width: 639px) {
+  .ft-proof__heart { width: 44px; height: 44px; font-size: 20px; }
+  .ft-proof__head { gap: 12px; }
+}
