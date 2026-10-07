@@ -156,6 +156,10 @@ python3 pages/_utsav.py      # -> bond-utsav.html (from crawl/rendered/bond-utsa
 python3 pages/_utsav_live.py # -> bond-utsav-live.html (production UI, from prod_bond-utsav.tabs.json)
 python3 pages/_profile.py    # -> profile.html, profile-no-kyc.html (content/profile.md + Figma 21:2427)
 python3 pages/_refer.py      # -> refer-and-earn-with-referral.html (refer-and-earn.html + staging capture)
+python3 pages/_explore_bonds.py # -> user-corporate-bonds2.html (post-login bonds + Collections, merged)
+python3 pages/_bond_v4.py    # -> bond-details4.html (reads bond-details3.html: run _bond_beta.py first)
+python3 pages/_bond_v5.py    # -> bond-details5.html, bond-details6.html (Figma 29:1409 design at 1200 / 1018px)
+python3 pages/_footer_ggn.py # -> footer-ggn-prelogin-bonds.html (prelogin-home footer + footer-bonds SEO part)
 python3 pages/_build.py      # sync header/footer across pages
 node crawl/check.js          # verify every page, run after any change
 python3 -m http.server 8000  # then open /pages/<name>.html

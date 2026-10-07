@@ -4158,6 +4158,20 @@ a.gp-bcat:hover { background: var(--blog-navy); color: #fff; }
   --ft-faint: rgba(217, 209, 192, 0.54);
 }
 .ft--dark .ft-copy--bar { padding-block: 20px 28px; color: var(--ft-faint); font-weight: 500; }
+/* footer-ggn-guest, footer-ggn-login and footer-ggn-prelogin-home: pure black with white type, the gold
+   accent unchanged. Text steps down in three tiers, all WCAG AA on #000. */
+.ft.ft--dark.ft--black {
+  --ft-bg: #000000; --ft-band: #0a0a0a; --ft-ink: #ffffff;
+  --ft-muted: rgba(255, 255, 255, 0.75); --ft-faint: rgba(255, 255, 255, 0.55);
+  --ft-line: rgba(255, 255, 255, 0.1); --ft-card: rgba(255, 255, 255, 0.05); --ft-accent: #d4af37;
+}
+.ft--black .ft-ids div { border-left-color: rgba(255, 255, 255, 0.22); }
+.ft--black .ft-regs a.u { text-decoration-color: rgba(255, 255, 255, 0.3); }
+/* footer-ggn-login.html's reviewer initials: neutral greys on black, not warm brown. */
+.ft--black .ft-love__face { background: #1a1a1a; }
+.ft--black .ft-love__face:nth-child(2) { background: #222222; }
+.ft--black .ft-love__face:nth-child(3) { background: #2a2a2a; }
+.ft--black .ft-love__face[aria-pressed="true"] { background: rgba(212, 175, 55, 0.16); }
 
 /* Index footer: "Investor Education", a heading inside Note to Investors
    (pages/_convert.py fold_footer). Same size as the section headings. */
@@ -4211,7 +4225,7 @@ a.gp-bcat:hover { background: var(--blog-navy); color: #fff; }
   .ft-love__face, .ft-love__q { transition: none; }
 }
 
-/* footer-login4.html: company block left, the loved-by band right, then the
+/* footer-ggn-login.html: company block left, the loved-by band right, then the
    copyright bar (pages/_user.py). One vertical rule separates identity from
    proof on wide screens; on phones they stack, company first. */
 .ft-l4 { display: grid; gap: 44px; padding-block: 64px 52px; }

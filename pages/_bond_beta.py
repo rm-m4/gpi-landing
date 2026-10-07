@@ -419,11 +419,11 @@ def app_block(html):
     return html[:end] + APP_BLOCK + html[end:]
 
 
-# Footer for bond-details2: pages/footer-login4.html's footer replaces beta's.
+# Footer for bond-details2: pages/footer-ggn-login.html's footer replaces beta's.
 # Its styles are an inline block on that page plus the .ft rules in final.css;
 # only those rules come across, since the rest of final.css would restyle
-# beta's own gp-* classes. Read at build time, so footer-login4 edits follow.
-FOOTER_SRC = os.path.join(ROOT, "pages/footer-login4.html")
+# beta's own gp-* classes. Read at build time, so footer-ggn-login edits follow.
+FOOTER_SRC = os.path.join(ROOT, "pages/footer-ggn-login.html")
 
 
 def css_rules(css, keep):
@@ -467,7 +467,7 @@ def footer_login4(html):
     # The two site.css tokens those rules lean on, scoped to the footer and
     # navbar (both size their gp-shell with --gp-max).
     tokens = ".ft, .nb { --gp-max: 1200px; --ease: cubic-bezier(0.22, 0.61, 0.36, 1); }"
-    html = html.replace("</head>", "<style>\n/* footer-login4 */\n%s\n%s\n%s\n%s\n</style>\n</head>" % (tokens, shell, final, styles), 1)
+    html = html.replace("</head>", "<style>\n/* footer-ggn-login */\n%s\n%s\n%s\n%s\n</style>\n</head>" % (tokens, shell, final, styles), 1)
     return html.replace("</body>", "".join("<script>%s</script>" % b for b in script) + "</body>", 1)
 
 
@@ -1103,30 +1103,144 @@ HL_STYLE = """<style>
 """
 
 
-# bond-details3: Strength / Weaknesses folds into About the Issuer, which is
-# renamed "Company Information". Beta's own panels move as they are, under a
-# sub-heading carrying their old section title.
+# bond-details3: beta's accordions, grouped under visible headings. Each card
+# stays as it is; its sr-only <h2> drops to <h3> under the group heading.
+def group(html, first, last, titles, heading, hid):
+    a, _ = span(html, first)
+    _, b = span(html, last, a)
+    body = html[a:b]
+    for t in titles:
+        old = '<h2 class="sr-only">%s</h2>' % t
+        if old not in body:
+            raise SystemExit("%s: not found: %s" % (heading, old))
+        body = body.replace(old, '<h3 class="sr-only">%s</h3>' % t, 1)
+    return (html[:a] + '<section class="ci" aria-labelledby="%s"><h2 id="%s" class="ci__title">%s</h2>%s</section>'
+            % (hid, hid, heading, body) + html[b:])
+
+
+# bond-details3 cashflow: no Invest Now in the on-page card (the modal keeps
+# its own), and a pre-TDS note back in beta's disclaimer slot, page and modal.
+TDS_NOTE = "Amounts shown are pre-TDS. 10% TDS applies to resident Indians; file Form 121 to save on it."
+
+
+def cashflow_v3(html):
+    sec = html.index('<div class="gp-expand gp-expand--card ipo-collapsible-section"><h2 class="sr-only">Cashflow</h2>')
+    i, j = span(html, '<div class="gp-expand gp-expand--card ipo-collapsible-section"><h2 class="sr-only">Cashflow</h2>', sec)
+    card, n = re.subn(r'<button class="gp-btn [^"]*" type="button">Invest Now<svg.*?</svg></button>', "", html[i:j], count=1)
+    if not n:
+        raise SystemExit("cashflow v3: Invest Now not found in the Cashflow card")
+    html = html[:i] + card + html[j:]
+    meta = '<div class="bond-cashflow-footer-meta">'
+    if html.count(meta) != 2:
+        raise SystemExit("cashflow v3: expected 2 footers (page, modal), found %d" % html.count(meta))
+    html = html.replace(meta, meta + '<p class="bond-cashflow-tds-disclaimer m-0">%s</p>' % TDS_NOTE)
+    html = receivable_split(html)
+    # Beta's modal keeps its short disclaimer on one line; this one wraps.
+    style = "<style>.bond-cashflow-timeline-modal .bond-cashflow-footer--timeline-modal .bond-cashflow-tds-disclaimer { white-space: normal; }</style>"
+    return html.replace("</head>", style + "</head>", 1)
+
+
+# Total Receivable, split into principal and interest. The figures are the
+# sums of the table's own year rows, so the card and the table agree; beta's
+# headline total is rounded on its own and can differ from them by a paisa.
+YEAR_ROW = re.compile(r'<td class="bond-cashflow-year-amount [^"]*">₹ ([\d,]+\.\d\d)</td><td class="bond-cashflow-year-amount [^"]*">₹ ([\d,]+\.\d\d)</td>')
+
+
+def receivable_split(html):
+    rows = YEAR_ROW.findall(html[:html.index('<div id="cashflow-modal"')])
+    interest = sum(money(i) for i, _ in rows)
+    principal = sum(money(p) for _, p in rows)
+    shown = money(re.search(r'bond-cashflow-receivable-amount block">₹ ([\d,]+\.\d\d)', html).group(1))
+    if not rows or abs(interest + principal - shown) > Decimal("0.05"):
+        raise SystemExit("receivable split: rows %s + %s vs card %s" % (interest, principal, shown))
+    part = '<span class="rs__part"><span class="rs__label">%s</span><span class="rs__value%s">%s</span></span>'
+    body = (part % ("Principal", "", inr(principal)) + '<span class="rs__plus" aria-hidden="true">+</span>'
+            + part % ("Interest", " rs__value--gain", inr(interest)))
+    desk = '<div class="rs">%s</div>' % body
+    mob = '<div class="rs rs--mobile">%s</div>' % body
+    amount = re.compile(r'(<span class="bond-cashflow-receivable-amount block">₹ [\d,]+\.\d\d</span>)')
+    metrics_end = '</div><div class="bond-cashflow-mobile-summary__units-row">'
+    html, n1 = amount.subn(r"\1" + desk.replace("\\", "\\\\"), html)
+    n2 = html.count(metrics_end)
+    html = html.replace(metrics_end, "</div>" + mob + '<div class="bond-cashflow-mobile-summary__units-row">')
+    if n1 != 2 or n2 != 2:
+        raise SystemExit("receivable split: expected 2 cards and 2 mobile summaries, found %d, %d" % (n1, n2))
+    return html.replace("</head>", RS_STYLE + "</head>", 1)
+
+
+RS_STYLE = """<style>
+/* Total Receivable breakdown: a hairline, then principal + interest as two stats. */
+.rs { display: grid; grid-template-columns: 1fr auto 1fr; align-items: end; width: 100%; margin-top: 12px; padding-top: 12px;
+  border-top: 1px solid rgba(6, 150, 60, 0.18); font-variant-numeric: tabular-nums; }
+.rs__part { display: flex; flex-direction: column; gap: 2px; }
+.rs__label { font-size: 12px; line-height: 16px; color: var(--subtext); }
+.rs__value { font-size: 15px; line-height: 20px; font-weight: 700; color: var(--darker-brown); }
+.rs__value--gain { color: #06963c; }
+.rs__plus { padding: 0 12px 2px; font-size: 14px; color: var(--subtext); }
+/* Mobile: the same split, left-aligned under beta's summary metrics. */
+.rs--mobile { margin-top: 0; padding: 10px 16px 2px; border-top: 1px solid var(--light-stroke); text-align: left; }
+@media (max-width: 1023px) { .rs:not(.rs--mobile) { display: none; } }
+@media (min-width: 1024px) { .rs--mobile { display: none; } }
+/* Beta fixes the modal's two summary panels at one height; let them grow together. */
+.bond-cashflow-timeline-modal .bond-cashflow-investment-panel,
+.bond-cashflow-timeline-modal .bond-cashflow-receivable-panel { height: auto; min-height: var(--bond-cashflow-timeline-modal-panel-height); padding-block: 14px; }
+.bond-cashflow-receivable-details { width: 100%; }
+</style>
+"""
+
+
+SEBI = "More Bond Details"
+
+
+def split_documents(html, doc):
+    """Beta's Documents card holds Key Details, Investment Details and the files.
+    The two detail blocks move to their own card after it, under SEBI; the files stay."""
+    a, b = span(html, doc)
+    card = html[a:b]
+    blocks = []
+    for _ in range(2):
+        i, j = span(card, '<div class="bond-documents-subsection-block">')
+        blocks.append(card[i:j])
+        card = card[:i] + card[j:]
+    for _ in range(2):
+        card = drop(card, '<div class="bond-documents-divider"')
+    i, j = span(card, '<div class="bond-documents-action-stack">')
+    files = card[i:j]
+    divider = '<div class="bond-documents-divider" aria-hidden="true"></div>'
+    params = card[:i] + blocks[0] + divider + blocks[1] + card[j:]
+    # The card title covers both blocks; their own sub-titles go.
+    params, n = re.subn(r'<p class="bond-documents-subsection-title">(Key Details|Investment Details)</p>', "", params)
+    if n != 2:
+        raise SystemExit("split documents: expected 2 sub-titles, found %d" % n)
+    params = params.replace('documents-list--ncd"', 'documents-list--ncd sebi-params"', 1)
+    params = re.sub(r'<span class="gp-expand__title">.*?</span></span>', '<span class="gp-expand__title">%s</span>' % SEBI, params, count=1)
+    params = params.replace('<h2 class="sr-only">Documents</h2>', '<h2 class="sr-only">%s</h2>' % SEBI, 1)
+    params = re.sub(r'(id|aria-controls|aria-labelledby)="(_R_1ukbaav5ubsnlrivb[^"]*)"', r'\1="\2sebi"', params)
+    if SEBI not in params or 'sebi"' not in params:
+        raise SystemExit("split documents: card markup changed")
+    return html[:a] + card + params + html[b:]
+
+
 def company_info(html):
-    sw0 = html.index('<div class="gp-expand gp-expand--card is-open ipo-collapsible-section strengths-weaknesses')
-    a, b = span(html, '<div class="gp-expand gp-expand--card is-open ipo-collapsible-section strengths-weaknesses', sw0)
-    section = html[a:b]
-    i, j = span(section, '<div data-testid="bond-strength-weaknesses">')
-    panels = section[i:j]
-    html = html[:a] + html[b:]
-    i, j = span(html, '<div data-testid="bond-about-issuer">')
-    html = html[:j] + '<h3 class="ci-sub">Strength / Weaknesses</h3>' + panels + html[j:]
-    for old, new in (('<h2 class="sr-only">About the Issuer</h2>', '<h2 class="sr-only">Company Information</h2>'),
-                     ('<span class="gp-expand__title">About the Issuer</span>', '<span class="gp-expand__title">Company Information</span>')):
-        if old not in html:
-            raise SystemExit("company info: not found: " + old)
-        html = html.replace(old, new, 1)
+    card = '<div class="gp-expand gp-expand--card is-open ipo-collapsible-section '
+    # Cashflow moves up, ahead of the company sections.
+    i, j = span(html, '<div class="gp-expand gp-expand--card ipo-collapsible-section"><h2 class="sr-only">Cashflow</h2>')
+    cashflow, html = html[i:j], html[:i] + html[j:]
+    k = html.index(card + 'about-issuer')
+    html = html[:k] + cashflow + html[k:]
+    html = group(html, card + 'about-issuer', card + 'financials-table',
+                 ("About the Issuer", "Strength / Weaknesses", "Company Financials"), "Company Information", "ci-h")
+    doc = '<div class="gp-expand gp-expand--card ipo-collapsible-section documents-list'
+    html = split_documents(html, doc)
+    html = group(html, doc, doc + ' documents-list--ncd sebi-params', ("Documents", SEBI), "Documents and More Details", "od-h")
     return html.replace("</head>", CI_STYLE + "</head>", 1)
 
 
 CI_STYLE = """<style>
-/* The merged section's second half, separated by a hairline. */
-.ci-sub { margin: 24px 0 16px; padding-top: 20px; border-top: 1px solid var(--light-stroke);
-  font-size: 16px; line-height: 24px; font-weight: 700; color: var(--darker-brown); }
+/* Company Information, Documents and More Details: a heading over beta's cards, same spacing as the column. */
+.ci { display: flex; flex-direction: column; gap: inherit; }
+.ci__title { margin: 0; font-size: 20px; line-height: 28px; font-weight: 700; letter-spacing: -0.01em; color: var(--darker-brown); }
+@media (max-width: 639px) { .ci__title { font-size: 18px; line-height: 24px; } }
 </style>
 """
 
@@ -1163,7 +1277,7 @@ def main():
     v2 = v2.replace("<head>", mark, 1)
     v2 = v2.replace("</head>", STYLE2 + APP_STYLE + "</head>", 1).replace("</body>", SCRIPT2 + "</body>", 1)
     v3 = merge_financials(html, series(raw), render=fin_v3)
-    for step in (issuer_tiles, app_block3, footer_login4, navbar, chrome, cashflow_split, header_card, highlights, company_info):
+    for step in (issuer_tiles, app_block3, footer_login4, navbar, chrome, cashflow_split, cashflow_v3, header_card, highlights, company_info):
         v3 = step(v3)
     v3 = v3.replace("<head>", mark, 1)
     v3 = v3.replace("</head>", STYLE2 + APP_STYLE + STYLE3 + "</head>", 1).replace("</body>", SCRIPT3 + "</body>", 1)

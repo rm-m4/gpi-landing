@@ -1106,7 +1106,7 @@ def write_footer_page(page):
     soft = page[i:].replace('<footer class="ft ft--dark', '<footer class="ft ft--dark ft--soft', 1)
     loved = soft.replace('  <div class="gp-shell ft__inner">\n', '  <div class="gp-shell ft__inner">\n' + loved_band(), 1)
     loved = loved.replace("</body>", LOVED_JS + "</body>", 1)
-    # footer-login4.html: only the company block and the loved-by band, then
+    # footer-ggn-login.html: only the company block and the loved-by band, then
     # the copyright bar.
     brand = re.search(r'      <div class="ft-brand" data-reveal>.*?\n      </div>\n', soft, re.S).group(0)
     bar = soft[soft.rindex('  <div class="gp-shell ft__inner">\n    <p class="ft-copy ft-copy--bar">'):]
@@ -1115,7 +1115,7 @@ def write_footer_page(page):
           '  <div class="gp-shell ft__inner">\n    <div class="ft-l4">\n' + brand + side +
           '    </div>\n  </div>\n\n' + bar)
     l4 = l4.replace("</body>", LOVED_JS + "</body>", 1)
-    # footer-login5.html: footer-login4 with the reviews swapped for proof
+    # footer-login5.html: footer-ggn-login with the reviews swapped for proof
     # the capture holds: the SEBI / OBPP credentials and the platform figures.
     l5 = l4.replace(side, proof_band(), 1).replace(LOVED_JS, "", 1)
     # footer-login6.html: footer-login5 with icons, one family (Phosphor): a
@@ -1129,8 +1129,13 @@ def write_footer_page(page):
     l6 = l6.replace('<li><span>OBPP license holder</span></li>',
                     '<li><i class="ph ph-seal-check" aria-hidden="true"></i><span>OBPP license holder</span></li>', 1)
     l6 = l6.replace("</body>", HEART_JS + "</body>", 1)
-    for out, foot in (("footer-login.html", soft), ("footer-login2.html", page[i:]),
-                      ("footer-login3.html", loved), ("footer-login4.html", l4),
+    # footer-ggn-guest.html: footer-login on black with white type (ft--black).
+    black = soft.replace('<footer class="ft ft--dark ft--soft', '<footer class="ft ft--dark ft--black', 1)
+    for out, foot in (("footer-login.html", soft), ("footer-login2.html", page[i:]), ("footer-ggn-guest.html", black),
+                      ("footer-login3.html", loved),
+                      # footer-ggn-login.html: l4 in footer-ggn-guest's black scheme;
+                      # footer-login5/6 keep the soft one they are built from.
+                      ("footer-ggn-login.html", l4.replace('class="ft ft--dark ft--soft"', 'class="ft ft--dark ft--black"', 1)),
                       ("footer-login5.html", l5), ("footer-login6.html", l6)):
         with open(os.path.join(HERE, out), "w", encoding="utf-8") as f:
             f.write(head.replace("Footer, logged in |", "Footer, logged in, original colours |", 1)
@@ -1138,9 +1143,11 @@ def write_footer_page(page):
                     head.replace("Footer, logged in |", "Footer, logged in, loved by |", 1)
                     if out == "footer-login3.html" else
                     head.replace("Footer, logged in |", "Footer, logged in, minimal |", 1)
-                    if out == "footer-login4.html" else
+                    if out == "footer-ggn-login.html" else
                     head.replace("Footer, logged in |", "Footer, logged in, credentials |", 1)
                     if out == "footer-login5.html" else
+                    head.replace("Footer, logged in |", "Footer, logged in, black |", 1)
+                    if out == "footer-ggn-guest.html" else
                     head.replace("Footer, logged in |", "Footer, logged in, with icons |", 1).replace(
                         "</head>", '<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">\n'
                         '<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">\n</head>', 1)
