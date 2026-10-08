@@ -73,7 +73,7 @@ def card_active():
         '          <p class="pf-gcard__big"><span class="pf-gcard__amt"><span class="c">%s</span>'
         '<span class="n">25</span><span class="u">Cr</span></span>'
         '<span class="pf-gcard__what">Outstanding</span></p>\n' % R)
-        + stats([("Total Invested", "100Cr", False), ("Repaid", "80Cr", True), ("Gains", "5Cr", False)]),
+        + stats([("Total Invested", "100Cr", False), ("Repaid", "80Cr", False), ("Gains", "5Cr", False)]),
         "Active investment", "sheet-active")
 
 
@@ -250,9 +250,12 @@ def crumb(current="Portfolio", parent=None):
             '%s        <span aria-current="page">%s</span>\n      </nav>\n' % (mid, current))
 
 
-def titlerow(status):
-    return ('  <div class="pf-titlerow"><h1 class="pf-title">Portfolio Metrics</h1>'
-            '<span class="pf-status">%s</span></div>\n' % status)
+def titlerow(status=None, title="Portfolio Metrics", icon=None):
+    if INTER_LAYOUT:
+        status, title, icon = None, "My Portfolio", "portfolio-briefcase.png"
+    pill = '<span class="pf-status">%s</span>' % status if status else ""
+    icon_html = img(icon, w=32, h=32, cls="pf-title__icon") if icon else ""
+    return '  <div class="pf-titlerow"><h1 class="pf-title">%s%s</h1>%s</div>\n' % (icon_html, title, pill)
 
 
 USER = ('  <!-- DATA: account holder; the chevron opens the family-account switcher. -->\n'
@@ -267,6 +270,17 @@ def tablist(cls, id_, labels, label, selected=0, ink=False):
         for k, t in enumerate(labels))
     return ('  <div class="%s" role="tablist" aria-label="%s" data-pf-tabs>%s%s</div>\n'
             % (cls, label, '<span class="pf-seg__ink" aria-hidden="true"></span>' if ink else "", tabs))
+
+
+# The Inter pages drop the Bonds / FD / SIP tabs and title every page "My Portfolio".
+INTER_LAYOUT = False
+
+
+def assets(bonds, fd, sip):
+    if INTER_LAYOUT:
+        return bonds
+    return (tablist("pf-assets", "asset", ["Bonds", "FD", "SIP"], "Asset type")
+            + panel("asset", 0, bonds) + panel("asset", 1, fd) + panel("asset", 2, sip))
 
 
 def panel(id_, k, inner, selected=0):
@@ -306,6 +320,18 @@ def name_link(name, href):
     return '<a href="%s">%s</a>%s' % (href, name, CHEV)
 
 
+def short(n):
+    """2,60,000 -> 2.6L, 60,000 -> 60k, 1,50,00,000 -> 1.5Cr."""
+    v = int(n.replace(",", ""))
+    unit, d = next((u, d) for u, d in (("Cr", 1e7), ("L", 1e5), ("k", 1e3)) if v >= d or u == "k")
+    return ("%.2f" % (v / d)).rstrip("0").rstrip(".") + unit
+
+
+def amt(n):
+    """Inter pages shorten amounts; the Satoshi pages keep the design's figures."""
+    return short(n) if INTER_LAYOUT else {"5,00,000": "5.0L", "4,00,000": "4.00L"}.get(n, n)
+
+
 def date(d, y):
     return '<span class="pf-date"><b>%s</b> <span>&lsquo;%s</span></span>' % (d, y)
 
@@ -313,17 +339,20 @@ def date(d, y):
 # -------------------------------------------------------------- pages
 
 def page_portfolio():
-    holdings = [("Kotak Mahindra Prime Limited", "2,60,000", "60,000", "2,10,000", "19 Jun", "26"),
-                ("Poonawalla Fincorp Limited", "2,60,000", "60,000", "2,10,000", "19 Jun", "26"),
-                ("Kotak Mahindra Prime Limited", "2,60,000", "60,000", "2,10,000", "19 Jun", "26")]
-    hold_rows = [[(name_link(n, "portfolio-bond.html"), "pf-name"), (R + a, ""), (R + b, "pf-up"),
-                  (R + c, ""), (date(d, y), "pf-soft")] for n, a, b, c, d, y in holdings]
+    # (name, invested, outstanding, avg YTM, tenure left, Form 121 available)
+    holdings = [("Kotak Mahindra Prime Limited", "2,60,000", "2,10,000", "12.5%", "24 Months", True),
+                ("Poonawalla Fincorp Limited", "2,60,000", "2,10,000", "12.5%", "18 Months", False),
+                ("Kotak Mahindra Prime Limited", "2,60,000", "2,10,000", "12.5%", "9 Months", True)]
+    f121 = ' <span class="pf-badge-ok">Form 121 Available</span>'
+    hold_rows = [[(name_link(n, "portfolio-bond.html") + (f121 if f else ""), "pf-name"), (R + short(a), ""),
+                  (R + short(c), ""), (y, "pf-up"), (t, "pf-soft")] for n, a, c, y, t, f in holdings]
     holdings_panel = (
         "  <!-- DATA: active bond holdings. Rows open the holding; the design has one bond detail page. -->\n"
-        + kv("Active Investment", [("Total Invested", R + "100 Cr", False), ("Repaid", R + "80 Cr", False),
+        + kv("Active Investments", [("Total Invested", R + "100 Cr", False), ("Repaid", R + "80 Cr", False),
                                    ("Outstanding", R + "25 Cr", False), ("Gains", R + "5 Cr", False, True),
-                                   ("Returns (XIRR)", "14.8%", True, True)], sec_cls=" pf-sum pf-sum--swap")
-        + table("Active bond holdings", ["Name", "Invested", "Repaid", "Outstanding", "Maturity"], hold_rows, hide=(4,)))
+                                   ("Returns (XIRR)", "14.8%", True, True)], sec_cls=" pf-sum pf-sum--swap",
+              after_title=info_btn("sheet-active", "What these figures mean"))
+        + table("Active bond holdings", ["Name", "Invested", "Outstanding", "Avg YTM", "Tenure Left"], hold_rows, hide=(4,)))
 
     payouts = [("08 Jun", "26", "Bajaj Finance Bond", "5,000", "Interest"),
                ("20 Jun", "26", "Shriram Finance NCD", "5,000", "Interest"),
@@ -352,15 +381,14 @@ def page_portfolio():
 
     bonds = (tablist("pf-seg", "view", ["Holdings", "Future Repayment"], "Bond view", ink=True)
              + panel("view", 0, holdings_panel) + panel("view", 1, future_panel))
-    main = (titlerow("Invested") + USER
-            + tablist("pf-assets", "asset", ["Bonds", "FD", "SIP"], "Asset type")
-            + panel("asset", 0, bonds) + panel("asset", 1, fd_panel) + panel("asset", 2, sip_panel))
+    main = (titlerow(title="My Portfolio", icon="briefcase.svg") + USER
+            + assets(bonds, fd_panel, sip_panel))
     hero = cards() + strip(ACH_INVESTED)
     side = (STATEMENT()
-            + note("moneybag.png", "Explore your Matured Investments", R + "3,40,046 from your matured investment",
-                   "View past Investments", "portfolio-matured.html")
             + note("check-green.svg", "You Received %s50,000 in Interest" % R,
-                   "Credited directly to your linked bank account. You deserve that overdue vacation.", ring=True))
+                   "Credited directly to your linked bank account. You deserve that overdue vacation.", ring=True)
+            + note("moneybag.png", "Explore your Matured Investments", R + "3,40,046 from your matured investment",
+                   "View past Investments", "portfolio-matured.html"))
     return layout(main, hero, side) + SHEETS + SHEET_CASH
 
 
@@ -381,22 +409,26 @@ def similar():
             '  <section class="pf-similar"><h2>Similar bonds to Invest</h2>\n%s  </section>\n' % cards_html)
 
 
+EMPTY = '  <div class="pf-empty">%s<h2>No holdings yet</h2></div>\n' % img("briefcase.svg", w=60, h=60)
+
+
 def page_matured():
     rows = [("Kotak Mahindra Prime Limited", "Matured"), ("Poonawalla Fincorp Limited", "Matured"),
             ("Kotak Mahindra Prime Limited", "Sold")]
     # Phones fold the date into the tag and drop Date and Returns (Figma 4:4392).
     trs = [[('%s<br><span class="pf-tag">%s<span class="pf-tag__on">&nbsp;on 19 Jun &lsquo;26</span></span>'
              % (name_link(n, "portfolio-bond.html"), s), "pf-name"), ("19 Jun &lsquo;26", "pf-soft"),
-            (R + "4.00L", "pf-soft"), (R + "2,60,000", ""), ("14.8%", "pf-soft")] for n, s in rows]
+            (R + amt("4,00,000"), "pf-soft"), (R + amt("2,60,000"), ""), ("14.8%", "pf-soft")] for n, s in rows]
+    xirr = ("Returns (XIRR)", "14.8%", True, True)
+    # Inter: every amount in k / L / Cr, and XIRR closes the summary row.
+    figs = [("Invested", R + amt("5,00,000"), False), ("Amount Received", R + amt("28,000"), False),
+            ("Gains", R + amt("30,000"), False)]
+    figs = figs + [xirr] if INTER_LAYOUT else [xirr] + figs
     main = (titlerow("Matured") + USER
-            + tablist("pf-assets", "asset", ["Bonds", "FD", "SIP"], "Asset type")
-            + panel("asset", 0, "  <!-- DATA: matured and sold bond holdings. -->\n"
-                    + kv("Matured/Sold Investment", [("Returns (XIRR)", "14.8%", True, True), ("Invested", R + "5.0L", False),
-                                                     ("Amount Received", R + "28,000", False), ("Gains", R + "30,000", False)],
-                         sec_cls=" pf-sum")
-                    + table("Matured and sold bonds", ["Name", "Date", "Amount Received", "Invested", "Returns"], trs, hide=(1, 4), card=" pf-tablecard--closed"))
-            + panel("asset", 1, '  <div class="pf-empty">%s<h2>No holdings yet</h2></div>\n' % img("briefcase.svg", w=60, h=60))
-            + panel("asset", 2, '  <div class="pf-empty">%s<h2>No holdings yet</h2></div>\n' % img("briefcase.svg", w=60, h=60)))
+            + assets("  <!-- DATA: matured and sold bond holdings. -->\n"
+                    + kv("Matured/Sold Investment", figs, sec_cls=" pf-sum")
+                    + table("Matured and sold bonds", ["Name", "Date", "Amount Received", "Invested", "Returns"], trs, hide=(1, 4), card=" pf-tablecard--closed"),
+                     EMPTY, EMPTY))
     hero = note("bond-cert.png", "Explore your current Holding", "you&rsquo;ve received %s3,40,046 from them" % R,
                 "Active Portfolio", "portfolio.html")
     return layout(main, hero, similar(), crumbs=crumb("Matured", "portfolio.html"), detail=True)
@@ -494,9 +526,9 @@ def page_bond():
             + inv
             + tablist("pf-seg pf-bondtabs", "bond", ["Holdings", "Future Repayment"], "Holding view", ink=True)
             + panel("bond", 0, bond).replace('class="pf-stack', 'class="pf-bondpanel pf-stack', 1)
-            + panel("bond", 1, future).replace('class="pf-stack', 'class="pf-bondpanel pf-stack', 1)
             + '  <div class="pf-tx pf-stack">\n  <h2 class="pf-h2">Transaction Summary</h2>\n'
-            + table("Transactions", ["Date", "Amount", "Units", "Yield"], tx) + '  </div>\n')
+            + table("Transactions", ["Date", "Amount", "Units", "Yield"], tx) + '  </div>\n'
+            + panel("bond", 1, future).replace('class="pf-stack', 'class="pf-bondpanel pf-stack', 1))
     stat = ('  <!-- DATA: issuer track record. -->\n'
             '  <div class="pf-stats">'
             '<div>%s<b>Zero</b><span>Defaults Ever</span></div>'
@@ -525,6 +557,8 @@ def page_fd():
                                          ("Interest", "11.2%", False), ("Payout", "Yearly", False)],
                 cls=" pf-kv--ink", title_cls=" pf-panel__title--ink"))
     rep = [("15 Jan 25", "Interest"), ("19 March26", "Interest"), ("15 Jan 25", "Interest"), ("19 March26", "Interest + Principal")]
+    if INTER_LAYOUT:  # Inter: a single payout at maturity
+        rep = rep[-1:]
     rows = [[(d, "pf-name"), (R + "6,750", "pf-amt"), (t, "pf-soft pf-type")] for d, t in rep]
     main = (holder("unity-logo.png", "Unity Bank", "DICGC Insured upto %s5L" % R, fill=True)
             + inv + '  <h2 class="pf-h2">Repayment</h2>\n'
@@ -543,7 +577,7 @@ def layout(main, hero, side, crumbs=None, detail=False):
             '<aside class="pf-hero" aria-label="Portfolio summary">\n%s</aside>\n'
             '<aside class="pf-side" aria-label="More for you">\n%s</aside>\n'
             '    </div>\n  </section>\n'
-            % (crumbs or crumb(), " pf-grid--detail" if detail else "", main, hero, side))
+            % ("", " pf-grid--detail" if detail else "", main, hero, side))
 
 
 PAGES = [
@@ -559,6 +593,8 @@ DESC = "Track your bond and fixed deposit holdings, repayments and returns on Go
 
 
 def main():
+    global INTER_LAYOUT
+    write_inter_css()
     js = open(os.path.join(HERE, "_portfolio.js"), encoding="utf-8").read()
     for out, title, build in PAGES:
         top, bottom = U.shell("%s | GoldenPi" % title, DESC, None)
@@ -568,23 +604,49 @@ def main():
         top = top.replace("generated by pages/_user.py from the goldenpi.com capture of 2026-09-26",
                           "generated by pages/_portfolio.py from the Figma section 24 sept (node 4:145)", 1)
         bottom = bottom.replace("</body>", "<script>\n%s</script>\n</body>" % js, 1)
+        INTER_LAYOUT = False
         page = top + "\n" + build() + bottom
         with open(os.path.join(HERE, out), "w", encoding="utf-8") as f:
             f.write(page)
         print("%-28s %6d bytes" % (out, len(page)))
-        write_inter(out, page)
+        INTER_LAYOUT = True
+        write_inter(out, top + "\n" + build() + bottom)
 
 
 INTER = "-inter"
+
+
+# Inter runs heavier than Satoshi at the same weight: bold steps down to
+# semibold, and labels (tabs, chips, column heads, captions) down to medium,
+# so figures and titles carry the hierarchy.
+INTER_CSS = """
+/* ---- Inter weights (appended by pages/_portfolio.py) ---- */
+.pf-title, .pf-h2, .pf-lead, .pf-holder h1 { letter-spacing: -0.02em; }
+.pf .pf-seg [role="tab"], .pf .pf-chips button, .pf .pf-switch, .pf .pf-table th,
+.pf .pf-gcard__stats dt, .pf .pf-gcard__what, .pf .pf-gcard__band span, .pf .pf-gcard__tag,
+.pf .pf-status, .pf .pf-ach__tag, .pf .pf-link, .pf .pf-kv--rows dt, .pf-sheet--light dt,
+.pf .pf-table .pf-type, .pf .pf-tag { font-weight: 500; }
+.pf .pf-table td, .pf .pf-kv dd, .pf .pf-gcard__amt, .pf .pf-gcard__stats dd, .pf .pf-stats b,
+.pf .pf-range__sum, .pf .pf-date { font-variant-numeric: tabular-nums; }
+.pf .pf-tablecard--pay .pf-table .pf-amt::before { font-weight: 500; }
+"""
+
+
+def write_inter_css():
+    css = open(os.path.join(HERE, "..", "assets", "portfolio.css"), encoding="utf-8").read()
+    css = css.replace("font-weight: 700", "font-weight: 600").replace("font-weight: 900", "font-weight: 700")
+    with open(os.path.join(HERE, "..", "assets", "portfolio-inter.css"), "w", encoding="utf-8") as f:
+        f.write("/* GENERATED by pages/_portfolio.py from portfolio.css: edit that, not this. */\n" + css + INTER_CSS)
 
 
 def write_inter(out, page):
     """Same page set in Inter instead of Satoshi, linking only to its -inter siblings."""
     page = page.replace(
         '<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap">',
-        '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap">', 1)
+        '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">', 1)
     page = page.replace("""sans: ['"Satoshi"',""", """sans: ['"Inter"',""", 1)
     page = page.replace("</head>", '<style>body { font-family: "Inter", ui-sans-serif, system-ui, sans-serif; }</style>\n</head>', 1)
+    page = page.replace('href="../assets/portfolio.css"', 'href="../assets/portfolio-inter.css"', 1)
     for name, _, _ in PAGES:
         page = page.replace('href="%s"' % name, 'href="%s"' % name.replace(".html", INTER + ".html"))
     out = out.replace(".html", INTER + ".html")
