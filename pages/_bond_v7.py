@@ -443,6 +443,9 @@ STYLE = """<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family
 .bond-cashflow-sidebar__stepper label input { width: 3ch !important; max-width: none !important; text-align: right !important; }
 .bond-cashflow-sidebar__stepper label input, .b7-unit { font-family: satoshi, system-ui, sans-serif !important;
   font-size: 22px !important; line-height: 32px !important; font-weight: 700 !important; color: #322811 !important; }
+/* The number leads; "Unit" is its quieter label, on the same baseline. */
+.bond-cashflow-sidebar__stepper label { align-items: baseline !important; }
+.b7-unit { font-size: 16px !important; font-weight: 500 !important; color: #6b6457 !important; }
 </style>
 """
 
