@@ -83,6 +83,8 @@ def slice_between(text, start, end, what, path, inclusive=False):
 
 def set_active(shell, active_label):
     """Mark one nav item current and give it the '-selected' icon."""
+    if '<header class="gp-header"' not in shell:
+        return shell  # already the plain-dark navbar: apply_navbar() marks it
     shell = shell.replace(' aria-current="page"', "")
     shell = re.sub(r'header-nav-(bonds|fd)-selected\.svg', r'header-nav-\1.svg', shell)
     if not active_label:
@@ -134,6 +136,169 @@ def main():
         print("%-24s %s" % (name, "updated" if page != before else "unchanged"))
 
     print("\n%d page(s) updated from %s" % (changed, REFERENCE))
+    apply_navbar()
+    drop_copyright_word()
+
+
+def drop_copyright_word():
+    """"(c) Copyright 2017 - 2026 | ..." reads "(c) 2017 - 2026 | ..." in every
+    Final page's footer, the footer-ggn pages included (user, 2026-10-07)."""
+    n = 0
+    for name in final_pages():
+        path = os.path.join(HERE, name)
+        page = open(path, encoding="utf-8").read()
+        m = re.search(r"<footer\b.*</footer>", page, re.S)
+        if not m or "Copyright 2017" not in m.group(0):
+            continue
+        # Both spellings: the entity (our footers) and a literal (c) (beta's page).
+        foot = m.group(0).replace("&copy; Copyright 2017", "&copy; 2017").replace("© Copyright 2017", "© 2017")
+        open(path, "w", encoding="utf-8").write(page[:m.start()] + foot + page[m.end():])
+        n += 1
+    print("%d footer(s) without the word Copyright" % n)
+
+
+# ---------------------------------------------------------------- navbar
+# Every page in all-pages.html's Final tab takes the plain dark navbar from
+# navbar-variants.html (pages/_navbar.py): plain-dark-login where the page is
+# logged in, plain-dark-guest otherwise. Its links are Bonds, FD, Bond Utsav and
+# Refer & Earn (Collection is not in it); Portfolio joins them for a logged-in
+# user. Runs last, so it holds whichever generator wrote the page.
+import _navbar as NB
+
+NB_LABELS = {"Bonds": "Bonds", "FD": "FD", "Bond Utsav": "Bond Utsav", "Refer &amp; Earn": "Refer &amp; Earn"}
+
+
+def final_pages():
+    ap = open(os.path.join(HERE, "all-pages.html"), encoding="utf-8").read()
+    fin = ap[ap.index('id="panel-final"'):ap.index('id="panel-iterations"')]
+    return re.findall(r'<a href="([^"#]+\.html)"', fin)
+
+
+def current_label(name, old):
+    """The nav item a page marks current, by label (None for none)."""
+    if name in ACTIVE:
+        return NB_LABELS.get(ACTIVE[name])
+    m = re.search(r'<a class="(?:gp-nav__link|nb__link[^"]*)" href="[^"]*" aria-current="page">'
+                  r'\s*(?:<img[^>]*>|<span class="nb-ic"[^>]*></span>)?\s*(?:<span>)?([^<]+?)\s*(?:</span>)?\s*</a>', old)
+    return NB_LABELS.get(m.group(1).strip()) if m else None
+
+
+def navbar(name, old):
+    login = "gp-user" in old or "nb__avatar" in old
+    state = "login" if login else "guest"
+    nb = NB.header("plain", "dark", state).replace(" hidden>", ">", 1)
+    # The phone tab bar keeps the icons variant's icons (user, 2026-10-07):
+    # each link takes its icon from that variant; navbar.css shows them on
+    # phones only, so the desktop bar stays plain.
+    art = dict((lab, ic) for ic, lab in re.findall(
+        r'<a class="nb__link[^"]*" href="[^"]*"[^>]*>(<(?:span|img) class="nb-ic"[^>]*>(?:</span>)?)<span>([^<]+)</span></a>',
+        NB.header("icons", "dark", state)))
+    nb = re.sub(r'(<a class="nb__link[^"]*" href="[^"]*"[^>]*>)<span>([^<]+)</span></a>',
+                lambda m: m.group(1) + art.get(m.group(2), "") + "<span>%s</span></a>" % m.group(2), nb)
+    nb = nb.replace('class="nb nb--dark nb--plain"', 'class="nb nb--dark nb--plain nb--micons"', 1)
+    nb = nb.replace(' class="nb__link is-current"', ' class="nb__link"').replace(' aria-current="page"', "")
+    label = current_label(name, old)
+    if label:
+        nb, n = re.subn(r'<a class="nb__link" (href="[^"]*")>((?:<(?:span|img) class="nb-ic"[^>]*>(?:</span>)?)?)<span>%s</span></a>' % re.escape(label),
+                        r'<a class="nb__link is-current" \1 aria-current="page">\2<span>%s</span></a>' % label, nb, count=1)
+        if n != 1:
+            sys.exit("%s: could not mark %r in the navbar" % (name, label))
+    if login and name.startswith("portfolio"):
+        nb = nb.replace('<a class="nb__link nb__link--m" href="portfolio.html">',
+                        '<a class="nb__link nb__link--m is-current" href="portfolio.html" aria-current="page">', 1)
+    return '<div class="nb-slot">\n%s</div>\n' % nb
+
+
+# ---------------------------------------------------------------- footer
+# Every Final page with the navbar also takes one of the four footer-ggn pages'
+# footers (user, 2026-10-07): the homepage its own pre-login footer, corporate
+# bonds the one with the bonds guide, logged-in pages footer-ggn-login, and every
+# other page footer-ggn-guest. The footer comes with the styles and script its
+# page carries for it, in a marked block so a rerun replaces rather than stacks.
+GGN = {"index.html": "footer-ggn-prelogin-home.html", "corporate-bonds.html": "footer-ggn-prelogin-bonds.html"}
+GGN_STYLE = ("/* The light scheme from the GoldenPi Web Design Figma",  # footer-landing's footer styles
+             "/* Corporate bonds guide")  # footer-bonds' guide, on prelogin-bonds only
+GGN_SCRIPT = ("// footer-login3: the reviews crossfade",)
+MARK = "<!-- ggn-footer: %s; pages/_build.py -->"
+
+
+def ggn_parts(src):
+    h = open(os.path.join(HERE, src), encoding="utf-8").read()
+    head, tail = h[:h.index("</head>")], h[h.index("</footer>"):]
+    footer = h[h.index("<footer class="):h.index("</footer>") + len("</footer>")]
+    # No scroll-in reveal inside the footer: blocks in the closed Read More fold
+    # can never be seen, so they would stay at opacity 0.
+    footer = footer.replace(" data-reveal", "")
+    styles = "".join("<style>%s</style>\n" % s for s in re.findall(r"<style>(.*?)</style>", head, re.S)
+                     if s.strip().startswith(GGN_STYLE))
+    scripts = "".join("<script>%s</script>\n" % s for s in re.findall(r"<script>(.*?)</script>", tail, re.S)
+                      if s.strip().startswith(GGN_SCRIPT))
+    if not styles:
+        sys.exit("%s: footer styles not found" % src)
+    return footer, styles, scripts
+
+
+def ggn_footer(name, page):
+    if name.startswith("footer-") or "<footer" not in page:
+        return page
+    src = GGN.get(name) or ("footer-ggn-login.html" if "nb__avatar" in page else "footer-ggn-guest.html")
+    footer, styles, scripts = ggn_parts(src)
+    for part in ("styles", "scripts"):  # drop what an earlier run injected
+        page = re.sub(r"%s\n.*?%s\n" % (re.escape(MARK % part), re.escape(MARK % ("/" + part))), "", page, flags=re.S)
+    # The site footer only: a page can carry other <footer>s (the list view's
+    # filter sheet has one), so take the site footer by its class.
+    m = re.search(r'<footer class="(?:ft[ "]|gp-footer")', page)
+    if not m:
+        sys.exit("%s: site footer not found" % name)
+    i = m.start()
+    page = page[:i] + footer + page[page.index("</footer>", i) + len("</footer>"):]
+    page = page.replace("</head>", "%s\n%s%s\n</head>" % (MARK % "styles", styles, MARK % "/styles"), 1)
+    if scripts:
+        k = page.rindex("</body>")
+        page = page[:k] + "%s\n%s%s\n" % (MARK % "scripts", scripts, MARK % "/scripts") + page[k:]
+    if "final.css" not in page:
+        page = page.replace("</head>", '<link rel="stylesheet" href="../assets/final.css">\n</head>', 1)
+    return page
+
+
+PROMO_RE = re.compile(r'<!-- =+ promo bar -->\n.*?<div class="gp-promo">.*?\n</div>\n\n', re.S)
+
+
+def promo():
+    src = open(os.path.join(HERE, "_final_shell.html"), encoding="utf-8").read()
+    m = PROMO_RE.search(src)
+    if not m:
+        sys.exit("_final_shell.html: promo bar not found")
+    return m.group(0)
+
+
+def apply_navbar():
+    done = 0
+    for name in final_pages():
+        path = os.path.join(HERE, name)
+        page = open(path, encoding="utf-8").read()
+        m = re.search(r'<header class="gp-header">.*?</header>\n?', page, re.S) or \
+            re.search(r'<div class="nb-slot">\n<header class="nb nb--dark nb--plain[^"]*".*?</header>\n</div>\n', page, re.S)
+        if not m:
+            continue  # no shared header: system states, footers, beta's own bond page
+        before = page
+        page = page[:m.start()] + navbar(name, m.group(0)) + page[m.end():]
+        # The promo strip runs on the homepage only (user, 2026-10-07). The
+        # shared shell is copied from corporate-bonds.html, which has lost its
+        # strip by now, so index takes it back from _final_shell.html.
+        if name != "index.html":
+            page = PROMO_RE.sub("", page, count=1)
+        elif 'class="gp-promo"' not in page:
+            page = page.replace('<div class="nb-slot">', promo() + '<div class="nb-slot">', 1)
+            page = page.replace("<!-- ============================================================== header -->\n" + promo(),
+                                promo() + "<!-- ============================================================== header -->\n", 1)
+        page = ggn_footer(name, page)
+        if "navbar.css" not in page:
+            page = page.replace("</head>", '<link rel="stylesheet" href="../assets/navbar.css">\n</head>', 1)
+        if page != before:
+            open(path, "w", encoding="utf-8").write(page)
+            done += 1
+    print("%d Final page(s) given the plain dark navbar" % done)
 
 
 if __name__ == "__main__":

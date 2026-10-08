@@ -2,7 +2,8 @@
 """footer-ggn-prelogin-bonds.html: footer-ggn-prelogin-home.html (index.html's
 footer, black / white / gold) with its SEO part swapped for footer-bonds.html's:
 the corporate bonds guide and its Collections, instead of the About GoldenPi
-Q&As. Everything else is the home footer as it is.
+Q&As, and without the fold's legal block (Note to Investors, Investor
+Education, SMARTODR, Risk Disclosure). Everything else is the home footer.
 
 Both sources are read at build time, so edits to either carry over. The guide's
 own CSS comes across from footer-bonds' inline styles, its table on the black
@@ -36,6 +37,14 @@ def main():
     if 'class="ft-guide"' not in seo:
         raise SystemExit("footer-ggn-prelogin-bonds: footer-bonds' guide not found in its Part 2")
     page = home[:a] + seo + home[b:]
+    # The fold opens straight onto the SEO part: the home footer's Note to
+    # Investors, Investor Education, SMARTODR and Risk Disclosure block is
+    # left out here (user, 2026-10-07).
+    f = page.index("    </summary>\n", page.index('<details class="ft-fold">')) + len("    </summary>\n")
+    g = page.index(PART2, f)
+    if "Note to Investors" not in page[f:g]:
+        raise SystemExit("footer-ggn-prelogin-bonds: fold's legal block not where expected")
+    page = page[:f] + "\n" + page[g:]
 
     css = re.search(r"  /\* Corporate bonds guide.*?(?=</style>)", bonds, re.S).group(0)
     css = css.replace("border-radius: 12px; background: #fff; }", "border-radius: 12px; background: var(--ft-card); }")

@@ -46,6 +46,184 @@
     background: linear-gradient(180deg, rgba(252, 251, 250, 0) 0%, #fcfbfa 12%, #fcfbfa 88%, rgba(252, 251, 250, 0) 100%);
   }
 </style>
+<link rel="stylesheet" href="../assets/navbar.css">
+<!-- ggn-footer: styles; pages/_build.py -->
+<style>
+  /* The light scheme from the GoldenPi Web Design Figma, footer
+     frame 242:21690. Same blocks as footer-taste.html, the dark version; only colour and chrome change. */
+  .ft {
+    --ft-bg: #fcfbfa;          /* Figma "bg ligh" */
+    --ft-band: #f0ece6;        /* lower band, sampled from the frame */
+    --ft-ink: #322811;         /* "darker brown" */
+    --ft-muted: #514834;       /* "brown dark" */
+    --ft-faint: #666666;       /* "subtext" */
+    --ft-line: #e7e3d999;      /* "stroke light" */
+    --ft-card: #ffffff;
+    --ft-accent: #a67c00;      /* "icon" */
+    position: relative;
+    overflow: hidden;
+    margin-top: 72px;
+    background: var(--ft-bg);
+    color: var(--ft-muted);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .ft a { color: inherit; text-decoration: none; }
+  .ft a:focus-visible, .ft button:focus-visible, .ft summary:focus-visible {
+    outline: 2px solid var(--ft-accent);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  .ft h2, .ft h3 { color: var(--ft-ink); font-weight: 700; }
+
+  /* The pi mark the live footer carries, drifting slowly top right. */
+  .ft__pi {
+    position: absolute;
+    top: -40px;
+    right: -60px;
+    width: 420px;
+    pointer-events: none;
+    animation: ft-drift 18s ease-in-out infinite alternate;
+  }
+  @keyframes ft-drift { to { transform: translate(-24px, 28px) rotate(-4deg); } }
+
+  .ft__inner { position: relative; }
+
+  /* ----------------------------------------------------------- main grid */
+  .ft-main { display: grid; gap: 40px 32px; padding-block: 56px 44px; }
+  @media (min-width: 640px) { .ft-main { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .ft-main { grid-template-columns: 1.5fr repeat(4, 1fr); } }
+  .ft-brand address { margin-top: 12px; font-style: normal; }
+  .ft-brand__co { margin-top: 20px; color: var(--ft-ink); font-weight: 700; }
+  .ft-brand__tel a { color: var(--ft-ink); font-weight: 700; }
+  .ft-social { display: flex; gap: 10px; margin-top: 22px; }
+  .ft-social a {
+    display: grid; place-items: center; width: 40px; height: 40px;
+    border: 1px solid var(--ft-line); border-radius: 50%;
+    transition: transform 0.25s var(--ease), background-color 0.25s, border-color 0.25s;
+  }
+  .ft-social a:hover { transform: translateY(-3px); background: rgba(212, 175, 55, 0.16); border-color: var(--ft-accent); }
+  .ft-social img { width: 16px; height: 16px; object-fit: contain; }
+  .ft-col h2 { margin-bottom: 16px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ft-accent); }
+  .ft-col li + li { margin-top: 10px; }
+  /* Gold underline grows from the left on hover. */
+  .ft-link { background: linear-gradient(var(--ft-accent), var(--ft-accent)) 0 100% / 0 1px no-repeat; transition: background-size 0.3s var(--ease), color 0.2s; }
+  .ft-link:hover { color: var(--ft-ink); background-size: 100% 1px; }
+
+  /* ----------------------------------------------------------- link bands */
+  .ft-band { padding-block: 28px; border-top: 1px solid var(--ft-line); }
+  .ft-band > h2 { margin-bottom: 14px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ft-accent); }
+  .ft-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .ft-chips a {
+    padding: 6px 14px; border: 1px solid var(--ft-line); border-radius: 999px;
+    background: var(--ft-card); font-size: 13px;
+    transition: border-color 0.2s, color 0.2s, background-color 0.2s;
+  }
+  .ft-chips a:hover { border-color: var(--ft-accent); color: var(--ft-ink); background: rgba(212, 175, 55, 0.1); }
+  .ft-chips--ext a::after { content: " \2197"; color: var(--ft-faint); }
+
+  .ft-docs { display: grid; gap: 8px; }
+  @media (min-width: 640px) { .ft-docs { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .ft-docs { grid-template-columns: repeat(3, 1fr); } }
+  .ft-docs a {
+    display: flex; align-items: center; gap: 12px; padding: 12px 14px;
+    border: 1px solid var(--ft-line); border-radius: 12px; background: var(--ft-card);
+    transition: border-color 0.2s, transform 0.25s var(--ease), color 0.2s;
+  }
+  .ft-docs a:hover { border-color: var(--ft-accent); color: var(--ft-ink); transform: translateX(3px); }
+  .ft-docs svg { flex: none; width: 18px; height: 18px; color: var(--ft-accent); }
+  .ft-docs span { flex: 1; }
+  .ft-docs small { color: var(--ft-faint); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; }
+
+  .ft-copy { padding-block: 20px; border-top: 1px solid var(--ft-line); color: var(--ft-faint); font-size: 13px; }
+
+  /* ---------------------------------------------------------------- legal */
+  .ft-legal { padding-block: 40px 56px; background: rgba(0, 0, 0, 0.22); font-size: 13px; line-height: 1.7; color: var(--ft-faint); }
+  .ft-legal section + section { margin-top: 36px; }
+  .ft-legal h2 { margin-bottom: 12px; font-size: 16px; }
+  .ft-legal p + p { margin-top: 10px; }
+  .ft-legal a.u { color: var(--ft-muted); text-decoration: underline; text-underline-offset: 3px; }
+  .ft-legal a.u:hover { color: var(--ft-accent); }
+  .ft-legal strong { color: var(--ft-muted); }
+  .ft-more > summary { display: inline-flex; margin-top: 12px; color: var(--ft-accent); font-weight: 700; cursor: pointer; list-style: none; }
+  .ft-more > summary::-webkit-details-marker { display: none; }
+  .ft-more[open] > summary { display: none; }
+
+
+  .ft-faq { border-top: 1px solid var(--ft-line); }
+  .ft-faq details { border-bottom: 1px solid var(--ft-line); }
+  .ft-faq summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 16px; cursor: pointer; list-style: none; }
+  .ft-faq summary::-webkit-details-marker { display: none; }
+  .ft-faq summary h2 { margin: 0; font-size: 15px; }
+  .ft-faq summary::after { content: "+"; flex: none; color: var(--ft-accent); font-size: 22px; line-height: 1; transition: transform 0.3s var(--ease); }
+  .ft-faq details[open] summary::after { transform: rotate(45deg); }
+  .ft-faq details > div { padding-bottom: 18px; }
+  .ft-faq ul { margin-top: 8px; padding-left: 18px; list-style: disc; }
+
+  .ft-reg { display: grid; gap: 10px; margin-block: 18px; }
+  @media (min-width: 640px) { .ft-reg { grid-template-columns: repeat(3, 1fr); } }
+  .ft-reg div { padding: 16px 18px; border: 1px solid rgba(212, 175, 55, 0.24); border-radius: 14px; background: rgba(212, 175, 55, 0.06); }
+  .ft-reg dt { font-size: 12px; }
+  .ft-reg dd { margin-top: 4px; color: var(--ft-ink); font-size: 20px; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: 0.02em; }
+
+  /* Two parts: part 1 carries the regulatory copy inline on the main ground;
+     part 2 (SEO) sits on the darker band. */
+  .ft-legal--reg { padding-block: 32px; background: none; }
+  .ft-seo .ft-band { margin-top: 32px; }
+  .ft-legal .ft-band > h2 { margin-bottom: 14px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ft-accent); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ft__pi { animation: none; }
+    .ft-social a, .ft-docs a { transition: none; }
+  }
+  @media (max-width: 639px) {
+    .ft__pi { width: 260px; right: -90px; }
+  }
+
+  /* ---------------------------------------------- Figma 242:21690 chrome */
+  .ft { margin-top: 0; border-top: 1px solid var(--ft-line); }
+  .ft__pi { display: none; }
+  .ft-main { border-bottom: 1px solid var(--ft-line); }
+  .ft-brand address, .ft-brand p { font-size: 13px; }
+  .ft-col h2 { padding-bottom: 12px; border-bottom: 1px solid var(--ft-line); color: var(--ft-faint); font-weight: 500; letter-spacing: 0.12em; }
+  .ft-col a { color: var(--ft-ink); }
+  .ft-social a { border-radius: 8px; background: #fff; border-color: var(--ft-line); box-shadow: 0 1px 2px rgba(50, 40, 17, 0.04); }
+  .ft-social a:hover { background: #fff; border-color: var(--ft-accent); }
+  .ft-social img { filter: brightness(0); opacity: 0.85; }
+  .ft-band { border-top: 0; }
+  .ft-band > h2, .ft-legal .ft-band > h2 { color: var(--ft-ink); font-size: 15px; letter-spacing: 0; text-transform: none; }
+  .ft-chips a { border-color: transparent; background: #fff; color: var(--ft-ink); box-shadow: 0 1px 2px rgba(50, 40, 17, 0.05); }
+  .ft-chips a:hover { border-color: var(--ft-accent); background: #fff; color: var(--ft-ink); }
+  .ft-chips--ext a::after { content: none; }
+  .ft-legal { background: var(--ft-band); color: var(--ft-faint); }
+  .ft-legal--reg { background: none; }
+  .ft-legal a.u { color: var(--ft-ink); font-weight: 500; }
+  .ft-legal a.u:hover { color: var(--ft-accent); }
+  .ft-legal strong { color: var(--ft-muted); }
+  .ft-more > summary { color: var(--ft-ink); text-decoration: underline; text-underline-offset: 3px; }
+  .ft-reg div { border-color: var(--ft-line); background: #fff; }
+  .ft-copy { color: var(--ft-ink); font-weight: 700; }
+</style>
+<style>
+  /* Corporate bonds guide (part 2 SEO copy). Sections fold like the About
+     GoldenPi Q&As on footer-landing.html; h4s and tables sit inside each fold. */
+  .ft-guide > h2 { margin-bottom: 10px; font-size: 20px; font-weight: 500; letter-spacing: -0.01em; }
+  .ft-guide > p { margin-bottom: 20px; }
+  .ft-faq summary h3 { margin: 0; color: var(--ft-ink); font-size: 16px; font-weight: 500; }
+  .ft-guide h4 { margin: 18px 0 4px; color: var(--ft-ink); font-size: 14px; font-weight: 500; }
+  .ft-guide details > div > p:first-child { margin-top: 0; }
+  .ft-guide-link { margin-left: 4px; color: var(--ft-accent); font-weight: 500; white-space: nowrap; }
+  .ft-guide-link::after { content: " \2192"; }
+  .ft-guide-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .ft-table { overflow-x: auto; margin-block: 14px; border: 1px solid var(--ft-line); border-radius: 12px; background: var(--ft-card); }
+  .ft-table table { width: 100%; min-width: 560px; border-collapse: collapse; font-size: 13px; }
+  .ft-table th, .ft-table td { padding: 10px 14px; border-bottom: 1px solid var(--ft-line); text-align: left; vertical-align: top; }
+  .ft-table tr:last-child > * { border-bottom: 0; }
+  .ft-table thead th { background: var(--ft-band); color: var(--ft-ink); font-weight: 500; }
+  .ft-table tbody th { color: var(--ft-ink); font-weight: 500; }
+  .ft-guide .ft-faq ul { margin-block: 8px; }
+</style>
+<!-- ggn-footer: /styles; pages/_build.py -->
 <style>
   /* The light scheme from the GoldenPi Web Design Figma, footer
      frame 242:21690. Same blocks as footer-taste.html, the dark version; only colour and chrome change. */

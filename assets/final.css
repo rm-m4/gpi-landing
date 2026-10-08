@@ -4172,6 +4172,13 @@ a.gp-bcat:hover { background: var(--blog-navy); color: #fff; }
 .ft--black .ft-love__face:nth-child(2) { background: #222222; }
 .ft--black .ft-love__face:nth-child(3) { background: #2a2a2a; }
 .ft--black .ft-love__face[aria-pressed="true"] { background: rgba(212, 175, 55, 0.16); }
+/* footer-ggn-login.html: the registration block under the company / loved-by
+   row, set off by a rule, and the copyright in bold white like index's. */
+.ft--ggn-login .ft-regs { margin-top: 48px; }
+.ft--black .ft-copy--bar { color: var(--ft-ink); font-weight: 700; }  /* all ggn footers: bold white copyright */
+/* footer-ggn-login: the Legal links as one line above the compliance lines,
+   set like them; no gold underline on hover. */
+.ft-regs .ft-legal-row a.u:hover { text-decoration-color: rgba(255, 255, 255, 0.3); }
 
 /* Index footer: "Investor Education", a heading inside Note to Investors
    (pages/_convert.py fold_footer). Same size as the section headings. */
@@ -4209,6 +4216,11 @@ a.gp-bcat:hover { background: var(--blog-navy); color: #fff; }
   box-shadow: 0 0 0 1.5px rgba(212, 175, 55, 0.7);
 }
 .ft-love__face:focus-visible { outline: 2px solid #d4af37; outline-offset: 3px; }
+.ft-love__face { overflow: hidden; }
+.ft-love__face img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+/* Photos: the unselected ones dimmed, so the gold-ringed voice on screen leads. */
+.ft-love__face:has(img):not([aria-pressed="true"]) img { opacity: 0.6; filter: grayscale(0.3); transition: opacity 0.3s ease, filter 0.3s ease; }
+.ft-love__face:has(img):hover img { opacity: 1; filter: none; }
 .ft-love__quotes { display: grid; }
 .ft-love__q {
   grid-area: 1 / 1; margin: 0; opacity: 0; visibility: hidden;

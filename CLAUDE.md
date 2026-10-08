@@ -157,9 +157,14 @@ python3 pages/_utsav_live.py # -> bond-utsav-live.html (production UI, from prod
 python3 pages/_profile.py    # -> profile.html, profile-no-kyc.html (content/profile.md + Figma 21:2427)
 python3 pages/_refer.py      # -> refer-and-earn-with-referral.html (refer-and-earn.html + staging capture)
 python3 pages/_explore_bonds.py # -> user-corporate-bonds2.html (post-login bonds + Collections, merged)
+python3 pages/_explore_bonds3.py # -> user-corporate-bonds3.html (why bonds + FD comparison, then the Collections explorer)
 python3 pages/_bond_v4.py    # -> bond-details4.html (reads bond-details3.html: run _bond_beta.py first)
 python3 pages/_bond_v5.py    # -> bond-details5.html, bond-details6.html (Figma 29:1409 design at 1200 / 1018px)
+python3 pages/_bond_v7.py    # -> bond-details7.html (bond-details5 with Figma 37:222's hero + highlights)
+python3 pages/_explore_app.py # -> user-explore-app.html (Figma 40:2105, light; head + chrome from bond-details3.html)
+python3 pages/_fd_app.py      # -> user-fixed-deposits-app.html (user-fixed-deposits content, explore-app design)
 python3 pages/_footer_ggn.py # -> footer-ggn-prelogin-bonds.html (prelogin-home footer + footer-bonds SEO part)
+python3 pages/_investor_resources.py # -> investor-resources.html (goldenpi.com capture, index.html shell)
 python3 pages/_build.py      # sync header/footer across pages
 node crawl/check.js          # verify every page, run after any change
 python3 -m http.server 8000  # then open /pages/<name>.html

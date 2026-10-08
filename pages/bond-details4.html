@@ -102,6 +102,9 @@
 .ft--black .ft-love__face:nth-child(2) { background: #222222; }
 .ft--black .ft-love__face:nth-child(3) { background: #2a2a2a; }
 .ft--black .ft-love__face[aria-pressed="true"] { background: rgba(212, 175, 55, 0.16); }
+.ft--ggn-login .ft-regs { margin-top: 48px; }
+.ft--black .ft-copy--bar { color: var(--ft-ink); font-weight: 700; }
+.ft-regs .ft-legal-row a.u:hover { text-decoration-color: rgba(255, 255, 255, 0.3); }
 .ft-legal h2.ft-sub { margin: 22px 0 8px; color: var(--ft-ink); font-size: 16px; font-weight: 700; }
 .ft-love {
   display: grid; gap: 28px 64px; align-items: center;
@@ -132,6 +135,10 @@
   box-shadow: 0 0 0 1.5px rgba(212, 175, 55, 0.7);
 }
 .ft-love__face:focus-visible { outline: 2px solid #d4af37; outline-offset: 3px; }
+.ft-love__face { overflow: hidden; }
+.ft-love__face img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+.ft-love__face:has(img):not([aria-pressed="true"]) img { opacity: 0.6; filter: grayscale(0.3); transition: opacity 0.3s ease, filter 0.3s ease; }
+.ft-love__face:has(img):hover img { opacity: 1; filter: none; }
 .ft-love__quotes { display: grid; }
 .ft-love__q {
   grid-area: 1 / 1; margin: 0; opacity: 0; visibility: hidden;
@@ -189,6 +196,181 @@
 .ft-proof__heart { width: 44px; height: 44px; font-size: 20px; }
 .ft-proof__head { gap: 12px; }
 }
+
+  /* The light scheme from the GoldenPi Web Design Figma, footer
+     frame 242:21690. Same blocks as footer-taste.html, the dark version; only colour and chrome change. */
+  .ft {
+    --ft-bg: #fcfbfa;          /* Figma "bg ligh" */
+    --ft-band: #f0ece6;        /* lower band, sampled from the frame */
+    --ft-ink: #322811;         /* "darker brown" */
+    --ft-muted: #514834;       /* "brown dark" */
+    --ft-faint: #666666;       /* "subtext" */
+    --ft-line: #e7e3d999;      /* "stroke light" */
+    --ft-card: #ffffff;
+    --ft-accent: #a67c00;      /* "icon" */
+    position: relative;
+    overflow: hidden;
+    margin-top: 72px;
+    background: var(--ft-bg);
+    color: var(--ft-muted);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .ft a { color: inherit; text-decoration: none; }
+  .ft a:focus-visible, .ft button:focus-visible, .ft summary:focus-visible {
+    outline: 2px solid var(--ft-accent);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  .ft h2, .ft h3 { color: var(--ft-ink); font-weight: 700; }
+
+  /* The pi mark the live footer carries, drifting slowly top right. */
+  .ft__pi {
+    position: absolute;
+    top: -40px;
+    right: -60px;
+    width: 420px;
+    pointer-events: none;
+    animation: ft-drift 18s ease-in-out infinite alternate;
+  }
+  @keyframes ft-drift { to { transform: translate(-24px, 28px) rotate(-4deg); } }
+
+  .ft__inner { position: relative; }
+
+  /* ----------------------------------------------------------- main grid */
+  .ft-main { display: grid; gap: 40px 32px; padding-block: 56px 44px; }
+  @media (min-width: 640px) { .ft-main { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .ft-main { grid-template-columns: 1.5fr repeat(4, 1fr); } }
+  .ft-brand address { margin-top: 12px; font-style: normal; }
+  .ft-brand__co { margin-top: 20px; color: var(--ft-ink); font-weight: 700; }
+  .ft-brand__tel a { color: var(--ft-ink); font-weight: 700; }
+  .ft-social { display: flex; gap: 10px; margin-top: 22px; }
+  .ft-social a {
+    display: grid; place-items: center; width: 40px; height: 40px;
+    border: 1px solid var(--ft-line); border-radius: 50%;
+    transition: transform 0.25s var(--ease), background-color 0.25s, border-color 0.25s;
+  }
+  .ft-social a:hover { transform: translateY(-3px); background: rgba(212, 175, 55, 0.16); border-color: var(--ft-accent); }
+  .ft-social img { width: 16px; height: 16px; object-fit: contain; }
+  .ft-col h2 { margin-bottom: 16px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ft-accent); }
+  .ft-col li + li { margin-top: 10px; }
+  /* Gold underline grows from the left on hover. */
+  .ft-link { background: linear-gradient(var(--ft-accent), var(--ft-accent)) 0 100% / 0 1px no-repeat; transition: background-size 0.3s var(--ease), color 0.2s; }
+  .ft-link:hover { color: var(--ft-ink); background-size: 100% 1px; }
+
+  /* ----------------------------------------------------------- link bands */
+  .ft-band { padding-block: 28px; border-top: 1px solid var(--ft-line); }
+  .ft-band > h2 { margin-bottom: 14px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ft-accent); }
+  .ft-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .ft-chips a {
+    padding: 6px 14px; border: 1px solid var(--ft-line); border-radius: 999px;
+    background: var(--ft-card); font-size: 13px;
+    transition: border-color 0.2s, color 0.2s, background-color 0.2s;
+  }
+  .ft-chips a:hover { border-color: var(--ft-accent); color: var(--ft-ink); background: rgba(212, 175, 55, 0.1); }
+  .ft-chips--ext a::after { content: " \2197"; color: var(--ft-faint); }
+
+  .ft-docs { display: grid; gap: 8px; }
+  @media (min-width: 640px) { .ft-docs { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .ft-docs { grid-template-columns: repeat(3, 1fr); } }
+  .ft-docs a {
+    display: flex; align-items: center; gap: 12px; padding: 12px 14px;
+    border: 1px solid var(--ft-line); border-radius: 12px; background: var(--ft-card);
+    transition: border-color 0.2s, transform 0.25s var(--ease), color 0.2s;
+  }
+  .ft-docs a:hover { border-color: var(--ft-accent); color: var(--ft-ink); transform: translateX(3px); }
+  .ft-docs svg { flex: none; width: 18px; height: 18px; color: var(--ft-accent); }
+  .ft-docs span { flex: 1; }
+  .ft-docs small { color: var(--ft-faint); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; }
+
+  .ft-copy { padding-block: 20px; border-top: 1px solid var(--ft-line); color: var(--ft-faint); font-size: 13px; }
+
+  /* ---------------------------------------------------------------- legal */
+  .ft-legal { padding-block: 40px 56px; background: rgba(0, 0, 0, 0.22); font-size: 13px; line-height: 1.7; color: var(--ft-faint); }
+  .ft-legal section + section { margin-top: 36px; }
+  .ft-legal h2 { margin-bottom: 12px; font-size: 16px; }
+  .ft-legal p + p { margin-top: 10px; }
+  .ft-legal a.u { color: var(--ft-muted); text-decoration: underline; text-underline-offset: 3px; }
+  .ft-legal a.u:hover { color: var(--ft-accent); }
+  .ft-legal strong { color: var(--ft-muted); }
+  .ft-more > summary { display: inline-flex; margin-top: 12px; color: var(--ft-accent); font-weight: 700; cursor: pointer; list-style: none; }
+  .ft-more > summary::-webkit-details-marker { display: none; }
+  .ft-more[open] > summary { display: none; }
+
+
+  .ft-faq { border-top: 1px solid var(--ft-line); }
+  .ft-faq details { border-bottom: 1px solid var(--ft-line); }
+  .ft-faq summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 16px; cursor: pointer; list-style: none; }
+  .ft-faq summary::-webkit-details-marker { display: none; }
+  .ft-faq summary h2 { margin: 0; font-size: 15px; }
+  .ft-faq summary::after { content: "+"; flex: none; color: var(--ft-accent); font-size: 22px; line-height: 1; transition: transform 0.3s var(--ease); }
+  .ft-faq details[open] summary::after { transform: rotate(45deg); }
+  .ft-faq details > div { padding-bottom: 18px; }
+  .ft-faq ul { margin-top: 8px; padding-left: 18px; list-style: disc; }
+
+  .ft-reg { display: grid; gap: 10px; margin-block: 18px; }
+  @media (min-width: 640px) { .ft-reg { grid-template-columns: repeat(3, 1fr); } }
+  .ft-reg div { padding: 16px 18px; border: 1px solid rgba(212, 175, 55, 0.24); border-radius: 14px; background: rgba(212, 175, 55, 0.06); }
+  .ft-reg dt { font-size: 12px; }
+  .ft-reg dd { margin-top: 4px; color: var(--ft-ink); font-size: 20px; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: 0.02em; }
+
+  /* Two parts: part 1 carries the regulatory copy inline on the main ground;
+     part 2 (SEO) sits on the darker band. */
+  .ft-legal--reg { padding-block: 32px; background: none; }
+  .ft-seo .ft-band { margin-top: 32px; }
+  .ft-legal .ft-band > h2 { margin-bottom: 14px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ft-accent); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ft__pi { animation: none; }
+    .ft-social a, .ft-docs a { transition: none; }
+  }
+  @media (max-width: 639px) {
+    .ft__pi { width: 260px; right: -90px; }
+  }
+
+  /* ---------------------------------------------- Figma 242:21690 chrome */
+  .ft { margin-top: 0; border-top: 1px solid var(--ft-line); }
+  .ft__pi { display: none; }
+  .ft-main { border-bottom: 1px solid var(--ft-line); }
+  .ft-brand address, .ft-brand p { font-size: 13px; }
+  .ft-col h2 { padding-bottom: 12px; border-bottom: 1px solid var(--ft-line); color: var(--ft-faint); font-weight: 500; letter-spacing: 0.12em; }
+  .ft-col a { color: var(--ft-ink); }
+  .ft-social a { border-radius: 8px; background: #fff; border-color: var(--ft-line); box-shadow: 0 1px 2px rgba(50, 40, 17, 0.04); }
+  .ft-social a:hover { background: #fff; border-color: var(--ft-accent); }
+  .ft-social img { filter: brightness(0); opacity: 0.85; }
+  .ft-band { border-top: 0; }
+  .ft-band > h2, .ft-legal .ft-band > h2 { color: var(--ft-ink); font-size: 15px; letter-spacing: 0; text-transform: none; }
+  .ft-chips a { border-color: transparent; background: #fff; color: var(--ft-ink); box-shadow: 0 1px 2px rgba(50, 40, 17, 0.05); }
+  .ft-chips a:hover { border-color: var(--ft-accent); background: #fff; color: var(--ft-ink); }
+  .ft-chips--ext a::after { content: none; }
+  .ft-legal { background: var(--ft-band); color: var(--ft-faint); }
+  .ft-legal--reg { background: none; }
+  .ft-legal a.u { color: var(--ft-ink); font-weight: 500; }
+  .ft-legal a.u:hover { color: var(--ft-accent); }
+  .ft-legal strong { color: var(--ft-muted); }
+  .ft-more > summary { color: var(--ft-ink); text-decoration: underline; text-underline-offset: 3px; }
+  .ft-reg div { border-color: var(--ft-line); background: #fff; }
+  .ft-copy { color: var(--ft-ink); font-weight: 700; }
+
+
+  /* Corporate bonds guide (part 2 SEO copy). Sections fold like the About
+     GoldenPi Q&As on footer-landing.html; h4s and tables sit inside each fold. */
+  .ft-guide > h2 { margin-bottom: 10px; font-size: 20px; font-weight: 500; letter-spacing: -0.01em; }
+  .ft-guide > p { margin-bottom: 20px; }
+  .ft-faq summary h3 { margin: 0; color: var(--ft-ink); font-size: 16px; font-weight: 500; }
+  .ft-guide h4 { margin: 18px 0 4px; color: var(--ft-ink); font-size: 14px; font-weight: 500; }
+  .ft-guide details > div > p:first-child { margin-top: 0; }
+  .ft-guide-link { margin-left: 4px; color: var(--ft-accent); font-weight: 500; white-space: nowrap; }
+  .ft-guide-link::after { content: " \2192"; }
+  .ft-guide-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .ft-table { overflow-x: auto; margin-block: 14px; border: 1px solid var(--ft-line); border-radius: 12px; background: var(--ft-card); }
+  .ft-table table { width: 100%; min-width: 560px; border-collapse: collapse; font-size: 13px; }
+  .ft-table th, .ft-table td { padding: 10px 14px; border-bottom: 1px solid var(--ft-line); text-align: left; vertical-align: top; }
+  .ft-table tr:last-child > * { border-bottom: 0; }
+  .ft-table thead th { background: var(--ft-band); color: var(--ft-ink); font-weight: 500; }
+  .ft-table tbody th { color: var(--ft-ink); font-weight: 500; }
+  .ft-guide .ft-faq ul { margin-block: 8px; }
+
 
   /* The light scheme from the GoldenPi Web Design Figma, footer
      frame 242:21690. Same blocks as footer-taste.html, the dark version; only colour and chrome change. */
@@ -1037,7 +1219,7 @@
 <div class="b4-mbar">
   <div><span>Investment Amount</span><strong><span class="b4-amt" data-amt="9368.14">₹ 9,368.14</span></strong><small>save on TDS</small></div>
   <button type="button" class="b4-btn b4-btn--gold">Invest Now<i class="ph ph-arrow-up-right" aria-hidden="true"></i></button>
-</div></main><footer class="ft ft--dark ft--black" id="footer">
+</div></main><footer class="ft ft--dark ft--black ft--ggn-login" id="footer">
   <div class="gp-shell ft__inner">
     <div class="ft-l4">
       <div class="ft-brand" data-reveal>
@@ -1063,9 +1245,9 @@
       <h2 class="ft-love__title" id="ft-love-title">Loved by <span class="ft-love__n" data-count>20<span> Lac+</span></span> Indians</h2>
       <div class="ft-love__voices">
       <div class="ft-love__faces" role="group" aria-label="Reviews">
-        <button type="button" class="ft-love__face" aria-pressed="true" aria-controls="ft-q0" aria-label="Review by sumit dhar">SD</button>
-        <button type="button" class="ft-love__face" aria-pressed="false" aria-controls="ft-q1" aria-label="Review by Shyju K.J">SK</button>
-        <button type="button" class="ft-love__face" aria-pressed="false" aria-controls="ft-q2" aria-label="Review by Ankur Arya">AA</button>
+        <button type="button" class="ft-love__face" aria-pressed="true" aria-controls="ft-q0" aria-label="Review by sumit dhar"><img src="../assets/img/sumit.png" alt="" width="44" height="44"></button>
+        <button type="button" class="ft-love__face" aria-pressed="false" aria-controls="ft-q1" aria-label="Review by Shyju K.J"><img src="../assets/img/shyju.png" alt="" width="44" height="44"></button>
+        <button type="button" class="ft-love__face" aria-pressed="false" aria-controls="ft-q2" aria-label="Review by Ankur Arya"><img src="../assets/img/ankur.png" alt="" width="44" height="44"></button>
       </div>
       <div class="ft-love__quotes">
         <figure class="ft-love__q is-on" id="ft-q0">
@@ -1084,10 +1266,24 @@
       </div>
     </section>
     </div>
+
+    <div class="ft-regs" data-reveal>
+      <dl class="ft-ids">
+        <div><dt>SEBI Registration No.:</dt><dd>INZ000310732</dd></div>
+        <div><dt>CIN:</dt><dd>U65990KA2022PTC164941</dd></div>
+        <div><dt>BSE Member ID:</dt><dd>6809</dd></div>
+        <div><dt>NSE Member ID:</dt><dd>90331</dd></div>
+      </dl>
+      <p class="ft-legal-row">Important links: <a class="u" href="terms-and-conditions.html">Terms &amp; Conditions</a> | <a class="u" href="privacy-policy.html">Privacy Policy</a> | <a class="u" href="https://goldenpi.com/investor-resources">Investor Resources</a> | <a class="u" href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/Policies+for+Information.pdf">Policies for Information</a></p>
+      <p>Compliance Officer: Kunal Sharma, Tel. No.: <a class="u" href="tel:080-45685666">080-45685666</a>, Email ID: <a class="u" href="mailto:grievance-gspl@goldenpi.com">grievance-gspl@goldenpi.com</a> (for any compliance &amp; grievance related complaints)</p>
+      <p>Key Managerial Personnel: Abhijit Roy - Designated Director &amp; CEO, Samir Baran Pratihar - Designated Director &amp; CTO</p>
+      <p>Tel. No.: 080-45685666 | Email: <a class="u" href="mailto:contact-us@goldenpi.com">contact-us@goldenpi.com</a></p>
+    </div>
+
   </div>
 
   <div class="gp-shell ft__inner">
-    <p class="ft-copy ft-copy--bar">&copy; Copyright 2017 - 2026 | GoldenPi Securities Pvt. Ltd.</p>
+    <p class="ft-copy ft-copy--bar">&copy; 2017 - 2026 | GoldenPi Securities Pvt. Ltd.</p>
   </div>
 </footer><!--$--><!--/$--><!--/$--><!--/$--><title>MAHAVEER FINANCE INDIA LIMITED | INE911L07154 | Coupon 11.2% | Taxable | GoldenPi</title><meta name="description" content="Invest in MAHAVEER FINANCE INDIA LIMITED Bond Coupon 11.2% Maturity Date 26-Nov-2029 INE911L07154 - Get the best price of CARE BBB+ rated Taxable through GoldenPi. Easy Online Investment. Hassle Free. Dedicated Relationship Manager."><link rel="manifest" href="https://beta.goldenpi.com/manifest.webmanifest"><meta name="keywords" content="Corporate Bond,invest in Mahaveer Finance India Limited,MAHAVEER FINANCE INDIA LIMITED,INE911L07154,corporate bonds,buy corporate bonds,corporate bonds in india"><meta name="robots" content="index, follow"><link rel="canonical" href="https://www.goldenpi.com/bonds/INE911L07154/mahaveer-1200-bond-yield"><meta property="og:title" content="MAHAVEER FINANCE INDIA LIMITED | INE911L07154 | Coupon 11.2% | Taxable | GoldenPi"><meta property="og:description" content="Invest in MAHAVEER FINANCE INDIA LIMITED Bond Coupon 11.2% Maturity Date 26-Nov-2029 INE911L07154 - Get the best price of CARE BBB+ rated Taxable through GoldenPi. Easy Online Investment. Hassle Free. Dedicated Relationship Manager."><meta property="og:url" content="https://www.goldenpi.com/bonds/INE911L07154/mahaveer-1200-bond-yield"><meta property="og:site_name" content="GoldenPi"><meta property="og:locale" content="en_IN"><meta property="og:image" content="https://www.goldenpi.com/_next/static/media/no-result-man-with-loud-speaker.44q0lemhxp7db.svg"><meta property="og:image:width" content="394"><meta property="og:image:height" content="401"><meta property="og:image:alt" content="GoldenPi"><meta property="og:type" content="website"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:creator" content="@goldenpi"><meta name="twitter:title" content="MAHAVEER FINANCE INDIA LIMITED | INE911L07154 | Coupon 11.2% | Taxable | GoldenPi"><meta name="twitter:description" content="Invest in MAHAVEER FINANCE INDIA LIMITED Bond Coupon 11.2% Maturity Date 26-Nov-2029 INE911L07154 - Get the best price of CARE BBB+ rated Taxable through GoldenPi. Easy Online Investment. Hassle Free. Dedicated Relationship Manager."><meta name="twitter:image" content="https://www.goldenpi.com/_next/static/media/no-result-man-with-loud-speaker.44q0lemhxp7db.svg"><meta name="twitter:image:alt" content="GoldenPi"><meta name="twitter:image:width" content="394"><meta name="twitter:image:height" content="401"><next-route-announcer style="position: absolute;"></next-route-announcer><section aria-label="Notifications alt+T" tabindex="-1" aria-live="polite" aria-relevant="additions text" aria-atomic="false"></section>
 <meta name="facebook-domain-verification" content="olx3a9ujsenh501u1myw9psqxqp7p1">

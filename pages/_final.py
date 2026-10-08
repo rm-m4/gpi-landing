@@ -274,7 +274,9 @@ def new_footer(page):
     style = re.search(r"<style>.*?</style>", ft, re.S).group(0)
     footer = re.search(r'<footer class="ft".*?</footer>', ft, re.S).group(0)
     page = page.replace("</head>", style + "\n</head>", 1)
-    page = re.sub(r'<footer class="gp-footer">.*?</footer>', lambda m: footer, page, count=1, flags=re.S)
+    # Any site footer: pages built from corporate-bonds.html may already carry
+    # a ggn footer from pages/_build.py instead of the old gp-footer.
+    page = re.sub(r'<footer class="(?:gp-footer|ft[ "][^"]*)"[^>]*>.*?</footer>', lambda m: footer, page, count=1, flags=re.S)
     return page
 
 

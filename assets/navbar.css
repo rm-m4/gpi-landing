@@ -162,6 +162,90 @@ img.nb-ic { background: none; -webkit-mask: none; mask: none; object-fit: contai
   .nb-frame .nb__nav { position: static; order: 3; flex: 0 0 calc(100% + 40px); margin: 10px -20px 0; height: 62px; padding-bottom: 0; }
 }
 
+/* -------------------------------------------- plain navbar, live pages */
+/* The plain variant every Final page uses (pages/_build.py). Labels bold and
+   a size up; the current tab gold, its rule thicker with a soft glow pooling
+   under it (the user's reference). The rule draws out from the centre; the
+   glow fades in. Hover gives a faint version of both. */
+.nb--plain .nb__link { font-size: 15px; font-weight: 700; letter-spacing: 0.005em; }
+.nb--plain .nb__link.is-current { color: var(--nb-active); }
+.nb--plain .nb__link::after {
+  left: 14%; right: 14%; height: 3px; border-radius: 3px;
+  background: linear-gradient(90deg, rgba(233, 207, 116, 0) 0%, #e9cf74 22%, #d4af37 50%, #e9cf74 78%, rgba(233, 207, 116, 0) 100%);
+  transform: scaleX(0.2); transform-origin: center;
+}
+.nb--plain .nb__link::before {
+  content: ""; position: absolute; left: 6%; right: 6%; bottom: -1px; height: 22px; pointer-events: none;
+  background: radial-gradient(50% 100% at 50% 100%, rgba(233, 196, 90, 0.42) 0%, rgba(212, 175, 55, 0.14) 45%, rgba(212, 175, 55, 0) 75%);
+  opacity: 0; transition: opacity 0.35s ease;
+}
+.nb--plain .nb__link:hover::after { opacity: 0.35; transform: scaleX(0.7); }
+.nb--plain .nb__link.is-current::after { opacity: 1; transform: none; }
+.nb--plain .nb__link:hover::before { opacity: 0.4; }
+.nb--plain .nb__link.is-current::before { opacity: 1; }
+@media (max-width: 999px) {
+  .nb--plain .nb__link { font-size: 13px; }
+  /* Bottom tab bar: the rule alone, on its top edge; no glow over the page. */
+  .nb--plain .nb__link::before { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nb--plain .nb__link::after, .nb--plain .nb__link::before { transition: none; }
+}
+
+/* Plain dark, in the Figma header's colours (HRSMFFccdLgqf1YwD7oyc9, node
+   33:1299): near-black glass bar, 60% white tabs, the active one white over a
+   gold flare, a glass search field with a gold icon, and the gold CTA. */
+.nb--dark.nb--plain {
+  /* Figma's 0.8 alpha sits on a dark page there; over these light pages it
+     greys, so nearly opaque here. */
+  --nb-bg: rgba(5, 5, 5, 0.96); --nb-solid: #050505; --nb-ink: #ffffff; --nb-muted: rgba(255, 255, 255, 0.6);
+  --nb-line: rgba(255, 255, 255, 0.05); --nb-field: rgba(255, 255, 255, 0.02); --nb-field-line: rgba(255, 255, 255, 0.15);
+  --nb-active: #ffffff; --nb-rule: #edc967;
+}
+/* Desktop only: on phones a backdrop-filter would trap the fixed tab bar. */
+@media (min-width: 1000px) {
+  .nb--dark.nb--plain { -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+}
+/* Icons on the phone tab bar only (pages/_build.py adds them to the links). */
+.nb--micons .nb__link .nb-ic { display: none; }
+@media (max-width: 999px) {
+  .nb--micons .nb__link .nb-ic { display: block; }
+  .nb--plain.nb--micons .nb__link { font-size: 11.5px; }  /* the old icon bar's size: five tabs fit */
+  /* Phone tab bar: rounded top corners lift it off the page; the current
+     tab's rule and glow sit on the bar's bottom edge, inside the bar. */
+  .nb--dark.nb--plain .nb__nav {
+    border-radius: 20px 20px 0 0; border-top-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 -10px 30px -12px rgba(0, 0, 0, 0.45);
+  }
+  .nb--plain .nb__link::after { top: auto; bottom: 0; left: 26%; right: 26%; }
+  .nb--plain .nb__link::before {
+    display: block; top: auto; bottom: 0; left: 10%; right: 10%; height: 26px;
+    background: radial-gradient(50% 100% at 50% 100%, rgba(237, 201, 103, 0.32) 0%, rgba(237, 201, 103, 0.1) 45%, rgba(237, 201, 103, 0) 75%);
+  }
+  .nb--dark.nb--plain .nb__link.is-current .nb-ic:not(img) { color: #edc967; }
+}
+/* `.nb a { color: inherit }` outranks .nb__link's muted colour; restate it. */
+.nb--dark.nb--plain .nb__link { color: var(--nb-muted); }
+.nb--dark.nb--plain .nb__link:hover, .nb--dark.nb--plain .nb__link.is-current { color: #ffffff; }
+.nb--dark.nb--plain .nb__link::after {
+  background: linear-gradient(90deg, rgba(237, 201, 103, 0) 0%, #f6dc8c 30%, #ffe9a8 50%, #f6dc8c 70%, rgba(237, 201, 103, 0) 100%);
+  box-shadow: 0 0 10px 1px rgba(237, 201, 103, 0.55);
+}
+.nb--dark.nb--plain .nb__link::before {
+  background: radial-gradient(50% 100% at 50% 100%, rgba(237, 201, 103, 0.35) 0%, rgba(237, 201, 103, 0.12) 45%, rgba(237, 201, 103, 0) 75%);
+}
+.nb--dark.nb--plain .nb__search {
+  background: linear-gradient(172.85deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%), rgba(255, 255, 255, 0.02);
+  -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+}
+.nb--dark.nb--plain .nb__search .nb-ic, .nb--dark.nb--plain .nb__search-btn .nb-ic { color: #edc967; }
+.nb--dark.nb--plain .nb__login {
+  border: 0; color: #000;
+  background: linear-gradient(130.68deg, #f9e29c 0%, #d4af37 30%, #a67c00 70%, #c6a34f 100%);
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.6), 0 15px 45px rgba(0, 0, 0, 0.7);
+}
+.nb--dark.nb--plain .nb__login:hover { filter: brightness(1.06); }
+
 @media (prefers-reduced-motion: no-preference) {
   .nb.is-entering { animation: nb-enter 0.45s cubic-bezier(0.16, 1, 0.3, 1); }
   @keyframes nb-enter { from { opacity: 0; transform: translateY(-6px); } }

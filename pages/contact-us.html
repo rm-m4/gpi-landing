@@ -35,66 +35,364 @@
     },
   };
 </script>
+<link rel="stylesheet" href="../assets/navbar.css">
+<!-- ggn-footer: styles; pages/_build.py -->
+<style>
+  /* The light scheme from the GoldenPi Web Design Figma, footer
+     frame 242:21690. Same blocks as footer-taste.html, the dark version; only colour and chrome change. */
+  .ft {
+    --ft-bg: #fcfbfa;          /* Figma "bg ligh" */
+    --ft-band: #f0ece6;        /* lower band, sampled from the frame */
+    --ft-ink: #322811;         /* "darker brown" */
+    --ft-muted: #514834;       /* "brown dark" */
+    --ft-faint: #666666;       /* "subtext" */
+    --ft-line: #e7e3d999;      /* "stroke light" */
+    --ft-card: #ffffff;
+    --ft-accent: #a67c00;      /* "icon" */
+    position: relative;
+    overflow: hidden;
+    margin-top: 72px;
+    background: var(--ft-bg);
+    color: var(--ft-muted);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .ft a { color: inherit; text-decoration: none; }
+  .ft a:focus-visible, .ft button:focus-visible, .ft summary:focus-visible {
+    outline: 2px solid var(--ft-accent);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  .ft h2, .ft h3 { color: var(--ft-ink); font-weight: 700; }
+
+  /* The pi mark the live footer carries, drifting slowly top right. */
+  .ft__pi {
+    position: absolute;
+    top: -40px;
+    right: -60px;
+    width: 420px;
+    pointer-events: none;
+    animation: ft-drift 18s ease-in-out infinite alternate;
+  }
+  @keyframes ft-drift { to { transform: translate(-24px, 28px) rotate(-4deg); } }
+
+  .ft__inner { position: relative; }
+
+  /* ----------------------------------------------------------- main grid */
+  .ft-main { display: grid; gap: 40px 32px; padding-block: 56px 44px; }
+  @media (min-width: 640px) { .ft-main { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .ft-main { grid-template-columns: 1.5fr repeat(4, 1fr); } }
+  .ft-brand address { margin-top: 12px; font-style: normal; }
+  .ft-brand__co { margin-top: 20px; color: var(--ft-ink); font-weight: 700; }
+  .ft-brand__tel a { color: var(--ft-ink); font-weight: 700; }
+  .ft-social { display: flex; gap: 10px; margin-top: 22px; }
+  .ft-social a {
+    display: grid; place-items: center; width: 40px; height: 40px;
+    border: 1px solid var(--ft-line); border-radius: 50%;
+    transition: transform 0.25s var(--ease), background-color 0.25s, border-color 0.25s;
+  }
+  .ft-social a:hover { transform: translateY(-3px); background: rgba(212, 175, 55, 0.16); border-color: var(--ft-accent); }
+  .ft-social img { width: 16px; height: 16px; object-fit: contain; }
+  .ft-col h2 { margin-bottom: 16px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ft-accent); }
+  .ft-col li + li { margin-top: 10px; }
+  /* Gold underline grows from the left on hover. */
+  .ft-link { background: linear-gradient(var(--ft-accent), var(--ft-accent)) 0 100% / 0 1px no-repeat; transition: background-size 0.3s var(--ease), color 0.2s; }
+  .ft-link:hover { color: var(--ft-ink); background-size: 100% 1px; }
+
+  /* ----------------------------------------------------------- link bands */
+  .ft-band { padding-block: 28px; border-top: 1px solid var(--ft-line); }
+  .ft-band > h2 { margin-bottom: 14px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ft-accent); }
+  .ft-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .ft-chips a {
+    padding: 6px 14px; border: 1px solid var(--ft-line); border-radius: 999px;
+    background: var(--ft-card); font-size: 13px;
+    transition: border-color 0.2s, color 0.2s, background-color 0.2s;
+  }
+  .ft-chips a:hover { border-color: var(--ft-accent); color: var(--ft-ink); background: rgba(212, 175, 55, 0.1); }
+  .ft-chips--ext a::after { content: " \2197"; color: var(--ft-faint); }
+
+  .ft-docs { display: grid; gap: 8px; }
+  @media (min-width: 640px) { .ft-docs { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .ft-docs { grid-template-columns: repeat(3, 1fr); } }
+  .ft-docs a {
+    display: flex; align-items: center; gap: 12px; padding: 12px 14px;
+    border: 1px solid var(--ft-line); border-radius: 12px; background: var(--ft-card);
+    transition: border-color 0.2s, transform 0.25s var(--ease), color 0.2s;
+  }
+  .ft-docs a:hover { border-color: var(--ft-accent); color: var(--ft-ink); transform: translateX(3px); }
+  .ft-docs svg { flex: none; width: 18px; height: 18px; color: var(--ft-accent); }
+  .ft-docs span { flex: 1; }
+  .ft-docs small { color: var(--ft-faint); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; }
+
+  .ft-copy { padding-block: 20px; border-top: 1px solid var(--ft-line); color: var(--ft-faint); font-size: 13px; }
+
+  /* ---------------------------------------------------------------- legal */
+  .ft-legal { padding-block: 40px 56px; background: rgba(0, 0, 0, 0.22); font-size: 13px; line-height: 1.7; color: var(--ft-faint); }
+  .ft-legal section + section { margin-top: 36px; }
+  .ft-legal h2 { margin-bottom: 12px; font-size: 16px; }
+  .ft-legal p + p { margin-top: 10px; }
+  .ft-legal a.u { color: var(--ft-muted); text-decoration: underline; text-underline-offset: 3px; }
+  .ft-legal a.u:hover { color: var(--ft-accent); }
+  .ft-legal strong { color: var(--ft-muted); }
+  .ft-more > summary { display: inline-flex; margin-top: 12px; color: var(--ft-accent); font-weight: 700; cursor: pointer; list-style: none; }
+  .ft-more > summary::-webkit-details-marker { display: none; }
+  .ft-more[open] > summary { display: none; }
+
+
+  .ft-faq { border-top: 1px solid var(--ft-line); }
+  .ft-faq details { border-bottom: 1px solid var(--ft-line); }
+  .ft-faq summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 16px; cursor: pointer; list-style: none; }
+  .ft-faq summary::-webkit-details-marker { display: none; }
+  .ft-faq summary h2 { margin: 0; font-size: 15px; }
+  .ft-faq summary::after { content: "+"; flex: none; color: var(--ft-accent); font-size: 22px; line-height: 1; transition: transform 0.3s var(--ease); }
+  .ft-faq details[open] summary::after { transform: rotate(45deg); }
+  .ft-faq details > div { padding-bottom: 18px; }
+  .ft-faq ul { margin-top: 8px; padding-left: 18px; list-style: disc; }
+
+  .ft-reg { display: grid; gap: 10px; margin-block: 18px; }
+  @media (min-width: 640px) { .ft-reg { grid-template-columns: repeat(3, 1fr); } }
+  .ft-reg div { padding: 16px 18px; border: 1px solid rgba(212, 175, 55, 0.24); border-radius: 14px; background: rgba(212, 175, 55, 0.06); }
+  .ft-reg dt { font-size: 12px; }
+  .ft-reg dd { margin-top: 4px; color: var(--ft-ink); font-size: 20px; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: 0.02em; }
+
+  /* Two parts: part 1 carries the regulatory copy inline on the main ground;
+     part 2 (SEO) sits on the darker band. */
+  .ft-legal--reg { padding-block: 32px; background: none; }
+  .ft-seo .ft-band { margin-top: 32px; }
+  .ft-legal .ft-band > h2 { margin-bottom: 14px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ft-accent); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ft__pi { animation: none; }
+    .ft-social a, .ft-docs a { transition: none; }
+  }
+  @media (max-width: 639px) {
+    .ft__pi { width: 260px; right: -90px; }
+  }
+
+  /* ---------------------------------------------- Figma 242:21690 chrome */
+  .ft { margin-top: 0; border-top: 1px solid var(--ft-line); }
+  .ft__pi { display: none; }
+  .ft-main { border-bottom: 1px solid var(--ft-line); }
+  .ft-brand address, .ft-brand p { font-size: 13px; }
+  .ft-col h2 { padding-bottom: 12px; border-bottom: 1px solid var(--ft-line); color: var(--ft-faint); font-weight: 500; letter-spacing: 0.12em; }
+  .ft-col a { color: var(--ft-ink); }
+  .ft-social a { border-radius: 8px; background: #fff; border-color: var(--ft-line); box-shadow: 0 1px 2px rgba(50, 40, 17, 0.04); }
+  .ft-social a:hover { background: #fff; border-color: var(--ft-accent); }
+  .ft-social img { filter: brightness(0); opacity: 0.85; }
+  .ft-band { border-top: 0; }
+  .ft-band > h2, .ft-legal .ft-band > h2 { color: var(--ft-ink); font-size: 15px; letter-spacing: 0; text-transform: none; }
+  .ft-chips a { border-color: transparent; background: #fff; color: var(--ft-ink); box-shadow: 0 1px 2px rgba(50, 40, 17, 0.05); }
+  .ft-chips a:hover { border-color: var(--ft-accent); background: #fff; color: var(--ft-ink); }
+  .ft-chips--ext a::after { content: none; }
+  .ft-legal { background: var(--ft-band); color: var(--ft-faint); }
+  .ft-legal--reg { background: none; }
+  .ft-legal a.u { color: var(--ft-ink); font-weight: 500; }
+  .ft-legal a.u:hover { color: var(--ft-accent); }
+  .ft-legal strong { color: var(--ft-muted); }
+  .ft-more > summary { color: var(--ft-ink); text-decoration: underline; text-underline-offset: 3px; }
+  .ft-reg div { border-color: var(--ft-line); background: #fff; }
+  .ft-copy { color: var(--ft-ink); font-weight: 700; }
+</style>
+<style>
+  /* Corporate bonds guide (part 2 SEO copy). Sections fold like the About
+     GoldenPi Q&As on footer-landing.html; h4s and tables sit inside each fold. */
+  .ft-guide > h2 { margin-bottom: 10px; font-size: 20px; font-weight: 500; letter-spacing: -0.01em; }
+  .ft-guide > p { margin-bottom: 20px; }
+  .ft-faq summary h3 { margin: 0; color: var(--ft-ink); font-size: 16px; font-weight: 500; }
+  .ft-guide h4 { margin: 18px 0 4px; color: var(--ft-ink); font-size: 14px; font-weight: 500; }
+  .ft-guide details > div > p:first-child { margin-top: 0; }
+  .ft-guide-link { margin-left: 4px; color: var(--ft-accent); font-weight: 500; white-space: nowrap; }
+  .ft-guide-link::after { content: " \2192"; }
+  .ft-guide-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .ft-table { overflow-x: auto; margin-block: 14px; border: 1px solid var(--ft-line); border-radius: 12px; background: var(--ft-card); }
+  .ft-table table { width: 100%; min-width: 560px; border-collapse: collapse; font-size: 13px; }
+  .ft-table th, .ft-table td { padding: 10px 14px; border-bottom: 1px solid var(--ft-line); text-align: left; vertical-align: top; }
+  .ft-table tr:last-child > * { border-bottom: 0; }
+  .ft-table thead th { background: var(--ft-band); color: var(--ft-ink); font-weight: 500; }
+  .ft-table tbody th { color: var(--ft-ink); font-weight: 500; }
+  .ft-guide .ft-faq ul { margin-block: 8px; }
+</style>
+<style>
+  /* The light scheme from the GoldenPi Web Design Figma, footer
+     frame 242:21690. Same blocks as footer-taste.html, the dark version; only colour and chrome change. */
+  .ft {
+    --ft-bg: #fcfbfa;          /* Figma "bg ligh" */
+    --ft-band: #f0ece6;        /* lower band, sampled from the frame */
+    --ft-ink: #322811;         /* "darker brown" */
+    --ft-muted: #514834;       /* "brown dark" */
+    --ft-faint: #666666;       /* "subtext" */
+    --ft-line: #e7e3d999;      /* "stroke light" */
+    --ft-card: #ffffff;
+    --ft-accent: #a67c00;      /* "icon" */
+    position: relative;
+    overflow: hidden;
+    margin-top: 72px;
+    background: var(--ft-bg);
+    color: var(--ft-muted);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .ft a { color: inherit; text-decoration: none; }
+  .ft a:focus-visible, .ft button:focus-visible, .ft summary:focus-visible {
+    outline: 2px solid var(--ft-accent);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  .ft h2, .ft h3 { color: var(--ft-ink); font-weight: 700; }
+
+  /* The pi mark the live footer carries, drifting slowly top right. */
+  .ft__pi {
+    position: absolute;
+    top: -40px;
+    right: -60px;
+    width: 420px;
+    pointer-events: none;
+    animation: ft-drift 18s ease-in-out infinite alternate;
+  }
+  @keyframes ft-drift { to { transform: translate(-24px, 28px) rotate(-4deg); } }
+
+  .ft__inner { position: relative; }
+
+  /* ----------------------------------------------------------- main grid */
+  .ft-main { display: grid; gap: 40px 32px; padding-block: 56px 44px; }
+  @media (min-width: 640px) { .ft-main { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .ft-main { grid-template-columns: 1.5fr repeat(4, 1fr); } }
+  .ft-brand address { margin-top: 12px; font-style: normal; }
+  .ft-brand__co { margin-top: 20px; color: var(--ft-ink); font-weight: 700; }
+  .ft-brand__tel a { color: var(--ft-ink); font-weight: 700; }
+  .ft-social { display: flex; gap: 10px; margin-top: 22px; }
+  .ft-social a {
+    display: grid; place-items: center; width: 40px; height: 40px;
+    border: 1px solid var(--ft-line); border-radius: 50%;
+    transition: transform 0.25s var(--ease), background-color 0.25s, border-color 0.25s;
+  }
+  .ft-social a:hover { transform: translateY(-3px); background: rgba(212, 175, 55, 0.16); border-color: var(--ft-accent); }
+  .ft-social img { width: 16px; height: 16px; object-fit: contain; }
+  .ft-col h2 { margin-bottom: 16px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ft-accent); }
+  .ft-col li + li { margin-top: 10px; }
+  /* Gold underline grows from the left on hover. */
+  .ft-link { background: linear-gradient(var(--ft-accent), var(--ft-accent)) 0 100% / 0 1px no-repeat; transition: background-size 0.3s var(--ease), color 0.2s; }
+  .ft-link:hover { color: var(--ft-ink); background-size: 100% 1px; }
+
+  /* ----------------------------------------------------------- link bands */
+  .ft-band { padding-block: 28px; border-top: 1px solid var(--ft-line); }
+  .ft-band > h2 { margin-bottom: 14px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ft-accent); }
+  .ft-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .ft-chips a {
+    padding: 6px 14px; border: 1px solid var(--ft-line); border-radius: 999px;
+    background: var(--ft-card); font-size: 13px;
+    transition: border-color 0.2s, color 0.2s, background-color 0.2s;
+  }
+  .ft-chips a:hover { border-color: var(--ft-accent); color: var(--ft-ink); background: rgba(212, 175, 55, 0.1); }
+  .ft-chips--ext a::after { content: " \2197"; color: var(--ft-faint); }
+
+  .ft-docs { display: grid; gap: 8px; }
+  @media (min-width: 640px) { .ft-docs { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .ft-docs { grid-template-columns: repeat(3, 1fr); } }
+  .ft-docs a {
+    display: flex; align-items: center; gap: 12px; padding: 12px 14px;
+    border: 1px solid var(--ft-line); border-radius: 12px; background: var(--ft-card);
+    transition: border-color 0.2s, transform 0.25s var(--ease), color 0.2s;
+  }
+  .ft-docs a:hover { border-color: var(--ft-accent); color: var(--ft-ink); transform: translateX(3px); }
+  .ft-docs svg { flex: none; width: 18px; height: 18px; color: var(--ft-accent); }
+  .ft-docs span { flex: 1; }
+  .ft-docs small { color: var(--ft-faint); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; }
+
+  .ft-copy { padding-block: 20px; border-top: 1px solid var(--ft-line); color: var(--ft-faint); font-size: 13px; }
+
+  /* ---------------------------------------------------------------- legal */
+  .ft-legal { padding-block: 40px 56px; background: rgba(0, 0, 0, 0.22); font-size: 13px; line-height: 1.7; color: var(--ft-faint); }
+  .ft-legal section + section { margin-top: 36px; }
+  .ft-legal h2 { margin-bottom: 12px; font-size: 16px; }
+  .ft-legal p + p { margin-top: 10px; }
+  .ft-legal a.u { color: var(--ft-muted); text-decoration: underline; text-underline-offset: 3px; }
+  .ft-legal a.u:hover { color: var(--ft-accent); }
+  .ft-legal strong { color: var(--ft-muted); }
+  .ft-more > summary { display: inline-flex; margin-top: 12px; color: var(--ft-accent); font-weight: 700; cursor: pointer; list-style: none; }
+  .ft-more > summary::-webkit-details-marker { display: none; }
+  .ft-more[open] > summary { display: none; }
+
+
+  .ft-faq { border-top: 1px solid var(--ft-line); }
+  .ft-faq details { border-bottom: 1px solid var(--ft-line); }
+  .ft-faq summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 16px; cursor: pointer; list-style: none; }
+  .ft-faq summary::-webkit-details-marker { display: none; }
+  .ft-faq summary h2 { margin: 0; font-size: 15px; }
+  .ft-faq summary::after { content: "+"; flex: none; color: var(--ft-accent); font-size: 22px; line-height: 1; transition: transform 0.3s var(--ease); }
+  .ft-faq details[open] summary::after { transform: rotate(45deg); }
+  .ft-faq details > div { padding-bottom: 18px; }
+  .ft-faq ul { margin-top: 8px; padding-left: 18px; list-style: disc; }
+
+  .ft-reg { display: grid; gap: 10px; margin-block: 18px; }
+  @media (min-width: 640px) { .ft-reg { grid-template-columns: repeat(3, 1fr); } }
+  .ft-reg div { padding: 16px 18px; border: 1px solid rgba(212, 175, 55, 0.24); border-radius: 14px; background: rgba(212, 175, 55, 0.06); }
+  .ft-reg dt { font-size: 12px; }
+  .ft-reg dd { margin-top: 4px; color: var(--ft-ink); font-size: 20px; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: 0.02em; }
+
+  /* Two parts: part 1 carries the regulatory copy inline on the main ground;
+     part 2 (SEO) sits on the darker band. */
+  .ft-legal--reg { padding-block: 32px; background: none; }
+  .ft-seo .ft-band { margin-top: 32px; }
+  .ft-legal .ft-band > h2 { margin-bottom: 14px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ft-accent); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ft__pi { animation: none; }
+    .ft-social a, .ft-docs a { transition: none; }
+  }
+  @media (max-width: 639px) {
+    .ft__pi { width: 260px; right: -90px; }
+  }
+
+  /* ---------------------------------------------- Figma 242:21690 chrome */
+  .ft { margin-top: 0; border-top: 1px solid var(--ft-line); }
+  .ft__pi { display: none; }
+  .ft-main { border-bottom: 1px solid var(--ft-line); }
+  .ft-brand address, .ft-brand p { font-size: 13px; }
+  .ft-col h2 { padding-bottom: 12px; border-bottom: 1px solid var(--ft-line); color: var(--ft-faint); font-weight: 500; letter-spacing: 0.12em; }
+  .ft-col a { color: var(--ft-ink); }
+  .ft-social a { border-radius: 8px; background: #fff; border-color: var(--ft-line); box-shadow: 0 1px 2px rgba(50, 40, 17, 0.04); }
+  .ft-social a:hover { background: #fff; border-color: var(--ft-accent); }
+  .ft-social img { filter: brightness(0); opacity: 0.85; }
+  .ft-band { border-top: 0; }
+  .ft-band > h2, .ft-legal .ft-band > h2 { color: var(--ft-ink); font-size: 15px; letter-spacing: 0; text-transform: none; }
+  .ft-chips a { border-color: transparent; background: #fff; color: var(--ft-ink); box-shadow: 0 1px 2px rgba(50, 40, 17, 0.05); }
+  .ft-chips a:hover { border-color: var(--ft-accent); background: #fff; color: var(--ft-ink); }
+  .ft-chips--ext a::after { content: none; }
+  .ft-legal { background: var(--ft-band); color: var(--ft-faint); }
+  .ft-legal--reg { background: none; }
+  .ft-legal a.u { color: var(--ft-ink); font-weight: 500; }
+  .ft-legal a.u:hover { color: var(--ft-accent); }
+  .ft-legal strong { color: var(--ft-muted); }
+  .ft-more > summary { color: var(--ft-ink); text-decoration: underline; text-underline-offset: 3px; }
+  .ft-reg div { border-color: var(--ft-line); background: #fff; }
+  .ft-copy { color: var(--ft-ink); font-weight: 700; }
+</style>
+<!-- ggn-footer: /styles; pages/_build.py -->
 </head>
 <body>
 
 <a class="gp-skip" href="#main-content">Skip to main content</a>
 
-<!-- ============================================================ promo bar -->
-<!-- DATA: campaign strip, API-driven on the live site. Snapshot 2026-09-25. -->
-<div class="gp-promo">
-  <div class="gp-promo__track">
-    <span class="gp-promo__item">Earn 11.40% p.a. &middot; Newly Launched Dishman Bond
-      <a href="https://uatnew.goldenpi.com/bonds/INE385W07075/dishman-1100-bond-yield?src=view_details&amp;tenureDate=17-Aug-2027">Invest Now</a></span>
-    <span class="gp-promo__item">Earn up to 10% p.a. &middot; &#128994; Live: Edelweiss NCD IPO
-      <a href="https://uatnew.goldenpi.com/bond-ipo/GPID100778/edelweiss-financial-services-limited">Invest Now</a></span>
-    <span class="gp-promo__item">Earn 12.10% p.a. &middot; Invest in Spandana Sphoorty Bond
-      <a href="https://uatnew.goldenpi.com/bonds/INE572J07810/spandana-1275-bond-yield?src=view_details&amp;tenureDate=26-Apr-2028">Invest Now</a></span>
-    <span class="gp-promo__item">Earn 10% p.a. &middot; Invest in Varthana Finance bond
-      <a href="https://uatnew.goldenpi.com/bonds/INE125T07329/varthana-finance-1000-bond-yield?src=view_details&amp;tenureDate=05-Feb-2027">Invest Now</a></span>
-    <!-- duplicated once so the marquee loop is seamless -->
-    <span class="gp-promo__item" aria-hidden="true">Earn 11.40% p.a. &middot; Newly Launched Dishman Bond</span>
-    <span class="gp-promo__item" aria-hidden="true">Earn up to 10% p.a. &middot; &#128994; Live: Edelweiss NCD IPO</span>
-    <span class="gp-promo__item" aria-hidden="true">Earn 12.10% p.a. &middot; Invest in Spandana Sphoorty Bond</span>
-    <span class="gp-promo__item" aria-hidden="true">Earn 10% p.a. &middot; Invest in Varthana Finance bond</span>
-  </div>
-</div>
-
 <!-- ============================================================== header -->
-<header class="gp-header">
-  <div class="gp-shell gp-header__inner">
-    <a href="index.html" class="flex-none">
-      <img src="../assets/img/goldenpi-logo.svg" alt="GoldenPi" width="132" height="30">
-    </a>
-
-    <nav class="gp-nav" aria-label="Primary">
-      <a class="gp-nav__link" href="corporate-bonds.html">
-        <img src="../assets/img/header-nav-bonds.svg" alt=""> Bonds
-      </a>
-      <a class="gp-nav__link" href="fixed-deposits.html">
-        <img src="../assets/img/header-nav-fd.svg" alt=""> FD
-      </a>
-      <a class="gp-nav__link" href="collections-all-bonds.html">
-        <img src="../assets/img/header-nav-collection.svg" alt=""> Collection
-      </a>
-      <a class="gp-nav__link" href="bond-utsav.html">
-        <img src="../assets/img/header-nav-bond-utsav.svg" alt=""> Bond Utsav
-      </a>
-      <a class="gp-nav__link" href="refer-and-earn.html">
-        <img src="../assets/img/header-nav-ref-earn.svg" alt=""> Refer &amp; Earn
-      </a>
+<div class="nb-slot">
+<header class="nb nb--dark nb--plain nb--micons" data-v="plain-dark-guest">
+  <div class="gp-shell nb__inner">
+    <a class="nb__logo" href="index.html"><img src="../assets/img/goldenpi-logo-white.svg" alt="GoldenPi" width="132" height="30"></a>
+    <nav class="nb__nav" aria-label="Primary">
+        <a class="nb__link" href="corporate-bonds.html"><span class="nb-ic" style="--i: url(../assets/img/header-nav-bonds.svg)" aria-hidden="true"></span><span>Bonds</span></a>
+        <a class="nb__link" href="fixed-deposits.html"><span class="nb-ic" style="--i: url(../assets/img/header-nav-fd.svg)" aria-hidden="true"></span><span>FD</span></a>
+        <a class="nb__link" href="bond-utsav.html"><img class="nb-ic" src="../assets/img/header-nav-bond-utsav.svg" alt=""><span>Bond Utsav</span></a>
+        <a class="nb__link" href="refer-and-earn.html"><span class="nb-ic" style="--i: url(../assets/img/header-nav-ref-earn.svg)" aria-hidden="true"></span><span>Refer &amp; Earn</span></a>
     </nav>
-
-    <div class="gp-search">
-      <img src="../assets/img/header-search.svg" alt="" width="16" height="16">
-      <span>Search for bonds, FD or IPO</span>
+    <div class="nb__search"><span class="nb-ic" style="--i: url(../assets/img/header-search.svg)" aria-hidden="true"></span><span>Search for bonds, FD or IPO</span></div>
+    <div class="nb__actions">
+      <button type="button" class="nb__btn nb__search-btn" aria-label="Search"><span class="nb-ic" style="--i: url(../assets/img/header-search.svg)" aria-hidden="true"></span></button>
+      <button type="button" class="gp-cta gp-cta--primary nb__login"><span>Login / Sign up</span></button>
     </div>
-
-    <button type="button" class="gp-cta gp-cta--primary gp-cta--sm flex-none ml-auto lg:ml-0">
-      <img src="../assets/img/user-icon.svg" alt="" width="15" height="15"> Login / Sign up
-    </button>
   </div>
 </header>
+</div>
 
 <main id="main-content">
 
@@ -191,90 +489,79 @@
 </main>
 
 <!-- ============================================================== footer -->
-<footer class="gp-footer">
-  <div class="gp-shell grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-4">
-    <div class="lg:col-span-2">
-      <img src="../assets/img/goldenpi-logo.svg" alt="GoldenPi" width="132" height="30">
-      <p class="mt-4 font-bold">GoldenPi Securities Pvt Ltd</p>
-      <p class="mt-1 text-subtext">(A wholly owned subsidiary of GoldenPi Technologies Pvt Ltd)</p>
-      <address class="mt-3 not-italic leading-relaxed text-subtext">
-        Indiqube Orion, 24th Main, 1st Sector,<br>
-        HSR Layout, Bangalore South,<br>
-        Bangalore, Karnataka - 560102
-      </address>
-      <p class="mt-3">Contact Us: <a class="font-semibold" href="tel:08045685666">080-45685666</a></p>
-      <p class="mt-1 text-subtext">CIN: U65990KA2022PTC164941</p>
-    </div>
+<footer class="ft ft--dark ft--black ft--cols3" id="footer">
+  <img class="ft__pi" src="../assets/img/pi.svg" alt="" width="331" height="298">
 
-    <div>
-      <h2 class="gp-footer__title">Invest with us</h2>
-      <ul class="space-y-2.5">
-        <li><a href="bond-ipo-online.html">Bond IPOs</a></li>
-        <li><a href="corporate-bonds.html">Bonds</a></li>
-        <li><a href="fixed-deposits.html">Fixed Deposits</a></li>
-      </ul>
-    </div>
+  <!-- Part 1: navigation, documents, regulatory disclosures, copyright. -->
+  <div class="gp-shell ft__inner">
 
-    <div>
-      <h2 class="gp-footer__title">Company</h2>
-      <ul class="space-y-2.5">
-        <li><a href="about-us.html">About us</a></li>
-        <li><a href="careers.html">Career at GoldenPi</a></li>
-        <li><a href="https://uatnew.goldenpi.com/faq">FAQs</a></li>
-        <li><a href="contact-us.html">Contact Us</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="gp-shell border-t border-[color:var(--light-stroke)] py-5 text-subtext">
-    &copy; Copyright 2017 &ndash; 2026 | GoldenPi Securities Pvt. Ltd.
-  </div>
-
-  <div class="gp-footer__legal">
-    <div class="gp-shell space-y-6">
-      <div>
-        <h2>Note to Investors</h2>
-        <p>GoldenPi Securities Pvt. Ltd. (&ldquo;GSPL&rdquo;) is a wholly owned subsidiary of GoldenPi Technologies Pvt. Ltd. (&ldquo;GTPL&rdquo;) and is a SEBI registered broker under BSE new debt segment allowing investors to trade in secondary bonds &amp; debentures through exchange.</p>
-        <p>Fixed returns do not constitute guaranteed or assured returns. Investments in corporate debt securities, municipal debt securities/securitised debt instruments are subject to credit risks, market risks and default risks including delay and/or default in payment. Read all the offer related documents carefully. Investors can update their email id and mobile number with their stock broker / depository participant and receive OTP directly from the depository on email id and/or mobile number to create a pledge. Investors can check their securities / MF / bonds in the consolidated account statement issued by NSDL/CDSL every month.</p>
-        <p>The FAQs on the platform are exclusively for educational information/knowledge and do not influence the investment/sale decisions of any investors. As you are aware, under the rapidly evolving dynamics of financial markets, it is crucial for investors to remain updated and well-informed about various aspects of investing in securities market. In this connection, please find a link to the BSE Investor Protection Fund website where you will find some useful educative material in the form of text and videos, so as to become an informed investor.</p>
-        <p><a class="underline" href="https://www.bseipf.com/investors_education.html">https://www.bseipf.com/investors_education.html</a></p>
-        <p>We believe that an educated investor is a protected investor !!!</p>
-      </div>
-
-      <div>
-        <h2>Important Information:</h2>
-        <div class="gp-pills">
-          <a href="https://uatnew.goldenpi.com/collections/best-ongoing-ipos">Ongoing NCD IPOs</a>
-          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/Conflict+of+Interest.pdf">Conflict of Interest</a>
-          <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
-          <a href="privacy-policy.html">Privacy Policy</a>
-          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/Regulatory+disclosure.pdf">Regulatory Disclosure</a>
-          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/GoldenPi_Investor_Charter.pdf">Investor Charter</a>
-          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/Policies+for+Information.pdf">Policies for Information</a>
-          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/INVESTOR+GRIEVANCE+REDRESSAL+MECHANISM+Goldenpi.pdf">Investor Grievance</a>
-          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/RIGHTS+AND+OBLIGATIONS+OF+STOCK+BROKERS+AND+CLIENTS.pdf">Rights &amp; Obligations</a>
-          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/Investor+Complaint+Report.pdf">Investor Complaints</a>
-          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/DOs+AND+DONTs.pdf">Dos &amp; Don'ts</a>
-          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/InvestorAdvisoryNote.pdf">Investor Advisory Note</a>
-          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/RISK+DISCLOSURE+DOCUMENT+FOR+CAPITAL+MARKET+AND+DERIVATIVES+SEGMENTS.pdf">Risk Disclosure</a>
-          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/goldenpi_RDDvernacular.zip">RDD in Vernacular</a>
-          <a href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Freezing_Blocking_Account/Policy_on_Voluntary_Freezing.pdf">Voluntary Freezing/Blocking of Account</a>
+    <div class="ft-main">
+      <div class="ft-brand">
+        <img src="../assets/img/goldenpi-logo-white.svg" alt="GoldenPi" width="148" height="44">
+        <p class="ft-brand__co">GoldenPi Securities Pvt Ltd</p>
+        <address>
+          Indiqube Orion, 24th Main, 1st Sector,<br>
+          HSR Layout, Bangalore South,<br>
+          Bangalore, Karnataka - 560102
+        </address>
+        <div class="ft-social">
+          <a href="https://www.facebook.com/goldenpitech" aria-label="GoldenPi on Facebook"><img src="../assets/img/facebook-icon.svg" alt=""></a>
+          <a href="https://twitter.com/GoldenPiTech" aria-label="GoldenPi on X (Twitter)"><img src="../assets/img/twitter-icon.svg" alt=""></a>
+          <a href="https://www.linkedin.com/company/goldenpi/" aria-label="GoldenPi on LinkedIn"><img src="../assets/img/linkdin-icon.svg" alt=""></a>
+          <a href="https://www.instagram.com/goldenpi_/" aria-label="GoldenPi on Instagram"><img src="../assets/img/Instagram-icon.svg" alt=""></a>
+          <a href="https://www.youtube.com/@goldenpi" aria-label="GoldenPi on YouTube"><img src="../assets/img/Youtube-icon.svg" alt=""></a>
         </div>
       </div>
 
-      <div>
-        <h2>Collections</h2>
-        <p class="leading-loose">
-          <a class="underline" href="https://uatnew.goldenpi.com/collections/best-ongoing-ipos">Ongoing NCD IPOs</a> |
-          <a class="underline" href="https://uatnew.goldenpi.com/collections/high-yield-bonds">High Yield Bonds (Yield more than 11%)</a> |
-          <a class="underline" href="https://uatnew.goldenpi.com/collections/highly-rated-bonds">Highly Rated Bonds (AAA Rated)</a> |
-          <a class="underline" href="https://uatnew.goldenpi.com/collections/bonds-to-earn-monthly-fixed-income">Bonds to Earn Regular Monthly Income</a> |
-          <a class="underline" href="https://uatnew.goldenpi.com/collections/bonds-maturing-within-a-year">Bonds Maturing within a Year</a> |
-          <a class="underline" href="https://uatnew.goldenpi.com/collections/state-government-guranteed-bonds">State Government Guaranteed Bonds</a> |
-          <a class="underline" href="https://uatnew.goldenpi.com/collections/tax-free-bonds">Tax Free Bonds</a>
-        </p>
-      </div>
+      <nav class="ft-col" aria-labelledby="ft-invest">
+        <h2 id="ft-invest">Invest with us</h2>
+        <ul>
+          <li><a class="ft-link" href="bond-ipo-online.html">Bond IPOs</a></li>
+          <li><a class="ft-link" href="corporate-bonds.html">Bonds</a></li>
+          <li><a class="ft-link" href="fixed-deposits.html">Fixed Deposits</a></li>
+          <li><a class="ft-link" href="https://goldenpi.com/sovereign-gold-bond">Sovereign Gold Bond</a></li>
+          <li><a class="ft-link" href="https://goldenpi.com/government-securities">Government Securities</a></li>
+        </ul>
+      </nav>
+
+      <nav class="ft-col" aria-labelledby="ft-company">
+        <h2 id="ft-company">Company</h2>
+        <ul>
+          <li><a class="ft-link" href="about-us.html">About us</a></li>
+          <li><a class="ft-link" href="https://goldenpi.com/media">Media</a></li>
+          <li><a class="ft-link" href="careers.html">Career at GoldenPi</a></li>
+          <li><a class="ft-link" href="https://goldenpi.com/faq">FAQs</a></li>
+          <li><a class="ft-link" href="contact-us.html">Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <nav class="ft-col" aria-labelledby="ft-legal">
+        <h2 id="ft-legal">Legal</h2>
+        <ul>
+          <li><a class="ft-link" href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+          <li><a class="ft-link" href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a class="ft-link" href="https://goldenpi.com/investor-resources">Investor Resources</a></li>
+          <li><a class="ft-link" href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/Policies+for+Information.pdf">Policies for Information</a></li>
+        </ul>
+      </nav>
     </div>
+
+    <div class="ft-regs">
+      <dl class="ft-ids">
+        <div><dt>SEBI Registration No.:</dt><dd>INZ000310732</dd></div>
+        <div><dt>CIN:</dt><dd>U65990KA2022PTC164941</dd></div>
+        <div><dt>BSE Member ID:</dt><dd>6809</dd></div>
+        <div><dt>NSE Member ID:</dt><dd>90331</dd></div>
+      </dl>
+      <p>Compliance Officer: Kunal Sharma, Tel. No.: <a class="u" href="tel:080-45685666">080-45685666</a>, Email ID: <a class="u" href="mailto:grievance-gspl@goldenpi.com">grievance-gspl@goldenpi.com</a> (for any compliance &amp; grievance related complaints)</p>
+      <p>Key Managerial Personnel: Abhijit Roy - Designated Director &amp; CEO, Samir Baran Pratihar - Designated Director &amp; CTO</p>
+      <p>Tel. No.: 080-45685666 | Email: <a class="u" href="mailto:contact-us@goldenpi.com">contact-us@goldenpi.com</a></p>
+    </div>
+
+  </div>
+
+  <div class="gp-shell ft__inner">
+    <p class="ft-copy ft-copy--bar">&copy; 2017 - 2026 | GoldenPi Securities Pvt. Ltd.</p>
   </div>
 </footer>
 <script>
