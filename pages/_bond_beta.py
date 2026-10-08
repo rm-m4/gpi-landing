@@ -637,7 +637,8 @@ def change(points):
     return (lv - pv) / abs(pv) * 100, py
 
 
-def fin_v3(data, fy, ratios_html):
+def fin_v3(data, fy, ratios_html, ratios=None):
+    """ratios: [(label, value, assessment, tone)] in place of parsing beta's markup."""
     tabs, panels = [], []
     for i, (name, points) in enumerate(data):
         n = name.replace("&", "&amp;")
@@ -660,7 +661,7 @@ def fin_v3(data, fy, ratios_html):
     tiles = "".join(
         '<div class="f3-ratio" style="--t:var(--bond-ratio-%s-text);--s:var(--bond-ratio-%s-surface);--b:var(--bond-ratio-%s-border)">'
         '<dt>%s</dt><dd>%s</dd><span class="f3-chip">%s</span></div>' % (tone, tone, tone, label, value, assessment)
-        for label, value, assessment, tone in ratio_list(ratios_html))
+        for label, value, assessment, tone in ratios or ratio_list(ratios_html))
     return (
         '<div data-testid="bond-company-financials" class="f3">'
         '<div class="f3-tabs" role="tablist" aria-label="Company Financials">%s</div>%s'
