@@ -1,0 +1,156 @@
+# Unity Small Finance Bank: fixed deposit (beta)
+
+Source: https://beta.goldenpi.com/fixed-deposits/GPID105192/unity-small-finance-bank?src=view_details, captured 2026-10-08 (gp-locale=en, 1440px, scrolled, FAQs and the tenure dropdown opened for the text). Verbatim from <main>; the rendered DOM as the page loads is crawl/rendered/beta_fixed-deposits_GPID105192_unity-small-finance-bank/rendered.html.
+
+```
+Home
+Fixed Deposits
+UNITY SMALL FINANCE BANK
+UNITY SMALL FINANCE BANK
+INSURED BY RBI'S DICGC
+
+Returns Upto
+8.50%
+Withdraw Anytime
+
+Popular Tenures
+
+8.50%
+
+1Y 4M 16D
+On Maturity
+
+Highest Return
+
+4.00%
+
+7D
+On Maturity
+
+Lowest Tenure
+All Available Tenures
+Tenure
+Payout
+Regular
+Sr. Citizen
+1Y 4M 16D
+On Maturity
+8.00%
+8.50%
+Highest Rate
+1Y 4M 16D
+Monthly
+8.00%
+8.50%
+1Y
+On Maturity
+7.50%
+8.00%
+1Y
+Quarterly
+7.50%
+8.00%
+5Y
+On Maturity
+6.75%
+7.25%
+6M 1D
+On Maturity
+6.25%
+6.75%
+7D
+On Maturity
+4.00%
+4.00%
+Short Term
+State Bank of India vs Unity Small Finance Bank
+
+7.20%
+
+18.06% Higher
+
+8.50%
+
+State Bank of India
+
+Unity Small Finance Bank
+
+Comparison of highest returns across all tenures and age groups
+
+Equal RBI Protection
+DICGC Insurance Upto ₹5 Lacs for both State Bank of India & Unity Small Finance Bank
+About Unity Small Finance Bank
+Investor coverage from 334 locations across India
+Start investing with just ₹1,000
+Why Unity Small Finance Bank
+Total Deposits
+11,000+ Crore
+Physical Branches
+~400
+Customer Base
+18+ Lakh
+Founded By
+BharatPe & Centrum Group
+Investment Amount
+Interest Rate & Tenure
+1Y 4M 16D (8.50%)
+1Y 4M 16D (8.50%)
+1Y (8.00%)
+1Y (8.00%)
+6M 1D (6.75%)
+7D (4.00%)
+1Y 4M 16D (8.50%)
+5Y (7.25%)
+Senior Citizen
+Payout
+On Maturity
+Investment Amount
+₹ 1,00,000
+Interest Earned
+₹ 12,280.83
+Maturity Amount
+₹ 1,12,280.83
+Invest Now
+
+Insured by DICGC (Owned by RBI)
+
+By proceeding, I agree to the Terms & Conditions
+
+Frequently asked questions
+What is the minimum investment amount for a fixed deposit investment?
+
+Most banks and NBFCs require a minimum deposit of ₹1,000 to open a fixed deposit account. However, this amount may vary from one FD provider to another. It also depends on the FD scheme you choose.
+
+Are FD investments in India taxable?
+
+Yes, the interest from FDs is taxable as ‘Income from Other Sources’ in India. It is added to your total income and taxed at the applicable slab rate.
+
+Is a digital FD a safe investment option in India?
+
+Yes, FD investments in India are generally considered safe. Moreover, fixed deposits through GoldenPi are also insured up to ₹5 lakh under the Deposit Insurance and Credit Guarantee Corporation (DICGC) scheme.
+
+Can I withdraw the funds from my online FD investment account before maturity?
+
+Yes, premature withdrawal is allowed for many FD schemes. However, you may have to pay a penalty for early withdrawal. Ensure that you check the fine print to understand these terms better.
+
+How do I choose the right FD to invest in?
+
+To find the better fixed deposit to invest, you can compare interest rates, payout options and the credibility of the provider.
+
+Are senior citizens eligible for added FD benefits?
+
+Yes, most FD schemes offer higher rates of interest for fixed deposits in India opened by senior citizens. You can check the rates online before investing your funds.
+
+Can I open an FD online?
+
+Yes, many banks and digital platforms like GoldenPi allow you to invest in an FD online in just a few simple steps.
+
+What is the maximum tenure of a fixed deposit investment?
+
+FD tenures generally range from 7 days to 10 years. The interest rate varies depending on the tenure you choose.
+
+Need Help
+
+Talk to our Support Team for free. We will help you through your investment journey.
+
+Contact Us```
