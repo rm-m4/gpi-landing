@@ -33,8 +33,6 @@ def header(d):
         items.append('<div class="b7-stat"><span class="b7-stat__ico" aria-hidden="true">'
                      '<img src="%s%s" alt="" style="width:%dpx;height:%dpx;left:%dpx;top:%dpx"></span>'
                      '<dl><dt>%s</dt><dd>%s</dd></dl></div>' % (IMG, f, w, h, l, t, esc(label), esc(value)))
-    # Payout: shown only in the phone layout's tile grid (the Figma's desktop row has four).
-    payout = '<div class="b7-stat b7-stat--payout"><dl><dt>Payout</dt><dd>%s</dd></dl></div>' % esc(stats["Payout"])
     lit = round(d["sold_pct"] / 100 * 12)
     segs = "".join('<i%s></i>' % (' class="on"' if k < lit else "") for k in range(12))
     return f'''
@@ -49,7 +47,7 @@ def header(d):
       <button type="button" class="b7-hc__save" aria-label="Add to watchlist"><img src="{IMG}bookmark.svg" alt="" width="13.333" height="16.667"></button>
     </div>
   </div>
-  <div class="b7-hc__stats">{'<span class="b7-hc__div" aria-hidden="true"></span>'.join(items)}{payout}</div>
+  <div class="b7-hc__stats">{'<span class="b7-hc__div" aria-hidden="true"></span>'.join(items)}</div>
   <div class="b7-hc__foot">
     <p class="b7-sold"><i class="b7-dot b7-sold__dot" aria-hidden="true"></i><span class="b7-sold__d">Sold {d["sold_pct"]}%</span><span class="b7-sold__m">{esc(d["sold"])}</span><span class="b7-sold__segs" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{d["sold_pct"]}" aria-label="{esc(d["sold"])}">{segs}</span></p>
     <span class="b7-pill b7-pill--dash"><i class="b7-dot" aria-hidden="true"></i>{esc(d["form121"])}</span>
@@ -196,7 +194,7 @@ STYLE = """<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family
   background: rgba(0, 0, 0, .4); border: .862px solid rgba(255, 255, 255, .1); -webkit-backdrop-filter: blur(10.339px); backdrop-filter: blur(10.339px); }
 .b7-hc__save img { position: absolute; left: 50%; top: 50%; width: 13.333px; height: 16.667px; transform: translate(-50%, -50%); }
 .b7-hc__stats { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; min-height: 90px; padding-right: 80px; }
-.b7-hc .b7-stat--payout, .b7-sold__m, .b7-sold__dot { display: none; }
+.b7-sold__m, .b7-sold__dot { display: none; }
 .b7-hc__div { width: 1px; height: 25px; background: rgba(219, 207, 178, .25); opacity: .54; }
 .b7-stat { display: flex; align-items: center; gap: 8px; }
 .b7-stat__ico { position: relative; flex: none; width: 36px; height: 36px; overflow: hidden; border-radius: 8px; }
@@ -321,14 +319,11 @@ STYLE = """<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family
   .b7-sold__m { display: inline; }
   .b7-sold > .b7-dot { display: none; }
   .b7-sold__m::before { content: ""; display: inline-block; width: 9px; height: 9px; margin-right: 8px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 8px #22c55e; vertical-align: 1px; }
-  .b7-hc__stats { order: 3; flex-basis: 100%; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; min-height: 0; margin: 18px 0 16px; padding-right: 0; }
+  .b7-hc__stats { order: 3; flex-basis: 100%; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 16px; min-height: 0; margin: 22px 0 18px; padding-right: 0; }
   .b7-hc__div { display: none; }
-  .b7-stat { grid-column: span 2; justify-content: center; padding: 14px 6px; border-radius: 16px;
-    background: rgba(255, 255, 255, .06); border: 1px solid rgba(255, 255, 255, .08); }
-  .b7-stat:nth-of-type(1) { order: 1; } .b7-stat:nth-of-type(2) { order: 2; } .b7-hc .b7-stat--payout { order: 3; display: flex; }
-  .b7-stat:nth-of-type(3) { order: 4; grid-column: span 3; } .b7-stat:nth-of-type(4) { order: 5; grid-column: span 3; }
-  .b7-stat__ico { display: none; }
-  .b7-stat dl { justify-items: center; gap: 6px; }
+  .b7-stat { justify-content: flex-start; gap: 12px; padding: 4px 0; text-align: left; }
+  .b7-stat:nth-of-type(even) { padding-left: 16px; border-left: 1px solid rgba(219, 207, 178, .14); }
+  .b7-stat dl { justify-items: start; gap: 6px; }
   .b7-stat dt { font-size: 13px; line-height: 16px; }
   .b7-stat dd { font-size: 16px; line-height: 20px; }
   .b7-pill--sell { order: 4; height: 34px; min-width: 0; }
@@ -446,6 +441,8 @@ STYLE = """<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family
 /* The number leads; "Unit" is its quieter label, on the same baseline. */
 .bond-cashflow-sidebar__stepper label { align-items: baseline !important; }
 .b7-unit { font-size: 16px !important; font-weight: 500 !important; color: #6b6457 !important; }
+/* Phones: the page's Cashflow card goes; the Timeline pop-up carries it. */
+@media (max-width: 767px) { .b7-peek { display: none !important; } }
 </style>
 """
 
