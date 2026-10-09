@@ -157,7 +157,7 @@ def chrome(h):
 # The header: bond-details7's black card, redesigned for the FD (design-taste-frontend read: regulated FD
 # product header for retail savers, trust-first premium; dials variance 5 / motion 3 / density 4; the page's
 # one dark block). Asymmetric split: the rate leads on the left, the DICGC cover is promoted on the right,
-# and Why Unity's facts close the card as a divided strip. Every string is captured copy; graphics are
+# Why Unity's facts moved to the Reasons card below (reasons()). Every string is captured copy; graphics are
 # bond-details7's 3D icon set.
 FACTS = [("Total Deposits", "11,000+ Crore"), ("Customer Base", "18+ Lakh"), ("Physical Branches", "~400"),
          ("Founded By", "BharatPe &amp; Centrum Group")]
@@ -167,7 +167,6 @@ BD5 = "../assets/img/bd5/"
 def hero(h):
     a = find(h, '<header class="b7-hc"')
     logo = local_img("https://s3.ap-south-1.amazonaws.com/production.goldenpi.com/static/images/logos/GPID105192.Unity.png")
-    facts = "".join('<div><dt>%s</dt><dd>%s</dd></div>' % f for f in FACTS)
     card = (
         '<header class="fdh" aria-labelledby="fdh-name">'
         '<div class="fdh__top"><span class="fdh__ring"><img src="%s" alt="%s logo" width="64" height="64"></span>'
@@ -178,8 +177,6 @@ def hero(h):
         '<div class="fdh__rate">'
         '<p class="fdh__label">Returns Upto</p>'
         '<p class="fdh__big">8.50%%</p>'
-        '<p class="fdh__split"><span><b>8.50%%</b> Sr. Citizen</span><span><b>8.00%%</b> Regular</span></p>'
-        '<p class="fdh__tenure">1Y 4M 16D &middot; On Maturity</p>'
         '<ul class="fdh__perks" role="list">'
         '<li><img src="%stile-clock.png" alt="" width="40" height="40">Withdraw Anytime</li>'
         '<li><img src="%sreasons-hand.png" alt="" width="40" height="40">Start investing with just &#8377;1,000</li>'
@@ -188,15 +185,14 @@ def hero(h):
         '<p class="fdh__cover-k">DICGC Insurance Upto</p><p class="fdh__cover-v">&#8377;5 Lacs</p>'
         '<p class="fdh__cover-by">Insured by RBI&#39;s DICGC</p></div>'
         '</div>'
-        '<div class="fdh__why"><h2>Why Unity Small Finance Bank</h2><dl>%s</dl></div>'
-        '</header>' % (logo, NAME, NAME, BD5, BD5, BD5, facts))
+        '</header>' % (logo, NAME, NAME, BD5, BD5, BD5))
     return h[:a] + card + h[element(h, a):]
 
 
 HEADER_CSS = """<style>
 /* fd-details header (see hero() in pages/_fd_details.py). bond-details7's black card and gold, Inter like it.
    Radius rule: card 20px, panels 16px, controls full pill. One accent: #edc967. */
-.fdh { position: relative; overflow: hidden; display: grid; gap: 22px; padding: 22px 24px 0; border-radius: 20px; color: #fff;
+.fdh { position: relative; overflow: hidden; display: grid; gap: 22px; padding: 22px 24px 24px; border-radius: 20px; color: #fff;
   font-family: Inter, satoshi, system-ui, sans-serif; font-variant-numeric: tabular-nums;
   background: radial-gradient(889.54px 347.9px at 100% 100%, #27272a 0%, #18181b 40%, #0c0c0e 70%, #060607 85%, #0a0a0b 100%); }
 :where(.fdh) :where(p, h1, h2, dl, dd, ul) { margin: 0; }
@@ -210,11 +206,9 @@ HEADER_CSS = """<style>
 .fdh__body { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 20px; align-items: stretch; }
 .fdh__label { font-size: 13px; font-weight: 500; color: rgba(255, 255, 255, .55); }
 .fdh__big { margin-top: 2px; font-size: 56px; line-height: 1; font-weight: 700; letter-spacing: -0.03em; color: #edc967; }
-.fdh__split { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 12px; font-size: 13px; color: rgba(255, 255, 255, .6); }
-.fdh__split b { font-weight: 600; color: rgba(255, 255, 255, .92); }
-.fdh__split span + span { padding-left: 16px; border-left: 1px solid rgba(255, 255, 255, .14); }
-.fdh__tenure { display: inline-block; margin-top: 12px; padding: 5px 12px; border-radius: 9999px; border: 1px solid rgba(255, 255, 255, .12);
-  font-size: 12px; font-weight: 500; color: rgba(255, 255, 255, .75); }
+.b7-proof__ico.fd-ico-bank { display: grid; place-items: center; width: 40px; border-radius: 9999px; background: #fff; }
+.b7-proof__ico.fd-ico-bank img { position: static; width: 22px; height: 22px; }
+.b7-backers .fd-founders { margin: 0; font-size: 15px; line-height: 1.4; font-weight: 600; color: #171f29; }
 .fdh__perks { display: grid; gap: 12px; margin-top: 22px; padding: 0; list-style: none; }
 .fdh__perks li { display: flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 500; color: rgba(255, 255, 255, .88); }
 .fdh__perks img { flex: none; width: 44px; height: 44px; padding: 6px; border-radius: 9999px; object-fit: contain;
@@ -228,16 +222,9 @@ HEADER_CSS = """<style>
 .fdh__cover-v { font-size: 38px; line-height: 1.1; font-weight: 700; letter-spacing: -0.02em; color: #fff; }
 .fdh__cover-by { margin-top: 6px; font-size: 13px; font-weight: 500; color: #edc967; }
 
-.fdh__why { margin: 0 -24px; padding: 18px 24px 20px; border-top: 1px solid rgba(255, 255, 255, .08); background: rgba(255, 255, 255, .025); }
-.fdh__why h2 { font-size: 13px; font-weight: 600; color: rgba(255, 255, 255, .7); }
-.fdh__why dl { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 12px; }
-.fdh__why dl > div { padding: 0 14px; border-left: 1px solid rgba(255, 255, 255, .1); }
-.fdh__why dl > div:first-child { padding-left: 0; border-left: 0; }
-.fdh__why dt { font-size: 12px; color: rgba(255, 255, 255, .5); }
-.fdh__why dd { margin-top: 4px; font-size: 14px; line-height: 1.3; font-weight: 600; color: rgba(255, 255, 255, .92); }
 
 @media (max-width: 767px) {
-  .fdh { gap: 18px; padding: 18px 16px 0; }
+  .fdh { gap: 18px; padding: 18px 16px 18px; }
   .fdh__top { gap: 14px; }
   .fdh__ring { width: 52px; height: 52px; }
   .fdh__ring img { width: 46px; height: 46px; }
@@ -247,19 +234,46 @@ HEADER_CSS = """<style>
   .fdh__cover { grid-template-columns: auto minmax(0, 1fr); column-gap: 14px; align-items: center; padding: 14px 16px; }
   .fdh__shield { grid-row: span 3; width: 60px; height: 60px; margin: 0; }
   .fdh__cover-v { font-size: 26px; }
-  .fdh__why { margin: 0 -16px; padding: 16px; }
-  .fdh__why dl { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 0; }
-  .fdh__why dl > div:nth-child(3) { padding-left: 0; border-left: 0; }
 }
 </style>
 """
 
 
+def reasons():
+    """bond-details7's Reasons to Invest card (Reasons row, Key Highlights tiles, proof strip) with the FD's captured
+    copy only: Why Unity's facts, About's coverage line, Popular Tenures' labels, the comparison's DICGC line and the
+    payout options from All Available Tenures. Founders go in the backers slot as text (production has no logos)."""
+    li = "".join('<li><img src="%sthumbs-up.svg" alt="" width="12.468" height="12.468"><p>%s</p></li>' % (BD5, t) for t in (
+        "Investor coverage from 334 locations across India",
+        "<b>Highest Return</b> 8.50%, 1Y 4M 16D",
+        "<b>Lowest Tenure</b> 7D, 4.00%"))
+    dot = '<i class="b7-dot b7-dot--lg" aria-hidden="true"></i>'
+    ico = {"money": '<span class="b7-proof__ico b7-proof__ico--money"><img src="%sproof-money.png" alt=""></span>' % BD5,
+           "people": '<span class="b7-proof__ico b7-proof__ico--people"><img src="%sproof-people.png" alt=""></span>' % BD5,
+           "bank": '<span class="b7-proof__ico fd-ico-bank"><img src="../assets/beta/media/header-nav-fd.2fybbqt4y5m_8.svg" alt=""></span>'}
+    div = '<span class="b7-proof__div" aria-hidden="true"></span>'
+    proof = div.join('<div>%s<dl><dt>%s</dt><dd>%s</dd></dl></div>' % (ico[k], v, t) for k, v, t in (
+        ("money", "11,000+ Crore", "Total Deposits"), ("people", "18+ Lakh", "Customer Base"), ("bank", "~400", "Physical Branches")))
+    return ('<section class="b7-hl" aria-labelledby="b7-reasons">'
+            '<h2 class="b7-eye" id="b7-reasons">Why Unity Small Finance Bank</h2>'
+            '<div class="b7-reasons"><div class="b7-reasons__list"><ul>%s</ul></div>'
+            '<div class="b7-backers"><h3>%s</h3><p class="fd-founders">%s</p></div></div>'
+            '<h2 class="b7-eye">Key Highlights</h2><div class="b7-tiles">'
+            '<article class="b7-tile b7-tile--green"><div><p class="b7-tile__eye">Equal RBI Protection</p><h3>&#8377;5 Lacs</h3>'
+            '<p class="b7-tile__p">DICGC Insurance Upto &#8377;5 Lacs for both State Bank of India &amp; Unity Small Finance Bank</p></div>'
+            '<span class="b7-tile__art" aria-hidden="true"><span style="left:2px"><img src="%stile-shield.png" alt="" style="left:-15.09%%;width:75%%"></span></span></article>'
+            '<article class="b7-tile b7-tile--peach"><div><p class="b7-tile__eye">Payout</p>'
+            '<h3 class="b7-tile__fact">%sOn Maturity</h3><h3 class="b7-tile__fact">%sMonthly</h3><h3 class="b7-tile__fact">%sQuarterly</h3></div>'
+            '<span class="b7-tile__art" aria-hidden="true"><span style="left:6px"><img src="%stile-clock.png" alt="" style="left:-14.48%%;width:75.19%%"></span></span></article>'
+            '</div><div class="b7-proof"><p class="b7-proof__t">Unity Small Finance Bank</p><div class="b7-proof__row">%s</div></div>'
+            '</section>' % (li, FACTS[3][0], FACTS[3][1], BD5, dot, dot, dot, BD5, proof))
+
+
 def main_column(h):
     """Highlights, phone calculator, Cashflow and the two Company/Documents groups are the bond's; production's FD
     blocks take their place. The QR band stays last."""
-    a = h.rfind('<div class="b4 b5 b5-embed">', 0, find(h, '<section class="b7-hl"'))
-    h = h[:a] + h[element(h, a):]
+    a = find(h, '<section class="b7-hl"')
+    h = h[:a] + reasons() + h[element(h, a):]
     main = find(h, '<div class="block lg:hidden"><section aria-labelledby="bond-cashflow-sidebar-title-mobile">')
     qr = find(h, '<section class="gp-expand gp-expand--card a3"', main)
     blocks = ("<!-- Production markup (beta, rendered 2026-10-08): FD blocks as the page loads them. -->"
