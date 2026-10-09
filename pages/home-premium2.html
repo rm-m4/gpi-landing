@@ -438,7 +438,7 @@
   background: radial-gradient(55% 60% at 0% 100%, rgba(212,175,55,.28), transparent 70%),
               radial-gradient(45% 50% at 100% 80%, rgba(212,175,55,.16), transparent 70%),
               linear-gradient(180deg, #0f0d0a 0%, #1f180f 55%, #3a2c14 100%); }
-.h2-head { position: relative; text-align: center; padding: 72px 0 0; }
+.h2-head { position: relative; text-align: center; padding: clamp(48px, 6vw, 88px) 0 0; }
 .h2-head .hp-h1 { margin: 0 auto; max-width: 16ch; }
 .h2-trust { margin-top: 24px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 20px; font-size: 1.0625rem; color: var(--hp-gold-soft); }
 .h2-trust li { display: inline-flex; align-items: center; gap: 8px; }
@@ -829,22 +829,12 @@
 
 <a class="gp-skip" href="#main-content">Skip to main content</a>
 
-<!-- ============================================================== header -->
+<!-- ============================================================== header: logo + CTA only -->
 <div class="nb-slot">
-<header class="nb nb--dark nb--plain nb--micons" data-v="plain-dark-guest">
-  <div class="gp-shell nb__inner">
+<header class="nb nb--dark nb--plain" data-v="plain-dark-guest">
+  <div class="gp-shell nb__inner" style="justify-content: space-between;">
     <a class="nb__logo" href="index.html"><img src="../assets/img/goldenpi-logo-white.svg" alt="GoldenPi" width="132" height="30"></a>
-    <nav class="nb__nav" aria-label="Primary">
-        <a class="nb__link" href="corporate-bonds.html"><span class="nb-ic" style="--i: url(../assets/img/header-nav-bonds.svg)" aria-hidden="true"></span><span>Bonds</span></a>
-        <a class="nb__link" href="fixed-deposits.html"><span class="nb-ic" style="--i: url(../assets/img/header-nav-fd.svg)" aria-hidden="true"></span><span>FD</span></a>
-        <a class="nb__link" href="bond-utsav.html"><img class="nb-ic" src="../assets/img/header-nav-bond-utsav.svg" alt=""><span>Bond Utsav</span></a>
-        <a class="nb__link" href="refer-and-earn.html"><span class="nb-ic" style="--i: url(../assets/img/header-nav-ref-earn.svg)" aria-hidden="true"></span><span>Refer &amp; Earn</span></a>
-    </nav>
-    <div class="nb__search"><span class="nb-ic" style="--i: url(../assets/img/header-search.svg)" aria-hidden="true"></span><span>Search for bonds, FD or IPO</span></div>
-    <div class="nb__actions">
-      <button type="button" class="nb__btn nb__search-btn" aria-label="Search"><span class="nb-ic" style="--i: url(../assets/img/header-search.svg)" aria-hidden="true"></span></button>
-      <button type="button" class="gp-cta gp-cta--primary nb__login"><span>Login / Sign up</span></button>
-    </div>
+    <a class="gp-cta gp-cta--primary" href="signup.html" style="color: #000;"><span>Get started</span></a>
   </div>
 </header>
 </div>
@@ -1008,16 +998,6 @@
     </div>
   </section>
 
-  <!-- =========================================================== numbers -->
-  <!-- DATA: platform milestones, same figures as index.html. -->
-  <section class="hp-shell" aria-label="GoldenPi in numbers">
-    <dl data-reveal class="hp-stats">
-      <div><dt>18 <small>Lac+</small></dt><dd>registered users &amp; growing</dd></div>
-      <div><dt>&#8377;6300 <small>Cr+</small></dt><dd>total transaction through our platform</dd></div>
-      <div><dt>&#8377;3000 <small>Cr+</small></dt><dd>worth of bonds available on the platform everyday</dd></div>
-    </dl>
-  </section>
-
   <!-- ====================================================== how it works -->
   <section class="hp-sec" aria-labelledby="hp-how">
     <div class="hp-shell">
@@ -1073,9 +1053,14 @@
   <section class="hp-sec pt-0" aria-labelledby="hp-reviews">
     <div class="hp-shell">
       <h2 data-reveal class="hp-h2" id="hp-reviews">Happy users</h2>
+      <!-- DATA: platform milestones, same figures as index.html. -->
+      <dl data-reveal class="hp-stats" style="margin-top: 40px;">
+      <div><dt>18 <small>Lac+</small></dt><dd>registered users &amp; growing</dd></div>
+      <div><dt>&#8377;6300 <small>Cr+</small></dt><dd>total transaction through our platform</dd></div>
+      <div><dt>&#8377;3000 <small>Cr+</small></dt><dd>worth of bonds available on the platform everyday</dd></div>
+    </dl>
       <!-- DATA: reviews, same set as index.html. -->
       <div class="hp-reviews">
-        <div data-reveal class="hp-review hp-review--feature"><p>18 Lac+</p><p>registered users &amp; growing, from first time savers to seasoned bond investors.</p></div>
         <figure data-reveal class="hp-review"><div class="hp-review__stars" aria-label="5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>GoldenPi made bond investing simple and transparent. I could compare yields and complete everything online.</blockquote><figcaption><span aria-hidden="true">A</span><b>Ankit Sharma</b></figcaption></figure>
         <figure data-reveal class="hp-review"><div class="hp-review__stars" aria-label="5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>Clear listings and support when I needed help with KYC. Fixed income finally feels accessible.</blockquote><figcaption><span aria-hidden="true">P</span><b>Priya Nair</b></figcaption></figure>
         <figure data-reveal class="hp-review"><div class="hp-review__stars" aria-label="5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>I started with NCD IPOs and now use GoldenPi for secondary bonds too. Smooth experience overall.</blockquote><figcaption><span aria-hidden="true">R</span><b>Rahul Mehta</b></figcaption></figure>
