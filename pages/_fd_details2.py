@@ -474,7 +474,7 @@ def main():
                style=A.STYLE + "<style>\n" + S.STYLE + STYLE + "</style>\n", script=script)
     with open(OUT, encoding="utf-8") as f:
         page = S.header(f.read())
-    page, n = re.subn(r'<a class="nb__link" href="user-fixed-deposits.html">',
+    page, n = re.subn(r'<a class="nb__link" href="user-fixed-deposits(?:-app2)?.html">',  # portfolio.html may be prototype-wired
                       '<a class="nb__link is-current" href="user-fixed-deposits.html" aria-current="page">', page, count=1)
     if n != 1:
         raise SystemExit("FD link not found in the navbar")

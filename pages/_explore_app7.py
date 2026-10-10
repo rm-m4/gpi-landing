@@ -313,16 +313,23 @@ STYLE = """
 .x7a__qr img { width: 104px; height: 104px; }
 @media (max-width: 639px) { .x7a { padding: 20px 16px; } .x7a__qr { display: none; } }
 
-/* phones: the stage leads with its front card, and narrow cards give the
-   issuer room (smaller rate; a long one-word name breaks rather than run
-   into the rate) */
+/* phones: the desktop's 3D stage, not a swipe row. The three cards share one
+   grid cell, so the stage is as tall as the tallest card; the sides tilt away
+   and peek out behind the front one (.xs clips them). Tap a side card or swipe
+   to turn. Narrow cards give the issuer room (smaller rate; a long one-word
+   name breaks rather than run into the rate) */
 @media (max-width: 899px) {
-  .x7 .xs-slot[data-pos="0"] { order: -1; }
-  .x7 .xs-slot, .x7 .xs-slot[data-pos] { flex-basis: min(88%, 400px); display: flex; }
-  /* the swipe row sizes cards to their content (the 232px floor is for the
-     3D stage); the row still matches them to the tallest */
+  .x7 .xs { overflow: clip; }  /* hidden still lets a tap scroll it sideways */
+  .x7 .xs-stage { display: grid; grid-template-columns: minmax(0, 1fr); overflow: visible; perspective: 1000px; padding: 4px 0 8px; touch-action: pan-y; scroll-snap-type: none; }
+  .x7 .xs-slot, .x7 .xs-slot[data-pos] { grid-area: 1 / 1; position: relative; left: auto; top: auto; justify-self: center; display: flex;
+    width: min(86%, 400px); transform-style: preserve-3d;
+    transition: transform .7s cubic-bezier(.16, 1, .3, 1), opacity .5s ease, filter .5s ease; }
+  .x7 .xs-slot[data-pos="0"] { z-index: 3; transform: none; opacity: 1; filter: none; }
+  .x7 .xs-slot[data-pos="1"] { z-index: 2; transform: translateX(40%) rotateY(-24deg) scale(.84); opacity: .6; filter: saturate(.85); cursor: pointer; }
+  .x7 .xs-slot[data-pos="-1"] { z-index: 1; transform: translateX(-40%) rotateY(24deg) scale(.84); opacity: .6; filter: saturate(.85); cursor: pointer; }
   .x7 .xs-slot .gp-ucard { flex: 1; min-height: 0; }
 }
+@media (max-width: 899px) and (prefers-reduced-motion: reduce) { .x7 .xs-slot { transition: none; } }
 @media (max-width: 639px) {
   /* phones: the deal stage runs edge to edge, flush under the navbar (cancels
      .xa's 16px gutter and 16px top padding), and the portfolio cards go */
@@ -354,6 +361,22 @@ STYLE = """
 .x7r .pf-dots button::after { content: ""; position: absolute; inset: -8px 0; }
 """
 
+# app6's stage script, on at every width (app6 turns it off below 900px for
+# its swipe row), plus a swipe that turns the cards like the arrow keys.
+HERO_JS = G.HERO_SCRIPT.replace("'(min-width: 900px)'", "'all'") + """<script>
+(function () {
+  var stage = document.querySelector('.xs-stage'), x0 = null;
+  if (!stage) return;
+  stage.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  stage.addEventListener('touchend', function (e) {
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0; x0 = null;
+    if (Math.abs(dx) > 40) stage.dispatchEvent(new KeyboardEvent('keydown', { key: dx < 0 ? 'ArrowRight' : 'ArrowLeft' }));
+  }, { passive: true });
+})();
+</script>
+"""
+
 ARROWS_JS = """<script>
 // Choose Your Category: the arrows scroll the pill row by most of its width.
 (function () {
@@ -373,7 +396,7 @@ def main():
     X.assemble(body().replace("</main>", "</main>\n" + lifetime, 1), OUT, "Collections | GoldenPi",
                "pages/_explore_app7.py (the Collection page from Figma 130:224, on user-explore-app6's parts)",
                style=A.STYLE + "<style>\n" + F.ucard_css() + G.HERO_STYLE + G.ORDERS_STYLE + rail_css + STYLE + "</style>\n",
-               script=A.SCRIPT + G.HERO_SCRIPT + carousel_js() + ARROWS_JS)
+               script=A.SCRIPT + HERO_JS + carousel_js() + ARROWS_JS)
     with open(OUT, encoding="utf-8") as f:
         page = header(f.read())
     with open(OUT, "w", encoding="utf-8") as f:

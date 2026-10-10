@@ -280,7 +280,7 @@ STYLE = """
 def header(page):
     """app7's final navbar, with FD current."""
     page = S.header(page)
-    page, n = re.subn(r'<a class="nb__link" href="user-fixed-deposits.html">',
+    page, n = re.subn(r'<a class="nb__link" href="user-fixed-deposits(?:-app2)?.html">',  # portfolio.html may be prototype-wired
                       '<a class="nb__link is-current" href="user-fixed-deposits.html" aria-current="page">', page, count=1)
     if n != 1:
         raise SystemExit("FD link not found in the navbar")
@@ -291,7 +291,7 @@ def main():
     X.assemble(body(), OUT, "Fixed Deposits | GoldenPi",
                "pages/_fd_app2.py (logged-in FD landing, new version, in user-explore-app7's language)",
                style=A.STYLE + FD.STYLE + "<style>\n" + S.F.ucard_css() + G.HERO_STYLE + S.STYLE + STYLE + "</style>\n",
-               script=A.SCRIPT + G.HERO_SCRIPT + FD.SCRIPT)
+               script=A.SCRIPT + S.HERO_JS + FD.SCRIPT)
     with open(OUT, encoding="utf-8") as f:
         page = header(f.read())
     with open(OUT, "w", encoding="utf-8") as f:
