@@ -5,9 +5,9 @@ version, in user-explore-app7's language.
   1. three promoted FDs on app6/7's dark rotating stage
   2. FD security is our topmost priority
   3. Bank FDs     4. NBFC FDs   (collection-explore cards: slate, gold)
-  5. the returns calculator (user-fixed-deposits-app's, live)
-  6. State Bank of India vs Unity Small Finance Bank, and Traditional Banks
-     vs GoldenPi FDs
+  5. Top PSU Banks vs FDs on GoldenPi (the user's heading): SBI's and
+     Unity's highest rates, and Traditional Banks vs GoldenPi FDs
+  6. the returns calculator, last
 
 In app7's 70:30 split; the rail carries the user's first-FD offer (their copy).
 
@@ -125,25 +125,29 @@ def fd_list(slug, title, tone, fds):
 
 
 def compare():
-    sbi, unity = 7.20, 8.50
-    bar = '<div class="x8cmp__col%s"><span class="x8cmp__val">%s</span><i style="height:%dpx"></i><span class="x8cmp__name">%s</span></div>'
+    # The PSU bar is State Bank of India, the one PSU bank with a captured rate; the note says so.
     rows = [("Highest Returns", "5 - 7%", "up to 8.5% pa"),
             ("Insured", "Yes", "Yes, Bank FDs (Insured upto ₹5L)"),
-            ("New Bank A/C Required", "Yes", "No"),
-            ("Available Payout", "Monthly, Quarterly, At maturity", "Cumulative, Monthly, Quarterly, Half-Yearly, Yearly")]
+            ("New Bank A/C Required", "Yes", "No")]
     table = "".join('<tr><th scope="row">%s</th><td>%s</td><td>%s</td></tr>' % r for r in rows)
-    return ('<!-- DATA: SBI vs Unity from the Unity FD page (beta 2026-10-08); Traditional Banks from fixed-deposits.md. -->'
+    return ('<!-- DATA: 7.20%% is State Bank of India\'s and 8.50%% Unity SFB\'s highest rate (Unity FD page, beta 2026-10-08);\n'
+            '     the table is Traditional Banks vs GoldenPi FDs from fixed-deposits.md. -->'
             '<section class="x8cmp" data-reveal aria-labelledby="x8cmp-t">'
-            '<h2 id="x8cmp-t">State Bank of India vs Unity Small Finance Bank</h2>'
-            '<div class="x8cmp__grid"><div class="x8cmp__chart">'
-            '<p class="x8cmp__badge"><b>18.06%% Higher</b></p>'
-            '<div class="x8cmp__bars" role="img" aria-label="Highest returns: State Bank of India 7.20%%, Unity Small Finance Bank 8.50%%">%s%s</div>'
-            '<p class="x8cmp__note">Comparison of highest returns across all tenures and age groups</p></div>'
+            '<h2 id="x8cmp-t">Top PSU Banks <span class="x8cmp__vs">vs</span> <span class="x8cmp__us">FDs on GoldenPi</span></h2>'
+            '<div class="x8cmp__grid">'
+            '<div class="x8cmp__chart" role="img" aria-label="Highest returns: PSU bank FD (State Bank of India) 7.20%%, FD on GoldenPi (Unity Small Finance Bank) 8.50%%, 1.30%% extra">'
+            '<div class="x8cmp__col"><b>7.20%%</b><span class="x8cmp__bar x8cmp__bar--psu" style="height:%dpx">'
+            '<img src="%sportfolio/bank.png" alt="" width="44" height="44"></span><span class="x8cmp__name">PSU Bank FD</span></div>'
+            '<div class="x8cmp__gain" aria-hidden="true"><span class="x8cmp__pill">+1.30%% Extra</span>'
+            '<svg viewBox="0 0 120 60" preserveAspectRatio="none"><path d="M4 56 C 44 50, 76 26, 112 8" fill="none" stroke="#f4e3a6" stroke-width="1.5" vector-effect="non-scaling-stroke"/>'
+            '<path d="M102 5 L114 7 L108 17" fill="none" stroke="#f4e3a6" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg></div>'
+            '<div class="x8cmp__col x8cmp__col--us"><b>8.50%%</b><span class="x8cmp__bar x8cmp__bar--us" style="height:%dpx">'
+            '<img src="%sgoldenpi-logo-white.svg" alt="" width="44" height="44"></span><span class="x8cmp__name">FD on GoldenPi</span></div></div>'
             '<table class="x8cmp__table"><thead><tr><th scope="col"><span class="sr-only">Feature</span></th>'
-            '<th scope="col">Traditional Banks</th><th scope="col">GoldenPi FDs</th></tr></thead><tbody>%s</tbody></table>'
-            '</div></section>'
-            % (bar % ("", "7.20%", round(sbi / 9 * 150), "State Bank of India"),
-               bar % (" x8cmp__col--us", "8.50%", round(unity / 9 * 150), "Unity Small Finance Bank"), table))  # bar px = rate / 9% of 150px
+            '<th scope="col">Traditional Banks</th><th scope="col">GoldenPi FDs</th></tr></thead><tbody>%s</tbody></table></div>'
+            '<p class="x8cmp__note">Comparison of highest returns across all tenures and age groups. PSU bank: State Bank of India; '
+            'GoldenPi: Unity Small Finance Bank.</p></section>'
+            % (150, IMG, 200, IMG, table))  # bars 150 / 200px: shortened for contrast (the user's call), not to scale
 
 
 def rail():
@@ -158,7 +162,7 @@ def body():
     check()
     # app7's 70:30 split: the stage and every section left, the offer in the sticky rail.
     main = "".join([security(), fd_list("banks", "Bank FD", "slate", BANKS),
-                    fd_list("nbfcs", "NBFC FD", "gold", NBFCS), FD.calculator(), compare()])
+                    fd_list("nbfcs", "NBFC FD", "gold", NBFCS), compare(), FD.calculator()])
     return ('<main id="main-content" class="xa-page"><div class="xa xb x7 x8"><div class="xa-hero-wrap">%s</div>%s'
             '<div class="xa-main">%s</div></div></main>' % (promoted(), rail(), main))
 
@@ -176,6 +180,8 @@ STYLE = """
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08), 0 24px 48px -24px rgba(0, 0, 0, .6); }
 .x8offer img { width: 88px; height: 88px; filter: drop-shadow(0 8px 10px rgba(80, 55, 0, .3)); }
 .x8offer h2 { margin: 0; font-size: 22px; line-height: 1.3; font-weight: 700; letter-spacing: -.01em; color: #fff; }
+/* one card in the rail: full width wherever the rail sits under the stage (app7's rail is two columns there) */
+.x8 .xb-rail { grid-template-columns: minmax(0, 1fr); }
 @media (min-width: 640px) and (max-width: 1199px) { .x8offer { grid-template-columns: auto minmax(0, 1fr); align-items: center; } }
 .x8 .xa-head__title, .x8 .xa-main > section:not(.x7w) > h2 { margin: 0; font-size: 18px; line-height: 28px; font-weight: 600; color: #322811; }
 .x8 .xs__head h1 { margin: 0; font-size: clamp(18px, 1.8vw, 22px); line-height: 1.3; font-weight: 600; color: #f4e9c8; }
@@ -216,38 +222,57 @@ STYLE = """
 .x8 .gp-ucard__sold { color: #5c5240; white-space: nowrap; }
 .x8 .x7s .gp-ucard__rate-value { font-size: 30px; line-height: 34px; letter-spacing: -.9px; }
 
-/* comparison */
-.x8cmp { display: grid; gap: 20px; }
-.x8cmp__grid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 20px; align-items: stretch; }
-.x8cmp__chart { display: grid; gap: 16px; align-content: space-between; padding: 24px; border-radius: 24px; color: #f4e9c8;
-  background: linear-gradient(180deg, #0c0a06 0%, #13100a 45%, #3a2e16 80%, #77602f 100%); }
-.x8cmp__badge { margin: 0; justify-self: end; padding: 6px 12px; border-radius: 999px; background: rgba(237, 201, 103, .14); color: #edc967; font-size: 14px; }
-.x8cmp__bars { display: flex; align-items: end; justify-content: center; gap: 48px; }
-.x8cmp__col { display: grid; justify-items: center; align-content: end; gap: 8px; width: 120px; }
-.x8cmp__col i { display: block; width: 72px; border-radius: 12px 12px 4px 4px; background: rgba(255, 248, 228, .16); }
-.x8cmp__col--us i { background: linear-gradient(180deg, #f7d880, #c69a1c); }
-.x8cmp__val { font-size: 22px; font-weight: 700; font-variant-numeric: tabular-nums; }
-.x8cmp__col--us .x8cmp__val { color: #edc967; }
-.x8cmp__name { font-size: 12px; line-height: 1.35; text-align: center; color: rgba(244, 233, 200, .75); }
-.x8cmp__note { margin: 0; font-size: 12px; line-height: 1.5; color: rgba(244, 233, 200, .7); }
-.x8cmp__table { width: 100%; border-collapse: separate; border-spacing: 0; overflow: hidden; border-radius: 24px; background: #fff; border: 1px solid var(--line); font-size: 14px; }
-.x8cmp__table th, .x8cmp__table td { padding: 16px 18px; text-align: left; vertical-align: top; line-height: 1.45; }
-.x8cmp__table thead th { font-size: 13px; font-weight: 700; color: #322811; background: #faf6ea; }
-.x8cmp__table thead th:last-child { color: #8a6520; }
-.x8cmp__table tbody th { width: 30%; font-weight: 500; color: var(--sub); }
-.x8cmp__table tbody td:last-child { font-weight: 600; color: #322811; }
-.x8cmp__table tbody tr + tr > * { border-top: 1px solid var(--line); }
+/* comparison: fd-details2's dark chart, with the table on the same surface */
+.x8 .xa-main > section.x8cmp > h2 { color: #f1f1f1; }
+.x8cmp { display: grid; gap: 28px; padding: 32px 32px 24px; border-radius: 24px; color: #fff; background: #0e1015;
+  background-image: radial-gradient(520px 220px at 0% 100%, rgba(237, 201, 103, .12), transparent 70%); }
+.x8cmp__vs { font-weight: 400; color: #8e94a2; } .x8cmp__us { color: #edc967; }
+.x8cmp__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 40px; align-items: end; }
+.x8cmp__chart { display: grid; grid-template-columns: 1fr 120px 1fr; align-items: end; padding-bottom: 36px; border-bottom: 1px solid rgba(255, 255, 255, .2); }
+.x8cmp__col { position: relative; display: grid; justify-items: center; gap: 12px; }
+.x8cmp__col b { font-size: 20px; font-weight: 700; font-variant-numeric: tabular-nums; } .x8cmp__col--us b { color: #edc967; }
+.x8cmp__bar { display: grid; place-items: center; width: 88px; }
+.x8cmp__bar--psu { border-radius: 12px 12px 0 0; border: 1px solid #d7caaa; border-bottom: 0; background: linear-gradient(180deg, #403a2e, #221f1a 29%, #1a1815 73%); }
+.x8cmp__bar--psu img { width: 44px; height: 44px; object-fit: contain; }
+.x8cmp__bar--us { width: 92px; border-radius: 20px 20px 0 0; border: 1px solid #ffefa3; border-bottom: 0;
+  background: linear-gradient(105deg, #f7d880 0%, #c69a1c 55%, #8a6520 100%); box-shadow: 0 15px 22px rgba(0, 0, 0, .5); }
+/* the logo's mark only (left of the wordmark), inked dark on gold */
+.x8cmp__bar--us img { width: 44px; height: 44px; object-fit: cover; object-position: left center; filter: brightness(0); opacity: .85; }
+.x8cmp__name { position: absolute; top: calc(100% + 10px); width: 130px; font-size: 13px; font-weight: 600; text-align: center; color: #f5f7fa; }
+.x8cmp__gain { position: relative; align-self: stretch; }
+.x8cmp__gain svg { position: absolute; left: -16px; right: -16px; bottom: 150px; width: calc(100% + 32px); height: 48px; }
+.x8cmp__pill { position: absolute; left: 50%; bottom: 206px; transform: translateX(-50%); white-space: nowrap; padding: 4px 12px; border-radius: 999px;
+  border: 1px solid #edc967; color: #edc967; font-size: 12px; font-weight: 600; }
+@media (prefers-reduced-motion: no-preference) {
+  .x8cmp.is-in .x8cmp__gain { animation: x8-slide .5s ease-out both; }
+}
+@keyframes x8-slide { from { transform: translateX(-40px); opacity: 0; } to { transform: none; opacity: 1; } }
+.x8cmp__table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.x8cmp__table th, .x8cmp__table td { padding: 14px 12px; text-align: left; vertical-align: top; line-height: 1.45; }
+.x8cmp__table thead th { padding-top: 0; font-size: 13px; font-weight: 600; color: rgba(255, 255, 255, .6); }
+.x8cmp__table thead th:last-child { color: #edc967; }
+.x8cmp__table tbody th { width: 30%; font-weight: 500; color: rgba(255, 255, 255, .6); }
+.x8cmp__table tbody td { color: rgba(255, 255, 255, .75); }
+.x8cmp__table tbody td:last-child { font-weight: 600; color: #fff; }
+.x8cmp__table tbody tr > * { border-top: 1px solid rgba(255, 255, 255, .12); }
+.x8cmp__note { margin: 0; font-size: 11px; line-height: 1.5; color: rgba(255, 255, 255, .55); }
 
-@media (max-width: 899px) { .x8cmp__grid { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 899px) { .x8cmp__grid { grid-template-columns: minmax(0, 1fr); gap: 52px; } .x8cmp__chart { max-width: 420px; width: 100%; justify-self: center; } }
 @media (max-width: 767px) {
 }
 @media (max-width: 639px) {
   .x8 .xa-main { gap: 40px; }
-  .x8cmp__bars { gap: 28px; }
+  /* offer: one compact row, gift beside the copy */
+  .x8offer { grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 14px; padding: 14px 16px; border-radius: 20px; }
+  .x8offer img { width: 52px; height: 52px; }
+  .x8offer h2 { font-size: 15px; line-height: 1.35; }
+  .x8cmp { padding: 24px 16px 20px; gap: 24px; }
+  .x8cmp__chart { grid-template-columns: 1fr 90px 1fr; }
+  .x8cmp__name { width: 110px; font-size: 12px; }
   .x8 .gp-ucard__metrics dt { white-space: nowrap; }
   .x8 .gp-ucard__metrics div + div { padding-left: 12px; }
   .x8 .gp-ucard__metrics div:not(:last-child) { padding-right: 12px; }
-  .x8cmp__table th, .x8cmp__table td { padding: 12px; }
+  .x8cmp__table th, .x8cmp__table td { padding: 12px 8px; font-size: 13px; }
 }
 """
 

@@ -127,10 +127,10 @@ def reasons():
 def compare():
     return ('<section class="f2-cmp" aria-labelledby="f2-cmp-t">'
             '<h2 id="f2-cmp-t">State Bank of India <span class="f2-cmp__vs">vs</span> <span class="f2-cmp__us">Unity Small Finance Bank</span></h2>'
-            '<div class="f2-cmp__chart" role="img" aria-label="Highest returns: State Bank of India 7.20%%, Unity Small Finance Bank 8.50%%, 18.06%% higher">'
+            '<div class="f2-cmp__chart" role="img" aria-label="Highest returns: State Bank of India 7.20%%, Unity Small Finance Bank 8.50%%, 1.30%% extra">'
             '<div class="f2-cmp__col"><b>7.20%%</b><span class="f2-cmp__bar f2-cmp__bar--them"><img src="%sportfolio/bank.png" alt="" width="48" height="48"></span>'
             '<span class="f2-cmp__name">State Bank of India</span></div>'
-            '<div class="f2-cmp__gain" aria-hidden="true"><span class="f2-cmp__pill">18.06%% Higher</span>'
+            '<div class="f2-cmp__gain" aria-hidden="true"><span class="f2-cmp__pill">+1.30%% Extra</span>'
             '<svg viewBox="0 0 200 90" preserveAspectRatio="none"><path d="M4 86 C 70 70, 120 30, 192 8" fill="none" stroke="#f4e3a6" stroke-width="2"/>'
             '<path d="M182 4 L194 7 L186 16" fill="none" stroke="#f4e3a6" stroke-width="2"/></svg></div>'
             '<div class="f2-cmp__col f2-cmp__col--us"><b>8.50%%</b><span class="f2-cmp__bar f2-cmp__bar--us"><img src="%sGPID105192.Unity.png" alt="" width="44" height="44"></span>'

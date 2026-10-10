@@ -166,7 +166,7 @@ python3 pages/_explore_app.py # -> user-explore-app.html (Figma 40:2105, light; 
 python3 pages/_explore_app5.py # -> user-explore-app5.html (user-explore-app2 with gold, slate and sage card blocks)
 python3 pages/_explore_app6.py # -> user-explore-app6.html (a copy of user-explore-app5)
 python3 pages/_explore_app7.py # -> user-explore-app7.html (Figma 130:224 Collection page, on app6's parts)
-python3 pages/_fd_app2.py     # -> user-fixed-deposits-app2.html (new FD landing: promoted FDs, security, bank/NBFC lists, calculator, SBI comparison)
+python3 pages/_fd_app2.py     # -> user-fixed-deposits-app2.html (new FD landing: promoted FDs, security, bank/NBFC lists, PSU vs GoldenPi comparison, calculator)
 python3 pages/_fd_details2.py # -> fd-details2.html (Unity FD page, new version: Figma 138:579 on app7's shell)
 python3 pages/_fd_app.py      # -> user-fixed-deposits-app.html (user-fixed-deposits content, explore-app design)
 python3 pages/_footer_ggn.py # -> footer-ggn-prelogin-bonds.html (prelogin-home footer + footer-bonds SEO part)
