@@ -234,6 +234,162 @@
   .ft-table tbody th { color: var(--ft-ink); font-weight: 500; }
   .ft-guide .ft-faq ul { margin-block: 8px; }
 </style>
+<style>
+  /* The light scheme from the GoldenPi Web Design Figma, footer
+     frame 242:21690. Same blocks as footer-taste.html, the dark version; only colour and chrome change. */
+  .ft {
+    --ft-bg: #fcfbfa;          /* Figma "bg ligh" */
+    --ft-band: #f0ece6;        /* lower band, sampled from the frame */
+    --ft-ink: #322811;         /* "darker brown" */
+    --ft-muted: #514834;       /* "brown dark" */
+    --ft-faint: #666666;       /* "subtext" */
+    --ft-line: #e7e3d999;      /* "stroke light" */
+    --ft-card: #ffffff;
+    --ft-accent: #a67c00;      /* "icon" */
+    position: relative;
+    overflow: hidden;
+    margin-top: 72px;
+    background: var(--ft-bg);
+    color: var(--ft-muted);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .ft a { color: inherit; text-decoration: none; }
+  .ft a:focus-visible, .ft button:focus-visible, .ft summary:focus-visible {
+    outline: 2px solid var(--ft-accent);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  .ft h2, .ft h3 { color: var(--ft-ink); font-weight: 700; }
+
+  /* The pi mark the live footer carries, drifting slowly top right. */
+  .ft__pi {
+    position: absolute;
+    top: -40px;
+    right: -60px;
+    width: 420px;
+    pointer-events: none;
+    animation: ft-drift 18s ease-in-out infinite alternate;
+  }
+  @keyframes ft-drift { to { transform: translate(-24px, 28px) rotate(-4deg); } }
+
+  .ft__inner { position: relative; }
+
+  /* ----------------------------------------------------------- main grid */
+  .ft-main { display: grid; gap: 40px 32px; padding-block: 56px 44px; }
+  @media (min-width: 640px) { .ft-main { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .ft-main { grid-template-columns: 1.5fr repeat(4, 1fr); } }
+  .ft-brand address { margin-top: 12px; font-style: normal; }
+  .ft-brand__co { margin-top: 20px; color: var(--ft-ink); font-weight: 700; }
+  .ft-brand__tel a { color: var(--ft-ink); font-weight: 700; }
+  .ft-social { display: flex; gap: 10px; margin-top: 22px; }
+  .ft-social a {
+    display: grid; place-items: center; width: 40px; height: 40px;
+    border: 1px solid var(--ft-line); border-radius: 50%;
+    transition: transform 0.25s var(--ease), background-color 0.25s, border-color 0.25s;
+  }
+  .ft-social a:hover { transform: translateY(-3px); background: rgba(212, 175, 55, 0.16); border-color: var(--ft-accent); }
+  .ft-social img { width: 16px; height: 16px; object-fit: contain; }
+  .ft-col h2 { margin-bottom: 16px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ft-accent); }
+  .ft-col li + li { margin-top: 10px; }
+  /* Gold underline grows from the left on hover. */
+  .ft-link { background: linear-gradient(var(--ft-accent), var(--ft-accent)) 0 100% / 0 1px no-repeat; transition: background-size 0.3s var(--ease), color 0.2s; }
+  .ft-link:hover { color: var(--ft-ink); background-size: 100% 1px; }
+
+  /* ----------------------------------------------------------- link bands */
+  .ft-band { padding-block: 28px; border-top: 1px solid var(--ft-line); }
+  .ft-band > h2 { margin-bottom: 14px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ft-accent); }
+  .ft-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .ft-chips a {
+    padding: 6px 14px; border: 1px solid var(--ft-line); border-radius: 999px;
+    background: var(--ft-card); font-size: 13px;
+    transition: border-color 0.2s, color 0.2s, background-color 0.2s;
+  }
+  .ft-chips a:hover { border-color: var(--ft-accent); color: var(--ft-ink); background: rgba(212, 175, 55, 0.1); }
+  .ft-chips--ext a::after { content: " \2197"; color: var(--ft-faint); }
+
+  .ft-docs { display: grid; gap: 8px; }
+  @media (min-width: 640px) { .ft-docs { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .ft-docs { grid-template-columns: repeat(3, 1fr); } }
+  .ft-docs a {
+    display: flex; align-items: center; gap: 12px; padding: 12px 14px;
+    border: 1px solid var(--ft-line); border-radius: 12px; background: var(--ft-card);
+    transition: border-color 0.2s, transform 0.25s var(--ease), color 0.2s;
+  }
+  .ft-docs a:hover { border-color: var(--ft-accent); color: var(--ft-ink); transform: translateX(3px); }
+  .ft-docs svg { flex: none; width: 18px; height: 18px; color: var(--ft-accent); }
+  .ft-docs span { flex: 1; }
+  .ft-docs small { color: var(--ft-faint); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; }
+
+  .ft-copy { padding-block: 20px; border-top: 1px solid var(--ft-line); color: var(--ft-faint); font-size: 13px; }
+
+  /* ---------------------------------------------------------------- legal */
+  .ft-legal { padding-block: 40px 56px; background: rgba(0, 0, 0, 0.22); font-size: 13px; line-height: 1.7; color: var(--ft-faint); }
+  .ft-legal section + section { margin-top: 36px; }
+  .ft-legal h2 { margin-bottom: 12px; font-size: 16px; }
+  .ft-legal p + p { margin-top: 10px; }
+  .ft-legal a.u { color: var(--ft-muted); text-decoration: underline; text-underline-offset: 3px; }
+  .ft-legal a.u:hover { color: var(--ft-accent); }
+  .ft-legal strong { color: var(--ft-muted); }
+  .ft-more > summary { display: inline-flex; margin-top: 12px; color: var(--ft-accent); font-weight: 700; cursor: pointer; list-style: none; }
+  .ft-more > summary::-webkit-details-marker { display: none; }
+  .ft-more[open] > summary { display: none; }
+
+
+  .ft-faq { border-top: 1px solid var(--ft-line); }
+  .ft-faq details { border-bottom: 1px solid var(--ft-line); }
+  .ft-faq summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 16px; cursor: pointer; list-style: none; }
+  .ft-faq summary::-webkit-details-marker { display: none; }
+  .ft-faq summary h2 { margin: 0; font-size: 15px; }
+  .ft-faq summary::after { content: "+"; flex: none; color: var(--ft-accent); font-size: 22px; line-height: 1; transition: transform 0.3s var(--ease); }
+  .ft-faq details[open] summary::after { transform: rotate(45deg); }
+  .ft-faq details > div { padding-bottom: 18px; }
+  .ft-faq ul { margin-top: 8px; padding-left: 18px; list-style: disc; }
+
+  .ft-reg { display: grid; gap: 10px; margin-block: 18px; }
+  @media (min-width: 640px) { .ft-reg { grid-template-columns: repeat(3, 1fr); } }
+  .ft-reg div { padding: 16px 18px; border: 1px solid rgba(212, 175, 55, 0.24); border-radius: 14px; background: rgba(212, 175, 55, 0.06); }
+  .ft-reg dt { font-size: 12px; }
+  .ft-reg dd { margin-top: 4px; color: var(--ft-ink); font-size: 20px; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: 0.02em; }
+
+  /* Two parts: part 1 carries the regulatory copy inline on the main ground;
+     part 2 (SEO) sits on the darker band. */
+  .ft-legal--reg { padding-block: 32px; background: none; }
+  .ft-seo .ft-band { margin-top: 32px; }
+  .ft-legal .ft-band > h2 { margin-bottom: 14px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ft-accent); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ft__pi { animation: none; }
+    .ft-social a, .ft-docs a { transition: none; }
+  }
+  @media (max-width: 639px) {
+    .ft__pi { width: 260px; right: -90px; }
+  }
+
+  /* ---------------------------------------------- Figma 242:21690 chrome */
+  .ft { margin-top: 0; border-top: 1px solid var(--ft-line); }
+  .ft__pi { display: none; }
+  .ft-main { border-bottom: 1px solid var(--ft-line); }
+  .ft-brand address, .ft-brand p { font-size: 13px; }
+  .ft-col h2 { padding-bottom: 12px; border-bottom: 1px solid var(--ft-line); color: var(--ft-faint); font-weight: 500; letter-spacing: 0.12em; }
+  .ft-col a { color: var(--ft-ink); }
+  .ft-social a { border-radius: 8px; background: #fff; border-color: var(--ft-line); box-shadow: 0 1px 2px rgba(50, 40, 17, 0.04); }
+  .ft-social a:hover { background: #fff; border-color: var(--ft-accent); }
+  .ft-social img { filter: brightness(0); opacity: 0.85; }
+  .ft-band { border-top: 0; }
+  .ft-band > h2, .ft-legal .ft-band > h2 { color: var(--ft-ink); font-size: 15px; letter-spacing: 0; text-transform: none; }
+  .ft-chips a { border-color: transparent; background: #fff; color: var(--ft-ink); box-shadow: 0 1px 2px rgba(50, 40, 17, 0.05); }
+  .ft-chips a:hover { border-color: var(--ft-accent); background: #fff; color: var(--ft-ink); }
+  .ft-chips--ext a::after { content: none; }
+  .ft-legal { background: var(--ft-band); color: var(--ft-faint); }
+  .ft-legal--reg { background: none; }
+  .ft-legal a.u { color: var(--ft-ink); font-weight: 500; }
+  .ft-legal a.u:hover { color: var(--ft-accent); }
+  .ft-legal strong { color: var(--ft-muted); }
+  .ft-more > summary { color: var(--ft-ink); text-decoration: underline; text-underline-offset: 3px; }
+  .ft-reg div { border-color: var(--ft-line); background: #fff; }
+  .ft-copy { color: var(--ft-ink); font-weight: 700; }
+</style>
 <!-- ggn-footer: /styles; pages/_build.py -->
 </head>
 <body>
@@ -242,15 +398,15 @@
 
 <!-- ============================================================== header -->
 <div class="nb-slot">
-<header class="nb nb--dark nb--plain" data-v="plain-dark-login">
+<header class="nb nb--dark nb--plain nb--micons" data-v="plain-dark-login">
   <div class="gp-shell nb__inner">
     <a class="nb__logo" href="user-explore.html"><img src="../assets/img/goldenpi-logo-white.svg" alt="GoldenPi" width="132" height="30"></a>
     <nav class="nb__nav" aria-label="Primary">
-        <a class="nb__link" href="user-corporate-bonds.html"><span>Bonds</span></a>
-        <a class="nb__link" href="user-fixed-deposits.html"><span>FD</span></a>
-        <a class="nb__link" href="bond-utsav.html"><span>Bond Utsav</span></a>
-        <a class="nb__link" href="refer-and-earn.html"><span>Refer &amp; Earn</span></a>
-        <a class="nb__link nb__link--m" href="portfolio.html"><span>Portfolio</span></a>
+        <a class="nb__link" href="user-corporate-bonds.html"><span class="nb-ic" style="--i: url(../assets/img/header-nav-bonds.svg)" aria-hidden="true"></span><span>Bonds</span></a>
+        <a class="nb__link" href="user-fixed-deposits.html"><span class="nb-ic" style="--i: url(../assets/img/header-nav-fd.svg)" aria-hidden="true"></span><span>FD</span></a>
+        <a class="nb__link" href="bond-utsav.html"><img class="nb-ic" src="../assets/img/header-nav-bond-utsav.svg" alt=""><span>Bond Utsav</span></a>
+        <a class="nb__link" href="refer-and-earn.html"><span class="nb-ic" style="--i: url(../assets/img/header-nav-ref-earn.svg)" aria-hidden="true"></span><span>Refer &amp; Earn</span></a>
+        <a class="nb__link nb__link--m is-current" href="portfolio.html" aria-current="page"><span class="nb-ic" style="--i: url(../assets/img/header-nav-portfolio.svg)" aria-hidden="true"></span><span>Portfolio</span></a>
     </nav>
     <div class="nb__search"><span class="nb-ic" style="--i: url(../assets/img/header-search.svg)" aria-hidden="true"></span><span>Search for bonds, FD or IPO</span></div>
     <div class="nb__actions">
@@ -352,13 +508,9 @@
 </main>
 
 <!-- ============================================================== footer -->
-<footer class="ft ft--dark ft--black" id="footer">
-  <img class="ft__pi" src="../assets/img/pi.svg" alt="" width="331" height="298">
-
-  <!-- Part 1: navigation, documents, regulatory disclosures, copyright. -->
+<footer class="ft ft--dark ft--black ft--ggn-login" id="footer">
   <div class="gp-shell ft__inner">
-
-    <div class="ft-main">
+    <div class="ft-l4">
       <div class="ft-brand">
         <img src="../assets/img/goldenpi-logo-white.svg" alt="GoldenPi" width="148" height="44">
         <p class="ft-brand__co">GoldenPi Securities Pvt Ltd</p>
@@ -375,49 +527,33 @@
           <a href="https://www.youtube.com/@goldenpi" aria-label="GoldenPi on YouTube"><img src="../assets/img/Youtube-icon.svg" alt=""></a>
         </div>
       </div>
-
-      <nav class="ft-col" aria-labelledby="ft-invest">
-        <h2 id="ft-invest">Invest with us</h2>
-        <ul>
-          <li><a class="ft-link" href="bond-ipo-online.html">Bond IPOs</a></li>
-          <li><a class="ft-link" href="corporate-bonds.html">Bonds</a></li>
-          <li><a class="ft-link" href="fixed-deposits.html">Fixed Deposits</a></li>
-          <li><a class="ft-link" href="https://goldenpi.com/sovereign-gold-bond">Sovereign Gold Bond</a></li>
-          <li><a class="ft-link" href="https://goldenpi.com/government-securities">Government Securities</a></li>
-        </ul>
-      </nav>
-
-      <nav class="ft-col" aria-labelledby="ft-company">
-        <h2 id="ft-company">Company</h2>
-        <ul>
-          <li><a class="ft-link" href="about-us.html">About us</a></li>
-          <li><a class="ft-link" href="https://goldenpi.com/media">Media</a></li>
-          <li><a class="ft-link" href="careers.html">Career at GoldenPi</a></li>
-          <li><a class="ft-link" href="https://goldenpi.com/faq">FAQs</a></li>
-          <li><a class="ft-link" href="contact-us.html">Contact Us</a></li>
-        </ul>
-      </nav>
-
-      <nav class="ft-col" aria-labelledby="ft-legal">
-        <h2 id="ft-legal">Legal</h2>
-        <ul>
-          <li><a class="ft-link" href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
-          <li><a class="ft-link" href="privacy-policy.html">Privacy Policy</a></li>
-          <li><a class="ft-link" href="https://goldenpi.com/investor-resources">Investor Resources</a></li>
-          <li><a class="ft-link" href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/Policies+for+Information.pdf">Policies for Information</a></li>
-        </ul>
-      </nav>
-
-      <nav class="ft-col" aria-labelledby="ft-new">
-        <h2 id="ft-new">New to GoldenPi</h2>
-        <ul>
-          <li><a class="ft-link" href="https://goldenpi.com/blog">GoldenPi Blogs</a></li>
-          <li><a class="ft-link" href="https://goldenpi.com/find-first-bond?ia=2-5-lac&amp;tr=5-10-yrs&amp;it=all&amp;sortBy=yield-high-to-low">Find Your First Bond</a></li>
-          <li><a class="ft-link" href="https://goldenpi.com/bond-vs-fd?ia=200000&amp;tr=3">Bond vs Fixed Deposit</a></li>
-          <li><a class="ft-link" href="https://goldenpi.com/blog/essentials/bond-introduction/bond-glossary-20-terms-definitions-you-need-to-know">Bond Definitions</a></li>
-          <li><a class="ft-link" href="https://goldenpi.com/blog/investment-guide">Bond Investment Guide</a></li>
-        </ul>
-      </nav>
+    <!-- COPY: "20 Lac+" is from the brief. goldenpi.com says "18 Lac+ registered users"
+         (content/prod_user_explore.md). Confirm the figure before this ships. -->
+    <!-- DATA: reviews, from the goldenpi.com reviews block. -->
+    <section class="ft-love ft-love--side" aria-labelledby="ft-love-title">
+      <h2 class="ft-love__title" id="ft-love-title">Loved by <span class="ft-love__n" data-count>20<span> Lac+</span></span> Indians</h2>
+      <div class="ft-love__voices">
+      <div class="ft-love__faces" role="group" aria-label="Reviews">
+        <button type="button" class="ft-love__face" aria-pressed="true" aria-controls="ft-q0" aria-label="Review by sumit dhar"><img src="../assets/img/sumit.png" alt="" width="44" height="44"></button>
+        <button type="button" class="ft-love__face" aria-pressed="false" aria-controls="ft-q1" aria-label="Review by Shyju K.J"><img src="../assets/img/shyju.png" alt="" width="44" height="44"></button>
+        <button type="button" class="ft-love__face" aria-pressed="false" aria-controls="ft-q2" aria-label="Review by Ankur Arya"><img src="../assets/img/ankur.png" alt="" width="44" height="44"></button>
+      </div>
+      <div class="ft-love__quotes">
+        <figure class="ft-love__q is-on" id="ft-q0">
+          <blockquote>&ldquo;Very useful platform for buying bond etc. Hassle free user interface. Very effective support team. I am happy with GoldenPi.&rdquo;</blockquote>
+          <figcaption>sumit dhar</figcaption>
+        </figure>
+        <figure class="ft-love__q" id="ft-q1" aria-hidden="true">
+          <blockquote>&ldquo;Best team to deal with for investment in corporate bonds. Thank you Mr. Sai Prasad Ganesan for your best service.&rdquo;</blockquote>
+          <figcaption>Shyju K.J</figcaption>
+        </figure>
+        <figure class="ft-love__q" id="ft-q2" aria-hidden="true">
+          <blockquote>&ldquo;It was really a good experience. Earlier it was almost impossible to invest in bonds but now BD with goldenpi it’s just a few clicks away. Thank you Goldenpi.&rdquo;</blockquote>
+          <figcaption>Ankur Arya</figcaption>
+        </figure>
+      </div>
+      </div>
+    </section>
     </div>
 
     <div class="ft-regs">
@@ -427,6 +563,7 @@
         <div><dt>BSE Member ID:</dt><dd>6809</dd></div>
         <div><dt>NSE Member ID:</dt><dd>90331</dd></div>
       </dl>
+      <p class="ft-legal-row">Important links: <a class="u" href="terms-and-conditions.html">Terms &amp; Conditions</a> | <a class="u" href="privacy-policy.html">Privacy Policy</a> | <a class="u" href="https://goldenpi.com/investor-resources">Investor Resources</a> | <a class="u" href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/Policies+for+Information.pdf">Policies for Information</a></p>
       <p>Compliance Officer: Kunal Sharma, Tel. No.: <a class="u" href="tel:080-45685666">080-45685666</a>, Email ID: <a class="u" href="mailto:grievance-gspl@goldenpi.com">grievance-gspl@goldenpi.com</a> (for any compliance &amp; grievance related complaints)</p>
       <p>Key Managerial Personnel: Abhijit Roy - Designated Director &amp; CEO, Samir Baran Pratihar - Designated Director &amp; CTO</p>
       <p>Tel. No.: 080-45685666 | Email: <a class="u" href="mailto:contact-us@goldenpi.com">contact-us@goldenpi.com</a></p>
@@ -434,229 +571,9 @@
 
   </div>
 
-  <details class="ft-fold">
-    <summary class="gp-shell">
-      <span class="ft-copy">&copy; 2017 - 2026 | GoldenPi Securities Pvt. Ltd.</span>
-      <span class="ft-fold__btn">Read More</span>
-    </summary>
-
-  <!-- Part 2: SEO copy and SEO links. On /corporate-bonds the SEO copy is the
-       corporate bonds guide (content/prod_corporate-bonds.footer.md), not the
-       About GoldenPi Q&As. -->
-  <div class="ft-legal ft-seo">
-    <div class="gp-shell">
-
-      <section class="ft-guide">
-        <h2>Corporate Bonds in India: A Complete Guide for Investors (2026)</h2>
-        <p>Corporate bonds have quietly become one of the most talked-about fixed-income options for Indian investors looking to earn more than what a fixed deposit offers. Whether you're a salaried professional trying to beat inflation or a retiree seeking steady income, corporate bonds deserve a serious look. Let's break down everything you need to know before investing.</p>
-        <div class="ft-faq">
-          <details open>
-            <summary><h3>Types of Corporate Bonds in India</h3></summary>
-            <div>
-              <p>Not all corporate bonds work the same way. Depending on your risk appetite and income needs, here's what's available in the Indian market.</p>
-              <h4>Secured Bonds</h4>
-              <p>Backed by specific company assets (like property or machinery). If the issuer defaults, bondholders have a claim on these assets first; lower risk, and naturally, a lower yield.</p>
-              <h4>Unsecured Debentures</h4>
-              <p>No asset backing here, so the company's promise to repay rests purely on its financial strength. This higher risk comes with a higher coupon to compensate investors.</p>
-              <h4>Convertible Bonds</h4>
-              <p>A hybrid instrument that gives you the option to convert your bond holding into company shares at a predetermined price. Useful if you want debt safety with some upside potential.</p>
-              <h4>Non-Convertible Debentures (NCDs)</h4>
-              <p>Pure debt instruments with no equity conversion option. These are the most common type of corporate bond you'll come across in India.</p>
-              <h4>Zero-Coupon Bonds</h4>
-              <p>No periodic interest payments. Instead, you buy them at a discount and receive the full face value at maturity; the difference is your return.</p>
-              <h4>Perpetual / AT1 Bonds</h4>
-              <p>These have no fixed maturity date and typically offer higher yields, but come with a distinct risk profile (especially relevant if you remember how AT1 bonds behaved during banking stress events).</p>
-            </div>
-          </details>
-          <details>
-            <summary><h3>Key Features of Corporate Bonds in India</h3></summary>
-            <div>
-              <p>Before you invest, here's what actually determines whether a bond suits your portfolio.</p>
-              <h4>Coupon Rate</h4>
-              <p>Typically ranges from around 7% for AAA-rated bonds to 14%+ for A-rated bonds in 2026, paid monthly, quarterly, or annually.</p>
-              <h4>Credit Rating</h4>
-              <p>Rated AAA to D by agencies like CRISIL, ICRA, CARE, and Brickwork. This rating is your first (but not the only) clue to default probability.</p>
-              <h4>Tenure</h4>
-              <p>Ranges from 1 year to 30+ years; broadly split into short-term (1–3 years), medium-term (3–7 years), and long-term (7+ years).</p>
-              <h4>Secondary Market Liquidity</h4>
-              <p>Listed bonds can be sold before maturity on the BSE or NSE through platforms like GoldenPi.</p>
-              <h4>Taxability</h4>
-              <p>Interest is taxed as per your income slab (with TDS applicable); capital gains are taxed separately.</p>
-              <h4>Seniority</h4>
-              <p>Bondholders rank above equity shareholders when it comes to repayment during insolvency proceedings.</p>
-              <p>The coupon rate often gets all the attention, but seasoned investors know the credit rating and tenure matter just as much. A high coupon on a low-rated bond isn't necessarily a good deal; it's compensation for risk you're taking on.</p>
-            </div>
-          </details>
-          <details>
-            <summary><h3>Corporate Bonds vs. Fixed Deposits — Which Is Better for You?</h3></summary>
-            <div>
-              <p>This is the comparison most investors actually care about. Here's how they stack up:</p>
-              <div class="ft-table"><table><thead><tr><th>Parameter</th><th>Bank FD</th><th>AAA Corporate Bond</th><th>AA Corporate Bond</th></tr>
-              </thead><tbody><tr><th>Returns</th><td>~6.5–7.5%</td><td>~7–8.5%</td><td>~9–10.5%</td></tr>
-              <tr><th>Safety</th><td>DICGC insured up to ₹5 lakh</td><td>High (low default probability)</td><td>Moderate (slightly higher default risk)</td></tr>
-              <tr><th>Liquidity</th><td>Premature withdrawal with penalty</td><td>Sellable on secondary market</td><td>Sellable on secondary market</td></tr>
-              <tr><th>Tenure flexibility</th><td>Fixed slabs (7 days to 10 years)</td><td>Wide range, including long-tenure options</td><td>Wide range, including long-tenure options</td></tr>
-              <tr><th>Tax treatment</th><td>Interest taxed as per slab</td><td>Interest taxed as per slab; LTCG on gains</td><td>Interest taxed as per slab; LTCG on gains</td></tr>
-              <tr><th>Minimum investment</th><td>Usually ₹1,000–10,000</td><td>Starts around ₹10,000 on platforms like GoldenPi</td><td>Starts around ₹10,000</td></tr>
-              <tr><th>Regulatory body</th><td>RBI</td><td>SEBI</td><td>SEBI</td></tr>
-              </tbody></table>
-              </div>
-              <p>For investors in the 30% tax bracket, an AA-rated corporate bond earning around 9% YTM can deliver meaningfully higher post-tax returns than a bank FD at 7.5%, simply because the higher base return outweighs the tax outgo. Run your own numbers before deciding which fits your tax situation better.</p>
-            </div>
-          </details>
-          <details>
-            <summary><h3>How Are Corporate Bond Returns Taxed in India? (2026)</h3></summary>
-            <div>
-              <p>Tax treatment is where a lot of investors slip up, so let's simplify it.</p>
-              <p>Interest income is added to your total income and taxed as per your applicable income tax slab. Following the Finance Act 2025, TDS at 10% now kicks in only if your interest income from a single issuer crosses ₹10,000 in a year (up from the earlier ₹5,000 threshold).</p>
-              <p>Capital gains depend on whether the bond is listed or unlisted, and here's the part that confuses people: unlisted bonds don't get any long-term benefit anymore, no matter how long you hold them.</p>
-              <div class="ft-table"><table><thead><tr><th>Gain Type</th><th>Holding Period</th><th>Tax Rate</th></tr>
-              </thead><tbody><tr><td>LTCG (listed bonds)</td><td>More than 12 months</td><td>12.5% without indexation</td></tr>
-              <tr><td>STCG (listed bonds)</td><td>12 months or less</td><td>As per your income slab</td></tr>
-              <tr><td>Unlisted bonds</td><td>Any holding period</td><td>Always taxed as short-term gains, at your income slab (Section 50AA)</td></tr>
-              </tbody></table>
-              </div>
-              <p>That last row surprises a lot of investors: since July 2024, gains on unlisted bonds and debentures are deemed short-term irrespective of how long you've held them, so a 5-year-old unlisted NCD gets taxed exactly like a bond you sold after six months. This alone can make listed, exchange-traded bonds meaningfully more tax-efficient for long-term holders.</p>
-              <p>One thing that hasn't changed: bond taxation is identical under the old and new tax regimes; the rules above apply either way. Since post-tax returns are what actually matter, it's worth working out your XIRR before you invest, so you know exactly what you're walking away with.</p>
-            </div>
-          </details>
-          <details>
-            <summary><h3>Risks to Understand Before Investing in Corporate Bonds</h3></summary>
-            <div>
-              <p>Corporate bonds aren't risk-free, and any experienced investor will tell you that a healthy coupon rate means little if you haven't accounted for these:</p>
-              <ul><li>Credit/default risk</li>
-              <li>Interest rate risk</li>
-              <li>Liquidity risk</li>
-              <li>Credit migration risk</li>
-              <li>Reinvestment risk</li>
-              </ul>
-              <p>Here's what each of these actually means in practice.</p>
-              <h4>Credit/Default Risk</h4>
-              <p>The issuer might fail to pay interest or principal. This is best managed by checking the credit rating and reading the rating agency's detailed report, not just the letter grade.</p>
-              <h4>Interest Rate Risk</h4>
-              <p>Bond prices move inversely to interest rates. If rates rise after you buy, the market value of your bond can fall. Holding to maturity largely sidesteps this.</p>
-              <h4>Liquidity Risk</h4>
-              <p>Some bonds trade thinly in the secondary market, making it harder to exit early at a fair price. This is exactly why a robust secondary market matters.</p>
-              <h4>Credit Migration Risk</h4>
-              <p>A bond rated AA today could be downgraded to A tomorrow if the issuer's financial health weakens. Keeping an eye on rating alerts helps you react early.</p>
-              <h4>Reinvestment Risk</h4>
-              <p>When your coupon or maturity proceeds come in during a falling rate cycle, reinvesting at similar returns becomes harder.</p>
-              <p>GoldenPi displays live credit ratings and rating change alerts on every bond page, so you're not caught off guard by a downgrade.</p>
-            </div>
-          </details>
-          <details>
-            <summary><h3>Who Should Invest in Corporate Bonds in India?</h3></summary>
-            <div>
-              <p>Corporate bonds aren't a one-size-fits-all product. Here's who tends to benefit most, and what to actually look for.</p>
-              <h4>Salaried Professionals</h4>
-              <p>Those in the 20–30% tax bracket looking for returns that comfortably beat FD rates, without taking on equity-like volatility. </p>
-              <p><strong>Recommended:</strong> AAA- and AA-rated NCDs with 3–5 year tenures strike a good balance between yield and safety for this group.  <a class="ft-guide-link" href="https://goldenpi.com/collections/highly-rated-bonds">Explore Highly Rated Bonds</a></p>
-              <h4>Retirees and Senior Citizens</h4>
-              <p>Investors who need predictable, regular income. Monthly or quarterly coupon payouts can work well alongside a pension. </p>
-              <p><strong>Recommended:</strong> AAA-rated secured bonds with monthly or quarterly coupon frequency, prioritising safety over chasing an extra percentage point of yield.  <a class="ft-guide-link" href="https://goldenpi.com/collections/highly-rated-bonds">Explore Highly Rated Bonds</a></p>
-              <h4>HNIs</h4>
-              <p>Those looking to diversify beyond equities and bring down overall portfolio volatility, without parking everything in low-yield instruments. </p>
-              <p><strong>Recommended:</strong> A laddered mix across AA- and A-rated NCDs, and selectively perpetual/AT1 bonds for the higher-yield sleeve of the portfolio.  <a class="ft-guide-link" href="https://goldenpi.com/collections/high-yield-bonds">Explore High-Yield Bonds</a></p>
-              <h4>NRI Investors</h4>
-              <p>Several FEMA-eligible bonds are available with fully repatriable returns, making this an accessible option even from abroad. </p>
-              <p><strong>Recommended:</strong> FEMA-eligible, listed NCDs from AAA/AA-rated issuers, which combine repatriability with secondary-market exit options.  <a class="ft-guide-link" href="https://goldenpi.com/collections/highly-rated-bonds">Explore Highly Rated Bonds</a></p>
-              <h4>Conservative First-Time Investors</h4>
-              <p>Investors ready to move beyond FDs but not yet comfortable with equity risk. </p>
-              <p><strong>Recommended:</strong> Start with AAA-rated, short-tenure (1–3 year) secured bonds; the closest substitute to an FD, with a better post-tax return.  <a class="ft-guide-link" href="https://goldenpi.com/collections/bonds-for-short-term-investment">Explore Short-Term Bonds</a></p>
-            </div>
-          </details>
-          <details>
-            <summary><h3>How to Invest in Corporate Bonds on GoldenPi — 3 Steps</h3></summary>
-            <div>
-              <p>Getting started is more straightforward than most people expect.</p>
-              <h4>Step 1: Complete Your KYC</h4>
-              <p>Finish your KYC online in under 5 minutes using your PAN, Aadhaar, and a linked Demat account.</p>
-              <h4>Step 2: Browse Bonds</h4>
-              <p>Filter by credit rating, yield, tenure, coupon frequency, or sector to find what matches your goals.</p>
-              <h4>Step 3: Place Your Order</h4>
-              <p>Settlement happens directly via the BSE/NSE, and the bonds are credited to your Demat account within T+2 days.</p>
-              <p>GoldenPi is India's first SEBI-registered Online Bond Platform Provider (OBPP), which means your transaction settles directly on the exchange, not through an intermediary. And if your plans change, you're not locked in: you can buy or sell on GoldenPi's secondary market whenever you need to.</p>
-            </div>
-          </details>
-          <details>
-            <summary><h3>Why Investors Choose GoldenPi for Corporate Bond Investments</h3></summary>
-            <div>
-              <h4>SEBI-Registered OBPP</h4>
-              <p>GoldenPi operates as a SEBI-registered Online Bond Platform Provider — one of roughly 30 platforms in India licensed for this, out of hundreds of fintech apps that merely claim to sell bonds. Your transaction settles directly on the exchange, not through an unregulated intermediary.</p>
-              <h4>₹10,000 Minimum Investment</h4>
-              <p>Compare that to the ₹10 lakh minimums common elsewhere; corporate bonds become accessible to a much wider set of investors.</p>
-              <h4>Active Secondary Market</h4>
-              <p>Buy and sell bonds before maturity with no lock-in anxiety weighing on your decisions.</p>
-              <h4>Full Information Parity</h4>
-              <p>Every bond listing comes with credit reports, coupon schedules, and ISIN data, so you're investing with complete visibility.</p>
-              <h4>Zero Hidden Charges</h4>
-              <p>No brokerage fees on secondary market trades.</p>
-              <h4>Dedicated Relationship Manager</h4>
-              <p>Get personalised support through your investment journey, not just a self-serve dashboard.</p>
-            </div>
-          </details>
-          <details>
-            <summary><h3>FAQ</h3></summary>
-            <div>
-              <h4>What are corporate bonds and how do they work?</h4>
-              <p>Corporate bonds are debt instruments companies issue to raise money from investors. When you buy one, you're effectively lending the company money for a fixed period. In return, the issuer pays you periodic interest (the coupon) and returns your principal at maturity. Bonds are rated by agencies like CRISIL and ICRA based on the issuer's ability to repay, and listed bonds can also be traded on the exchange before maturity.</p>
-              <h4>What is the minimum investment in corporate bonds on GoldenPi?</h4>
-              <p>You can start investing in corporate bonds on GoldenPi with as little as ₹10,000, which is far lower than the ₹10 lakh+ tickets traditionally needed to access this market. This became possible after SEBI reduced the face value of listed privately placed bonds in 2024.</p>
-              <h4>Are corporate bonds safe in India?</h4>
-              <p>Safety depends entirely on the issuer's credit rating. AAA-rated bonds carry very low default risk and are considered close to government-security safety, while lower-rated bonds (A or BBB) carry meaningfully higher risk in exchange for higher yields. Corporate bonds also rank senior to equity holders during insolvency, giving bondholders first claim on recoveries. They aren't insured like bank deposits, though, so checking the rating and the rating agency's report before investing matters.</p>
-              <h4>How is income from corporate bond investments taxed in 2026?</h4>
-              <p>Interest income is added to your total income and taxed as per your income tax slab, with 10% TDS applying once interest from a single issuer crosses ₹10,000 a year. Capital gains depend on listing status: listed bonds held over 12 months qualify for LTCG at 12.5% (no indexation), while gains on unlisted bonds are always treated as short-term and taxed at slab rate, regardless of holding period. This applies under both the old and new tax regimes.</p>
-              <h4>What is the difference between corporate bonds and fixed deposits?</h4>
-              <p>Corporate bonds typically offer higher returns than bank FDs — AA-rated bonds often yield 9–10.5% versus 6.5–7.5% on FDs — but FDs come with DICGC insurance up to ₹5 lakh, while bonds carry credit risk based on the issuer's rating. Bonds also offer secondary-market liquidity, letting you exit before maturity, unlike FDs where premature withdrawal usually means a penalty.</p>
-              <h4>Can I sell corporate bonds before maturity on GoldenPi?</h4>
-              <p>Yes. Listed corporate bonds can be sold on the secondary market through the BSE or NSE before their maturity date, using GoldenPi's platform. This gives you an exit option that traditional fixed deposits don't offer, though the price you get will depend on prevailing market conditions and how actively that particular bond trades.</p>
-              <h4>What credit rating should I look for in corporate bonds?</h4>
-              <p>For most investors, AAA- or AA-rated bonds are the safer starting point, carrying a low-to-moderate probability of default as assessed by agencies like CRISIL, ICRA, and CARE. A-rated and below offer higher coupons but come with real credit risk and are better suited to investors comfortable monitoring issuer financials closely. It's also worth tracking rating changes over the bond's tenure, since a downgrade can affect both resale value and repayment confidence.</p>
-              <h4>What is YTM and how is it different from the coupon rate?</h4>
-              <p>The coupon rate is the fixed interest the bond pays on its face value each year. YTM (Yield to Maturity) is the actual return you earn if you buy the bond at its current market price and hold it to maturity. It accounts for any premium or discount to face value, plus reinvested coupons. When a bond trades below face value, its YTM is higher than its coupon; above face value, YTM is lower.</p>
-              <h4>Which corporate bonds are best for senior citizens?</h4>
-              <p>AAA-rated secured bonds with monthly or quarterly coupon payouts tend to work best for senior citizens, since they prioritise capital safety and predictable income over chasing extra yield. Government-backed and PSU bonds are also worth considering for this group, given their lower default risk.</p>
-              <h4>Can NRIs invest in corporate bonds in India?</h4>
-              <p>Yes. NRIs can invest in FEMA-eligible corporate bonds through their NRE or NRO accounts, with returns that are typically repatriable depending on the account type used. Listed, highly rated NCDs are usually the most suitable starting point, since they combine repatriability with secondary-market liquidity if you need to exit early.</p>
-            </div>
-          </details>
-        </div>
-      </section>
-
-      <nav class="ft-band" aria-labelledby="ft-collections">
-        <h2 id="ft-collections">Collections</h2>
-        <div class="ft-chips">
-          <a href="https://goldenpi.com/collections/best-ongoing-ipos">Ongoing NCD IPOs</a>
-          <a href="https://goldenpi.com/collections/high-yield-bonds">High Yield Bonds (Yield more than 11%)</a>
-          <a href="https://goldenpi.com/collections/highly-rated-bonds">Highly Rated Bonds (AAA Rated)</a>
-          <a href="https://goldenpi.com/collections/bonds-to-earn-monthly-fixed-income">Bonds to Earn Regular Monthly Income</a>
-          <a href="https://goldenpi.com/collections/bonds-maturing-within-a-year">Bonds Maturing within a Year</a>
-          <a href="https://goldenpi.com/collections/state-government-guranteed-bonds">State Government Guaranteed Bonds</a>
-          <a href="https://goldenpi.com/collections/tax-free-bonds">Tax Free Bonds</a>
-          <a href="https://goldenpi.com/collections/public-sector-bank-bonds">Public Sector Bank Bonds</a>
-          <a href="https://goldenpi.com/collections/bonds-at-discounted-price">Bonds at Discounted Price</a>
-          <a href="https://goldenpi.com/collections/bonds-for-short-term-investment">Bonds Maturing within 3 Years (Short Term)</a>
-          <a href="https://goldenpi.com/collections/private-sector-bank">Private Sector Bank Bonds</a>
-          <a href="https://goldenpi.com/collections/psu-bonds">Public Sector Undertaking Bonds</a>
-          <a href="https://goldenpi.com/collections/bonds-for-long-term-investment">Bonds Maturing after 5 Years (Long Term)</a>
-          <a href="https://goldenpi.com/collections/nbfc-bonds">NBFC Bonds</a>
-          <a href="https://goldenpi.com/collections/bonds-to-earn-quaterly-fixed-income">Bonds to Earn Quarterly Fixed Income</a>
-          <a href="https://goldenpi.com/collections/nri-eligible-bonds">NRI Eligible Bonds</a>
-          <a href="https://goldenpi.com/collections/floating-rate-bonds">Floating Rate Bonds</a>
-          <a href="https://goldenpi.com/collections/fixed-rate-bonds">Fixed Rate Bonds</a>
-          <a href="https://goldenpi.com/collections/inflation-indexed-bonds">Inflation Indexed Bonds</a>
-          <a href="https://goldenpi.com/collections/zero-coupon-bonds">Zero Coupon Bonds</a>
-          <a href="https://goldenpi.com/collections/secured-bonds">Secured Bonds</a>
-          <a href="https://goldenpi.com/collections/government-bonds">Govt Bonds</a>
-          <a href="https://goldenpi.com/collections/54-ec-capital-gain-bonds">Capital Gain Bonds</a>
-          <a href="https://goldenpi.com/collections/bank-bonds-in-india">Bank Bonds</a>
-          <a href="https://goldenpi.com/collections/gold-backed-bonds">Gold Backed Bonds</a>
-        </div>
-      </nav>
-
-    </div>
+  <div class="gp-shell ft__inner">
+    <p class="ft-copy ft-copy--bar">&copy; 2017 - 2026 | GoldenPi Securities Pvt. Ltd.</p>
   </div>
-  </details>
 </footer>
 
 <script>
@@ -917,5 +834,38 @@
   });
 })();
 </script>
+<!-- ggn-footer: scripts; pages/_build.py -->
+<script>
+// footer-login3: the reviews crossfade every 6s while the band is on screen,
+// pause on hover or focus, and stop under reduced motion. The initials pick
+// a review directly. Without script the first review shows.
+(function () {
+  var band = document.querySelector('.ft-love');
+  if (!band) return;
+  var faces = band.querySelectorAll('.ft-love__face');
+  var figs = band.querySelectorAll('.ft-love__q');
+  var at = 0, timer = null, held = false, seen = false;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function show(n) {
+    at = n;
+    figs.forEach(function (f, i) { f.classList.toggle('is-on', i === n); f.setAttribute('aria-hidden', i === n ? 'false' : 'true'); });
+    faces.forEach(function (b, i) { b.setAttribute('aria-pressed', i === n ? 'true' : 'false'); });
+  }
+  function run() {
+    clearInterval(timer);
+    if (reduce || held || !seen) return;
+    timer = setInterval(function () { show((at + 1) % figs.length); }, 6000);
+  }
+  faces.forEach(function (b, i) { b.addEventListener('click', function () { show(i); run(); }); });
+  band.addEventListener('pointerenter', function () { held = true; run(); });
+  band.addEventListener('pointerleave', function () { held = false; run(); });
+  band.addEventListener('focusin', function () { held = true; run(); });
+  band.addEventListener('focusout', function (e) { if (!band.contains(e.relatedTarget)) { held = false; run(); } });
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) { seen = es[0].isIntersecting; run(); }, { threshold: 0.3 }).observe(band);
+  }
+})();
+</script>
+<!-- ggn-footer: /scripts; pages/_build.py -->
 </body>
 </html>

@@ -1,0 +1,873 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GoldenPi Bond Utsav | Festive Offers</title>
+<!-- Festive campaign concept, v5: bond-utsav4.html's final scene with no story. The page opens on the
+     logo and the four parachute posters, and fireworks keep bursting while the cracker strings crackle.
+     Shell (head, header, footer) from bond-utsav-live.html. -->
+<meta name="description" content="Discover a special collection of bonds for limited time on GoldenPi, India&#x27;s Trusted online platform for buying Listed Corporate Bonds. Start Investing with just ₹10000 &amp; Earn up to 14%">
+<link rel="icon" href="../assets/img/goldenpi-logo.svg">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/final.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          gold: "#d4af37",
+          ink: "#322811",
+          page: "#f7f5f2",
+          subtext: "#666666",
+          stroke: "#e7e3d9",
+          deep: "#1a1510",
+          bronze: "#8a6520",
+          gain: "#06963c",
+        },
+        fontFamily: {
+          sans: ['"Satoshi"', "ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "Roboto", "sans-serif"],
+        },
+      },
+    },
+  };
+</script>
+<link rel="stylesheet" href="../assets/navbar.css">
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<style>
+  /* bond-utsav3: festive Deal of the Day. Page-only styles, prefixed bu3-. */
+  body.bu3-page { background: #070604; }
+  .bu3-page { --bu-gold: #d4af37; --bu-gold-hi: #f3dc8f; --bu-ink: #f5ecd2; --bu-sub: rgba(245,236,210,.62); --bu-line: rgba(212,175,55,.2); }
+
+  /* ---------------------------------------------------------------- hero */
+  .bu3-hero { position: relative; isolation: isolate; overflow: hidden; display: flex; flex-direction: column;
+    min-height: max(720px, calc(100dvh - 72px)); color: var(--bu-ink);
+    background: radial-gradient(70% 45% at 50% 100%, rgba(212,175,55,.2), transparent 70%),
+                linear-gradient(180deg, #030204 0%, #0a0806 55%, #171108 100%); }
+  .bu3-stars { position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: .7;
+    background-image:
+      radial-gradient(1.2px 1.2px at 8% 14%, #fff, transparent), radial-gradient(1px 1px at 19% 31%, #fff, transparent),
+      radial-gradient(1.4px 1.4px at 28% 9%, #f3dc8f, transparent), radial-gradient(1px 1px at 41% 22%, #fff, transparent),
+      radial-gradient(1px 1px at 57% 12%, #fff, transparent), radial-gradient(1.3px 1.3px at 66% 27%, #f3dc8f, transparent),
+      radial-gradient(1px 1px at 74% 7%, #fff, transparent), radial-gradient(1.2px 1.2px at 86% 19%, #fff, transparent),
+      radial-gradient(1px 1px at 93% 34%, #fff, transparent), radial-gradient(1px 1px at 4% 42%, #fff, transparent),
+      radial-gradient(1px 1px at 49% 38%, #fff, transparent), radial-gradient(1.1px 1.1px at 35% 46%, #fff, transparent);
+    animation: bu3-twinkle 7s ease-in-out infinite alternate; }
+  @keyframes bu3-twinkle { to { opacity: .35; } }
+
+  /* cracker strings (ladi) hang in the outer thirds */
+  .bu3-ladis { position: absolute; top: 0; z-index: 1; width: 33.333%; height: 74%; pointer-events: none; }
+  .bu3-ladis--l { left: 0; }
+  .bu3-ladis--r { right: 0; }
+  .bu3-rope { position: absolute; inset: 0 0 auto; width: 100%; height: 44px; overflow: visible; }
+  .bu3-ladi { position: absolute; top: var(--t); left: var(--x); width: 28px; height: var(--h); margin-left: -14px;
+    background: url(../assets/img/bu3/ladi.svg) repeat-y center top / 28px 22px; transform-origin: 50% 0;
+    -webkit-mask-image: linear-gradient(#000 72%, transparent); mask-image: linear-gradient(#000 72%, transparent);
+    filter: drop-shadow(0 0 6px rgba(163,33,27,.45));
+    animation: bu3-sway var(--s, 6s) ease-in-out var(--d, 0s) infinite alternate; }
+  @keyframes bu3-sway { from { transform: rotate(-1.4deg); } to { transform: rotate(1.4deg); } }
+  @media (max-width: 767px) {
+    .bu3-ladis { height: 60%; opacity: .45; }
+    .bu3-ladi:nth-of-type(even) { display: none; }
+    .bu3-ladi { transform: scale(.8); }
+  }
+
+  /* the navbar is trimmed to logo + sign-up: push the button right, and drop the phone tab bar's clearance */
+  .bu3-page .nb__actions { margin-left: auto; }
+  @media (max-width: 999px) { body.bu3-page { padding-bottom: 0; } }
+
+  .bu3-sky { position: absolute; inset: 0; z-index: 4; width: 100%; height: 100%; pointer-events: none; }
+
+  .bu3-copy { position: relative; z-index: 5; max-width: 760px; margin: 0 auto; padding: clamp(24px, 4vh, 48px) 16px 0; text-align: center; }
+  .bu3-copy > * { animation: bu3-up .9s cubic-bezier(.16,1,.3,1) both; }
+  .bu3-copy > :nth-child(2) { animation-delay: .08s; }
+  .bu3-copy > :nth-child(3) { animation-delay: .16s; }
+  @keyframes bu3-up { from { opacity: 0; transform: translateY(14px); } }
+  .bu3-eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px;
+    border: 1px solid var(--bu-line); background: rgba(212,175,55,.06); color: var(--bu-gold-hi);
+    font-size: .75rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+  .bu3-h1 { margin-top: 16px; font-size: clamp(3rem, 6vw, 4.5rem); line-height: 1; font-weight: 900; letter-spacing: -.045em;
+    background: linear-gradient(180deg, #fff6d8 0%, #e9c766 60%, #b98f2a 100%); -webkit-background-clip: text; background-clip: text; color: transparent; padding-bottom: .06em; }
+  .bu3-lede { max-width: 44ch; margin: 12px auto 0; color: var(--bu-sub); font-size: clamp(1rem, 1.3vw, 1.125rem); line-height: 1.55; }
+  .bu3-lede b { color: var(--bu-ink); font-weight: 700; }
+
+  .bu3-stage { position: relative; z-index: 6; flex: 1; display: grid; place-items: center; padding: 22px 16px 0; }
+  .bu3-rays { position: absolute; left: 50%; top: 50%; z-index: 0; width: 760px; height: 760px; margin: -380px 0 0 -380px; border-radius: 50%; pointer-events: none;
+    background: repeating-conic-gradient(rgba(243,220,143,.14) 0 5deg, transparent 5deg 15deg);
+    -webkit-mask-image: radial-gradient(circle, #000 0, transparent 62%); mask-image: radial-gradient(circle, #000 0, transparent 62%);
+    animation: bu3-spin 80s linear infinite; }
+  @keyframes bu3-spin { to { rotate: 360deg; } }
+
+  .bu3-ground { position: relative; z-index: 3; display: block; width: 100%; height: clamp(190px, 27vh, 250px); margin-top: -44px; pointer-events: none; }
+  .bu3-limb { fill: none; stroke: #0b0805; stroke-linecap: round; stroke-linejoin: round; }
+  .bu3-trim { fill: none; stroke: #d4af37; stroke-opacity: .55; }
+  .bu3-body { fill: #0b0805; }
+  .bu3-flame { transform-box: fill-box; transform-origin: 50% 100%; animation: bu3-flick 1.6s ease-in-out infinite alternate; }
+  .bu3-diya:nth-child(2n) .bu3-flame { animation-duration: 1.2s; animation-delay: -.4s; }
+  @keyframes bu3-flick { 0% { transform: scale(1, 1); } 50% { transform: scale(.9, 1.12) skewX(-3deg); } 100% { transform: scale(1.05, .94) skewX(2deg); } }
+
+
+  /* ------------------------------------------------------ the logo the gift opens into */
+  .bu4-logo { position: relative; z-index: 1; width: clamp(220px, 22vw, 300px); filter: drop-shadow(0 30px 60px rgba(212,175,55,.35)); }
+  .bu4-logo img { display: block; width: 100%; height: auto; }
+  .bu4-logo img { animation: bu4-float 4.8s ease-in-out infinite alternate; }
+  @keyframes bu4-float { to { transform: translateY(-8px); } }
+
+  /* ------------------------------------------------------ offer posters on parachutes, tied to the cracker ropes */
+  .bu4-paras { position: absolute; inset: 0; z-index: 5; margin: 0; padding: 0; list-style: none; pointer-events: none; }
+  /* --x: across the hero; --ty: where the rope sags at --x (rope y = 8 + 120u(1-u), u = position in its third); --len: tether */
+  .bu4-para { position: absolute; left: var(--x); top: var(--ty); width: clamp(150px, 13vw, 188px); margin-left: calc(clamp(150px, 13vw, 188px) / -2); pointer-events: auto; }
+  .bu4-swing { position: relative; padding-top: var(--len); transform-origin: 50% 0; animation: bu4-sway var(--s, 6s) ease-in-out var(--d, 0s) infinite alternate; }
+  @keyframes bu4-sway { from { transform: rotate(-2deg); } to { transform: rotate(2deg); } }
+  .bu4-tether { position: absolute; left: 50%; top: 0; width: 1px; height: calc(var(--len) + 6px); margin-left: -.5px;
+    background: linear-gradient(#7a6438, #b89c5e); }
+  .bu4-tether::before { content: ""; position: absolute; left: -2.5px; top: -3px; width: 6px; height: 6px; border-radius: 50%; background: #c9b27a; box-shadow: 0 0 6px rgba(243,220,143,.6); }
+  .bu4-canopy { display: block; width: 100%; height: auto; overflow: visible; filter: drop-shadow(0 8px 14px rgba(0,0,0,.45)); }
+  .bu4-poster { position: relative; margin-top: -1px; padding: 14px 12px 15px; border-radius: 16px; text-align: center; color: var(--bu-ink);
+    background: linear-gradient(165deg, rgba(46,36,17,.97), rgba(13,10,6,.98)) padding-box,
+                linear-gradient(140deg, #f3dc8f, rgba(212,175,55,.16) 45%, rgba(212,175,55,.08) 65%, #d4af37) border-box;
+    border: 1px solid transparent; box-shadow: 0 26px 50px -22px rgba(212,175,55,.42); }
+  .bu4-poster::after { content: ""; position: absolute; inset: 5px; border: 1px dashed rgba(212,175,55,.22); border-radius: 12px; pointer-events: none; }
+  .bu4-ic { display: grid; place-items: center; width: 32px; height: 32px; margin: 0 auto 8px; border-radius: 50%;
+    background: linear-gradient(180deg, #f6e2a0, #d4af37); color: #1a1408; font-size: 17px; box-shadow: 0 6px 16px -6px rgba(212,175,55,.9); }
+  .bu4-poster h2 { font-size: clamp(.95rem, 1.05vw, 1.05rem); line-height: 1.15; font-weight: 900; letter-spacing: -.02em;
+    background: linear-gradient(180deg, #fff6d8, #e2bd55); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .bu4-poster p { margin-top: 6px; color: rgba(245,236,210,.8); font-size: .78rem; line-height: 1.4; font-weight: 500; }
+
+  /* below the desktop nav: the posters leave the ropes and sit in a grid under the logo */
+  @media (max-width: 999px) {
+    .bu4-paras { position: relative; inset: auto; z-index: 6; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 12px;
+      width: 100%; max-width: 760px; margin: 20px auto 0; padding: 0 16px; }
+    .bu4-para { position: relative; left: auto; top: auto; width: auto; margin: 0; }
+    .bu4-swing { padding-top: 0; animation-name: bu4-sway-sm; }
+    .bu4-tether { display: none; }
+    .bu4-canopy { height: 58px; }
+  }
+  @media (min-width: 700px) and (max-width: 999px) { .bu4-paras { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+  @keyframes bu4-sway-sm { from { transform: rotate(-1deg); } to { transform: rotate(1deg); } }
+
+  .bu3-pick:focus-visible, .bu3-chip:focus-visible { outline: 2px solid #f3dc8f; outline-offset: 3px; }
+
+  /* ------------------------------------------------- below the hero */
+  .bu3-head { display: flex; align-items: center; gap: 12px; }
+  .bu3-logo { display: grid; place-items: center; flex: none; width: 46px; height: 46px; padding: 6px; border-radius: 14px; background: #fff; }
+  .bu3-logo img { max-width: 100%; max-height: 100%; object-fit: contain; }
+  .bu3-name { font-size: 1.02rem; font-weight: 700; letter-spacing: -.01em; }
+  .bu3-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+  .bu3-tag { padding: 2px 8px; border-radius: 999px; background: rgba(212,175,55,.12); color: var(--bu-gold-hi); font-size: .68rem; font-weight: 700; }
+  .bu3-rate { display: flex; align-items: baseline; gap: 6px; margin-top: 14px; }
+  .bu3-rate b { font-size: 3rem; line-height: 1; font-weight: 900; letter-spacing: -.05em; font-variant-numeric: tabular-nums;
+    background: linear-gradient(180deg, #fff3c4, #d4af37); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .bu3-rate span { color: var(--bu-sub); font-weight: 500; }
+  .bu3-meta { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--bu-line); }
+  .bu3-meta div + div { padding-left: 12px; border-left: 1px solid var(--bu-line); }
+  .bu3-meta dt { color: var(--bu-sub); font-size: .72rem; }
+  .bu3-meta dd { margin-top: 3px; font-size: .9rem; font-weight: 700; white-space: nowrap; }
+  .bu3-bar { height: 6px; margin-top: 16px; border-radius: 99px; background: rgba(255,255,255,.08); overflow: hidden; }
+  .bu3-bar i { display: block; width: var(--p); height: 100%; border-radius: inherit; background: linear-gradient(90deg, #b98f2a, #f3dc8f); }
+  .bu3-sold { display: flex; justify-content: space-between; gap: 12px; margin-top: 8px; color: var(--bu-sub); font-size: .76rem; }
+  .bu3-sold span:first-child { white-space: nowrap; }
+
+  .bu3-sec { padding: clamp(64px, 9vw, 112px) 0; color: var(--bu-ink); background: #070604; }
+  .bu3-shell { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+  @media (min-width: 768px) { .bu3-shell { padding: 0 32px; } }
+  .bu3-h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; font-weight: 900; letter-spacing: -.035em; }
+  .bu3-sub { max-width: 52ch; margin-top: 12px; color: var(--bu-sub); }
+  .bu3-picks { display: grid; gap: 16px; margin-top: 36px; }
+  @media (min-width: 900px) { .bu3-picks { grid-template-columns: repeat(3, 1fr); } }
+  .bu3-pick { display: block; padding: 22px 20px; border-radius: 24px; border: 1px solid var(--bu-line);
+    background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.015));
+    transition: transform .35s cubic-bezier(.16,1,.3,1), border-color .35s; }
+  .bu3-pick:hover { transform: translateY(-4px); border-color: rgba(212,175,55,.5); }
+  .bu3-pick .bu3-rate b { font-size: 2.6rem; }
+  .bu3-go { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; color: var(--bu-gold-hi); font-weight: 700; }
+  .bu3-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+  .bu3-chip { padding: 10px 16px; border-radius: 999px; border: 1px solid var(--bu-line); color: var(--bu-ink); font-weight: 500; transition: background .2s, border-color .2s; }
+  .bu3-chip:hover { background: rgba(212,175,55,.1); border-color: rgba(212,175,55,.5); }
+  .bu3-risk { max-width: 90ch; margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--bu-line); color: rgba(245,236,210,.45); font-size: .8rem; line-height: 1.6; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .bu3-stars, .bu3-ladi, .bu3-flame, .bu3-copy > *, .bu3-rays, .bu4-swing, .bu4-logo img { animation: none !important; }
+  }
+</style>
+</head>
+<body class="bu3-page">
+
+<a class="gp-skip" href="#main-content">Skip to main content</a>
+
+<!-- ============================================================== header -->
+<div class="nb-slot">
+<header class="nb nb--dark nb--plain nb--micons" data-v="plain-dark-guest">
+  <div class="gp-shell nb__inner">
+    <a class="nb__logo" href="index.html"><img src="../assets/img/goldenpi-logo-white.svg" alt="GoldenPi" width="132" height="30"></a>
+    <div class="nb__actions">
+      <button type="button" class="gp-cta gp-cta--primary nb__login"><span>Login / Sign up</span></button>
+    </div>
+  </div>
+</header>
+</div>
+
+<main id="main-content">
+
+  <!-- COPY: lede and the four parachute posters are campaign copy supplied by GoldenPi (2026-10-09).
+       "More from Bond Utsav" and the button labels are new campaign copy (invented).
+       Logo: assets/img/bu4/bond-utsav-logo.png, supplied by GoldenPi (308px; ask for a 2x export). -->
+  <!-- ============================================================== hero: the festive show -->
+  <section class="bu3-hero" id="bu3-hero" aria-labelledby="bu3-title">
+    <div class="bu3-stars" aria-hidden="true"></div>
+
+    <div class="bu3-ladis bu3-ladis--l" aria-hidden="true">
+      <svg class="bu3-rope" viewBox="0 0 100 44" preserveAspectRatio="none"><path d="M0 8 Q50 68 100 8" fill="none" stroke="#7a6438" stroke-width="1.2" vector-effect="non-scaling-stroke"/></svg>
+      <span class="bu3-ladi" style="--x:10%;--t:19px;--h:62%;--s:5.2s;--d:-1s"></span>
+      <span class="bu3-ladi" style="--x:24%;--t:30px;--h:44%;--s:6.4s;--d:-3s"></span>
+      <span class="bu3-ladi" style="--x:38%;--t:36px;--h:78%;--s:5.8s;--d:-2s"></span>
+      <span class="bu3-ladi" style="--x:52%;--t:38px;--h:52%;--s:7s;--d:-4s"></span>
+      <span class="bu3-ladi" style="--x:66%;--t:35px;--h:70%;--s:6s;--d:-.5s"></span>
+      <span class="bu3-ladi" style="--x:82%;--t:26px;--h:40%;--s:5.5s;--d:-2.5s"></span>
+    </div>
+    <div class="bu3-ladis bu3-ladis--r" aria-hidden="true">
+      <svg class="bu3-rope" viewBox="0 0 100 44" preserveAspectRatio="none"><path d="M0 8 Q50 68 100 8" fill="none" stroke="#7a6438" stroke-width="1.2" vector-effect="non-scaling-stroke"/></svg>
+      <span class="bu3-ladi" style="--x:16%;--t:24px;--h:46%;--s:6.2s;--d:-2s"></span>
+      <span class="bu3-ladi" style="--x:32%;--t:34px;--h:74%;--s:5.4s;--d:-1s"></span>
+      <span class="bu3-ladi" style="--x:46%;--t:38px;--h:54%;--s:6.8s;--d:-3.5s"></span>
+      <span class="bu3-ladi" style="--x:60%;--t:37px;--h:80%;--s:5.9s;--d:-.8s"></span>
+      <span class="bu3-ladi" style="--x:74%;--t:31px;--h:42%;--s:6.5s;--d:-4.2s"></span>
+      <span class="bu3-ladi" style="--x:90%;--t:19px;--h:60%;--s:5.6s;--d:-1.6s"></span>
+    </div>
+
+    <canvas class="bu3-sky" aria-hidden="true"></canvas>
+
+    <div class="bu3-copy">
+      <p class="bu3-eyebrow"><i class="ph-fill ph-sparkle" aria-hidden="true"></i>Limited time collection</p>
+      <h1 class="sr-only" id="bu3-title">Bond Utsav</h1>
+      <p class="bu3-lede">Discover a special collection of fixed return*<br><b>Starts &#8377;10k and earn up to 14%</b></p>
+    </div>
+
+    <div class="bu3-stage">
+      <div class="bu3-rays" aria-hidden="true"></div>
+      <div class="bu4-logo"><img src="../assets/img/bu4/bond-utsav-logo.png" alt="GoldenPi Bond Utsav 2025: Sone Jaisa Return, Diwali Jaisa Utsav" width="308" height="308"></div>
+    </div>
+
+    <!-- Offer posters. Each hangs by a tether from the cracker rope above it (desktop). -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+      <defs>
+        <linearGradient id="bu4-gores-a"><stop offset=".167" stop-color="#e9c766"/><stop offset=".167" stop-color="#a3211b"/><stop offset=".333" stop-color="#a3211b"/><stop offset=".333" stop-color="#e9c766"/><stop offset=".5" stop-color="#e9c766"/><stop offset=".5" stop-color="#a3211b"/><stop offset=".667" stop-color="#a3211b"/><stop offset=".667" stop-color="#e9c766"/><stop offset=".833" stop-color="#e9c766"/><stop offset=".833" stop-color="#a3211b"/></linearGradient>
+        <linearGradient id="bu4-gores-b"><stop offset=".167" stop-color="#a3211b"/><stop offset=".167" stop-color="#f3dc8f"/><stop offset=".333" stop-color="#f3dc8f"/><stop offset=".333" stop-color="#a3211b"/><stop offset=".5" stop-color="#a3211b"/><stop offset=".5" stop-color="#f3dc8f"/><stop offset=".667" stop-color="#f3dc8f"/><stop offset=".667" stop-color="#a3211b"/><stop offset=".833" stop-color="#a3211b"/><stop offset=".833" stop-color="#f3dc8f"/></linearGradient>
+        <linearGradient id="bu4-shade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".35"/></linearGradient>
+      </defs>
+    </svg>
+    <ul class="bu4-paras" aria-label="Bond Utsav offers">
+      <li class="bu4-para" style="--x:14%;--ty:37px;--len:clamp(84px, 13vh, 150px);--s:5.6s;--d:-1s">
+        <div class="bu4-swing">
+          <span class="bu4-tether" aria-hidden="true"></span>
+          <svg class="bu4-canopy" viewBox="0 0 180 96" preserveAspectRatio="none" aria-hidden="true"><path d="M6 54 C6 20 46 4 90 4 C134 4 174 20 174 54 Q160 46 146 54 Q132 46 118 54 Q104 46 90 54 Q76 46 62 54 Q48 46 34 54 Q20 46 6 54Z" fill="url(#bu4-gores-a)"/><path d="M6 54 C6 20 46 4 90 4 C134 4 174 20 174 54 Q160 46 146 54 Q132 46 118 54 Q104 46 90 54 Q76 46 62 54 Q48 46 34 54 Q20 46 6 54Z" fill="url(#bu4-shade)"/><path d="M90 4 L34 54 M90 4 L62 54 M90 4 V54 M90 4 L118 54 M90 4 L146 54" stroke="#1a1408" stroke-opacity=".28" fill="none" vector-effect="non-scaling-stroke"/><path d="M6 54 L14 96 M34 54 L14 96 M62 54 L14 96 M118 54 L166 96 M146 54 L166 96 M174 54 L166 96" stroke="#c9b27a" stroke-opacity=".7" stroke-width=".8" fill="none" vector-effect="non-scaling-stroke"/></svg>
+          <div class="bu4-poster"><span class="bu4-ic" aria-hidden="true"><i class="ph-fill ph-confetti"></i></span><h2>Bond Carnival</h2><p>14+ Bonds up to 14% yield</p></div>
+        </div>
+      </li>
+      <li class="bu4-para" style="--x:28%;--ty:24px;--len:clamp(190px, 30vh, 300px);--s:6.4s;--d:-3s">
+        <div class="bu4-swing">
+          <span class="bu4-tether" aria-hidden="true"></span>
+          <svg class="bu4-canopy" viewBox="0 0 180 96" preserveAspectRatio="none" aria-hidden="true"><path d="M6 54 C6 20 46 4 90 4 C134 4 174 20 174 54 Q160 46 146 54 Q132 46 118 54 Q104 46 90 54 Q76 46 62 54 Q48 46 34 54 Q20 46 6 54Z" fill="url(#bu4-gores-b)"/><path d="M6 54 C6 20 46 4 90 4 C134 4 174 20 174 54 Q160 46 146 54 Q132 46 118 54 Q104 46 90 54 Q76 46 62 54 Q48 46 34 54 Q20 46 6 54Z" fill="url(#bu4-shade)"/><path d="M90 4 L34 54 M90 4 L62 54 M90 4 V54 M90 4 L118 54 M90 4 L146 54" stroke="#1a1408" stroke-opacity=".28" fill="none" vector-effect="non-scaling-stroke"/><path d="M6 54 L14 96 M34 54 L14 96 M62 54 L14 96 M118 54 L166 96 M146 54 L166 96 M174 54 L166 96" stroke="#c9b27a" stroke-opacity=".7" stroke-width=".8" fill="none" vector-effect="non-scaling-stroke"/></svg>
+          <div class="bu4-poster"><span class="bu4-ic" aria-hidden="true"><i class="ph-fill ph-coins"></i></span><h2>FD Bonanza</h2><p>get a silver coin on 1st FD booked via App</p></div>
+        </div>
+      </li>
+      <li class="bu4-para" style="--x:72%;--ty:24px;--len:clamp(190px, 30vh, 300px);--s:6s;--d:-2s">
+        <div class="bu4-swing">
+          <span class="bu4-tether" aria-hidden="true"></span>
+          <svg class="bu4-canopy" viewBox="0 0 180 96" preserveAspectRatio="none" aria-hidden="true"><path d="M6 54 C6 20 46 4 90 4 C134 4 174 20 174 54 Q160 46 146 54 Q132 46 118 54 Q104 46 90 54 Q76 46 62 54 Q48 46 34 54 Q20 46 6 54Z" fill="url(#bu4-gores-a)"/><path d="M6 54 C6 20 46 4 90 4 C134 4 174 20 174 54 Q160 46 146 54 Q132 46 118 54 Q104 46 90 54 Q76 46 62 54 Q48 46 34 54 Q20 46 6 54Z" fill="url(#bu4-shade)"/><path d="M90 4 L34 54 M90 4 L62 54 M90 4 V54 M90 4 L118 54 M90 4 L146 54" stroke="#1a1408" stroke-opacity=".28" fill="none" vector-effect="non-scaling-stroke"/><path d="M6 54 L14 96 M34 54 L14 96 M62 54 L14 96 M118 54 L166 96 M146 54 L166 96 M174 54 L166 96" stroke="#c9b27a" stroke-opacity=".7" stroke-width=".8" fill="none" vector-effect="non-scaling-stroke"/></svg>
+          <div class="bu4-poster"><span class="bu4-ic" aria-hidden="true"><i class="ph-fill ph-clock-countdown"></i></span><h2>Daily Jackpot</h2><p>1 new limited edition deal daily at 9:15AM</p></div>
+        </div>
+      </li>
+      <li class="bu4-para" style="--x:86%;--ty:37px;--len:clamp(84px, 13vh, 150px);--s:5.2s;--d:-4s">
+        <div class="bu4-swing">
+          <span class="bu4-tether" aria-hidden="true"></span>
+          <svg class="bu4-canopy" viewBox="0 0 180 96" preserveAspectRatio="none" aria-hidden="true"><path d="M6 54 C6 20 46 4 90 4 C134 4 174 20 174 54 Q160 46 146 54 Q132 46 118 54 Q104 46 90 54 Q76 46 62 54 Q48 46 34 54 Q20 46 6 54Z" fill="url(#bu4-gores-b)"/><path d="M6 54 C6 20 46 4 90 4 C134 4 174 20 174 54 Q160 46 146 54 Q132 46 118 54 Q104 46 90 54 Q76 46 62 54 Q48 46 34 54 Q20 46 6 54Z" fill="url(#bu4-shade)"/><path d="M90 4 L34 54 M90 4 L62 54 M90 4 V54 M90 4 L118 54 M90 4 L146 54" stroke="#1a1408" stroke-opacity=".28" fill="none" vector-effect="non-scaling-stroke"/><path d="M6 54 L14 96 M34 54 L14 96 M62 54 L14 96 M118 54 L166 96 M146 54 L166 96 M174 54 L166 96" stroke="#c9b27a" stroke-opacity=".7" stroke-width=".8" fill="none" vector-effect="non-scaling-stroke"/></svg>
+          <div class="bu4-poster"><span class="bu4-ic" aria-hidden="true"><i class="ph-fill ph-users-three"></i></span><h2>Referral Dhamaka</h2><p>Invite and celebrate with your friends</p></div>
+        </div>
+      </li>
+    </ul>
+
+    <!-- The scene: the family watching the show. Silhouettes, rim-lit by the bu3-rim filter. -->
+    <svg class="bu3-ground" viewBox="0 0 1600 360" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <defs>
+        <radialGradient id="bu3-hglow" cx="50%" cy="100%" r="55%"><stop offset="0" stop-color="#d4af37" stop-opacity=".32"/><stop offset="1" stop-color="#d4af37" stop-opacity="0"/></radialGradient>
+        <radialGradient id="bu3-dglow"><stop offset="0" stop-color="#f3b443" stop-opacity=".55"/><stop offset="1" stop-color="#f3b443" stop-opacity="0"/></radialGradient>
+        <linearGradient id="bu3-flame" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff7d6"/><stop offset="1" stop-color="#f3a63a"/></linearGradient>
+        <filter id="bu3-rim" x="-40%" y="-20%" width="180%" height="140%"><feDropShadow dx="1.6" dy="-.4" stdDeviation=".7" flood-color="#f3cf6a" flood-opacity=".6"/></filter>
+      </defs>
+      <ellipse cx="800" cy="372" rx="820" ry="150" fill="url(#bu3-hglow)"/>
+      <rect y="340" width="1600" height="20" fill="#050403"/>
+      <path d="M0 340.5 H1600" stroke="#d4af37" stroke-opacity=".28"/>
+
+      <g transform="translate(200 0)">
+        <!-- diyas -->
+        <g class="bu3-diya" transform="translate(-120 340) scale(1.4)"><ellipse cy="-10" rx="24" ry="16" fill="url(#bu3-dglow)"/><path d="M-11 -6 Q0 6 11 -6Z" fill="#6e3414"/><path d="M-11 -6 H11" stroke="#d4af37" stroke-opacity=".6"/><path class="bu3-flame" d="M0 -21 C4 -15 4 -9 0 -7 C-4 -9 -4 -15 0 -21Z" fill="url(#bu3-flame)"/></g>
+        <g class="bu3-diya" transform="translate(10 340) scale(1.4)"><ellipse cy="-10" rx="24" ry="16" fill="url(#bu3-dglow)"/><path d="M-11 -6 Q0 6 11 -6Z" fill="#6e3414"/><path d="M-11 -6 H11" stroke="#d4af37" stroke-opacity=".6"/><path class="bu3-flame" d="M0 -21 C4 -15 4 -9 0 -7 C-4 -9 -4 -15 0 -21Z" fill="url(#bu3-flame)"/></g>
+        <g class="bu3-diya" transform="translate(140 340) scale(1.4)"><ellipse cy="-10" rx="24" ry="16" fill="url(#bu3-dglow)"/><path d="M-11 -6 Q0 6 11 -6Z" fill="#6e3414"/><path d="M-11 -6 H11" stroke="#d4af37" stroke-opacity=".6"/><path class="bu3-flame" d="M0 -21 C4 -15 4 -9 0 -7 C-4 -9 -4 -15 0 -21Z" fill="url(#bu3-flame)"/></g>
+        <g class="bu3-diya" transform="translate(300 340) scale(1.4)"><ellipse cy="-10" rx="24" ry="16" fill="url(#bu3-dglow)"/><path d="M-11 -6 Q0 6 11 -6Z" fill="#6e3414"/><path d="M-11 -6 H11" stroke="#d4af37" stroke-opacity=".6"/><path class="bu3-flame" d="M0 -21 C4 -15 4 -9 0 -7 C-4 -9 -4 -15 0 -21Z" fill="url(#bu3-flame)"/></g>
+        <g class="bu3-diya" transform="translate(800 340) scale(1.4)"><ellipse cy="-10" rx="24" ry="16" fill="url(#bu3-dglow)"/><path d="M-11 -6 Q0 6 11 -6Z" fill="#6e3414"/><path d="M-11 -6 H11" stroke="#d4af37" stroke-opacity=".6"/><path class="bu3-flame" d="M0 -21 C4 -15 4 -9 0 -7 C-4 -9 -4 -15 0 -21Z" fill="url(#bu3-flame)"/></g>
+        <g class="bu3-diya" transform="translate(950 340) scale(1.4)"><ellipse cy="-10" rx="24" ry="16" fill="url(#bu3-dglow)"/><path d="M-11 -6 Q0 6 11 -6Z" fill="#6e3414"/><path d="M-11 -6 H11" stroke="#d4af37" stroke-opacity=".6"/><path class="bu3-flame" d="M0 -21 C4 -15 4 -9 0 -7 C-4 -9 -4 -15 0 -21Z" fill="url(#bu3-flame)"/></g>
+        <g class="bu3-diya" transform="translate(1100 340) scale(1.4)"><ellipse cy="-10" rx="24" ry="16" fill="url(#bu3-dglow)"/><path d="M-11 -6 Q0 6 11 -6Z" fill="#6e3414"/><path d="M-11 -6 H11" stroke="#d4af37" stroke-opacity=".6"/><path class="bu3-flame" d="M0 -21 C4 -15 4 -9 0 -7 C-4 -9 -4 -15 0 -21Z" fill="url(#bu3-flame)"/></g>
+        <g class="bu3-diya" transform="translate(1250 340) scale(1.4)"><ellipse cy="-10" rx="24" ry="16" fill="url(#bu3-dglow)"/><path d="M-11 -6 Q0 6 11 -6Z" fill="#6e3414"/><path d="M-11 -6 H11" stroke="#d4af37" stroke-opacity=".6"/><path class="bu3-flame" d="M0 -21 C4 -15 4 -9 0 -7 C-4 -9 -4 -15 0 -21Z" fill="url(#bu3-flame)"/></g>
+
+        <!-- the empty bottle the rocket went up from -->
+        <path d="M671 340 H689 V303 Q689 293 684 288 V274 H676 V288 Q671 293 671 303Z" fill="#132019" stroke="#d4af37" stroke-opacity=".35"/>
+        <path d="M674 336 V306" stroke="#fff" stroke-opacity=".12" stroke-width="2" stroke-linecap="round"/>
+
+        <!-- man -->
+        <g id="bu3-man" filter="url(#bu3-rim)" transform="translate(420 340)">
+          <!-- pyjama legs and juttis -->
+          <path class="bu3-body" d="M-14 -76 L-2 -76 L-4 -7 L-12 -7 Z M2 -76 L14 -76 L12 -7 L4 -7 Z"/>
+          <path class="bu3-body" d="M-13 -8 L-3 -8 Q-1 -3 -3 0 L-15 0 Q-17 -4 -13 -8 Z M3 -8 L13 -8 Q18 -6 20 -1 L19 0 L4 0 Q2 -4 3 -8 Z"/>
+          <!-- kurta: sloped shoulders, flared to the knee -->
+          <path class="bu3-body" d="M-5 -165 C-12 -163 -18 -160 -21 -154 C-23 -140 -24 -122 -24 -108 L-23 -74 Q0 -69 23 -74 L24 -108 C24 -122 23 -140 21 -154 C18 -160 12 -163 5 -165 Z"/>
+          <path class="bu3-trim" d="M-3 -165 L0 -150 L3 -165 M0 -150 V-128" stroke-width="1.1"/>
+          <path class="bu3-trim" d="M-23 -75 Q0 -70 23 -75" stroke-width="1" stroke-opacity=".3"/>
+          <!-- hanging arm, slightly bent, with a hand -->
+          <path class="bu3-limb" d="M-20 -153 C-27 -138 -30 -122 -29 -106 L-28 -96" stroke-width="9"/>
+          <path class="bu3-body" d="M-32 -98 C-33 -91 -30 -85 -26 -85 C-23 -86 -23 -92 -24 -97 Z"/>
+          <!-- neck, head, ear, hair -->
+          <path class="bu3-body" d="M-4.5 -172 L4.5 -172 L5 -163 L-5 -163 Z"/>
+          <ellipse class="bu3-body" cx="1" cy="-183" rx="11" ry="13.5"/>
+          <ellipse class="bu3-body" cx="-10" cy="-182" rx="2.5" ry="4"/>
+          <path class="bu3-body" d="M-11 -186 C-12 -198 -3 -201 4 -200 C11 -199 14 -193 12 -186 C9 -192 1 -194 -6 -191 Z"/>
+          <!-- raised arm, pointing at the sky -->
+          <path class="bu3-limb" d="M17 -155 C24 -162 30 -170 35 -178" stroke-width="9.5"/>
+          <path class="bu3-limb" d="M35 -178 L46 -196" stroke-width="8"/>
+          <path class="bu3-body" d="M42 -194 C41 -200 45 -204 49 -202 C52 -200 52 -196 49 -193 Z"/>
+          <path class="bu3-limb" d="M48 -201 L53 -210" stroke-width="2.8"/>
+        </g>
+
+        <!-- lady, in a saree with a gold border -->
+        <g id="bu3-lady" filter="url(#bu3-rim)" transform="translate(490 340)">
+          <!-- arm on the far side, under the pallu -->
+          <path class="bu3-limb" d="M-15 -140 C-19 -126 -20 -112 -19 -98" stroke-width="7"/>
+          <!-- saree: pleated skirt to the floor, gold border at the hem -->
+          <path class="bu3-body" d="M-15 -114 L15 -114 C18 -80 22 -36 25 -3 L-24 -3 C-22 -36 -19 -80 -15 -114 Z"/>
+          <path d="M2 -70 L4 -5 M7 -70 L10 -5 M12 -66 L16 -5" fill="none" stroke="#1f180c" stroke-width="1"/>
+          <path class="bu3-trim" d="M-23 -6 L24 -6" stroke-width="2"/>
+          <!-- feet -->
+          <path class="bu3-body" d="M-11 -3 Q-16 -2 -16 0 L-6 0 Q-6 -2 -8 -3 Z M7 -3 Q5 -2 5 0 L16 0 Q15 -2 11 -3 Z"/>
+          <!-- blouse and waist -->
+          <path class="bu3-body" d="M-4 -151 C-10 -150 -14 -147 -16 -142 L-15 -112 Q0 -109 15 -112 L16 -142 C14 -147 10 -150 4 -151 Z"/>
+          <!-- near arm, relaxed, bangles at the wrist -->
+          <path class="bu3-limb" d="M16 -146 C21 -132 23 -118 22 -102" stroke-width="7"/>
+          <path class="bu3-body" d="M19 -103 C18 -97 20 -92 23 -91 C26 -92 26 -98 25 -103 Z"/>
+          <path class="bu3-trim" d="M18.5 -106 L25.5 -106 M18.5 -103.5 L25.5 -103.5" stroke-width="1.2"/>
+          <!-- pallu over the shoulder, gold border -->
+          <path class="bu3-body" d="M12 -150 C2 -138 -11 -120 -17 -102 C-23 -84 -29 -64 -33 -44 L-25 -46 C-19 -72 -13 -96 -5 -114 C1 -128 8 -140 14 -147 Z"/>
+          <path class="bu3-trim" d="M12 -150 C2 -138 -11 -120 -17 -102 C-23 -84 -29 -64 -33 -44" stroke-width="1.6"/>
+          <!-- neck, head, bun, earring, bindi -->
+          <path class="bu3-body" d="M-3.5 -158 L3.5 -158 L4 -150 L-4 -150 Z"/>
+          <circle class="bu3-body" cx="-9" cy="-170" r="7"/>
+          <ellipse class="bu3-body" cx="1" cy="-168" rx="10" ry="12.5"/>
+          <path class="bu3-body" d="M-9 -170 C-10 -182 -2 -184 4 -183 C10 -182 12 -176 11 -171 C7 -177 -1 -178 -9 -170 Z"/>
+          <circle cx="9.5" cy="-161" r="1.4" fill="#d4af37"/>
+        </g>
+
+        <!-- kid, holding a sparkler -->
+        <g id="bu3-kid" filter="url(#bu3-rim)" transform="translate(559 340)">
+          <!-- legs and sneakers -->
+          <path class="bu3-body" d="M-9 -38 L-2 -38 L-3 -6 L-8 -6 Z M2 -38 L9 -38 L8 -6 L3 -6 Z"/>
+          <path class="bu3-body" d="M-9 -7 L-2 -7 L-2 0 L-12 0 Q-12 -5 -9 -7 Z M2 -7 L8 -7 Q13 -5 13 0 L2 0 Z"/>
+          <!-- shorts -->
+          <path class="bu3-body" d="M-11 -54 L11 -54 L12 -36 L1.5 -36 L0 -44 L-1.5 -36 L-12 -36 Z"/>
+          <!-- t-shirt -->
+          <path class="bu3-body" d="M-3 -86 C-8 -85 -11 -83 -12 -78 L-11 -52 L11 -52 L12 -78 C11 -83 8 -85 3 -86 Z"/>
+          <!-- arm at the side -->
+          <path class="bu3-limb" d="M-11 -82 C-15 -72 -16 -62 -15 -54" stroke-width="5.5"/>
+          <circle class="bu3-body" cx="-15" cy="-51" r="3"/>
+          <!-- head with a tuft of hair -->
+          <path class="bu3-body" d="M-3 -91 L3 -91 L3 -85 L-3 -85 Z"/>
+          <ellipse class="bu3-body" cx="1" cy="-100" rx="10.5" ry="11.5"/>
+          <path class="bu3-body" d="M-10 -103 C-10 -113 -1 -115 5 -113 C10 -111 12 -106 11 -101 C8 -107 2 -108 -3 -106 C-6 -105 -8 -104 -10 -103 Z"/>
+          <!-- arm up, pointing at the fireworks -->
+          <path class="bu3-limb" d="M9 -82 C15 -86 19 -91 22 -97 L26 -107" stroke-width="5.5"/>
+          <circle class="bu3-body" cx="26.5" cy="-108" r="3"/>
+          <path class="bu3-limb" d="M27 -110 L29 -115" stroke-width="1.8"/>
+        </g>
+      </g>
+    </svg>
+
+  </section>
+
+  <!-- ============================================================== more picks + categories -->
+  <section class="bu3-sec" aria-labelledby="bu3-more">
+    <div class="bu3-shell">
+      <h2 class="bu3-h2" id="bu3-more">More from Bond Utsav</h2>
+      <p class="bu3-sub">Invest in Senior Secured Bonds and earn returns up to 13.8% p.a.</p>
+      <!-- DATA: Bond Utsav listing, content/bond-utsav.md (captured 2026-09-26). -->
+      <div class="bu3-picks">
+        <a class="bu3-pick" href="https://uatnew.goldenpi.com/bonds/GPID107371/neogrowth-1300-bond-yield?src=view_details&amp;tenureDate=30-Apr-2028">
+          <div class="bu3-head"><span class="bu3-logo"><img src="../assets/img/GPID104095.Neogrowth-new-logo-1-.jpg" alt="" width="34" height="34" loading="lazy"></span>
+            <div><h3 class="bu3-name">NeoGrowth</h3><p class="bu3-tags"><span class="bu3-tag">High YTM</span><span class="bu3-tag">Newly Launched</span></p></div></div>
+          <p class="bu3-rate"><b>13.00%</b><span>p.a.</span></p>
+          <dl class="bu3-meta"><div><dt>Tenure</dt><dd>1Y 7M</dd></div><div><dt>Payout</dt><dd>Half Yearly</dd></div><div><dt>Rating</dt><dd>ICRA BBB</dd></div></dl>
+          <div class="bu3-bar" style="--p:77.56%" aria-hidden="true"><i></i></div>
+          <p class="bu3-sold"><span>77.56% Sold</span></p>
+          <span class="bu3-go">Invest Now <i class="ph-bold ph-arrow-right" aria-hidden="true"></i></span>
+        </a>
+        <a class="bu3-pick" href="https://uatnew.goldenpi.com/bonds/GPID107433/best-capital-1300-bond-yield?src=view_details&amp;tenureDate=11-Sep-2029">
+          <div class="bu3-head"><span class="bu3-logo"><img src="../assets/img/GPID107347.Best-Capital.png" alt="" width="34" height="34" loading="lazy"></span>
+            <div><h3 class="bu3-name">Best Capital</h3><p class="bu3-tags"><span class="bu3-tag">Regular Income</span><span class="bu3-tag">NBFC Retail Bond</span></p></div></div>
+          <p class="bu3-rate"><b>13.00%</b><span>p.a.</span></p>
+          <dl class="bu3-meta"><div><dt>Tenure</dt><dd>3Y</dd></div><div><dt>Payout</dt><dd>Monthly</dd></div><div><dt>Rating</dt><dd>IVR BBB</dd></div></dl>
+          <div class="bu3-bar" style="--p:10.04%" aria-hidden="true"><i></i></div>
+          <p class="bu3-sold"><span>10.04% Sold</span></p>
+          <span class="bu3-go">Invest Now <i class="ph-bold ph-arrow-right" aria-hidden="true"></i></span>
+        </a>
+        <a class="bu3-pick" href="https://uatnew.goldenpi.com/bonds/GPID107372/dishman-1266-bond-yield?src=view_details&amp;tenureDate=17-Feb-2027">
+          <div class="bu3-head"><span class="bu3-logo"><img src="../assets/img/GPID104220.dishman_carbogen_amcis_logo_under_80kb.png" alt="" width="34" height="34" loading="lazy"></span>
+            <div><h3 class="bu3-name">Dishman</h3><p class="bu3-tags"><span class="bu3-tag">Regular Income</span><span class="bu3-tag">Corporate Bond</span></p></div></div>
+          <p class="bu3-rate"><b>12.66%</b><span>p.a.</span></p>
+          <dl class="bu3-meta"><div><dt>Tenure</dt><dd>5M</dd></div><div><dt>Payout</dt><dd>Half Yearly</dd></div><div><dt>Rating</dt><dd>IND A</dd></div></dl>
+          <div class="bu3-bar" style="--p:63.68%" aria-hidden="true"><i></i></div>
+          <p class="bu3-sold"><span>63.68% Sold</span></p>
+          <span class="bu3-go">Invest Now <i class="ph-bold ph-arrow-right" aria-hidden="true"></i></span>
+        </a>
+      </div>
+
+      <h2 class="bu3-h2" style="margin-top: clamp(64px, 8vw, 96px);">Select A Category</h2>
+      <nav class="bu3-chips" aria-label="Bond Utsav categories">
+        <a class="bu3-chip" href="bond-utsav.html">All Bonds</a>
+        <a class="bu3-chip" href="bond-utsav.html">Newly Launched</a>
+        <a class="bu3-chip" href="bond-utsav.html">High Returns</a>
+        <a class="bu3-chip" href="bond-utsav.html">High Rated</a>
+        <a class="bu3-chip" href="bond-utsav.html">Starts at 30k</a>
+        <a class="bu3-chip" href="bond-utsav.html">Short Term</a>
+        <a class="bu3-chip" href="bond-utsav.html">Monthly Payout</a>
+        <a class="bu3-chip" href="bond-utsav.html">Gold Backed</a>
+        <a class="bu3-chip" href="bond-utsav.html">Govt Backed</a>
+        <a class="bu3-chip" href="bond-utsav.html">Non NBFC Bonds</a>
+      </nav>
+
+      <p class="bu3-risk">Risk Disclosure: Fixed returns do not constitute guaranteed or assured returns. Investments in corporate debt, municipal debt, and securitized instruments are subject to credit, market, and default risks, including delays or defaults in payments. Read all offer documents carefully.</p>
+    </div>
+  </section>
+
+</main>
+
+<script>
+/* Fireworks over the hero: rockets climb from the ground and burst while the cracker strings crackle.
+   Decoration only, drawn on one canvas. Paused off screen and in background tabs; off under reduced motion. */
+(function () {
+  var hero = document.getElementById('bu3-hero');
+  if (!hero || !window.requestAnimationFrame || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var cv = hero.querySelector('.bu3-sky'), ctx = cv.getContext('2d'), ladis = hero.querySelectorAll('.bu3-ladi');
+  function lerp(a, b, p) { return a + (b - a) * p; }
+
+  // ---------------------------------------------------------- fireworks canvas
+  var W = 0, H = 0, hr = hero.getBoundingClientRect(), P = [], R = [], F = [];
+  var GOLD = ['#fff3c4', '#f3dc8f', '#e9c766', '#d4af37'], WHITE = ['#ffffff', '#fff6dc', '#f3dc8f'],
+      EMBER = ['#ffb36b', '#f3dc8f', '#ff8a4c'], RUBY = ['#ff6a5c', '#f3dc8f', '#fff3c4'];
+  function size() {
+    var r = hero.getBoundingClientRect(), d = Math.min(2, window.devicePixelRatio || 1);
+    W = r.width; H = r.height; cv.width = W * d; cv.height = H * d;
+    ctx.setTransform(d, 0, 0, d, 0, 0); ctx.lineCap = 'round';
+  }
+  function spark(x, y, vx, vy, life, c, r, g, d) { P.push({ x: x, y: y, px: x, py: y, vx: vx, vy: vy, t: 0, life: life, c: c, r: r, g: g, d: d, tw: Math.random() < .35 }); }
+  function burst(x, y, o) {
+    var k = Math.min(1.3, Math.max(.65, W / 1100));
+    for (var i = 0; i < o.n; i++) {
+      var a = Math.PI * 2 * i / o.n + Math.random() * .08, sp = o.sp * k * (o.ring ? .9 + Math.random() * .1 : .3 + Math.random() * .7);
+      spark(x, y, Math.cos(a) * sp, Math.sin(a) * sp, o.life * (.75 + Math.random() * .5), o.c[i % o.c.length], o.r || 1.8, o.g == null ? .05 : o.g, o.d || .972);
+    }
+    if (o.flash) F.push({ x: x, y: y, t: 0, life: 650, a: o.flash, rad: (o.rad || 240) * k });
+  }
+  function rocket(x0, y0, x1, y1, dur, done) { R.push({ x0: x0, y0: y0, x1: x1, y1: y1, t: 0, dur: dur, done: done }); }
+
+  function draw(dt) {
+    var f = dt / 16.7;
+    ctx.globalCompositeOperation = 'destination-out';
+    ctx.fillStyle = 'rgba(0,0,0,' + Math.min(1, .24 * f) + ')'; ctx.fillRect(0, 0, W, H);
+    ctx.globalCompositeOperation = 'lighter';
+    F = F.filter(function (q) {
+      q.t += dt; var k = 1 - q.t / q.life; if (k <= 0) return false;
+      var g = ctx.createRadialGradient(q.x, q.y, 0, q.x, q.y, q.rad);
+      g.addColorStop(0, 'rgba(243,220,143,' + (q.a * k * .22) + ')'); g.addColorStop(1, 'rgba(243,220,143,0)');
+      ctx.fillStyle = g; ctx.fillRect(q.x - q.rad, q.y - q.rad, q.rad * 2, q.rad * 2); return true;
+    });
+    R = R.filter(function (r) {
+      r.t += dt; var p = Math.min(1, r.t / r.dur), x = lerp(r.x0, r.x1, p * p * (3 - 2 * p)), y = lerp(r.y0, r.y1, 1 - (1 - p) * (1 - p));
+      spark(x, y, (Math.random() - .5) * .6, .8 + Math.random(), 450, EMBER[(Math.random() * 3) | 0], 1.4, .02, .96);
+      ctx.globalAlpha = 1; ctx.fillStyle = '#fff6dc'; ctx.beginPath(); ctx.arc(x, y, 2.4, 0, 7); ctx.fill();
+      if (p >= 1) { r.done(r.x1, r.y1); return false; } return true;
+    });
+    P = P.filter(function (q) {
+      q.t += dt; if (q.t >= q.life) return false;
+      q.px = q.x; q.py = q.y;
+      q.vx *= Math.pow(q.d, f); q.vy = q.vy * Math.pow(q.d, f) + q.g * f;
+      q.x += q.vx * f; q.y += q.vy * f;
+      var k = 1 - q.t / q.life;
+      ctx.globalAlpha = k < .4 && q.tw ? (Math.random() < .5 ? .15 : k * 2) : Math.min(1, k * 1.6);
+      ctx.strokeStyle = q.c; ctx.lineWidth = q.r; ctx.beginPath(); ctx.moveTo(q.px, q.py); ctx.lineTo(q.x, q.y); ctx.stroke();
+      return true;
+    });
+    ctx.globalAlpha = 1;
+  }
+
+  // ---------------------------------------------------------- the show
+  var raf = 0, last = 0, crackleUntil = 0, inView = false, side = 0, timer = 0;
+  var PALS = [GOLD, WHITE, RUBY, EMBER];
+
+  function crackle() {
+    var l = ladis[(Math.random() * ladis.length) | 0], r = l.getBoundingClientRect();
+    if (!r.width) return;
+    burst(r.left + r.width / 2 - hr.left, r.top - hr.top + Math.random() * r.height * .7,
+      { n: 12, sp: 1.7, life: 380, c: ['#ffffff', '#fff3c4', '#ffb36b'], r: 1.3, g: .03, d: .93, flash: .8, rad: 40 });
+  }
+  function frame(now) {
+    raf = 0;
+    var dt = last ? Math.min(48, now - last) : 16.7; last = now;
+    hr = hero.getBoundingClientRect();
+    if (now < crackleUntil && Math.random() < dt / 45) crackle();
+    draw(dt);
+    if (P.length || R.length || F.length || now < crackleUntil) raf = requestAnimationFrame(frame);
+    else { ctx.clearRect(0, 0, W, H); last = 0; }
+  }
+  function kick() { if (!raf) { last = 0; raf = requestAnimationFrame(frame); } }
+
+  // one rocket, alternating sides so the logo and the copy stay clear; now and then a second answers it
+  function launch(big) {
+    side ^= 1;
+    var x = W * (side ? .62 + Math.random() * .3 : .08 + Math.random() * .3), y = H * (.08 + Math.random() * .22);
+    var pal = PALS[(Math.random() * 4) | 0], ring = Math.random() < .5;
+    rocket(x + (Math.random() - .5) * 80, H - 40, x, y, 900 + Math.random() * 200, function (bx, by) {
+      burst(bx, by, { n: big ? 140 : 90, sp: big ? 5.4 : 4.2, life: 1500, c: pal, ring: ring, flash: big ? .7 : .35 });
+      if (big) burst(bx, by, { n: 60, sp: 3.6, life: 2400, c: GOLD, g: .03, d: .985, r: 1.3 });
+    });
+    crackleUntil = Math.max(crackleUntil, performance.now() + 2400);
+    kick();
+  }
+  function schedule(delay) {
+    clearTimeout(timer);
+    timer = setTimeout(function () {
+      if (inView && !document.hidden) {
+        launch(Math.random() < .3);
+        if (Math.random() < .35) setTimeout(function () { if (inView) launch(false); }, 350 + Math.random() * 300);
+      }
+      schedule(1600 + Math.random() * 2000);
+    }, delay);
+  }
+
+  size();
+  if (window.ResizeObserver) new ResizeObserver(size).observe(hero);
+  new IntersectionObserver(function (es) {
+    var was = inView; inView = es[0].isIntersecting;
+    if (inView && !was) { hr = hero.getBoundingClientRect(); launch(true); schedule(900); }
+  }, { threshold: .3 }).observe(hero);
+})();
+</script>
+
+<!-- ============================================================== footer -->
+<footer class="ft ft--dark ft--black" id="footer">
+  <img class="ft__pi" src="../assets/img/pi.svg" alt="" width="331" height="298">
+
+  <!-- Part 1: navigation, documents, regulatory disclosures, copyright. -->
+  <div class="gp-shell ft__inner">
+
+    <div class="ft-main">
+      <div class="ft-brand" data-reveal>
+        <img src="../assets/img/goldenpi-logo-white.svg" alt="GoldenPi" width="148" height="44">
+        <p class="ft-brand__co">GoldenPi Securities Pvt Ltd</p>
+        <address>
+          Indiqube Orion, 24th Main, 1st Sector,<br>
+          HSR Layout, Bangalore South,<br>
+          Bangalore, Karnataka - 560102
+        </address>
+        <div class="ft-social">
+          <a href="https://www.facebook.com/goldenpitech" aria-label="GoldenPi on Facebook"><img src="../assets/img/facebook-icon.svg" alt=""></a>
+          <a href="https://twitter.com/GoldenPiTech" aria-label="GoldenPi on X (Twitter)"><img src="../assets/img/twitter-icon.svg" alt=""></a>
+          <a href="https://www.linkedin.com/company/goldenpi/" aria-label="GoldenPi on LinkedIn"><img src="../assets/img/linkdin-icon.svg" alt=""></a>
+          <a href="https://www.instagram.com/goldenpi_/" aria-label="GoldenPi on Instagram"><img src="../assets/img/Instagram-icon.svg" alt=""></a>
+          <a href="https://www.youtube.com/@goldenpi" aria-label="GoldenPi on YouTube"><img src="../assets/img/Youtube-icon.svg" alt=""></a>
+        </div>
+      </div>
+
+      <nav class="ft-col" aria-labelledby="ft-invest" data-reveal>
+        <h2 id="ft-invest">Invest with us</h2>
+        <ul>
+          <li><a class="ft-link" href="bond-ipo-online.html">Bond IPOs</a></li>
+          <li><a class="ft-link" href="corporate-bonds.html">Bonds</a></li>
+          <li><a class="ft-link" href="fixed-deposits.html">Fixed Deposits</a></li>
+          <li><a class="ft-link" href="https://goldenpi.com/sovereign-gold-bond">Sovereign Gold Bond</a></li>
+          <li><a class="ft-link" href="https://goldenpi.com/government-securities">Government Securities</a></li>
+        </ul>
+      </nav>
+
+      <nav class="ft-col" aria-labelledby="ft-company" data-reveal>
+        <h2 id="ft-company">Company</h2>
+        <ul>
+          <li><a class="ft-link" href="about-us.html">About us</a></li>
+          <li><a class="ft-link" href="https://goldenpi.com/media">Media</a></li>
+          <li><a class="ft-link" href="careers.html">Career at GoldenPi</a></li>
+          <li><a class="ft-link" href="https://goldenpi.com/faq">FAQs</a></li>
+          <li><a class="ft-link" href="contact-us.html">Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <nav class="ft-col" aria-labelledby="ft-legal" data-reveal>
+        <h2 id="ft-legal">Legal</h2>
+        <ul>
+          <li><a class="ft-link" href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+          <li><a class="ft-link" href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a class="ft-link" href="https://goldenpi.com/investor-resources">Investor Resources</a></li>
+          <li><a class="ft-link" href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/Policies+for+Information.pdf">Policies for Information</a></li>
+        </ul>
+      </nav>
+
+      <nav class="ft-col" aria-labelledby="ft-new" data-reveal>
+        <h2 id="ft-new">New to GoldenPi</h2>
+        <ul>
+          <li><a class="ft-link" href="https://goldenpi.com/blog">GoldenPi Blogs</a></li>
+          <li><a class="ft-link" href="https://goldenpi.com/find-first-bond?ia=2-5-lac&amp;tr=5-10-yrs&amp;it=all&amp;sortBy=yield-high-to-low">Find Your First Bond</a></li>
+          <li><a class="ft-link" href="https://goldenpi.com/bond-vs-fd?ia=200000&amp;tr=3">Bond vs Fixed Deposit</a></li>
+          <li><a class="ft-link" href="https://goldenpi.com/blog/essentials/bond-introduction/bond-glossary-20-terms-definitions-you-need-to-know">Bond Definitions</a></li>
+          <li><a class="ft-link" href="https://goldenpi.com/blog/investment-guide">Bond Investment Guide</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="ft-regs" data-reveal>
+      <dl class="ft-ids">
+        <div><dt>SEBI Registration No.:</dt><dd>INZ000310732</dd></div>
+        <div><dt>CIN:</dt><dd>U65990KA2022PTC164941</dd></div>
+        <div><dt>BSE Member ID:</dt><dd>6809</dd></div>
+        <div><dt>NSE Member ID:</dt><dd>90331</dd></div>
+      </dl>
+      <p>Compliance Officer: Kunal Sharma, Tel. No.: <a class="u" href="tel:080-45685666">080-45685666</a>, Email ID: <a class="u" href="mailto:grievance-gspl@goldenpi.com">grievance-gspl@goldenpi.com</a> (for any compliance &amp; grievance related complaints)</p>
+      <p>Key Managerial Personnel: Abhijit Roy - Designated Director &amp; CEO, Samir Baran Pratihar - Designated Director &amp; CTO</p>
+      <p>Tel. No.: 080-45685666 | Email: <a class="u" href="mailto:contact-us@goldenpi.com">contact-us@goldenpi.com</a></p>
+    </div>
+
+  </div>
+
+  <details class="ft-fold">
+    <summary class="gp-shell">
+      <span class="ft-copy">&copy; Copyright 2017 - 2026 | GoldenPi Securities Pvt. Ltd.</span>
+      <span class="ft-fold__btn">Read More</span>
+    </summary>
+
+  <!-- Part 2: SEO copy and SEO links. On /corporate-bonds the SEO copy is the
+       corporate bonds guide (content/prod_corporate-bonds.footer.md), not the
+       About GoldenPi Q&As. -->
+  <div class="ft-legal ft-seo">
+    <div class="gp-shell">
+
+      <section class="ft-guide" data-reveal>
+        <h2>Corporate Bonds in India: A Complete Guide for Investors (2026)</h2>
+        <p>Corporate bonds have quietly become one of the most talked-about fixed-income options for Indian investors looking to earn more than what a fixed deposit offers. Whether you're a salaried professional trying to beat inflation or a retiree seeking steady income, corporate bonds deserve a serious look. Let's break down everything you need to know before investing.</p>
+        <div class="ft-faq">
+          <details open>
+            <summary><h3>Types of Corporate Bonds in India</h3></summary>
+            <div>
+              <p>Not all corporate bonds work the same way. Depending on your risk appetite and income needs, here's what's available in the Indian market.</p>
+              <h4>Secured Bonds</h4>
+              <p>Backed by specific company assets (like property or machinery). If the issuer defaults, bondholders have a claim on these assets first; lower risk, and naturally, a lower yield.</p>
+              <h4>Unsecured Debentures</h4>
+              <p>No asset backing here, so the company's promise to repay rests purely on its financial strength. This higher risk comes with a higher coupon to compensate investors.</p>
+              <h4>Convertible Bonds</h4>
+              <p>A hybrid instrument that gives you the option to convert your bond holding into company shares at a predetermined price. Useful if you want debt safety with some upside potential.</p>
+              <h4>Non-Convertible Debentures (NCDs)</h4>
+              <p>Pure debt instruments with no equity conversion option. These are the most common type of corporate bond you'll come across in India.</p>
+              <h4>Zero-Coupon Bonds</h4>
+              <p>No periodic interest payments. Instead, you buy them at a discount and receive the full face value at maturity; the difference is your return.</p>
+              <h4>Perpetual / AT1 Bonds</h4>
+              <p>These have no fixed maturity date and typically offer higher yields, but come with a distinct risk profile (especially relevant if you remember how AT1 bonds behaved during banking stress events).</p>
+            </div>
+          </details>
+          <details>
+            <summary><h3>Key Features of Corporate Bonds in India</h3></summary>
+            <div>
+              <p>Before you invest, here's what actually determines whether a bond suits your portfolio.</p>
+              <h4>Coupon Rate</h4>
+              <p>Typically ranges from around 7% for AAA-rated bonds to 14%+ for A-rated bonds in 2026, paid monthly, quarterly, or annually.</p>
+              <h4>Credit Rating</h4>
+              <p>Rated AAA to D by agencies like CRISIL, ICRA, CARE, and Brickwork. This rating is your first (but not the only) clue to default probability.</p>
+              <h4>Tenure</h4>
+              <p>Ranges from 1 year to 30+ years; broadly split into short-term (1–3 years), medium-term (3–7 years), and long-term (7+ years).</p>
+              <h4>Secondary Market Liquidity</h4>
+              <p>Listed bonds can be sold before maturity on the BSE or NSE through platforms like GoldenPi.</p>
+              <h4>Taxability</h4>
+              <p>Interest is taxed as per your income slab (with TDS applicable); capital gains are taxed separately.</p>
+              <h4>Seniority</h4>
+              <p>Bondholders rank above equity shareholders when it comes to repayment during insolvency proceedings.</p>
+              <p>The coupon rate often gets all the attention, but seasoned investors know the credit rating and tenure matter just as much. A high coupon on a low-rated bond isn't necessarily a good deal; it's compensation for risk you're taking on.</p>
+            </div>
+          </details>
+          <details>
+            <summary><h3>Corporate Bonds vs. Fixed Deposits — Which Is Better for You?</h3></summary>
+            <div>
+              <p>This is the comparison most investors actually care about. Here's how they stack up:</p>
+              <div class="ft-table"><table><thead><tr><th>Parameter</th><th>Bank FD</th><th>AAA Corporate Bond</th><th>AA Corporate Bond</th></tr>
+              </thead><tbody><tr><th>Returns</th><td>~6.5–7.5%</td><td>~7–8.5%</td><td>~9–10.5%</td></tr>
+              <tr><th>Safety</th><td>DICGC insured up to ₹5 lakh</td><td>High (low default probability)</td><td>Moderate (slightly higher default risk)</td></tr>
+              <tr><th>Liquidity</th><td>Premature withdrawal with penalty</td><td>Sellable on secondary market</td><td>Sellable on secondary market</td></tr>
+              <tr><th>Tenure flexibility</th><td>Fixed slabs (7 days to 10 years)</td><td>Wide range, including long-tenure options</td><td>Wide range, including long-tenure options</td></tr>
+              <tr><th>Tax treatment</th><td>Interest taxed as per slab</td><td>Interest taxed as per slab; LTCG on gains</td><td>Interest taxed as per slab; LTCG on gains</td></tr>
+              <tr><th>Minimum investment</th><td>Usually ₹1,000–10,000</td><td>Starts around ₹10,000 on platforms like GoldenPi</td><td>Starts around ₹10,000</td></tr>
+              <tr><th>Regulatory body</th><td>RBI</td><td>SEBI</td><td>SEBI</td></tr>
+              </tbody></table>
+              </div>
+              <p>For investors in the 30% tax bracket, an AA-rated corporate bond earning around 9% YTM can deliver meaningfully higher post-tax returns than a bank FD at 7.5%, simply because the higher base return outweighs the tax outgo. Run your own numbers before deciding which fits your tax situation better.</p>
+            </div>
+          </details>
+          <details>
+            <summary><h3>How Are Corporate Bond Returns Taxed in India? (2026)</h3></summary>
+            <div>
+              <p>Tax treatment is where a lot of investors slip up, so let's simplify it.</p>
+              <p>Interest income is added to your total income and taxed as per your applicable income tax slab. Following the Finance Act 2025, TDS at 10% now kicks in only if your interest income from a single issuer crosses ₹10,000 in a year (up from the earlier ₹5,000 threshold).</p>
+              <p>Capital gains depend on whether the bond is listed or unlisted, and here's the part that confuses people: unlisted bonds don't get any long-term benefit anymore, no matter how long you hold them.</p>
+              <div class="ft-table"><table><thead><tr><th>Gain Type</th><th>Holding Period</th><th>Tax Rate</th></tr>
+              </thead><tbody><tr><td>LTCG (listed bonds)</td><td>More than 12 months</td><td>12.5% without indexation</td></tr>
+              <tr><td>STCG (listed bonds)</td><td>12 months or less</td><td>As per your income slab</td></tr>
+              <tr><td>Unlisted bonds</td><td>Any holding period</td><td>Always taxed as short-term gains, at your income slab (Section 50AA)</td></tr>
+              </tbody></table>
+              </div>
+              <p>That last row surprises a lot of investors: since July 2024, gains on unlisted bonds and debentures are deemed short-term irrespective of how long you've held them, so a 5-year-old unlisted NCD gets taxed exactly like a bond you sold after six months. This alone can make listed, exchange-traded bonds meaningfully more tax-efficient for long-term holders.</p>
+              <p>One thing that hasn't changed: bond taxation is identical under the old and new tax regimes; the rules above apply either way. Since post-tax returns are what actually matter, it's worth working out your XIRR before you invest, so you know exactly what you're walking away with.</p>
+            </div>
+          </details>
+          <details>
+            <summary><h3>Risks to Understand Before Investing in Corporate Bonds</h3></summary>
+            <div>
+              <p>Corporate bonds aren't risk-free, and any experienced investor will tell you that a healthy coupon rate means little if you haven't accounted for these:</p>
+              <ul><li>Credit/default risk</li>
+              <li>Interest rate risk</li>
+              <li>Liquidity risk</li>
+              <li>Credit migration risk</li>
+              <li>Reinvestment risk</li>
+              </ul>
+              <p>Here's what each of these actually means in practice.</p>
+              <h4>Credit/Default Risk</h4>
+              <p>The issuer might fail to pay interest or principal. This is best managed by checking the credit rating and reading the rating agency's detailed report, not just the letter grade.</p>
+              <h4>Interest Rate Risk</h4>
+              <p>Bond prices move inversely to interest rates. If rates rise after you buy, the market value of your bond can fall. Holding to maturity largely sidesteps this.</p>
+              <h4>Liquidity Risk</h4>
+              <p>Some bonds trade thinly in the secondary market, making it harder to exit early at a fair price. This is exactly why a robust secondary market matters.</p>
+              <h4>Credit Migration Risk</h4>
+              <p>A bond rated AA today could be downgraded to A tomorrow if the issuer's financial health weakens. Keeping an eye on rating alerts helps you react early.</p>
+              <h4>Reinvestment Risk</h4>
+              <p>When your coupon or maturity proceeds come in during a falling rate cycle, reinvesting at similar returns becomes harder.</p>
+              <p>GoldenPi displays live credit ratings and rating change alerts on every bond page, so you're not caught off guard by a downgrade.</p>
+            </div>
+          </details>
+          <details>
+            <summary><h3>Who Should Invest in Corporate Bonds in India?</h3></summary>
+            <div>
+              <p>Corporate bonds aren't a one-size-fits-all product. Here's who tends to benefit most, and what to actually look for.</p>
+              <h4>Salaried Professionals</h4>
+              <p>Those in the 20–30% tax bracket looking for returns that comfortably beat FD rates, without taking on equity-like volatility. </p>
+              <p><strong>Recommended:</strong> AAA- and AA-rated NCDs with 3–5 year tenures strike a good balance between yield and safety for this group.  <a class="ft-guide-link" href="https://goldenpi.com/collections/highly-rated-bonds">Explore Highly Rated Bonds</a></p>
+              <h4>Retirees and Senior Citizens</h4>
+              <p>Investors who need predictable, regular income. Monthly or quarterly coupon payouts can work well alongside a pension. </p>
+              <p><strong>Recommended:</strong> AAA-rated secured bonds with monthly or quarterly coupon frequency, prioritising safety over chasing an extra percentage point of yield.  <a class="ft-guide-link" href="https://goldenpi.com/collections/highly-rated-bonds">Explore Highly Rated Bonds</a></p>
+              <h4>HNIs</h4>
+              <p>Those looking to diversify beyond equities and bring down overall portfolio volatility, without parking everything in low-yield instruments. </p>
+              <p><strong>Recommended:</strong> A laddered mix across AA- and A-rated NCDs, and selectively perpetual/AT1 bonds for the higher-yield sleeve of the portfolio.  <a class="ft-guide-link" href="https://goldenpi.com/collections/high-yield-bonds">Explore High-Yield Bonds</a></p>
+              <h4>NRI Investors</h4>
+              <p>Several FEMA-eligible bonds are available with fully repatriable returns, making this an accessible option even from abroad. </p>
+              <p><strong>Recommended:</strong> FEMA-eligible, listed NCDs from AAA/AA-rated issuers, which combine repatriability with secondary-market exit options.  <a class="ft-guide-link" href="https://goldenpi.com/collections/highly-rated-bonds">Explore Highly Rated Bonds</a></p>
+              <h4>Conservative First-Time Investors</h4>
+              <p>Investors ready to move beyond FDs but not yet comfortable with equity risk. </p>
+              <p><strong>Recommended:</strong> Start with AAA-rated, short-tenure (1–3 year) secured bonds; the closest substitute to an FD, with a better post-tax return.  <a class="ft-guide-link" href="https://goldenpi.com/collections/bonds-for-short-term-investment">Explore Short-Term Bonds</a></p>
+            </div>
+          </details>
+          <details>
+            <summary><h3>How to Invest in Corporate Bonds on GoldenPi — 3 Steps</h3></summary>
+            <div>
+              <p>Getting started is more straightforward than most people expect.</p>
+              <h4>Step 1: Complete Your KYC</h4>
+              <p>Finish your KYC online in under 5 minutes using your PAN, Aadhaar, and a linked Demat account.</p>
+              <h4>Step 2: Browse Bonds</h4>
+              <p>Filter by credit rating, yield, tenure, coupon frequency, or sector to find what matches your goals.</p>
+              <h4>Step 3: Place Your Order</h4>
+              <p>Settlement happens directly via the BSE/NSE, and the bonds are credited to your Demat account within T+2 days.</p>
+              <p>GoldenPi is India's first SEBI-registered Online Bond Platform Provider (OBPP), which means your transaction settles directly on the exchange, not through an intermediary. And if your plans change, you're not locked in: you can buy or sell on GoldenPi's secondary market whenever you need to.</p>
+            </div>
+          </details>
+          <details>
+            <summary><h3>Why Investors Choose GoldenPi for Corporate Bond Investments</h3></summary>
+            <div>
+              <h4>SEBI-Registered OBPP</h4>
+              <p>GoldenPi operates as a SEBI-registered Online Bond Platform Provider — one of roughly 30 platforms in India licensed for this, out of hundreds of fintech apps that merely claim to sell bonds. Your transaction settles directly on the exchange, not through an unregulated intermediary.</p>
+              <h4>₹10,000 Minimum Investment</h4>
+              <p>Compare that to the ₹10 lakh minimums common elsewhere; corporate bonds become accessible to a much wider set of investors.</p>
+              <h4>Active Secondary Market</h4>
+              <p>Buy and sell bonds before maturity with no lock-in anxiety weighing on your decisions.</p>
+              <h4>Full Information Parity</h4>
+              <p>Every bond listing comes with credit reports, coupon schedules, and ISIN data, so you're investing with complete visibility.</p>
+              <h4>Zero Hidden Charges</h4>
+              <p>No brokerage fees on secondary market trades.</p>
+              <h4>Dedicated Relationship Manager</h4>
+              <p>Get personalised support through your investment journey, not just a self-serve dashboard.</p>
+            </div>
+          </details>
+          <details>
+            <summary><h3>FAQ</h3></summary>
+            <div>
+              <h4>What are corporate bonds and how do they work?</h4>
+              <p>Corporate bonds are debt instruments companies issue to raise money from investors. When you buy one, you're effectively lending the company money for a fixed period. In return, the issuer pays you periodic interest (the coupon) and returns your principal at maturity. Bonds are rated by agencies like CRISIL and ICRA based on the issuer's ability to repay, and listed bonds can also be traded on the exchange before maturity.</p>
+              <h4>What is the minimum investment in corporate bonds on GoldenPi?</h4>
+              <p>You can start investing in corporate bonds on GoldenPi with as little as ₹10,000, which is far lower than the ₹10 lakh+ tickets traditionally needed to access this market. This became possible after SEBI reduced the face value of listed privately placed bonds in 2024.</p>
+              <h4>Are corporate bonds safe in India?</h4>
+              <p>Safety depends entirely on the issuer's credit rating. AAA-rated bonds carry very low default risk and are considered close to government-security safety, while lower-rated bonds (A or BBB) carry meaningfully higher risk in exchange for higher yields. Corporate bonds also rank senior to equity holders during insolvency, giving bondholders first claim on recoveries. They aren't insured like bank deposits, though, so checking the rating and the rating agency's report before investing matters.</p>
+              <h4>How is income from corporate bond investments taxed in 2026?</h4>
+              <p>Interest income is added to your total income and taxed as per your income tax slab, with 10% TDS applying once interest from a single issuer crosses ₹10,000 a year. Capital gains depend on listing status: listed bonds held over 12 months qualify for LTCG at 12.5% (no indexation), while gains on unlisted bonds are always treated as short-term and taxed at slab rate, regardless of holding period. This applies under both the old and new tax regimes.</p>
+              <h4>What is the difference between corporate bonds and fixed deposits?</h4>
+              <p>Corporate bonds typically offer higher returns than bank FDs — AA-rated bonds often yield 9–10.5% versus 6.5–7.5% on FDs — but FDs come with DICGC insurance up to ₹5 lakh, while bonds carry credit risk based on the issuer's rating. Bonds also offer secondary-market liquidity, letting you exit before maturity, unlike FDs where premature withdrawal usually means a penalty.</p>
+              <h4>Can I sell corporate bonds before maturity on GoldenPi?</h4>
+              <p>Yes. Listed corporate bonds can be sold on the secondary market through the BSE or NSE before their maturity date, using GoldenPi's platform. This gives you an exit option that traditional fixed deposits don't offer, though the price you get will depend on prevailing market conditions and how actively that particular bond trades.</p>
+              <h4>What credit rating should I look for in corporate bonds?</h4>
+              <p>For most investors, AAA- or AA-rated bonds are the safer starting point, carrying a low-to-moderate probability of default as assessed by agencies like CRISIL, ICRA, and CARE. A-rated and below offer higher coupons but come with real credit risk and are better suited to investors comfortable monitoring issuer financials closely. It's also worth tracking rating changes over the bond's tenure, since a downgrade can affect both resale value and repayment confidence.</p>
+              <h4>What is YTM and how is it different from the coupon rate?</h4>
+              <p>The coupon rate is the fixed interest the bond pays on its face value each year. YTM (Yield to Maturity) is the actual return you earn if you buy the bond at its current market price and hold it to maturity. It accounts for any premium or discount to face value, plus reinvested coupons. When a bond trades below face value, its YTM is higher than its coupon; above face value, YTM is lower.</p>
+              <h4>Which corporate bonds are best for senior citizens?</h4>
+              <p>AAA-rated secured bonds with monthly or quarterly coupon payouts tend to work best for senior citizens, since they prioritise capital safety and predictable income over chasing extra yield. Government-backed and PSU bonds are also worth considering for this group, given their lower default risk.</p>
+              <h4>Can NRIs invest in corporate bonds in India?</h4>
+              <p>Yes. NRIs can invest in FEMA-eligible corporate bonds through their NRE or NRO accounts, with returns that are typically repatriable depending on the account type used. Listed, highly rated NCDs are usually the most suitable starting point, since they combine repatriability with secondary-market liquidity if you need to exit early.</p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <nav class="ft-band" aria-labelledby="ft-collections" data-reveal>
+        <h2 id="ft-collections">Collections</h2>
+        <div class="ft-chips">
+          <a href="https://goldenpi.com/collections/best-ongoing-ipos">Ongoing NCD IPOs</a>
+          <a href="https://goldenpi.com/collections/high-yield-bonds">High Yield Bonds (Yield more than 11%)</a>
+          <a href="https://goldenpi.com/collections/highly-rated-bonds">Highly Rated Bonds (AAA Rated)</a>
+          <a href="https://goldenpi.com/collections/bonds-to-earn-monthly-fixed-income">Bonds to Earn Regular Monthly Income</a>
+          <a href="https://goldenpi.com/collections/bonds-maturing-within-a-year">Bonds Maturing within a Year</a>
+          <a href="https://goldenpi.com/collections/state-government-guranteed-bonds">State Government Guaranteed Bonds</a>
+          <a href="https://goldenpi.com/collections/tax-free-bonds">Tax Free Bonds</a>
+          <a href="https://goldenpi.com/collections/public-sector-bank-bonds">Public Sector Bank Bonds</a>
+          <a href="https://goldenpi.com/collections/bonds-at-discounted-price">Bonds at Discounted Price</a>
+          <a href="https://goldenpi.com/collections/bonds-for-short-term-investment">Bonds Maturing within 3 Years (Short Term)</a>
+          <a href="https://goldenpi.com/collections/private-sector-bank">Private Sector Bank Bonds</a>
+          <a href="https://goldenpi.com/collections/psu-bonds">Public Sector Undertaking Bonds</a>
+          <a href="https://goldenpi.com/collections/bonds-for-long-term-investment">Bonds Maturing after 5 Years (Long Term)</a>
+          <a href="https://goldenpi.com/collections/nbfc-bonds">NBFC Bonds</a>
+          <a href="https://goldenpi.com/collections/bonds-to-earn-quaterly-fixed-income">Bonds to Earn Quarterly Fixed Income</a>
+          <a href="https://goldenpi.com/collections/nri-eligible-bonds">NRI Eligible Bonds</a>
+          <a href="https://goldenpi.com/collections/floating-rate-bonds">Floating Rate Bonds</a>
+          <a href="https://goldenpi.com/collections/fixed-rate-bonds">Fixed Rate Bonds</a>
+          <a href="https://goldenpi.com/collections/inflation-indexed-bonds">Inflation Indexed Bonds</a>
+          <a href="https://goldenpi.com/collections/zero-coupon-bonds">Zero Coupon Bonds</a>
+          <a href="https://goldenpi.com/collections/secured-bonds">Secured Bonds</a>
+          <a href="https://goldenpi.com/collections/government-bonds">Govt Bonds</a>
+          <a href="https://goldenpi.com/collections/54-ec-capital-gain-bonds">Capital Gain Bonds</a>
+          <a href="https://goldenpi.com/collections/bank-bonds-in-india">Bank Bonds</a>
+          <a href="https://goldenpi.com/collections/gold-backed-bonds">Gold Backed Bonds</a>
+        </div>
+      </nav>
+
+    </div>
+  </div>
+  </details>
+</footer>
+</body>
+</html>

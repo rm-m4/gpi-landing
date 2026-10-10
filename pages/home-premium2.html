@@ -831,10 +831,20 @@
 
 <!-- ============================================================== header: logo + CTA only -->
 <div class="nb-slot">
-<header class="nb nb--dark nb--plain" data-v="plain-dark-guest">
-  <div class="gp-shell nb__inner" style="justify-content: space-between;">
+<header class="nb nb--dark nb--plain nb--micons" data-v="plain-dark-guest">
+  <div class="gp-shell nb__inner">
     <a class="nb__logo" href="index.html"><img src="../assets/img/goldenpi-logo-white.svg" alt="GoldenPi" width="132" height="30"></a>
-    <a class="gp-cta gp-cta--primary" href="signup.html" style="color: #000;"><span>Get started</span></a>
+    <nav class="nb__nav" aria-label="Primary">
+        <a class="nb__link" href="corporate-bonds.html"><span class="nb-ic" style="--i: url(../assets/img/header-nav-bonds.svg)" aria-hidden="true"></span><span>Bonds</span></a>
+        <a class="nb__link" href="fixed-deposits.html"><span class="nb-ic" style="--i: url(../assets/img/header-nav-fd.svg)" aria-hidden="true"></span><span>FD</span></a>
+        <a class="nb__link" href="bond-utsav.html"><img class="nb-ic" src="../assets/img/header-nav-bond-utsav.svg" alt=""><span>Bond Utsav</span></a>
+        <a class="nb__link" href="refer-and-earn.html"><span class="nb-ic" style="--i: url(../assets/img/header-nav-ref-earn.svg)" aria-hidden="true"></span><span>Refer &amp; Earn</span></a>
+    </nav>
+    <div class="nb__search"><span class="nb-ic" style="--i: url(../assets/img/header-search.svg)" aria-hidden="true"></span><span>Search for bonds, FD or IPO</span></div>
+    <div class="nb__actions">
+      <button type="button" class="nb__btn nb__search-btn" aria-label="Search"><span class="nb-ic" style="--i: url(../assets/img/header-search.svg)" aria-hidden="true"></span></button>
+      <button type="button" class="gp-cta gp-cta--primary nb__login"><span>Login / Sign up</span></button>
+    </div>
   </div>
 </header>
 </div>
@@ -893,26 +903,6 @@
       <button type="button" class="h2-arrow h2-arrow--next" aria-label="Next bond"><i class="ph-bold ph-caret-right" aria-hidden="true"></i></button>
     </div>
 
-    <div class="hp-trust">
-      <p><b>Trusted by 18 Lac+ users</b> and leading institutions</p>
-      <div class="hp-marquee">
-        <ul role="list">
-          <li><img src="../assets/img/Sakthi-Finance-logo.png" alt="Sakthi Finance"></li>
-          <li><img src="../assets/img/centrum.png" alt="Centrum"></li>
-          <li><img src="../assets/img/axis-securities.png" alt="Axis Securities"></li>
-          <li><img src="../assets/img/anand-rathi.webp" alt="Anand Rathi"></li>
-          <li><img src="../assets/img/GPID100936.MUTHOOT-FINCORP-LIMITED_1-2x.png" alt="Muthoot Fincorp"></li>
-          <li><img src="../assets/img/GPID100778.EDELWEISS-FINANCIAL-SERVICES-LIMITED.png" alt="Edelweiss"></li>
-          <!-- duplicated once so the loop is seamless -->
-          <li aria-hidden="true"><img src="../assets/img/Sakthi-Finance-logo.png" alt=""></li>
-          <li aria-hidden="true"><img src="../assets/img/centrum.png" alt=""></li>
-          <li aria-hidden="true"><img src="../assets/img/axis-securities.png" alt=""></li>
-          <li aria-hidden="true"><img src="../assets/img/anand-rathi.webp" alt=""></li>
-          <li aria-hidden="true"><img src="../assets/img/GPID100936.MUTHOOT-FINCORP-LIMITED_1-2x.png" alt=""></li>
-          <li aria-hidden="true"><img src="../assets/img/GPID100778.EDELWEISS-FINANCIAL-SERVICES-LIMITED.png" alt=""></li>
-        </ul>
-      </div>
-    </div>
   </section>
 
   <!-- ======================================================= instruments -->
