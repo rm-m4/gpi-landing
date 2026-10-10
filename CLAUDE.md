@@ -172,6 +172,7 @@ python3 pages/_fd_app.py      # -> user-fixed-deposits-app.html (user-fixed-depo
 python3 pages/_footer_ggn.py # -> footer-ggn-prelogin-bonds.html (prelogin-home footer + footer-bonds SEO part)
 python3 pages/_investor_resources.py # -> investor-resources.html (goldenpi.com capture, index.html shell)
 python3 pages/_build.py      # sync header/footer across pages
+python3 pages/_prototype.py  # run LAST: wires the post-login prototype (app7, bond-details7, ipo-details, FD app2, fd-details2, bond-utsav5, portfolio)
 node crawl/check.js          # verify every page, run after any change
 python3 -m http.server 8000  # then open /pages/<name>.html
 ```

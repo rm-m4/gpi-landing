@@ -200,11 +200,23 @@
 
 <!-- ============================================================== header -->
 <div class="nb-slot">
-<header class="nb nb--dark nb--plain nb--micons" data-v="plain-dark-guest">
+<header class="nb nb--dark nb--plain nb--micons" data-v="plain-dark-login">
   <div class="gp-shell nb__inner">
-    <a class="nb__logo" href="index.html"><img src="../assets/img/goldenpi-logo-white.svg" alt="GoldenPi" width="132" height="30"></a>
+    <a class="nb__logo" href="user-explore-app7.html"><img src="../assets/img/goldenpi-logo-white.svg" alt="GoldenPi" width="132" height="30"></a>
+    <nav class="nb__nav" aria-label="Primary">
+        <a class="nb__link" href="user-explore-app7.html"><span class="nb-ic" style="--i: url(../assets/img/header-nav-bonds.svg)" aria-hidden="true"></span><span>Bonds</span></a>
+        <a class="nb__link" href="user-fixed-deposits-app2.html"><span class="nb-ic" style="--i: url(../assets/img/header-nav-fd.svg)" aria-hidden="true"></span><span>FD</span></a>
+        <a class="nb__link is-current" href="bond-utsav5.html" aria-current="page"><img class="nb-ic" src="../assets/img/header-nav-bond-utsav.svg" alt=""><span>Bond Utsav</span></a>
+        <a class="nb__link" href="refer-and-earn.html"><span class="nb-ic" style="--i: url(../assets/img/header-nav-ref-earn.svg)" aria-hidden="true"></span><span>Refer &amp; Earn</span></a>
+        <a class="nb__link nb__link--m" href="portfolio.html"><span class="nb-ic" style="--i: url(../assets/img/header-nav-portfolio.svg)" aria-hidden="true"></span><span>Portfolio</span></a>
+    </nav>
+    <div class="nb__search"><span class="nb-ic" style="--i: url(../assets/img/header-search.svg)" aria-hidden="true"></span><span>Search for bonds, FD or IPO</span></div>
     <div class="nb__actions">
-      <button type="button" class="gp-cta gp-cta--primary nb__login"><span>Login / Sign up</span></button>
+      <button type="button" class="nb__btn nb__search-btn" aria-label="Search"><span class="nb-ic" style="--i: url(../assets/img/header-search.svg)" aria-hidden="true"></span></button>
+      <button type="button" class="nb__btn" aria-label="Notifications"><span class="nb-ic" style="--i: url(../assets/img/notify-bell.svg)" aria-hidden="true"></span></button>
+      <a class="nb__pill" href="portfolio.html"><span>Portfolio</span></a>
+      <!-- DATA: the account holder's initials. -->
+      <button type="button" class="nb__avatar" aria-label="Account menu">IN</button>
     </div>
   </div>
 </header>
@@ -401,7 +413,7 @@
       <p class="bu3-sub">Invest in Senior Secured Bonds and earn returns up to 13.8% p.a.</p>
       <!-- DATA: Bond Utsav listing, content/bond-utsav.md (captured 2026-09-26). -->
       <div class="bu3-picks">
-        <a class="bu3-pick" href="https://uatnew.goldenpi.com/bonds/GPID107371/neogrowth-1300-bond-yield?src=view_details&amp;tenureDate=30-Apr-2028">
+        <a class="bu3-pick" href="bond-details7.html">
           <div class="bu3-head"><span class="bu3-logo"><img src="../assets/img/GPID104095.Neogrowth-new-logo-1-.jpg" alt="" width="34" height="34" loading="lazy"></span>
             <div><h3 class="bu3-name">NeoGrowth</h3><p class="bu3-tags"><span class="bu3-tag">High YTM</span><span class="bu3-tag">Newly Launched</span></p></div></div>
           <p class="bu3-rate"><b>13.00%</b><span>p.a.</span></p>
@@ -410,7 +422,7 @@
           <p class="bu3-sold"><span>77.56% Sold</span></p>
           <span class="bu3-go">Invest Now <i class="ph-bold ph-arrow-right" aria-hidden="true"></i></span>
         </a>
-        <a class="bu3-pick" href="https://uatnew.goldenpi.com/bonds/GPID107433/best-capital-1300-bond-yield?src=view_details&amp;tenureDate=11-Sep-2029">
+        <a class="bu3-pick" href="bond-details7.html">
           <div class="bu3-head"><span class="bu3-logo"><img src="../assets/img/GPID107347.Best-Capital.png" alt="" width="34" height="34" loading="lazy"></span>
             <div><h3 class="bu3-name">Best Capital</h3><p class="bu3-tags"><span class="bu3-tag">Regular Income</span><span class="bu3-tag">NBFC Retail Bond</span></p></div></div>
           <p class="bu3-rate"><b>13.00%</b><span>p.a.</span></p>
@@ -419,7 +431,7 @@
           <p class="bu3-sold"><span>10.04% Sold</span></p>
           <span class="bu3-go">Invest Now <i class="ph-bold ph-arrow-right" aria-hidden="true"></i></span>
         </a>
-        <a class="bu3-pick" href="https://uatnew.goldenpi.com/bonds/GPID107372/dishman-1266-bond-yield?src=view_details&amp;tenureDate=17-Feb-2027">
+        <a class="bu3-pick" href="bond-details7.html">
           <div class="bu3-head"><span class="bu3-logo"><img src="../assets/img/GPID104220.dishman_carbogen_amcis_logo_under_80kb.png" alt="" width="34" height="34" loading="lazy"></span>
             <div><h3 class="bu3-name">Dishman</h3><p class="bu3-tags"><span class="bu3-tag">Regular Income</span><span class="bu3-tag">Corporate Bond</span></p></div></div>
           <p class="bu3-rate"><b>12.66%</b><span>p.a.</span></p>
@@ -432,16 +444,16 @@
 
       <h2 class="bu3-h2" style="margin-top: clamp(64px, 8vw, 96px);">Select A Category</h2>
       <nav class="bu3-chips" aria-label="Bond Utsav categories">
-        <a class="bu3-chip" href="bond-utsav.html">All Bonds</a>
-        <a class="bu3-chip" href="bond-utsav.html">Newly Launched</a>
-        <a class="bu3-chip" href="bond-utsav.html">High Returns</a>
-        <a class="bu3-chip" href="bond-utsav.html">High Rated</a>
-        <a class="bu3-chip" href="bond-utsav.html">Starts at 30k</a>
-        <a class="bu3-chip" href="bond-utsav.html">Short Term</a>
-        <a class="bu3-chip" href="bond-utsav.html">Monthly Payout</a>
-        <a class="bu3-chip" href="bond-utsav.html">Gold Backed</a>
-        <a class="bu3-chip" href="bond-utsav.html">Govt Backed</a>
-        <a class="bu3-chip" href="bond-utsav.html">Non NBFC Bonds</a>
+        <a class="bu3-chip" href="bond-utsav5.html">All Bonds</a>
+        <a class="bu3-chip" href="bond-utsav5.html">Newly Launched</a>
+        <a class="bu3-chip" href="bond-utsav5.html">High Returns</a>
+        <a class="bu3-chip" href="bond-utsav5.html">High Rated</a>
+        <a class="bu3-chip" href="bond-utsav5.html">Starts at 30k</a>
+        <a class="bu3-chip" href="bond-utsav5.html">Short Term</a>
+        <a class="bu3-chip" href="bond-utsav5.html">Monthly Payout</a>
+        <a class="bu3-chip" href="bond-utsav5.html">Gold Backed</a>
+        <a class="bu3-chip" href="bond-utsav5.html">Govt Backed</a>
+        <a class="bu3-chip" href="bond-utsav5.html">Non NBFC Bonds</a>
       </nav>
 
       <p class="bu3-risk">Risk Disclosure: Fixed returns do not constitute guaranteed or assured returns. Investments in corporate debt, municipal debt, and securitized instruments are subject to credit, market, and default risks, including delays or defaults in payments. Read all offer documents carefully.</p>
@@ -591,8 +603,8 @@
         <h2 id="ft-invest">Invest with us</h2>
         <ul>
           <li><a class="ft-link" href="bond-ipo-online.html">Bond IPOs</a></li>
-          <li><a class="ft-link" href="corporate-bonds.html">Bonds</a></li>
-          <li><a class="ft-link" href="fixed-deposits.html">Fixed Deposits</a></li>
+          <li><a class="ft-link" href="user-explore-app7.html">Bonds</a></li>
+          <li><a class="ft-link" href="user-fixed-deposits-app2.html">Fixed Deposits</a></li>
           <li><a class="ft-link" href="https://goldenpi.com/sovereign-gold-bond">Sovereign Gold Bond</a></li>
           <li><a class="ft-link" href="https://goldenpi.com/government-securities">Government Securities</a></li>
         </ul>

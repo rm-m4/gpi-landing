@@ -73,6 +73,28 @@ def shelf(slug, title, tone):
             '<div class="x7s__row">%s</div></section>' % (SHELF_N, slug, tone, sid, sid, title, cards))
 
 
+# ---------------------------------------------------------------- live IPO
+def ipo():
+    """app2's live NCD IPO card (SMC, content/beta_bond-ipo_GPID104212_smc.md), in
+    purple, its status as two pills (the user's call)."""
+    html = A.ipo()
+    for old, new in [('<section class="xb-ipos" data-reveal', '<section class="xb-ipos x7i" data-reveal'),
+                     ('<p class="xb-ipo__live"><i aria-hidden="true"></i>NCD IPO live &middot; Closes on 9-Oct-2026</p>',
+                      '<p class="x7i__pills"><span class="x7i__pill x7i__pill--live"><i aria-hidden="true"></i>NCD IPO live</span>'
+                      '<span class="x7i__pill">Closes on 9-Oct-2026</span></p>'),
+                     ('<p class="xa-head__sub">Apply to new bond issues before they close.</p>', ''),
+                     # the bond cards' rate style: value in ink, the % in purple
+                     ('<dd>Up to 10%</dd>', '<dd>Up to 10<span>%</span></dd>')]:
+        if html.count(old) != 1:
+            raise SystemExit("app2's IPO card changed, re-check: %r" % old)
+        html = html.replace(old, new)
+    # no "View all" (the user's call; the other shelves have none either)
+    html, n = re.subn(r'<div class="xa-head__end">.*?</a></div>', '', html, count=1, flags=re.S)
+    if n != 1:
+        raise SystemExit("app2's IPO heading changed, re-check")
+    return html
+
+
 # ----------------------------------------------------------------- category
 # Figma 130:590: the collections as pills, each linking to its collection page.
 CATS = [("explore-app7/cat-high-returns.png", 30, "High Returns", "collections-high-returns.html"),
@@ -126,7 +148,7 @@ def body():
     G.golden = golden  # app6's hero() appends golden(); use the Figma strip
     return ('<main id="main-content" class="xa-page"><div class="xa xb x7"><div class="xa-hero-wrap">%s</div>%s'
             '<div class="xa-main">%s</div></div></main>'
-            % (G.hero(), rail(), "".join([why()] + [shelf(*SHELVES[0]), categories()] + [shelf(*s) for s in SHELVES[1:]] + [app_card()])))
+            % (G.hero(), rail(), "".join([why()] + [shelf(*SHELVES[0]), ipo(), categories()] + [shelf(*s) for s in SHELVES[1:]] + [app_card()])))
 
 
 def header(page):
@@ -207,6 +229,32 @@ STYLE = """
 
 /* shelves (130:589, 130:881, 130:1259): one swipe row, 355px cards, a glimpse of the third */
 .x7s { display: grid; gap: 20px; }
+
+/* live NCD IPO: app2's card with a light purple wash (the % accent on the FD cards), status as pills, black CTA */
+.x7 .x7i .xa-head h2 { font-size: 18px; line-height: 28px; font-weight: 600; color: #322811; }
+.x7 .x7i .xb-ipo { padding: 24px; gap: 20px; border-radius: 23.4px; border: 1px solid #e9e3f2; box-shadow: none;
+  background: linear-gradient(135deg, #f4f0fa 0%, #faf8fc 40%, #fff 72%); }
+.x7 .x7i .xb-ipo__id img { border-color: #e9e3f2; }
+.x7 .x7i .xb-ipo h3 { margin-top: 8px; font-size: 18px; font-weight: 600; color: #322811; }
+.x7i__pills { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; }
+.x7i__pill { display: inline-flex; align-items: center; gap: 6px; height: 24px; padding: 0 10px; border-radius: 999px;
+  font-size: 12px; font-weight: 600; color: #5c4a7a; background: #fff; border: 1px solid #e9e3f2; white-space: nowrap; }
+.x7i__pill--live { color: #047a31; background: #e8f6ee; border-color: #cfeedc; }  /* 4.9:1 on its fill */
+.x7i__pill--live i { width: 6px; height: 6px; border-radius: 50%; background: #06963c; }
+@media (prefers-reduced-motion: no-preference) { .x7i__pill--live i { animation: xb-live 2s ease-in-out infinite; } }
+.x7 .x7i .xb-ipo__facts { border-top-color: #e9e3f2; }
+.x7 .x7i .xb-ipo__facts dt { font-size: 13px; color: var(--sub); }
+.x7 .x7i .xb-ipo__facts dd { font-size: 16px; font-weight: 600; color: #322811; }
+.x7 .x7i .xb-ipo__facts dd span { color: #472d75; }
+.x7 .x7i .xb-ipo__cta { background: #14110c; color: #fff; }
+.x7 .x7i .xb-ipo__cta:hover { background: #2a2419; }
+.x7 .x7i .xb-ipo__cta:focus-visible { outline: 2px solid #14110c; outline-offset: 2px; }
+@media (max-width: 639px) {
+  .x7 .x7i .xb-ipo { padding: 18px 16px; }
+  .x7 .x7i .xb-ipo__id { align-items: flex-start; }
+  .x7i__pill { height: 22px; padding: 0 8px; font-size: 11px; }
+  .x7 .x7i .xb-ipo h3 { font-size: 16px; }
+}
 .x7s h2, .x7c h2 { margin: 0; font-size: 18px; line-height: 28px; font-weight: 600; color: #322811; }
 .x7s__row { display: flex; gap: 20px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none;
   padding: 4px 0 10px; margin: -4px 0 -10px; }
