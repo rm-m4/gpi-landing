@@ -97,14 +97,14 @@ def ipo():
 
 # ----------------------------------------------------------------- category
 # Figma 130:590: the collections as pills, each linking to its collection page.
-CATS = [("explore-app7/cat-high-returns.png", 30, "High Returns", "collections-high-returns.html"),
-        ("high-rated-collection.png", 24, "High Rated", "collections-highly-rated.html"),
-        ("short-term.png", 30, "Short Term", "collections-short-term.html"),
-        ("explore-app7/cat-gold-backed.png", 22, "Gold Backed", "collections-gold-backed.html"),
-        ("bd5/proof-money.png", 30, "Starts &#8377;10k", "collections-starts-10k.html"),
-        ("Goverment.png", 30, "Govt Bonds", "collections-government-bonds.html"),
-        ("explore-app7/cat-monthly.png", 30, "Monthly Payout", "collections-monthly-payout.html"),
-        ("explore-app7/cat-ncd-ipo.png", 22, "NCD IPO", "collections-ncd-ipo.html")]
+CATS = [("explore-app7/cat-high-returns.png", 30, "High Returns", "collections2-high-returns.html"),
+        ("high-rated-collection.png", 24, "High Rated", "collections2-highly-rated.html"),
+        ("short-term.png", 30, "Short Term", "collections2-short-term.html"),
+        ("explore-app7/cat-gold-backed.png", 22, "Gold Backed", "collections2-gold-backed.html"),
+        ("bd5/proof-money.png", 30, "Starts &#8377;10k", "collections2-starts-10k.html"),
+        ("Goverment.png", 30, "Govt Bonds", "collections2-government-bonds.html"),
+        ("explore-app7/cat-monthly.png", 30, "Monthly Payout", "collections2-monthly-payout.html"),
+        ("explore-app7/cat-ncd-ipo.png", 22, "NCD IPO", "collections2-ncd-ipo.html")]
 
 
 def categories():

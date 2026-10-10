@@ -7,6 +7,7 @@
   FD                   -> user-fixed-deposits-app2.html
   an FD card           -> fd-details2.html
   Bond Utsav           -> bond-utsav5.html        (given the logged-in navbar)
+  a category pill      -> collections2-*.html     (logged in, built by _collections2.py)
   Portfolio, Refer & Earn: unchanged
 
 Only the pages below are rewired; every other page keeps its links. The pages
@@ -22,7 +23,8 @@ import _build as B
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 PAGES = ["user-explore-app7.html", "bond-details7.html", "ipo-details.html", "user-fixed-deposits-app2.html",
-         "fd-details2.html", "bond-utsav5.html", "portfolio.html"]
+         "fd-details2.html", "bond-utsav5.html", "portfolio.html"] + sorted(
+            f for f in os.listdir(HERE) if f.startswith("collections2-"))  # app7's category pills open these
 HREF = {"index.html": "user-explore-app7.html", "user-explore.html": "user-explore-app7.html",
         "user-corporate-bonds.html": "user-explore-app7.html", "corporate-bonds.html": "user-explore-app7.html",
         "user-fixed-deposits.html": "user-fixed-deposits-app2.html", "fixed-deposits.html": "user-fixed-deposits-app2.html",

@@ -152,6 +152,7 @@ live site uses.
 ```bash
 python3 pages/_final.py      # -> corporate-bonds.html
 python3 pages/_convert.py    # -> index, fixed-deposits, bond-ipo-online
+python3 pages/_collections2.py # -> collections2-*.html (the 11 collection pages with user-explore-app7's cards, logged in; then _build.py, _prototype.py)
 python3 pages/_utsav.py      # -> bond-utsav.html (from crawl/rendered/bond-utsav.tabs.json)
 python3 pages/_utsav_live.py # -> bond-utsav-live.html (production UI, from prod_bond-utsav.tabs.json)
 python3 pages/_profile.py    # -> profile.html, profile-no-kyc.html (content/profile.md + Figma 21:2427)
@@ -171,6 +172,7 @@ python3 pages/_fd_details2.py # -> fd-details2.html (Unity FD page, new version:
 python3 pages/_fd_app.py      # -> user-fixed-deposits-app.html (user-fixed-deposits content, explore-app design)
 python3 pages/_footer_ggn.py # -> footer-ggn-prelogin-bonds.html (prelogin-home footer + footer-bonds SEO part)
 python3 pages/_investor_resources.py # -> investor-resources.html (goldenpi.com capture, index.html shell)
+python3 pages/_premium_merged.py # -> home-premium4.html (home-premium 1, 2 and 3 stacked whole, for Figma export)
 python3 pages/_build.py      # sync header/footer across pages
 python3 pages/_prototype.py  # run LAST: wires the post-login prototype (app7, bond-details7, ipo-details, FD app2, fd-details2, bond-utsav5, portfolio)
 node crawl/check.js          # verify every page, run after any change

@@ -123,12 +123,16 @@ SCRIPTS = """
     entries.forEach(function (e) {
       if (!e.isIntersecting) return;
       io.unobserve(e.target);
-      var el = e.target, sep = el.hasAttribute('data-sep');
-      var target = Number(el.textContent.replace(/,/g, '')), t0 = null;
+      // Only the leading figure counts: a unit after it ("20<span> Lac+</span>",
+      // the logged-in footer) stays as it is.
+      var el = e.target, sep = el.hasAttribute('data-sep'), node = el.firstChild;
+      if (!node || node.nodeType !== 3) return;
+      var target = Number(node.nodeValue.replace(/,/g, '')), t0 = null;
+      if (!isFinite(target)) return;
       function step(ts) {
         if (!t0) t0 = ts;
         var p = Math.min((ts - t0) / 1200, 1);
-        el.textContent = fmt(Math.round(target * (1 - Math.pow(1 - p, 3))), sep);
+        node.nodeValue = fmt(Math.round(target * (1 - Math.pow(1 - p, 3))), sep);
         if (p < 1) requestAnimationFrame(step);
       }
       requestAnimationFrame(step);
