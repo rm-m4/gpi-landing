@@ -1,4 +1,4 @@
-"""home-premium4.html: the three home-premium concepts stacked in one page,
+"""home-premium44.html: the three home-premium concepts stacked in one page,
 every section of each, in order (1, then 2, then 3), nothing dropped or edited.
 For export to Figma, where the sections are reworked.
 
@@ -12,10 +12,10 @@ import os
 import re
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(HERE, "home-premium4.html")
+OUT = os.path.join(HERE, "home-premium44.html")
 
 BAND_CSS = """
-/* ---- home-premium4: 3's sections as one dark band (3's page ground and text) ---- */
+/* ---- home-premium44: 3's sections as one dark band (3's page ground and text) ---- */
 .h4-band { background: #0b0906; color: #c9bc9c; }
 """
 
@@ -66,7 +66,7 @@ def main():
         raise SystemExit("duplicate ids after merge: %s" % dup)
     with open(OUT, "w", encoding="utf-8") as f:
         f.write(page)
-    print("pages/home-premium4.html  %d bytes" % len(page))
+    print("pages/home-premium44.html  %d bytes" % len(page))
 
 
 if __name__ == "__main__":

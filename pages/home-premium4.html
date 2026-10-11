@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GoldenPi | The Golden Experience of Investing</title>
+<title>GoldenPi | Unveiling the Golden Experience</title>
 <!-- Converted 2026-09-26 to match corporate-bonds.html: additive
      assets/final.css only, same stack, same gp-* components. The page as
      it stood before is archived at index-old.html.
@@ -433,64 +433,9 @@
   @keyframes hp-float { 50% { transform: translateY(-8px); } }
 }
 
-/* ---- home-premium2: centered hero + bond carousel ---- */
-.h2-hero { position: relative; overflow: hidden; color: var(--hp-gold-soft);
-  background: radial-gradient(55% 60% at 0% 100%, rgba(212,175,55,.28), transparent 70%),
-              radial-gradient(45% 50% at 100% 80%, rgba(212,175,55,.16), transparent 70%),
-              linear-gradient(180deg, #0f0d0a 0%, #1f180f 55%, #3a2c14 100%); }
-.h2-head { position: relative; text-align: center; padding: clamp(48px, 6vw, 88px) 0 0; }
-.h2-head .hp-h1 { margin: 0 auto; max-width: 16ch; }
-.h2-trust { margin-top: 24px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 20px; font-size: 1.0625rem; color: var(--hp-gold-soft); }
-.h2-trust li { display: inline-flex; align-items: center; gap: 8px; }
-.h2-trust i { color: var(--hp-gold); font-size: 20px; }
-.h2-head .hp-hero__ctas { justify-content: center; }
-
-.h2-stage { position: relative; max-width: 1180px; height: 330px; margin: 56px auto 0; }
-/* cards reuse the hp-icard language: dark gradient, gold edge; the front card turns gold */
-.h2-card { position: absolute; left: 50%; top: 0; width: 460px; margin-left: -230px; padding: 28px; border-radius: 20px; color: var(--hp-gold-soft);
-  background: linear-gradient(160deg, #2a2216 0%, #17130d 100%); border: 1px solid rgba(212,175,55,.22);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 40px 80px -30px rgba(0,0,0,.7);
-  transition: transform .7s var(--hp-ease), opacity .7s var(--hp-ease); }
-.h2-card[data-pos="0"] { z-index: 3; background: linear-gradient(160deg, #e6c65c 0%, #c99d24 100%); border-color: transparent; color: var(--hp-black); }
-.h2-card[data-pos="-1"], .h2-card[data-pos="1"] { z-index: 1; opacity: .7; cursor: pointer; }
-.h2-card[data-pos="-1"] { transform: translate(-72%, 28px) scale(.88); }
-.h2-card[data-pos="1"] { transform: translate(72%, 28px) scale(.88); }
-.h2-card__top { display: flex; align-items: center; gap: 12px; }
-.h2-card__top img { width: 44px; height: 44px; border-radius: 12px; background: #fff; object-fit: contain; padding: 4px; }
-.h2-card__top b { display: block; font-size: 1.0625rem; }
-.h2-card__top span { font-size: 13px; opacity: .75; }
-.h2-card__top i { margin-left: auto; font-size: 26px; color: var(--hp-gold); }
-.h2-card[data-pos="0"] .h2-card__top i { color: var(--hp-black); }
-.h2-card__rate { margin-top: 26px; font-size: 3.5rem; line-height: 1; font-weight: 900; letter-spacing: -.03em; color: #fff; }
-.h2-card[data-pos="0"] .h2-card__rate { color: var(--hp-black); }
-.h2-card__label { margin-top: 6px; font-size: 13px; opacity: .75; }
-.h2-card__foot { margin-top: 24px; padding-top: 18px; border-top: 1px solid rgba(212,175,55,.2); display: flex; align-items: end; justify-content: space-between; gap: 16px; }
-.h2-card[data-pos="0"] .h2-card__foot { border-color: rgba(15,13,10,.18); }
-.h2-card__foot dl { display: flex; gap: 24px; }
-.h2-card__foot dt { font-size: 12px; opacity: .7; }
-.h2-card__foot dd { margin-top: 2px; font-weight: 700; white-space: nowrap; }
-.h2-card .hp-link { color: var(--hp-gold); white-space: nowrap; }
-.h2-card[data-pos="0"] .hp-link { color: var(--hp-black); }
-.h2-arrow { position: absolute; top: 135px; z-index: 4; width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; font-size: 22px;
-  background: var(--hp-black); color: #fff; border: 1px solid rgba(212,175,55,.35); transition: transform .3s var(--hp-ease), border-color .3s; }
-.h2-arrow:hover { border-color: var(--hp-gold); }
-.h2-arrow:active { transform: scale(.94); }
-.h2-arrow--prev { left: 0; } .h2-arrow--next { right: 0; }
-@media (max-width: 1023px) {
-  .h2-stage { height: auto; display: grid; grid-auto-flow: column; grid-auto-columns: min(86%, 440px); gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 0 20px 28px; margin-top: 40px; scrollbar-width: none; }
-  .h2-card, .h2-card[data-pos] { position: static; width: auto; margin: 0; transform: none; opacity: 1; scroll-snap-align: center; cursor: auto; }
-  .h2-arrow { display: none; }
-  .h2-card__foot { flex-wrap: wrap; } .h2-card__rate { font-size: 3rem; }
-}
-.h2-hero .hp-trust { margin-top: 40px; border-top-color: rgba(212,175,55,.2); }
-
-/* hero load-in: hierarchy first, then the cards */
-@media (prefers-reduced-motion: no-preference) {
-  .hp-in { animation: hp-up .9s var(--hp-ease) both; animation-delay: calc(var(--d, 0) * 90ms); }
-  @keyframes hp-up { from { opacity: 0; transform: translateY(18px); } }
-}
-@media (prefers-reduced-motion: reduce) { .hp-marquee ul { animation: none; } }
 /* ---- home-premium3: the app's store storyline, one dark theme throughout ---- */
+body.h3-page { background: #0b0906; }
+.h3-page main { color: #c9bc9c; }
 .h3-h2 { font-size: clamp(2.1rem, 4.4vw, 3.6rem); line-height: 1.04; letter-spacing: -.035em; font-weight: 900; color: #fff; max-width: 17ch; }
 .h3-h2 em, .h3-h1 em { font-style: normal; background: linear-gradient(100deg, #f7e4a1 0%, #d4af37 45%, #b8902c 70%, #f1d77e 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
 .h3-lead { margin-top: 18px; font-size: 1.0625rem; line-height: 1.65; color: #a99c7e; max-width: 50ch; }
@@ -563,6 +508,16 @@
 .reveal-ready .h3-fan .h3-metal:nth-child(3) { transform: translateY(-290px) rotate(-3deg); }
 .reveal-ready .h3-fan.is-in .h3-metal:nth-child(2) { transform: rotate(4deg) translateX(30px); transition-delay: .15s; }
 .reveal-ready .h3-fan.is-in .h3-metal:nth-child(3) { transform: rotate(-2deg) translateX(-24px); transition-delay: .3s; }
+/* home-premium4: the three cards sit in the hero, spaced so every name and rate shows. */
+.h3-hero .h3-fan { height: 610px; }
+.h3-hero .h3-fan .h3-metal:nth-child(1) { top: 0; }
+.h3-hero .h3-fan .h3-metal:nth-child(2) { top: 205px; }
+.h3-hero .h3-fan .h3-metal:nth-child(3) { top: 410px; }
+.reveal-ready .h3-hero .h3-fan .h3-metal:nth-child(2) { transform: translateY(-205px) rotate(-3deg); }
+.reveal-ready .h3-hero .h3-fan .h3-metal:nth-child(3) { transform: translateY(-410px) rotate(-3deg); }
+.reveal-ready .h3-hero .h3-fan.is-in .h3-metal:nth-child(2) { transform: rotate(4deg) translateX(30px); }
+.reveal-ready .h3-hero .h3-fan.is-in .h3-metal:nth-child(3) { transform: rotate(-2deg) translateX(-24px); }
+@media (max-width: 1023px) { .h3-hero .h3-fan { height: 590px; } .h3-hero .h3-fan .h3-metal:nth-child(2) { top: 195px; } .h3-hero .h3-fan .h3-metal:nth-child(3) { top: 390px; } }
 
 /* ---- chapter 3: the personalised homepage ---- */
 .h3-tiles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
@@ -612,6 +567,38 @@
 /* ---- why: bento from the store description ---- */
 .h3-bento { margin-top: 56px; display: grid; gap: 14px; }
 @media (min-width: 900px) { .h3-bento { grid-template-columns: 1.3fr 1fr 1fr; grid-template-rows: auto auto; } .h3-cell--big { grid-row: span 2; } .h3-cell--wide { grid-column: span 2; } }
+/* home-premium4: why bonds. The ladder sits on the page's dark card; GoldenPi's two
+   rows take the headline gold, the others stay smoke. Bars have no track behind them. */
+.h4-ledger { padding: clamp(24px, 3vw, 40px); border-radius: 22px; border: 1px solid rgba(212,175,55,.16);
+  background: radial-gradient(70% 60% at 100% 100%, rgba(212,175,55,.14), transparent 65%), #14110c; box-shadow: 0 40px 80px -40px rgba(0,0,0,.8); }
+.h4-ledger figcaption { color: #a99c7e; font-size: 14px; }
+.h4-ledger figcaption b { display: block; margin-bottom: 4px; color: #fff; font-size: 1.25rem; font-weight: 700; }
+.h4-ledger ol { display: grid; grid-template-columns: max-content 1fr; align-items: center; gap: 14px 20px; margin-top: 32px; }
+
+/* One shared label column for every row, so the bars all start on the same line. */
+.h4-ledger li { display: contents; color: #a99c7e; font-size: 15px; }
+.h4-ledger li > span:first-child { align-self: center; color: #a99c7e; font-size: 15px; }
+.h4-track { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.h4-amt { flex: none; color: #e9dfc6; font-size: 15px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.h4-bar--gold + .h4-amt { color: #ecd27f; }
+.h4-bar { flex: none; width: calc((100% - 64px) * var(--f)); min-width: 96px; padding: 14px 18px; border-radius: 14px; text-align: right; font-weight: 700; color: #e9dfc6; background: rgba(255,255,255,.07); font-variant-numeric: tabular-nums; }
+@media (max-width: 479px) {
+  .h4-ledger ol { grid-template-columns: 84px 1fr; gap: 12px 12px; }
+  .h4-ledger li > span:first-child { font-size: 13px; line-height: 1.3; }
+  .h4-track { gap: 8px; }
+  .h4-amt { font-size: 13px; }
+  .h4-bar { width: calc((100% - 54px) * var(--f)); min-width: 64px; padding: 11px 10px; font-size: 13px; }
+}
+.h4-bar--gold { color: #1a1408; background: linear-gradient(100deg, #f7e4a1 0%, #d4af37 45%, #b8902c 75%, #e9c96a 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,.4); }
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-ready .h4-ledger .h4-bar { clip-path: inset(0 100% 0 0 round 14px); transition: clip-path 1.1s var(--hp-ease); transition-delay: calc(.2s + var(--i) * .14s); }
+  .reveal-ready .h4-ledger.is-in .h4-bar { clip-path: inset(0 0 0 0 round 14px); }
+}
+.h4-points { display: grid; gap: 28px; margin-top: 40px; }
+@media (min-width: 640px) { .h4-points { grid-template-columns: 1fr 1fr; gap: 32px; } }
+.h4-points i { display: grid; place-items: center; width: 48px; height: 48px; margin-bottom: 18px; border-radius: 999px; border: 1px solid rgba(212,175,55,.4); color: var(--hp-gold); font-size: 22px; }
+.h4-points h3 { color: #fff; font-size: 1.25rem; font-weight: 700; }
+.h4-points p { margin-top: 8px; color: #a99c7e; line-height: 1.6; }
 .h3-cell { position: relative; overflow: hidden; padding: 30px; border-radius: 22px; border: 1px solid rgba(212,175,55,.16); background: #14110c; }
 .h3-cell h3 { font-size: 1.25rem; font-weight: 700; color: #fff; }
 .h3-cell p { margin-top: 8px; line-height: 1.6; color: #a99c7e; max-width: 44ch; }
@@ -648,6 +635,11 @@
 .h3-finale::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(40% 55% at 50% 30%, rgba(212,175,55,.25), transparent 70%); }
 .h3-finale > * { position: relative; }
 .h3-finale__icon { width: 180px; height: 180px; margin: 0 auto; border-radius: 40px; box-shadow: 0 30px 80px -20px rgba(212,175,55,.35); }
+/* home-premium4: the app icon set into the QR card, as one mark. */
+.h4-mark { position: relative; width: 200px; margin: 0 auto; }
+.h4-mark__qr { display: block; width: 100%; height: auto; border-radius: 22px; box-shadow: 0 30px 80px -20px rgba(212,175,55,.45); }
+.h4-mark__icon { position: absolute; left: 50%; top: 50%; width: 64px; height: 64px; margin: -32px 0 0 -32px; border-radius: 16px; border: 4px solid #fff; box-shadow: 0 8px 20px rgba(0,0,0,.35); }
+@media (max-width: 767px) { .h4-mark { width: 168px; } .h4-mark__icon { width: 54px; height: 54px; margin: -27px 0 0 -27px; } }
 .h3-finale .h3-h2 { margin: 36px auto 0; }
 .h3-finale .h3-lead { margin: 18px auto 0; }
 .h3-get { margin-top: 40px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 16px; }
@@ -668,9 +660,83 @@
   @keyframes hp-up { from { opacity: 0; transform: translateY(18px); } }
 }
 @media (prefers-reduced-motion: reduce) { .hp-marquee ul { animation: none; } }
+/* home-premium4, phones only (under 768px): tighter type and spacing, and the
+   card groups become swipe rows that bleed to the screen edge. Desktop is untouched. */
+@media (max-width: 767px) {
+  .h3-sec { padding: 64px 0; }
+  .h3-h1 { font-size: 2.15rem; }
+  .h3-h2 { font-size: 1.85rem; }
+  .h3-lead { font-size: 15px; margin-top: 14px; }
+  .h3-triad { margin-top: 16px; font-size: 1rem; }
+  .h3-hero__grid { gap: 32px; padding: 40px 0 28px; }
 
-/* ---- home-premium4: 3's sections as one dark band (3's page ground and text) ---- */
-.h4-band { background: #0b0906; color: #c9bc9c; }
+  /* swipe rows */
+  .h3-hero .h3-fan, .h3-bento, .h3-voices {
+    display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
+    margin-inline: -20px; padding: 6px 20px 18px; scroll-padding-inline: 20px;
+  }
+  .h3-hero .h3-fan::-webkit-scrollbar, .h3-bento::-webkit-scrollbar, .h3-voices::-webkit-scrollbar { display: none; }
+
+  /* hero cards: flat, side by side */
+  .h3-hero .h3-fan { height: auto; }
+  .h3-hero .h3-fan .h3-metal:nth-child(n),
+  .reveal-ready .h3-hero .h3-fan .h3-metal:nth-child(n),
+  .reveal-ready .h3-hero .h3-fan.is-in .h3-metal:nth-child(n) {
+    position: relative; top: auto; left: auto; flex: none; width: 82%; max-width: 330px; margin: 0; padding: 20px; transform: none; scroll-snap-align: start;
+  }
+
+  /* credentials: one row of figures, badges below */
+  .h3-creds { grid-template-columns: repeat(3, auto); justify-content: space-between; gap: 20px 12px; padding: 24px 0 36px; }
+  .h3-creds dt { font-size: 1.4rem; }
+  .h3-creds dd { font-size: 10px; }
+  .h3-medals { grid-column: 1 / -1; }
+  .h3-medal { padding: 8px 14px 8px 10px; }
+  .h3-medal i { font-size: 22px; }
+
+  /* why bonds: heading first, chart after */
+  .h3-split { gap: 36px; }
+  .h4-ledger { order: 2; padding: 20px; }
+  .h4-ledger figcaption b { font-size: 1.1rem; }
+  .h4-ledger ol { margin-top: 22px; }
+  .h4-points { margin-top: 28px; gap: 20px; }
+  .h4-points li { display: grid; grid-template-columns: 40px 1fr; column-gap: 14px; }
+  .h4-points i { grid-row: span 2; width: 40px; height: 40px; margin: 0; font-size: 18px; }
+  .h4-points h3 { font-size: 1.05rem; }
+  .h4-points p { margin-top: 4px; font-size: 14px; }
+
+  /* why GoldenPi: four cards in one swipe row */
+  .h3-bento { margin-top: 32px; align-items: stretch; }
+  .h3-bento .h3-cell { flex: none; width: 78%; padding: 22px; scroll-snap-align: start; }
+  .h3-cell--big { min-height: 0; }
+  .h3-cell--big .h3-big { font-size: 4.5rem; }
+  .h3-cell--big h3 { font-size: 1.2rem; }
+  .h3-cell h3 { font-size: 1.1rem; }
+  .h3-cell p { font-size: 14px; }
+  .h3-cell i { font-size: 26px; margin-bottom: 14px; }
+
+  /* 24x7: the two features side by side */
+  .h3-feats { grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 28px; }
+  .h3-feats li { padding: 16px; }
+  .h3-feats b { font-size: 1rem; margin-top: 8px; }
+  .h3-feats span { font-size: 13px; }
+
+  /* reviews: one swipe row */
+  .h3-voices { margin-top: 32px; }
+  .h3-voice { flex: none; width: 84%; padding: 22px; scroll-snap-align: start; }
+  .h3-voice--lead { gap: 20px; }
+  .h3-voice--lead blockquote { font-size: 1.2rem; }
+  .h3-voice blockquote { font-size: 1rem; }
+
+  /* app */
+  .h3-finale { padding: 72px 0 64px; }
+  .h4-mark { width: 148px; }
+  .h4-mark__icon { width: 48px; height: 48px; margin: -24px 0 0 -24px; border-width: 3px; }
+  .h3-finale .h3-h2 { margin-top: 28px; }
+  .h3-get { gap: 10px; margin-top: 28px; flex-wrap: nowrap; }
+  .h3-play { height: 52px; padding: 0 16px; gap: 8px; }
+  .h3-play i { font-size: 22px; }
+  .h3-play b { font-size: 15px; }
+}
 </style>
 <!-- ggn-footer: styles; pages/_build.py -->
 <style>
@@ -1006,24 +1072,16 @@
 </style>
 <!-- ggn-footer: /styles; pages/_build.py -->
 </head>
-<body>
+<body class="h3-page">
 
 <a class="gp-skip" href="#main-content">Skip to main content</a>
 
-<!-- ============================================================== header: logo + CTA only -->
+<!-- ============================================================== header -->
 <div class="nb-slot">
-<header class="nb nb--dark nb--plain nb--micons" data-v="plain-dark-guest">
+<header class="nb nb--bare nb--dark nb--plain nb--micons" data-v="plain-dark-guest">
   <div class="gp-shell nb__inner">
     <a class="nb__logo" href="index.html"><img src="../assets/img/goldenpi-logo-white.svg" alt="GoldenPi" width="132" height="30"></a>
-    <nav class="nb__nav" aria-label="Primary">
-        <a class="nb__link" href="corporate-bonds.html"><span class="nb-ic" style="--i: url(../assets/img/header-nav-bonds.svg)" aria-hidden="true"></span><span>Bonds</span></a>
-        <a class="nb__link" href="fixed-deposits.html"><span class="nb-ic" style="--i: url(../assets/img/header-nav-fd.svg)" aria-hidden="true"></span><span>FD</span></a>
-        <a class="nb__link" href="bond-utsav.html"><img class="nb-ic" src="../assets/img/header-nav-bond-utsav.svg" alt=""><span>Bond Utsav</span></a>
-        <a class="nb__link" href="refer-and-earn.html"><span class="nb-ic" style="--i: url(../assets/img/header-nav-ref-earn.svg)" aria-hidden="true"></span><span>Refer &amp; Earn</span></a>
-    </nav>
-    <div class="nb__search"><span class="nb-ic" style="--i: url(../assets/img/header-search.svg)" aria-hidden="true"></span><span>Search for bonds, FD or IPO</span></div>
     <div class="nb__actions">
-      <button type="button" class="nb__btn nb__search-btn" aria-label="Search"><span class="nb-ic" style="--i: url(../assets/img/header-search.svg)" aria-hidden="true"></span></button>
       <button type="button" class="gp-cta gp-cta--primary nb__login"><span>Login / Sign up</span></button>
     </div>
   </div>
@@ -1032,467 +1090,42 @@
 
 <main id="main-content">
 
-  <!-- COPY: headlines, descriptions and reasons on this page are new marketing copy
-       written for this concept, not captured from the live site. Rates, issuers,
-       stats, reviews and the risk line come from index.html's dated snapshot. -->
-
-  <!-- ============================================================== hero -->
-  <section class="hp-hero" aria-labelledby="hp-title">
-    <div class="hp-shell">
-      <div class="hp-hero__grid">
-        <div>
-          <p class="hp-badge hp-in"><i class="ph ph-seal-check" aria-hidden="true"></i>SEBI registered Debt Broker &middot; OBPP license holder</p>
-          <h1 class="hp-h1 hp-in" style="--d:1" id="hp-title">The <em>golden</em> experience of investing.</h1>
-          <p class="hp-hero__sub hp-in" style="--d:2">Corporate bonds, fixed deposits and NCD IPOs, researched for you and ready to buy in minutes. Fixed returns up to 13.8%.</p>
-          <div class="hp-hero__ctas hp-in" style="--d:3">
-            <a class="hp-btn hp-btn--gold" href="signup.html">Start investing <i class="ph-bold ph-arrow-right" aria-hidden="true"></i></a>
-            <a class="hp-btn hp-btn--ghost" href="corporate-bonds.html">Explore bonds</a>
-          </div>
-        </div>
-
-        <!-- DATA: one live listing per instrument, same snapshot as index.html. -->
-        <div class="hp-fan hp-in" style="--d:4" role="list" aria-label="Featured investments">
-          <a class="hp-icard" role="listitem" href="fixed-deposits.html">
-            <div class="hp-icard__top">Fixed Deposits <i class="ph ph-vault" aria-hidden="true"></i></div>
-            <p class="hp-icard__rate">8.5%</p>
-            <p class="hp-icard__label">Highest returns p.a.</p>
-            <div class="hp-icard__issuer"><img src="../assets/img/GPID105192.Unity.png" alt="" width="36" height="36"><div><b>Unity Small Finance Bank</b>Insured upto &#8377;5L</div></div>
-          </a>
-          <a class="hp-icard" role="listitem" href="corporate-bonds.html">
-            <div class="hp-icard__top">Corporate Bonds <i class="ph ph-certificate" aria-hidden="true"></i></div>
-            <p class="hp-icard__rate">13.00%</p>
-            <p class="hp-icard__label">Returns, paid monthly</p>
-            <div class="hp-icard__issuer"><img src="../assets/img/GPID102720.AKARA-CAPITAL-ADVISORS-PRIVATE-LIMITED-2x.png" alt="" width="36" height="36"><div><b>Akara</b>ACUITE BBB+ &middot; 3-Dec-2027</div></div>
-          </a>
-          <a class="hp-icard" role="listitem" href="bond-ipo-online.html">
-            <div class="hp-icard__top">NCD IPOs <i class="ph ph-rocket-launch" aria-hidden="true"></i></div>
-            <p class="hp-icard__rate">10.00%</p>
-            <p class="hp-icard__label">Returns, apply at issue</p>
-            <div class="hp-icard__issuer"><img src="../assets/img/GPID100778.EDELWEISS-FINANCIAL-SERVICES-LIMITED.png" alt="" width="36" height="36"><div><b>Edelweiss Financial Services</b>Live NCD IPO</div></div>
-          </a>
-        </div>
-      </div>
-    </div>
-
-  </section>
-
-  <!-- ======================================================= instruments -->
-  <section class="hp-sec" aria-labelledby="hp-assets">
-    <div class="hp-shell">
-      <h2 data-reveal class="hp-h2" id="hp-assets">Three instruments. One golden account.</h2>
-      <p data-reveal class="hp-lead">Everything fixed income, under one login and one KYC. Pick the payout, the tenure and the risk you are comfortable with.</p>
-
-      <div class="hp-bento">
-        <a data-reveal class="hp-tile hp-tile--bonds" href="corporate-bonds.html">
-          <span class="hp-tile__icon"><i class="ph ph-certificate" aria-hidden="true"></i></span>
-          <h3>Corporate Bonds</h3>
-          <p>Lend to established Indian companies and collect fixed interest on a schedule you choose. Every bond is credit rated, every cash flow shown upfront.</p>
-          <dl class="hp-tile__facts">
-            <div><dt>13.8%</dt><dd>Returns, up to</dd></div>
-            <div><dt>Monthly</dt><dd>Payouts available</dd></div>
-            <div><dt>A or above</dt><dd>Highly rated picks</dd></div>
-          </dl>
-          <span class="hp-link">Explore bonds <i class="ph-bold ph-arrow-right" aria-hidden="true"></i></span>
-        </a>
-        <a data-reveal class="hp-tile hp-tile--fd" href="fixed-deposits.html">
-          <span class="hp-tile__icon"><i class="ph ph-vault" aria-hidden="true"></i></span>
-          <h3>Fixed Deposits</h3>
-          <p>Book FDs with leading small finance banks and NBFCs, without opening a new bank account.</p>
-          <dl class="hp-tile__facts">
-            <div><dt>8.5%</dt><dd>Highest returns</dd></div>
-            <div><dt>&#8377;5L</dt><dd>Insured upto</dd></div>
-          </dl>
-          <span class="hp-link">Explore FDs <i class="ph-bold ph-arrow-right" aria-hidden="true"></i></span>
-        </a>
-        <a data-reveal class="hp-tile hp-tile--ipo" href="bond-ipo-online.html">
-          <span class="hp-tile__live">Live now</span>
-          <span class="hp-tile__icon"><i class="ph ph-rocket-launch" aria-hidden="true"></i></span>
-          <h3>NCD IPOs</h3>
-          <p>Apply to new bond issues at face value, straight into your demat, before they list.</p>
-          <span class="hp-link">See open IPOs <i class="ph-bold ph-arrow-right" aria-hidden="true"></i></span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================= why bonds -->
-  <section class="hp-sec pt-0" aria-labelledby="hp-whybonds">
-    <div class="hp-shell hp-why">
-      <!-- DATA: savings and bank FD rows are indicative market rates, not GoldenPi
-           listings; the two gold rows are the snapshot highs from index.html. -->
-      <figure data-reveal class="hp-ladder">
-        <h3>What &#8377;1 lakh can earn in a year</h3>
-        <small>Indicative annual rates, before tax</small>
-        <ol>
-          <li>Savings account<span class="hp-bar" style="--w:22%">2.7%</span></li>
-          <li>Large bank FD<span class="hp-bar" style="--w:52%">6.5%</span></li>
-          <li>FDs on GoldenPi<span class="hp-bar hp-bar--gold" style="--w:68%">8.5%</span></li>
-          <li>Bonds on GoldenPi<span class="hp-bar hp-bar--gold" style="--w:100%">13.8%</span></li>
-        </ol>
-      </figure>
-      <div>
-        <h2 data-reveal class="hp-h2" id="hp-whybonds">Why bonds belong in your portfolio.</h2>
-        <p data-reveal class="hp-lead">Bonds sit between the safety of a deposit and the growth of equity. You know what you will earn, and when, on the day you invest.</p>
-        <ul data-reveal class="hp-points">
-          <li><i class="ph ph-calendar-check" aria-hidden="true"></i><b>Predictable income</b><span>Interest lands on fixed dates, monthly to yearly.</span></li>
-          <li><i class="ph ph-trend-up" aria-hidden="true"></i><b>Higher than FDs</b><span>Rated corporate debt typically pays a premium over bank deposits.</span></li>
-          <li><i class="ph ph-waves" aria-hidden="true"></i><b>Steadier than stocks</b><span>Returns are set at purchase, not by daily market moods.</span></li>
-          <li><i class="ph ph-chart-pie-slice" aria-hidden="true"></i><b>Real diversification</b><span>Spread across issuers, ratings and maturities.</span></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ====================================================== why goldenpi -->
-  <section class="hp-sec pt-0" aria-labelledby="hp-whygp">
-    <div class="hp-shell hp-sticky">
-      <div class="hp-sticky__head">
-        <h2 data-reveal class="hp-h2" id="hp-whygp">Why 18 lakh investors choose GoldenPi.</h2>
-        <p data-reveal class="hp-lead">India&rsquo;s fixed income desk, rebuilt for the individual investor.</p>
-      </div>
-      <div class="hp-reasons">
-        <article data-reveal class="hp-reason"><i class="ph ph-shield-check" aria-hidden="true"></i><div><h3>Regulated, end to end</h3><p>A SEBI registered debt broker and OBPP license holder. Your bonds settle into your own demat account, in your name.</p></div></article>
-        <article data-reveal class="hp-reason"><i class="ph ph-magnifying-glass" aria-hidden="true"></i><div><h3>Research you can read</h3><p>Ratings, financials and issuer notes in plain language, so you know what you own before you buy it.</p></div></article>
-        <article data-reveal class="hp-reason"><i class="ph ph-receipt" aria-hidden="true"></i><div><h3>Every rupee shown upfront</h3><p>See yield, accrued interest and the full cash flow schedule on one screen before you pay.</p></div></article>
-        <article data-reveal class="hp-reason"><i class="ph ph-headset" aria-hidden="true"></i><div><h3>People, not just a portal</h3><p>Fixed income specialists on call for KYC, settlement and the questions in between.</p></div></article>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================== numbers -->
-  <!-- DATA: platform milestones, same figures as index.html. -->
-  <section class="hp-shell" aria-label="GoldenPi in numbers">
-    <dl data-reveal class="hp-stats">
-      <div><dt>18 <small>Lac+</small></dt><dd>registered users &amp; growing</dd></div>
-      <div><dt>&#8377;6300 <small>Cr+</small></dt><dd>total transaction through our platform</dd></div>
-      <div><dt>&#8377;3000 <small>Cr+</small></dt><dd>worth of bonds available on the platform everyday</dd></div>
-    </dl>
-  </section>
-
-  <!-- ====================================================== how it works -->
-  <section class="hp-sec" aria-labelledby="hp-how">
-    <div class="hp-shell">
-      <h2 data-reveal class="hp-h2" id="hp-how">From sign up to first payout.</h2>
-      <ol data-reveal class="hp-steps">
-        <li class="hp-step"><span class="hp-step__dot"><i class="ph ph-identification-card" aria-hidden="true"></i></span><h3>Complete your KYC</h3><p>PAN, Aadhaar and bank details. Done online in a few minutes.</p></li>
-        <li class="hp-step"><span class="hp-step__dot"><i class="ph ph-hand-pointing" aria-hidden="true"></i></span><h3>Choose what fits</h3><p>Filter by returns, rating, payout and tenure, then invest with UPI or net banking.</p></li>
-        <li class="hp-step"><span class="hp-step__dot"><i class="ph ph-coins" aria-hidden="true"></i></span><h3>Collect your payouts</h3><p>Interest and principal arrive in your bank account on schedule.</p></li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- ====================================================== download app -->
-  <section class="hp-shell pb-24" aria-labelledby="hp-app">
-    <div data-reveal class="hp-app">
-      <div>
-        <h2 class="hp-h2" id="hp-app">GoldenPi, in your pocket.</h2>
-        <p class="hp-lead">Browse, invest and track every payout from your phone. New issues reach you the moment they open.</p>
-        <ul class="hp-app__feats">
-          <li><i class="ph ph-bell-ringing" aria-hidden="true"></i>Alerts the moment an NCD IPO opens</li>
-          <li><i class="ph ph-wallet" aria-hidden="true"></i>Every holding and payout date in one view</li>
-          <li><i class="ph ph-lightning" aria-hidden="true"></i>Invest with UPI in a few taps</li>
-        </ul>
-        <div class="hp-app__get">
-          <div class="hp-qr"><img src="../assets/img/mobile-app-qr.svg" alt="QR code to download the GoldenPi app" width="92" height="92"><p><b>Download App</b>Scan to download GoldenPi app and get voucher</p></div>
-          <!-- TODO: store URLs were not in the crawl; make these links once captured. -->
-          <div class="hp-stores">
-            <span class="hp-store"><i class="ph-fill ph-apple-logo" aria-hidden="true"></i><span>Download on the<b>App Store</b></span></span>
-            <span class="hp-store"><i class="ph-fill ph-google-play-logo" aria-hidden="true"></i><span>Get it on<b>Google Play</b></span></span>
-          </div>
-        </div>
-      </div>
-
-      <!-- DATA: phone rows are the index.html snapshot; the toast amount is illustrative. -->
-      <div class="hp-phone-wrap" aria-hidden="true">
-        <div class="hp-phone"><div class="hp-phone__screen">
-          <div class="hp-phone__bar"><img src="../assets/img/goldenpi-logo.svg" alt=""><i class="ph ph-bell"></i></div>
-          <div class="hp-phone__hello">Fixed returns up to<b>13.8% p.a.</b></div>
-          <h4>Top picks today</h4>
-          <div class="hp-phone__rows">
-            <div class="hp-phone__row"><img src="../assets/img/GPID102720.AKARA-CAPITAL-ADVISORS-PRIVATE-LIMITED-2x.png" alt=""><span><b>Akara</b>Bond, monthly</span><strong>13.00%</strong></div>
-            <div class="hp-phone__row"><img src="../assets/img/GPID100778.EDELWEISS-FINANCIAL-SERVICES-LIMITED.png" alt=""><span><b>Edelweiss</b>NCD IPO</span><strong>10.00%</strong></div>
-            <div class="hp-phone__row"><img src="../assets/img/GPID100936.MUTHOOT-FINCORP-LIMITED_1-2x.png" alt=""><span><b>Muthoot Fincorp</b>NCD IPO</span><strong>9.25%</strong></div>
-            <div class="hp-phone__row"><img src="../assets/img/GPID105192.Unity.png" alt=""><span><b>Unity SFB</b>Fixed deposit</span><strong>8.5%</strong></div>
-          </div>
-        </div></div>
-        <div class="hp-toast"><i class="ph-bold ph-arrow-down-left"></i><span><b>&#8377;1,083 credited</b>Monthly interest, Akara</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================== reviews -->
-  <section class="hp-sec pt-0" aria-labelledby="hp-reviews">
-    <div class="hp-shell">
-      <h2 data-reveal class="hp-h2" id="hp-reviews">Happy users</h2>
-      <!-- DATA: reviews, same set as index.html. -->
-      <div class="hp-reviews">
-        <div data-reveal class="hp-review hp-review--feature"><p>18 Lac+</p><p>registered users &amp; growing, from first time savers to seasoned bond investors.</p></div>
-        <figure data-reveal class="hp-review"><div class="hp-review__stars" aria-label="5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>GoldenPi made bond investing simple and transparent. I could compare yields and complete everything online.</blockquote><figcaption><span aria-hidden="true">A</span><b>Ankit Sharma</b></figcaption></figure>
-        <figure data-reveal class="hp-review"><div class="hp-review__stars" aria-label="5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>Clear listings and support when I needed help with KYC. Fixed income finally feels accessible.</blockquote><figcaption><span aria-hidden="true">P</span><b>Priya Nair</b></figcaption></figure>
-        <figure data-reveal class="hp-review"><div class="hp-review__stars" aria-label="5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>I started with NCD IPOs and now use GoldenPi for secondary bonds too. Smooth experience overall.</blockquote><figcaption><span aria-hidden="true">R</span><b>Rahul Mehta</b></figcaption></figure>
-        <figure data-reveal class="hp-review"><div class="hp-review__stars" aria-label="5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>The collections helped me shortlist bonds that match my goals without wading through noise.</blockquote><figcaption><span aria-hidden="true">S</span><b>Sneha Kapoor</b></figcaption></figure>
-        <figure data-reveal class="hp-review"><div class="hp-review__stars" aria-label="5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>Reliable platform with SEBI registration. That trust factor mattered before I invested.</blockquote><figcaption><span aria-hidden="true">V</span><b>Vikram Joshi</b></figcaption></figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======================================================= closing CTA -->
-  <section class="hp-shell pb-24" aria-labelledby="hp-cta">
-    <div data-reveal class="hp-cta">
-      <h2 id="hp-cta">Put your money on a fixed, golden path.</h2>
-      <p>Open your account today and make your first fixed income investment in minutes.</p>
-      <a class="hp-btn hp-btn--gold" href="signup.html">Start investing <i class="ph-bold ph-arrow-right" aria-hidden="true"></i></a>
-    </div>
-    <p class="hp-risk">Investments in corporate debt securities and municipal debt securities/securitized debt instruments are subject to credit risks, market risks, and default risks, including delay and/or default in payment.</p>
-  </section>
-
-
-  <!-- COPY: headlines, descriptions and reasons on this page are new marketing copy
-       written for this concept, not captured from the live site. Rates, issuers,
-       stats, reviews and the risk line come from index.html's dated snapshot. -->
-
-  <!-- ============================================================== hero -->
-  <section class="h2-hero" aria-labelledby="hp-title-2">
-    <div class="hp-shell h2-head">
-      <h2 class="hp-h1 hp-in" style="--d:1" id="hp-title-2">The <em>golden</em> experience of investing.</h2>
-      <ul class="h2-trust hp-in" style="--d:2" role="list">
-        <li><i class="ph-fill ph-seal-check" aria-hidden="true"></i>SEBI registered Debt Broker</li>
-        <li><i class="ph-fill ph-seal-check" aria-hidden="true"></i>OBPP license holder</li>
-        <li><i class="ph-fill ph-seal-check" aria-hidden="true"></i>Fixed returns up to 13.8%</li>
-      </ul>
-      <div class="hp-hero__ctas hp-in" style="--d:3">
-        <a class="hp-btn hp-btn--gold" href="signup.html">Start investing <i class="ph-bold ph-arrow-right" aria-hidden="true"></i></a>
-        <a class="hp-btn hp-btn--ghost" href="corporate-bonds.html">Explore bonds</a>
-      </div>
-    </div>
-
-    <!-- DATA: top 3 Bond Utsav deals, index.html snapshot 2026-09-25. -->
-    <div class="h2-stage hp-in" style="--d:4" role="region" aria-roledescription="carousel" aria-label="Top bonds">
-      <button type="button" class="h2-arrow h2-arrow--prev" aria-label="Previous bond"><i class="ph-bold ph-caret-left" aria-hidden="true"></i></button>
-      <article class="h2-card" data-pos="-1">
-        <div class="h2-card__top"><img src="../assets/img/GPID104095.Neogrowth-new-logo-1-.jpg" alt=""><div><b>NeoGrowth</b><span>Bond Utsav deal</span></div><i class="ph ph-certificate" aria-hidden="true"></i></div>
-        <p class="h2-card__rate">13.00%</p>
-        <p class="h2-card__label">Returns, ICRA BBB</p>
-        <div class="h2-card__foot">
-          <dl><div><dt>Payout</dt><dd>Half Yearly</dd></div><div><dt>Maturity Date</dt><dd>30-Apr-2028</dd></div></dl>
-          <a class="hp-link" href="https://uatnew.goldenpi.com/bonds/GPID107371/neogrowth-1300-bond-yield?src=view_details&amp;tenureDate=30-Apr-2028" aria-label="Know more about NEOGROWTH">Know more <i class="ph-bold ph-arrow-right" aria-hidden="true"></i></a>
-        </div>
-      </article>
-      <article class="h2-card" data-pos="0">
-        <div class="h2-card__top"><img src="../assets/img/GPID102720.AKARA-CAPITAL-ADVISORS-PRIVATE-LIMITED-2x.png" alt=""><div><b>Akara</b><span>Bond Utsav deal</span></div><i class="ph ph-certificate" aria-hidden="true"></i></div>
-        <p class="h2-card__rate">13.00%</p>
-        <p class="h2-card__label">Returns, ACUITE BBB+</p>
-        <div class="h2-card__foot">
-          <dl><div><dt>Payout</dt><dd>Monthly</dd></div><div><dt>Maturity Date</dt><dd>3-Dec-2027</dd></div></dl>
-          <a class="hp-link" href="https://uatnew.goldenpi.com/bonds/GPID107435/akara-1300-bond-yield?src=view_details&amp;tenureDate=03-Dec-2027" aria-label="Know more about AKARA">Know more <i class="ph-bold ph-arrow-right" aria-hidden="true"></i></a>
-        </div>
-      </article>
-      <article class="h2-card" data-pos="1">
-        <div class="h2-card__top"><img src="../assets/img/GPID107347.Best-Capital.png" alt=""><div><b>Best Capital</b><span>Bond Utsav deal</span></div><i class="ph ph-certificate" aria-hidden="true"></i></div>
-        <p class="h2-card__rate">13.00%</p>
-        <p class="h2-card__label">Returns, IVR BBB</p>
-        <div class="h2-card__foot">
-          <dl><div><dt>Payout</dt><dd>Monthly</dd></div><div><dt>Maturity Date</dt><dd>11-Sep-2029</dd></div></dl>
-          <a class="hp-link" href="https://uatnew.goldenpi.com/bonds/GPID107433/best-capital-1300-bond-yield?src=view_details&amp;tenureDate=11-Sep-2029" aria-label="Know more about BEST CAPITAL">Know more <i class="ph-bold ph-arrow-right" aria-hidden="true"></i></a>
-        </div>
-      </article>
-      <button type="button" class="h2-arrow h2-arrow--next" aria-label="Next bond"><i class="ph-bold ph-caret-right" aria-hidden="true"></i></button>
-    </div>
-
-  </section>
-
-  <!-- ======================================================= instruments -->
-  <section class="hp-sec" aria-labelledby="hp-assets-2">
-    <div class="hp-shell">
-      <h2 data-reveal class="hp-h2" id="hp-assets-2">Three instruments. One golden account.</h2>
-      <p data-reveal class="hp-lead">Everything fixed income, under one login and one KYC. Pick the payout, the tenure and the risk you are comfortable with.</p>
-
-      <div class="hp-bento">
-        <a data-reveal class="hp-tile hp-tile--bonds" href="corporate-bonds.html">
-          <span class="hp-tile__icon"><i class="ph ph-certificate" aria-hidden="true"></i></span>
-          <h3>Corporate Bonds</h3>
-          <p>Lend to established Indian companies and collect fixed interest on a schedule you choose. Every bond is credit rated, every cash flow shown upfront.</p>
-          <dl class="hp-tile__facts">
-            <div><dt>13.8%</dt><dd>Returns, up to</dd></div>
-            <div><dt>Monthly</dt><dd>Payouts available</dd></div>
-            <div><dt>A or above</dt><dd>Highly rated picks</dd></div>
-          </dl>
-          <span class="hp-link">Explore bonds <i class="ph-bold ph-arrow-right" aria-hidden="true"></i></span>
-        </a>
-        <a data-reveal class="hp-tile hp-tile--fd" href="fixed-deposits.html">
-          <span class="hp-tile__icon"><i class="ph ph-vault" aria-hidden="true"></i></span>
-          <h3>Fixed Deposits</h3>
-          <p>Book FDs with leading small finance banks and NBFCs, without opening a new bank account.</p>
-          <dl class="hp-tile__facts">
-            <div><dt>8.5%</dt><dd>Highest returns</dd></div>
-            <div><dt>&#8377;5L</dt><dd>Insured upto</dd></div>
-          </dl>
-          <span class="hp-link">Explore FDs <i class="ph-bold ph-arrow-right" aria-hidden="true"></i></span>
-        </a>
-        <a data-reveal class="hp-tile hp-tile--ipo" href="bond-ipo-online.html">
-          <span class="hp-tile__live">Live now</span>
-          <span class="hp-tile__icon"><i class="ph ph-rocket-launch" aria-hidden="true"></i></span>
-          <h3>NCD IPOs</h3>
-          <p>Apply to new bond issues at face value, straight into your demat, before they list.</p>
-          <span class="hp-link">See open IPOs <i class="ph-bold ph-arrow-right" aria-hidden="true"></i></span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================= why bonds -->
-  <section class="hp-sec pt-0" aria-labelledby="hp-whybonds-2">
-    <div class="hp-shell hp-why">
-      <!-- DATA: savings and bank FD rows are indicative market rates, not GoldenPi
-           listings; the two gold rows are the snapshot highs from index.html. -->
-      <figure data-reveal class="hp-ladder">
-        <h3>What &#8377;1 lakh can earn in a year</h3>
-        <small>Indicative annual rates, before tax</small>
-        <ol>
-          <li>Savings account<span class="hp-bar" style="--w:22%">2.7%</span></li>
-          <li>Large bank FD<span class="hp-bar" style="--w:52%">6.5%</span></li>
-          <li>FDs on GoldenPi<span class="hp-bar hp-bar--gold" style="--w:68%">8.5%</span></li>
-          <li>Bonds on GoldenPi<span class="hp-bar hp-bar--gold" style="--w:100%">13.8%</span></li>
-        </ol>
-      </figure>
-      <div>
-        <h2 data-reveal class="hp-h2" id="hp-whybonds-2">Why bonds belong in your portfolio.</h2>
-        <p data-reveal class="hp-lead">Bonds sit between the safety of a deposit and the growth of equity. You know what you will earn, and when, on the day you invest.</p>
-        <ul data-reveal class="hp-points">
-          <li><i class="ph ph-calendar-check" aria-hidden="true"></i><b>Predictable income</b><span>Interest lands on fixed dates, monthly to yearly.</span></li>
-          <li><i class="ph ph-trend-up" aria-hidden="true"></i><b>Higher than FDs</b><span>Rated corporate debt typically pays a premium over bank deposits.</span></li>
-          <li><i class="ph ph-waves" aria-hidden="true"></i><b>Steadier than stocks</b><span>Returns are set at purchase, not by daily market moods.</span></li>
-          <li><i class="ph ph-chart-pie-slice" aria-hidden="true"></i><b>Real diversification</b><span>Spread across issuers, ratings and maturities.</span></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ====================================================== why goldenpi -->
-  <section class="hp-sec pt-0" aria-labelledby="hp-whygp-2">
-    <div class="hp-shell hp-sticky">
-      <div class="hp-sticky__head">
-        <h2 data-reveal class="hp-h2" id="hp-whygp-2">Why 18 lakh investors choose GoldenPi.</h2>
-        <p data-reveal class="hp-lead">India&rsquo;s fixed income desk, rebuilt for the individual investor.</p>
-      </div>
-      <div class="hp-reasons">
-        <article data-reveal class="hp-reason"><i class="ph ph-shield-check" aria-hidden="true"></i><div><h3>Regulated, end to end</h3><p>A SEBI registered debt broker and OBPP license holder. Your bonds settle into your own demat account, in your name.</p></div></article>
-        <article data-reveal class="hp-reason"><i class="ph ph-magnifying-glass" aria-hidden="true"></i><div><h3>Research you can read</h3><p>Ratings, financials and issuer notes in plain language, so you know what you own before you buy it.</p></div></article>
-        <article data-reveal class="hp-reason"><i class="ph ph-receipt" aria-hidden="true"></i><div><h3>Every rupee shown upfront</h3><p>See yield, accrued interest and the full cash flow schedule on one screen before you pay.</p></div></article>
-        <article data-reveal class="hp-reason"><i class="ph ph-headset" aria-hidden="true"></i><div><h3>People, not just a portal</h3><p>Fixed income specialists on call for KYC, settlement and the questions in between.</p></div></article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ====================================================== how it works -->
-  <section class="hp-sec" aria-labelledby="hp-how-2">
-    <div class="hp-shell">
-      <h2 data-reveal class="hp-h2" id="hp-how-2">From sign up to first payout.</h2>
-      <ol data-reveal class="hp-steps">
-        <li class="hp-step"><span class="hp-step__dot"><i class="ph ph-identification-card" aria-hidden="true"></i></span><h3>Complete your KYC</h3><p>PAN, Aadhaar and bank details. Done online in a few minutes.</p></li>
-        <li class="hp-step"><span class="hp-step__dot"><i class="ph ph-hand-pointing" aria-hidden="true"></i></span><h3>Choose what fits</h3><p>Filter by returns, rating, payout and tenure, then invest with UPI or net banking.</p></li>
-        <li class="hp-step"><span class="hp-step__dot"><i class="ph ph-coins" aria-hidden="true"></i></span><h3>Collect your payouts</h3><p>Interest and principal arrive in your bank account on schedule.</p></li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- ====================================================== download app -->
-  <section class="hp-shell pb-24" aria-labelledby="hp-app-2">
-    <div data-reveal class="hp-app">
-      <div>
-        <h2 class="hp-h2" id="hp-app-2">GoldenPi, in your pocket.</h2>
-        <p class="hp-lead">Browse, invest and track every payout from your phone. New issues reach you the moment they open.</p>
-        <ul class="hp-app__feats">
-          <li><i class="ph ph-bell-ringing" aria-hidden="true"></i>Alerts the moment an NCD IPO opens</li>
-          <li><i class="ph ph-wallet" aria-hidden="true"></i>Every holding and payout date in one view</li>
-          <li><i class="ph ph-lightning" aria-hidden="true"></i>Invest with UPI in a few taps</li>
-        </ul>
-        <div class="hp-app__get">
-          <div class="hp-qr"><img src="../assets/img/mobile-app-qr.svg" alt="QR code to download the GoldenPi app" width="92" height="92"><p><b>Download App</b>Scan to download GoldenPi app and get voucher</p></div>
-          <!-- TODO: store URLs were not in the crawl; make these links once captured. -->
-          <div class="hp-stores">
-            <span class="hp-store"><i class="ph-fill ph-apple-logo" aria-hidden="true"></i><span>Download on the<b>App Store</b></span></span>
-            <span class="hp-store"><i class="ph-fill ph-google-play-logo" aria-hidden="true"></i><span>Get it on<b>Google Play</b></span></span>
-          </div>
-        </div>
-      </div>
-
-      <!-- DATA: phone rows are the index.html snapshot; the toast amount is illustrative. -->
-      <div class="hp-phone-wrap" aria-hidden="true">
-        <div class="hp-phone"><div class="hp-phone__screen">
-          <div class="hp-phone__bar"><img src="../assets/img/goldenpi-logo.svg" alt=""><i class="ph ph-bell"></i></div>
-          <div class="hp-phone__hello">Fixed returns up to<b>13.8% p.a.</b></div>
-          <h4>Top picks today</h4>
-          <div class="hp-phone__rows">
-            <div class="hp-phone__row"><img src="../assets/img/GPID102720.AKARA-CAPITAL-ADVISORS-PRIVATE-LIMITED-2x.png" alt=""><span><b>Akara</b>Bond, monthly</span><strong>13.00%</strong></div>
-            <div class="hp-phone__row"><img src="../assets/img/GPID100778.EDELWEISS-FINANCIAL-SERVICES-LIMITED.png" alt=""><span><b>Edelweiss</b>NCD IPO</span><strong>10.00%</strong></div>
-            <div class="hp-phone__row"><img src="../assets/img/GPID100936.MUTHOOT-FINCORP-LIMITED_1-2x.png" alt=""><span><b>Muthoot Fincorp</b>NCD IPO</span><strong>9.25%</strong></div>
-            <div class="hp-phone__row"><img src="../assets/img/GPID105192.Unity.png" alt=""><span><b>Unity SFB</b>Fixed deposit</span><strong>8.5%</strong></div>
-          </div>
-        </div></div>
-        <div class="hp-toast"><i class="ph-bold ph-arrow-down-left"></i><span><b>&#8377;1,083 credited</b>Monthly interest, Akara</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================== reviews -->
-  <section class="hp-sec pt-0" aria-labelledby="hp-reviews-2">
-    <div class="hp-shell">
-      <h2 data-reveal class="hp-h2" id="hp-reviews-2">Happy users</h2>
-      <!-- DATA: platform milestones, same figures as index.html. -->
-      <dl data-reveal class="hp-stats" style="margin-top: 40px;">
-      <div><dt>18 <small>Lac+</small></dt><dd>registered users &amp; growing</dd></div>
-      <div><dt>&#8377;6300 <small>Cr+</small></dt><dd>total transaction through our platform</dd></div>
-      <div><dt>&#8377;3000 <small>Cr+</small></dt><dd>worth of bonds available on the platform everyday</dd></div>
-    </dl>
-      <!-- DATA: reviews, same set as index.html. -->
-      <div class="hp-reviews">
-        <figure data-reveal class="hp-review"><div class="hp-review__stars" aria-label="5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>GoldenPi made bond investing simple and transparent. I could compare yields and complete everything online.</blockquote><figcaption><span aria-hidden="true">A</span><b>Ankit Sharma</b></figcaption></figure>
-        <figure data-reveal class="hp-review"><div class="hp-review__stars" aria-label="5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>Clear listings and support when I needed help with KYC. Fixed income finally feels accessible.</blockquote><figcaption><span aria-hidden="true">P</span><b>Priya Nair</b></figcaption></figure>
-        <figure data-reveal class="hp-review"><div class="hp-review__stars" aria-label="5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>I started with NCD IPOs and now use GoldenPi for secondary bonds too. Smooth experience overall.</blockquote><figcaption><span aria-hidden="true">R</span><b>Rahul Mehta</b></figcaption></figure>
-        <figure data-reveal class="hp-review"><div class="hp-review__stars" aria-label="5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>The collections helped me shortlist bonds that match my goals without wading through noise.</blockquote><figcaption><span aria-hidden="true">S</span><b>Sneha Kapoor</b></figcaption></figure>
-        <figure data-reveal class="hp-review"><div class="hp-review__stars" aria-label="5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>Reliable platform with SEBI registration. That trust factor mattered before I invested.</blockquote><figcaption><span aria-hidden="true">V</span><b>Vikram Joshi</b></figcaption></figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======================================================= closing CTA -->
-  <section class="hp-shell pb-24" aria-labelledby="hp-cta-2">
-    <div data-reveal class="hp-cta">
-      <h2 id="hp-cta-2">Put your money on a fixed, golden path.</h2>
-      <p>Open your account today and make your first fixed income investment in minutes.</p>
-      <a class="hp-btn hp-btn--gold" href="signup.html">Start investing <i class="ph-bold ph-arrow-right" aria-hidden="true"></i></a>
-    </div>
-    <p class="hp-risk">Investments in corporate debt securities and municipal debt securities/securitized debt instruments are subject to credit risks, market risks, and default risks, including delay and/or default in payment.</p>
-  </section>
-<div class="h4-band">
-
   <!-- COPY: the storyline and most copy come from GoldenPi's Google Play listing,
        captured in content/play-store.md. Platform figures use the newer website
        values (18 Lac+, ₹6300 Cr+), not the listing's (15L+/16L+, ₹5,500 Cr+).
        Bond rows are the index.html snapshot. Lines marked COPY: invented are new. -->
 
   <!-- ============================================== chapter 1 · unveiling -->
-  <section class="h3-hero" aria-labelledby="hp-title-3">
+  <section class="h3-hero" aria-labelledby="hp-title">
     <div class="hp-shell">
       <div class="h3-hero__grid">
         <div>
-          <h2 class="h3-h1 hp-in" style="--d:1" id="hp-title-3">Unveiling the <em>Golden Experience</em>, crafted for you.</h2>
+          <h1 class="h3-h1 hp-in" style="--d:1" id="hp-title">Welcome to the <em>golden experience</em> of investing.</h1>
           <ul class="h3-triad hp-in" style="--d:2" role="list"><li>Powerful</li><li>Seamless</li><li>Premium</li></ul>
-          <p class="h3-lead hp-in" style="--d:3">Corporate bonds, government bonds, NCD IPOs and fixed deposits, all in one app. Vetted before they ever reach your screen.</p>
+          <!-- COPY: hero line and subtext given by the user, 2026-10-11. -->
+          <p class="h3-lead hp-in" style="--d:3">Invest in Bonds and FDs with returns up to 14%.</p>
           <div class="hp-hero__ctas hp-in" style="--d:4">
             <a class="hp-btn hp-btn--gold" href="signup.html">Start investing <i class="ph-bold ph-arrow-right" aria-hidden="true"></i></a>
             <a class="hp-btn hp-btn--ghost" href="https://play.google.com/store/apps/details?id=com.goldenpi.gpimobileapp"><i class="ph-fill ph-google-play-logo" aria-hidden="true"></i> Get the app</a>
           </div>
         </div>
-        <div class="h3-stage hp-in" style="--d:3" aria-hidden="true">
-          <img class="h3-stage__icon" src="../assets/img/play/app-icon.png" alt="" width="420" height="420">
-          <!-- DATA: index.html snapshot. -->
-          <div class="h3-metal">
-            <p class="h3-metal__name"><img src="../assets/img/GPID102720.AKARA-CAPITAL-ADVISORS-PRIVATE-LIMITED-2x.png" alt=""><span>Akara<small>Bond Utsav deal</small></span></p>
+        <!-- DATA: index.html snapshot. -->
+        <div data-reveal class="h3-fan" aria-label="Featured bonds" role="list">
+          <a class="h3-metal" role="listitem" href="https://uatnew.goldenpi.com/bonds/GPID107435/akara-1300-bond-yield?src=view_details&amp;tenureDate=03-Dec-2027">
+            <p class="h3-metal__name"><img src="../assets/img/GPID102720.AKARA-CAPITAL-ADVISORS-PRIVATE-LIMITED-2x.png" alt=""><span>Akara<small>Corporate bond</small></span></p>
             <p class="h3-metal__rate">13.00<small>%</small></p>
             <dl class="h3-metal__facts"><div><dt>Rating</dt><dd>ACUITE BBB+</dd></div><div><dt>Payout</dt><dd>Monthly</dd></div><div><dt>Maturity</dt><dd>3-Dec-2027</dd></div></dl>
-          </div>
+          </a>
+          <a class="h3-metal h3-metal--rose" role="listitem" href="https://uatnew.goldenpi.com/bonds/GPID107371/neogrowth-1300-bond-yield?src=view_details&amp;tenureDate=30-Apr-2028">
+            <p class="h3-metal__name"><img src="../assets/img/GPID104095.Neogrowth-new-logo-1-.jpg" alt=""><span>NeoGrowth<small>Corporate bond</small></span></p>
+            <p class="h3-metal__rate">13.00<small>%</small></p>
+            <dl class="h3-metal__facts"><div><dt>Rating</dt><dd>ICRA BBB</dd></div><div><dt>Payout</dt><dd>Half Yearly</dd></div><div><dt>Maturity</dt><dd>30-Apr-2028</dd></div></dl>
+          </a>
+          <a class="h3-metal h3-metal--graphite" role="listitem" href="https://uatnew.goldenpi.com/bond-ipo/GPID100936/muthoot-fincorp-limited?src=preview">
+            <p class="h3-metal__name"><img src="../assets/img/GPID100936.MUTHOOT-FINCORP-LIMITED_1-2x.png" alt=""><span>Muthoot Fincorp<small>NCD IPO</small></span></p>
+            <p class="h3-metal__rate">9.25<small>%</small></p>
+            <dl class="h3-metal__facts"><div><dt>Type</dt><dd>NCD IPO</dd></div><div><dt>Apply</dt><dd>At issue</dd></div><div><dt>From</dt><dd>&#8377;10,000</dd></div></dl>
+          </a>
         </div>
       </div>
 
@@ -1508,65 +1141,60 @@
     </div>
   </section>
 
-  <!-- ================================================ chapter 2 · returns -->
-  <section class="h3-sec" aria-labelledby="h3-returns-3">
+
+
+  <!-- =========================================== chapter 2 · why bonds -->
+  <section class="h3-sec" aria-labelledby="h4-whybonds">
+    <!-- COPY: heading, lead, ladder and "Steadier than stocks" are home-premium2's; the
+         "Higher returns than FDs" line was written at the user's request, 2026-10-11. -->
     <div class="hp-shell h3-split">
+      <!-- DATA: savings and bank FD rows are indicative market rates, not GoldenPi
+           listings; the two gold rows are the snapshot highs from index.html. Each
+           rupee figure is that rate on Rs 1,00,000 for one year. -->
+      <figure data-reveal class="h4-ledger">
+        <figcaption><b>What &#8377;1 lakh can earn in a year</b>Indicative annual rates, before tax</figcaption>
+        <ol role="list">
+          <li style="--f:0.196; --i:0"><span>Savings account</span><span class="h4-track"><span class="h4-bar">&#8377;<span data-count>2,700</span></span><b class="h4-amt">2.7%</b></span></li>
+          <li style="--f:0.471; --i:1"><span>Large bank FD</span><span class="h4-track"><span class="h4-bar">&#8377;<span data-count>6,500</span></span><b class="h4-amt">6.5%</b></span></li>
+          <li style="--f:0.616; --i:2"><span>FDs on GoldenPi</span><span class="h4-track"><span class="h4-bar h4-bar--gold">&#8377;<span data-count>8,500</span></span><b class="h4-amt">8.5%</b></span></li>
+          <li style="--f:1.000; --i:3"><span>Bonds on GoldenPi</span><span class="h4-track"><span class="h4-bar h4-bar--gold">&#8377;<span data-count>13,800</span></span><b class="h4-amt">13.8%</b></span></li>
+        </ol>
+      </figure>
       <div>
-        <h2 data-reveal class="h3-h2" id="h3-returns-3">Earn <em>9-14%</em> fixed returns on Corp. &amp; Govt. Bonds.</h2>
-        <p data-reveal class="h3-lead">Senior secured bonds from listed companies, with monthly, quarterly, or annual payout options, so your income actually arrives on a schedule you can plan around.</p>
-        <dl data-reveal class="h3-proof">
-          <div><dt>Zero</dt><dd>Defaults till date</dd></div>
-          <div><dt>100%</dt><dd>Timely repayment</dd></div>
-        </dl>
-      </div>
-      <!-- DATA: index.html snapshot. -->
-      <div data-reveal class="h3-fan" aria-label="Featured bonds" role="list">
-        <a class="h3-metal" role="listitem" href="https://uatnew.goldenpi.com/bonds/GPID107435/akara-1300-bond-yield?src=view_details&amp;tenureDate=03-Dec-2027">
-          <p class="h3-metal__name"><img src="../assets/img/GPID102720.AKARA-CAPITAL-ADVISORS-PRIVATE-LIMITED-2x.png" alt=""><span>Akara<small>Corporate bond</small></span></p>
-          <p class="h3-metal__rate">13.00<small>%</small></p>
-          <dl class="h3-metal__facts"><div><dt>Rating</dt><dd>ACUITE BBB+</dd></div><div><dt>Payout</dt><dd>Monthly</dd></div><div><dt>Maturity</dt><dd>3-Dec-2027</dd></div></dl>
-        </a>
-        <a class="h3-metal h3-metal--rose" role="listitem" href="https://uatnew.goldenpi.com/bonds/GPID107371/neogrowth-1300-bond-yield?src=view_details&amp;tenureDate=30-Apr-2028">
-          <p class="h3-metal__name"><img src="../assets/img/GPID104095.Neogrowth-new-logo-1-.jpg" alt=""><span>NeoGrowth<small>Corporate bond</small></span></p>
-          <p class="h3-metal__rate">13.00<small>%</small></p>
-          <dl class="h3-metal__facts"><div><dt>Rating</dt><dd>ICRA BBB</dd></div><div><dt>Payout</dt><dd>Half Yearly</dd></div><div><dt>Maturity</dt><dd>30-Apr-2028</dd></div></dl>
-        </a>
-        <a class="h3-metal h3-metal--graphite" role="listitem" href="https://uatnew.goldenpi.com/bond-ipo/GPID100936/muthoot-fincorp-limited?src=preview">
-          <p class="h3-metal__name"><img src="../assets/img/GPID100936.MUTHOOT-FINCORP-LIMITED_1-2x.png" alt=""><span>Muthoot Fincorp<small>NCD IPO</small></span></p>
-          <p class="h3-metal__rate">9.25<small>%</small></p>
-          <dl class="h3-metal__facts"><div><dt>Type</dt><dd>NCD IPO</dd></div><div><dt>Apply</dt><dd>At issue</dd></div><div><dt>From</dt><dd>&#8377;10,000</dd></div></dl>
-        </a>
+        <h2 data-reveal class="h3-h2" id="h4-whybonds">Why bonds belong in your <em>portfolio</em>.</h2>
+        <p data-reveal class="h3-lead">Bonds sit between the safety of a deposit and the growth of equity. You know what you will earn, and when, on the day you invest.</p>
+        <ul data-reveal class="h4-points" role="list">
+          <li><i class="ph ph-trend-up" aria-hidden="true"></i><h3>Higher returns than FDs</h3><p>Fixed interest on fixed dates, so you know what you will earn before you invest.</p></li>
+          <li><i class="ph ph-waves" aria-hidden="true"></i><h3>Steadier than stocks</h3><p>Returns are set at purchase, not by daily market moods.</p></li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- ================================================== chapter 3 · range -->
-  <section class="h3-sec" aria-labelledby="h3-range-3">
-    <div class="hp-shell h3-split">
-      <div>
-        <h2 data-reveal class="h3-h2" id="h3-range-3">Access a wide range of fixed income options on your personalised <em>HomePage</em>.</h2>
-        <p data-reveal class="h3-lead">Every bond goes through credit-rating checks, issuer due diligence, and more, so what you see is already the shortlist.</p>
-        <div data-reveal class="h3-agencies">
-          <p>Rated by top credit agencies</p>
-          <ul role="list"><li>CRISIL</li><li>ICRA</li><li>CareEdge</li></ul>
-        </div>
+  <!-- ==================================================== why goldenpi -->
+  <section class="h3-sec" aria-labelledby="h3-why">
+    <div class="hp-shell">
+      <h2 data-reveal class="h3-h2" id="h3-why">Why investors choose <em>GoldenPi</em>.</h2>
+      <div class="h3-bento">
+        <article data-reveal class="h3-cell h3-cell--big">
+          <p class="h3-big">5%</p>
+          <h3>Only 5% of bonds make the cut.</h3>
+          <p>No matter if you chase great returns with corporate bonds or park your money in government-backed bonds, the due diligence has already been handled.</p>
+        </article>
+        <article data-reveal class="h3-cell"><i class="ph ph-hand-coins" aria-hidden="true"></i><h3>Zero brokerage</h3><p>No hidden charges, so the return you see is the return you get.</p></article>
+        <article data-reveal class="h3-cell"><i class="ph ph-shield-check" aria-hidden="true"></i><h3>One of the first OBPPs</h3><p>Infrastructure built by people who've spent two decades earning Indian investors' trust.</p></article>
+        <!-- DATA: platform milestones, same figures as index.html. -->
+        <article data-reveal class="h3-cell h3-cell--wide"><i class="ph ph-users-three" aria-hidden="true"></i><h3>Trusted by 18 Lac+ investors</h3><p>&#8377;6300 Cr+ total transaction through our platform.</p></article>
       </div>
-      <nav data-reveal class="h3-tiles" aria-label="Collections">
-        <a class="h3-tile" href="collections-ncd-ipo.html"><img src="../assets/img/explore-app/col-ncd-ipo.png" alt="">NCD IPO</a>
-        <a class="h3-tile" href="collections-highly-rated.html"><img src="../assets/img/explore-app/col-high-rated.png" alt="">High Rated</a>
-        <a class="h3-tile" href="collections-high-returns.html"><img src="../assets/img/explore-app/col-high-returns.png" alt="">High Returns</a>
-        <a class="h3-tile" href="collections-short-term.html"><img src="../assets/img/explore-app/col-short-term.png" alt="">Short Term</a>
-        <a class="h3-tile" href="collections-gold-backed.html"><img src="../assets/img/explore-app/col-gold-backed.png" alt="">Gold Backed</a>
-        <a class="h3-tile" href="collections-starts-10k.html"><img src="../assets/img/explore-app/col-starts-10k.png" alt="">Starts &#8377;10k</a>
-      </nav>
     </div>
   </section>
+
 
   <!-- ================================================== chapter 4 · track -->
-  <section class="h3-sec" aria-labelledby="h3-track-3">
+  <section class="h3-sec" aria-labelledby="h3-track">
     <div class="hp-shell h3-split h3-split--flip">
       <div>
-        <h2 data-reveal class="h3-h2" id="h3-track-3">Invest <em>24x7</em> and track your investments at one place.</h2>
+        <h2 data-reveal class="h3-h2" id="h3-track">Invest <em>24x7</em> and track your investments at one place.</h2>
         <p data-reveal class="h3-lead">Track every investment, coupon payout, and maturity date from a single dashboard.</p>
         <ul data-reveal class="h3-feats">
           <li><i class="ph ph-moon-stars" aria-hidden="true"></i><b>Invest Anytime</b><span>via AMO</span></li>
@@ -1587,39 +1215,10 @@
     </div>
   </section>
 
-  <!-- ==================================================== why goldenpi -->
-  <section class="h3-sec" aria-labelledby="h3-why-3">
-    <div class="hp-shell">
-      <h2 data-reveal class="h3-h2" id="h3-why-3">Why investors choose <em>GoldenPi</em>.</h2>
-      <div class="h3-bento">
-        <article data-reveal class="h3-cell h3-cell--big">
-          <p class="h3-big">5%</p>
-          <h3>Only 5% of bonds make the cut.</h3>
-          <p>No matter if you chase great returns with corporate bonds or park your money in government-backed bonds, the due diligence has already been handled.</p>
-        </article>
-        <article data-reveal class="h3-cell"><i class="ph ph-hand-coins" aria-hidden="true"></i><h3>Zero brokerage</h3><p>No hidden charges, so the return you see is the return you get.</p></article>
-        <article data-reveal class="h3-cell"><i class="ph ph-shield-check" aria-hidden="true"></i><h3>One of the first OBPPs</h3><p>Infrastructure built by people who've spent two decades earning Indian investors' trust.</p></article>
-        <article data-reveal class="h3-cell h3-cell--wide"><i class="ph ph-globe-hemisphere-east" aria-hidden="true"></i><h3>Investing options for NRIs</h3><p>Select bonds are open to NRI investors, a direct, digital way into India's fixed-income market without tiring stacks of paperwork.</p></article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================== 3 steps -->
-  <section class="h3-sec" aria-labelledby="h3-steps-3">
-    <div class="hp-shell">
-      <h2 data-reveal class="h3-h2" id="h3-steps-3">3 steps to get started.</h2>
-      <ol data-reveal class="h3-steps">
-        <li class="h3-step"><i class="ph ph-device-mobile" aria-hidden="true"></i><h3>Register</h3><p>Download the app, register and complete KYC digitally in under 5 minutes.</p></li>
-        <li class="h3-step"><i class="ph ph-funnel" aria-hidden="true"></i><h3>Browse and filter</h3><p>Filter bonds by credit rating, yield, tenure, or payout frequency until you find your fit.</p></li>
-        <li class="h3-step"><i class="ph ph-vault" aria-hidden="true"></i><h3>Invest and hold</h3><p>Hold the bond in your existing Demat account; no new Demat account is needed.</p></li>
-      </ol>
-    </div>
-  </section>
-
   <!-- =========================================================== voices -->
-  <section class="h3-sec" aria-labelledby="h3-voices-3">
+  <section class="h3-sec" aria-labelledby="h3-voices">
     <div class="hp-shell">
-      <h2 data-reveal class="h3-h2" id="h3-voices-3">Happy users</h2>
+      <h2 data-reveal class="h3-h2" id="h3-voices">Happy users</h2>
       <!-- DATA: reviews, same set as index.html. -->
       <div class="h3-voices">
         <figure data-reveal class="h3-voice h3-voice--lead"><div><div class="h3-stars" aria-label="5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>&ldquo;GoldenPi made bond investing simple and transparent. I could compare yields and complete everything online.&rdquo;</blockquote></div><figcaption><span aria-hidden="true">A</span><b>Ankit Sharma</b></figcaption></figure>
@@ -1630,21 +1229,27 @@
   </section>
 
   <!-- ========================================================== finale -->
-  <section class="h3-finale" aria-labelledby="h3-get-3">
+  <section class="h3-finale" aria-labelledby="h3-get">
     <div class="hp-shell">
-      <img data-reveal class="h3-finale__icon" src="../assets/img/play/app-icon.png" alt="GoldenPi app icon" width="180" height="180">
-      <!-- COPY: invented -->
-      <h2 data-reveal class="h3-h2" id="h3-get-3">Your <em>Golden Experience</em> is one tap away.</h2>
-      <p data-reveal class="h3-lead">Build a monthly income stream, protect capital ahead of a goal, or stop watching your money lose ground to inflation.</p>
+      <!-- The app icon sits on the QR as a design mark (user, 2026-10-11); the code
+           under it is not meant to scan. -->
+      <div data-reveal class="h4-mark">
+        <img class="h4-mark__qr" src="../assets/img/mobile-app-qr-plain.svg" alt="QR code to download the GoldenPi app" width="200" height="200">
+        <img class="h4-mark__icon" src="../assets/img/play/app-icon.png" alt="" width="64" height="64">
+      </div>
+      <!-- COPY: headline invented for home-premium3; lead written at the user's request, 2026-10-11. -->
+      <h2 data-reveal class="h3-h2" id="h3-get">Your <em>Golden Experience</em> is one tap away.</h2>
+      <p data-reveal class="h3-lead">Download the app to track every payout and plan your next investment accordingly.</p>
       <div data-reveal class="h3-get">
-        <a class="h3-play" href="https://play.google.com/store/apps/details?id=com.goldenpi.gpimobileapp"><i class="ph-fill ph-google-play-logo" aria-hidden="true"></i><span>Get it on<b>Google Play</b></span></a>
-        <div class="h3-qr"><img src="../assets/img/mobile-app-qr.svg" alt="QR code to download the GoldenPi app" width="76" height="76"><p><b>Download App</b>Scan to download GoldenPi app and get voucher</p></div>
+        <a class="h3-play" href="https://play.google.com/store/apps/details?id=com.goldenpi.gpimobileapp"><i class="ph-fill ph-google-play-logo" aria-hidden="true"></i><span>Get app on<b>Play Store</b></span></a>
+        <!-- TODO: the App Store URL was not in the crawl; make this a link once captured. -->
+        <span class="h3-play"><i class="ph-fill ph-apple-logo" aria-hidden="true"></i><span>Get app on<b>iOS</b></span></span>
       </div>
       <p class="h3-risk">Risk Disclosure: Fixed returns do not constitute guaranteed or assured returns. Investments in corporate debt, municipal debt, and securitized instruments are subject to credit, market, and default risks, including delays or defaults in payments. Read all offer documents carefully.</p>
     </div>
   </section>
 
-</div></main>
+</main>
 
 <!-- ============================================================== footer -->
 <footer class="ft ft--dark ft--black ft--cols3" id="footer">
@@ -1854,25 +1459,5 @@
 })();
 </script>
 
-<script>
-// Bond carousel: rotates data-pos (-1, 0, 1) across the three cards. Without
-// this the cards still render in their starting positions.
-(function () {
-  var stage = document.querySelector('.h2-stage');
-  if (!stage) return;
-  var cards = [].slice.call(stage.querySelectorAll('.h2-card'));
-  function shift(d) {
-    cards.forEach(function (c) { var p = +c.dataset.pos - d; c.dataset.pos = p > 1 ? -1 : p < -1 ? 1 : p; });
-  }
-  stage.querySelector('.h2-arrow--prev').addEventListener('click', function () { shift(-1); });
-  stage.querySelector('.h2-arrow--next').addEventListener('click', function () { shift(1); });
-  cards.forEach(function (c) {
-    c.addEventListener('click', function (e) {
-      var p = +c.dataset.pos;
-      if (p && window.matchMedia('(min-width: 1024px)').matches) { e.preventDefault(); shift(p); }
-    });
-  });
-})();
-</script>
 </body>
 </html>

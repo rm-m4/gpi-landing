@@ -26,9 +26,11 @@ ACTIVE = {
     "index.html": None,
     "home-premium.html": None,
     "home-premium3.html": None,
+    "home-premium4.html": None,
     "home-premium5.html": None,
     "home-premium7.html": None,
     "home-premium6.html": None,
+    "home-premium8.html": None,
     "corporate-bonds.html": "Bonds",
     "fixed-deposits.html": "FD",
     "bond-ipo-online.html": "Bonds",
@@ -209,6 +211,13 @@ def navbar(name, old):
                         r'<a class="nb__link is-current" \1 aria-current="page">\2<span>%s</span></a>' % label, nb, count=1)
         if n != 1:
             sys.exit("%s: could not mark %r in the navbar" % (name, label))
+    # The premium homepage concepts carry the logo and the CTA only: no links,
+    # no search, so no phone tab bar either (user, 2026-10-11).
+    if name.startswith("home-premium"):
+        nb = re.sub(r'\s*<nav class="nb__nav".*?</nav>', "", nb, count=1, flags=re.S)
+        nb = re.sub(r'\s*<div class="nb__search">.*?</div>', "", nb, count=1, flags=re.S)
+        nb = re.sub(r'\s*<button type="button" class="nb__btn nb__search-btn".*?</button>', "", nb, count=1, flags=re.S)
+        nb = nb.replace('class="nb nb--dark', 'class="nb nb--bare nb--dark', 1)
     if login and name.startswith("portfolio"):
         nb = nb.replace('<a class="nb__link nb__link--m" href="portfolio.html">',
                         '<a class="nb__link nb__link--m is-current" href="portfolio.html" aria-current="page">', 1)
