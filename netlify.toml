@@ -4,7 +4,7 @@
 # Layout is kept, so the pages' ../assets/ paths resolve unchanged.
 
 [build]
-  command = "rm -rf dist && mkdir dist && cp -R pages assets robots.txt dist/"
+  command = "rm -rf dist && mkdir dist && cp -R pages assets web-v1 robots.txt dist/"
   publish = "dist"
 
 # The bare URL opens the review index.

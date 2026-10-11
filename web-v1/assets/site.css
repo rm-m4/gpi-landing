@@ -1,0 +1,752 @@
+/* GoldenPi landing pages - shared shell and components.
+   Colour values come from assets/tokens.css (harvested from the live site).
+   Layout is done with Tailwind utilities in the markup; this file holds only the
+   pieces that repeat across every page. */
+
+@import url("tokens.css");
+
+:root {
+  --gp-max: 1200px;
+  --gp-radius: 14px;
+
+  /* --- type ramp -----------------------------------------------------------
+     Replaces the ad-hoc text-[Npx] sizes the first pass accumulated (ten of
+     them). Roughly a 1.2 ratio anchored on a 15px body; the headline steps
+     are fluid so they hold together from 390px to desktop. */
+  --t-caption: 11px;     /* uppercase labels, eyebrows */
+  --t-small: 12.5px;     /* meta, dates, legal */
+  --t-body: 15px;        /* default copy */
+  --t-lead: 17px;        /* intro paragraphs, card titles */
+  --t-h4: 19px;
+  --t-h3: clamp(20px, 2.2vw, 24px);
+  --t-h2: clamp(24px, 3.2vw, 32px);
+  --t-h1: clamp(30px, 5vw, 46px);
+  --t-display: clamp(40px, 7vw, 68px);
+
+  --lh-tight: 1.15;
+  --lh-snug: 1.35;
+  --lh-body: 1.65;
+
+  --tracking-tight: -0.02em;
+  --tracking-caps: 0.08em;
+
+  /* --- spacing -------------------------------------------------------------
+     4px base. --section-y is the major rhythm; sections that continue a
+     thought use --section-y-tight so the page reads in groups, not a
+     uniform 56px drumbeat. */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --s-8: 64px;
+  --s-9: 96px;
+
+  --section-y: clamp(52px, 7vw, 88px);
+  --section-y-tight: clamp(32px, 4vw, 52px);
+
+  /* --- elevation -----------------------------------------------------------
+     Warm-tinted rather than neutral grey, so shadows sit on the cream page
+     instead of dirtying it. */
+  --gp-shadow: 0 1px 2px rgba(50, 40, 17, 0.04), 0 8px 24px rgba(50, 40, 17, 0.06);
+  --gp-shadow-lift: 0 2px 4px rgba(50, 40, 17, 0.06), 0 16px 40px rgba(50, 40, 17, 0.1);
+  --gp-shadow-gold: 0 6px 18px rgba(212, 175, 55, 0.3);
+
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--app-page-bg);
+  color: var(--app-heading-color);
+  font-family: "Satoshi", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.gp-shell {
+  width: 100%;
+  max-width: var(--gp-max);
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+
+/* ---------------------------------------------------------------- promo bar */
+
+.gp-promo {
+  background: #1a1510;
+  color: #f4e9c8;
+  font-size: 13px;
+  overflow: hidden;
+}
+
+.gp-promo__track {
+  display: flex;
+  gap: 40px;
+  width: max-content;
+  padding: 9px 0;
+  animation: gp-marquee 34s linear infinite;
+}
+
+.gp-promo__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.gp-promo__item a {
+  color: var(--mustard);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.gp-promo:hover .gp-promo__track {
+  animation-play-state: paused;
+}
+
+@keyframes gp-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gp-promo__track { animation: none; }
+}
+
+/* ----------------------------------------------------------------- header */
+
+.gp-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: var(--app-page-bg);
+  border-bottom: 1px solid var(--light-stroke);
+}
+
+.gp-header__inner {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: 66px;
+}
+
+.gp-nav {
+  display: none;
+  align-items: stretch;
+  gap: 4px;
+  margin-inline: auto;
+}
+
+.gp-nav__link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  min-width: 68px;
+  padding: 6px 10px;
+  border-bottom: 2px solid transparent;
+  color: var(--subtext);
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.gp-nav__link img {
+  width: 20px;
+  height: 20px;
+}
+
+.gp-nav__link:hover {
+  color: var(--app-heading-color);
+}
+
+.gp-nav__link[aria-current="page"] {
+  color: var(--app-heading-color);
+  border-bottom-color: var(--mustard);
+  font-weight: 700;
+}
+
+.gp-search {
+  display: none;
+  flex: 1;
+  align-items: center;
+  gap: 8px;
+  max-width: 340px;
+  padding: 9px 14px;
+  border: 1px solid var(--light-stroke);
+  border-radius: 999px;
+  background: var(--white);
+  color: var(--subtext);
+  font-size: 13px;
+}
+
+@media (min-width: 1000px) {
+  .gp-nav,
+  .gp-search { display: flex; }
+}
+
+/* ---------------------------------------------------------------- buttons */
+
+.gp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.gp-btn--primary {
+  background: var(--mustard);
+  color: #322811;
+  box-shadow: 0 6px 18px rgba(212, 175, 55, 0.3);
+}
+
+.gp-btn--primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 26px rgba(212, 175, 55, 0.4);
+}
+
+.gp-btn--ghost {
+  background: var(--white);
+  border-color: var(--mustard);
+  color: var(--app-heading-color);
+}
+
+.gp-btn--ghost:hover {
+  background: #fdf8e9;
+}
+
+.gp-btn--sm {
+  padding: 9px 18px;
+  font-size: 13px;
+}
+
+/* --------------------------------------------------------------- sections */
+
+.gp-section {
+  padding-block: var(--section-y);
+}
+
+/* A section that continues the previous thought rather than starting a new one. */
+.gp-section--tight {
+  padding-block: var(--section-y-tight);
+}
+
+.gp-section--flush-top {
+  padding-top: 0;
+}
+
+.gp-section__head {
+  max-width: 660px;
+  margin-inline: auto;
+  margin-bottom: var(--s-7);
+  text-align: center;
+}
+
+.gp-section__title {
+  font-size: var(--t-h2);
+  font-weight: 700;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  text-wrap: balance;
+}
+
+.gp-section__sub {
+  margin-top: var(--s-3);
+  color: var(--subtext);
+  font-size: var(--t-body);
+  line-height: var(--lh-body);
+  text-wrap: pretty;
+}
+
+/* Section headings earn a mark rather than floating free. */
+.gp-section__head--marked .gp-section__title::after {
+  content: "";
+  display: block;
+  width: 46px;
+  height: 3px;
+  margin: var(--s-4) auto 0;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--mustard), #e8cf84);
+}
+
+/* --- type utilities ------------------------------------------------------
+   Use these instead of one-off text-[Npx]; they keep every page on the ramp. */
+
+.t-caption {
+  font-size: var(--t-caption);
+  font-weight: 700;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+}
+
+.t-small { font-size: var(--t-small); }
+.t-body { font-size: var(--t-body); line-height: var(--lh-body); }
+.t-lead { font-size: var(--t-lead); line-height: var(--lh-snug); }
+
+.t-h4 { font-size: var(--t-h4); font-weight: 700; line-height: var(--lh-snug); }
+.t-h3 { font-size: var(--t-h3); font-weight: 700; line-height: var(--lh-snug); letter-spacing: var(--tracking-tight); }
+.t-h2 { font-size: var(--t-h2); font-weight: 700; line-height: var(--lh-tight); letter-spacing: var(--tracking-tight); }
+
+.t-h1 {
+  font-size: var(--t-h1);
+  font-weight: 900;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  text-wrap: balance;
+}
+
+.t-display {
+  font-size: var(--t-display);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+/* Large numeric values - FD rates, stat figures. Tabular digits so a column
+   of rates lines up rather than shimmering. */
+.t-figure {
+  font-size: clamp(26px, 3.4vw, 32px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.t-muted { color: var(--subtext); }
+.t-gold { color: var(--mustard); }
+.t-bronze { color: #8a6520; }
+
+/* --- cards ---------------------------------------------------------------- */
+
+.gp-card {
+  background: var(--white);
+  border: 1px solid var(--light-stroke);
+  border-radius: var(--gp-radius);
+  box-shadow: var(--gp-shadow);
+}
+
+/* Opt-in interaction for cards that are actually links. */
+.gp-card--link {
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease),
+    border-color 0.25s var(--ease);
+}
+
+.gp-card--link:hover {
+  transform: translateY(-3px);
+  border-color: rgba(212, 175, 55, 0.55);
+  box-shadow: var(--gp-shadow-lift);
+}
+
+/* A hairline of brand colour on the top edge, revealed on hover. */
+.gp-card--accent {
+  position: relative;
+  overflow: hidden;
+}
+
+.gp-card--accent::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 3px;
+  background: linear-gradient(90deg, var(--mustard), #e8cf84);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s var(--ease);
+}
+
+.gp-card--accent:hover::before {
+  transform: scaleX(1);
+}
+
+/* --- scroll reveal --------------------------------------------------------
+   Driven by one IntersectionObserver per page. Elements are visible by
+   default and only hidden once the script confirms it can animate them, so
+   the page is never blank if JS fails. */
+
+[data-reveal] {
+  opacity: 1;
+}
+
+.reveal-ready [data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+}
+
+.reveal-ready [data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-ready [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Printing and PDF export never scroll, so the observer never fires and every
+   section below the fold would come out blank. Force them visible. */
+@media print {
+  .reveal-ready [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+.gp-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border: 1px solid var(--mustard);
+  border-radius: 999px;
+  background: #fdf8e9;
+  color: #8a6520;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ------------------------------------------------------------- asset rows */
+/* The bond / FD listing rows. Desktop shows a metric grid; below 760px each row
+   becomes a stacked card, which is what the live site does too. */
+
+.gp-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.gp-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(150px, 1.2fr) repeat(4, minmax(90px, 1fr)) auto;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 18px;
+  background: var(--white);
+  border: 1px solid var(--light-stroke);
+  border-radius: 12px;
+  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.gp-row:hover {
+  border-color: var(--mustard);
+  box-shadow: var(--gp-shadow-lift);
+}
+
+.gp-row__identity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.gp-row__logo {
+  flex: none;
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: var(--white);
+}
+
+.gp-row__name {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.gp-row__label {
+  color: var(--subtext);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.gp-row__value {
+  margin-top: 3px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.gp-row__value--returns {
+  color: #06963c;
+}
+
+.gp-row__actions {
+  display: flex;
+  gap: 10px;
+}
+
+.gp-row__actions img {
+  width: 18px;
+  height: 18px;
+  opacity: 0.75;
+}
+
+/* Stretched link: the whole row is clickable, the icon buttons stay on top. */
+.gp-row__link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+}
+
+.gp-row__actions {
+  position: relative;
+  z-index: 1;
+}
+
+.gp-rows__head {
+  display: grid;
+  grid-template-columns: minmax(150px, 1.2fr) repeat(4, minmax(90px, 1fr)) auto;
+  gap: 16px;
+  padding: 0 18px 8px;
+  color: var(--subtext);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.gp-rows__head span:first-child {
+  visibility: hidden;
+}
+
+@media (max-width: 760px) {
+  .gp-rows__head { display: none; }
+
+  .gp-row {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 14px;
+  }
+
+  .gp-row__identity {
+    grid-column: 1 / -1;
+  }
+
+  .gp-row__actions {
+    grid-column: 1 / -1;
+    justify-content: flex-end;
+  }
+}
+
+/* -------------------------------------------------------------- scrollers */
+/* Carousels on the live site. Native scroll-snap needs no JS and keeps keyboard
+   and trackpad behaviour intact. */
+
+.gp-scroller {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(250px, 1fr);
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 8px;
+  scrollbar-width: thin;
+}
+
+.gp-scroller > * {
+  scroll-snap-align: start;
+}
+
+@media (min-width: 900px) {
+  .gp-scroller {
+    grid-auto-columns: minmax(280px, 1fr);
+  }
+}
+
+/* --------------------------------------------------------- wide tables */
+/* position:relative matters: sr-only labels inside are absolutely positioned, and
+   without a positioned ancestor they resolve against the viewport and widen the
+   whole document at phone width. */
+
+.gp-tablewrap {
+  position: relative;
+  overflow-x: auto;
+  background: var(--white);
+  border: 1px solid var(--light-stroke);
+  border-radius: var(--gp-radius);
+}
+
+/* -------------------------------------------------------------------- faq */
+
+.gp-faq {
+  max-width: 900px;
+  margin-inline: auto;
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid var(--light-stroke);
+  border-radius: var(--gp-radius);
+}
+
+.gp-faq__item + .gp-faq__item {
+  border-top: 1px solid var(--light-stroke);
+}
+
+.gp-faq__q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 22px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+}
+
+.gp-faq__q::-webkit-details-marker {
+  display: none;
+}
+
+.gp-faq__q::after {
+  content: "";
+  flex: none;
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid var(--subtext);
+  border-bottom: 2px solid var(--subtext);
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform 0.2s ease;
+}
+
+.gp-faq__item[open] .gp-faq__q::after {
+  transform: rotate(-135deg) translateY(-2px);
+}
+
+.gp-faq__item[open] .gp-faq__q {
+  color: #8a6520;
+}
+
+.gp-faq__a {
+  padding: 0 22px 20px;
+  color: var(--subtext);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.gp-faq__a > * + * {
+  margin-top: 10px;
+}
+
+.gp-faq__a ul {
+  padding-left: 18px;
+  list-style: disc;
+}
+
+.gp-faq__a li + li {
+  margin-top: 6px;
+}
+
+/* ----------------------------------------------------------------- footer */
+
+.gp-footer {
+  margin-top: 64px;
+  background: var(--bg-light);
+  border-top: 1px solid var(--light-stroke);
+  font-size: 13px;
+}
+
+.gp-footer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.gp-footer a:hover {
+  color: #8a6520;
+  text-decoration: underline;
+}
+
+.gp-footer__title {
+  margin-bottom: 14px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.gp-footer__legal {
+  padding-block: 28px;
+  border-top: 1px solid var(--light-stroke);
+  color: var(--subtext);
+  font-size: 11.5px;
+  line-height: 1.65;
+}
+
+.gp-footer__legal h2 {
+  margin-bottom: 10px;
+  color: var(--app-heading-color);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.gp-footer__legal p + p {
+  margin-top: 10px;
+}
+
+.gp-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.gp-pills a {
+  padding: 6px 12px;
+  border: 1px solid var(--light-stroke);
+  border-radius: 999px;
+  background: var(--white);
+  font-size: 11.5px;
+}
+
+.gp-pills a:hover {
+  border-color: var(--mustard);
+  text-decoration: none;
+}
+
+/* Keyboard focus must stay visible everywhere. */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--mustard);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.gp-skip {
+  position: absolute;
+  left: -9999px;
+}
+
+.gp-skip:focus {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 100;
+  padding: 10px 16px;
+  background: var(--white);
+  border-radius: 8px;
+  box-shadow: var(--gp-shadow-lift);
+}

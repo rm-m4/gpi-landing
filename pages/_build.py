@@ -26,6 +26,7 @@ ACTIVE = {
     "index.html": None,
     "home-premium.html": None,
     "home-premium3.html": None,
+    "home-premium5.html": None,
     "corporate-bonds.html": "Bonds",
     "fixed-deposits.html": "FD",
     "bond-ipo-online.html": "Bonds",

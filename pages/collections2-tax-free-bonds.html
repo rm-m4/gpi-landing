@@ -57,7 +57,29 @@
 .c2--gold .gp-ucard__tags span { background: #f7f6eb; }
 .c2--slate .gp-ucard { border-color: #c2daf0; background: linear-gradient(-45.6deg, #fff 41.2%, #c7def2 99.5%); }
 .c2--slate .gp-ucard__tags span { background: #e9f4ff; }
+
+.c2-top { gap: 24px; }
+.c2-top .gp-coltitle { font-size: clamp(26px, 2.4vw, 32px); line-height: 1.2; font-weight: 700; letter-spacing: -.01em; color: var(--app-heading-color); }
+.c2-top .gp-colintro { max-width: none; color: var(--app-heading-color); font-size: clamp(16px, 1.45vw, 20px); line-height: 1.6; }
+.c2-top .gp-colintro h2 { font-size: 1.05em; }
+.c2-top .gp-colintro :first-child { margin-top: 0; }  /* the CMS wraps its paragraphs in a div */
+.c2-top .gp-colintro :last-child { margin-bottom: 0; }
+.c2-top .gp-colintro.is-folded { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; line-clamp: 3; overflow: hidden; }  /* three whole lines, heading included */
+.c2-more { align-self: flex-start; margin-top: -12px; padding: 0; border: 0; background: none; font: inherit; font-size: clamp(16px, 1.45vw, 20px); font-weight: 600;
+  color: var(--app-heading-color); text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }
+.gp-colintro .c2-more { margin: 0 0 0 8px; }  /* open: at the end of the text */
+.c2-more:focus-visible { outline: 2px solid var(--mustard); outline-offset: 2px; border-radius: 4px; }
+.c2-top .gp-colpills { margin-top: 4px; }
+.c2-top .gp-colpills__track { gap: 16px 18px; }
+.c2-top .gp-pill { gap: 12px; padding: 6px 24px 6px 14px; font-weight: 600; box-shadow: 0 2px 6px rgba(50, 40, 17, .06); }
+.c2-top .gp-pill img { width: 34px; height: 34px; }
+@media (max-width: 767px) {
+  .c2-top .gp-colpills__track { gap: 10px; }
+  .c2-top .gp-pill { padding: 5px 18px 5px 10px; gap: 8px; }
+  .c2-top .gp-pill img { width: 28px; height: 28px; }
+}
 </style>
+<link rel="stylesheet" href="../assets/navbar.css">
 <!-- ggn-footer: styles; pages/_build.py -->
 <style>
   /* The light scheme from the GoldenPi Web Design Figma, footer
@@ -391,7 +413,6 @@
   .ft-copy { color: var(--ft-ink); font-weight: 700; }
 </style>
 <!-- ggn-footer: /styles; pages/_build.py -->
-<link rel="stylesheet" href="../assets/navbar.css">
 </head>
 <body class="gp-prod">
 
@@ -435,7 +456,7 @@
       </nav>
 
       <div class="gp-collayout">
-        <div class="gp-colmain">
+        <div class="gp-colmain c2-top">
           <h1 class="t-h1 gp-coltitle">Tax Free Bonds</h1>
           <div class="gp-colintro">
 <div><p><strong> Tax Free Bonds</strong><br><br>A collection of bonds where Income tax is not applicable on the interest amount received.</p><ul><li>Ideal for HNIs planning to diversify their portfolio.</li><li>A few of tax free bonds can also be used to pledge in Futures &amp; Options trading.</li></ul></div>
@@ -645,6 +666,28 @@
 })();
 </script>
 
+<script>
+(function () {
+  var intro = document.querySelector('.c2-top .gp-colintro');
+  if (!intro) return;
+  intro.classList.add('is-folded');
+  if (intro.scrollHeight <= intro.clientHeight + 2) { intro.classList.remove('is-folded'); return; }
+  intro.id = intro.id || 'c2-intro';
+  var b = document.createElement('button');
+  b.type = 'button'; b.className = 'c2-more'; b.setAttribute('aria-controls', intro.id);
+  function show(open) {
+    intro.classList.toggle('is-folded', !open);
+    b.textContent = open ? 'Read Less' : 'Read More';
+    b.setAttribute('aria-expanded', open);
+    // open: at the end of the text, as in the design; folded: under it
+    var last = intro;
+    while (last.lastElementChild && last.lastElementChild !== b) last = last.lastElementChild;
+    if (open && /^(P|LI)$/.test(last.tagName)) last.appendChild(b); else intro.after(b);
+  }
+  b.addEventListener('click', function () { show(intro.classList.contains('is-folded')); b.focus(); });
+  show(false);
+})();
+</script>
 <!-- ggn-footer: scripts; pages/_build.py -->
 <script>
 // footer-login3: the reviews crossfade every 6s while the band is on screen,

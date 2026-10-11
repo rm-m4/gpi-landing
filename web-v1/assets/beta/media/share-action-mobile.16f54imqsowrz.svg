@@ -1,0 +1,13 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<foreignObject x="-20.6786" y="-20.6786" width="81.3571" height="81.3571"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(10.34px);clip-path:url(#bgblur_0_235_4324_clip_path);height:100%;width:100%"></div></foreignObject><g data-figma-bg-blur-radius="20.6786">
+<path d="M20 0.430664C30.8078 0.430664 39.5693 9.19223 39.5693 20C39.5693 30.8078 30.8078 39.5693 20 39.5693C9.19223 39.5693 0.430664 30.8078 0.430664 20C0.430664 9.19223 9.19223 0.430664 20 0.430664Z" stroke="#FDF3D4" stroke-width="0.861607"/>
+<path d="M23.6339 16.6663C24.7046 16.6663 25.5725 15.7983 25.5725 14.7277C25.5725 13.657 24.7046 12.7891 23.6339 12.7891C22.5633 12.7891 21.6953 13.657 21.6953 14.7277C21.6953 15.7983 22.5633 16.6663 23.6339 16.6663Z" stroke="#A67C00" stroke-width="1.29241" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M15.8761 21.1897C16.9468 21.1897 17.8147 20.3218 17.8147 19.2511C17.8147 18.1804 16.9468 17.3125 15.8761 17.3125C14.8054 17.3125 13.9375 18.1804 13.9375 19.2511C13.9375 20.3218 14.8054 21.1897 15.8761 21.1897Z" stroke="#A67C00" stroke-width="1.29241" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M23.6339 25.7132C24.7046 25.7132 25.5725 24.8452 25.5725 23.7746C25.5725 22.7039 24.7046 21.8359 23.6339 21.8359C22.5633 21.8359 21.6953 22.7039 21.6953 23.7746C21.6953 24.8452 22.5633 25.7132 23.6339 25.7132Z" stroke="#A67C00" stroke-width="1.29241" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M17.5469 20.2344L21.9605 22.8063" stroke="#A67C00" stroke-width="1.29241" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M21.954 15.7109L17.5469 18.2828" stroke="#A67C00" stroke-width="1.29241" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="bgblur_0_235_4324_clip_path" transform="translate(20.6786 20.6786)"><path d="M20 0.430664C30.8078 0.430664 39.5693 9.19223 39.5693 20C39.5693 30.8078 30.8078 39.5693 20 39.5693C9.19223 39.5693 0.430664 30.8078 0.430664 20C0.430664 9.19223 9.19223 0.430664 20 0.430664Z"/>
+</clipPath></defs>
+</svg>
