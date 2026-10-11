@@ -174,6 +174,8 @@ python3 pages/_footer_ggn.py # -> footer-ggn-prelogin-bonds.html (prelogin-home 
 python3 pages/_investor_resources.py # -> investor-resources.html (goldenpi.com capture, index.html shell)
 python3 pages/_premium_merged.py # -> home-premium4.html (home-premium 1, 2 and 3 stacked whole, for Figma export)
 python3 pages/_premium5.py   # -> home-premium5.html (home-premium 2 + 3 content as six black/white/gold chapters; then _build.py)
+python3 pages/_premium6.py   # -> home-premium6.html (premium 2 + 3 content: paper deal tickets on black, coin-stack ledger, reviews by name; then _build.py)
+python3 pages/_premium7.py   # -> home-premium7.html (premium 2 + 3 content: term-sheet deals hero, big-QR finale; then _build.py)
 python3 pages/_build.py      # sync header/footer across pages
 python3 pages/_prototype.py  # run LAST: wires the post-login prototype (app7, bond-details7, ipo-details, FD app2, fd-details2, bond-utsav5, portfolio)
 python3 pages/_web_v1.py     # -> web-v1/ (stakeholder folder: the final logged-in pages, flat, short names, own assets; and all-pages' Web V1 tab). Run after _prototype.py
