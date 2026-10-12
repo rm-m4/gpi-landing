@@ -173,7 +173,7 @@ python3 pages/_fd_app.py      # -> user-fixed-deposits-app.html (user-fixed-depo
 python3 pages/_footer_ggn.py # -> footer-ggn-prelogin-bonds.html (prelogin-home footer + footer-bonds SEO part)
 python3 pages/_investor_resources.py # -> investor-resources.html (goldenpi.com capture, index.html shell)
 python3 pages/_premium_merged.py # -> home-premium44.html (home-premium 1, 2 and 3 stacked whole, for Figma export)
-python3 pages/_premium5.py   # -> home-premium5.html (home-premium 2 + 3 content as six black/white/gold chapters; then _build.py)
+python3 pages/_premium5.py   # -> home-premium55.html (home-premium 2 + 3 content as six black/white/gold chapters; then _build.py)
 python3 pages/_premium6.py   # -> home-premium6.html (premium 2 + 3 content: paper deal tickets on black, coin-stack ledger, reviews by name; then _build.py)
 python3 pages/_premium7.py   # -> home-premium7.html (premium 2 + 3 content: term-sheet deals hero, big-QR finale; then _build.py)
 python3 pages/_premium8.py   # -> home-premium8.html (premium 2 + 3 content cut to the figures: rate row hero, type index, coin sheet, giant 5%, big QR; then _build.py)

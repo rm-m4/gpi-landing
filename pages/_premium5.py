@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Write home-premium5.html: the homepage in black, white and gold, told as six
+"""Write home-premium55.html: the homepage in black, white and gold, told as six
 chapters, from home-premium2's and home-premium3's content.
 
   Act one, black: the gold
@@ -26,7 +26,7 @@ import re
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SRC = os.path.join(HERE, "home-premium3.html")
-OUT = os.path.join(HERE, "home-premium5.html")
+OUT = os.path.join(HERE, "home-premium55.html")
 IMG = "../assets/img/"
 
 # DATA: index.html snapshot 2026-09-25, as home-premium2 and 3 show them.
@@ -578,7 +578,7 @@ def main():
     if (n1, n2, n3, n4) != (1, 1, 1, 1) or "@" in re.sub(r"@(media|keyframes|import|font-face|supports)", "", main_html):
         raise SystemExit("home-premium3.html changed shape (%d %d %d %d), or a placeholder was left" % (n1, n2, n3, n4))
     open(OUT, "w", encoding="utf-8").write(page)
-    print("home-premium5.html")
+    print("home-premium55.html")
 
 
 if __name__ == "__main__":

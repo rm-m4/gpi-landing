@@ -45,7 +45,7 @@ def suffix(html, n):
 
 
 def main():
-    p1, p2, p3 = read("home-premium.html"), read("home-premium2.html"), read("home-premium3.html")
+    p1, p2, p3 = read("home-premium.html"), read("home-premium11.html"), read("home-premium3.html")
 
     # 3's own CSS follows its marker; its body-level dark rules give way to the band
     css3 = one(r"/\* ---- home-premium3:.*?(?=</style>)", p3, "home-premium3 CSS").group(0)
@@ -58,7 +58,7 @@ def main():
     page = re.sub(r"(/\* ---- home-premium2:.*?)(</style>)", lambda m: m.group(1) + css3 + BAND_CSS + m.group(2),
                   page, count=1, flags=re.S)
     if "h4-band {" not in page or page.count("<h1") != 1:
-        raise SystemExit("merge did not apply, re-check home-premium2")
+        raise SystemExit("merge did not apply, re-check home-premium11")
 
     ids = re.findall(r'\sid="([^"]+)"', page)
     dup = sorted({i for i in ids if ids.count(i) > 1})
