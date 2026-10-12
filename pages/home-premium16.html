@@ -806,33 +806,78 @@ body.h3-page.h14 { background: #f7f5f2; }
 
 
 
-/* home-premium16: home-premium14's page with a featured-deal picker in the hero.
-   The front card is the post-login home's sage gp-ucard; the list under it uses
-   the side cards' gold tint for the selected row. A pick crossfades the card. */
-.h16-deals { display: grid; gap: 14px; width: min(440px, 100%); justify-self: center; }
-.h16-feature { display: grid; }
-.h16-slot { grid-area: 1 / 1; transition: opacity .5s ease, transform .6s cubic-bezier(.16, 1, .3, 1), visibility .5s; }
-.h16-js .h16-slot:not(.is-on) { opacity: 0; visibility: hidden; transform: translateY(10px) scale(.98); }
-.h16-slot .gp-ucard { min-height: 232px; border-color: #d5e5d9; background: linear-gradient(135deg, #dce9df 0%, #f3f7f4 38%, #fff 62%); box-shadow: 0 30px 60px -24px rgba(0, 0, 0, .65); }
-.h16-slot .gp-ucard__rate-value { color: #0a0a0a; }
-.h16-slot .gp-ucard__rate-value span { color: #5b4bb0; }
-.h16-slot .gp-ucard__tags span { background: #e2ece4; }
-.h16-feature { gap: 14px; }
-.h16-picks { display: none; }
-.h16-js .h16-picks { display: grid; gap: 4px; padding: 6px; border-radius: 22px; border: 1px solid rgba(212,175,55,.18); background: rgba(255,255,255,.035); }
-.h16-pick { display: grid; grid-template-columns: 36px 1fr auto; align-items: center; gap: 12px; width: 100%; padding: 10px 14px 10px 10px; border-radius: 16px; text-align: left; color: #f4e9c8;
-  transition: background-color .3s ease, color .3s ease; }
-.h16-pick:hover { background: rgba(212,175,55,.08); }
-.h16-pick:focus-visible { outline: 2px solid #edc967; outline-offset: 2px; }
-.h16-pick img { width: 36px; height: 36px; padding: 3px; border-radius: 10px; background: #fff; object-fit: contain; }
-.h16-pick span { font-size: 12px; color: #a99c7e; }
-.h16-pick b { display: block; font-size: 15px; color: #fff; }
-.h16-pick strong { font-size: 20px; font-weight: 700; letter-spacing: -.02em; color: #edc967; font-variant-numeric: tabular-nums; }
-.h16-pick strong small { font-size: .6em; margin-left: 1px; }
-.h16-pick[aria-selected="true"] { color: #1a1408; background: linear-gradient(135deg, #f7efd6 0%, #fcf8ec 36%, #fff 64%); }
-.h16-pick[aria-selected="true"] b, .h16-pick[aria-selected="true"] strong { color: #1a1408; }
-.h16-pick[aria-selected="true"] span { color: #6b6150; }
-@media (prefers-reduced-motion: reduce) { .h16-slot, .h16-pick { transition: none; } }
+
+/* home-premium16: home-premium11's hero (via home-premium13). */
+.h2-hero { position: relative; overflow: hidden; color: var(--hp-gold-soft);
+  background: radial-gradient(55% 60% at 0% 100%, rgba(212,175,55,.28), transparent 70%),
+              radial-gradient(45% 50% at 100% 80%, rgba(212,175,55,.16), transparent 70%),
+              linear-gradient(180deg, #0f0d0a 0%, #1f180f 55%, #3a2c14 100%); }
+.h2-head { position: relative; text-align: center; padding: clamp(48px, 6vw, 88px) 0 0; }
+.h2-head .hp-h1 { margin: 0 auto; max-width: 16ch; }
+.h2-trust { margin-top: 24px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 20px; font-size: 1.0625rem; color: var(--hp-gold-soft); }
+.h2-trust li { display: inline-flex; align-items: center; gap: 8px; }
+.h2-trust i { color: var(--hp-gold); font-size: 20px; }
+.h2-head .hp-hero__ctas { justify-content: center; }
+
+.h2-stage { position: relative; max-width: 1180px; height: 330px; margin: 56px auto 0; }
+/* cards reuse the hp-icard language: dark gradient, gold edge; the front card turns gold */
+.h2-card { position: absolute; left: 50%; top: 0; width: 460px; margin-left: -230px; padding: 28px; border-radius: 20px; color: var(--hp-gold-soft);
+  background: linear-gradient(160deg, #2a2216 0%, #17130d 100%); border: 1px solid rgba(212,175,55,.22);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 40px 80px -30px rgba(0,0,0,.7);
+  transition: transform .7s var(--hp-ease), opacity .7s var(--hp-ease); }
+.h2-card[data-pos="0"] { z-index: 3; background: linear-gradient(160deg, #e6c65c 0%, #c99d24 100%); border-color: transparent; color: var(--hp-black); }
+.h2-card[data-pos="-1"], .h2-card[data-pos="1"] { z-index: 1; opacity: .7; cursor: pointer; }
+.h2-card[data-pos="-1"] { transform: translate(-72%, 28px) scale(.88); }
+.h2-card[data-pos="1"] { transform: translate(72%, 28px) scale(.88); }
+.h2-card__top { display: flex; align-items: center; gap: 12px; }
+.h2-card__top img { width: 44px; height: 44px; border-radius: 12px; background: #fff; object-fit: contain; padding: 4px; }
+.h2-card__top b { display: block; font-size: 1.0625rem; }
+.h2-card__top span { font-size: 13px; opacity: .75; }
+.h2-card__top i { margin-left: auto; font-size: 26px; color: var(--hp-gold); }
+.h2-card[data-pos="0"] .h2-card__top i { color: var(--hp-black); }
+.h2-card__rate { margin-top: 26px; font-size: 3.5rem; line-height: 1; font-weight: 900; letter-spacing: -.03em; color: #fff; }
+.h2-card[data-pos="0"] .h2-card__rate { color: var(--hp-black); }
+.h2-card__label { margin-top: 6px; font-size: 13px; opacity: .75; }
+.h2-card__foot { margin-top: 24px; padding-top: 18px; border-top: 1px solid rgba(212,175,55,.2); display: flex; align-items: end; justify-content: space-between; gap: 16px; }
+.h2-card[data-pos="0"] .h2-card__foot { border-color: rgba(15,13,10,.18); }
+.h2-card__foot dl { display: flex; gap: 24px; }
+.h2-card__foot dt { font-size: 12px; opacity: .7; }
+.h2-card__foot dd { margin-top: 2px; font-weight: 700; white-space: nowrap; }
+.h2-card .hp-link { color: var(--hp-gold); white-space: nowrap; }
+.h2-card[data-pos="0"] .hp-link { color: var(--hp-black); }
+.h2-arrow { position: absolute; top: 135px; z-index: 4; width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; font-size: 22px;
+  background: var(--hp-black); color: #fff; border: 1px solid rgba(212,175,55,.35); transition: transform .3s var(--hp-ease), border-color .3s; }
+.h2-arrow:hover { border-color: var(--hp-gold); }
+.h2-arrow:active { transform: scale(.94); }
+.h2-arrow--prev { left: 0; } .h2-arrow--next { right: 0; }
+@media (max-width: 1023px) {
+  .h2-stage { height: auto; display: grid; grid-auto-flow: column; grid-auto-columns: min(86%, 440px); gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 0 20px 28px; margin-top: 40px; scrollbar-width: none; }
+  .h2-card, .h2-card[data-pos] { position: static; width: auto; margin: 0; transform: none; opacity: 1; scroll-snap-align: center; cursor: auto; }
+  .h2-arrow { display: none; }
+  .h2-card__foot { flex-wrap: wrap; } .h2-card__rate { font-size: 3rem; }
+}
+.h2-head .h3-h1 { margin: 0 auto; max-width: 16ch; }
+.h2-head .h3-lead { margin: 20px auto 0; }
+.h5-creds { margin-top: 56px; }
+@media (max-width: 1023px) { .h5-creds { margin-top: 24px; } }
+/* the carousel's cards are the post-login gp-ucard: front sage, sides gold */
+.h16c { padding: 0; border: 0; background: none; box-shadow: none; }
+.h16c[data-pos="0"] { background: none; }
+.h16c .gp-ucard { min-height: 232px; }
+.h16c[data-pos="0"] .gp-ucard { border-color: #d5e5d9; background: linear-gradient(135deg, #dce9df 0%, #f3f7f4 38%, #fff 62%); box-shadow: 0 30px 60px -24px rgba(0, 0, 0, .65); }
+.h16c[data-pos="0"] .gp-ucard__rate-value { color: #0a0a0a; }
+.h16c[data-pos="0"] .gp-ucard__rate-value span { color: #5b4bb0; }
+.h16c[data-pos="0"] .gp-ucard__tags span { background: #e2ece4; }
+.h16c:not([data-pos="0"]) .gp-ucard { border-color: #e9d9a6; background: linear-gradient(135deg, #f7efd6 0%, #fcf8ec 36%, #fff 64%); }
+.h16c:not([data-pos="0"]) .gp-ucard__tags span { background: #f5ecd0; }
+.h16c:not([data-pos="0"]) .gp-ucard:hover { transform: none; box-shadow: none; }
+.h16 .h2-arrow { top: 112px; }
+@media (max-width: 1023px) {
+  .h16c[data-pos="0"] { order: -1; }  /* the swipe row starts on the front deal */
+  .h16c .gp-ucard__issuer { overflow-wrap: anywhere; }
+  .h16c .gp-ucard__body { column-gap: 10px; }
+  .h16c .gp-ucard__rate-value { font-size: 30px; }
+}
 </style>
 <!-- ggn-footer: styles; pages/_build.py -->
 <style>
@@ -1192,44 +1237,23 @@ body.h3-page.h14 { background: #f7f5f2; }
        Bond rows are the index.html snapshot. Lines marked COPY: invented are new. -->
 
   <!-- ============================================== chapter 1 · unveiling -->
-  <section class="h3-hero" aria-labelledby="hp-title">
-    <div class="hp-shell">
-      <div class="h3-hero__grid">
-        <div>
-          <h1 class="h3-h1 hp-in" style="--d:1" id="hp-title">Welcome to the <em>golden experience</em> of investing.</h1>
-          <ul class="h3-triad hp-in" style="--d:2" role="list"><li>Powerful</li><li>Seamless</li><li>Premium</li></ul>
-          <!-- COPY: hero line and subtext given by the user, 2026-10-11. -->
-          <p class="h3-lead hp-in" style="--d:3">Invest in Bonds and FDs with returns up to 14%.</p>
-          <div class="hp-hero__ctas hp-in" style="--d:4">
-            <a class="hp-btn hp-btn--gold" href="signup.html">Start investing <i class="ph-bold ph-arrow-right" aria-hidden="true"></i></a>
-            <a class="hp-btn hp-btn--ghost" href="https://play.google.com/store/apps/details?id=com.goldenpi.gpimobileapp"><i class="ph-fill ph-google-play-logo" aria-hidden="true"></i> Get the app</a>
-          </div>
-        </div>
-        <!-- DATA: the three top deals and their cards, as on user-explore-app7.html (collections.tabs.json snapshot); the list repeats each card's issuer, sold share and rate. -->
-        <div class="h16-deals hp-in" style="--d:3">
-          <!-- One deal in front, picked from the list below; the same cards as the post-login home. -->
-          <div class="h16-feature">
-          <div class="h16-slot is-on" id="h16-p0" role="tabpanel" aria-labelledby="h16-t0"><a class="gp-ucard" href="bond-details7.html" style="--i:0">
-  <div class="gp-ucard__body">
-    <div class="gp-ucard__id">
-      <span class="gp-ucard__logo"><img src="../assets/img/GPID102720.AKARA-CAPITAL-ADVISORS-PRIVATE-LIMITED-2x.png" alt="" width="42" height="42"></span>
-      <div>
-        <h3 class="gp-ucard__issuer">AKARA</h3>
-        <p class="gp-ucard__sold">46.38% Sold</p>
+  <!-- home-premium16: home-premium11's first block (centred head, three-card carousel)
+       with the post-login home's white gp-ucard cards. Headline and subtext are home-premium12's. -->
+  <section class="h2-hero" aria-labelledby="hp-title">
+    <div class="hp-shell h2-head">
+      <!-- COPY: hero line and subtext given by the user, 2026-10-11. -->
+      <h1 class="h3-h1 hp-in" style="--d:1" id="hp-title">Welcome to the <em>golden experience</em> of investing.</h1>
+      <p class="h3-lead hp-in" style="--d:2">Invest in Bonds and FDs with returns up to 14%.</p>
+      <div class="hp-hero__ctas hp-in" style="--d:3">
+        <a class="hp-btn hp-btn--gold" href="signup.html">Start investing <i class="ph-bold ph-arrow-right" aria-hidden="true"></i></a>
+        <a class="hp-btn hp-btn--ghost" href="https://play.google.com/store/apps/details?id=com.goldenpi.gpimobileapp"><i class="ph-fill ph-google-play-logo" aria-hidden="true"></i> Get the app</a>
       </div>
     </div>
-    <div class="gp-ucard__rate">
-      <p class="gp-ucard__rate-value">13.00<span>%</span></p>
-    </div>
-    <div class="gp-ucard__tags"><span>Newly Launched</span><span>High Yield</span></div>
-    <dl class="gp-ucard__metrics">
-      <div><dt>Rating</dt><dd>BBB+</dd></div>
-      <div><dt>Payout</dt><dd>Monthly</dd></div>
-      <div><dt>Tenure</dt><dd>1Y 2M</dd></div>
-    </dl>
-  </div>
-</a></div>
-          <div class="h16-slot" id="h16-p1" role="tabpanel" aria-labelledby="h16-t1"><a class="gp-ucard" href="bond-details7.html" style="--i:0">
+
+    <!-- DATA: the three top deals and their cards, as on user-explore-app7.html (collections.tabs.json snapshot). -->
+    <div class="h2-stage hp-in" style="--d:4" role="region" aria-roledescription="carousel" aria-label="Top bonds">
+      <button type="button" class="h2-arrow h2-arrow--prev" aria-label="Previous bond"><i class="ph-bold ph-caret-left" aria-hidden="true"></i></button>
+      <div class="h2-card h16c" data-pos="-1"><a class="gp-ucard" href="bond-details7.html" style="--i:0">
   <div class="gp-ucard__body">
     <div class="gp-ucard__id">
       <span class="gp-ucard__logo"><img src="../assets/img/GPID104095.Neogrowth-new-logo-1-.jpg" alt="" width="42" height="42"></span>
@@ -1249,7 +1273,27 @@ body.h3-page.h14 { background: #f7f5f2; }
     </dl>
   </div>
 </a></div>
-          <div class="h16-slot" id="h16-p2" role="tabpanel" aria-labelledby="h16-t2"><a class="gp-ucard" href="bond-details7.html" style="--i:0">
+      <div class="h2-card h16c" data-pos="0"><a class="gp-ucard" href="bond-details7.html" style="--i:0">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID102720.AKARA-CAPITAL-ADVISORS-PRIVATE-LIMITED-2x.png" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">AKARA</h3>
+        <p class="gp-ucard__sold">46.38% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">13.00<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>Newly Launched</span><span>High Yield</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Rating</dt><dd>BBB+</dd></div>
+      <div><dt>Payout</dt><dd>Monthly</dd></div>
+      <div><dt>Tenure</dt><dd>1Y 2M</dd></div>
+    </dl>
+  </div>
+</a></div>
+      <div class="h2-card h16c" data-pos="1"><a class="gp-ucard" href="bond-details7.html" style="--i:0">
   <div class="gp-ucard__body">
     <div class="gp-ucard__id">
       <span class="gp-ucard__logo"><img src="../assets/img/GPID107347.Best-Capital.png" alt="" width="42" height="42"></span>
@@ -1268,15 +1312,10 @@ body.h3-page.h14 { background: #f7f5f2; }
     </dl>
   </div>
 </a></div>
-          </div>
-          <div class="h16-picks" role="tablist" aria-label="Top deals">
-            <button type="button" role="tab" class="h16-pick" id="h16-t0" aria-controls="h16-p0" aria-selected="true" tabindex="0"><img src="../assets/img/GPID102720.AKARA-CAPITAL-ADVISORS-PRIVATE-LIMITED-2x.png" alt="" width="36" height="36"><span><b>Akara</b>46.38% Sold</span><strong>13.00<small>%</small></strong></button>
-            <button type="button" role="tab" class="h16-pick" id="h16-t1" aria-controls="h16-p1" aria-selected="false" tabindex="-1"><img src="../assets/img/GPID104095.Neogrowth-new-logo-1-.jpg" alt="" width="36" height="36"><span><b>NeoGrowth</b>77.56% Sold</span><strong>13.00<small>%</small></strong></button>
-            <button type="button" role="tab" class="h16-pick" id="h16-t2" aria-controls="h16-p2" aria-selected="false" tabindex="-1"><img src="../assets/img/GPID107347.Best-Capital.png" alt="" width="36" height="36"><span><b>Best Capital</b>10.04% Sold</span><strong>13.00<small>%</small></strong></button>
-          </div>
-        </div>
-      </div>
+      <button type="button" class="h2-arrow h2-arrow--next" aria-label="Next bond"><i class="ph-bold ph-caret-right" aria-hidden="true"></i></button>
+    </div>
 
+    <div class="hp-shell h5-creds">
       <dl class="h3-creds" data-reveal>
         <div><dt>Top 5%</dt><dd>Curated bonds</dd></div>
         <div><dt>18 Lac+</dt><dd>Trusted by</dd></div>
@@ -1608,52 +1647,23 @@ body.h3-page.h14 { background: #f7f5f2; }
 </script>
 
 <script>
-// home-premium16: pick a deal from the list to bring its card to the front;
-// the deals also take turns on their own.
-// Without this every card shows, one under another, and the list stays hidden.
+// Bond carousel: rotates data-pos (-1, 0, 1) across the three cards. Without
+// this the cards still render in their starting positions.
 (function () {
-  var list = document.querySelector('.h16-picks');
-  if (!list) return;
-  document.documentElement.classList.add('h16-js');
-  var tabs = [].slice.call(list.querySelectorAll('[role="tab"]'));
-  function select(n, focus) {
-    tabs.forEach(function (t, k) {
-      var on = k === n, panel = document.getElementById(t.getAttribute('aria-controls'));
-      t.setAttribute('aria-selected', String(on));
-      t.tabIndex = on ? 0 : -1;
-      panel.classList.toggle('is-on', on);
-      panel.querySelector('a').tabIndex = on ? 0 : -1;
-    });
-    if (focus) tabs[n].focus();
+  var stage = document.querySelector('.h2-stage');
+  if (!stage) return;
+  var cards = [].slice.call(stage.querySelectorAll('.h2-card'));
+  function shift(d) {
+    cards.forEach(function (c) { var p = +c.dataset.pos - d; c.dataset.pos = p > 1 ? -1 : p < -1 ? 1 : p; });
   }
-  // Auto-advance every 5s. Pauses while the pointer or focus is on the deals or
-  // the tab is hidden, stops for good once someone picks a deal, and never runs
-  // under reduced motion.
-  var box = document.querySelector('.h16-deals'), cur = 0, held = false, timer = null;
-  function tick() { if (!held && !document.hidden) { cur = (cur + 1) % tabs.length; select(cur); } }
-  function stop() { clearInterval(timer); timer = null; }
-  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    timer = setInterval(tick, 5000);
-    box.addEventListener('mouseenter', function () { held = true; });
-    box.addEventListener('mouseleave', function () { held = false; });
-    box.addEventListener('focusin', function () { held = true; });
-    box.addEventListener('focusout', function () { held = false; });
-  }
-  tabs.forEach(function (t, k) {
-    t.addEventListener('click', function () { stop(); cur = k; select(k); });
-    t.addEventListener('keydown', function (e) {
-      var i = null;
-      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') i = (k + 1) % tabs.length;
-      else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') i = (k - 1 + tabs.length) % tabs.length;
-      else if (e.key === 'Home') i = 0;
-      else if (e.key === 'End') i = tabs.length - 1;
-      if (i === null) return;
-      e.preventDefault();
-      stop(); cur = i;
-      select(i, true);
+  stage.querySelector('.h2-arrow--prev').addEventListener('click', function () { shift(-1); });
+  stage.querySelector('.h2-arrow--next').addEventListener('click', function () { shift(1); });
+  cards.forEach(function (c) {
+    c.addEventListener('click', function (e) {
+      var p = +c.dataset.pos;
+      if (p && window.matchMedia('(min-width: 1024px)').matches) { e.preventDefault(); shift(p); }
     });
   });
-  select(0);
 })();
 </script>
 </body>

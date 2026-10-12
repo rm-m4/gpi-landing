@@ -177,6 +177,9 @@ python3 pages/_premium5.py   # -> home-premium55.html (home-premium 2 + 3 conten
 python3 pages/_premium6.py   # -> home-premium6.html (premium 2 + 3 content: paper deal tickets on black, coin-stack ledger, reviews by name; then _build.py)
 python3 pages/_premium7.py   # -> home-premium7.html (premium 2 + 3 content: term-sheet deals hero, big-QR finale; then _build.py)
 python3 pages/_premium8.py   # -> home-premium8.html (premium 2 + 3 content cut to the figures: rate row hero, type index, coin sheet, giant 5%, big QR; then _build.py)
+python3 pages/_premium21.py   # -> home-premium21.html (home-premium31's whole page, dark, opening on home-premium20's gate walk; then _build.py)
+python3 pages/_premium_landing.py # -> premium-bonds.html, premium-fd.html (pre-login landings: web-v1 explore / fixed-deposits content on home-premium16's shell; then _build.py)
+python3 pages/_fd_prelogin.py # -> premium-fd2.html (web-v1 FD page, pre-login: signup card in the rail, home-premium15's branding below)
 python3 pages/_build.py      # sync header/footer across pages
 python3 pages/_prototype.py  # run LAST: wires the post-login prototype (app7, bond-details7, ipo-details, FD app2, fd-details2, bond-utsav5, portfolio)
 python3 pages/_web_v1.py     # -> web-v1/ (stakeholder folder: the final logged-in pages, flat, short names, own assets; and all-pages' Web V1 tab). Run after _prototype.py

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GoldenPi | The Golden Experience of Investing</title>
+<meta name="description" content="Invest in corporate bonds, FDs and NCD IPOs on GoldenPi.">
+<!-- home-premium17: a first fold only, after the CRED reference the user shared
+     (2026-10-12). Copy is the user's.
+     Taste-skill read: luxury brand hero for Indian retail investors, cinematic
+     black-and-gold language; variance 5, motion 5, density 2.
+       - Real visual: assets/img/premium17/corridor.jpg, generated for this page
+         (Figma AI, GPI - Design Team plan): a black stone corridor to a gold-lit door.
+       - The copy sits in the lower half, over the dark floor, so the door stays
+         the focal point above it and the type keeps its contrast.
+       - Satoshi only (the brand face); emphasis is the same face in gold.
+       - Shapes: pills for every control. One accent: gold.
+       - Motion: one slow push into the corridor on load, then the copy rises;
+         nothing loops; all of it is off under reduced motion. -->
+<link rel="icon" href="../assets/img/goldenpi-logo.svg">
+<link rel="preload" as="image" href="../assets/img/premium17/corridor.jpg" fetchpriority="high">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap">
+<style>
+:root { --ink: #090807; --smoke: #ece6d8; --mute: #b9b1a0; --gold: #d4af37; --gold-hi: #f2d98a; --ease: cubic-bezier(.16, 1, .3, 1); }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--ink); color: var(--smoke); font-family: "Satoshi", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+.c-skip { position: absolute; left: -9999px; }
+.c-skip:focus { left: 16px; top: 16px; z-index: 10; padding: 10px 14px; border-radius: 999px; background: #fff; color: #000; }
+
+.c-fold { position: relative; isolation: isolate; overflow: hidden; min-height: 100dvh; display: grid; grid-template-rows: auto 1fr; }
+.c-bg { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; object-position: 50% 42%; }
+/* scrims: the nav reads at the top, the copy reads over the floor; the door is left untouched */
+.c-fold::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(9,8,7,.78) 0%, rgba(9,8,7,0) 20%),
+    linear-gradient(0deg, rgba(9,8,7,.92) 0%, rgba(9,8,7,.62) 34%, rgba(9,8,7,0) 62%),
+    radial-gradient(120% 90% at 50% 45%, transparent 55%, rgba(9,8,7,.55) 100%); }
+
+.c-nav { display: flex; align-items: center; justify-content: space-between; width: min(1240px, 100% - 32px); margin: 0 auto; padding: 26px 0; }
+.c-nav img { display: block; width: 148px; height: auto; }
+.c-pill { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 0 24px; border-radius: 999px; font-weight: 700; white-space: nowrap;
+  transition: transform .3s var(--ease), background-color .3s, border-color .3s, filter .3s; }
+.c-pill:active { transform: scale(.98); }
+.c-pill--line { border: 1px solid rgba(236,230,216,.4); color: #fff; background: rgba(9,8,7,.25); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.c-pill--line:hover { border-color: var(--gold); }
+.c-pill--gold { background: linear-gradient(100deg, var(--gold-hi), var(--gold) 55%, #b8902c); color: #14110a; }
+.c-pill--gold:hover { filter: brightness(1.06); }
+.c-pill i { font-size: 18px; transition: transform .3s var(--ease); }
+.c-pill:hover i { transform: translateX(4px); }
+a:focus-visible { outline: 2px solid var(--gold-hi); outline-offset: 4px; }
+
+.c-copy { align-self: end; width: min(1100px, 100% - 32px); margin: 0 auto; padding: 0 0 clamp(56px, 9vh, 96px); text-align: center; }
+.c-h1 { font-size: clamp(38px, 4.9vw, 72px); font-weight: 700; line-height: 1.05; letter-spacing: -.035em; color: #fff; text-wrap: balance; text-shadow: 0 2px 30px rgba(9,8,7,.5); }
+.c-h1 em { font-style: normal; color: var(--gold-hi); }
+.c-sub { margin: 22px auto 0; max-width: 44ch; font-size: clamp(17px, 1.4vw, 20px); line-height: 1.5; color: var(--smoke); }
+.c-ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 36px; }
+.c-ctas .c-pill { min-height: 56px; padding: 0 30px; font-size: 16px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .c-bg { animation: c-push 3.2s var(--ease) both; }
+  .c-rise { animation: c-rise 1.1s var(--ease) both; animation-delay: calc(.7s + var(--d) * .14s); }
+}
+@keyframes c-push { from { transform: scale(1.12); opacity: .2; } }
+@keyframes c-rise { from { opacity: 0; transform: translateY(20px); } }
+
+@media (max-width: 767px) {
+  .c-nav { padding: 16px 0; }
+  .c-nav img { width: 120px; }
+  .c-nav .c-pill { min-height: 42px; padding: 0 16px; font-size: 14px; }
+  .c-bg { object-position: 50% 40%; }
+  .c-copy { padding-bottom: 40px; }
+  .c-ctas { flex-direction: column; align-items: stretch; width: min(340px, 100%); margin-inline: auto; }
+}
+</style>
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+</head>
+<body>
+<a class="c-skip" href="#c-main">Skip to main content</a>
+<div class="c-fold">
+  <img class="c-bg" src="../assets/img/premium17/corridor.jpg" alt="" width="1376" height="768" fetchpriority="high">
+  <header class="c-nav">
+    <a href="index.html"><img src="../assets/img/goldenpi-logo-white.svg" alt="GoldenPi" width="148" height="34"></a>
+    <a class="c-pill c-pill--line" href="signup.html">Login / Sign up</a>
+  </header>
+  <main class="c-copy" id="c-main">
+    <!-- COPY: headline and subtext given by the user, 2026-10-12. -->
+    <h1 class="c-h1 c-rise" style="--d:0">Building a <em>golden</em> experience of investing, crafted for you.</h1>
+    <p class="c-sub c-rise" style="--d:1">Invest in corporate bonds, FDs, and NCD IPOs.</p>
+    <div class="c-ctas c-rise" style="--d:2">
+      <a class="c-pill c-pill--gold" href="signup.html">Start investing <i class="ph-bold ph-arrow-right" aria-hidden="true"></i></a>
+      <a class="c-pill c-pill--line" href="https://play.google.com/store/apps/details?id=com.goldenpi.gpimobileapp">Get the app</a>
+    </div>
+  </main>
+</div>
+</body>
+</html>

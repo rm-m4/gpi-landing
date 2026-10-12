@@ -235,7 +235,10 @@ body.p6-page { background: #0c0b09; }
 .p6-sec { padding-block: clamp(72px, 9vw, 128px); }
 
 .p6-h1, .p6-h2 { color: var(--tx); font-weight: 700; letter-spacing: -0.035em; text-wrap: balance; }
-.p6-h1 { font-size: clamp(40px, 4.5vw, 66px); line-height: 1.02; }
+.p6-h1 { font-size: clamp(40px, 4.5vw, 66px); line-height: 1.04; }
+.p6-h1 > * { display: block; }
+@media (min-width: 1024px) { .p6-h1 > * { white-space: nowrap; } }  /* two lines, by request */
+@media (min-width: 1200px) { .p6-h1 { font-size: clamp(40px, calc((100vw - 658px) / 13), 62px); } }  /* sized to the column beside the deck */  /* two lines, by request; sized to the column beside the deck */
 .p6-h2 { font-size: clamp(32px, 3.7vw, 54px); line-height: 1.06; max-width: 18ch; }
 .p6-h1 em, .p6-h2 em { font-style: normal; color: var(--gold); }
 .p6-lead { margin-top: 18px; max-width: 54ch; color: var(--tx-2); font-size: clamp(16px, 1.25vw, 18px); line-height: 1.6; }
@@ -268,7 +271,7 @@ body.p6-page { background: #0c0b09; }
   background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.5) 60%, transparent);
 }
 .p6-hero__grid { display: grid; gap: 56px; align-items: center; }
-@media (min-width: 1024px) {
+@media (min-width: 1200px) {
   .p6-hero__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 530px); gap: 64px; min-height: min(640px, calc(100dvh - 200px)); }
 }
 .p6-trust { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 26px; color: var(--tx-2); font-size: 15px; }
@@ -388,6 +391,10 @@ body.p6-page { background: #0c0b09; }
   box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.7);
 }
 .p6-ledger h3 { font-size: clamp(20px, 1.8vw, 24px); font-weight: 700; letter-spacing: -0.02em; }
+.p6-lakh { display: inline-block; padding: 0 .12em; font-size: 1.6em; line-height: 1.1; letter-spacing: -.03em; color: #8a6520;
+  background: linear-gradient(transparent 58%, rgba(212, 175, 55, 0.32) 58%) no-repeat; }
+.reveal-ready .p6-ledger .p6-lakh { background-size: 0% 100%; transition: background-size 1s var(--ease) .2s; }
+.reveal-ready .p6-ledger.is-in .p6-lakh { background-size: 100% 100%; }
 .p6-ledger small { display: block; margin-top: 4px; color: var(--ink-2); font-size: 13px; }
 .p6-coins { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(10px, 2vw, 22px); align-items: end; height: clamp(280px, 30vw, 340px); margin-top: 28px; }
 .p6-coin { display: grid; grid-template-rows: auto 1fr auto auto; height: 100%; text-align: center; }
@@ -887,7 +894,7 @@ body.p6-page { background: #0c0b09; }
   <section class="p6-hero" aria-labelledby="p6-title">
     <div class="p6-shell p6-hero__grid">
       <div>
-        <h1 class="p6-h1 p6-rise" style="--d:1" id="p6-title">The <em>golden</em> experience of investing.</h1>
+        <h1 class="p6-h1 p6-rise" style="--d:1" id="p6-title"><span>The golden</span> <em>experience of investing.</em></h1>
         <ul class="p6-trust p6-rise" style="--d:2" role="list">
           <li><i class="ph-fill ph-seal-check" aria-hidden="true"></i>SEBI registered Debt Broker</li>
           <li><i class="ph-fill ph-seal-check" aria-hidden="true"></i>OBPP license holder</li>
@@ -947,30 +954,20 @@ body.p6-page { background: #0c0b09; }
   <section class="p6-acct" aria-labelledby="p6-assets">
     <div class="p6-shell">
       <h2 data-reveal class="p6-h2" id="p6-assets">Three instruments. One golden account.</h2>
-      <p data-reveal class="p6-lead">Everything fixed income, under one login and one KYC. Pick the payout, the tenure and the risk you are comfortable with.</p>
       <div data-reveal class="p6-inst">
         <a class="p6-inst__item" href="corporate-bonds.html">
           <div class="p6-inst__head"><i class="ph ph-certificate" aria-hidden="true"></i><h3>Corporate Bonds</h3></div>
-          <p>Lend to established Indian companies and collect fixed interest on a schedule you choose. Every bond is credit rated, every cash flow shown upfront.</p>
-          <dl class="p6-inst__facts">
-            <div><dt>13.8%</dt><dd>Returns, up to</dd></div>
-            <div><dt>Monthly</dt><dd>Payouts available</dd></div>
-            <div><dt>A or above</dt><dd>Highly rated picks</dd></div>
-          </dl>
+          <dl class="p6-inst__facts"><div><dt>13.8%</dt><dd>Returns, up to</dd></div></dl>
           <span class="p6-more">Explore bonds <i class="ph-bold ph-arrow-right" aria-hidden="true"></i></span>
         </a>
         <a class="p6-inst__item" href="fixed-deposits.html">
           <div class="p6-inst__head"><i class="ph ph-vault" aria-hidden="true"></i><h3>Fixed Deposits</h3></div>
-          <p>Book FDs with leading small finance banks and NBFCs, without opening a new bank account.</p>
-          <dl class="p6-inst__facts">
-            <div><dt>8.5%</dt><dd>Highest returns</dd></div>
-            <div><dt>&#8377;5L</dt><dd>Insured upto</dd></div>
-          </dl>
+          <dl class="p6-inst__facts"><div><dt>8.5%</dt><dd>Highest returns</dd></div></dl>
           <span class="p6-more">Explore FDs <i class="ph-bold ph-arrow-right" aria-hidden="true"></i></span>
         </a>
         <a class="p6-inst__item" href="bond-ipo-online.html">
-          <div class="p6-inst__head"><i class="ph ph-rocket-launch" aria-hidden="true"></i><h3>NCD IPOs</h3><span class="p6-live">Live now</span></div>
-          <p>Apply to new bond issues at face value, straight into your demat, before they list.</p>
+          <div class="p6-inst__head"><i class="ph ph-rocket-launch" aria-hidden="true"></i><h3>NCD IPOs</h3></div>
+          <dl class="p6-inst__facts"><div><dt>Live now</dt></div></dl>
           <span class="p6-more">See open IPOs <i class="ph-bold ph-arrow-right" aria-hidden="true"></i></span>
         </a>
       </div>
@@ -984,7 +981,7 @@ body.p6-page { background: #0c0b09; }
            listings; the two gold rows are the snapshot highs from index.html. Each
            rupee figure is that rate on Rs 1,00,000 for one year. -->
       <figure data-reveal class="p6-ledger">
-        <h3>What &#8377;1 lakh can earn in a year</h3>
+        <h3>What <span class="p6-lakh">&#8377;1 lakh</span> can earn in a year</h3>
         <small>Indicative annual rates, before tax</small>
         <ol class="p6-coins" role="list">
             <li class="p6-coin" style="--h:19.6%; --i:0">

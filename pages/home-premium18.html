@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GoldenPi | The Golden Experience of Investing</title>
+<meta name="description" content="Invest in bonds with returns up to 14% on GoldenPi.">
+<!-- home-premium18: a header block only, after textura.agency's #story block the
+     user shared (2026-10-12): a 3D colonnade, the camera walking through it as the
+     page scrolls, centred copy written out word by word with the scroll. Copy is
+     the user's.
+     Taste-skill read: luxury brand hero for Indian retail investors, cinematic
+     black-and-gold language; variance 5, motion 8, density 2.
+       - The scene is three.js (r168, the reference's own engine), built in code:
+         fluted stone columns down a tiled floor to a pair of gold doors. Scroll
+         opens the doors and carries the camera between the columns toward the
+         light behind them. No model files; the floor texture is drawn on a canvas.
+       - The section is 420vh tall with a sticky 100dvh stage; scroll position is
+         read in the render loop (no scroll listener) and eased, so the camera and
+         the words glide rather than step.
+       - Copy, in two passes like the reference: the headline writes itself in as
+         you scroll (each word rises from 300px below at a tenth of the size), then
+         gives way to the returns line and the CTAs. The CTAs are inert until shown.
+       - Satoshi only (the brand face, not the reference's serif); emphasis is the
+         same face in gold. Pills for controls. One accent: gold.
+       - Without JS, or under reduced motion: no pinning, both lines shown
+         stacked, one still frame of the open doors. If three.js cannot load, a
+         CSS doorway glow stands in. The loop stops off-screen and when settled. -->
+<link rel="icon" href="../assets/img/goldenpi-logo.svg">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap">
+<script>if (!matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentElement.classList.add("js-story");</script>
+<style>
+:root { --ink: #070605; --smoke: #ece6d8; --gold: #d4af37; --gold-hi: #f2d98a; --ease: cubic-bezier(.16, 1, .3, 1); }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--ink); color: var(--smoke); font-family: "Satoshi", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+.st-skip { position: absolute; left: -9999px; }
+.st-skip:focus { left: 16px; top: 16px; z-index: 10; padding: 10px 14px; border-radius: 999px; background: #fff; color: #000; }
+
+.js-story .st { height: 420vh; }
+.st-stage { position: relative; height: 100dvh; min-height: 560px; overflow: hidden; isolation: isolate;
+  /* the doorway without three.js, and under the canvas until its first frame */
+  background: radial-gradient(14% 30% at 50% 52%, rgba(242,217,138,.32), transparent 70%), radial-gradient(60% 50% at 50% 100%, rgba(212,175,55,.12), transparent 70%), var(--ink); }
+.js-story .st-stage { position: sticky; top: 0; }
+.st-gl { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; display: block; opacity: 0; transition: opacity 1.4s var(--ease); }
+.st-gl.is-on { opacity: 1; }
+/* film grain, as in the reference; on the pinned stage, so it never repaints on scroll */
+.st-stage::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: .14; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+.st-nav { position: absolute; top: 0; left: 0; right: 0; z-index: 3; display: flex; align-items: center; justify-content: space-between; width: min(1320px, 100% - 32px); margin: 0 auto; padding: 26px 0; }
+.st-nav img { display: block; width: 148px; height: auto; }
+.st-pill { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 48px; padding: 0 24px; border-radius: 999px; font-weight: 700; white-space: nowrap;
+  transition: transform .3s var(--ease), background-color .3s, border-color .3s, filter .3s; }
+.st-pill:active { transform: scale(.98); }
+.st-pill--line { border: 1px solid rgba(236,230,216,.4); color: #fff; background: rgba(7,6,5,.3); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.st-pill--line:hover { border-color: var(--gold); }
+.st-pill--gold { background: linear-gradient(100deg, var(--gold-hi), var(--gold) 55%, #b8902c); color: #14110a; }
+.st-pill--gold:hover { filter: brightness(1.06); }
+.st-pill svg { width: 18px; height: 18px; transition: transform .3s var(--ease); }
+.st-pill:hover svg { transform: translateX(4px); }
+a:focus-visible { outline: 2px solid var(--gold-hi); outline-offset: 4px; }
+
+.st-copy { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 32px; padding: 110px 16px 56px; text-align: center; }
+/* a soft pool of dark behind the copy, so it reads over the lit doorway */
+.st-copy::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(42% 30% at 50% 52%, rgba(7,6,5,.72), transparent 100%); }
+.js-story .st-copy { display: grid; place-items: center; }
+.js-story .st-a, .js-story .st-b { grid-area: 1 / 1; }
+.st-a { max-width: 17ch; font-size: clamp(36px, 5.4vw, 84px); font-weight: 500; line-height: 1.1; letter-spacing: -.035em; color: #fff; text-wrap: balance;
+  text-shadow: 0 2px 28px rgba(7,6,5,.7);
+  opacity: var(--a, 1); transform: translateY(calc((1 - var(--a, 1)) * -48px)); }
+.st-b { display: flex; flex-direction: column; align-items: center; gap: 36px; }
+.st-sub { max-width: 18ch; font-size: clamp(32px, 4.6vw, 72px); font-weight: 500; line-height: 1.1; letter-spacing: -.03em; color: #fff; text-wrap: balance; text-shadow: 0 2px 28px rgba(7,6,5,.7); }
+.st-gold { color: var(--gold-hi); }
+/* a word's reveal, 0 to 1, set by the script; the reference's 300px rise from a tenth of the size */
+.st-w { display: inline-block; opacity: var(--e, 1); transform: translate3d(0, calc((1 - var(--e, 1)) * 300px), 0) scale(calc(.1 + var(--e, 1) * .9)); transform-origin: 50% 100%; }
+.st-ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; opacity: var(--c, 1); transform: translateY(calc((1 - var(--c, 1)) * 20px)); }
+.st-ctas .st-pill { min-height: 56px; padding: 0 30px; font-size: 16px; }
+
+@media (max-width: 767px) {
+  .st-nav { padding: 16px 0; }
+  .st-nav img { width: 120px; }
+  .st-nav .st-pill { min-height: 42px; padding: 0 16px; font-size: 14px; }
+  .st-ctas { flex-direction: column; align-items: stretch; width: min(340px, 100%); }
+}
+</style>
+</head>
+<body>
+<a class="st-skip" href="#st-main">Skip to main content</a>
+<section class="st">
+  <div class="st-stage">
+    <canvas class="st-gl" aria-hidden="true"></canvas>
+    <header class="st-nav">
+      <a href="index.html"><img src="../assets/img/goldenpi-logo-white.svg" alt="GoldenPi" width="148" height="34"></a>
+      <a class="st-pill st-pill--line" href="signup.html">Login / Sign up</a>
+    </header>
+    <main class="st-copy" id="st-main">
+      <!-- COPY: headline and subtext given by the user, 2026-10-12. -->
+      <h1 class="st-a"><span class="st-w">Unveiling</span> <span class="st-w st-gold">golden</span> <span class="st-w">experience,</span> <span class="st-w">crafted</span> <span class="st-w">for</span> <span class="st-w">you.</span></h1>
+      <div class="st-b">
+        <p class="st-sub"><span class="st-w">Invest</span> <span class="st-w">in</span> <span class="st-w">bonds</span> <span class="st-w">with</span> <span class="st-w">returns</span> <span class="st-w">up</span> <span class="st-w">to</span> <span class="st-w st-gold">14%</span></p>
+        <div class="st-ctas">
+          <a class="st-pill st-pill--gold" href="signup.html">Start investing <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z"/></svg></a>
+          <a class="st-pill st-pill--line" href="https://play.google.com/store/apps/details?id=com.goldenpi.gpimobileapp">Get the app</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</section>
+<script type="module">
+const story = document.documentElement.classList.contains("js-story");
+const sec = document.querySelector(".st");
+const cv = document.querySelector(".st-gl");
+const A = document.querySelector(".st-a"), ctas = document.querySelector(".st-ctas");
+const wa = [...A.querySelectorAll(".st-w")], wb = [...document.querySelectorAll(".st-sub .st-w")];
+const clamp = (x) => Math.max(0, Math.min(1, x));
+const out3 = (x) => 1 - Math.pow(1 - x, 3);
+const inOut = (x) => x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+const reveal = (p, from, len) => out3(clamp((p - from) / len)).toFixed(3);
+
+// The copy over scroll progress p (0 to 1 across the pinned section):
+// headline words .00-.38, hold, headline lifts away .50-.60, returns line .58-.86, CTAs .78-.86.
+// The first word starts part-written, so the fold opens on a sentence in progress.
+function copy(p) {
+  wa.forEach((w, i) => w.style.setProperty("--e", reveal(p, i * .06 - .06, .14)));
+  A.style.setProperty("--a", (1 - reveal(p, .5, .1)).toFixed(3));
+  wb.forEach((w, i) => w.style.setProperty("--e", reveal(p, .58 + i * .025, .1)));
+  const c = reveal(p, .78, .08);
+  ctas.style.setProperty("--c", c);
+  ctas.inert = c < .5;
+}
+
+function progress() {
+  const r = sec.getBoundingClientRect();
+  return clamp(-r.top / Math.max(1, r.height - innerHeight));
+}
+
+let scene = null, cur = story ? progress() : .5, drawn = -1, raf = 0, inView = true;
+function tick() {
+  raf = 0;
+  if (story) {
+    const tgt = progress();
+    cur += (tgt - cur) * .1;
+    if (Math.abs(tgt - cur) < 1e-4) cur = tgt;
+    copy(cur);
+  }
+  if (scene && cur !== drawn) { scene.render(cur); drawn = cur; }
+  if (story && inView && !document.hidden) raf = requestAnimationFrame(tick);
+}
+function wake() { if (!raf) raf = requestAnimationFrame(tick); }
+if (story) {
+  copy(cur);
+  new IntersectionObserver((e) => { inView = e[0].isIntersecting; if (inView) wake(); }).observe(sec);
+  document.addEventListener("visibilitychange", wake);
+}
+
+try {
+  const THREE = await import("https://cdn.jsdelivr.net/npm/three@0.168.0/build/three.module.min.js");
+  scene = build(THREE);
+  new ResizeObserver(() => { scene.resize(); drawn = -1; wake(); }).observe(cv);
+  scene.resize(); wake();
+  requestAnimationFrame(() => cv.classList.add("is-on"));
+} catch (e) { /* no WebGL or no network: the CSS doorway stays */ }
+
+function build(THREE) {
+  const renderer = new THREE.WebGLRenderer({ canvas: cv, antialias: true, powerPreference: "high-performance" });
+  renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 1.5));  // ponytail: DPR capped for fill-rate; raise if columns look soft on 3x screens
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.05;
+
+  const BG = 0x070605;
+  const s = new THREE.Scene();
+  s.background = new THREE.Color(BG);
+  s.fog = new THREE.Fog(BG, 8, 46);
+
+  // Reflections for the gold: a dark room with a warm skylight and the door light.
+  const env = new THREE.Scene();
+  env.add(new THREE.Mesh(new THREE.BoxGeometry(10, 10, 10), new THREE.MeshBasicMaterial({ color: 0x0b0907, side: THREE.BackSide })));
+  const panel = (rgb, x, y, z, w, h) => {
+    const m = new THREE.Mesh(new THREE.PlaneGeometry(w, h), new THREE.MeshBasicMaterial({ side: THREE.DoubleSide }));
+    m.material.color.setRGB(...rgb); m.position.set(x, y, z); m.lookAt(0, 0, 0); env.add(m);
+  };
+  panel([3, 2.3, 1.2], 0, 4.9, 0, 6, 2);
+  panel([1.4, 1, .45], 4.9, 1, 1, 3, 5);
+  panel([4, 3.2, 1.8], 0, 1, -4.9, 2, 5);
+  const pm = new THREE.PMREMGenerator(renderer);
+  s.environment = pm.fromScene(env, .04).texture;
+  s.environmentIntensity = .55;
+
+  // A seeded random, so the floor is the same on every load.
+  let seed = 7;
+  const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
+
+  // Floor: irregular running-bond stone tiles, drawn once on a canvas.
+  const fc = document.createElement("canvas"); fc.width = fc.height = 512;
+  const g = fc.getContext("2d");
+  g.fillStyle = "#0d0b09"; g.fillRect(0, 0, 512, 512);
+  for (let y = 0; y < 512;) {
+    const h = Math.min(512 - y, 26 + (rnd() * 22 | 0));
+    for (let x = -(rnd() * 50 | 0); x < 512;) {
+      const w = 34 + (rnd() * 54 | 0), l = 40 + (rnd() * 34 | 0);
+      g.fillStyle = `rgb(${l + 10},${l + 6},${l - 2})`; g.fillRect(x + 2, y + 2, w - 4, h - 4);
+      x += w;
+    }
+    y += h;
+  }
+  const ft = new THREE.CanvasTexture(fc);
+  ft.wrapS = ft.wrapT = THREE.RepeatWrapping; ft.repeat.set(3, 14); ft.colorSpace = THREE.SRGBColorSpace;
+  ft.anisotropy = renderer.capabilities.getMaxAnisotropy();
+  const floor = new THREE.Mesh(new THREE.PlaneGeometry(14, 64), new THREE.MeshStandardMaterial({ map: ft, color: 0xc9b79a, roughness: .5, metalness: .15 }));
+  floor.rotation.x = -Math.PI / 2; floor.position.z = -10;
+  s.add(floor);
+
+  const stone = new THREE.MeshStandardMaterial({ color: 0xa89c84, roughness: .72 });
+  const gold = new THREE.MeshStandardMaterial({ color: 0xd4af37, metalness: 1, roughness: .28 });
+  const goldDeep = new THREE.MeshStandardMaterial({ color: 0x9c7a25, metalness: 1, roughness: .4 });
+
+  // A fluted Doric column: 24 flutes cut into the shaft, a base, a gold neck ring, a capital.
+  const R = .42, H = 5.4;
+  const shaft = new THREE.CylinderGeometry(R * .9, R, H, 120, 1, true);
+  const pos = shaft.attributes.position;
+  for (let i = 0; i < pos.count; i++) {
+    const x = pos.getX(i), z = pos.getZ(i), k = 1 - .05 * Math.pow(Math.abs(Math.sin(Math.atan2(z, x) * 12)), .5);
+    pos.setX(i, x * k); pos.setZ(i, z * k);
+  }
+  shaft.computeVertexNormals();
+  const parts = [
+    [new THREE.BoxGeometry(1.2, .2, 1.2), stone, .1],
+    [new THREE.CylinderGeometry(R * 1.2, R * 1.32, .26, 64), stone, .33],
+    [shaft, stone, .46 + H / 2],
+    [new THREE.TorusGeometry(R * .93, .035, 10, 64), gold, .46 + H - .25, Math.PI / 2],
+    [new THREE.CylinderGeometry(R * 1.32, R * .9, .3, 64), stone, .46 + H + .15],
+    [new THREE.BoxGeometry(1.24, .2, 1.24), stone, .46 + H + .4],
+  ];
+  const column = () => {
+    const c = new THREE.Group();
+    for (const [geo, mat, y, rx] of parts) { const m = new THREE.Mesh(geo, mat); m.position.y = y; if (rx) m.rotation.x = rx; c.add(m); }
+    return c;
+  };
+  const ROWS = [7, 2, -3, -8, -13];
+  for (const z of ROWS) for (const x of [-2.8, 2.8]) { const c = column(); c.position.set(x, 0, z); s.add(c); }
+
+  // A pool of light between each pair of columns, as in the reference.
+  for (const z of ROWS) {
+    const l = new THREE.SpotLight(0xffe2ae, 70, 16, .62, .7, 1.6);
+    l.position.set(0, 8, z + .6); l.target.position.set(0, 0, z); s.add(l, l.target);
+  }
+  s.add(new THREE.HemisphereLight(0x3d3322, 0x000000, .5));
+
+  // The doorway at the end: a dark wall, a gold frame, two gold leaves hung on their outer edges.
+  const DZ = -18, DW = 1.9, DH = 6;
+  const wall = new THREE.MeshStandardMaterial({ color: 0x241f19, roughness: .9 });
+  const box = (w, h, d, mat, x, y, z) => { const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat); m.position.set(x, y, z); s.add(m); return m; };
+  box(10, 12, .8, wall, -(DW + 5), 6, DZ - .4);
+  box(10, 12, .8, wall, DW + 5, 6, DZ - .4);
+  box(DW * 2, 6, .8, wall, 0, DH + 3, DZ - .4);
+  box(.16, DH + .16, .9, gold, -DW - .08, DH / 2, DZ - .4);
+  box(.16, DH + .16, .9, gold, DW + .08, DH / 2, DZ - .4);
+  box(DW * 2 + .32, .16, .9, gold, 0, DH + .08, DZ - .4);
+  const leaf = (side) => {
+    const hinge = new THREE.Group(); hinge.position.set(side * DW, 0, DZ);
+    const w = DW - .02, x = -side * w / 2;
+    const l = new THREE.Mesh(new THREE.BoxGeometry(w, DH, .14), gold); l.position.set(x, DH / 2, 0); hinge.add(l);
+    for (const [py, ph] of [[DH * .7, DH * .42], [DH * .24, DH * .3]]) {  // two raised panels
+      const p = new THREE.Mesh(new THREE.BoxGeometry(w * .7, ph, .04), goldDeep); p.position.set(x, py, .09); hinge.add(p);
+    }
+    s.add(hinge); return hinge;
+  };
+  const left = leaf(-1), right = leaf(1);
+  // The light behind the doors: a bright plane (seen through the gap) and a lamp that floods the hall as they open.
+  const glow = new THREE.Mesh(new THREE.PlaneGeometry(DW * 2.4, DH + .6), new THREE.MeshBasicMaterial({ fog: false }));
+  glow.position.set(0, DH / 2, DZ - 2.2); s.add(glow);
+  const lamp = new THREE.PointLight(0xffd383, 0, 40, 1.6); lamp.position.set(0, 3, DZ - 1.2); s.add(lamp);
+  // A key light on the door faces, so the closed doors read as gold from the entrance.
+  const key = new THREE.SpotLight(0xffe2ae, 110, 16, .5, .6, 1.4);
+  key.position.set(0, 7.5, DZ + 5); key.target.position.set(0, 3, DZ); s.add(key, key.target);
+
+  const cam = new THREE.PerspectiveCamera(50, 1, .1, 90);
+  const look = new THREE.Vector3(0, 2.7, -40);
+
+  return {
+    resize() {
+      const w = cv.clientWidth, h = cv.clientHeight;
+      renderer.setSize(w, h, false);
+      cam.aspect = w / h;
+      cam.fov = cam.aspect < .8 ? 72 : 50;  // portrait phones see both rows of columns
+      cam.updateProjectionMatrix();
+    },
+    render(p) {
+      const open = inOut(clamp((p - .05) / .7));  // the doors open slowly behind the copy, over most of the scroll
+      left.rotation.y = open * 1.45;              // swing away from the viewer
+      right.rotation.y = -open * 1.45;
+      const lit = .35 + open * .65;
+      glow.material.color.setRGB(1.7 * lit, 1.15 * lit, .42 * lit);  // warm, not white, so the copy keeps its contrast
+      lamp.intensity = 4 + open * 90;
+      const t = inOut(p);
+      cam.position.set(0, 1.75 + t * .25, 12 - t * 17);  // walk between the columns, stopping with the doorway still framed
+      cam.lookAt(look);
+      renderer.render(s, cam);
+    },
+  };
+}
+</script>
+</body>
+</html>

@@ -21,6 +21,10 @@ C = S.A.C  # _collections.py, loaded by app2 under another name (it clashes with
 HERE = os.path.dirname(os.path.abspath(__file__))
 TONES = ("sage", "gold", "slate")
 FIXED = {slug: tone for slug, _, tone in S.SHELVES}  # app7's own shelves
+# Starts 10k's black accent: warm graphite (stone scale), to sit on the warm page.
+INK_CSS = """.c2--ink .gp-ucard { border-color: #d6d3d1; background: linear-gradient(-46.6deg, #fff 49.8%, #d6d3d1 99.5%); }
+.c2--ink .gp-ucard__tags span { background: #ecebe9; }
+"""
 
 
 def tones():
@@ -31,6 +35,7 @@ def tones():
         else:
             out[p["slug"]] = TONES[n % 3]
             n += 1
+    out["starts-10k"] = "ink"  # user asked for a black accent here (2026-10-12); after the rotation, so the others keep theirs
     return out
 
 
@@ -112,7 +117,7 @@ def main():
     C.page_name = lambda slug: "collections2-%s.html" % slug
     C.card = lambda c, i: re.sub(r'\n  <p class="gp-ucard__note">.*?</p>', "", old_card(c, i), flags=re.S)
     style = ("<style>\n/* user-explore-app7's bond cards (_collections2.py) */\n%s\n%s</style>\n</head>"
-             % (card_css(), TOP_CSS))
+             % (card_css() + "\n" + INK_CSS, TOP_CSS))
     try:
         for slug, tone in tones().items():
             C.build(slug)

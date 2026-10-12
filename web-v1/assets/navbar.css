@@ -100,6 +100,8 @@ img.nb-ic { background: none; -webkit-mask: none; mask: none; object-fit: contai
 
 /* -------------------------------------------------------------- actions */
 .nb__actions { flex: none; display: flex; align-items: center; gap: 10px; }
+/* Logo and CTA only (the premium homepages): the CTA keeps to the right. */
+.nb--bare .nb__actions { margin-left: auto; }
 .nb__btn, .nb__avatar, .nb__pill {
   height: 40px; border-radius: 999px; font-family: inherit; cursor: pointer;
   transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.15s ease;

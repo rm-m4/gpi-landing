@@ -85,7 +85,6 @@ body.p7-page { background: var(--p7-k); }
 .p7-lead { font-size: 1.125rem; line-height: 1.65; color: var(--p7-sub); max-width: 48ch; }
 .p7-dark .p7-lead { color: var(--p7-sub-k); }
 .p7-head { display: grid; gap: 20px; margin-bottom: 56px; }
-@media (min-width: 1024px) { .p7-head--split { grid-template-columns: 1fr minmax(0, 440px); align-items: end; gap: 64px; } }
 
 /* controls */
 .p7-btn { display: inline-flex; align-items: center; gap: 10px; min-height: 54px; padding: 0 28px; border-radius: 999px; font-weight: 700; font-size: 16px; white-space: nowrap; transition: transform .3s var(--p7-ease), background-color .3s, color .3s, border-color .3s, box-shadow .3s; }
@@ -108,7 +107,9 @@ body.p7-page { background: var(--p7-k); }
 .p7-trust { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 24px; font-size: 14px; font-weight: 500; color: var(--p7-sub-k); }
 .p7-trust li { display: inline-flex; align-items: center; gap: 8px; }
 .p7-trust i { color: var(--p7-gold); font-size: 16px; }
-.p7-h1 { margin: 28px auto 0; max-width: 13ch; font-size: clamp(2.75rem, 7vw, 5.5rem); line-height: 1; letter-spacing: -.045em; font-weight: 700; text-wrap: balance; }
+.p7-h1 { margin: 28px auto 0; font-size: clamp(2.5rem, 6vw, 5.25rem); line-height: 1.04; letter-spacing: -.045em; font-weight: 700; text-wrap: balance; }
+.p7-h1 > * { display: block; }
+@media (min-width: 1024px) { .p7-h1 > * { white-space: nowrap; } }  /* two lines on desktop, by request */
 .p7-hero__cta { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 40px; }
 
 /* the term sheet: three deals, one panel, one gold rule across the top */
@@ -163,21 +164,21 @@ body.p7-page { background: var(--p7-k); }
 /* ========================================================= 2 the account */
 .p7-sec--tight { padding: 40px 0 128px; }
 @media (max-width: 767px) { .p7-sec--tight { padding: 16px 0 96px; } }
-.p7-inst { display: grid; gap: 12px; }
-@media (min-width: 900px) { .p7-inst { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; } }
-.p7-inst a { position: relative; display: grid; grid-template-rows: auto 1fr auto; gap: 14px; height: 100%; padding: 28px; border-radius: 16px; border: 1px solid rgba(255,255,255,.1); background: var(--p7-k2);
-  transition: border-color .4s, transform .5s var(--p7-ease), background-color .4s; }
-.p7-inst a:hover { border-color: rgba(212,175,55,.55); transform: translateY(-4px); background: var(--p7-k3); }
-.p7-inst__top { display: flex; align-items: center; gap: 14px; }
-.p7-inst__icon { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 999px; border: 1px solid var(--p7-line-k); color: var(--p7-gold); font-size: 22px; }
-.p7-inst h3 { font-size: 20px; font-weight: 700; }
-.p7-inst__arrow { margin-left: auto; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 999px; background: rgba(255,255,255,.06); color: var(--p7-gold-hi); transition: background-color .3s, color .3s, transform .4s var(--p7-ease); }
-.p7-inst a:hover .p7-inst__arrow { background: var(--p7-gold); color: var(--p7-k); transform: rotate(-45deg); }
-.p7-inst p { font-size: 15px; line-height: 1.6; color: var(--p7-sub-k); }
-.p7-inst dl { display: flex; flex-wrap: wrap; gap: 8px 24px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.08); }
-.p7-inst dt { font-size: 20px; font-weight: 700; color: var(--p7-gold-hi); font-variant-numeric: tabular-nums; }
-.p7-inst dd { font-size: 12px; color: var(--p7-sub-k); }
-.p7-live { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: var(--p7-gold-hi); }
+.p7-inst { display: grid; border-top: 1px solid rgba(255,255,255,.12); border-bottom: 1px solid rgba(255,255,255,.12); }
+@media (min-width: 900px) { .p7-inst { grid-template-columns: 1.3fr 1fr 1fr; } }
+.p7-inst li + li { border-top: 1px solid rgba(255,255,255,.12); }
+@media (min-width: 900px) { .p7-inst li + li { border-top: 0; border-left: 1px solid rgba(255,255,255,.12); } }
+.p7-inst a { position: relative; display: grid; grid-template-columns: auto 1fr auto; grid-template-areas: "icon name arrow" "icon fact arrow"; align-items: center; column-gap: 18px; row-gap: 4px; padding: 28px 8px; transition: background-color .4s; }
+@media (min-width: 900px) { .p7-inst a { padding: 32px 32px; } .p7-inst li:first-child a { padding-left: 0; } }
+.p7-inst a::after { content: ""; position: absolute; left: 0; right: 0; top: -1px; height: 2px; background: var(--p7-metal); transform: scaleX(0); transform-origin: left; transition: transform .6s var(--p7-ease); }
+.p7-inst a:hover::after, .p7-inst a:focus-visible::after { transform: scaleX(1); }
+.p7-inst a > i { grid-area: icon; color: var(--p7-gold); font-size: 30px; }
+.p7-inst h3 { grid-area: name; font-size: 20px; font-weight: 700; }
+.p7-inst__fact { grid-area: fact; display: flex; align-items: baseline; gap: 10px; font-size: 13px; color: var(--p7-sub-k); }
+.p7-inst__fact b { font-size: 22px; font-weight: 700; color: var(--p7-gold-hi); font-variant-numeric: tabular-nums; }
+.p7-inst__arrow { grid-area: arrow; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(255,255,255,.14); color: var(--p7-gold-hi); transition: background-color .3s, color .3s, border-color .3s, transform .4s var(--p7-ease); }
+.p7-inst a:hover .p7-inst__arrow { background: var(--p7-gold); border-color: var(--p7-gold); color: var(--p7-k); transform: rotate(-45deg); }
+.p7-inst__fact .p7-live { display: inline-flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 700; color: var(--p7-gold-hi); }
 .p7-live::before { content: ""; width: 8px; height: 8px; border-radius: 99px; background: #3ecf72; box-shadow: 0 0 0 4px rgba(62,207,114,.18); }
 
 /* ============================================================ 3 the case */
@@ -185,6 +186,10 @@ body.p7-page { background: var(--p7-k); }
 @media (min-width: 1024px) { .p7-case { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 72px; align-items: stretch; } }
 .p7-earn { padding: 36px 32px 28px; border-radius: 28px; background: #fff; border: 1px solid var(--p7-line); box-shadow: 0 30px 60px -40px rgba(10,9,7,.25); }
 .p7-earn figcaption b { display: block; font-size: 20px; font-weight: 700; }
+.p7-lakh { display: inline-block; padding: 0 .12em; font-size: 1.6em; line-height: 1.1; letter-spacing: -.03em; color: var(--p7-bronze);
+  background: linear-gradient(transparent 58%, rgba(212,175,55,.32) 58%); }
+.reveal-ready .p7-earn .p7-lakh { background-size: 0% 100%; background-repeat: no-repeat; transition: background-size 1s var(--p7-ease) .2s; }
+.reveal-ready .p7-earn.is-in .p7-lakh { background-size: 100% 100%; }
 .p7-earn figcaption small { display: block; margin-top: 4px; font-size: 13px; color: var(--p7-sub); }
 .p7-cols { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; align-items: end; height: 300px; margin-top: 32px; padding-bottom: 0; border-bottom: 1px solid var(--p7-line); }
 @media (max-width: 480px) { .p7-cols { gap: 8px; height: 260px; } }
@@ -300,7 +305,7 @@ MAIN = r"""<main id="main-content">
         <li><i class="ph-fill ph-seal-check" aria-hidden="true"></i>OBPP license holder</li>
         <li><i class="ph-fill ph-seal-check" aria-hidden="true"></i>Fixed returns up to 13.8%</li>
       </ul>
-      <h1 class="p7-h1 p7-rise" style="--d:1" id="p7-title">The <em>golden</em> experience of investing.</h1>
+      <h1 class="p7-h1 p7-rise" style="--d:1" id="p7-title"><span>The golden</span> <em>experience of investing.</em></h1>
       <div class="p7-hero__cta p7-rise" style="--d:2">
         <a class="p7-btn p7-btn--gold" href="signup.html">Start investing @ARROW@</a>
         <a class="p7-btn p7-btn--ghost" href="corporate-bonds.html">Explore bonds</a>
@@ -317,26 +322,13 @@ MAIN = r"""<main id="main-content">
   <!-- ===================================================== 2 the account -->
   <section class="p7-sec p7-sec--tight p7-dark" aria-labelledby="p7-assets">
     <div class="p7-shell">
-      <div class="p7-head p7-head--split" data-reveal>
+      <div class="p7-head" data-reveal>
         <h2 class="p7-h2" id="p7-assets">Three instruments. <em>One golden account.</em></h2>
-        <p class="p7-lead">Everything fixed income, under one login and one KYC. Pick the payout, the tenure and the risk you are comfortable with.</p>
       </div>
       <ul class="p7-inst" role="list">
-        <li data-reveal><a href="corporate-bonds.html">
-          <div class="p7-inst__top"><span class="p7-inst__icon"><i class="ph ph-certificate" aria-hidden="true"></i></span><h3>Corporate Bonds</h3><span class="p7-inst__arrow">@ARROW@</span></div>
-          <p>Lend to established Indian companies and collect fixed interest on a schedule you choose.</p>
-          <dl><div><dt>13.8%</dt><dd>Returns, up to</dd></div><div><dt>Monthly</dt><dd>Payouts available</dd></div><div><dt>A or above</dt><dd>Highly rated picks</dd></div></dl>
-        </a></li>
-        <li data-reveal style="transition-delay:.1s"><a href="fixed-deposits.html">
-          <div class="p7-inst__top"><span class="p7-inst__icon"><i class="ph ph-vault" aria-hidden="true"></i></span><h3>Fixed Deposits</h3><span class="p7-inst__arrow">@ARROW@</span></div>
-          <p>Book FDs with leading small finance banks and NBFCs, without opening a new bank account.</p>
-          <dl><div><dt>8.5%</dt><dd>Highest returns</dd></div><div><dt>&#8377;5L</dt><dd>Insured upto</dd></div></dl>
-        </a></li>
-        <li data-reveal style="transition-delay:.2s"><a href="bond-ipo-online.html">
-          <div class="p7-inst__top"><span class="p7-inst__icon"><i class="ph ph-rocket-launch" aria-hidden="true"></i></span><h3>NCD IPOs</h3><span class="p7-inst__arrow">@ARROW@</span></div>
-          <p>Apply to new bond issues at face value, straight into your demat, before they list.</p>
-          <dl><div><dt class="p7-live">Live now</dt><dd>See open IPOs</dd></div></dl>
-        </a></li>
+        <li data-reveal><a href="corporate-bonds.html"><i class="ph ph-certificate" aria-hidden="true"></i><h3>Corporate Bonds</h3><span class="p7-inst__fact"><b>13.8%</b>Returns, up to</span><span class="p7-inst__arrow">@ARROW@</span></a></li>
+        <li data-reveal style="transition-delay:.1s"><a href="fixed-deposits.html"><i class="ph ph-vault" aria-hidden="true"></i><h3>Fixed Deposits</h3><span class="p7-inst__fact"><b>8.5%</b>Highest returns</span><span class="p7-inst__arrow">@ARROW@</span></a></li>
+        <li data-reveal style="transition-delay:.2s"><a href="bond-ipo-online.html"><i class="ph ph-rocket-launch" aria-hidden="true"></i><h3>NCD IPOs</h3><span class="p7-inst__fact"><b class="p7-live">Live now</b>See open IPOs</span><span class="p7-inst__arrow">@ARROW@</span></a></li>
       </ul>
     </div>
   </section>
@@ -345,7 +337,7 @@ MAIN = r"""<main id="main-content">
   <!-- ======================================================== 3 the case -->
   <section class="p7-sec" aria-labelledby="p7-whybonds">
     <div class="p7-shell">
-      <div class="p7-head p7-head--split" data-reveal>
+      <div class="p7-head" data-reveal>
         <h2 class="p7-h2" id="p7-whybonds">Why bonds belong in your <em>portfolio.</em></h2>
         <p class="p7-lead">Bonds sit between the safety of a deposit and the growth of equity. You know what you will earn, and when, on the day you invest.</p>
       </div>
@@ -354,7 +346,7 @@ MAIN = r"""<main id="main-content">
              listings; the two gold rows are the snapshot highs from index.html.
              Amounts are each rate applied to Rs 1,00,000 for a year. -->
         <figure class="p7-earn" data-reveal>
-          <figcaption><b>What &#8377;1 lakh can earn in a year</b><small>Indicative annual rates, before tax</small></figcaption>
+          <figcaption><b>What <span class="p7-lakh">&#8377;1 lakh</span> can earn in a year</b><small>Indicative annual rates, before tax</small></figcaption>
           <div class="p7-cols" aria-hidden="true">@COLS@</div>
           <ul class="p7-labels" role="list">@LABELS@</ul>
         </figure>
