@@ -37,6 +37,8 @@ GROUPS = [
     ("Collections", [(f, f.replace("collections2-", "collections-"), None) for f in COLLECTIONS]),
     ("Fixed deposits", [("user-fixed-deposits-app2.html", "fixed-deposits.html", "Fixed Deposits"),
                         ("fd-details2.html", "fd-details.html", "FD details")]),
+    ("Pre-login", [("explore-prelogin.html", "explore-prelogin.html", "Explore (pre-login)"),
+                   ("signup.html", "signup.html", "Sign up")]),
     ("Account", [("portfolio.html", "portfolio.html", "Portfolio"),
                  ("bond-utsav4.html", "bond-utsav.html", "Bond Utsav"),
                  ("refer-and-earn-with-referral.html", "refer-and-earn.html", "Refer &amp; Earn")]),

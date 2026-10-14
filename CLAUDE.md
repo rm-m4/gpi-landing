@@ -154,12 +154,14 @@ python3 pages/_final.py      # -> corporate-bonds.html
 python3 pages/_convert.py    # -> index, fixed-deposits, bond-ipo-online
 python3 pages/_collections2.py # -> collections2-*.html (the 11 collection pages with user-explore-app7's cards, logged in; then _build.py, _prototype.py)
 python3 pages/_utsav.py      # -> bond-utsav.html (from crawl/rendered/bond-utsav.tabs.json)
+python3 pages/_utsav6.py     # -> bond-utsav6.html's listing only (bond-utsav.html's categories, dark, max 6 bonds each; the page itself is hand-made)
 python3 pages/_utsav_live.py # -> bond-utsav-live.html (production UI, from prod_bond-utsav.tabs.json)
 python3 pages/_profile.py    # -> profile.html, profile-no-kyc.html (content/profile.md + Figma 21:2427)
 python3 pages/_refer.py      # -> refer-and-earn-with-referral.html (refer-and-earn.html + staging capture)
 python3 pages/_explore_bonds.py # -> user-corporate-bonds2.html (post-login bonds + Collections, merged)
 python3 pages/_explore_bonds3.py # -> user-corporate-bonds3.html (why bonds + FD comparison, then the Collections explorer; also collection-explore.html, the explorer alone, collection-explore2.html without the cards' note strip, collection-explore3.html with sage cards)
 python3 pages/_collection_variants.py # -> collection-explore4.html (bond card colour variants, same six bonds per block)
+python3 pages/_collection_marketing.py # -> collection-explore5.html (collection-explore4 with each card's marketing line kept; also collection-explore6.html, the same without the strip's separator line)
 python3 pages/_bond_v4.py    # -> bond-details4.html (reads bond-details3.html: run _bond_beta.py first)
 python3 pages/_bond_v5.py    # -> bond-details5.html, bond-details6.html (Figma 29:1409 design at 1200 / 1018px)
 python3 pages/_bond_v7.py    # -> bond-details7.html (bond-details5 with Figma 37:222's hero + highlights)
@@ -179,6 +181,7 @@ python3 pages/_premium7.py   # -> home-premium7.html (premium 2 + 3 content: ter
 python3 pages/_premium8.py   # -> home-premium8.html (premium 2 + 3 content cut to the figures: rate row hero, type index, coin sheet, giant 5%, big QR; then _build.py)
 python3 pages/_premium21.py   # -> home-premium21.html (home-premium31's whole page, dark, opening on home-premium20's gate walk; then _build.py)
 python3 pages/_premium_landing.py # -> premium-bonds.html, premium-fd.html (pre-login landings: web-v1 explore / fixed-deposits content on home-premium16's shell; then _build.py)
+python3 pages/_explore_prelogin.py # -> explore-prelogin.html (web-v1 explore, pre-login: signup rail card, login gate after the High Return shelf; then _web_v1.py)
 python3 pages/_fd_prelogin.py # -> premium-fd2.html (web-v1 FD page, pre-login: signup card in the rail, home-premium15's branding below)
 python3 pages/_build.py      # sync header/footer across pages
 python3 pages/_prototype.py  # run LAST: wires the post-login prototype (app7, bond-details7, ipo-details, FD app2, fd-details2, bond-utsav5, portfolio)
