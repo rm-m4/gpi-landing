@@ -240,6 +240,30 @@ html { scroll-behavior: smooth; }
 #utsav-heading { scroll-margin-top: 96px; }
 </style>
 <style>
+/* bond-utsav6: the whole first fold on a phone (user, 2026-10-14). The hero is the screen less the navbar
+   (the tab bar's room is its bottom padding), and everything scales with the screen's height: tighter copy,
+   the logo at most 24% of it, the four posters in one row (icon and title; their one-line descriptions don't
+   fit at ~88px wide), the family scene at 18% of it. svh, so the phone's address bar never pushes it out. */
+@media (max-width: 699px) {
+  .bu3-hero { min-height: calc(100vh - 61px); min-height: calc(100svh - 61px); }
+  .bu3-copy { padding-top: 14px; }
+  .bu3-eyebrow { padding: 5px 12px; font-size: .66rem; letter-spacing: .1em; }
+  .bu3-lede { margin-top: 8px; font-size: .9rem; line-height: 1.45; }
+  .bu6-cta { min-height: 44px; margin-top: 12px; padding: 0 22px; font-size: 14px; }
+  .bu3-stage { padding-top: 6px; }
+  .bu4-logo { width: min(52vw, 24vh); width: min(52vw, 24svh); }
+  .bu3-rays { width: 460px; height: 460px; margin: -230px 0 0 -230px; }
+  .bu4-paras { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin-top: 10px; padding: 0 10px; }
+  .bu4-canopy { height: 30px; }
+  .bu4-poster { padding: 8px 4px 9px; border-radius: 12px; }
+  .bu4-poster::after { inset: 3px; border-radius: 9px; }
+  .bu4-ic { width: 22px; height: 22px; margin-bottom: 4px; font-size: 12px; }
+  .bu4-poster h2 { font-size: .68rem; line-height: 1.2; }
+  .bu4-poster p { display: none; }
+  .bu3-ground { height: clamp(110px, 18vh, 170px); height: clamp(110px, 18svh, 170px); margin-top: -24px; }
+}
+</style>
+<style>
 /* bond-utsav6's listing (pages/_utsav6.py): bond-utsav.html's categories, dark */
 /* spacing (user, 2026-10-14): 32px above the heading (was the section's 112px; 24px on phones),
    and more room before the footer (was 112px) */
