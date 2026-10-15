@@ -238,7 +238,7 @@ def navbar(name, old):
 # bonds the one with the bonds guide, logged-in pages footer-ggn-login, and every
 # other page footer-ggn-guest. The footer comes with the styles and script its
 # page carries for it, in a marked block so a rerun replaces rather than stacks.
-GGN = {"index.html": "footer-ggn-prelogin-home.html", "home-premium22.html": "footer-ggn-prelogin-home.html", "corporate-bonds.html": "footer-ggn-prelogin-bonds.html"}
+GGN = {"index.html": "footer-ggn-prelogin-home.html", "home-premium22.html": "footer-ggn-prelogin-home.html", "home-premium23.html": "footer-ggn-prelogin-home.html", "corporate-bonds.html": "footer-ggn-prelogin-bonds.html"}
 GGN_STYLE = ("/* The light scheme from the GoldenPi Web Design Figma",  # footer-landing's footer styles
              "/* Corporate bonds guide")  # footer-bonds' guide, on prelogin-bonds only
 GGN_SCRIPT = ("// footer-login3: the reviews crossfade",)
