@@ -9,7 +9,8 @@ pages point at each other; a link to a page outside the set keeps its look
 but loses its href, so a reviewer never lands on a missing page.
 
 bond-utsav4 still carries the guest navbar; its copy takes the logged-in one,
-as _prototype.py gives bond-utsav5 (Bond Utsav's own footer stays).
+as _prototype.py gives bond-utsav5 (Bond Utsav's own footer stays). bond-utsav6
+(pre-login, as bond-utsav2.html) takes the logged-in navbar and footer too.
 
 Also writes the Web V1 tab of all-pages.html (the panel between its markers).
 
@@ -20,6 +21,7 @@ import re
 import shutil
 from urllib.parse import unquote
 
+import _build as B
 import _prototype as P
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -41,6 +43,7 @@ GROUPS = [
                    ("signup.html", "signup.html", "Sign up")]),
     ("Account", [("portfolio.html", "portfolio.html", "Portfolio"),
                  ("bond-utsav4.html", "bond-utsav.html", "Bond Utsav"),
+                 ("bond-utsav6.html", "bond-utsav2.html", "Bond Utsav 2"),  # user, 2026-10-14
                  ("refer-and-earn-with-referral.html", "refer-and-earn.html", "Refer &amp; Earn")]),
 ]
 MAP = {src: dst for _, rows in GROUPS for src, dst, _ in rows}
@@ -126,10 +129,12 @@ def main():
     done = set()
     for src, dst in MAP.items():
         page = open(os.path.join(HERE, src), encoding="utf-8").read()
-        if src == "bond-utsav4.html":
+        if src in ("bond-utsav4.html", "bond-utsav6.html"):
             page = P.logged_in(src, page)
             if "nb__avatar" not in page:
-                raise SystemExit("bond-utsav4: logged-in navbar not applied")
+                raise SystemExit("%s: logged-in navbar not applied" % src)
+        if src == "bond-utsav6.html":  # built pre-login (its own footer); here, the folder's logged-in one
+            page = B.ggn_footer(src, page)
         page = P.BOND.sub('href="bond-details7.html"', page)
         page = P.FD_CARD.sub(r'\1href="fd-details2.html"', page)
         page = relink(page)

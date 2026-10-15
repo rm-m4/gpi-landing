@@ -1,0 +1,1045 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GoldenPi | India's Oldest Fixed Income Platform</title>
+<!-- Pre-login homepage from Figma "raman" 156:1393 (prelogin home page).
+     Copy is the Figma's, verbatim. Of its three "Hear it from our Happy
+     Customers" variations this page builds the dark orbit one (156:1907).
+     Hand-made; pages/_build.py fills the navbar and footer. -->
+<meta name="description" content="GoldenPi is India's Trusted online platform to buy Bonds, Debentures, and other fixed-income assets in India. To know more about online bond investment, Get started!">
+<link rel="icon" href="../assets/img/goldenpi-logo.svg">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/final.css">
+<style>
+  /* home-premium22: black and gold, Figma 156:1393. Everything is scoped to
+     .h22 so site.css / final.css stay untouched. */
+  :root {
+    --h22-black: #0a0907;
+    --h22-panel: #14110c;
+    --h22-line: rgba(212, 175, 55, 0.16);
+    --h22-cream: #f7f5f2;
+    --h22-ink: #322811;
+    --h22-dim: rgba(255, 255, 255, 0.7);
+    --h22-gold: linear-gradient(-60deg, #d3ad5c 1.6%, #fdf7c3 24.8%, #d5b264 51.3%, #fbe7a6 70.7%, #ebce86 83.9%, #956f2d 100%);
+    --h22-gold-deep: linear-gradient(163deg, #d7caa1 0%, #bf931a 50%, #957000 100%);
+    --h22-btn: linear-gradient(133deg, #fdf2d0 0%, #e6b325 50%, #b38600 100%);
+    --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  }
+  body { background: var(--h22-black); }
+  .h22 { font-family: "Satoshi", ui-sans-serif, system-ui, sans-serif; color: #fff; overflow-x: clip; }
+  /* The navbar and footer assume Tailwind's preflight, which this page does not load. */
+  *, *::before, *::after { box-sizing: border-box; }
+  .h22 p, .h22 h1, .h22 h2, .h22 h3 { margin: 0; }
+  .h22-gold { background: var(--h22-gold); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .h22-gold--deep { background-image: var(--h22-gold-deep); }
+  .h22-wrap { width: min(1120px, 100% - 32px); margin-inline: auto; }
+
+  /* Film grain over the whole page: fixed, so it never repaints on scroll. */
+  .h22::after {
+    content: ""; position: fixed; inset: 0; z-index: 60; pointer-events: none; opacity: 0.05;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+
+  /* ------------------------------------------------------------ hero */
+  .h22-hero {
+    position: relative; isolation: isolate; background: #000;
+    min-height: calc(100dvh - 68px); display: flex; flex-direction: column; justify-content: center;
+    padding: 72px 0 48px; text-align: center;
+  }
+  /* A slow gold light behind the headline: the one ambient loop on the page. */
+  .h22-hero::before {
+    content: ""; position: absolute; z-index: -1; left: 50%; top: 38%; width: min(900px, 120vw); aspect-ratio: 1.6;
+    translate: -50% -50%; border-radius: 50%;
+    background: radial-gradient(closest-side, rgba(245, 215, 122, 0.16), rgba(212, 175, 55, 0.05) 38%, transparent 62%);
+    filter: blur(10px);
+  }
+  .h22-h1 { font-weight: 700; font-size: clamp(38px, 7.4vw, 65px); line-height: 1.23; letter-spacing: -0.03em; }
+  .h22-ln { display: block; overflow: hidden; padding-bottom: 0.06em; }
+  .h22-ln > span { display: inline-block; }
+  .h22-h1 .h22-gold { background-size: 220% 100%; }
+  .h22-sub { margin-top: 10px; font-size: clamp(17px, 2.2vw, 22px); line-height: 1.45; color: var(--h22-dim); }
+  .h22-rule { display: block; width: 70px; height: 1px; margin: 30px auto; background: #edc967; transform-origin: center; }
+  .h22-motto { font-weight: 700; font-size: clamp(14px, 1.6vw, 18px); letter-spacing: 0.4em; text-transform: uppercase; line-height: 1.8; padding-left: 0.4em; }
+  .h22-pill {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 20px; width: min(842px, 100%); margin: 40px auto 0;
+    padding: 20px 30px; border: 0.5px solid #332a13; border-radius: 20px; background: var(--h22-panel);
+    font-weight: 500; font-size: clamp(15px, 1.6vw, 18px); line-height: 1.5; color: var(--h22-dim);
+  }
+  .h22-pill li { display: flex; align-items: center; gap: 12px; list-style: none; }
+  .h22-pill li + li::before { content: ""; width: 6px; height: 6px; background: #edc967; rotate: 45deg; }
+  .h22-pill ul { display: contents; }
+  .h22-ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 30px; }
+  .h22-btn {
+    position: relative; overflow: hidden; display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    height: 52px; padding: 0 28px; border-radius: 999px; font-size: 16px; line-height: 24px; text-decoration: none;
+    transition: transform 160ms var(--ease-out), box-shadow 300ms var(--ease-out);
+  }
+  .h22-btn:active { transform: scale(0.97); }
+  .h22-btn:focus-visible { outline: 2px solid #edc967; outline-offset: 3px; }
+  .h22-btn--gold { min-width: 206px; background: var(--h22-btn); color: #0f0d0a; font-weight: 700; }
+  .h22-btn--gold img { scale: 1 -1; transition: translate 300ms var(--ease-out); }
+  .h22-btn--ghost { min-width: 190px; border: 1px solid rgba(255, 255, 255, 0.2); color: #fff; }
+  .h22-btn--ghost img { scale: 1 -1; }
+  /* Sheen across the gold button on hover. */
+  .h22-btn--gold::after {
+    content: ""; position: absolute; inset: 0; translate: -120% 0;
+    background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, 0.65) 50%, transparent 65%);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .h22-btn--gold:hover { box-shadow: 0 10px 40px -8px rgba(230, 179, 37, 0.55); }
+    .h22-btn--gold:hover::after { translate: 120% 0; transition: translate 800ms var(--ease-out); }
+    .h22-btn--gold:hover img { translate: 3px 0; }
+    .h22-btn--ghost:hover { border-color: rgba(237, 201, 103, 0.6); }
+    .h22-btn--ghost { transition: border-color 200ms ease, transform 160ms var(--ease-out); }
+  }
+  .h22-join { margin-top: 10px; font-size: 14px; line-height: 24px; color: rgba(255, 255, 255, 0.5); }
+
+  .h22-stats { display: flex; align-items: center; justify-content: center; gap: clamp(20px, 4.9vw, 70px); margin: 64px auto 0; text-align: left; }
+  .h22-stats dl { display: contents; }
+  .h22-stats div { display: flex; flex-direction: column-reverse; }
+  .h22-stats dd { margin: 0; font-weight: 700; font-size: 24px; line-height: 1.5; letter-spacing: -0.01em; font-variant-numeric: tabular-nums; }
+  .h22-stats dt { font-weight: 500; font-size: 14px; line-height: 21px; color: var(--h22-dim); }
+  .h22-laurel { width: 52px; height: 78px; flex: none; }
+  .h22-laurel--r { scale: -1 1; }
+
+  /* --------------------------------------------------------- products */
+  .h22-products { background: var(--h22-cream); color: var(--h22-ink); padding: clamp(72px, 10vw, 110px) 0; text-align: center; }
+  .h22-h2 { font-weight: 700; font-size: clamp(32px, 5.2vw, 55px); line-height: 1.27; letter-spacing: -0.035em; }
+  .h22-products .h22-sub { color: var(--h22-ink); margin-top: 20px; }
+  .h22-rows { display: grid; gap: 20px; margin-top: 40px; }
+  .h22-row { display: flex; align-items: center; justify-content: center; gap: 12px; }
+
+  /* Cards are sized in em so the featured middle card scales as one piece. */
+  .h22-card {
+    --tint: #d8e9db; --tag: #e6f1e8;
+    position: relative; display: block; flex: none; width: 23em; min-height: 13.43em; padding: 1.63em 1.48em;
+    font-size: 14px; border-radius: 1.47em; border: 1px solid var(--tint); color: #0a0a0a; text-align: left; text-decoration: none;
+    background: linear-gradient(-46.6deg, #fff 49.8%, var(--tint) 99.5%);
+    box-shadow: 0 8px 4px rgba(0, 0, 0, 0.04);
+    transition: transform 400ms var(--ease-out), box-shadow 400ms var(--ease-out);
+  }
+  .h22-card--gold { --tint: #efeabd; --tag: #f7f6eb; border-color: #e9e2b0; }
+  .h22-card--blue { --tint: #c7def2; --tag: #e9f4ff; border-color: #c2daf0; }
+  .h22-card--feature { font-size: 16.6px; }
+  .h22-card:focus-visible { outline: 2px solid #bf931a; outline-offset: 3px; }
+  @media (hover: hover) and (pointer: fine) {
+    .h22-card:hover { transform: translateY(-6px); box-shadow: 0 24px 40px -18px rgba(50, 40, 17, 0.28); }
+  }
+  .h22-card__top { display: flex; justify-content: space-between; gap: 1em; }
+  .h22-card__who { display: flex; gap: 1.06em; align-items: flex-start; }
+  .h22-card__logo { width: 2.5em; height: 2.5em; border-radius: 0.8em; object-fit: cover; background: #fff; flex: none; }
+  .h22-card__name { font-weight: 700; font-size: 1.026em; line-height: 1.2; }
+  .h22-card__sold { margin-top: 0.25em; font-weight: 500; font-size: 0.77em; }
+  .h22-rate { text-align: right; font-weight: 500; white-space: nowrap; }
+  .h22-rate b { font-weight: 500; font-size: 2.256em; line-height: 1.17; letter-spacing: -0.033em; }
+  .h22-rate i { font-style: normal; font-size: 0.9em; color: #472d75; }
+  .h22-rate s { display: block; font-size: 0.855em; color: #282008; letter-spacing: 0.06em; }
+  .h22-rate small { display: block; font-size: 0.767em; color: #5f5a50; line-height: 1.75; }
+  .h22-tags { display: flex; gap: 0.54em; margin-top: 1.1em; padding: 0; }
+  .h22-tags li { list-style: none; padding: 0.26em 0.51em; border-radius: 99px; background: var(--tag); font-weight: 500; font-size: 0.77em; line-height: 1.18; }
+  .h22-facts { display: flex; gap: 1.9em; margin-top: 1.1em; }
+  .h22-facts div + div { padding-left: 1.9em; border-left: 0.5px solid #d9d9d9; }
+  .h22-facts dt { font-weight: 500; font-size: 0.77em; color: #666; }
+  .h22-facts dd { margin: 0.32em 0 0; font-weight: 700; font-size: 0.95em; }
+  .h22-facts dl, .h22-card dl { margin: 0; }
+  .h22-badge { display: grid; grid-template-columns: 1.71em 1fr; column-gap: 0.43em; align-items: center; margin-top: 2.4em; padding-top: 0.9em; border-top: 0.9px solid rgba(50, 40, 17, 0.1); }
+  .h22-badge img { grid-row: span 2; width: 1.71em; height: 1.71em; object-fit: contain; }
+  .h22-badge b { font-size: 0.895em; color: var(--h22-ink); }
+  .h22-badge span { font-size: 0.767em; color: #5f5a50; }
+
+  /* --------------------------------------------------------------- why */
+  .h22-why { background: #000; padding: clamp(80px, 10vw, 120px) 0; text-align: center; }
+  .h22-why .h22-h2 { font-size: clamp(32px, 4.6vw, 50px); color: var(--h22-dim); }
+  .h22-bento { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; width: min(1044px, 100%); margin: 40px auto 0; text-align: left; }
+  .h22-tile {
+    --mx: 50%; --my: 50%;
+    position: relative; overflow: hidden; grid-column: span 2; padding: 24px; border-radius: 22px;
+    background: var(--h22-panel); border: 1px solid var(--h22-line); color: var(--h22-dim);
+  }
+  /* A soft gold spotlight that follows the pointer inside the tile. */
+  .h22-tile::before, .h22-band::before {
+    content: ""; position: absolute; inset: 0; opacity: 0; pointer-events: none; transition: opacity 300ms ease;
+    background: radial-gradient(320px circle at var(--mx) var(--my), rgba(237, 201, 103, 0.12), transparent 60%);
+  }
+  @media (hover: hover) and (pointer: fine) { .h22-tile:hover::before, .h22-band:hover::before { opacity: 1; } }
+  .h22-tile--wide { grid-column: span 3; display: flex; align-items: center; gap: 25px; }
+  .h22-tile img { width: 67px; height: 56px; object-fit: contain; flex: none; }
+  .h22-tile h3 { font-weight: 500; font-size: 20px; line-height: 30px; }
+  .h22-tile:not(.h22-tile--wide) h3 { margin-top: 14px; }
+  .h22-tile p { margin-top: 14px; font-size: 16px; line-height: 24px; max-width: 26em; }
+  .h22-band { --mx: 50%; --my: 50%; position: relative; overflow: hidden; grid-column: 1 / -1; display: flex; align-items: center; justify-content: center; gap: clamp(24px, 6vw, 84px); padding: 24px; border-radius: 22px; background: var(--h22-panel); border: 1px solid rgba(212, 175, 55, 0.14); }
+  .h22-band dl { display: contents; }
+  .h22-band div { display: flex; flex-direction: column-reverse; gap: 8px; width: 209px; }
+  .h22-band dd { margin: 0; font-weight: 700; font-size: 32px; line-height: 1; letter-spacing: -0.01em; font-variant-numeric: tabular-nums; }
+  .h22-band dt { font-size: 16px; line-height: 24px; color: var(--h22-dim); }
+
+  /* -------------------------------------------------------- customers */
+  .h22-love { background: #000; padding: 40px 0 clamp(80px, 9vw, 110px); border-top: 1px solid rgba(212, 175, 55, 0.08); }
+  .h22-orbit { position: relative; width: min(848px, 100%); aspect-ratio: 848 / 560; margin-inline: auto; }
+  .h22-orbit h2 { position: absolute; inset: 34% 0 auto; text-align: center; font-size: clamp(28px, 5.9vw, 50px); line-height: 1.4; color: var(--h22-dim); }
+  .h22-face { position: absolute; width: 11.44%; display: grid; justify-items: center; gap: 10px; }
+  .h22-face::before {
+    content: ""; position: absolute; z-index: 0; left: 50%; top: 40%; width: 252%; aspect-ratio: 245 / 250; translate: -50% -50%;
+    background: url("../assets/img/hp22/glow.svg") center / 100% 100% no-repeat; opacity: 0.55; pointer-events: none;
+  }
+  .h22-face > img { position: relative; width: 100%; height: auto; aspect-ratio: 1; border-radius: 50%; }
+  .h22-face > img { transition: scale 300ms var(--ease-out), filter 300ms ease; }
+  @media (hover: hover) and (pointer: fine) { .h22-face:hover > img { scale: 1.08; filter: brightness(1.08); } }
+  .h22-stars { position: relative; display: block; width: 71px; max-width: 74%; aspect-ratio: 71 / 15; overflow: hidden; }
+  .h22-stars img, .h22-face .h22-stars img { position: absolute; width: 116.12%; height: 557.89%; left: -7.36%; top: -231.58%; aspect-ratio: auto; border-radius: 0; max-width: none; }
+
+  .h22-reviews {
+    display: flex; gap: 40px; width: min(1048px, 100%); margin: clamp(48px, 7vw, 100px) auto 0; padding: 4px 4px 32px;
+    overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
+    mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+  }
+  .h22-reviews::-webkit-scrollbar { display: none; }
+  .h22-review { position: relative; flex: none; width: 287px; padding-top: 38px; scroll-snap-align: center; }
+  .h22-review > img { position: absolute; top: 0; left: 50%; translate: -50% 0; width: 60px; height: 62px; z-index: 1; }
+  .h22-review figure {
+    margin: 0; height: 100%; padding: 42px 24px 28px; border-radius: 24px; border: 1px solid rgba(255, 255, 255, 0.1);
+    background: radial-gradient(130% 130% at 100% 100%, #27272a 0%, #18181b 40%, #0c0c0e 70%, #000 100%);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.8); text-align: center; transition: border-color 300ms ease;
+  }
+  @media (hover: hover) and (pointer: fine) { .h22-review:hover figure { border-color: rgba(237, 201, 103, 0.45); } }
+  .h22-review figcaption { font-weight: 700; font-size: 16px; line-height: 26px; }
+  .h22-review .h22-stars { margin: 6px auto 0; }
+  .h22-review blockquote { margin: 0; font-size: 13px; line-height: 18px; color: #fff; }
+  .h22-review blockquote::before { content: "\201C"; display: block; height: 30px; margin-top: 10px; font: 64px/64px Georgia, serif; opacity: 0.57; }
+
+  /* ------------------------------------------------------- responsive */
+  @media (max-width: 1080px) {
+    .h22-row { justify-content: flex-start; overflow-x: auto; scroll-snap-type: x mandatory; padding: 12px 16px 24px; margin: 0 -16px; scrollbar-width: none; }
+    .h22-row::-webkit-scrollbar { display: none; }
+    .h22-card { scroll-snap-align: center; }
+    .h22-card--feature { font-size: 14px; }
+  }
+  @media (max-width: 860px) {
+    .h22-stats { flex-wrap: wrap; gap: 20px 32px; }
+    .h22-stats .h22-laurel { display: none; }
+    .h22-band { flex-wrap: wrap; }
+    .h22-band .h22-laurel { display: none; }
+    .h22-tile, .h22-tile--wide { grid-column: 1 / -1; }
+  }
+  @media (max-width: 560px) {
+    .h22-hero { padding-top: 48px; }
+    .h22-pill { flex-direction: column; align-items: center; padding: 18px 20px; }
+    .h22-pill li + li::before { display: none; }
+    .h22-btn { flex: 1 1 100%; }
+    .h22-stats { display: grid; grid-template-columns: 1fr 1fr; text-align: center; width: 100%; }
+    .h22-stats div { align-items: center; }
+    .h22-band div { width: 100%; align-items: center; text-align: center; }
+    .h22-tile--wide { flex-direction: column; align-items: flex-start; gap: 14px; }
+    .h22-face { gap: 4px; }
+    .h22-face .h22-stars { display: none; }
+    .h22-face::before { width: 190%; }
+    .h22-orbit h2 { inset: 30% 0 auto; }
+  }
+
+  /* ---------------------------------------------------------- motion
+     Only when JS is on (.h22-js) and motion is allowed, so without either
+     every element is simply visible. Entrances use ease-out, transform and
+     opacity only, 30-80ms staggers. */
+  @media (prefers-reduced-motion: no-preference) {
+    .h22-js .h22-ln > span { translate: 0 105%; transition: translate 1100ms var(--ease-out); transition-delay: calc(var(--i, 0) * 90ms + 150ms); }
+    .h22-js .h22-hero.is-in .h22-ln > span { translate: 0 0; }
+    .h22-js .h22-hero .h22-rise { opacity: 0; translate: 0 18px; transition: opacity 900ms var(--ease-out), translate 900ms var(--ease-out); transition-delay: calc(var(--i, 0) * 80ms + 450ms); }
+    .h22-js .h22-hero.is-in .h22-rise { opacity: 1; translate: 0 0; }
+    .h22-js .h22-rule { scale: 0 1; transition: scale 900ms var(--ease-in-out) 700ms; }
+    .h22-js .h22-hero.is-in .h22-rule { scale: 1 1; }
+    .h22-h1 .h22-gold { animation: h22-sheen 7s ease-in-out infinite alternate; }
+    .h22-hero::before { animation: h22-breathe 9s ease-in-out infinite alternate; }
+
+    .h22-js [data-rise] { opacity: 0; translate: 0 28px; transition: opacity 800ms var(--ease-out), translate 800ms var(--ease-out); transition-delay: calc(var(--i, 0) * 70ms); }
+    .h22-js [data-rise].is-in { opacity: 1; translate: 0 0; }
+    .h22-js [data-stagger] > * { opacity: 0; translate: 0 28px; transition: opacity 800ms var(--ease-out), translate 800ms var(--ease-out), transform 400ms var(--ease-out), box-shadow 400ms var(--ease-out); }
+    .h22-js [data-stagger].is-in > * { opacity: 1; translate: 0 0; }
+    .h22-js [data-stagger] > :nth-child(2) { transition-delay: 70ms, 70ms, 0s, 0s; }
+    .h22-js [data-stagger] > :nth-child(3) { transition-delay: 140ms, 140ms, 0s, 0s; }
+    .h22-js [data-stagger] > :nth-child(4) { transition-delay: 210ms, 210ms, 0s, 0s; }
+    .h22-js [data-stagger] > :nth-child(5) { transition-delay: 280ms, 280ms, 0s, 0s; }
+    .h22-js .h22-face { opacity: 0; scale: 0.9; transition: opacity 900ms var(--ease-out), scale 900ms var(--ease-out); transition-delay: calc(var(--i, 0) * 80ms); }
+    .h22-js .h22-orbit.is-in .h22-face { opacity: 1; scale: 1; }
+    /* Each portrait drifts on its own slow loop: durations and directions
+       differ so the ring never moves in step. translate only, so it composes
+       with the entrance's scale. */
+    .h22-face { animation: h22-drift calc(9s + var(--i, 0) * 1.1s) ease-in-out infinite; animation-delay: calc(var(--i, 0) * -2.3s); }
+    .h22-face:nth-of-type(even) { animation-direction: reverse; }
+    .h22-face::before { animation: h22-glow 5s ease-in-out infinite alternate; animation-delay: calc(var(--i, 0) * -0.9s); }
+    .h22-laurel { transition: opacity 1000ms var(--ease-out) 900ms, rotate 1000ms var(--ease-out) 900ms; }
+    .h22-js .h22-hero:not(.is-in) .h22-laurel { opacity: 0; rotate: -12deg; }
+    .h22-js .h22-hero:not(.is-in) .h22-laurel--r { rotate: 12deg; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .h22-js [data-rise], .h22-js [data-stagger] > *, .h22-js .h22-face { transition: opacity 200ms ease; }
+  }
+  @keyframes h22-sheen { from { background-position: 0% 50%; } to { background-position: 100% 50%; } }
+  @keyframes h22-breathe { from { opacity: 0.7; scale: 0.94; } to { opacity: 1; scale: 1.06; } }
+  @keyframes h22-drift { 0%, 100% { translate: 0 0; } 25% { translate: 11px -9px; } 50% { translate: 0 -18px; } 75% { translate: -11px -9px; } }
+  @keyframes h22-glow { from { opacity: 0.35; } to { opacity: 0.7; } }
+</style>
+<!-- ggn-footer: styles; pages/_build.py -->
+<style>
+  /* The light scheme from the GoldenPi Web Design Figma, footer
+     frame 242:21690. Same blocks as footer-taste.html, the dark version; only colour and chrome change. */
+  .ft {
+    --ft-bg: #fcfbfa;          /* Figma "bg ligh" */
+    --ft-band: #f0ece6;        /* lower band, sampled from the frame */
+    --ft-ink: #322811;         /* "darker brown" */
+    --ft-muted: #514834;       /* "brown dark" */
+    --ft-faint: #666666;       /* "subtext" */
+    --ft-line: #e7e3d999;      /* "stroke light" */
+    --ft-card: #ffffff;
+    --ft-accent: #a67c00;      /* "icon" */
+    position: relative;
+    overflow: hidden;
+    margin-top: 72px;
+    background: var(--ft-bg);
+    color: var(--ft-muted);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .ft a { color: inherit; text-decoration: none; }
+  .ft a:focus-visible, .ft button:focus-visible, .ft summary:focus-visible {
+    outline: 2px solid var(--ft-accent);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  .ft h2, .ft h3 { color: var(--ft-ink); font-weight: 700; }
+
+  /* The pi mark the live footer carries, drifting slowly top right. */
+  .ft__pi {
+    position: absolute;
+    top: -40px;
+    right: -60px;
+    width: 420px;
+    pointer-events: none;
+    animation: ft-drift 18s ease-in-out infinite alternate;
+  }
+  @keyframes ft-drift { to { transform: translate(-24px, 28px) rotate(-4deg); } }
+
+  .ft__inner { position: relative; }
+
+  /* ----------------------------------------------------------- main grid */
+  .ft-main { display: grid; gap: 40px 32px; padding-block: 56px 44px; }
+  @media (min-width: 640px) { .ft-main { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .ft-main { grid-template-columns: 1.5fr repeat(4, 1fr); } }
+  .ft-brand address { margin-top: 12px; font-style: normal; }
+  .ft-brand__co { margin-top: 20px; color: var(--ft-ink); font-weight: 700; }
+  .ft-brand__tel a { color: var(--ft-ink); font-weight: 700; }
+  .ft-social { display: flex; gap: 10px; margin-top: 22px; }
+  .ft-social a {
+    display: grid; place-items: center; width: 40px; height: 40px;
+    border: 1px solid var(--ft-line); border-radius: 50%;
+    transition: transform 0.25s var(--ease), background-color 0.25s, border-color 0.25s;
+  }
+  .ft-social a:hover { transform: translateY(-3px); background: rgba(212, 175, 55, 0.16); border-color: var(--ft-accent); }
+  .ft-social img { width: 16px; height: 16px; object-fit: contain; }
+  .ft-col h2 { margin-bottom: 16px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ft-accent); }
+  .ft-col li + li { margin-top: 10px; }
+  /* Gold underline grows from the left on hover. */
+  .ft-link { background: linear-gradient(var(--ft-accent), var(--ft-accent)) 0 100% / 0 1px no-repeat; transition: background-size 0.3s var(--ease), color 0.2s; }
+  .ft-link:hover { color: var(--ft-ink); background-size: 100% 1px; }
+
+  /* ----------------------------------------------------------- link bands */
+  .ft-band { padding-block: 28px; border-top: 1px solid var(--ft-line); }
+  .ft-band > h2 { margin-bottom: 14px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ft-accent); }
+  .ft-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .ft-chips a {
+    padding: 6px 14px; border: 1px solid var(--ft-line); border-radius: 999px;
+    background: var(--ft-card); font-size: 13px;
+    transition: border-color 0.2s, color 0.2s, background-color 0.2s;
+  }
+  .ft-chips a:hover { border-color: var(--ft-accent); color: var(--ft-ink); background: rgba(212, 175, 55, 0.1); }
+  .ft-chips--ext a::after { content: " \2197"; color: var(--ft-faint); }
+
+  .ft-docs { display: grid; gap: 8px; }
+  @media (min-width: 640px) { .ft-docs { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .ft-docs { grid-template-columns: repeat(3, 1fr); } }
+  .ft-docs a {
+    display: flex; align-items: center; gap: 12px; padding: 12px 14px;
+    border: 1px solid var(--ft-line); border-radius: 12px; background: var(--ft-card);
+    transition: border-color 0.2s, transform 0.25s var(--ease), color 0.2s;
+  }
+  .ft-docs a:hover { border-color: var(--ft-accent); color: var(--ft-ink); transform: translateX(3px); }
+  .ft-docs svg { flex: none; width: 18px; height: 18px; color: var(--ft-accent); }
+  .ft-docs span { flex: 1; }
+  .ft-docs small { color: var(--ft-faint); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; }
+
+  .ft-copy { padding-block: 20px; border-top: 1px solid var(--ft-line); color: var(--ft-faint); font-size: 13px; }
+
+  /* ---------------------------------------------------------------- legal */
+  .ft-legal { padding-block: 40px 56px; background: rgba(0, 0, 0, 0.22); font-size: 13px; line-height: 1.7; color: var(--ft-faint); }
+  .ft-legal section + section { margin-top: 36px; }
+  .ft-legal h2 { margin-bottom: 12px; font-size: 16px; }
+  .ft-legal p + p { margin-top: 10px; }
+  .ft-legal a.u { color: var(--ft-muted); text-decoration: underline; text-underline-offset: 3px; }
+  .ft-legal a.u:hover { color: var(--ft-accent); }
+  .ft-legal strong { color: var(--ft-muted); }
+  .ft-more > summary { display: inline-flex; margin-top: 12px; color: var(--ft-accent); font-weight: 700; cursor: pointer; list-style: none; }
+  .ft-more > summary::-webkit-details-marker { display: none; }
+  .ft-more[open] > summary { display: none; }
+
+
+  .ft-faq { border-top: 1px solid var(--ft-line); }
+  .ft-faq details { border-bottom: 1px solid var(--ft-line); }
+  .ft-faq summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 16px; cursor: pointer; list-style: none; }
+  .ft-faq summary::-webkit-details-marker { display: none; }
+  .ft-faq summary h2 { margin: 0; font-size: 15px; }
+  .ft-faq summary::after { content: "+"; flex: none; color: var(--ft-accent); font-size: 22px; line-height: 1; transition: transform 0.3s var(--ease); }
+  .ft-faq details[open] summary::after { transform: rotate(45deg); }
+  .ft-faq details > div { padding-bottom: 18px; }
+  .ft-faq ul { margin-top: 8px; padding-left: 18px; list-style: disc; }
+
+  .ft-reg { display: grid; gap: 10px; margin-block: 18px; }
+  @media (min-width: 640px) { .ft-reg { grid-template-columns: repeat(3, 1fr); } }
+  .ft-reg div { padding: 16px 18px; border: 1px solid rgba(212, 175, 55, 0.24); border-radius: 14px; background: rgba(212, 175, 55, 0.06); }
+  .ft-reg dt { font-size: 12px; }
+  .ft-reg dd { margin-top: 4px; color: var(--ft-ink); font-size: 20px; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: 0.02em; }
+
+  /* Two parts: part 1 carries the regulatory copy inline on the main ground;
+     part 2 (SEO) sits on the darker band. */
+  .ft-legal--reg { padding-block: 32px; background: none; }
+  .ft-seo .ft-band { margin-top: 32px; }
+  .ft-legal .ft-band > h2 { margin-bottom: 14px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ft-accent); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ft__pi { animation: none; }
+    .ft-social a, .ft-docs a { transition: none; }
+  }
+  @media (max-width: 639px) {
+    .ft__pi { width: 260px; right: -90px; }
+  }
+
+  /* ---------------------------------------------- Figma 242:21690 chrome */
+  .ft { margin-top: 0; border-top: 1px solid var(--ft-line); }
+  .ft__pi { display: none; }
+  .ft-main { border-bottom: 1px solid var(--ft-line); }
+  .ft-brand address, .ft-brand p { font-size: 13px; }
+  .ft-col h2 { padding-bottom: 12px; border-bottom: 1px solid var(--ft-line); color: var(--ft-faint); font-weight: 500; letter-spacing: 0.12em; }
+  .ft-col a { color: var(--ft-ink); }
+  .ft-social a { border-radius: 8px; background: #fff; border-color: var(--ft-line); box-shadow: 0 1px 2px rgba(50, 40, 17, 0.04); }
+  .ft-social a:hover { background: #fff; border-color: var(--ft-accent); }
+  .ft-social img { filter: brightness(0); opacity: 0.85; }
+  .ft-band { border-top: 0; }
+  .ft-band > h2, .ft-legal .ft-band > h2 { color: var(--ft-ink); font-size: 15px; letter-spacing: 0; text-transform: none; }
+  .ft-chips a { border-color: transparent; background: #fff; color: var(--ft-ink); box-shadow: 0 1px 2px rgba(50, 40, 17, 0.05); }
+  .ft-chips a:hover { border-color: var(--ft-accent); background: #fff; color: var(--ft-ink); }
+  .ft-chips--ext a::after { content: none; }
+  .ft-legal { background: var(--ft-band); color: var(--ft-faint); }
+  .ft-legal--reg { background: none; }
+  .ft-legal a.u { color: var(--ft-ink); font-weight: 500; }
+  .ft-legal a.u:hover { color: var(--ft-accent); }
+  .ft-legal strong { color: var(--ft-muted); }
+  .ft-more > summary { color: var(--ft-ink); text-decoration: underline; text-underline-offset: 3px; }
+  .ft-reg div { border-color: var(--ft-line); background: #fff; }
+  .ft-copy { color: var(--ft-ink); font-weight: 700; }
+</style>
+<!-- ggn-footer: /styles; pages/_build.py -->
+<link rel="stylesheet" href="../assets/navbar.css">
+<style>
+  /* Hero background options, picked on hero-bg-options.html via ?bg=. The
+     default, "glow", is the hero's own ::before. All are slow, ease-in-out
+     (linear only for the constant wave drift), transform / opacity or a
+     canvas, under a dark centre so the copy stays legible. They pause off
+     screen and stand still under reduced motion. */
+  .h22-bg { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+  .h22-bg::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse 50% 45% at 50% 42%, rgba(0, 0, 0, 0.45), transparent 75%); }
+  .h22-hero[data-bg]:not([data-bg="glow"])::before { display: none; }
+  .h22-bg canvas, .h22-bg svg { position: absolute; }
+
+  /* bubble: one glass orb breathing behind the headline, a few rising */
+  .h22-orb { left: 50%; top: 40%; width: min(640px, 92vw); aspect-ratio: 1; translate: -50% -50%; border-radius: 50%;
+    background: radial-gradient(circle at 50% 50%, rgba(245, 215, 122, 0.09), rgba(212, 175, 55, 0.03) 58%, transparent 71%);
+    box-shadow: inset 0 0 80px rgba(245, 215, 122, 0.07), inset 0 0 0 1px rgba(245, 215, 122, 0.08); }
+  .h22-orb, .h22-bub { position: absolute; }
+  .h22-bub { bottom: -40px; width: var(--s); aspect-ratio: 1; border-radius: 50%; opacity: 0;
+    border: 1px solid rgba(245, 215, 122, 0.3); background: radial-gradient(circle at 35% 30%, rgba(255, 240, 190, 0.18), transparent 60%); }
+
+  /* aurora: soft gold ribbons along the top */
+  .h22-bg--aurora i { position: absolute; left: -15%; width: 130%; height: 30%; border-radius: 50%; filter: blur(42px); mix-blend-mode: screen; will-change: transform;
+    background: linear-gradient(90deg, transparent 5%, rgba(245, 215, 122, 0.2) 30%, rgba(212, 175, 55, 0.1) 52%, rgba(255, 236, 170, 0.16) 74%, transparent 95%); }
+  .h22-bg--aurora i:nth-child(1) { top: -4%; }
+  .h22-bg--aurora i:nth-child(2) { top: 8%; opacity: 0.7; }
+  .h22-bg--aurora i:nth-child(3) { top: 18%; opacity: 0.45; }
+
+  /* flames: low candle-light tongues behind the figures */
+  .h22-bg--flames i { position: absolute; bottom: -6%; left: var(--x); width: var(--w); height: var(--h); translate: -50% 0; transform-origin: 50% 100%;
+    border-radius: 50% 50% 45% 45% / 70% 70% 30% 30%; filter: blur(24px); mix-blend-mode: screen; opacity: 0.8;
+    background: radial-gradient(ellipse 50% 60% at 50% 85%, rgba(255, 236, 170, 0.5), rgba(245, 200, 90, 0.24) 45%, transparent 75%); }
+
+  /* waves: three thin gold lines rolling slowly */
+  .h22-bg--waves svg { left: 0; width: 200%; height: 34%; top: 56%; }
+  .h22-bg--waves path { fill: none; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+
+  /* stardust: a canvas, see the script */
+  .h22-bg--stardust canvas { inset: 0; width: 100%; height: 100%; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .h22-orb { animation: h22-orb 8s ease-in-out infinite alternate; }
+    .h22-bub { animation: h22-rise var(--d) ease-in-out infinite; animation-delay: var(--dl); }
+    .h22-bg--aurora i:nth-child(1) { animation: h22-ribbon 18s ease-in-out infinite alternate; }
+    .h22-bg--aurora i:nth-child(2) { animation: h22-ribbon 24s ease-in-out infinite alternate-reverse; }
+    .h22-bg--aurora i:nth-child(3) { animation: h22-ribbon 31s ease-in-out infinite alternate; }
+    .h22-bg--flames i { animation: h22-flicker var(--d) ease-in-out infinite alternate; animation-delay: var(--dl); }
+    .h22-bg--waves svg { animation: h22-roll var(--d) linear infinite; }
+    .h22-hero:not(.is-live) .h22-bg * { animation-play-state: paused; }
+  }
+  @keyframes h22-orb { from { scale: 0.93; opacity: 0.65; } to { scale: 1.05; opacity: 1; } }
+  @keyframes h22-rise { 0% { translate: 0 0; opacity: 0; } 15% { opacity: 0.7; } 50% { translate: 14px -45vh; } 85% { opacity: 0.4; } 100% { translate: -10px -90vh; opacity: 0; } }
+  @keyframes h22-ribbon { from { transform: translateX(-6%) scaleY(0.7) rotate(-3deg); } to { transform: translateX(6%) scaleY(1.25) rotate(3deg); } }
+  @keyframes h22-flicker { 0% { scale: 1 0.88; opacity: 0.6; } 50% { scale: 0.94 1.06; opacity: 0.85; } 100% { scale: 1.05 1.14; opacity: 0.72; } }
+  @keyframes h22-roll { to { translate: -50% 0; } }
+</style>
+</head>
+<body>
+<a class="gp-skip" href="#main">Skip to content</a>
+<div class="nb-slot">
+<header class="nb nb--bare nb--dark nb--plain nb--micons" data-v="plain-dark-guest">
+  <div class="gp-shell nb__inner">
+    <a class="nb__logo" href="index.html"><img src="../assets/img/goldenpi-logo-white.svg" alt="GoldenPi" width="132" height="30"></a>
+    <div class="nb__actions">
+      <button type="button" class="gp-cta gp-cta--primary nb__login"><span>Login / Sign up</span></button>
+    </div>
+  </div>
+</header>
+</div>
+
+<main id="main" class="h22">
+
+  <!-- ============================================================ hero (156:1395) -->
+  <section class="h22-hero" aria-labelledby="h22-title">
+    <div class="h22-bg" aria-hidden="true"></div>
+    <div class="h22-wrap">
+      <h1 class="h22-h1" id="h22-title">
+        <span class="h22-ln"><span class="h22-gold">India’s Oldest</span></span>
+        <span class="h22-ln" style="--i:1"><span>Fixed Income Platform</span></span>
+      </h1>
+      <p class="h22-sub h22-rise">Tailored to your ambitions, so they compound</p>
+      <span class="h22-rule" aria-hidden="true"></span>
+      <p class="h22-motto h22-rise" style="--i:1"><span class="h22-gold">never settle for less</span></p>
+
+      <div class="h22-pill h22-rise" style="--i:2">
+        <ul>
+          <li>Invest in Bonds &amp; FDs</li>
+          <li>Invest with just ₹1,000</li>
+          <li>9% - 14% Fixed Return</li>
+          <li>Sell Anytime</li>
+        </ul>
+      </div>
+
+      <div class="h22-ctas h22-rise" style="--i:3">
+        <a class="h22-btn h22-btn--gold" href="signup.html">Start investing <img src="../assets/img/hp22/icon-arrow.svg" width="18" height="18" alt=""></a>
+        <a class="h22-btn h22-btn--ghost" href="https://play.google.com/store/apps/details?id=com.goldenpi.gpimobileapp"><img src="../assets/img/hp22/icon-play.svg" width="18" height="18" alt=""> Download App</a>
+      </div>
+
+      <div class="h22-stats h22-rise" style="--i:5">
+        <img class="h22-laurel" src="../assets/img/hp22/laurel.png" width="52" height="78" alt="">
+        <dl>
+          <div><dt>Registered users</dt><dd class="h22-gold" data-count>18 L+</dd></div>
+          <div><dt>Total transaction</dt><dd class="h22-gold" data-count>₹6300 Cr+</dd></div>
+          <div><dt>Defaults</dt><dd class="h22-gold">Zero</dd></div>
+          <div><dt>REGISTERED</dt><dd class="h22-gold">SEBI</dd></div>
+        </dl>
+        <img class="h22-laurel h22-laurel--r" src="../assets/img/hp22/laurel.png" width="52" height="78" alt="">
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================== products (156:1480) -->
+  <section class="h22-products" aria-labelledby="h22-products">
+    <div class="h22-wrap">
+      <h2 class="h22-h2" id="h22-products" data-rise>Invest in <span class="h22-gold h22-gold--deep">Bonds, IPOs and FDs</span><br>at one place</h2>
+      <p class="h22-sub" data-rise style="--i:1">Diversify portfolio with fixed returns on investments</p>
+
+      <div class="h22-rows">
+        <!-- DATA: featured bonds (issuer, % sold, tags, tenure, payout, rating, yield, struck yield). Figma snapshot, all three show the same figures. -->
+        <div class="h22-row" data-stagger>
+          <a class="h22-card" href="corporate-bonds.html">
+            <div class="h22-card__top">
+              <div class="h22-card__who">
+                <img class="h22-card__logo" src="../assets/img/hp22/logo-navi.png" width="35" height="35" alt="">
+                <div><p class="h22-card__name">Navi Finserv</p><p class="h22-card__sold">87% Sold</p></div>
+              </div>
+              <p class="h22-rate"><b>13.29</b><i>%</i><s>13.15%</s></p>
+            </div>
+            <ul class="h22-tags"><li>High-Yield</li><li>Bond Utsav</li><li>Gold Backed</li></ul>
+            <dl class="h22-facts"><div><dt>Tenure</dt><dd>37M</dd></div><div><dt>Payout</dt><dd>Monthly</dd></div><div><dt>Rating</dt><dd>+AA</dd></div></dl>
+          </a>
+          <a class="h22-card h22-card--gold h22-card--feature" href="corporate-bonds.html">
+            <div class="h22-card__top">
+              <div class="h22-card__who">
+                <img class="h22-card__logo" src="../assets/img/hp22/logo-muthoot.png" width="35" height="35" alt="">
+                <div><p class="h22-card__name">Muthoot Capital</p><p class="h22-card__sold">87% Sold</p></div>
+              </div>
+              <p class="h22-rate"><b>13.29</b><i>%</i><s>13.15%</s></p>
+            </div>
+            <ul class="h22-tags"><li>High-Yield</li><li>Bond Utsav</li><li>Gold Backed</li></ul>
+            <dl class="h22-facts"><div><dt>Tenure</dt><dd>37M</dd></div><div><dt>Payout</dt><dd>Monthly</dd></div><div><dt>Rating</dt><dd>+AA</dd></div></dl>
+          </a>
+          <a class="h22-card h22-card--blue" href="corporate-bonds.html">
+            <div class="h22-card__top">
+              <div class="h22-card__who">
+                <img class="h22-card__logo" src="../assets/img/hp22/logo-keertana.png" width="35" height="35" alt="">
+                <div><p class="h22-card__name">Keertana Finserv</p><p class="h22-card__sold">87% Sold</p></div>
+              </div>
+              <p class="h22-rate"><b>13.29</b><i>%</i><s>13.15%</s></p>
+            </div>
+            <ul class="h22-tags"><li>High-Yield</li><li>Bond Utsav</li><li>Gold Backed</li></ul>
+            <dl class="h22-facts"><div><dt>Tenure</dt><dd>37M</dd></div><div><dt>Payout</dt><dd>Monthly</dd></div><div><dt>Rating</dt><dd>+AA</dd></div></dl>
+          </a>
+        </div>
+
+        <!-- DATA: featured FDs (issuer, returns up to, badge). Figma snapshot. -->
+        <div class="h22-row" data-stagger>
+          <a class="h22-card h22-card--blue" href="fixed-deposits.html">
+            <div class="h22-card__top">
+              <div class="h22-card__who">
+                <img class="h22-card__logo" src="../assets/img/hp22/logo-shriram.png" width="35" height="35" alt="">
+                <p class="h22-card__name">Shriram Finance</p>
+              </div>
+              <p class="h22-rate"><small>Returns upto</small><b>8.50</b><i>%</i></p>
+            </div>
+            <p class="h22-badge"><img src="../assets/img/hp22/ic-high-rated.png" width="24" height="24" alt=""><b>AAA Rated</b><span>Credit rating</span></p>
+          </a>
+          <a class="h22-card h22-card--feature" href="fixed-deposits.html">
+            <div class="h22-card__top">
+              <div class="h22-card__who">
+                <img class="h22-card__logo" src="../assets/img/hp22/logo-unity.png" width="35" height="35" alt="">
+                <p class="h22-card__name">Unity Small Finance Bank</p>
+              </div>
+              <p class="h22-rate"><small>Returns upto</small><b>8.50</b><i>%</i></p>
+            </div>
+            <p class="h22-badge"><img src="../assets/img/hp22/ic-shield.png" width="24" height="24" alt=""><b>DICGC insurance</b><span>up to ₹5 lakh</span></p>
+          </a>
+          <a class="h22-card h22-card--gold" href="fixed-deposits.html">
+            <div class="h22-card__top">
+              <div class="h22-card__who">
+                <img class="h22-card__logo" src="../assets/img/hp22/logo-indel.png" width="35" height="35" alt="">
+                <p class="h22-card__name">Indel Money Limited</p>
+              </div>
+              <p class="h22-rate"><small>Returns upto</small><b>8.50</b><i>%</i></p>
+            </div>
+            <p class="h22-badge"><img src="../assets/img/hp22/ic-high-rated.png" width="24" height="24" alt=""><b>AAA Rated</b><span>Credit rating</span></p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================= why (156:1733) -->
+  <section class="h22-why" aria-labelledby="h22-why">
+    <div class="h22-wrap">
+      <h2 class="h22-h2" id="h22-why" data-rise>Why investors <span class="h22-gold">choose GoldenPi</span></h2>
+      <div class="h22-bento">
+        <article class="h22-tile h22-tile--wide" data-rise style="--i:0">
+          <img src="../assets/img/hp22/why-sell.png" width="67" height="56" alt="">
+          <div><h3>Sell Anytime</h3><p>No hidden charges, so the return you see is the return you get.</p></div>
+        </article>
+        <article class="h22-tile h22-tile--wide" data-rise style="--i:1">
+          <img src="../assets/img/hp22/why-secured.png" width="60" height="50" alt="">
+          <div><h3>Senior Secured Bond</h3><p>No hidden charges, so the return you see is the return you get.</p></div>
+        </article>
+        <article class="h22-tile" data-rise style="--i:2">
+          <img src="../assets/img/hp22/why-top5.png" width="67" height="56" alt="">
+          <h3>Top 5% Curated bond</h3><p>No hidden charges, so the return you see is the return you get.</p>
+        </article>
+        <article class="h22-tile" data-rise style="--i:3">
+          <img src="../assets/img/hp22/why-zero-brokerage.png" width="60" height="50" alt="">
+          <h3>Zero brokerage</h3><p>No hidden charges, so the return you see is the return you get.</p>
+        </article>
+        <article class="h22-tile" data-rise style="--i:4">
+          <img src="../assets/img/hp22/why-zero-default.png" width="67" height="56" alt="">
+          <h3>Zero Default</h3><p>No hidden charges, so the return you see is the return you get.</p>
+        </article>
+        <div class="h22-band" data-rise style="--i:5">
+          <img class="h22-laurel" src="../assets/img/hp22/laurel.png" width="52" height="78" alt="">
+          <dl>
+            <div><dt>Registered users &amp; growing</dt><dd class="h22-gold" data-count>18 L+</dd></div>
+            <div><dt>Total transaction through our platform</dt><dd class="h22-gold" data-count>₹6300 Cr+</dd></div>
+            <div><dt>Worth of bonds available on the platform everyday</dt><dd class="h22-gold" data-count>₹3000 Cr+</dd></div>
+          </dl>
+          <img class="h22-laurel h22-laurel--r" src="../assets/img/hp22/laurel.png" width="52" height="78" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================= customers (156:1907) -->
+  <section class="h22-love" aria-labelledby="h22-love">
+    <div class="h22-wrap">
+      <div class="h22-orbit">
+        <h2 id="h22-love">Hear it from our<br><span class="h22-gold">Happy Customers</span></h2>
+        <!-- Positions are Figma's, as % of the 848 x 560 frame. -->
+        <div class="h22-face" style="left:10.85%;top:0;--i:0"><img src="../assets/img/hp22/orbit-3.png" width="97" height="97" alt=""><span class="h22-stars"><img src="../assets/img/hp22/stars.png" alt=""></span></div>
+        <div class="h22-face" style="left:45.05%;top:2.86%;--i:1"><img src="../assets/img/hp22/orbit-4.png" width="97" height="97" alt=""><span class="h22-stars"><img src="../assets/img/hp22/stars.png" alt=""></span></div>
+        <div class="h22-face" style="left:81.01%;top:2.14%;width:10.02%;--i:2"><img src="../assets/img/hp22/orbit-7.png" width="85" height="85" alt=""><span class="h22-stars"><img src="../assets/img/hp22/stars.png" alt=""></span></div>
+        <div class="h22-face" style="left:88.56%;top:43.04%;--i:3"><img src="../assets/img/hp22/orbit-2.png" width="97" height="97" alt=""><span class="h22-stars"><img src="../assets/img/hp22/stars.png" alt=""></span></div>
+        <div class="h22-face" style="left:66.27%;top:72.86%;--i:4"><img src="../assets/img/hp22/orbit-1.png" width="97" height="97" alt=""><span class="h22-stars"><img src="../assets/img/hp22/stars.png" alt=""></span></div>
+        <div class="h22-face" style="left:25%;top:78.21%;--i:5"><img src="../assets/img/hp22/orbit-6.png" width="97" height="97" alt=""><span class="h22-stars"><img src="../assets/img/hp22/stars.png" alt=""></span></div>
+        <div class="h22-face" style="left:0;top:43.75%;--i:6"><img src="../assets/img/hp22/orbit-5.png" width="97" height="97" alt=""><span class="h22-stars"><img src="../assets/img/hp22/stars.png" alt=""></span></div>
+      </div>
+
+      <!-- DATA: customer reviews, excerpts as the Figma has them. -->
+      <div class="h22-reviews" data-stagger tabindex="0" aria-label="Customer reviews">
+        <div class="h22-review">
+          <img src="../assets/img/hp22/card-1.png" width="60" height="62" alt="">
+          <figure><figcaption>Neeraj Sharma</figcaption><span class="h22-stars" role="img" aria-label="5 stars"><img src="../assets/img/hp22/stars.png" alt=""></span>
+            <blockquote>Extremely convenient platform assisted with superb executives like I was always guided by Mr Allan with his experience and knowledge. Thank you so much ...</blockquote></figure>
+        </div>
+        <div class="h22-review">
+          <img src="../assets/img/hp22/card-2.png" width="60" height="62" alt="">
+          <figure><figcaption>Reenu Jojy Mathew</figcaption><span class="h22-stars" role="img" aria-label="5 stars"><img src="../assets/img/hp22/stars.png" alt=""></span>
+            <blockquote>It is a seamless experience now for buying NCDs and Bonds with no hidden costs or service charges...</blockquote></figure>
+        </div>
+        <div class="h22-review">
+          <img src="../assets/img/hp22/card-3.png" width="60" height="62" alt="">
+          <figure><figcaption>Phaniraj D G</figcaption><span class="h22-stars" role="img" aria-label="5 stars"><img src="../assets/img/hp22/stars.png" alt=""></span>
+            <blockquote>Hassle free investment. One place for all type of bonds. We can choose as per our risk. GoldenPi team is very co-operative and quick in responding...</blockquote></figure>
+        </div>
+        <div class="h22-review">
+          <img src="../assets/img/hp22/card-4.png" width="60" height="62" alt="">
+          <figure><figcaption>Latha Abhimannue Thayyil</figcaption><span class="h22-stars" role="img" aria-label="5 stars"><img src="../assets/img/hp22/stars.png" alt=""></span>
+            <blockquote>The details explained by the personal manager was very helpful and useful. Response for each each call was immediate ,Proper guidance all mak...</blockquote></figure>
+        </div>
+        <div class="h22-review">
+          <img src="../assets/img/hp22/card-4.png" width="60" height="62" alt="">
+          <figure><figcaption>Harish Iyer</figcaption><span class="h22-stars" role="img" aria-label="5 stars"><img src="../assets/img/hp22/stars.png" alt=""></span>
+            <blockquote>Fantastic Team, superb website, unarguably the best website to buy bonds from. Regarding the Team: Every process is clearly explained, with...</blockquote></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="ft ft--dark ft--black" id="footer">
+  <img class="ft__pi" src="../assets/img/pi.svg" alt="" width="331" height="298">
+
+  <!-- Part 1: navigation, documents, regulatory disclosures, copyright. -->
+  <div class="gp-shell ft__inner">
+
+    <div class="ft-main">
+      <div class="ft-brand">
+        <img src="../assets/img/goldenpi-logo-white.svg" alt="GoldenPi" width="148" height="44">
+        <p class="ft-brand__co">GoldenPi Securities Pvt Ltd</p>
+        <address>
+          Indiqube Orion, 24th Main, 1st Sector,<br>
+          HSR Layout, Bangalore South,<br>
+          Bangalore, Karnataka - 560102
+        </address>
+        <div class="ft-social">
+          <a href="https://www.facebook.com/goldenpitech" aria-label="GoldenPi on Facebook"><img src="../assets/img/facebook-icon.svg" alt=""></a>
+          <a href="https://twitter.com/GoldenPiTech" aria-label="GoldenPi on X (Twitter)"><img src="../assets/img/twitter-icon.svg" alt=""></a>
+          <a href="https://www.linkedin.com/company/goldenpi/" aria-label="GoldenPi on LinkedIn"><img src="../assets/img/linkdin-icon.svg" alt=""></a>
+          <a href="https://www.instagram.com/goldenpi_/" aria-label="GoldenPi on Instagram"><img src="../assets/img/Instagram-icon.svg" alt=""></a>
+          <a href="https://www.youtube.com/@goldenpi" aria-label="GoldenPi on YouTube"><img src="../assets/img/Youtube-icon.svg" alt=""></a>
+        </div>
+      </div>
+
+      <nav class="ft-col" aria-labelledby="ft-invest">
+        <h2 id="ft-invest">Invest with us</h2>
+        <ul>
+          <li><a class="ft-link" href="bond-ipo-online.html">Bond IPOs</a></li>
+          <li><a class="ft-link" href="corporate-bonds.html">Bonds</a></li>
+          <li><a class="ft-link" href="fixed-deposits.html">Fixed Deposits</a></li>
+          <li><a class="ft-link" href="https://goldenpi.com/sovereign-gold-bond">Sovereign Gold Bond</a></li>
+          <li><a class="ft-link" href="https://goldenpi.com/government-securities">Government Securities</a></li>
+        </ul>
+      </nav>
+
+      <nav class="ft-col" aria-labelledby="ft-company">
+        <h2 id="ft-company">Company</h2>
+        <ul>
+          <li><a class="ft-link" href="about-us.html">About us</a></li>
+          <li><a class="ft-link" href="https://goldenpi.com/media">Media</a></li>
+          <li><a class="ft-link" href="careers.html">Career at GoldenPi</a></li>
+          <li><a class="ft-link" href="https://goldenpi.com/faq">FAQs</a></li>
+          <li><a class="ft-link" href="contact-us.html">Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <nav class="ft-col" aria-labelledby="ft-legal">
+        <h2 id="ft-legal">Legal</h2>
+        <ul>
+          <li><a class="ft-link" href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+          <li><a class="ft-link" href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a class="ft-link" href="https://goldenpi.com/investor-resources">Investor Resources</a></li>
+          <li><a class="ft-link" href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/Policies+for+Information.pdf">Policies for Information</a></li>
+        </ul>
+      </nav>
+
+      <nav class="ft-col" aria-labelledby="ft-new">
+        <h2 id="ft-new">New to GoldenPi</h2>
+        <ul>
+          <li><a class="ft-link" href="https://goldenpi.com/blog">GoldenPi Blogs</a></li>
+          <li><a class="ft-link" href="https://goldenpi.com/find-first-bond?ia=2-5-lac&amp;tr=5-10-yrs&amp;it=all&amp;sortBy=yield-high-to-low">Find Your First Bond</a></li>
+          <li><a class="ft-link" href="https://goldenpi.com/bond-vs-fd?ia=200000&amp;tr=3">Bond vs Fixed Deposit</a></li>
+          <li><a class="ft-link" href="https://goldenpi.com/blog/essentials/bond-introduction/bond-glossary-20-terms-definitions-you-need-to-know">Bond Definitions</a></li>
+          <li><a class="ft-link" href="https://goldenpi.com/blog/investment-guide">Bond Investment Guide</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="ft-regs">
+      <dl class="ft-ids">
+        <div><dt>SEBI Registration No.:</dt><dd>INZ000310732</dd></div>
+        <div><dt>CIN:</dt><dd>U65990KA2022PTC164941</dd></div>
+        <div><dt>BSE Member ID:</dt><dd>6809</dd></div>
+        <div><dt>NSE Member ID:</dt><dd>90331</dd></div>
+      </dl>
+      <p>Compliance Officer: Kunal Sharma, Tel. No.: <a class="u" href="tel:080-45685666">080-45685666</a>, Email ID: <a class="u" href="mailto:grievance-gspl@goldenpi.com">grievance-gspl@goldenpi.com</a> (for any compliance &amp; grievance related complaints)</p>
+      <p>Key Managerial Personnel: Abhijit Roy - Designated Director &amp; CEO, Samir Baran Pratihar - Designated Director &amp; CTO</p>
+      <p>Tel. No.: 080-45685666 | Email: <a class="u" href="mailto:contact-us@goldenpi.com">contact-us@goldenpi.com</a></p>
+    </div>
+
+  </div>
+
+  <details class="ft-fold">
+    <summary class="gp-shell">
+      <span class="ft-copy">&copy; 2017 - 2026 | GoldenPi Securities Pvt. Ltd.</span>
+      <span class="ft-fold__btn">Read More</span>
+    </summary>
+  <div class="gp-shell ft__inner">
+
+
+    <div class="ft-band ft-legal ft-legal--reg">
+        <section>
+          <h2>Note to Investors</h2>
+          <p>GoldenPi Securities Pvt. Ltd. (&ldquo;GSPL&rdquo;) is a wholly owned subsidiary of GoldenPi Technologies Pvt. Ltd. (&ldquo;GTPL&rdquo;) and is a SEBI registered broker under BSE new debt segment allowing investors to trade in secondary bonds &amp; debentures through exchange.</p>
+          <p>Fixed returns do not constitute guaranteed or assured returns. Investments in corporate debt securities, municipal debt securities/securitised debt instruments are subject to credit risks, market risks and default risks including delay and/or default in payment. Read all the offer related documents carefully.</p>
+          <p>Investors can update their email id and mobile number with their stock broker / depository participant and receive OTP directly from the depository on email id and/or mobile number to create a pledge. Investors can check their securities / MF / bonds in the consolidated account statement issued by NSDL/CDSL every month.</p>
+          <p>The FAQs on the platform are exclusively for educational information/knowledge and do not influence the investment/sale decisions of any investors.As you are aware, under the rapidly evolving dynamics of financial markets, it is crucial for investors to remain updated and well-informed about various aspects of investing in securities market. In this connection, please find a link to the BSE Investor Protection Fund website where you will find some useful educative material in the form of text and videos, so as to become an informed investor.</p>
+          <h2 class="ft-sub">Investor Education</h2>
+          <p><a class="u" href="https://www.bseipf.com/investors_education.html">https://www.bseipf.com/investors_education.html</a> We believe that an educated investor is a protected investor !!! The information shown on the website should not be construed as financial advice or as an offer or recommendation to buy or sell any security or any products/services of GSPL or any product/services of its third-party client(s). The user should act and rely on the information/data shown on the website only after understanding all associated risk parameters. Any action/decision taken by the user on the basis of the information shown on this website shall be the sole responsibility of the user. Neither GSPL nor its directors, employees, associates, representatives, or agents shall be liable for any damages whether direct, indirect, special, or consequential including lost revenue or lost profits that may arise to the user from or in connection with the use of the information/data shown on this website.</p>
+            <p>We understand that certain investment advisors may be approaching members of the public including our clients, representing that they are our partners, or representing that their investment advice is based on our research. Please note that we have not engaged any third parties to render any investment advisory services on our behalf nor are we providing any stock recommendations/tips/research report/advisory. Persons making investments on the basis of such advice may lose all or a part of their investments along with the fee paid to such unscrupulous persons. Please be cautious about any phone call that you may receive from persons representing to be such investment advisors, or a part of research firm offering advice on securities. Do not make payments through e-mail links, WhatsApp or SMS. Please do not share your personal or financial information with any person without proper verification. Always trade through a registered broker.</p>
+            <p>We collect, retain, and use your contact information for legitimate business purposes only, to contact you and to provide you information &amp; latest updates regarding our products &amp; services.</p>
+            <p>Fixed Deposits are offered in the capacity of a distributor and all disputes with respect to distribution activity, would not have access to exchange investor redressal forum or arbitration mechanism.</p>
+            <p>Attention Investors - Check your securities / MF / bonds in the consolidated account statement issued by NSDL/CDSL every month. Issued in the interest of Investors</p>
+        </section>
+
+        <section>
+          <h2>Filling complaints on <a class="u" href="https://smartodr.in/login">SMARTODR</a> &amp; <a class="u" href="https://scores.sebi.gov.in/">SCORES</a> - Easy &amp; Quick</h2>
+          <p>a. Register on the portal | b. Mandatory details for register and filing complaints - Name, PAN, Address, Mobile Number, E-mail ID | c. Benefits: i. Effective Communication ii. Speedy redressal of the grievances | d. Complaints against the companies shall be subject to the SMARTODR/SCORES guidelines</p>
+        </section>
+
+        <section>
+          <h2>Risk Disclosure &amp; Regulatory Information</h2>
+          <p>Fixed returns do not mean guaranteed or assured returns. Investments in corporate debt securities, municipal debt securities, and securitised debt instruments carry credit risk, market risk, and default risk, including delay or default in payment. Please read all offer-related documents carefully before you invest.</p>
+          <p>The online bond platform goldenpi.com is owned by GoldenPi Securities Pvt Ltd (GSPL), an OBPP and debt broker registered with SEBI. GSPL is a wholly owned subsidiary of GoldenPi Technologies Pvt Ltd (GTPL).</p>
+        </section>
+    </div>
+
+  </div>
+
+  <!-- Part 2: SEO copy and SEO links (the About GoldenPi Q&As, collections). -->
+  <div class="ft-legal ft-seo">
+    <div class="gp-shell">
+
+      <section class="ft-faq">
+        <details open>
+          <summary><h2>About GoldenPi</h2></summary>
+          <div>
+            <p>GoldenPi is one of India's most trusted fintech companies, enabling individual investors to invest in Bonds and Debentures online through a simple, secure, and transparent platform.</p>
+            <p>For a long time, Bonds were regarded as a dependable way to earn a steady secondary income, yet access to them remained largely confined to financial institutions and High Net-Worth Individuals (HNIs). GoldenPi was founded in 2017 with a clear purpose: to open up this opportunity and make Bonds and Debentures accessible to every retail investor in India.</p>
+            <p>The platform goldenpi.com is owned by GoldenPi Securities Pvt Ltd (GSPL), a SEBI-registered Online Bond Platform Provider (OBPP) and debt broker, and a wholly owned subsidiary of GoldenPi Technologies Pvt Ltd (GTPL). In January 2023, GoldenPi became the first online bond platform to receive a debt broker licence under SEBI's OBPP framework. Today, investors can explore a wide range of fixed-income options on a single platform, including Corporate Bonds, Government Bonds, NCD IPOs, and Fixed Deposits.</p>
+            <p>More than 16 lakh users have registered with GoldenPi, investing over ₹5,512 crore through the platform with zero defaults to date. The company is further backed by Zerodha's Rainmatter, which strengthens the trust and credibility it has built among investors.</p>
+          </div>
+        </details>
+        <details>
+          <summary><h2>As an Individual, What is the Need for You to Invest?</h2></summary>
+          <div>
+            <p>Investing means using a part of your money to buy assets, so that your money can grow over time. But why is it needed?</p>
+            <p>The money you earn from work usually has a limit. A salary can rise only up to a point, the hours you can work each week are fixed, and a business can take in only so much capital. Because of this, your income tends to stay more or less the same over time.</p>
+            <p>Your expenses, however, do not stay fixed. As you move forward in life, your responsibilities grow. You may need to buy a home, pay for your children's education, handle a medical emergency, or plan for retirement. All of these cost money, and often a large amount.</p>
+            <p>This is why investing is important. It gives you a second source of income that you can depend on. It also helps you set aside money on a regular basis. Over time, this builds strong financial habits.</p>
+          </div>
+        </details>
+        <details>
+          <summary><h2>What are the Different Types of Investments?</h2></summary>
+          <div>
+            <p>There are many types of investments. But most of them fall into two main groups: Active Investments and Passive Investments.</p>
+            <p>Active Investments need your time and effort. You must understand how the market works and stay closely involved. Passive Investments work in a different way. Here, you invest your money without being involved every day. The most common method is "buy and hold." You buy the asset and keep it for a fixed period to earn the expected returns.</p>
+            <p>Bonds and Debentures are good examples of safe and passive investments. You can invest in them and allow your money to grow over time, without watching the market daily.</p>
+          </div>
+        </details>
+        <details>
+          <summary><h2>What are Bonds and Debentures?</h2></summary>
+          <div>
+            <p>Bonds are issued by government bodies. Debentures are issued by private companies, public sector units, banks, and NBFCs. Both are used to raise money. When you buy a Bond or a Debenture, you are lending money to the issuer. In return, the issuer pays you interest and returns your money on a fixed date. In simple terms, Bonds work much like loans. Both have a fixed maturity date. Based on the terms set at the time of issue, you earn interest at regular intervals.</p>
+            <p><strong>Note:</strong> Please read all the terms and conditions of each instrument carefully before you invest, and always consider the market risks involved.</p>
+          </div>
+        </details>
+        <details>
+          <summary><h2>What Are The Different Types Of Bonds and Debentures In India?</h2></summary>
+          <div>
+            <p>Here are some of the popular types of Bonds and Debentures available in India:</p>
+            <ul>
+              <li>Central Government Bonds</li>
+              <li>State Government Bonds</li>
+              <li>Municipal And Local Authority Bonds</li>
+              <li>Corporate Bonds</li>
+              <li>Public Sector Bonds</li>
+              <li>Tax-Free Bonds</li>
+            </ul>
+          </div>
+        </details>
+      </section>
+
+      <nav class="ft-band" aria-labelledby="ft-collections">
+        <h2 id="ft-collections">Collections</h2>
+        <div class="ft-chips">
+          <a href="https://goldenpi.com/collections/best-ongoing-ipos">Ongoing NCD IPOs</a>
+          <a href="https://goldenpi.com/collections/high-yield-bonds">High Yield Bonds (Yield more than 11%)</a>
+          <a href="https://goldenpi.com/collections/highly-rated-bonds">Highly Rated Bonds (AAA Rated)</a>
+          <a href="https://goldenpi.com/collections/bonds-to-earn-monthly-fixed-income">Bonds to Earn Regular Monthly Income</a>
+          <a href="https://goldenpi.com/collections/bonds-maturing-within-a-year">Bonds Maturing within a Year</a>
+          <a href="https://goldenpi.com/collections/state-government-guranteed-bonds">State Government Guaranteed Bonds</a>
+          <a href="https://goldenpi.com/collections/tax-free-bonds">Tax Free Bonds</a>
+          <a href="https://goldenpi.com/collections/public-sector-bank-bonds">Public Sector Bank Bonds</a>
+          <a href="https://goldenpi.com/collections/bonds-at-discounted-price">Bonds at Discounted Price</a>
+          <a href="https://goldenpi.com/collections/bonds-for-short-term-investment">Bonds Maturing within 3 Years (Short Term)</a>
+          <a href="https://goldenpi.com/collections/private-sector-bank">Private Sector Bank Bonds</a>
+          <a href="https://goldenpi.com/collections/psu-bonds">Public Sector Undertaking Bonds</a>
+          <a href="https://goldenpi.com/collections/bonds-for-long-term-investment">Bonds Maturing after 5 Years (Long Term)</a>
+          <a href="https://goldenpi.com/collections/nbfc-bonds">NBFC Bonds</a>
+          <a href="https://goldenpi.com/collections/bonds-to-earn-quaterly-fixed-income">Bonds to Earn Quarterly Fixed Income</a>
+          <a href="https://goldenpi.com/collections/nri-eligible-bonds">NRI Eligible Bonds</a>
+          <a href="https://goldenpi.com/collections/floating-rate-bonds">Floating Rate Bonds</a>
+          <a href="https://goldenpi.com/collections/fixed-rate-bonds">Fixed Rate Bonds</a>
+          <a href="https://goldenpi.com/collections/inflation-indexed-bonds">Inflation Indexed Bonds</a>
+          <a href="https://goldenpi.com/collections/zero-coupon-bonds">Zero Coupon Bonds</a>
+          <a href="https://goldenpi.com/collections/secured-bonds">Secured Bonds</a>
+          <a href="https://goldenpi.com/collections/government-bonds">Govt Bonds</a>
+          <a href="https://goldenpi.com/collections/54-ec-capital-gain-bonds">Capital Gain Bonds</a>
+          <a href="https://goldenpi.com/collections/bank-bonds-in-india">Bank Bonds</a>
+          <a href="https://goldenpi.com/collections/gold-backed-bonds">Gold Backed Bonds</a>
+        </div>
+      </nav>
+
+    </div>
+  </div>
+  </details>
+</footer>
+
+<script>
+// home-premium22 motion. Progressive: without this script nothing is hidden.
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!('IntersectionObserver' in window)) return;
+  document.documentElement.classList.add('h22-js');
+  var main = document.querySelector('.h22');
+  main.classList.add('h22-js');
+
+  // Count the figure up once, when it first shows. Keeps the prefix and suffix
+  // (₹, L+, Cr+) and ends on the exact text the markup carries.
+  function count(el) {
+    var final = el.textContent, m = final.match(/^(\D*)(\d+)(.*)$/);
+    if (!m || reduce) return;
+    var to = +m[2], t0 = performance.now(), dur = 1400;
+    (function step(t) {
+      var p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 4);
+      el.textContent = m[1] + Math.round(to * e) + m[3];
+      if (p < 1) requestAnimationFrame(step); else el.textContent = final;
+    })(t0);
+  }
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('is-in');
+      e.target.querySelectorAll('[data-count]').forEach(count);
+      io.unobserve(e.target);
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+  main.querySelectorAll('.h22-hero, [data-rise], [data-stagger], .h22-orbit').forEach(function (el) { io.observe(el); });
+
+  // Pointer spotlight on the why tiles, set on the tile itself.
+  if (!reduce && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    main.querySelectorAll('.h22-tile, .h22-band').forEach(function (tile) {
+      tile.addEventListener('pointermove', function (ev) {
+        var r = tile.getBoundingClientRect();
+        tile.style.setProperty('--mx', (ev.clientX - r.left) + 'px');
+        tile.style.setProperty('--my', (ev.clientY - r.top) + 'px');
+      });
+    });
+  }
+})();
+</script>
+<script>
+// Hero background options (?bg=glow|bubble|aurora|flames|waves|stardust).
+(function () {
+  var hero = document.querySelector('.h22-hero'), bg = hero.querySelector('.h22-bg');
+  var name = new URLSearchParams(location.search).get('bg') || 'glow';
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  hero.dataset.bg = name;
+  bg.className = 'h22-bg h22-bg--' + name;
+
+  var live = true, wake = [];
+  new IntersectionObserver(function (e) {
+    live = e[0].isIntersecting; hero.classList.toggle('is-live', live);
+    if (live) wake.forEach(function (f) { f(); });
+  }).observe(hero);
+
+  function spans(tag, list) {
+    bg.innerHTML = list.map(function (st) { return '<' + tag + ' style="' + st + '"></' + tag + '>'; }).join('');
+  }
+
+  var make = {
+    bubble: function () {
+      bg.innerHTML = '<span class="h22-orb"></span>' + [
+        [14, 22, 18, 0], [26, 9, 24, -7], [41, 14, 21, -15], [63, 11, 26, -4], [78, 18, 20, -12], [90, 8, 23, -19]
+      ].map(function (b) {
+        return '<span class="h22-bub" style="left:' + b[0] + '%;--s:' + b[1] + 'px;--d:' + b[2] + 's;--dl:' + b[3] + 's"></span>';
+      }).join('');
+    },
+    aurora: function () { bg.innerHTML = '<i></i><i></i><i></i>'; },
+    flames: function () {
+      spans('i', [[8, 220, 260, 3.4, 0], [22, 160, 200, 2.9, -1.2], [36, 240, 300, 3.8, -0.6], [50, 300, 340, 4.2, -2], [64, 230, 290, 3.6, -0.3], [78, 170, 220, 3.1, -1.6], [92, 220, 260, 3.9, -0.9]]
+        .map(function (f) { return '--x:' + f[0] + '%;--w:' + f[1] + 'px;--h:' + f[2] + 'px;--d:' + f[3] + 's;--dl:' + f[4] + 's'; }));
+    },
+    // Each path repeats every 720 units across 2880, so sliding the 200%-wide
+    // svg left by half loops without a seam.
+    waves: function () {
+      bg.innerHTML = [[26, 0.35, 0.9, 46], [18, 0.22, 0.7, 62], [34, 0.14, 0.6, 80]].map(function (w, i) {
+        var d = 'M0 100', A = w[0];
+        for (var x = 0; x <= 2880; x += 24) d += ' L' + x + ' ' + (100 + A * Math.sin((x / 720) * 2 * Math.PI + i * 1.3)).toFixed(1);
+        return '<svg viewBox="0 0 2880 200" preserveAspectRatio="none" style="--d:' + w[3] + 's;top:' + (54 + i * 4) + '%">' +
+          '<path d="' + d + '" stroke="rgba(245,215,122,' + w[1] + ')" stroke-width="' + w[2] + '"/></svg>';
+      }).join('');
+    },
+    // Fine gold points twinkling and drifting up very slowly.
+    stardust: function () {
+      var c = document.createElement('canvas'); bg.appendChild(c);
+      var g = c.getContext('2d'), P = [], dpr = Math.min(devicePixelRatio || 1, 2);
+      function fit() {
+        c.width = c.clientWidth * dpr; c.height = c.clientHeight * dpr;
+        P = []; var n = Math.round(Math.min(140, c.clientWidth * c.clientHeight / 9000));
+        for (var i = 0; i < n; i++) P.push({ x: Math.random(), y: Math.random(), r: 0.5 + Math.random() * 1.3, p: Math.random() * 6.3, w: 0.0006 + Math.random() * 0.0012 });
+      }
+      fit(); addEventListener('resize', fit);
+      function draw(dt, t) {
+        g.clearRect(0, 0, c.width, c.height);
+        P.forEach(function (o) {
+          o.y -= dt * 0.0000045 * o.r; if (o.y < -0.02) { o.y = 1.02; o.x = Math.random(); }
+          var a = 0.15 + 0.6 * (0.5 + 0.5 * Math.sin(t * o.w + o.p));
+          g.globalAlpha = a; g.fillStyle = o.r > 1.4 ? '#fff0bf' : '#f0cf72';
+          g.beginPath(); g.arc(o.x * c.width, o.y * c.height, o.r * dpr, 0, 6.2832); g.fill();
+        });
+      }
+      if (reduce) { draw(0, 0); return; }
+      var last = performance.now();
+      function run(t) { if (!live) return; var dt = Math.min(50, t - last); last = t; draw(dt, t); requestAnimationFrame(run); }
+      wake.push(function () { last = performance.now(); requestAnimationFrame(run); });
+      requestAnimationFrame(run);
+    }
+  };
+  (make[name] || function () {})();
+})();
+</script>
+</body>
+</html>

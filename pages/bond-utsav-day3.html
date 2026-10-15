@@ -1,0 +1,2417 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- bond-utsav-day3: a copy of bond-utsav6.html (2026-10-15) where the gift opens into bond-utsav3's
+     Deal of the Day card, popping in with its burst, instead of the Bond Utsav logo. Hand-made copy:
+     pages/_utsav6.py does not write it, so a change to bond-utsav6 does not reach it. -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GoldenPi Bond Utsav | Festive Offers</title>
+<!-- bond-utsav6 (2026-10-14): bond-utsav4 re-timed. The show opens with the kid already at the
+     rocket, sparkler raised (no walk-in), and the fuse burns faster (0.7s, was 1s); the burst comes
+     at about 2s (was 5.5s). The Bond Utsav gift drops and opens into the logo first, and only then
+     do the offer posters parachute in (bond-utsav4 sent them out first). Below the hero: bond-utsav.html's
+     categories in this theme, at most six bonds each (generated into the UTSAV6:LISTING region by
+     pages/_utsav6.py; edit that, not the region).
+     Festive campaign concept, v4 of bond-utsav3.html: the rocket bursts, the gift opens into the
+     Bond Utsav logo and four offer posters parachute down onto the cracker ropes.
+     Shell (head, header, footer) from bond-utsav-live.html. -->
+<meta name="description" content="Discover a special collection of bonds for limited time on GoldenPi, India&#x27;s Trusted online platform for buying Listed Corporate Bonds. Start Investing with just ₹10000 &amp; Earn up to 14%">
+<link rel="icon" href="../assets/img/goldenpi-logo.svg">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/final.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          gold: "#d4af37",
+          ink: "#322811",
+          page: "#f7f5f2",
+          subtext: "#666666",
+          stroke: "#e7e3d9",
+          deep: "#1a1510",
+          bronze: "#8a6520",
+          gain: "#06963c",
+        },
+        fontFamily: {
+          sans: ['"Satoshi"', "ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "Roboto", "sans-serif"],
+        },
+      },
+    },
+  };
+</script>
+<link rel="stylesheet" href="../assets/navbar.css">
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<style>
+  /* bond-utsav3: festive Deal of the Day. Page-only styles, prefixed bu3-. */
+  body.bu3-page { background: #070604; }
+  .bu3-page { --bu-gold: #d4af37; --bu-gold-hi: #f3dc8f; --bu-ink: #f5ecd2; --bu-sub: rgba(245,236,210,.62); --bu-line: rgba(212,175,55,.2); }
+
+  /* ---------------------------------------------------------------- hero */
+  .bu3-hero { position: relative; isolation: isolate; overflow: hidden; display: flex; flex-direction: column;
+    min-height: max(720px, calc(100dvh - 72px)); color: var(--bu-ink);
+    background: radial-gradient(70% 45% at 50% 100%, rgba(212,175,55,.2), transparent 70%),
+                linear-gradient(180deg, #030204 0%, #0a0806 55%, #171108 100%); }
+  .bu3-stars { position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: .7;
+    background-image:
+      radial-gradient(1.2px 1.2px at 8% 14%, #fff, transparent), radial-gradient(1px 1px at 19% 31%, #fff, transparent),
+      radial-gradient(1.4px 1.4px at 28% 9%, #f3dc8f, transparent), radial-gradient(1px 1px at 41% 22%, #fff, transparent),
+      radial-gradient(1px 1px at 57% 12%, #fff, transparent), radial-gradient(1.3px 1.3px at 66% 27%, #f3dc8f, transparent),
+      radial-gradient(1px 1px at 74% 7%, #fff, transparent), radial-gradient(1.2px 1.2px at 86% 19%, #fff, transparent),
+      radial-gradient(1px 1px at 93% 34%, #fff, transparent), radial-gradient(1px 1px at 4% 42%, #fff, transparent),
+      radial-gradient(1px 1px at 49% 38%, #fff, transparent), radial-gradient(1.1px 1.1px at 35% 46%, #fff, transparent);
+    animation: bu3-twinkle 7s ease-in-out infinite alternate; }
+  @keyframes bu3-twinkle { to { opacity: .35; } }
+
+  /* cracker strings (ladi) hang in the outer thirds */
+  .bu3-ladis { position: absolute; top: 0; z-index: 1; width: 33.333%; height: 74%; pointer-events: none; }
+  .bu3-ladis--l { left: 0; }
+  .bu3-ladis--r { right: 0; }
+  .bu3-rope { position: absolute; inset: 0 0 auto; width: 100%; height: 44px; overflow: visible; }
+  .bu3-ladi { position: absolute; top: var(--t); left: var(--x); width: 28px; height: var(--h); margin-left: -14px;
+    background: url(../assets/img/bu3/ladi.svg) repeat-y center top / 28px 22px; transform-origin: 50% 0;
+    -webkit-mask-image: linear-gradient(#000 72%, transparent); mask-image: linear-gradient(#000 72%, transparent);
+    filter: drop-shadow(0 0 6px rgba(163,33,27,.45));
+    animation: bu3-sway var(--s, 6s) ease-in-out var(--d, 0s) infinite alternate; }
+  @keyframes bu3-sway { from { transform: rotate(-1.4deg); } to { transform: rotate(1.4deg); } }
+  @media (max-width: 767px) {
+    .bu3-ladis { height: 60%; opacity: .45; }
+    .bu3-ladi:nth-of-type(even) { display: none; }
+    .bu3-ladi { transform: scale(.8); }
+  }
+
+  /* clear the phone tab bar from navbar.css (fixed, below 1000px) */
+  @media (max-width: 999px) {
+    .bu3-hero { padding-bottom: calc(62px + env(safe-area-inset-bottom, 0px)); }
+    .bu3-ctrl { bottom: calc(78px + env(safe-area-inset-bottom, 0px)); }
+  }
+
+  .bu3-sky { position: absolute; inset: 0; z-index: 4; width: 100%; height: 100%; pointer-events: none; }
+
+  .bu3-copy { position: relative; z-index: 5; max-width: 760px; margin: 0 auto; padding: clamp(24px, 4vh, 48px) 16px 0; text-align: center; }
+  .bu3-copy > * { animation: bu3-up .9s cubic-bezier(.16,1,.3,1) both; }
+  .bu3-copy > :nth-child(2) { animation-delay: .08s; }
+  .bu3-copy > :nth-child(3) { animation-delay: .16s; }
+  @keyframes bu3-up { from { opacity: 0; transform: translateY(14px); } }
+  .bu3-eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px;
+    border: 1px solid var(--bu-line); background: rgba(212,175,55,.06); color: var(--bu-gold-hi);
+    font-size: .75rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+  .bu3-h1 { margin-top: 16px; font-size: clamp(3rem, 6vw, 4.5rem); line-height: 1; font-weight: 900; letter-spacing: -.045em;
+    background: linear-gradient(180deg, #fff6d8 0%, #e9c766 60%, #b98f2a 100%); -webkit-background-clip: text; background-clip: text; color: transparent; padding-bottom: .06em; }
+  .bu3-lede { max-width: 44ch; margin: 12px auto 0; color: var(--bu-sub); font-size: clamp(1rem, 1.3vw, 1.125rem); line-height: 1.55; }
+  .bu3-lede b { color: var(--bu-ink); font-weight: 700; }
+
+  .bu3-stage { position: relative; z-index: 6; flex: 1; display: grid; place-items: center; padding: 22px 16px 0; }
+  .bu3-rays { position: absolute; left: 50%; top: 50%; z-index: 0; width: 760px; height: 760px; margin: -380px 0 0 -380px; border-radius: 50%; pointer-events: none;
+    background: repeating-conic-gradient(rgba(243,220,143,.14) 0 5deg, transparent 5deg 15deg);
+    -webkit-mask-image: radial-gradient(circle, #000 0, transparent 62%); mask-image: radial-gradient(circle, #000 0, transparent 62%);
+    opacity: 0; transform: scale(.5); transition: opacity 1.2s ease, transform 1.6s cubic-bezier(.16,1,.3,1); }
+  .is-revealed .bu3-rays { opacity: 1; transform: none; animation: bu3-spin 80s linear infinite; }
+  @keyframes bu3-spin { to { rotate: 360deg; } }
+
+  .bu3-ground { position: relative; z-index: 3; display: block; width: 100%; height: clamp(190px, 27vh, 250px); margin-top: -44px; pointer-events: none; }
+  .bu3-limb { fill: none; stroke: #0b0805; stroke-linecap: round; }
+  .bu3-body { fill: #0b0805; }
+  .bu3-flame { transform-box: fill-box; transform-origin: 50% 100%; animation: bu3-flick 1.6s ease-in-out infinite alternate; }
+  .bu3-diya:nth-child(2n) .bu3-flame { animation-duration: 1.2s; animation-delay: -.4s; }
+  @keyframes bu3-flick { 0% { transform: scale(1, 1); } 50% { transform: scale(.9, 1.12) skewX(-3deg); } 100% { transform: scale(1.05, .94) skewX(2deg); } }
+  .bu3-sparkler { transition: opacity .8s; }
+  .bu3-sparkler circle:first-child { transform-box: fill-box; transform-origin: center; animation: bu3-glow .18s steps(2) infinite alternate; }
+  @keyframes bu3-glow { to { transform: scale(.75); opacity: .7; } }
+  .is-spent .bu3-sparkler { opacity: 0; }
+
+  /* the gift that falls from the burst */
+  .bu3-gift { position: absolute; left: 0; top: 0; z-index: 7; width: 96px; height: 134px; margin: -67px 0 0 -48px; pointer-events: none; opacity: 0; }
+  .bu3-gift svg { width: 100%; height: 100%; overflow: visible; transition: opacity .35s .25s, transform .5s .2s; }
+  .bu3-gift.is-open svg { opacity: 0; transform: scale(1.25); }
+  .bu3-lid { transform-box: fill-box; transform-origin: 50% 100%; transition: transform .55s cubic-bezier(.2,.9,.3,1.2), opacity .4s .15s; }
+  .bu3-gift.is-open .bu3-lid { transform: translate(16px, -34px) rotate(32deg); opacity: 0; }
+  .bu3-chute { transition: opacity .3s; }
+  .bu3-gift.is-open .bu3-chute { opacity: 0; }
+
+  .bu3-ctrl { position: absolute; right: 16px; bottom: 16px; z-index: 8; display: none; align-items: center; gap: 8px; height: 40px; padding: 0 16px;
+    border-radius: 999px; border: 1px solid var(--bu-line); background: rgba(10,8,5,.6); color: var(--bu-ink); font-size: .85rem; font-weight: 600;
+    -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); transition: border-color .2s, transform .2s; }
+  .bu3-js .bu3-ctrl { display: inline-flex; }
+  .bu3-ctrl:hover { border-color: rgba(212,175,55,.5); }
+  .bu3-ctrl:active { transform: scale(.97); }
+
+  /* ------------------------------------------------------ the logo the gift opens into */
+  .bu4-logo { position: relative; z-index: 1; width: clamp(260px, 26vw, 360px);  /* bond-utsav6: the 2026 art is wider (ribbon), so its diamond keeps the old size */ filter: drop-shadow(0 30px 60px rgba(212,175,55,.35)); }
+  .bu4-logo img { display: block; width: 100%; height: auto; }
+  .bu3-js .bu4-logo { opacity: 0; transform: scale(.35) rotate(-10deg); }
+  .bu3-js .is-revealed .bu4-logo { opacity: 1; transform: none; transition: opacity .35s ease, transform 1s cubic-bezier(.34,1.56,.64,1); }
+  .is-revealed .bu4-logo img { animation: bu4-float 4.8s ease-in-out 1s infinite alternate; }
+  @keyframes bu4-float { to { transform: translateY(-8px); } }
+
+  /* ------------------------------------------------------ offer posters on parachutes, tied to the cracker ropes */
+  .bu4-paras { position: absolute; inset: 0; z-index: 5; margin: 0; padding: 0; list-style: none; pointer-events: none; }
+  /* --x: across the hero; --ty: where the rope sags at --x (rope y = 8 + 120u(1-u), u = position in its third); --len: tether */
+  .bu4-para { position: absolute; left: var(--x); top: var(--ty); width: clamp(150px, 13vw, 188px); margin-left: calc(clamp(150px, 13vw, 188px) / -2); pointer-events: auto; }
+  .bu4-swing { position: relative; padding-top: var(--len); transform-origin: 50% 0; animation: bu4-sway var(--s, 6s) ease-in-out var(--d, 0s) infinite alternate; }
+  @keyframes bu4-sway { from { transform: rotate(-2deg); } to { transform: rotate(2deg); } }
+  .bu4-tether { position: absolute; left: 50%; top: 0; width: 1px; height: calc(var(--len) + 6px); margin-left: -.5px; transform-origin: 50% 0;
+    background: linear-gradient(#7a6438, #b89c5e); transition: transform .45s cubic-bezier(.2,.9,.3,1.2); }
+  .bu4-tether::before { content: ""; position: absolute; left: -2.5px; top: -3px; width: 6px; height: 6px; border-radius: 50%; background: #c9b27a; box-shadow: 0 0 6px rgba(243,220,143,.6); }
+  .bu4-canopy { display: block; width: 100%; height: auto; overflow: visible; filter: drop-shadow(0 8px 14px rgba(0,0,0,.45)); }
+  .bu4-poster { position: relative; margin-top: -1px; padding: 14px 12px 15px; border-radius: 16px; text-align: center; color: var(--bu-ink);
+    background: linear-gradient(165deg, rgba(46,36,17,.97), rgba(13,10,6,.98)) padding-box,
+                linear-gradient(140deg, #f3dc8f, rgba(212,175,55,.16) 45%, rgba(212,175,55,.08) 65%, #d4af37) border-box;
+    border: 1px solid transparent; box-shadow: 0 26px 50px -22px rgba(212,175,55,.42); }
+  .bu4-poster::after { content: ""; position: absolute; inset: 5px; border: 1px dashed rgba(212,175,55,.22); border-radius: 12px; pointer-events: none; }
+  .bu4-ic { display: grid; place-items: center; width: 32px; height: 32px; margin: 0 auto 8px; border-radius: 50%;
+    background: linear-gradient(180deg, #f6e2a0, #d4af37); color: #1a1408; font-size: 17px; box-shadow: 0 6px 16px -6px rgba(212,175,55,.9); }
+  .bu4-poster h2 { font-size: clamp(.95rem, 1.05vw, 1.05rem); line-height: 1.15; font-weight: 900; letter-spacing: -.02em;
+    background: linear-gradient(180deg, #fff6d8, #e2bd55); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .bu4-poster p { margin-top: 6px; color: rgba(245,236,210,.8); font-size: .78rem; line-height: 1.4; font-weight: 500; }
+  .bu3-js .bu4-para:not(.is-in) { visibility: hidden; }
+  .bu3-js .bu4-para:not(.is-hooked) .bu4-tether { transform: scaleY(0); }
+
+  /* below the desktop nav: the posters leave the ropes and sit in a grid under the logo */
+  @media (max-width: 999px) {
+    .bu4-paras { position: relative; inset: auto; z-index: 6; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 12px;
+      width: 100%; max-width: 760px; margin: 20px auto 0; padding: 0 16px; }
+    .bu4-para { position: relative; left: auto; top: auto; width: auto; margin: 0; }
+    .bu4-swing { padding-top: 0; animation-name: bu4-sway-sm; }
+    .bu4-tether { display: none; }
+    .bu4-canopy { height: 58px; }
+  }
+  @media (min-width: 700px) and (max-width: 999px) { .bu4-paras { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+  @keyframes bu4-sway-sm { from { transform: rotate(-1deg); } to { transform: rotate(1deg); } }
+
+  .bu3-ctrl:focus-visible, .bu3-pick:focus-visible, .bu3-chip:focus-visible { outline: 2px solid #f3dc8f; outline-offset: 3px; }
+
+  /* ------------------------------------------------- below the hero */
+  /* ------------------------------------------------------ bond-utsav-day3: the Deal of the Day the gift opens into (bond-utsav3) */
+  .bu3-deal { position: relative; z-index: 1; width: min(380px, 100%); padding: 20px 20px 18px; border-radius: 28px; color: var(--bu-ink);
+    background: linear-gradient(160deg, rgba(42,33,16,.94), rgba(13,10,6,.97)) padding-box,
+                linear-gradient(140deg, #f3dc8f, rgba(212,175,55,.14) 40%, rgba(212,175,55,.06) 62%, #d4af37) border-box;
+    border: 1px solid transparent; box-shadow: 0 40px 90px -30px rgba(212,175,55,.38); }
+  .bu3-js .bu3-deal { opacity: 0; transform: translateY(24px) scale(.8); filter: blur(8px); }
+  .bu3-js .is-revealed .bu3-deal { opacity: 1; transform: none; filter: none;
+    transition: opacity .6s ease, transform 1s cubic-bezier(.16,1,.3,1), filter .6s ease; }
+  .bu3-ribbon { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); display: inline-flex; align-items: center; gap: 6px; white-space: nowrap;
+    padding: 6px 14px; border-radius: 999px; background: linear-gradient(180deg, #f6e2a0, #d4af37); color: #1a1408;
+    font-size: .72rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; box-shadow: 0 8px 24px -8px rgba(212,175,55,.8); }
+  .bu3-cta { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; height: 50px; margin-top: 16px; border-radius: 999px;
+    background: linear-gradient(180deg, #f6e2a0, #d4af37); color: #1a1408; font-weight: 800;
+    box-shadow: 0 12px 30px -12px rgba(212,175,55,.85); transition: transform .2s, box-shadow .2s; }
+  .bu3-cta:hover { transform: translateY(-1px); box-shadow: 0 16px 36px -12px rgba(212,175,55,.95); }
+  .bu3-cta:active { transform: translateY(1px) scale(.99); }
+  .bu3-cta:focus-visible { outline: 2px solid #f3dc8f; outline-offset: 3px; }
+  /* day3, minimal: one hairline, flat dark face, no tags / bar / sold line (user, 2026-10-15) */
+  .bu3-deal { width: min(340px, 100%); padding: 22px 22px 20px; border-radius: 24px; border: 1px solid rgba(212,175,55,.35);
+    background: rgba(14,11,7,.92); box-shadow: 0 30px 70px -40px rgba(212,175,55,.45); }
+  .bu3-deal .bu3-ribbon { top: -11px; padding: 4px 12px; font-size: .64rem; letter-spacing: .14em; box-shadow: none; }
+  .bu3-deal .bu3-head { gap: 10px; }
+  .bu3-deal .bu3-logo { width: 36px; height: 36px; padding: 5px; border-radius: 10px; }
+  .bu3-deal .bu3-name { font-size: .95rem; font-weight: 500; color: rgba(245,236,210,.85); }
+  .bu3-deal .bu3-rate { margin-top: 18px; }
+  .bu3-deal .bu3-rate b { font-size: 2.6rem; }
+  .bu3-deal .bu3-meta { margin-top: 14px; padding-top: 0; border-top: 0; }
+  .bu3-deal .bu3-meta div + div { border-left: 0; }
+  .bu3-deal .bu3-meta dt { font-size: .68rem; text-transform: uppercase; letter-spacing: .08em; }
+  .bu3-deal .bu3-meta dd { font-size: .86rem; font-weight: 500; }
+  .bu3-deal .bu3-cta { height: 44px; margin-top: 20px; font-weight: 700; box-shadow: none; }
+  .bu3-head { display: flex; align-items: center; gap: 12px; }
+  .bu3-logo { display: grid; place-items: center; flex: none; width: 46px; height: 46px; padding: 6px; border-radius: 14px; background: #fff; }
+  .bu3-logo img { max-width: 100%; max-height: 100%; object-fit: contain; }
+  .bu3-name { font-size: 1.02rem; font-weight: 700; letter-spacing: -.01em; }
+  .bu3-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+  .bu3-tag { padding: 2px 8px; border-radius: 999px; background: rgba(212,175,55,.12); color: var(--bu-gold-hi); font-size: .68rem; font-weight: 700; }
+  .bu3-rate { display: flex; align-items: baseline; gap: 6px; margin-top: 14px; }
+  .bu3-rate b { font-size: 3rem; line-height: 1; font-weight: 900; letter-spacing: -.05em; font-variant-numeric: tabular-nums;
+    background: linear-gradient(180deg, #fff3c4, #d4af37); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .bu3-rate span { color: var(--bu-sub); font-weight: 500; }
+  .bu3-meta { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--bu-line); }
+  .bu3-meta div + div { padding-left: 12px; border-left: 1px solid var(--bu-line); }
+  .bu3-meta dt { color: var(--bu-sub); font-size: .72rem; }
+  .bu3-meta dd { margin-top: 3px; font-size: .9rem; font-weight: 700; white-space: nowrap; }
+  .bu3-bar { height: 6px; margin-top: 16px; border-radius: 99px; background: rgba(255,255,255,.08); overflow: hidden; }
+  .bu3-bar i { display: block; width: var(--p); height: 100%; border-radius: inherit; background: linear-gradient(90deg, #b98f2a, #f3dc8f); }
+  .bu3-sold { display: flex; justify-content: space-between; gap: 12px; margin-top: 8px; color: var(--bu-sub); font-size: .76rem; }
+  .bu3-sold span:first-child { white-space: nowrap; }
+
+  .bu3-sec { padding: clamp(64px, 9vw, 112px) 0; color: var(--bu-ink); background: #070604; }
+  .bu3-shell { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+  @media (min-width: 768px) { .bu3-shell { padding: 0 32px; } }
+  .bu3-h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; font-weight: 900; letter-spacing: -.035em; }
+  .bu3-sub { max-width: 52ch; margin-top: 12px; color: var(--bu-sub); }
+  .bu3-picks { display: grid; gap: 16px; margin-top: 36px; }
+  @media (min-width: 900px) { .bu3-picks { grid-template-columns: repeat(3, 1fr); } }
+  .bu3-pick { display: block; padding: 22px 20px; border-radius: 24px; border: 1px solid var(--bu-line);
+    background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.015));
+    transition: transform .35s cubic-bezier(.16,1,.3,1), border-color .35s; }
+  .bu3-pick:hover { transform: translateY(-4px); border-color: rgba(212,175,55,.5); }
+  .bu3-pick .bu3-rate b { font-size: 2.6rem; }
+  .bu3-go { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; color: var(--bu-gold-hi); font-weight: 700; }
+  .bu3-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+  .bu3-chip { padding: 10px 16px; border-radius: 999px; border: 1px solid var(--bu-line); color: var(--bu-ink); font-weight: 500; transition: background .2s, border-color .2s; }
+  .bu3-chip:hover { background: rgba(212,175,55,.1); border-color: rgba(212,175,55,.5); }
+  .bu3-risk { max-width: 90ch; margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--bu-line); color: rgba(245,236,210,.45); font-size: .8rem; line-height: 1.6; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .bu3-stars, .bu3-ladi, .bu3-flame, .bu3-sparkler circle, .bu3-copy > *, .is-revealed .bu3-rays, .bu4-swing, .is-revealed .bu4-logo img { animation: none !important; }
+    .bu3-js .is-revealed .bu4-logo, .bu3-js .is-revealed .bu3-deal, .bu3-rays, .bu4-tether { transition: none; }
+  }
+</style>
+<style>
+/* bond-utsav6: the hero CTA (taste-skill review, 2026-10-14) */
+.bu6-cta { display: inline-flex; align-items: center; gap: 10px; min-height: 48px; margin-top: 20px; padding: 0 26px; border-radius: 999px;
+  background: linear-gradient(100deg, #f7e4a1, #d4af37 55%, #b8902c); color: #14110a; font-weight: 700; font-size: 15px;
+  box-shadow: 0 12px 30px -12px rgba(212,175,55,.55); transition: transform .3s cubic-bezier(.16,1,.3,1), filter .3s; }
+.bu6-cta:hover { filter: brightness(1.06); }
+.bu6-cta:active { transform: scale(.98); }
+.bu6-cta i { transition: transform .3s cubic-bezier(.16,1,.3,1); } .bu6-cta:hover i { transform: translateY(3px); }
+.bu6-cta:focus-visible { outline: 2px solid #f3dc8f; outline-offset: 3px; }
+.bu3-copy > :nth-child(4) { animation-delay: .24s; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+#utsav-heading { scroll-margin-top: 96px; }
+</style>
+<style>
+/* bond-utsav6: the whole first fold on a phone (user, 2026-10-14). The hero is the screen less the navbar
+   (the tab bar's room is its bottom padding), and everything scales with the screen's height: tighter copy,
+   the logo at most 24% of it, the four posters in one row (icon and title; their one-line descriptions don't
+   fit at ~88px wide), the family scene at 18% of it. svh, so the phone's address bar never pushes it out. */
+@media (max-width: 699px) {
+  .bu3-hero { min-height: calc(100vh - 61px); min-height: calc(100svh - 61px); }
+  .bu3-copy { padding-top: 14px; }
+  .bu3-eyebrow { padding: 5px 12px; font-size: .66rem; letter-spacing: .1em; }
+  .bu3-lede { margin-top: 8px; font-size: .9rem; line-height: 1.45; }
+  .bu6-cta { min-height: 44px; margin-top: 12px; padding: 0 22px; font-size: 14px; }
+  .bu3-stage { padding-top: 6px; }
+  .bu4-logo { width: min(52vw, 24vh); width: min(52vw, 24svh); }
+  /* day3: the deal card, compact enough to keep the posters in the first fold */
+  .bu3-deal { margin-top: 16px; padding: 16px 16px 14px; border-radius: 22px; }
+  .bu3-deal .bu3-rate { margin-top: 10px; }
+  .bu3-deal .bu3-rate b { font-size: 2.3rem; }
+  .bu3-deal .bu3-meta { margin-top: 10px; padding-top: 10px; }
+  .bu3-deal .bu3-bar { margin-top: 10px; }
+  .bu3-deal .bu3-cta { height: 42px; margin-top: 12px; }
+  .bu3-rays { width: 460px; height: 460px; margin: -230px 0 0 -230px; }
+  .bu4-paras { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin-top: 10px; padding: 0 10px; }
+  .bu4-canopy { height: 30px; }
+  .bu4-poster { padding: 8px 4px 9px; border-radius: 12px; }
+  .bu4-poster::after { inset: 3px; border-radius: 9px; }
+  .bu4-ic { width: 22px; height: 22px; margin-bottom: 4px; font-size: 12px; }
+  .bu4-poster h2 { font-size: .68rem; line-height: 1.2; }
+  .bu4-poster p { display: none; }
+  .bu3-ground { height: clamp(110px, 18vh, 170px); height: clamp(110px, 18svh, 170px); margin-top: -24px; }
+}
+</style>
+<style>
+/* bond-utsav6's listing (pages/_utsav6.py): bond-utsav.html's categories, dark */
+/* spacing (user, 2026-10-14): 32px above the heading (was the section's 112px; 24px on phones),
+   and more room before the footer (was 112px) */
+.bu6-list { padding-top: 32px; padding-bottom: clamp(112px, 13vw, 176px); }
+@media (max-width: 767px) { .bu6-list { padding-top: 24px; padding-bottom: 96px; } }
+.bu6-list .gp-section__head { text-align: center; margin-inline: auto; }  /* centred at every width (user, 2026-10-14) */
+.bu6-list .gp-section__sub { margin-top: 10px; color: var(--bu-sub); font-size: 1rem; }
+.bu6-list .gp-hero__figure { color: var(--bu-gold-hi); font-weight: 700; }
+.bu6-list .gp-pills { margin-top: 32px; background: none; }  /* final.css gives the strip the light page colour */
+@media (max-width: 767px) {  /* the strip bleeds to this page's 16px gutter, not bond-utsav.html's 20px */
+  .bu6-list .gp-pills { margin-inline: -16px; }
+  .bu6-list .gp-pills__track { padding-inline: 16px; }
+  /* the "more pills" edge fade: into this section's black, not final.css's light page colour */
+  .bu6-list .gp-pills[data-overflow="true"]::after { background: linear-gradient(90deg, rgba(7,6,4,0), #070604); }
+}
+.bu6-list .gp-pill { color: var(--bu-ink); background: rgba(255,255,255,.04); border: 1px solid var(--bu-line); }
+.bu6-list .gp-pill:hover { border-color: rgba(212,175,55,.5); }
+.bu6-list .gp-pill[aria-selected="true"] { color: #14110a; background: linear-gradient(100deg, #f7e4a1, #d4af37 55%, #b8902c); border-color: transparent; }
+.bu6-list .gp-pill img { border-radius: 50%; background: rgba(255,255,255,.08); }
+.bu6-list .gp-pill:focus-visible { outline: 2px solid var(--bu-gold-hi); outline-offset: 3px; }
+.bu6-list .gp-panel { margin-top: 28px; }
+.bu6-list .gp-ucard { border: 1px solid var(--bu-line); border-radius: 24px; overflow: hidden;
+  background: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.015)); box-shadow: none; }
+.bu6-list .gp-ucard:hover { border-color: rgba(212,175,55,.5); box-shadow: none; }
+.bu6-list .gp-ucard:focus-visible { outline: 2px solid var(--bu-gold-hi); outline-offset: 3px; }
+/* dark grounds behind images (user, 2026-10-14): logo tiles and pill icons on a dark shade, not white */
+.bu6-list .gp-ucard__logo { background: #1c1810; border: 1px solid var(--bu-line); }
+.bu6-list .gp-ucard__issuer { color: var(--bu-ink); }
+.bu6-list .gp-ucard__sold, .bu6-list .gp-ucard__metrics dt { color: var(--bu-sub); }
+.bu6-list .gp-ucard__rate-value { color: var(--bu-gold-hi); }
+.bu6-list .gp-ucard__rate-value span { color: var(--bu-gold); }
+.bu6-list .gp-ucard__was { color: var(--bu-sub); }
+.bu6-list .gp-ucard__tags span { background: rgba(212,175,55,.12); color: var(--bu-gold-hi); }
+.bu6-list .gp-ucard__metrics dd { color: var(--bu-ink); }
+.bu6-list .gp-ucard__metrics div + div { border-left-color: var(--bu-line); }
+.bu6-list .gp-empty-state p { color: var(--bu-sub); }
+</style>
+<!-- ggn-footer: styles; pages/_build.py -->
+<style>
+  /* The light scheme from the GoldenPi Web Design Figma, footer
+     frame 242:21690. Same blocks as footer-taste.html, the dark version; only colour and chrome change. */
+  .ft {
+    --ft-bg: #fcfbfa;          /* Figma "bg ligh" */
+    --ft-band: #f0ece6;        /* lower band, sampled from the frame */
+    --ft-ink: #322811;         /* "darker brown" */
+    --ft-muted: #514834;       /* "brown dark" */
+    --ft-faint: #666666;       /* "subtext" */
+    --ft-line: #e7e3d999;      /* "stroke light" */
+    --ft-card: #ffffff;
+    --ft-accent: #a67c00;      /* "icon" */
+    position: relative;
+    overflow: hidden;
+    margin-top: 72px;
+    background: var(--ft-bg);
+    color: var(--ft-muted);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .ft a { color: inherit; text-decoration: none; }
+  .ft a:focus-visible, .ft button:focus-visible, .ft summary:focus-visible {
+    outline: 2px solid var(--ft-accent);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  .ft h2, .ft h3 { color: var(--ft-ink); font-weight: 700; }
+
+  /* The pi mark the live footer carries, drifting slowly top right. */
+  .ft__pi {
+    position: absolute;
+    top: -40px;
+    right: -60px;
+    width: 420px;
+    pointer-events: none;
+    animation: ft-drift 18s ease-in-out infinite alternate;
+  }
+  @keyframes ft-drift { to { transform: translate(-24px, 28px) rotate(-4deg); } }
+
+  .ft__inner { position: relative; }
+
+  /* ----------------------------------------------------------- main grid */
+  .ft-main { display: grid; gap: 40px 32px; padding-block: 56px 44px; }
+  @media (min-width: 640px) { .ft-main { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .ft-main { grid-template-columns: 1.5fr repeat(4, 1fr); } }
+  .ft-brand address { margin-top: 12px; font-style: normal; }
+  .ft-brand__co { margin-top: 20px; color: var(--ft-ink); font-weight: 700; }
+  .ft-brand__tel a { color: var(--ft-ink); font-weight: 700; }
+  .ft-social { display: flex; gap: 10px; margin-top: 22px; }
+  .ft-social a {
+    display: grid; place-items: center; width: 40px; height: 40px;
+    border: 1px solid var(--ft-line); border-radius: 50%;
+    transition: transform 0.25s var(--ease), background-color 0.25s, border-color 0.25s;
+  }
+  .ft-social a:hover { transform: translateY(-3px); background: rgba(212, 175, 55, 0.16); border-color: var(--ft-accent); }
+  .ft-social img { width: 16px; height: 16px; object-fit: contain; }
+  .ft-col h2 { margin-bottom: 16px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ft-accent); }
+  .ft-col li + li { margin-top: 10px; }
+  /* Gold underline grows from the left on hover. */
+  .ft-link { background: linear-gradient(var(--ft-accent), var(--ft-accent)) 0 100% / 0 1px no-repeat; transition: background-size 0.3s var(--ease), color 0.2s; }
+  .ft-link:hover { color: var(--ft-ink); background-size: 100% 1px; }
+
+  /* ----------------------------------------------------------- link bands */
+  .ft-band { padding-block: 28px; border-top: 1px solid var(--ft-line); }
+  .ft-band > h2 { margin-bottom: 14px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ft-accent); }
+  .ft-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .ft-chips a {
+    padding: 6px 14px; border: 1px solid var(--ft-line); border-radius: 999px;
+    background: var(--ft-card); font-size: 13px;
+    transition: border-color 0.2s, color 0.2s, background-color 0.2s;
+  }
+  .ft-chips a:hover { border-color: var(--ft-accent); color: var(--ft-ink); background: rgba(212, 175, 55, 0.1); }
+  .ft-chips--ext a::after { content: " \2197"; color: var(--ft-faint); }
+
+  .ft-docs { display: grid; gap: 8px; }
+  @media (min-width: 640px) { .ft-docs { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1024px) { .ft-docs { grid-template-columns: repeat(3, 1fr); } }
+  .ft-docs a {
+    display: flex; align-items: center; gap: 12px; padding: 12px 14px;
+    border: 1px solid var(--ft-line); border-radius: 12px; background: var(--ft-card);
+    transition: border-color 0.2s, transform 0.25s var(--ease), color 0.2s;
+  }
+  .ft-docs a:hover { border-color: var(--ft-accent); color: var(--ft-ink); transform: translateX(3px); }
+  .ft-docs svg { flex: none; width: 18px; height: 18px; color: var(--ft-accent); }
+  .ft-docs span { flex: 1; }
+  .ft-docs small { color: var(--ft-faint); font-size: 11px; font-weight: 700; letter-spacing: 0.06em; }
+
+  .ft-copy { padding-block: 20px; border-top: 1px solid var(--ft-line); color: var(--ft-faint); font-size: 13px; }
+
+  /* ---------------------------------------------------------------- legal */
+  .ft-legal { padding-block: 40px 56px; background: rgba(0, 0, 0, 0.22); font-size: 13px; line-height: 1.7; color: var(--ft-faint); }
+  .ft-legal section + section { margin-top: 36px; }
+  .ft-legal h2 { margin-bottom: 12px; font-size: 16px; }
+  .ft-legal p + p { margin-top: 10px; }
+  .ft-legal a.u { color: var(--ft-muted); text-decoration: underline; text-underline-offset: 3px; }
+  .ft-legal a.u:hover { color: var(--ft-accent); }
+  .ft-legal strong { color: var(--ft-muted); }
+  .ft-more > summary { display: inline-flex; margin-top: 12px; color: var(--ft-accent); font-weight: 700; cursor: pointer; list-style: none; }
+  .ft-more > summary::-webkit-details-marker { display: none; }
+  .ft-more[open] > summary { display: none; }
+
+
+  .ft-faq { border-top: 1px solid var(--ft-line); }
+  .ft-faq details { border-bottom: 1px solid var(--ft-line); }
+  .ft-faq summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 16px; cursor: pointer; list-style: none; }
+  .ft-faq summary::-webkit-details-marker { display: none; }
+  .ft-faq summary h2 { margin: 0; font-size: 15px; }
+  .ft-faq summary::after { content: "+"; flex: none; color: var(--ft-accent); font-size: 22px; line-height: 1; transition: transform 0.3s var(--ease); }
+  .ft-faq details[open] summary::after { transform: rotate(45deg); }
+  .ft-faq details > div { padding-bottom: 18px; }
+  .ft-faq ul { margin-top: 8px; padding-left: 18px; list-style: disc; }
+
+  .ft-reg { display: grid; gap: 10px; margin-block: 18px; }
+  @media (min-width: 640px) { .ft-reg { grid-template-columns: repeat(3, 1fr); } }
+  .ft-reg div { padding: 16px 18px; border: 1px solid rgba(212, 175, 55, 0.24); border-radius: 14px; background: rgba(212, 175, 55, 0.06); }
+  .ft-reg dt { font-size: 12px; }
+  .ft-reg dd { margin-top: 4px; color: var(--ft-ink); font-size: 20px; font-weight: 700; font-variant-numeric: tabular-nums; letter-spacing: 0.02em; }
+
+  /* Two parts: part 1 carries the regulatory copy inline on the main ground;
+     part 2 (SEO) sits on the darker band. */
+  .ft-legal--reg { padding-block: 32px; background: none; }
+  .ft-seo .ft-band { margin-top: 32px; }
+  .ft-legal .ft-band > h2 { margin-bottom: 14px; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ft-accent); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ft__pi { animation: none; }
+    .ft-social a, .ft-docs a { transition: none; }
+  }
+  @media (max-width: 639px) {
+    .ft__pi { width: 260px; right: -90px; }
+  }
+
+  /* ---------------------------------------------- Figma 242:21690 chrome */
+  .ft { margin-top: 0; border-top: 1px solid var(--ft-line); }
+  .ft__pi { display: none; }
+  .ft-main { border-bottom: 1px solid var(--ft-line); }
+  .ft-brand address, .ft-brand p { font-size: 13px; }
+  .ft-col h2 { padding-bottom: 12px; border-bottom: 1px solid var(--ft-line); color: var(--ft-faint); font-weight: 500; letter-spacing: 0.12em; }
+  .ft-col a { color: var(--ft-ink); }
+  .ft-social a { border-radius: 8px; background: #fff; border-color: var(--ft-line); box-shadow: 0 1px 2px rgba(50, 40, 17, 0.04); }
+  .ft-social a:hover { background: #fff; border-color: var(--ft-accent); }
+  .ft-social img { filter: brightness(0); opacity: 0.85; }
+  .ft-band { border-top: 0; }
+  .ft-band > h2, .ft-legal .ft-band > h2 { color: var(--ft-ink); font-size: 15px; letter-spacing: 0; text-transform: none; }
+  .ft-chips a { border-color: transparent; background: #fff; color: var(--ft-ink); box-shadow: 0 1px 2px rgba(50, 40, 17, 0.05); }
+  .ft-chips a:hover { border-color: var(--ft-accent); background: #fff; color: var(--ft-ink); }
+  .ft-chips--ext a::after { content: none; }
+  .ft-legal { background: var(--ft-band); color: var(--ft-faint); }
+  .ft-legal--reg { background: none; }
+  .ft-legal a.u { color: var(--ft-ink); font-weight: 500; }
+  .ft-legal a.u:hover { color: var(--ft-accent); }
+  .ft-legal strong { color: var(--ft-muted); }
+  .ft-more > summary { color: var(--ft-ink); text-decoration: underline; text-underline-offset: 3px; }
+  .ft-reg div { border-color: var(--ft-line); background: #fff; }
+  .ft-copy { color: var(--ft-ink); font-weight: 700; }
+</style>
+<!-- ggn-footer: /styles; pages/_build.py -->
+</head>
+<body class="bu3-page">
+
+<a class="gp-skip" href="#main-content">Skip to main content</a>
+
+<!-- ============================================================== header -->
+<div class="nb-slot">
+<header class="nb nb--dark nb--plain nb--micons" data-v="plain-dark-guest">
+  <div class="gp-shell nb__inner">
+    <a class="nb__logo" href="index.html"><img src="../assets/img/goldenpi-logo-white.svg" alt="GoldenPi" width="132" height="30"></a>
+    <nav class="nb__nav" aria-label="Primary">
+        <a class="nb__link" href="corporate-bonds.html"><span class="nb-ic" style="--i: url(../assets/img/header-nav-bonds.svg)" aria-hidden="true"></span><span>Bonds</span></a>
+        <a class="nb__link" href="fixed-deposits.html"><span class="nb-ic" style="--i: url(../assets/img/header-nav-fd.svg)" aria-hidden="true"></span><span>FD</span></a>
+        <a class="nb__link is-current" href="bond-utsav.html" aria-current="page"><img class="nb-ic" src="../assets/img/header-nav-bond-utsav.svg" alt=""><span>Bond Utsav</span></a>
+        <a class="nb__link" href="refer-and-earn.html"><span class="nb-ic" style="--i: url(../assets/img/header-nav-ref-earn.svg)" aria-hidden="true"></span><span>Refer &amp; Earn</span></a>
+    </nav>
+    <div class="nb__search"><span class="nb-ic" style="--i: url(../assets/img/header-search.svg)" aria-hidden="true"></span><span>Search for bonds, FD or IPO</span></div>
+    <div class="nb__actions">
+      <button type="button" class="nb__btn nb__search-btn" aria-label="Search"><span class="nb-ic" style="--i: url(../assets/img/header-search.svg)" aria-hidden="true"></span></button>
+      <button type="button" class="gp-cta gp-cta--primary nb__login"><span>Login / Sign up</span></button>
+    </div>
+  </div>
+</header>
+</div>
+
+<main id="main-content">
+
+  <!-- COPY: lede and the four parachute posters are campaign copy supplied by GoldenPi (2026-10-09).
+       "More from Bond Utsav" and the button labels are new campaign copy (invented).
+       Logo: assets/img/bu6/bond-utsav-2026.png, the 2026 artwork supplied by the user 2026-10-14 (497x466,
+       transparent; bond-utsav4/5 keep the 2025 one). Ask for a 2x export for retina. -->
+  <!-- ============================================================== hero: the festive show -->
+  <section class="bu3-hero" id="bu3-hero" aria-labelledby="bu3-title">
+    <div class="bu3-stars" aria-hidden="true"></div>
+
+    <div class="bu3-ladis bu3-ladis--l" aria-hidden="true">
+      <svg class="bu3-rope" viewBox="0 0 100 44" preserveAspectRatio="none"><path d="M0 8 Q50 68 100 8" fill="none" stroke="#7a6438" stroke-width="1.2" vector-effect="non-scaling-stroke"/></svg>
+      <span class="bu3-ladi" style="--x:10%;--t:19px;--h:62%;--s:5.2s;--d:-1s"></span>
+      <span class="bu3-ladi" style="--x:24%;--t:30px;--h:44%;--s:6.4s;--d:-3s"></span>
+      <span class="bu3-ladi" style="--x:38%;--t:36px;--h:78%;--s:5.8s;--d:-2s"></span>
+      <span class="bu3-ladi" style="--x:52%;--t:38px;--h:52%;--s:7s;--d:-4s"></span>
+      <span class="bu3-ladi" style="--x:66%;--t:35px;--h:70%;--s:6s;--d:-.5s"></span>
+      <span class="bu3-ladi" style="--x:82%;--t:26px;--h:40%;--s:5.5s;--d:-2.5s"></span>
+    </div>
+    <div class="bu3-ladis bu3-ladis--r" aria-hidden="true">
+      <svg class="bu3-rope" viewBox="0 0 100 44" preserveAspectRatio="none"><path d="M0 8 Q50 68 100 8" fill="none" stroke="#7a6438" stroke-width="1.2" vector-effect="non-scaling-stroke"/></svg>
+      <span class="bu3-ladi" style="--x:16%;--t:24px;--h:46%;--s:6.2s;--d:-2s"></span>
+      <span class="bu3-ladi" style="--x:32%;--t:34px;--h:74%;--s:5.4s;--d:-1s"></span>
+      <span class="bu3-ladi" style="--x:46%;--t:38px;--h:54%;--s:6.8s;--d:-3.5s"></span>
+      <span class="bu3-ladi" style="--x:60%;--t:37px;--h:80%;--s:5.9s;--d:-.8s"></span>
+      <span class="bu3-ladi" style="--x:74%;--t:31px;--h:42%;--s:6.5s;--d:-4.2s"></span>
+      <span class="bu3-ladi" style="--x:90%;--t:19px;--h:60%;--s:5.6s;--d:-1.6s"></span>
+    </div>
+
+    <canvas class="bu3-sky" aria-hidden="true"></canvas>
+
+    <div class="bu3-copy">
+      <p class="bu3-eyebrow"><i class="ph-fill ph-sparkle" aria-hidden="true"></i>GoldenPi Bond Utsav is Back!</p>
+      <h1 class="sr-only" id="bu3-title">Bond Utsav</h1>
+      <p class="bu3-lede">Discover a special collection of fixed return*<br><b>Starts &#8377;10k and earn up to 14%</b></p>
+      <!-- taste-skill: the hero's one primary CTA, labelled "Explore" (user, 2026-10-14). In-page: the categories below. -->
+      <a class="bu6-cta" href="#utsav-heading">Explore <i class="ph-bold ph-arrow-down" aria-hidden="true"></i></a>
+    </div>
+
+    <div class="bu3-stage">
+      <div class="bu3-rays" aria-hidden="true"></div>
+      <!-- DATA: Deal of the Day. The pick is editorial; Akara is a placeholder from the Bond Utsav
+           listing (content/bond-utsav.md, uatnew.goldenpi.com/bond-utsav, captured 2026-09-26). -->
+      <article class="bu3-deal" aria-labelledby="bu3-deal-name">
+        <p class="bu3-ribbon"><i class="ph-fill ph-gift" aria-hidden="true"></i>Deal of the Day</p>
+        <div class="bu3-head">
+          <span class="bu3-logo"><img src="../assets/img/GPID102720.AKARA-CAPITAL-ADVISORS-PRIVATE-LIMITED-2x.png" alt="" width="34" height="34"></span>
+          <div>
+            <h2 class="bu3-name" id="bu3-deal-name">Akara Capital Advisors</h2>
+            
+          </div>
+        </div>
+        <p class="bu3-rate"><b>13.00%</b><span>p.a.</span></p>
+        <dl class="bu3-meta">
+          <div><dt>Tenure</dt><dd>1Y 2M</dd></div>
+          <div><dt>Payout</dt><dd>Monthly</dd></div>
+          <div><dt>Rating</dt><dd>ACUITE BBB+</dd></div>
+        </dl>
+        <a class="bu3-cta" href="https://uatnew.goldenpi.com/bonds/GPID107435/akara-1300-bond-yield?src=view_details&amp;tenureDate=03-Dec-2027">Invest Now <i class="ph-bold ph-arrow-right" aria-hidden="true"></i></a>
+      </article>
+    </div>
+
+    <!-- Offer posters. Each hangs by a tether from the cracker rope above it (desktop) and drops in after the burst. -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+      <defs>
+        <linearGradient id="bu4-gores-a"><stop offset=".167" stop-color="#e9c766"/><stop offset=".167" stop-color="#a3211b"/><stop offset=".333" stop-color="#a3211b"/><stop offset=".333" stop-color="#e9c766"/><stop offset=".5" stop-color="#e9c766"/><stop offset=".5" stop-color="#a3211b"/><stop offset=".667" stop-color="#a3211b"/><stop offset=".667" stop-color="#e9c766"/><stop offset=".833" stop-color="#e9c766"/><stop offset=".833" stop-color="#a3211b"/></linearGradient>
+        <linearGradient id="bu4-gores-b"><stop offset=".167" stop-color="#a3211b"/><stop offset=".167" stop-color="#f3dc8f"/><stop offset=".333" stop-color="#f3dc8f"/><stop offset=".333" stop-color="#a3211b"/><stop offset=".5" stop-color="#a3211b"/><stop offset=".5" stop-color="#f3dc8f"/><stop offset=".667" stop-color="#f3dc8f"/><stop offset=".667" stop-color="#a3211b"/><stop offset=".833" stop-color="#a3211b"/><stop offset=".833" stop-color="#f3dc8f"/></linearGradient>
+        <linearGradient id="bu4-shade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".35"/></linearGradient>
+      </defs>
+    </svg>
+    <ul class="bu4-paras" aria-label="Bond Utsav offers">
+      <li class="bu4-para" style="--x:14%;--ty:37px;--len:clamp(84px, 13vh, 150px);--s:5.6s;--d:-1s">
+        <div class="bu4-swing">
+          <span class="bu4-tether" aria-hidden="true"></span>
+          <svg class="bu4-canopy" viewBox="0 0 180 96" preserveAspectRatio="none" aria-hidden="true"><path d="M6 54 C6 20 46 4 90 4 C134 4 174 20 174 54 Q160 46 146 54 Q132 46 118 54 Q104 46 90 54 Q76 46 62 54 Q48 46 34 54 Q20 46 6 54Z" fill="url(#bu4-gores-a)"/><path d="M6 54 C6 20 46 4 90 4 C134 4 174 20 174 54 Q160 46 146 54 Q132 46 118 54 Q104 46 90 54 Q76 46 62 54 Q48 46 34 54 Q20 46 6 54Z" fill="url(#bu4-shade)"/><path d="M90 4 L34 54 M90 4 L62 54 M90 4 V54 M90 4 L118 54 M90 4 L146 54" stroke="#1a1408" stroke-opacity=".28" fill="none" vector-effect="non-scaling-stroke"/><path d="M6 54 L14 96 M34 54 L14 96 M62 54 L14 96 M118 54 L166 96 M146 54 L166 96 M174 54 L166 96" stroke="#c9b27a" stroke-opacity=".7" stroke-width=".8" fill="none" vector-effect="non-scaling-stroke"/></svg>
+          <div class="bu4-poster"><span class="bu4-ic" aria-hidden="true"><i class="ph-fill ph-confetti"></i></span><h2>Bond Carnival</h2><p>14+ Bonds up to 14% yield</p></div>
+        </div>
+      </li>
+      <li class="bu4-para" style="--x:28%;--ty:24px;--len:clamp(190px, 30vh, 300px);--s:6.4s;--d:-3s">
+        <div class="bu4-swing">
+          <span class="bu4-tether" aria-hidden="true"></span>
+          <svg class="bu4-canopy" viewBox="0 0 180 96" preserveAspectRatio="none" aria-hidden="true"><path d="M6 54 C6 20 46 4 90 4 C134 4 174 20 174 54 Q160 46 146 54 Q132 46 118 54 Q104 46 90 54 Q76 46 62 54 Q48 46 34 54 Q20 46 6 54Z" fill="url(#bu4-gores-b)"/><path d="M6 54 C6 20 46 4 90 4 C134 4 174 20 174 54 Q160 46 146 54 Q132 46 118 54 Q104 46 90 54 Q76 46 62 54 Q48 46 34 54 Q20 46 6 54Z" fill="url(#bu4-shade)"/><path d="M90 4 L34 54 M90 4 L62 54 M90 4 V54 M90 4 L118 54 M90 4 L146 54" stroke="#1a1408" stroke-opacity=".28" fill="none" vector-effect="non-scaling-stroke"/><path d="M6 54 L14 96 M34 54 L14 96 M62 54 L14 96 M118 54 L166 96 M146 54 L166 96 M174 54 L166 96" stroke="#c9b27a" stroke-opacity=".7" stroke-width=".8" fill="none" vector-effect="non-scaling-stroke"/></svg>
+          <div class="bu4-poster"><span class="bu4-ic" aria-hidden="true"><i class="ph-fill ph-coins"></i></span><h2>FD Bonanza</h2><p>get a silver coin on 1st FD booked via App</p></div>
+        </div>
+      </li>
+      <li class="bu4-para" style="--x:72%;--ty:24px;--len:clamp(190px, 30vh, 300px);--s:6s;--d:-2s">
+        <div class="bu4-swing">
+          <span class="bu4-tether" aria-hidden="true"></span>
+          <svg class="bu4-canopy" viewBox="0 0 180 96" preserveAspectRatio="none" aria-hidden="true"><path d="M6 54 C6 20 46 4 90 4 C134 4 174 20 174 54 Q160 46 146 54 Q132 46 118 54 Q104 46 90 54 Q76 46 62 54 Q48 46 34 54 Q20 46 6 54Z" fill="url(#bu4-gores-a)"/><path d="M6 54 C6 20 46 4 90 4 C134 4 174 20 174 54 Q160 46 146 54 Q132 46 118 54 Q104 46 90 54 Q76 46 62 54 Q48 46 34 54 Q20 46 6 54Z" fill="url(#bu4-shade)"/><path d="M90 4 L34 54 M90 4 L62 54 M90 4 V54 M90 4 L118 54 M90 4 L146 54" stroke="#1a1408" stroke-opacity=".28" fill="none" vector-effect="non-scaling-stroke"/><path d="M6 54 L14 96 M34 54 L14 96 M62 54 L14 96 M118 54 L166 96 M146 54 L166 96 M174 54 L166 96" stroke="#c9b27a" stroke-opacity=".7" stroke-width=".8" fill="none" vector-effect="non-scaling-stroke"/></svg>
+          <div class="bu4-poster"><span class="bu4-ic" aria-hidden="true"><i class="ph-fill ph-clock-countdown"></i></span><h2>Daily Jackpot</h2><p>1 new limited edition deal daily at 9:15AM</p></div>
+        </div>
+      </li>
+      <li class="bu4-para" style="--x:86%;--ty:37px;--len:clamp(84px, 13vh, 150px);--s:5.2s;--d:-4s">
+        <div class="bu4-swing">
+          <span class="bu4-tether" aria-hidden="true"></span>
+          <svg class="bu4-canopy" viewBox="0 0 180 96" preserveAspectRatio="none" aria-hidden="true"><path d="M6 54 C6 20 46 4 90 4 C134 4 174 20 174 54 Q160 46 146 54 Q132 46 118 54 Q104 46 90 54 Q76 46 62 54 Q48 46 34 54 Q20 46 6 54Z" fill="url(#bu4-gores-b)"/><path d="M6 54 C6 20 46 4 90 4 C134 4 174 20 174 54 Q160 46 146 54 Q132 46 118 54 Q104 46 90 54 Q76 46 62 54 Q48 46 34 54 Q20 46 6 54Z" fill="url(#bu4-shade)"/><path d="M90 4 L34 54 M90 4 L62 54 M90 4 V54 M90 4 L118 54 M90 4 L146 54" stroke="#1a1408" stroke-opacity=".28" fill="none" vector-effect="non-scaling-stroke"/><path d="M6 54 L14 96 M34 54 L14 96 M62 54 L14 96 M118 54 L166 96 M146 54 L166 96 M174 54 L166 96" stroke="#c9b27a" stroke-opacity=".7" stroke-width=".8" fill="none" vector-effect="non-scaling-stroke"/></svg>
+          <div class="bu4-poster"><span class="bu4-ic" aria-hidden="true"><i class="ph-fill ph-users-three"></i></span><h2>Referral Dhamaka</h2><p>Invite and celebrate with your friends</p></div>
+        </div>
+      </li>
+    </ul>
+
+    <div class="bu3-gift" aria-hidden="true">
+      <svg viewBox="-48 -86 96 134">
+        <defs>
+          <linearGradient id="bu3-box" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f6e2a0"/><stop offset=".55" stop-color="#d4af37"/><stop offset="1" stop-color="#9c7a1f"/></linearGradient>
+          <radialGradient id="bu3-gglow"><stop offset="0" stop-color="#f3dc8f" stop-opacity=".55"/><stop offset="1" stop-color="#f3dc8f" stop-opacity="0"/></radialGradient>
+        </defs>
+        <circle cx="0" cy="10" r="46" fill="url(#bu3-gglow)"/>
+        <g class="bu3-chute">
+          <path d="M-38 -44 Q0 -94 38 -44 Q19 -52 0 -50 Q-19 -52 -38 -44Z" fill="#f3dc8f" fill-opacity=".2" stroke="#f3dc8f" stroke-opacity=".7"/>
+          <path d="M-38 -44 L-24 -14 M38 -44 L24 -14 M0 -50 L0 -16" stroke="#f3dc8f" stroke-opacity=".5" stroke-width=".8"/>
+        </g>
+        <rect x="-24" y="-6" width="48" height="40" rx="4" fill="url(#bu3-box)"/>
+        <rect x="-5" y="-6" width="10" height="40" fill="#a3211b"/>
+        <g class="bu3-lid">
+          <rect x="-28" y="-17" width="56" height="12" rx="3" fill="url(#bu3-box)"/>
+          <rect x="-5" y="-17" width="10" height="12" fill="#a3211b"/>
+          <path d="M0 -17 C-14 -32 -23 -19 -9 -16Z M0 -17 C14 -32 23 -19 9 -16Z" fill="#c4362c"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- The scene. Figures are rigged: each [data-limb] rotates about (data-px, data-py). -->
+    <svg class="bu3-ground" viewBox="0 0 1600 360" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <defs>
+        <radialGradient id="bu3-hglow" cx="50%" cy="100%" r="55%"><stop offset="0" stop-color="#d4af37" stop-opacity=".32"/><stop offset="1" stop-color="#d4af37" stop-opacity="0"/></radialGradient>
+        <radialGradient id="bu3-dglow"><stop offset="0" stop-color="#f3b443" stop-opacity=".55"/><stop offset="1" stop-color="#f3b443" stop-opacity="0"/></radialGradient>
+        <radialGradient id="bu3-spark"><stop offset="0" stop-color="#fff"/><stop offset=".35" stop-color="#f3dc8f" stop-opacity=".8"/><stop offset="1" stop-color="#f3dc8f" stop-opacity="0"/></radialGradient>
+        <linearGradient id="bu3-flame" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff7d6"/><stop offset="1" stop-color="#f3a63a"/></linearGradient>
+        <filter id="bu3-rim" x="-40%" y="-20%" width="180%" height="140%"><feDropShadow dx="1.6" dy="-.4" stdDeviation=".7" flood-color="#f3cf6a" flood-opacity=".6"/></filter>
+      </defs>
+      <ellipse cx="800" cy="372" rx="820" ry="150" fill="url(#bu3-hglow)"/>
+      <rect y="340" width="1600" height="20" fill="#050403"/>
+      <path d="M0 340.5 H1600" stroke="#d4af37" stroke-opacity=".28"/>
+
+      <g transform="translate(200 0)">
+        <!-- diyas -->
+        <g class="bu3-diya" transform="translate(-120 340) scale(1.4)"><ellipse cy="-10" rx="24" ry="16" fill="url(#bu3-dglow)"/><path d="M-11 -6 Q0 6 11 -6Z" fill="#6e3414"/><path d="M-11 -6 H11" stroke="#d4af37" stroke-opacity=".6"/><path class="bu3-flame" d="M0 -21 C4 -15 4 -9 0 -7 C-4 -9 -4 -15 0 -21Z" fill="url(#bu3-flame)"/></g>
+        <g class="bu3-diya" transform="translate(10 340) scale(1.4)"><ellipse cy="-10" rx="24" ry="16" fill="url(#bu3-dglow)"/><path d="M-11 -6 Q0 6 11 -6Z" fill="#6e3414"/><path d="M-11 -6 H11" stroke="#d4af37" stroke-opacity=".6"/><path class="bu3-flame" d="M0 -21 C4 -15 4 -9 0 -7 C-4 -9 -4 -15 0 -21Z" fill="url(#bu3-flame)"/></g>
+        <g class="bu3-diya" transform="translate(140 340) scale(1.4)"><ellipse cy="-10" rx="24" ry="16" fill="url(#bu3-dglow)"/><path d="M-11 -6 Q0 6 11 -6Z" fill="#6e3414"/><path d="M-11 -6 H11" stroke="#d4af37" stroke-opacity=".6"/><path class="bu3-flame" d="M0 -21 C4 -15 4 -9 0 -7 C-4 -9 -4 -15 0 -21Z" fill="url(#bu3-flame)"/></g>
+        <g class="bu3-diya" transform="translate(300 340) scale(1.4)"><ellipse cy="-10" rx="24" ry="16" fill="url(#bu3-dglow)"/><path d="M-11 -6 Q0 6 11 -6Z" fill="#6e3414"/><path d="M-11 -6 H11" stroke="#d4af37" stroke-opacity=".6"/><path class="bu3-flame" d="M0 -21 C4 -15 4 -9 0 -7 C-4 -9 -4 -15 0 -21Z" fill="url(#bu3-flame)"/></g>
+        <g class="bu3-diya" transform="translate(800 340) scale(1.4)"><ellipse cy="-10" rx="24" ry="16" fill="url(#bu3-dglow)"/><path d="M-11 -6 Q0 6 11 -6Z" fill="#6e3414"/><path d="M-11 -6 H11" stroke="#d4af37" stroke-opacity=".6"/><path class="bu3-flame" d="M0 -21 C4 -15 4 -9 0 -7 C-4 -9 -4 -15 0 -21Z" fill="url(#bu3-flame)"/></g>
+        <g class="bu3-diya" transform="translate(950 340) scale(1.4)"><ellipse cy="-10" rx="24" ry="16" fill="url(#bu3-dglow)"/><path d="M-11 -6 Q0 6 11 -6Z" fill="#6e3414"/><path d="M-11 -6 H11" stroke="#d4af37" stroke-opacity=".6"/><path class="bu3-flame" d="M0 -21 C4 -15 4 -9 0 -7 C-4 -9 -4 -15 0 -21Z" fill="url(#bu3-flame)"/></g>
+        <g class="bu3-diya" transform="translate(1100 340) scale(1.4)"><ellipse cy="-10" rx="24" ry="16" fill="url(#bu3-dglow)"/><path d="M-11 -6 Q0 6 11 -6Z" fill="#6e3414"/><path d="M-11 -6 H11" stroke="#d4af37" stroke-opacity=".6"/><path class="bu3-flame" d="M0 -21 C4 -15 4 -9 0 -7 C-4 -9 -4 -15 0 -21Z" fill="url(#bu3-flame)"/></g>
+        <g class="bu3-diya" transform="translate(1250 340) scale(1.4)"><ellipse cy="-10" rx="24" ry="16" fill="url(#bu3-dglow)"/><path d="M-11 -6 Q0 6 11 -6Z" fill="#6e3414"/><path d="M-11 -6 H11" stroke="#d4af37" stroke-opacity=".6"/><path class="bu3-flame" d="M0 -21 C4 -15 4 -9 0 -7 C-4 -9 -4 -15 0 -21Z" fill="url(#bu3-flame)"/></g>
+
+        <!-- sky rocket in a bottle, with its fuse -->
+        <path class="bu3-rk" d="M680 246 V300" stroke="#8a6520" stroke-width="2"/>
+        <path d="M671 340 H689 V303 Q689 293 684 288 V274 H676 V288 Q671 293 671 303Z" fill="#132019" stroke="#d4af37" stroke-opacity=".35"/>
+        <path d="M674 336 V306" stroke="#fff" stroke-opacity=".12" stroke-width="2" stroke-linecap="round"/>
+        <g class="bu3-rk">
+          <rect x="674" y="214" width="12" height="32" rx="2" fill="#a3211b"/>
+          <rect x="674" y="226" width="12" height="3" fill="#e2c46a"/>
+          <path d="M673 214 L680 199 L687 214Z" fill="#e2c46a"/>
+          <circle id="bu3-rk-head" cx="680" cy="206" r="1" fill="none"/>
+        </g>
+        <path id="bu3-fuse" d="M677 244 C670 252 660 262 648 260 C644 259 641 258 638 257" fill="none" stroke="#c9b27a" stroke-width="1.6" stroke-linecap="round"/>
+        <circle id="bu3-fspark" r="3" fill="#fff3c4" opacity="0"/>
+
+        <!-- man -->
+        <g id="bu3-man" filter="url(#bu3-rim)" transform="translate(420 340)">
+          <g data-limb="armB" data-px="-3" data-py="-158"><path class="bu3-limb" d="M-3 -158 L-2 -98" stroke-width="10"/></g>
+          <g data-limb="legB" data-px="-2" data-py="-84"><path class="bu3-limb" d="M-2 -84 L-2 -6" stroke-width="12"/><path class="bu3-limb" d="M-2 -4 L9 -4" stroke-width="7"/></g>
+          <g data-limb="legF" data-px="2" data-py="-84"><path class="bu3-limb" d="M2 -84 L2 -6" stroke-width="12"/><path class="bu3-limb" d="M2 -4 L13 -4" stroke-width="7"/></g>
+          <path class="bu3-body" d="M-15 -166 Q0 -172 15 -166 C19 -140 22 -100 25 -60 L-23 -60 C-20 -100 -19 -140 -15 -166Z"/>
+          <path d="M-3 -167 L2 -150 L7 -167" fill="none" stroke="#d4af37" stroke-opacity=".5" stroke-width="1.2"/>
+          <rect class="bu3-body" x="-4.5" y="-178" width="9" height="14" rx="3"/>
+          <circle class="bu3-body" cx="1" cy="-189" r="13"/>
+          <g data-limb="armF" data-px="4" data-py="-158"><path class="bu3-limb" d="M4 -158 L5 -98" stroke-width="10"/></g>
+        </g>
+
+        <!-- lady, in a saree with a gold border -->
+        <g id="bu3-lady" filter="url(#bu3-rim)" transform="translate(490 340)">
+          <g data-limb="armB" data-px="-8" data-py="-146"><path class="bu3-limb" d="M-8 -146 L-7 -92" stroke-width="8"/></g>
+          <path class="bu3-body" d="M-15 -122 L15 -122 C19 -80 23 -34 26 -2 L-23 -2 C-21 -34 -19 -80 -15 -122Z"/>
+          <path class="bu3-body" d="M-12 -152 Q0 -157 12 -152 L15 -118 L-15 -118Z"/>
+          <path class="bu3-body" d="M11 -152 C2 -140 -12 -122 -18 -104 C-24 -86 -30 -66 -34 -46 L-26 -48 C-20 -72 -14 -96 -6 -116 C0 -128 8 -140 12 -150Z"/>
+          <path d="M11 -152 C2 -140 -12 -122 -18 -104 C-24 -86 -30 -66 -34 -46" fill="none" stroke="#d4af37" stroke-opacity=".55" stroke-width="1.5"/>
+          <path d="M-22 -6 L25 -6" stroke="#d4af37" stroke-opacity=".55" stroke-width="2"/>
+          <rect class="bu3-body" x="-4" y="-162" width="8" height="12" rx="3"/>
+          <circle class="bu3-body" cx="1" cy="-172" r="12"/>
+          <circle class="bu3-body" cx="-10" cy="-174" r="6.5"/>
+          <circle cx="11" cy="-176" r="1.2" fill="#d4af37"/>
+          <g data-limb="armF" data-px="8" data-py="-146"><path class="bu3-limb" d="M8 -146 L9 -92" stroke-width="8"/></g>
+        </g>
+
+        <!-- kid, holding a sparkler -->
+        <g id="bu3-kid" filter="url(#bu3-rim)" transform="translate(581 340)">
+          <g data-limb="armB" data-px="-1" data-py="-80"><path class="bu3-limb" d="M-1 -80 L-1 -50" stroke-width="7"/></g>
+          <g data-limb="legB" data-px="-2" data-py="-44"><path class="bu3-limb" d="M-2 -44 L-2 -5" stroke-width="8"/><path class="bu3-limb" d="M-2 -3 L6 -3" stroke-width="5"/></g>
+          <g data-limb="legF" data-px="2" data-py="-44"><path class="bu3-limb" d="M2 -44 L2 -5" stroke-width="8"/><path class="bu3-limb" d="M2 -3 L10 -3" stroke-width="5"/></g>
+          <path class="bu3-body" d="M-10 -84 Q0 -88 10 -84 L14 -38 L-14 -38Z"/>
+          <circle class="bu3-body" cx="1" cy="-97" r="12.5"/>
+          <path class="bu3-body" d="M-10 -104 Q-2 -115 11 -106 Q2 -109 -4 -104Z"/>
+          <g data-limb="armF" data-px="1" data-py="-80" transform="rotate(-40 1 -80)">
+            <path class="bu3-limb" d="M1 -80 L1 -50" stroke-width="7"/>
+            <path d="M1 -50 L23 -28" stroke="#9b8455" stroke-width="1.6"/>
+            <g class="bu3-sparkler" transform="translate(23 -28)"><circle r="9" fill="url(#bu3-spark)"/><circle id="bu3-tip" r="1.6" fill="#fff"/></g>
+          </g>
+        </g>
+      </g>
+    </svg>
+
+    <button type="button" class="bu3-ctrl"><i class="ph ph-fast-forward" aria-hidden="true"></i><span>Skip</span></button>
+  </section>
+
+  <!-- UTSAV6:LISTING -->
+  <!-- GENERATED by pages/_utsav6.py: bond-utsav.html's categories (crawl/rendered/bond-utsav.tabs.json,
+       captured 2026-09-26), at most 6 bonds a category, in this page's theme. Edit the generator. -->
+  <section class="bu3-sec bu6-list gp-utsav-listing gp-utsav-listing--pills" aria-labelledby="utsav-heading">
+    <div class="bu3-shell">
+      <div class="gp-section__head gp-utsav-head">
+        <h2 id="utsav-heading" class="bu3-h2">Select A Category</h2>
+        <!-- COPY: 14% (user, 2026-10-14); bond-utsav.html's capture says 13.8%. -->
+        <p class="gp-section__sub">Invest in Senior Secured Bonds and earn returns up to <span class="gp-hero__figure">14% p.a.</span></p>
+      </div>
+
+      <div>
+        <div class="gp-pills">
+          <div class="gp-pills__track" role="tablist" aria-label="Select A Category">
+            <div class="gp-pills__row" role="none">
+              <button type="button" class="gp-pill" role="tab" id="tab-all-bonds"
+                      aria-controls="panel-all-bonds" aria-selected="true">
+                <img src="../assets/img/all-bonds.svg" alt="" width="30" height="30">All Bonds
+              </button>
+              <button type="button" class="gp-pill" role="tab" id="tab-newly-launched-bonds"
+                      aria-controls="panel-newly-launched-bonds" aria-selected="false" tabindex="-1">
+                <img src="../assets/img/GPIDO09029.newly_launch_app.png" alt="" width="30" height="30">Newly Launched
+              </button>
+              <button type="button" class="gp-pill" role="tab" id="tab-high-yield-bonds"
+                      aria-controls="panel-high-yield-bonds" aria-selected="false" tabindex="-1">
+                <img src="../assets/img/app-high-yield-bonds.png" alt="" width="30" height="30">High Returns
+              </button>
+              <button type="button" class="gp-pill" role="tab" id="tab-highly-rated-bonds"
+                      aria-controls="panel-highly-rated-bonds" aria-selected="false" tabindex="-1">
+                <img src="../assets/img/app-highly-rated-bonds.png" alt="" width="30" height="30">High Rated
+              </button>
+              <button type="button" class="gp-pill" role="tab" id="tab-bonds-at-30000"
+                      aria-controls="panel-bonds-at-30000" aria-selected="false" tabindex="-1">
+                <img src="../assets/img/app-starts-at-10k-bonds.png" alt="" width="30" height="30">Starts at 30k
+              </button>
+            </div>
+            <div class="gp-pills__row" role="none">
+              <button type="button" class="gp-pill" role="tab" id="tab-bonds-for-short-term-investment"
+                      aria-controls="panel-bonds-for-short-term-investment" aria-selected="false" tabindex="-1">
+                <img src="../assets/img/app-bonds-for-short-term-investment.png" alt="" width="30" height="30">Short Term
+              </button>
+              <button type="button" class="gp-pill" role="tab" id="tab-bonds-to-earn-monthly-fixed-income"
+                      aria-controls="panel-bonds-to-earn-monthly-fixed-income" aria-selected="false" tabindex="-1">
+                <img src="../assets/img/app-monthly-payout.png" alt="" width="30" height="30">Monthly Payout
+              </button>
+              <button type="button" class="gp-pill" role="tab" id="tab-gold-backed-bonds"
+                      aria-controls="panel-gold-backed-bonds" aria-selected="false" tabindex="-1">
+                <img src="../assets/img/app-gold-backed-bonds.png" alt="" width="30" height="30">Gold Backed
+              </button>
+              <button type="button" class="gp-pill" role="tab" id="tab-state-government-guranteed-bonds"
+                      aria-controls="panel-state-government-guranteed-bonds" aria-selected="false" tabindex="-1">
+                <img src="../assets/img/app-govt-backed.png" alt="" width="30" height="30">Govt Backed
+              </button>
+              <button type="button" class="gp-pill" role="tab" id="tab-non-nbfc-bonds"
+                      aria-controls="panel-non-nbfc-bonds" aria-selected="false" tabindex="-1">
+                <img src="../assets/img/all-bonds.svg" alt="" width="30" height="30">Non NBFC Bonds
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="gp-panel is-on" id="panel-all-bonds"
+             role="tabpanel" aria-labelledby="tab-all-bonds">
+          <div class="gp-utsav-grid">
+<a class="gp-ucard" href="https://uatnew.goldenpi.com/bonds/GPID107371/neogrowth-1300-bond-yield?src=view_details&amp;tenureDate=30-Apr-2028" style="--i:0">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID104095.Neogrowth-new-logo-1-.jpg" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">NEOGROWTH</h3>
+          <p class="gp-ucard__sold">77.56% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">13.00<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>High YTM</span><span>Newly Launched</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>1Y 7M</dd></div>
+      <div><dt>Payout</dt><dd>Half Yearly</dd></div>
+      <div><dt>Rating</dt><dd>ICRA BBB</dd></div>
+    </dl>
+  </div>
+</a>
+<a class="gp-ucard gp-ucard--bare1" href="https://uatnew.goldenpi.com/bonds/GPID107433/best-capital-1300-bond-yield?src=view_details&amp;tenureDate=11-Sep-2029" style="--i:1">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID107347.Best-Capital.png" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">BEST CAPITAL</h3>
+          <p class="gp-ucard__sold">10.04% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">13.00<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>Regular Income</span><span>NBFC Retail Bond</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>3Y</dd></div>
+      <div><dt>Payout</dt><dd>Monthly</dd></div>
+      <div><dt>Rating</dt><dd>IVR BBB</dd></div>
+    </dl>
+  </div>
+</a>
+<a class="gp-ucard" href="https://uatnew.goldenpi.com/bonds/GPID107435/akara-1300-bond-yield?src=view_details&amp;tenureDate=03-Dec-2027" style="--i:2">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID102720.AKARA-CAPITAL-ADVISORS-PRIVATE-LIMITED-2x.png" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">AKARA</h3>
+          <p class="gp-ucard__sold">46.38% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">13.00<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>Newly Launched</span><span>High Yield</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>1Y 2M</dd></div>
+      <div><dt>Payout</dt><dd>Monthly</dd></div>
+      <div><dt>Rating</dt><dd>ACUITE BBB+</dd></div>
+    </dl>
+  </div>
+</a>
+<a class="gp-ucard" href="https://uatnew.goldenpi.com/bonds/GPID107435/akara-1277-bond-yield?src=view_details&amp;tenureDate=03-May-2027" style="--i:3">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID102720.AKARA-CAPITAL-ADVISORS-PRIVATE-LIMITED-2x.png" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">AKARA</h3>
+          <p class="gp-ucard__sold">46.38% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">12.77<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>Newly Launched</span><span>High Yield</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>7M</dd></div>
+      <div><dt>Payout</dt><dd>Monthly</dd></div>
+      <div><dt>Rating</dt><dd>ACUITE BBB+</dd></div>
+    </dl>
+  </div>
+</a>
+<a class="gp-ucard" href="https://uatnew.goldenpi.com/bonds/GPID107371/neogrowth-1275-bond-yield?src=view_details&amp;tenureDate=30-Jul-2027" style="--i:4">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID104095.Neogrowth-new-logo-1-.jpg" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">NEOGROWTH</h3>
+          <p class="gp-ucard__sold">77.56% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">12.75<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>High YTM</span><span>Newly Launched</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>10M</dd></div>
+      <div><dt>Payout</dt><dd>Half Yearly</dd></div>
+      <div><dt>Rating</dt><dd>ICRA BBB</dd></div>
+    </dl>
+  </div>
+</a>
+<a class="gp-ucard gp-ucard--bare1" href="https://uatnew.goldenpi.com/bonds/GPID107372/dishman-1266-bond-yield?src=view_details&amp;tenureDate=17-Feb-2027" style="--i:5">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID104220.dishman_carbogen_amcis_logo_under_80kb.png" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">DISHMAN</h3>
+          <p class="gp-ucard__sold">63.68% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">12.66<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>Regular Income</span><span>Corporate Bond</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>5M</dd></div>
+      <div><dt>Payout</dt><dd>Half Yearly</dd></div>
+      <div><dt>Rating</dt><dd>IND A</dd></div>
+    </dl>
+  </div>
+</a>
+          </div>
+        </div>
+
+        <div class="gp-panel" id="panel-newly-launched-bonds"
+             role="tabpanel" aria-labelledby="tab-newly-launched-bonds" hidden>
+          <div class="gp-utsav-grid">
+<a class="gp-ucard" href="https://uatnew.goldenpi.com/bonds/GPID107397/satin-finserv-1190-bond-yield?src=view_details&amp;tenureDate=27-Nov-2028" style="--i:0">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID103817.Screenshot-2024-08-08-165240_11zon.jpg" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">SATIN FINSERV</h3>
+          <p class="gp-ucard__sold">65% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">11.90<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>High Rated</span><span>High YTM</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>2Y 2M</dd></div>
+      <div><dt>Payout</dt><dd>Half Yearly</dd></div>
+      <div><dt>Rating</dt><dd>ICRA A-</dd></div>
+    </dl>
+  </div>
+</a>
+<a class="gp-ucard" href="https://uatnew.goldenpi.com/bonds/GPID107399/finnable-1175-bond-yield?src=view_details&amp;tenureDate=31-Jan-2029" style="--i:1">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID106733.FINNABLE-CREDIT-PRIVATE-LIMITED-2x.png" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">FINNABLE</h3>
+          <p class="gp-ucard__sold">33.99% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">11.75<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>Newly Launched</span><span>High Yield</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>2Y 5M</dd></div>
+      <div><dt>Payout</dt><dd>Monthly</dd></div>
+      <div><dt>Rating</dt><dd>CARE BBB+</dd></div>
+    </dl>
+  </div>
+</a>
+<a class="gp-ucard" href="https://uatnew.goldenpi.com/bonds/GPID107391/indel-1145-bond-yield?src=view_details&amp;tenureDate=24-Aug-2029" style="--i:2">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID102671.INDEL-MONEY-LIMITED-2x.png" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">INDEL</h3>
+          <p class="gp-ucard__sold">67.29% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">11.45<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>Newly Launched</span><span>High Rated</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>2Y 11M</dd></div>
+      <div><dt>Payout</dt><dd>Monthly</dd></div>
+      <div><dt>Rating</dt><dd>IND A-</dd></div>
+    </dl>
+  </div>
+</a>
+<a class="gp-ucard" href="https://uatnew.goldenpi.com/bonds/GPID107372/dishman-1140-bond-yield?src=view_details&amp;tenureDate=17-Aug-2027" style="--i:3">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID104220.dishman_carbogen_amcis_logo_under_80kb.png" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">DISHMAN</h3>
+          <p class="gp-ucard__sold">63.68% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">11.40<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>Newly Launched</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>11M</dd></div>
+      <div><dt>Payout</dt><dd>Half Yearly</dd></div>
+      <div><dt>Rating</dt><dd>IND A</dd></div>
+    </dl>
+  </div>
+</a>
+<a class="gp-ucard" href="https://uatnew.goldenpi.com/bonds/GPID107396/muthoot-capital-970-bond-yield?src=view_details&amp;tenureDate=24-Aug-2029" style="--i:4">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID102496.MUTHOOT-CAPITAL-SERVICES-LIMITED.png" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">MUTHOOT CAPITAL</h3>
+          <p class="gp-ucard__sold">56.4% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">9.70<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>Newly Launched</span><span>High Rated</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>2Y 11M</dd></div>
+      <div><dt>Payout</dt><dd>Monthly</dd></div>
+      <div><dt>Rating</dt><dd>CRISIL AA-</dd></div>
+    </dl>
+  </div>
+</a>
+          </div>
+        </div>
+
+        <div class="gp-panel" id="panel-high-yield-bonds"
+             role="tabpanel" aria-labelledby="tab-high-yield-bonds" hidden>
+          <div class="gp-utsav-grid">
+<a class="gp-ucard" href="https://uatnew.goldenpi.com/bonds/GPID107371/neogrowth-1300-bond-yield?src=view_details&amp;tenureDate=30-Apr-2028" style="--i:0">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID104095.Neogrowth-new-logo-1-.jpg" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">NEOGROWTH</h3>
+          <p class="gp-ucard__sold">77.56% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">13.00<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>High YTM</span><span>Newly Launched</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>1Y 7M</dd></div>
+      <div><dt>Payout</dt><dd>Half Yearly</dd></div>
+      <div><dt>Rating</dt><dd>ICRA BBB</dd></div>
+    </dl>
+  </div>
+</a>
+<a class="gp-ucard gp-ucard--bare1" href="https://uatnew.goldenpi.com/bonds/GPID107433/best-capital-1300-bond-yield?src=view_details&amp;tenureDate=11-Sep-2029" style="--i:1">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID107347.Best-Capital.png" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">BEST CAPITAL</h3>
+          <p class="gp-ucard__sold">10.04% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">13.00<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>Regular Income</span><span>NBFC Retail Bond</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>3Y</dd></div>
+      <div><dt>Payout</dt><dd>Monthly</dd></div>
+      <div><dt>Rating</dt><dd>IVR BBB</dd></div>
+    </dl>
+  </div>
+</a>
+<a class="gp-ucard" href="https://uatnew.goldenpi.com/bonds/GPID107435/akara-1300-bond-yield?src=view_details&amp;tenureDate=03-Dec-2027" style="--i:2">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID102720.AKARA-CAPITAL-ADVISORS-PRIVATE-LIMITED-2x.png" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">AKARA</h3>
+          <p class="gp-ucard__sold">46.38% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">13.00<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>Newly Launched</span><span>High Yield</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>1Y 2M</dd></div>
+      <div><dt>Payout</dt><dd>Monthly</dd></div>
+      <div><dt>Rating</dt><dd>ACUITE BBB+</dd></div>
+    </dl>
+  </div>
+</a>
+<a class="gp-ucard" href="https://uatnew.goldenpi.com/bonds/GPID107435/akara-1277-bond-yield?src=view_details&amp;tenureDate=03-May-2027" style="--i:3">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID102720.AKARA-CAPITAL-ADVISORS-PRIVATE-LIMITED-2x.png" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">AKARA</h3>
+          <p class="gp-ucard__sold">46.38% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">12.77<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>Newly Launched</span><span>High Yield</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>7M</dd></div>
+      <div><dt>Payout</dt><dd>Monthly</dd></div>
+      <div><dt>Rating</dt><dd>ACUITE BBB+</dd></div>
+    </dl>
+  </div>
+</a>
+<a class="gp-ucard" href="https://uatnew.goldenpi.com/bonds/GPID107371/neogrowth-1275-bond-yield?src=view_details&amp;tenureDate=30-Jul-2027" style="--i:4">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID104095.Neogrowth-new-logo-1-.jpg" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">NEOGROWTH</h3>
+          <p class="gp-ucard__sold">77.56% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">12.75<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>High YTM</span><span>Newly Launched</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>10M</dd></div>
+      <div><dt>Payout</dt><dd>Half Yearly</dd></div>
+      <div><dt>Rating</dt><dd>ICRA BBB</dd></div>
+    </dl>
+  </div>
+</a>
+<a class="gp-ucard gp-ucard--bare1" href="https://uatnew.goldenpi.com/bonds/GPID107372/dishman-1266-bond-yield?src=view_details&amp;tenureDate=17-Feb-2027" style="--i:5">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID104220.dishman_carbogen_amcis_logo_under_80kb.png" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">DISHMAN</h3>
+          <p class="gp-ucard__sold">63.68% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">12.66<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>Regular Income</span><span>Corporate Bond</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>5M</dd></div>
+      <div><dt>Payout</dt><dd>Half Yearly</dd></div>
+      <div><dt>Rating</dt><dd>IND A</dd></div>
+    </dl>
+  </div>
+</a>
+          </div>
+        </div>
+
+        <div class="gp-panel" id="panel-highly-rated-bonds"
+             role="tabpanel" aria-labelledby="tab-highly-rated-bonds" hidden>
+          <div class="gp-utsav-grid">
+<a class="gp-ucard" href="https://uatnew.goldenpi.com/bonds/GPID107372/dishman-1266-bond-yield?src=view_details&amp;tenureDate=17-Feb-2027" style="--i:0">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID104220.dishman_carbogen_amcis_logo_under_80kb.png" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">DISHMAN</h3>
+          <p class="gp-ucard__sold">63.68% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">12.66<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>Newly Launched</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>5M</dd></div>
+      <div><dt>Payout</dt><dd>Half Yearly</dd></div>
+      <div><dt>Rating</dt><dd>IND A</dd></div>
+    </dl>
+  </div>
+</a>
+<a class="gp-ucard" href="https://uatnew.goldenpi.com/bonds/GPID106980/tapir-1225-bond-yield?src=view_details&amp;tenureDate=12-Mar-2030" style="--i:1">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID103646.Tapir-Constructions-Limited-2x.png" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">TAPIR</h3>
+          <p class="gp-ucard__sold">95.05% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">12.25<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>Selling Out Fast</span><span>Corp Bond</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>3Y 6M</dd></div>
+      <div><dt>Payout</dt><dd>Monthly</dd></div>
+      <div><dt>Rating</dt><dd>IVR A-</dd></div>
+    </dl>
+  </div>
+</a>
+<a class="gp-ucard" href="https://uatnew.goldenpi.com/bonds/GPID107346/iifl-samasta-1223-bond-yield?src=view_details&amp;tenureDate=12-May-2027" style="--i:2">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID102664.IIFLLogo.png" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">IIFL SAMASTA</h3>
+          <p class="gp-ucard__sold">91.23% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">12.23<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>High Rated</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>8M</dd></div>
+      <div><dt>Payout</dt><dd>Monthly</dd></div>
+      <div><dt>Rating</dt><dd>CRISIL AA-</dd></div>
+    </dl>
+  </div>
+</a>
+<a class="gp-ucard" href="https://uatnew.goldenpi.com/bonds/GPID107434/keertana-1200-bond-yield?src=view_details&amp;tenureDate=16-Dec-2028" style="--i:3">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID102688.keertanafin_logo.jpg.jpeg" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">KEERTANA</h3>
+          <p class="gp-ucard__sold">30.29% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">12.00<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>Newly Launched</span><span>High Yield</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>2Y 3M</dd></div>
+      <div><dt>Payout</dt><dd>Monthly</dd></div>
+      <div><dt>Rating</dt><dd>ACUITE A-</dd></div>
+    </dl>
+  </div>
+</a>
+<a class="gp-ucard" href="https://uatnew.goldenpi.com/bonds/GPID107397/satin-finserv-1190-bond-yield?src=view_details&amp;tenureDate=27-Nov-2028" style="--i:4">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID103817.Screenshot-2024-08-08-165240_11zon.jpg" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">SATIN FINSERV</h3>
+          <p class="gp-ucard__sold">65% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">11.90<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>High Rated</span><span>High YTM</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>2Y 2M</dd></div>
+      <div><dt>Payout</dt><dd>Half Yearly</dd></div>
+      <div><dt>Rating</dt><dd>ICRA A-</dd></div>
+    </dl>
+  </div>
+</a>
+<a class="gp-ucard" href="https://uatnew.goldenpi.com/bonds/GPID107397/satin-finserv-1160-bond-yield?src=view_details&amp;tenureDate=27-Aug-2027" style="--i:5">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID103817.Screenshot-2024-08-08-165240_11zon.jpg" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">SATIN FINSERV</h3>
+          <p class="gp-ucard__sold">65% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">11.60<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>High Rated</span><span>High YTM</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>11M</dd></div>
+      <div><dt>Payout</dt><dd>Half Yearly</dd></div>
+      <div><dt>Rating</dt><dd>ICRA A-</dd></div>
+    </dl>
+  </div>
+</a>
+          </div>
+        </div>
+
+        <div class="gp-panel" id="panel-bonds-at-30000"
+             role="tabpanel" aria-labelledby="tab-bonds-at-30000" hidden>
+          <div class="gp-utsav-grid">
+<a class="gp-ucard" href="https://uatnew.goldenpi.com/bonds/GPID107433/best-capital-1300-bond-yield?src=view_details&amp;tenureDate=11-Sep-2029" style="--i:0">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID107347.Best-Capital.png" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">BEST CAPITAL</h3>
+          <p class="gp-ucard__sold">10.04% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">13.00<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>Newly Launched</span><span>High Yield</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>3Y</dd></div>
+      <div><dt>Payout</dt><dd>Monthly</dd></div>
+      <div><dt>Rating</dt><dd>IVR BBB</dd></div>
+    </dl>
+  </div>
+</a>
+<a class="gp-ucard" href="https://uatnew.goldenpi.com/bonds/GPID107348/best-capital-1255-bond-yield?src=view_details&amp;tenureDate=24-Oct-2027" style="--i:1">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID107347.Best-Capital.png" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">BEST CAPITAL</h3>
+          <p class="gp-ucard__sold">94.32% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">12.55<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>High YTM</span><span>Newly Launched</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>1Y 1M</dd></div>
+      <div><dt>Payout</dt><dd>Monthly</dd></div>
+      <div><dt>Rating</dt><dd>IVR BBB</dd></div>
+    </dl>
+  </div>
+</a>
+<a class="gp-ucard" href="https://uatnew.goldenpi.com/bonds/GPID107346/iifl-samasta-1223-bond-yield?src=view_details&amp;tenureDate=12-May-2027" style="--i:2">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID102664.IIFLLogo.png" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">IIFL SAMASTA</h3>
+          <p class="gp-ucard__sold">91.23% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">12.23<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>High Rated</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>8M</dd></div>
+      <div><dt>Payout</dt><dd>Monthly</dd></div>
+      <div><dt>Rating</dt><dd>CRISIL AA-</dd></div>
+    </dl>
+  </div>
+</a>
+<a class="gp-ucard" href="https://uatnew.goldenpi.com/bonds/GPID107006/spandana-1210-bond-yield?src=view_details&amp;tenureDate=26-Apr-2028" style="--i:3">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID100700.SPANDANA-SPHOORTY-FINANCIAL-LIMITED-2x.png" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">SPANDANA</h3>
+          <p class="gp-ucard__sold">94.26% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">12.10<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>Newly Launched</span><span>High Yield</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>1Y 7M</dd></div>
+      <div><dt>Payout</dt><dd>Monthly</dd></div>
+      <div><dt>Rating</dt><dd>CRISIL BBB+</dd></div>
+    </dl>
+  </div>
+</a>
+<a class="gp-ucard" href="https://uatnew.goldenpi.com/bonds/GPID107296/finkurve-1200-bond-yield?src=view_details&amp;tenureDate=16-Jun-2028" style="--i:4">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID107295.arvog_logo.jpg" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">FINKURVE</h3>
+          <p class="gp-ucard__sold">82.75% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">12.00<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>Gold Loan Backed</span><span>High YTM</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>1Y 9M</dd></div>
+      <div><dt>Payout</dt><dd>Half Yearly</dd></div>
+      <div><dt>Rating</dt><dd>CARE BBB+</dd></div>
+    </dl>
+  </div>
+</a>
+<a class="gp-ucard" href="https://uatnew.goldenpi.com/bonds/GPID107035/mahaveer-1200-bond-yield?src=view_details&amp;tenureDate=26-Nov-2029" style="--i:5">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID107034.mahaveer_finance_india_ltd_logo.jpg" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">MAHAVEER</h3>
+          <p class="gp-ucard__sold">72.48% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">12.00<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>High Yield</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>3Y 3M</dd></div>
+      <div><dt>Payout</dt><dd>Half Yearly</dd></div>
+      <div><dt>Rating</dt><dd>CARE BBB+</dd></div>
+    </dl>
+  </div>
+</a>
+          </div>
+        </div>
+
+        <div class="gp-panel" id="panel-bonds-for-short-term-investment"
+             role="tabpanel" aria-labelledby="tab-bonds-for-short-term-investment" hidden>
+          <div class="gp-utsav-grid">
+<a class="gp-ucard" href="https://uatnew.goldenpi.com/bonds/GPID107435/akara-1277-bond-yield?src=view_details&amp;tenureDate=03-May-2027" style="--i:0">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID102720.AKARA-CAPITAL-ADVISORS-PRIVATE-LIMITED-2x.png" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">AKARA</h3>
+          <p class="gp-ucard__sold">46.38% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">12.77<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>Newly Launched</span><span>High Yield</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>7M</dd></div>
+      <div><dt>Payout</dt><dd>Monthly</dd></div>
+      <div><dt>Rating</dt><dd>ACUITE BBB+</dd></div>
+    </dl>
+  </div>
+</a>
+<a class="gp-ucard" href="https://uatnew.goldenpi.com/bonds/GPID107371/neogrowth-1275-bond-yield?src=view_details&amp;tenureDate=30-Jul-2027" style="--i:1">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID104095.Neogrowth-new-logo-1-.jpg" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">NEOGROWTH</h3>
+          <p class="gp-ucard__sold">77.56% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">12.75<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>High YTM</span><span>Newly Launched</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>10M</dd></div>
+      <div><dt>Payout</dt><dd>Half Yearly</dd></div>
+      <div><dt>Rating</dt><dd>ICRA BBB</dd></div>
+    </dl>
+  </div>
+</a>
+<a class="gp-ucard gp-ucard--bare1 gp-ucard--bare2" href="https://uatnew.goldenpi.com/bonds/GPID107372/dishman-1266-bond-yield?src=view_details&amp;tenureDate=17-Feb-2027" style="--i:2">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID104220.dishman_carbogen_amcis_logo_under_80kb.png" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">DISHMAN</h3>
+          <p class="gp-ucard__sold">63.68% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">12.66<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>Regular Income</span><span>Corporate Bond</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>5M</dd></div>
+      <div><dt>Payout</dt><dd>Half Yearly</dd></div>
+      <div><dt>Rating</dt><dd>IND A</dd></div>
+    </dl>
+  </div>
+</a>
+<a class="gp-ucard gp-ucard--bare1 gp-ucard--bare2 gp-ucard--bare3" href="https://uatnew.goldenpi.com/bonds/GPID107346/iifl-samasta-1223-bond-yield?src=view_details&amp;tenureDate=12-May-2027" style="--i:3">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID102664.IIFLLogo.png" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">IIFL SAMASTA</h3>
+          <p class="gp-ucard__sold">91.23% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">12.23<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>Regular Income</span><span>NBFC Retail Bond</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>8M</dd></div>
+      <div><dt>Payout</dt><dd>Monthly</dd></div>
+      <div><dt>Rating</dt><dd>CRISIL AA-</dd></div>
+    </dl>
+  </div>
+</a>
+<a class="gp-ucard gp-ucard--bare1 gp-ucard--bare2 gp-ucard--bare3" href="https://uatnew.goldenpi.com/bonds/GPID107006/spandana-1190-bond-yield?src=view_details&amp;tenureDate=26-Jun-2027" style="--i:4">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID100700.SPANDANA-SPHOORTY-FINANCIAL-LIMITED-2x.png" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">SPANDANA</h3>
+          <p class="gp-ucard__sold">94.26% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">11.90<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>Regular Income</span><span>NBFC Retail Bond</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>9M</dd></div>
+      <div><dt>Payout</dt><dd>Monthly</dd></div>
+      <div><dt>Rating</dt><dd>CRISIL BBB+</dd></div>
+    </dl>
+  </div>
+</a>
+<a class="gp-ucard gp-ucard--bare1 gp-ucard--bare2 gp-ucard--bare3" href="https://uatnew.goldenpi.com/bonds/GPID107397/satin-finserv-1160-bond-yield?src=view_details&amp;tenureDate=27-Aug-2027" style="--i:5">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID103817.Screenshot-2024-08-08-165240_11zon.jpg" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">SATIN FINSERV</h3>
+          <p class="gp-ucard__sold">65% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">11.60<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>Regular Income</span><span>NBFC Retail Bond</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>11M</dd></div>
+      <div><dt>Payout</dt><dd>Half Yearly</dd></div>
+      <div><dt>Rating</dt><dd>ICRA A-</dd></div>
+    </dl>
+  </div>
+</a>
+          </div>
+        </div>
+
+        <div class="gp-panel" id="panel-bonds-to-earn-monthly-fixed-income"
+             role="tabpanel" aria-labelledby="tab-bonds-to-earn-monthly-fixed-income" hidden>
+          <div class="gp-utsav-grid">
+<a class="gp-ucard gp-ucard--bare1" href="https://uatnew.goldenpi.com/bonds/GPID107433/best-capital-1300-bond-yield?src=view_details&amp;tenureDate=11-Sep-2029" style="--i:0">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID107347.Best-Capital.png" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">BEST CAPITAL</h3>
+          <p class="gp-ucard__sold">10.04% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">13.00<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>Regular Income</span><span>NBFC Retail Bond</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>3Y</dd></div>
+      <div><dt>Payout</dt><dd>Monthly</dd></div>
+      <div><dt>Rating</dt><dd>IVR BBB</dd></div>
+    </dl>
+  </div>
+</a>
+<a class="gp-ucard" href="https://uatnew.goldenpi.com/bonds/GPID107435/akara-1300-bond-yield?src=view_details&amp;tenureDate=03-Dec-2027" style="--i:1">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID102720.AKARA-CAPITAL-ADVISORS-PRIVATE-LIMITED-2x.png" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">AKARA</h3>
+          <p class="gp-ucard__sold">46.38% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">13.00<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>Newly Launched</span><span>High Yield</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>1Y 2M</dd></div>
+      <div><dt>Payout</dt><dd>Monthly</dd></div>
+      <div><dt>Rating</dt><dd>ACUITE BBB+</dd></div>
+    </dl>
+  </div>
+</a>
+<a class="gp-ucard" href="https://uatnew.goldenpi.com/bonds/GPID107435/akara-1277-bond-yield?src=view_details&amp;tenureDate=03-May-2027" style="--i:2">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID102720.AKARA-CAPITAL-ADVISORS-PRIVATE-LIMITED-2x.png" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">AKARA</h3>
+          <p class="gp-ucard__sold">46.38% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">12.77<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>Newly Launched</span><span>High Yield</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>7M</dd></div>
+      <div><dt>Payout</dt><dd>Monthly</dd></div>
+      <div><dt>Rating</dt><dd>ACUITE BBB+</dd></div>
+    </dl>
+  </div>
+</a>
+<a class="gp-ucard gp-ucard--bare1 gp-ucard--bare3" href="https://uatnew.goldenpi.com/bonds/GPID107348/best-capital-1255-bond-yield?src=view_details&amp;tenureDate=24-Oct-2027" style="--i:3">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID107347.Best-Capital.png" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">BEST CAPITAL</h3>
+          <p class="gp-ucard__sold">94.32% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">12.55<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>Regular Income</span><span>NBFC Retail Bond</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>1Y 1M</dd></div>
+      <div><dt>Payout</dt><dd>Monthly</dd></div>
+      <div><dt>Rating</dt><dd>IVR BBB</dd></div>
+    </dl>
+  </div>
+</a>
+<a class="gp-ucard gp-ucard--bare1 gp-ucard--bare2 gp-ucard--bare3" href="https://uatnew.goldenpi.com/bonds/GPID106980/tapir-1225-bond-yield?src=view_details&amp;tenureDate=12-Mar-2030" style="--i:4">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID103646.Tapir-Constructions-Limited-2x.png" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">TAPIR</h3>
+          <p class="gp-ucard__sold">95.05% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">12.25<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>Regular Income</span><span>Corporate Bond</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>3Y 6M</dd></div>
+      <div><dt>Payout</dt><dd>Monthly</dd></div>
+      <div><dt>Rating</dt><dd>IVR A-</dd></div>
+    </dl>
+  </div>
+</a>
+<a class="gp-ucard gp-ucard--bare1 gp-ucard--bare2 gp-ucard--bare3" href="https://uatnew.goldenpi.com/bonds/GPID107346/iifl-samasta-1223-bond-yield?src=view_details&amp;tenureDate=12-May-2027" style="--i:5">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID102664.IIFLLogo.png" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">IIFL SAMASTA</h3>
+          <p class="gp-ucard__sold">91.23% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">12.23<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>Regular Income</span><span>NBFC Retail Bond</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>8M</dd></div>
+      <div><dt>Payout</dt><dd>Monthly</dd></div>
+      <div><dt>Rating</dt><dd>CRISIL AA-</dd></div>
+    </dl>
+  </div>
+</a>
+          </div>
+        </div>
+
+        <div class="gp-panel" id="panel-gold-backed-bonds"
+             role="tabpanel" aria-labelledby="tab-gold-backed-bonds" hidden>
+          <div class="gp-empty-state" role="status">
+            <img src="../assets/img/empty-state-icon.svg" alt="No bonds" width="120" height="120">
+            <p>No results found!</p>
+          </div>
+        </div>
+
+        <div class="gp-panel" id="panel-state-government-guranteed-bonds"
+             role="tabpanel" aria-labelledby="tab-state-government-guranteed-bonds" hidden>
+          <div class="gp-utsav-grid gp-utsav-grid--n2">
+<a class="gp-ucard" href="https://uatnew.goldenpi.com/bonds/GPID106795/kerala-infrastructure-investment-fund-board-825-bond-yield?src=view_details&amp;tenureDate=21-Jan-2031" style="--i:0">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID102759.KERALA-INFRASTRUCTURE-INVESTMENT-FUND-BOARD.png" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">KERALA INFRASTRUCTURE INVESTMENT FUND BOARD</h3>
+          <p class="gp-ucard__sold">8% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">8.25<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>Newly Launched</span><span>High Rated</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>4Y 5M</dd></div>
+      <div><dt>Payout</dt><dd>Half Yearly</dd></div>
+      <div><dt>Rating</dt><dd>IND AA</dd></div>
+    </dl>
+  </div>
+</a>
+<a class="gp-ucard" href="https://uatnew.goldenpi.com/bonds/GPID106739/andhra-pradesh-state-beverages-corporation-limited-800-bond-yield?src=view_details&amp;tenureDate=28-Nov-2031" style="--i:1">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID101491.ANDHRA-PRADESH-STATE-BEVERAGES-CORPORATION-LIMITED.png" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">ANDHRA PRADESH STATE BEVERAGES CORPORATION LIMITED</h3>
+          <p class="gp-ucard__sold">99.89% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">8.00<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>State Govt Backed</span><span>State Guarantee</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>5Y 3M</dd></div>
+      <div><dt>Payout</dt><dd>Half Yearly</dd></div>
+      <div><dt>Rating</dt><dd>IND AA</dd></div>
+    </dl>
+  </div>
+</a>
+          </div>
+        </div>
+
+        <div class="gp-panel" id="panel-non-nbfc-bonds"
+             role="tabpanel" aria-labelledby="tab-non-nbfc-bonds" hidden>
+          <div class="gp-utsav-grid">
+<a class="gp-ucard" href="https://uatnew.goldenpi.com/bonds/GPID107372/dishman-1266-bond-yield?src=view_details&amp;tenureDate=17-Feb-2027" style="--i:0">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID104220.dishman_carbogen_amcis_logo_under_80kb.png" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">DISHMAN</h3>
+          <p class="gp-ucard__sold">63.68% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">12.66<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>Newly Launched</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>5M</dd></div>
+      <div><dt>Payout</dt><dd>Half Yearly</dd></div>
+      <div><dt>Rating</dt><dd>IND A</dd></div>
+    </dl>
+  </div>
+</a>
+<a class="gp-ucard" href="https://uatnew.goldenpi.com/bonds/GPID106980/tapir-1225-bond-yield?src=view_details&amp;tenureDate=12-Mar-2030" style="--i:1">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID103646.Tapir-Constructions-Limited-2x.png" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">TAPIR</h3>
+          <p class="gp-ucard__sold">95.05% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">12.25<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>Selling Out Fast</span><span>Corp Bond</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>3Y 6M</dd></div>
+      <div><dt>Payout</dt><dd>Monthly</dd></div>
+      <div><dt>Rating</dt><dd>IVR A-</dd></div>
+    </dl>
+  </div>
+</a>
+<a class="gp-ucard" href="https://uatnew.goldenpi.com/bonds/GPID107372/dishman-1140-bond-yield?src=view_details&amp;tenureDate=17-Aug-2027" style="--i:2">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID104220.dishman_carbogen_amcis_logo_under_80kb.png" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">DISHMAN</h3>
+          <p class="gp-ucard__sold">63.68% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">11.40<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>Newly Launched</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>11M</dd></div>
+      <div><dt>Payout</dt><dd>Half Yearly</dd></div>
+      <div><dt>Rating</dt><dd>IND A</dd></div>
+    </dl>
+  </div>
+</a>
+<a class="gp-ucard" href="https://uatnew.goldenpi.com/bonds/GPID107370/share-india-1075-bond-yield?src=view_details&amp;tenureDate=10-Aug-2028" style="--i:3">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID105130.SHARE-INDIA-SECURITIES-LIMITED.png" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">SHARE INDIA</h3>
+          <p class="gp-ucard__sold">74.31% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">10.75<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>Newly Launched</span><span>High Rated</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>1Y 11M</dd></div>
+      <div><dt>Payout</dt><dd>Monthly</dd></div>
+      <div><dt>Rating</dt><dd>CARE A+</dd></div>
+    </dl>
+  </div>
+</a>
+<a class="gp-ucard" href="https://uatnew.goldenpi.com/bonds/GPID107370/share-india-1050-bond-yield?src=view_details&amp;tenureDate=10-Aug-2027" style="--i:4">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID105130.SHARE-INDIA-SECURITIES-LIMITED.png" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">SHARE INDIA</h3>
+          <p class="gp-ucard__sold">74.31% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">10.50<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>Newly Launched</span><span>High Rated</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>11M</dd></div>
+      <div><dt>Payout</dt><dd>Monthly</dd></div>
+      <div><dt>Rating</dt><dd>CARE A+</dd></div>
+    </dl>
+  </div>
+</a>
+<a class="gp-ucard" href="https://uatnew.goldenpi.com/bonds/GPID106817/navi-dec28-1040-bond-yield?src=view_details&amp;tenureDate=31-Dec-2028" style="--i:5">
+  <div class="gp-ucard__body">
+    <div class="gp-ucard__id">
+      <span class="gp-ucard__logo"><img src="../assets/img/GPID101068.NAVI-FINSERV-LIMITED-2x.png" alt="" width="42" height="42"></span>
+      <div>
+        <h3 class="gp-ucard__issuer">Navi Dec&#x27;28</h3>
+          <p class="gp-ucard__sold">91.23% Sold</p>
+      </div>
+    </div>
+    <div class="gp-ucard__rate">
+      <p class="gp-ucard__rate-value">10.40<span>%</span></p>
+    </div>
+    <div class="gp-ucard__tags"><span>Popular Choice</span><span>₹10K Bond</span></div>
+    <dl class="gp-ucard__metrics">
+      <div><dt>Tenure</dt><dd>2Y 4M</dd></div>
+      <div><dt>Payout</dt><dd>Monthly</dd></div>
+      <div><dt>Rating</dt><dd>CRISIL A</dd></div>
+    </dl>
+  </div>
+</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /UTSAV6:LISTING -->
+</main>
+
+<script>
+/* The festive show: the kid, already at the rocket, lights it; it bursts; a gift falls and opens into the
+   Bond Utsav logo; then the offer posters parachute onto the ropes.
+   Progressive enhancement: without JS (or with reduced motion) the scene, logo and posters render in their final state. */
+(function () {
+  var hero = document.getElementById('bu3-hero');
+  if (!hero || !window.requestAnimationFrame) return;
+  document.documentElement.classList.add('bu3-js');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var cv = hero.querySelector('.bu3-sky'), ctx = cv.getContext('2d');
+  var logo = hero.querySelector('.bu3-deal')  /* day3: the gift opens into the Deal of the Day */, paras = hero.querySelectorAll('.bu4-para'), gift = hero.querySelector('.bu3-gift'), ctrl = hero.querySelector('.bu3-ctrl');
+  var fuse = document.getElementById('bu3-fuse'), fspark = document.getElementById('bu3-fspark');
+  var tip = document.getElementById('bu3-tip'), rkHead = document.getElementById('bu3-rk-head');
+  var rk = hero.querySelectorAll('.bu3-rk'), ladis = hero.querySelectorAll('.bu3-ladi');
+  var FL = fuse.getTotalLength();
+
+  function rig(id) {
+    var g = document.getElementById(id), limbs = {};
+    g.querySelectorAll('[data-limb]').forEach(function (l) { limbs[l.dataset.limb] = l; });
+    return {
+      at: function (x, y) { g.setAttribute('transform', 'translate(' + x.toFixed(1) + ' ' + (340 + y).toFixed(1) + ')'); },
+      r: function (n, a) { var l = limbs[n]; l.setAttribute('transform', 'rotate(' + a.toFixed(1) + ' ' + l.dataset.px + ' ' + l.dataset.py + ')'); }
+    };
+  }
+  var man = rig('bu3-man'), lady = rig('bu3-lady'), kid = rig('bu3-kid');
+
+  function clamp(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
+  function seg(t, a, b) { return clamp((t - a) / (b - a)); }
+  function eo(p) { return 1 - Math.pow(1 - p, 3); }
+  function eio(p) { return p < .5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2; }
+  function lerp(a, b, p) { return a + (b - a) * p; }
+
+  // ms from start
+  // bond-utsav6: no walk-in (the family is in place, the kid at the rocket); a quick raise, a 700ms fuse;
+  // the gift and logo first, the posters (chutes) after the reveal
+  var T = { raise: 150, fuse: 450, launch: 1150, burst: 2000, gift: 2150, open: 3450, reveal: 3650, chutes: 3900, end: 4200 };
+  T.back0 = T.fuse + (T.launch - T.fuse) * .65; T.back1 = T.launch + 350;  // the kid steps back as the fuse runs out
+
+  function pose(t) {
+    var off = 0, amp = 0;  // in place from the first frame
+    var ph = 0, s = 0, bob = 0;
+    var cheer = eo(seg(t, T.burst, T.burst + 450));
+    man.at(420 + off, bob); man.r('legF', 24 * s); man.r('legB', -24 * s); man.r('armB', 18 * s); man.r('armF', lerp(-18 * s, -132, cheer));
+    lady.at(490 + off, bob * .8); lady.r('armB', 16 * s); lady.r('armF', -8);
+
+    // the kid, already at the fuse, lights it, steps back, cheers
+    var fwd = 1, back = eio(seg(t, T.back0, T.back1));
+    var kamp = Math.sin(Math.PI * seg(t, T.back0, T.back1));
+    var kph = (off + 820) / 15 + (30 * fwd + 22 * back) / 6, ks = Math.sin(kph) * kamp;
+    var jump = t > T.burst ? -14 * Math.abs(Math.sin(seg(t, T.burst, T.burst + 900) * Math.PI * 2)) : 0;
+    kid.at(551 + off + 30 * fwd - 22 * back, jump - Math.abs(Math.sin(kph)) * 1.6 * kamp);
+    kid.r('legF', 28 * ks); kid.r('legB', -28 * ks);
+    kid.r('armB', 14);
+    var arm = lerp(-50, -70, eio(seg(t, T.raise, T.fuse)));
+    arm = lerp(arm, -40, back); arm = lerp(arm, -125, cheer);
+    kid.r('armF', arm);
+
+    var p = seg(t, T.fuse, T.launch);
+    fuse.style.strokeDasharray = (FL * (1 - p)).toFixed(1) + ' ' + (FL + 1).toFixed(1);
+    if (p > 0 && p < 1) { var pt = fuse.getPointAtLength(FL * (1 - p)); fspark.setAttribute('cx', pt.x); fspark.setAttribute('cy', pt.y); fspark.style.opacity = 1; }
+    else fspark.style.opacity = 0;
+    rk.forEach(function (e) { e.style.opacity = t >= T.launch ? 0 : 1; });
+  }
+
+  // ---------------------------------------------------------- fireworks canvas
+  var W = 0, H = 0, hr = hero.getBoundingClientRect(), P = [], R = [], F = [];
+  var GOLD = ['#fff3c4', '#f3dc8f', '#e9c766', '#d4af37'], WHITE = ['#ffffff', '#fff6dc', '#f3dc8f'],
+      EMBER = ['#ffb36b', '#f3dc8f', '#ff8a4c'], RUBY = ['#ff6a5c', '#f3dc8f', '#fff3c4'];
+  function size() {
+    var r = hero.getBoundingClientRect(), d = Math.min(2, window.devicePixelRatio || 1);
+    W = r.width; H = r.height; cv.width = W * d; cv.height = H * d;
+    ctx.setTransform(d, 0, 0, d, 0, 0); ctx.lineCap = 'round';
+  }
+  function rel(el) { var r = el.getBoundingClientRect(); return { x: r.left + r.width / 2 - hr.left, y: r.top + r.height / 2 - hr.top }; }
+  function spark(x, y, vx, vy, life, c, r, g, d) { P.push({ x: x, y: y, px: x, py: y, vx: vx, vy: vy, t: 0, life: life, c: c, r: r, g: g, d: d, tw: Math.random() < .35 }); }
+  function burst(x, y, o) {
+    var k = Math.min(1.3, Math.max(.65, W / 1100));
+    for (var i = 0; i < o.n; i++) {
+      var a = Math.PI * 2 * i / o.n + Math.random() * .08, sp = o.sp * k * (o.ring ? .9 + Math.random() * .1 : .3 + Math.random() * .7);
+      spark(x, y, Math.cos(a) * sp, Math.sin(a) * sp, o.life * (.75 + Math.random() * .5), o.c[i % o.c.length], o.r || 1.8, o.g == null ? .05 : o.g, o.d || .972);
+    }
+    if (o.flash) F.push({ x: x, y: y, t: 0, life: 650, a: o.flash, rad: (o.rad || 240) * k });
+  }
+  function rocket(x0, y0, x1, y1, dur, done) { R.push({ x0: x0, y0: y0, x1: x1, y1: y1, t: 0, dur: dur, done: done }); }
+
+  function draw(dt) {
+    var f = dt / 16.7;
+    ctx.globalCompositeOperation = 'destination-out';
+    ctx.fillStyle = 'rgba(0,0,0,' + Math.min(1, .24 * f) + ')'; ctx.fillRect(0, 0, W, H);
+    ctx.globalCompositeOperation = 'lighter';
+    F = F.filter(function (q) {
+      q.t += dt; var k = 1 - q.t / q.life; if (k <= 0) return false;
+      var g = ctx.createRadialGradient(q.x, q.y, 0, q.x, q.y, q.rad);
+      g.addColorStop(0, 'rgba(243,220,143,' + (q.a * k * .22) + ')'); g.addColorStop(1, 'rgba(243,220,143,0)');
+      ctx.fillStyle = g; ctx.fillRect(q.x - q.rad, q.y - q.rad, q.rad * 2, q.rad * 2); return true;
+    });
+    R = R.filter(function (r) {
+      r.t += dt; var p = Math.min(1, r.t / r.dur), x = lerp(r.x0, r.x1, p * p * (3 - 2 * p)), y = lerp(r.y0, r.y1, 1 - (1 - p) * (1 - p));
+      spark(x, y, (Math.random() - .5) * .6, .8 + Math.random(), 450, EMBER[(Math.random() * 3) | 0], 1.4, .02, .96);
+      ctx.globalAlpha = 1; ctx.fillStyle = '#fff6dc'; ctx.beginPath(); ctx.arc(x, y, 2.4, 0, 7); ctx.fill();
+      if (p >= 1) { r.done(r.x1, r.y1); return false; } return true;
+    });
+    P = P.filter(function (q) {
+      q.t += dt; if (q.t >= q.life) return false;
+      q.px = q.x; q.py = q.y;
+      q.vx *= Math.pow(q.d, f); q.vy = q.vy * Math.pow(q.d, f) + q.g * f;
+      q.x += q.vx * f; q.y += q.vy * f;
+      var k = 1 - q.t / q.life;
+      ctx.globalAlpha = k < .4 && q.tw ? (Math.random() < .5 ? .15 : k * 2) : Math.min(1, k * 1.6);
+      ctx.strokeStyle = q.c; ctx.lineWidth = q.r; ctx.beginPath(); ctx.moveTo(q.px, q.py); ctx.lineTo(q.x, q.y); ctx.stroke();
+      return true;
+    });
+    ctx.globalAlpha = 1;
+  }
+
+  // ---------------------------------------------------------- the show
+  var raf = 0, last = 0, t0 = -1, fired = {}, crackleUntil = 0, sparkOn = false, BP = { x: 0, y: 0 };
+  var started = false, inView = false, ambientOn = false, side = 0;
+
+  function burstPt() { var c = logo.getBoundingClientRect(); return { x: W / 2, y: Math.max(70, c.top + c.height / 2 - logo.offsetHeight / 2 - hr.top - 10) }; }
+  function bigBurst(x, y) {
+    burst(x, y, { n: 150, sp: 6.2, life: 1700, c: GOLD, ring: true, flash: 1, rad: 300 });
+    burst(x, y, { n: 60, sp: 3, life: 1100, c: WHITE });
+    burst(x, y, { n: 80, sp: 4.4, life: 2600, c: GOLD, g: .03, d: .985, r: 1.4 });
+    setTimeout(function () { burst(W * .3, y + 40, { n: 90, sp: 4, life: 1400, c: RUBY, flash: .5 }); kick(); }, 380);
+    setTimeout(function () { burst(W * .7, y + 10, { n: 90, sp: 4, life: 1400, c: WHITE, ring: true, flash: .5 }); kick(); }, 720);
+    crackleUntil = performance.now() + 3600;
+  }
+  function crackle() {
+    var l = ladis[(Math.random() * ladis.length) | 0], r = l.getBoundingClientRect();
+    if (!r.width) return;
+    burst(r.left + r.width / 2 - hr.left, r.top - hr.top + Math.random() * r.height * .7,
+      { n: 12, sp: 1.7, life: 380, c: ['#ffffff', '#fff3c4', '#ffb36b'], r: 1.3, g: .03, d: .93, flash: .8, rad: 40 });
+  }
+  function dropGift() {
+    var c = logo.getBoundingClientRect(), dx = c.left + c.width / 2 - hr.left - BP.x, dy = c.top + c.height / 2 - hr.top - BP.y;
+    gift.style.left = BP.x + 'px'; gift.style.top = BP.y + 'px';
+    gift.animate([
+      { opacity: 0, transform: 'translate(0,0) scale(.2)' },
+      { opacity: 1, transform: 'translate(0,8px) scale(1) rotate(-6deg)', offset: .12 },
+      { transform: 'translate(' + dx * .3 + 'px,' + dy * .4 + 'px) rotate(6deg)', offset: .45 },
+      { transform: 'translate(' + dx * .7 + 'px,' + dy * .75 + 'px) rotate(-4deg)', offset: .75 },
+      { opacity: 1, transform: 'translate(' + dx + 'px,' + dy + 'px) rotate(0deg)' }
+    ], { duration: T.open - T.gift, easing: 'cubic-bezier(.35,.1,.45,1)', fill: 'forwards' });
+  }
+  // each poster is thrown out of the burst, opens its canopy above its spot, floats down and is tied to the rope
+  function dropChutes() {
+    paras.forEach(function (p, i) {
+      var r = p.querySelector('.bu4-canopy').getBoundingClientRect(), dx = BP.x - (r.left + r.width / 2 - hr.left), dy = BP.y - (r.top + r.height / 2 - hr.top), tilt = i % 2 ? 1 : -1;
+      p.classList.add('is-in');
+      p.animate([
+        { opacity: 0, transform: 'translate(' + dx + 'px,' + dy + 'px) scale(.12) rotate(' + 30 * tilt + 'deg)', easing: 'cubic-bezier(.2,.8,.3,1)' },
+        { opacity: 1, transform: 'translate(' + (-14 * tilt) + 'px,-120px) scale(1) rotate(' + 8 * tilt + 'deg)', offset: .32, easing: 'cubic-bezier(.45,0,.55,1)' },
+        { transform: 'translate(' + (10 * tilt) + 'px,-38px) rotate(' + -5 * tilt + 'deg)', offset: .72, easing: 'cubic-bezier(.45,0,.55,1)' },
+        { opacity: 1, transform: 'none' }
+      ], { duration: 2600, delay: [0, 220, 110, 330][i], fill: 'backwards' })
+        .onfinish = function () { p.classList.add('is-hooked'); };
+    });
+  }
+  function land() { paras.forEach(function (p) { p.getAnimations().forEach(function (a) { a.cancel(); }); p.classList.add('is-in', 'is-hooked'); }); }
+  function reveal(quiet) {
+    hero.classList.add('is-revealed');
+    setCtrl(true);
+    if (!quiet) { var c = rel(logo); burst(c.x, c.y, { n: 70, sp: 5, life: 900, c: GOLD, ring: true, flash: .6 }); }
+  }
+  function setCtrl(done) {
+    ctrl.innerHTML = done ? '<i class="ph ph-arrow-counter-clockwise" aria-hidden="true"></i><span>Light it again</span>'
+                          : '<i class="ph ph-fast-forward" aria-hidden="true"></i><span>Skip</span>';
+  }
+  function once(name, t, when, fn) { if (t >= when && !fired[name]) { fired[name] = 1; fn(); } }
+
+  function timeline(t) {
+    pose(Math.min(t, T.end));
+    sparkOn = t < T.end + 2500;
+    hero.classList.toggle('is-spent', !sparkOn);
+    once('launch', t, T.launch, function () { var a = rel(rkHead); BP = burstPt(); rocket(a.x, a.y, BP.x, BP.y, T.burst - T.launch, bigBurst); });
+    once('chutes', t, T.chutes, dropChutes);  // after the Bond Utsav logo is out
+    once('gift', t, T.gift, dropGift);
+    once('open', t, T.open, function () { gift.classList.add('is-open'); });
+    once('reveal', t, T.reveal, function () { reveal(false); });
+    if (t >= T.end + 2500) { t0 = -1; startAmbient(); }
+  }
+  function emit(el, n, cols, spd) {
+    var p = rel(el);
+    for (var i = 0; i < n; i++) {
+      var a = Math.random() * Math.PI * 2, s = (.6 + Math.random() * 1.8) * spd;
+      spark(p.x, p.y, Math.cos(a) * s, Math.sin(a) * s - .4, 160 + Math.random() * 220, cols[i % cols.length], 1.1, .06, .94);
+    }
+  }
+  function frame(now) {
+    raf = 0;
+    var dt = last ? Math.min(48, now - last) : 16.7; last = now;
+    hr = hero.getBoundingClientRect();
+    if (t0 >= 0) timeline(now - t0);
+    if (sparkOn) emit(tip, 3, WHITE, 1);
+    if (fspark.style.opacity === '1') emit(fspark, 2, EMBER, .7);
+    if (now < crackleUntil && Math.random() < dt / 60) crackle();
+    draw(dt);
+    if (t0 >= 0 || sparkOn || P.length || R.length || F.length || now < crackleUntil) raf = requestAnimationFrame(frame);
+    else { ctx.clearRect(0, 0, W, H); last = 0; }
+  }
+  function kick() { if (!raf) { last = 0; raf = requestAnimationFrame(frame); } }
+
+  function startAmbient() { if (ambientOn || reduce) return; ambientOn = true; schedule(); }
+  function schedule() {
+    setTimeout(function () {
+      if (inView && !document.hidden && t0 < 0) {
+        side ^= 1;
+        var x = W * (side ? .64 + Math.random() * .26 : .1 + Math.random() * .26), y = H * (.1 + Math.random() * .2);
+        var pal = [GOLD, WHITE, RUBY, EMBER][(Math.random() * 4) | 0], ring = Math.random() < .5;
+        rocket(x + (Math.random() - .5) * 80, H - 40, x, y, 950, function (bx, by) { burst(bx, by, { n: 90, sp: 4.2, life: 1400, c: pal, ring: ring, flash: .35 }); });
+        kick();
+      }
+      schedule();
+    }, 2600 + Math.random() * 2400);
+  }
+
+  function reset() {
+    fired = {}; P = []; R = []; F = []; crackleUntil = 0;
+    hero.classList.remove('is-revealed', 'is-spent'); gift.classList.remove('is-open');
+    gift.getAnimations().forEach(function (a) { a.cancel(); });
+    paras.forEach(function (p) { p.getAnimations().forEach(function (a) { a.cancel(); }); p.classList.remove('is-in', 'is-hooked'); });
+    setCtrl(false);
+  }
+  function play() { reset(); hr = hero.getBoundingClientRect(); t0 = performance.now(); kick(); }
+  function finish() {
+    fired = { launch: 1, chutes: 1, gift: 1, open: 1, reveal: 1 }; t0 = -1; sparkOn = false; land();
+    gift.getAnimations().forEach(function (a) { a.cancel(); });
+    pose(T.end); hero.classList.add('is-spent'); reveal(true); startAmbient();
+  }
+
+  size();
+  if (window.ResizeObserver) new ResizeObserver(size).observe(hero);
+  pose(reduce ? T.end : 0);
+  if (reduce) { ctrl.hidden = true; land(); reveal(true); return; }
+
+  logo.addEventListener('focusin', function () { if (!hero.classList.contains('is-revealed')) finish(); });
+  ctrl.addEventListener('click', function () { if (hero.classList.contains('is-revealed')) play(); else finish(); });
+  new IntersectionObserver(function (es) {
+    inView = es[0].isIntersecting;
+    if (inView && !started) { started = true; play(); }
+  }, { threshold: .3 }).observe(hero);
+})();
+</script>
+
+<!-- ============================================================== footer -->
+<footer class="ft ft--dark ft--black" id="footer">
+  <img class="ft__pi" src="../assets/img/pi.svg" alt="" width="331" height="298">
+
+  <!-- Part 1: navigation, documents, regulatory disclosures, copyright. -->
+  <div class="gp-shell ft__inner">
+
+    <div class="ft-main">
+      <div class="ft-brand">
+        <img src="../assets/img/goldenpi-logo-white.svg" alt="GoldenPi" width="148" height="44">
+        <p class="ft-brand__co">GoldenPi Securities Pvt Ltd</p>
+        <address>
+          Indiqube Orion, 24th Main, 1st Sector,<br>
+          HSR Layout, Bangalore South,<br>
+          Bangalore, Karnataka - 560102
+        </address>
+        <div class="ft-social">
+          <a href="https://www.facebook.com/goldenpitech" aria-label="GoldenPi on Facebook"><img src="../assets/img/facebook-icon.svg" alt=""></a>
+          <a href="https://twitter.com/GoldenPiTech" aria-label="GoldenPi on X (Twitter)"><img src="../assets/img/twitter-icon.svg" alt=""></a>
+          <a href="https://www.linkedin.com/company/goldenpi/" aria-label="GoldenPi on LinkedIn"><img src="../assets/img/linkdin-icon.svg" alt=""></a>
+          <a href="https://www.instagram.com/goldenpi_/" aria-label="GoldenPi on Instagram"><img src="../assets/img/Instagram-icon.svg" alt=""></a>
+          <a href="https://www.youtube.com/@goldenpi" aria-label="GoldenPi on YouTube"><img src="../assets/img/Youtube-icon.svg" alt=""></a>
+        </div>
+      </div>
+
+      <nav class="ft-col" aria-labelledby="ft-invest">
+        <h2 id="ft-invest">Invest with us</h2>
+        <ul>
+          <li><a class="ft-link" href="bond-ipo-online.html">Bond IPOs</a></li>
+          <li><a class="ft-link" href="corporate-bonds.html">Bonds</a></li>
+          <li><a class="ft-link" href="fixed-deposits.html">Fixed Deposits</a></li>
+          <li><a class="ft-link" href="https://goldenpi.com/sovereign-gold-bond">Sovereign Gold Bond</a></li>
+          <li><a class="ft-link" href="https://goldenpi.com/government-securities">Government Securities</a></li>
+        </ul>
+      </nav>
+
+      <nav class="ft-col" aria-labelledby="ft-company">
+        <h2 id="ft-company">Company</h2>
+        <ul>
+          <li><a class="ft-link" href="about-us.html">About us</a></li>
+          <li><a class="ft-link" href="https://goldenpi.com/media">Media</a></li>
+          <li><a class="ft-link" href="careers.html">Career at GoldenPi</a></li>
+          <li><a class="ft-link" href="https://goldenpi.com/faq">FAQs</a></li>
+          <li><a class="ft-link" href="contact-us.html">Contact Us</a></li>
+        </ul>
+      </nav>
+
+      <nav class="ft-col" aria-labelledby="ft-legal">
+        <h2 id="ft-legal">Legal</h2>
+        <ul>
+          <li><a class="ft-link" href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+          <li><a class="ft-link" href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a class="ft-link" href="https://goldenpi.com/investor-resources">Investor Resources</a></li>
+          <li><a class="ft-link" href="https://s3.ap-south-1.amazonaws.com/static.webhost.goldenpi/Investor_Charter/Policies+for+Information.pdf">Policies for Information</a></li>
+        </ul>
+      </nav>
+
+      <nav class="ft-col" aria-labelledby="ft-new">
+        <h2 id="ft-new">New to GoldenPi</h2>
+        <ul>
+          <li><a class="ft-link" href="https://goldenpi.com/blog">GoldenPi Blogs</a></li>
+          <li><a class="ft-link" href="https://goldenpi.com/find-first-bond?ia=2-5-lac&amp;tr=5-10-yrs&amp;it=all&amp;sortBy=yield-high-to-low">Find Your First Bond</a></li>
+          <li><a class="ft-link" href="https://goldenpi.com/bond-vs-fd?ia=200000&amp;tr=3">Bond vs Fixed Deposit</a></li>
+          <li><a class="ft-link" href="https://goldenpi.com/blog/essentials/bond-introduction/bond-glossary-20-terms-definitions-you-need-to-know">Bond Definitions</a></li>
+          <li><a class="ft-link" href="https://goldenpi.com/blog/investment-guide">Bond Investment Guide</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="ft-regs">
+      <dl class="ft-ids">
+        <div><dt>SEBI Registration No.:</dt><dd>INZ000310732</dd></div>
+        <div><dt>CIN:</dt><dd>U65990KA2022PTC164941</dd></div>
+        <div><dt>BSE Member ID:</dt><dd>6809</dd></div>
+        <div><dt>NSE Member ID:</dt><dd>90331</dd></div>
+      </dl>
+      <p>Compliance Officer: Kunal Sharma, Tel. No.: <a class="u" href="tel:080-45685666">080-45685666</a>, Email ID: <a class="u" href="mailto:grievance-gspl@goldenpi.com">grievance-gspl@goldenpi.com</a> (for any compliance &amp; grievance related complaints)</p>
+      <p>Key Managerial Personnel: Abhijit Roy - Designated Director &amp; CEO, Samir Baran Pratihar - Designated Director &amp; CTO</p>
+      <p>Tel. No.: 080-45685666 | Email: <a class="u" href="mailto:contact-us@goldenpi.com">contact-us@goldenpi.com</a></p>
+    </div>
+
+  </div>
+
+  <details class="ft-fold">
+    <summary class="gp-shell">
+      <span class="ft-copy">&copy; 2017 - 2026 | GoldenPi Securities Pvt. Ltd.</span>
+      <span class="ft-fold__btn">Read More</span>
+    </summary>
+  <div class="gp-shell ft__inner">
+
+
+    <div class="ft-band ft-legal ft-legal--reg">
+        <section>
+          <h2>Note to Investors</h2>
+          <p>GoldenPi Securities Pvt. Ltd. (&ldquo;GSPL&rdquo;) is a wholly owned subsidiary of GoldenPi Technologies Pvt. Ltd. (&ldquo;GTPL&rdquo;) and is a SEBI registered broker under BSE new debt segment allowing investors to trade in secondary bonds &amp; debentures through exchange.</p>
+          <p>Fixed returns do not constitute guaranteed or assured returns. Investments in corporate debt securities, municipal debt securities/securitised debt instruments are subject to credit risks, market risks and default risks including delay and/or default in payment. Read all the offer related documents carefully.</p>
+          <p>Investors can update their email id and mobile number with their stock broker / depository participant and receive OTP directly from the depository on email id and/or mobile number to create a pledge. Investors can check their securities / MF / bonds in the consolidated account statement issued by NSDL/CDSL every month.</p>
+          <p>The FAQs on the platform are exclusively for educational information/knowledge and do not influence the investment/sale decisions of any investors.As you are aware, under the rapidly evolving dynamics of financial markets, it is crucial for investors to remain updated and well-informed about various aspects of investing in securities market. In this connection, please find a link to the BSE Investor Protection Fund website where you will find some useful educative material in the form of text and videos, so as to become an informed investor.</p>
+          <h2 class="ft-sub">Investor Education</h2>
+          <p><a class="u" href="https://www.bseipf.com/investors_education.html">https://www.bseipf.com/investors_education.html</a> We believe that an educated investor is a protected investor !!! The information shown on the website should not be construed as financial advice or as an offer or recommendation to buy or sell any security or any products/services of GSPL or any product/services of its third-party client(s). The user should act and rely on the information/data shown on the website only after understanding all associated risk parameters. Any action/decision taken by the user on the basis of the information shown on this website shall be the sole responsibility of the user. Neither GSPL nor its directors, employees, associates, representatives, or agents shall be liable for any damages whether direct, indirect, special, or consequential including lost revenue or lost profits that may arise to the user from or in connection with the use of the information/data shown on this website.</p>
+            <p>We understand that certain investment advisors may be approaching members of the public including our clients, representing that they are our partners, or representing that their investment advice is based on our research. Please note that we have not engaged any third parties to render any investment advisory services on our behalf nor are we providing any stock recommendations/tips/research report/advisory. Persons making investments on the basis of such advice may lose all or a part of their investments along with the fee paid to such unscrupulous persons. Please be cautious about any phone call that you may receive from persons representing to be such investment advisors, or a part of research firm offering advice on securities. Do not make payments through e-mail links, WhatsApp or SMS. Please do not share your personal or financial information with any person without proper verification. Always trade through a registered broker.</p>
+            <p>We collect, retain, and use your contact information for legitimate business purposes only, to contact you and to provide you information &amp; latest updates regarding our products &amp; services.</p>
+            <p>Fixed Deposits are offered in the capacity of a distributor and all disputes with respect to distribution activity, would not have access to exchange investor redressal forum or arbitration mechanism.</p>
+            <p>Attention Investors - Check your securities / MF / bonds in the consolidated account statement issued by NSDL/CDSL every month. Issued in the interest of Investors</p>
+        </section>
+
+        <section>
+          <h2>Filling complaints on <a class="u" href="https://smartodr.in/login">SMARTODR</a> &amp; <a class="u" href="https://scores.sebi.gov.in/">SCORES</a> - Easy &amp; Quick</h2>
+          <p>a. Register on the portal | b. Mandatory details for register and filing complaints - Name, PAN, Address, Mobile Number, E-mail ID | c. Benefits: i. Effective Communication ii. Speedy redressal of the grievances | d. Complaints against the companies shall be subject to the SMARTODR/SCORES guidelines</p>
+        </section>
+
+        <section>
+          <h2>Risk Disclosure &amp; Regulatory Information</h2>
+          <p>Fixed returns do not mean guaranteed or assured returns. Investments in corporate debt securities, municipal debt securities, and securitised debt instruments carry credit risk, market risk, and default risk, including delay or default in payment. Please read all offer-related documents carefully before you invest.</p>
+          <p>The online bond platform goldenpi.com is owned by GoldenPi Securities Pvt Ltd (GSPL), an OBPP and debt broker registered with SEBI. GSPL is a wholly owned subsidiary of GoldenPi Technologies Pvt Ltd (GTPL).</p>
+        </section>
+    </div>
+
+  </div>
+
+  <!-- Part 2: SEO copy and SEO links (the About GoldenPi Q&As, collections). -->
+  <div class="ft-legal ft-seo">
+    <div class="gp-shell">
+
+      <section class="ft-faq">
+        <details open>
+          <summary><h2>About GoldenPi</h2></summary>
+          <div>
+            <p>GoldenPi is one of India's most trusted fintech companies, enabling individual investors to invest in Bonds and Debentures online through a simple, secure, and transparent platform.</p>
+            <p>For a long time, Bonds were regarded as a dependable way to earn a steady secondary income, yet access to them remained largely confined to financial institutions and High Net-Worth Individuals (HNIs). GoldenPi was founded in 2017 with a clear purpose: to open up this opportunity and make Bonds and Debentures accessible to every retail investor in India.</p>
+            <p>The platform goldenpi.com is owned by GoldenPi Securities Pvt Ltd (GSPL), a SEBI-registered Online Bond Platform Provider (OBPP) and debt broker, and a wholly owned subsidiary of GoldenPi Technologies Pvt Ltd (GTPL). In January 2023, GoldenPi became the first online bond platform to receive a debt broker licence under SEBI's OBPP framework. Today, investors can explore a wide range of fixed-income options on a single platform, including Corporate Bonds, Government Bonds, NCD IPOs, and Fixed Deposits.</p>
+            <p>More than 16 lakh users have registered with GoldenPi, investing over ₹5,512 crore through the platform with zero defaults to date. The company is further backed by Zerodha's Rainmatter, which strengthens the trust and credibility it has built among investors.</p>
+          </div>
+        </details>
+        <details>
+          <summary><h2>As an Individual, What is the Need for You to Invest?</h2></summary>
+          <div>
+            <p>Investing means using a part of your money to buy assets, so that your money can grow over time. But why is it needed?</p>
+            <p>The money you earn from work usually has a limit. A salary can rise only up to a point, the hours you can work each week are fixed, and a business can take in only so much capital. Because of this, your income tends to stay more or less the same over time.</p>
+            <p>Your expenses, however, do not stay fixed. As you move forward in life, your responsibilities grow. You may need to buy a home, pay for your children's education, handle a medical emergency, or plan for retirement. All of these cost money, and often a large amount.</p>
+            <p>This is why investing is important. It gives you a second source of income that you can depend on. It also helps you set aside money on a regular basis. Over time, this builds strong financial habits.</p>
+          </div>
+        </details>
+        <details>
+          <summary><h2>What are the Different Types of Investments?</h2></summary>
+          <div>
+            <p>There are many types of investments. But most of them fall into two main groups: Active Investments and Passive Investments.</p>
+            <p>Active Investments need your time and effort. You must understand how the market works and stay closely involved. Passive Investments work in a different way. Here, you invest your money without being involved every day. The most common method is "buy and hold." You buy the asset and keep it for a fixed period to earn the expected returns.</p>
+            <p>Bonds and Debentures are good examples of safe and passive investments. You can invest in them and allow your money to grow over time, without watching the market daily.</p>
+          </div>
+        </details>
+        <details>
+          <summary><h2>What are Bonds and Debentures?</h2></summary>
+          <div>
+            <p>Bonds are issued by government bodies. Debentures are issued by private companies, public sector units, banks, and NBFCs. Both are used to raise money. When you buy a Bond or a Debenture, you are lending money to the issuer. In return, the issuer pays you interest and returns your money on a fixed date. In simple terms, Bonds work much like loans. Both have a fixed maturity date. Based on the terms set at the time of issue, you earn interest at regular intervals.</p>
+            <p><strong>Note:</strong> Please read all the terms and conditions of each instrument carefully before you invest, and always consider the market risks involved.</p>
+          </div>
+        </details>
+        <details>
+          <summary><h2>What Are The Different Types Of Bonds and Debentures In India?</h2></summary>
+          <div>
+            <p>Here are some of the popular types of Bonds and Debentures available in India:</p>
+            <ul>
+              <li>Central Government Bonds</li>
+              <li>State Government Bonds</li>
+              <li>Municipal And Local Authority Bonds</li>
+              <li>Corporate Bonds</li>
+              <li>Public Sector Bonds</li>
+              <li>Tax-Free Bonds</li>
+            </ul>
+          </div>
+        </details>
+      </section>
+
+      <nav class="ft-band" aria-labelledby="ft-collections">
+        <h2 id="ft-collections">Collections</h2>
+        <div class="ft-chips">
+          <a href="https://goldenpi.com/collections/best-ongoing-ipos">Ongoing NCD IPOs</a>
+          <a href="https://goldenpi.com/collections/high-yield-bonds">High Yield Bonds (Yield more than 11%)</a>
+          <a href="https://goldenpi.com/collections/highly-rated-bonds">Highly Rated Bonds (AAA Rated)</a>
+          <a href="https://goldenpi.com/collections/bonds-to-earn-monthly-fixed-income">Bonds to Earn Regular Monthly Income</a>
+          <a href="https://goldenpi.com/collections/bonds-maturing-within-a-year">Bonds Maturing within a Year</a>
+          <a href="https://goldenpi.com/collections/state-government-guranteed-bonds">State Government Guaranteed Bonds</a>
+          <a href="https://goldenpi.com/collections/tax-free-bonds">Tax Free Bonds</a>
+          <a href="https://goldenpi.com/collections/public-sector-bank-bonds">Public Sector Bank Bonds</a>
+          <a href="https://goldenpi.com/collections/bonds-at-discounted-price">Bonds at Discounted Price</a>
+          <a href="https://goldenpi.com/collections/bonds-for-short-term-investment">Bonds Maturing within 3 Years (Short Term)</a>
+          <a href="https://goldenpi.com/collections/private-sector-bank">Private Sector Bank Bonds</a>
+          <a href="https://goldenpi.com/collections/psu-bonds">Public Sector Undertaking Bonds</a>
+          <a href="https://goldenpi.com/collections/bonds-for-long-term-investment">Bonds Maturing after 5 Years (Long Term)</a>
+          <a href="https://goldenpi.com/collections/nbfc-bonds">NBFC Bonds</a>
+          <a href="https://goldenpi.com/collections/bonds-to-earn-quaterly-fixed-income">Bonds to Earn Quarterly Fixed Income</a>
+          <a href="https://goldenpi.com/collections/nri-eligible-bonds">NRI Eligible Bonds</a>
+          <a href="https://goldenpi.com/collections/floating-rate-bonds">Floating Rate Bonds</a>
+          <a href="https://goldenpi.com/collections/fixed-rate-bonds">Fixed Rate Bonds</a>
+          <a href="https://goldenpi.com/collections/inflation-indexed-bonds">Inflation Indexed Bonds</a>
+          <a href="https://goldenpi.com/collections/zero-coupon-bonds">Zero Coupon Bonds</a>
+          <a href="https://goldenpi.com/collections/secured-bonds">Secured Bonds</a>
+          <a href="https://goldenpi.com/collections/government-bonds">Govt Bonds</a>
+          <a href="https://goldenpi.com/collections/54-ec-capital-gain-bonds">Capital Gain Bonds</a>
+          <a href="https://goldenpi.com/collections/bank-bonds-in-india">Bank Bonds</a>
+          <a href="https://goldenpi.com/collections/gold-backed-bonds">Gold Backed Bonds</a>
+        </div>
+      </nav>
+
+    </div>
+  </div>
+  </details>
+</footer>
+<script>
+// UTSAV6:TABS (pages/_utsav6.py): the category tablist and pill scrolling, as on bond-utsav.html
+// Shared behaviour for the converted landing pages: the category tablist
+// and the milestone count-up. Injected by pages/_final.py and
+// pages/_convert.py so there is one copy, not four.
+// Both are progressive enhancement: without them the first panel is the
+// only one not marked [hidden], and the figures already read correctly.
+// Category tabs. Progressive enhancement: without this the first panel is the
+// only one not marked [hidden], so the page still shows a working listing.
+(function () {
+  // .gp-tabs is the folder strip; .gp-pills (bond-utsav) is a pill filter
+  // with no sliding indicator. Both mark their parts up by ARIA role.
+  var wrap = document.querySelector('.gp-tabs, .gp-pills');
+  if (!wrap) return;
+  var track = wrap.querySelector('[role="tablist"]');
+  var ink = wrap.querySelector('.gp-tabs__ink');
+  var tabs = [].slice.call(wrap.querySelectorAll('[role="tab"]'));
+  if (!track || !tabs.length) return;
+
+  var panels = tabs.map(function (t) { return document.getElementById(t.getAttribute('aria-controls')); });
+
+  function moveInk(tab) {
+    if (!ink) return;
+    ink.style.width = tab.offsetWidth + 'px';
+    ink.style.transform = 'translateX(' + tab.offsetLeft + 'px)';
+    ink.classList.add('is-ready');
+  }
+
+  function select(n, focus) {
+    tabs.forEach(function (t, k) {
+      var on = k === n;
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+      panels[k].classList.toggle('is-on', on);
+      if (on) { panels[k].removeAttribute('hidden'); } else { panels[k].setAttribute('hidden', ''); }
+    });
+    moveInk(tabs[n]);
+    if (focus) tabs[n].focus();
+    tabs[n].scrollIntoView({ block: 'nearest', inline: 'nearest' });
+  }
+
+  tabs.forEach(function (t, k) {
+    t.addEventListener('click', function () { select(k); });
+    t.addEventListener('keydown', function (e) {
+      var i = null;
+      if (e.key === 'ArrowRight') i = (k + 1) % tabs.length;
+      else if (e.key === 'ArrowLeft') i = (k - 1 + tabs.length) % tabs.length;
+      else if (e.key === 'Home') i = 0;
+      else if (e.key === 'End') i = tabs.length - 1;
+      if (i === null) return;
+      e.preventDefault();
+      select(i, true);
+    });
+  });
+
+  function sync() {
+    var i = tabs.findIndex(function (t) { return t.getAttribute('aria-selected') === 'true'; });
+    moveInk(tabs[i < 0 ? 0 : i]);
+    wrap.setAttribute('data-overflow',
+      String(track.scrollWidth - track.clientWidth - track.scrollLeft > 8));
+  }
+
+  // Measure after webfonts settle, or the indicator lands short.
+  if (document.fonts && document.fonts.ready) { document.fonts.ready.then(sync); }
+  window.addEventListener('resize', sync);
+  track.addEventListener('scroll', sync, { passive: true });
+  sync();
+})();
+
+// Milestone figures count up the first time they are seen. The final value is
+// already in the markup, so nothing is lost if this never runs.
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      io.unobserve(e.target);
+      // Count in the text node holding the digits, so markup around it (the
+      // smaller "Cr+" suffix) survives the animation.
+      var el = e.target, node = null;
+      for (var i = 0; i < el.childNodes.length && !node; i++) {
+        var c = el.childNodes[i];
+        if (c.nodeType === 3 && /\d/.test(c.nodeValue)) node = c;
+      }
+      if (!node) return;
+      var full = node.nodeValue, m = full.match(/([\d,]+)/);
+      if (!m) return;
+      var target = Number(m[1].replace(/,/g, ''));
+      if (!target) return;
+      var t0 = null;
+      function step(ts) {
+        if (!t0) t0 = ts;
+        var p = Math.min((ts - t0) / 1000, 1);
+        node.nodeValue = full.replace(
+          m[1], Math.round(target * (1 - Math.pow(1 - p, 3))).toLocaleString('en-IN'));
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }, { threshold: 0.6 });
+
+  document.querySelectorAll('[data-count]').forEach(function (el) { io.observe(el); });
+})();
+
+(function () {
+  var strip = document.querySelector('.gp-utsav-listing .gp-pills');
+  if (!strip) return;
+  strip.addEventListener('click', function (ev) {
+    var tab = ev.target.closest('[role="tab"]');
+    if (!tab) return;
+    var panel = document.getElementById(tab.getAttribute('aria-controls'));
+    if (panel && panel.getBoundingClientRect().top < strip.getBoundingClientRect().bottom) {
+      var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      panel.scrollIntoView({ behavior: still ? 'auto' : 'smooth', block: 'start' });
+    }
+  });
+})();
+</script>
+</body>
+</html>
