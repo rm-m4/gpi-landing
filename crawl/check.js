@@ -375,7 +375,7 @@ const serve = () =>
     // Phone pass in its own context. Resizing an already-rendered page leaves a
     // stale document height behind and Chromium's fullPage capture then stitches
     // the same content twice, so load it fresh at 390px instead.
-    const mctx = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 });
+    const mctx = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true });
     const mpage = await mctx.newPage();
     mpage.on('response', (r) => { if (r.status() >= 400) bad.push(`${r.status()} ${r.url()} (mobile)`); });
     await mpage.goto(`http://localhost:${PORT}/pages/${file}`, { waitUntil: 'networkidle', timeout: 60000 });
