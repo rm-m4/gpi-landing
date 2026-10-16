@@ -272,42 +272,6 @@
     .h23-ticket--lead blockquote { line-height: 26px; }
   }
 
-  /* ------------------------------------------ investors and partners */
-  .h23-backers { background: var(--h22-cream); color: var(--h22-ink); padding: clamp(56px, 7vw, 88px) 0; }
-  /* Heading top left, partner tiles bottom left on the cards' baseline,
-     two investor portraits right. */
-  .h23-backers__in { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 520px); gap: 60px; width: min(1120px, 100% - 32px); margin-inline: auto; }
-  .h23-backers__head { display: flex; flex-direction: column; justify-content: space-between; gap: 48px; }
-  .h23-backers .h22-h2 { max-width: 7.5em; }
-  .h23-partners ul, .h23-investors { margin: 0; padding: 0; list-style: none; }
-  .h23-partners ul { display: flex; gap: 16px; }
-  .h23-partners li { width: 96px; aspect-ratio: 1; border-radius: 22px; overflow: hidden; background: #fff; box-shadow: 0 10px 24px #efe4cf, 0 0 0 1px rgba(50, 40, 17, 0.06); }
-  .h23-partners img { display: block; width: 100%; height: 100%; object-fit: cover; }
-  .h23-investors { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-self: center; }
-  .h23-inv { display: flex; flex-direction: column; border-radius: 22px; overflow: hidden; background: #fff; border: 1px solid rgba(50, 40, 17, 0.08); box-shadow: 0 17px 26px #f1e4cc; }
-  .h22 .h23-inv__who { display: grid; gap: 2px; padding: 16px 20px; }
-  .h23-inv__who b { font-size: 18px; line-height: 26px; letter-spacing: -0.01em; }
-  .h23-inv__who span { font-size: 15px; line-height: 22px; color: #666; }
-  .h23-inv__ph { display: block; overflow: hidden; background: #ece9e3; }
-  .h23-inv__ph img { display: block; width: 100%; height: auto; aspect-ratio: 5 / 4; object-fit: cover; object-position: center 15%; mix-blend-mode: multiply; filter: grayscale(1) contrast(1.04); transition: filter 500ms ease, scale 700ms var(--ease-out); }
-  /* Colour comes back under the pointer. */
-  @media (hover: hover) and (pointer: fine) { .h23-inv:hover .h23-inv__ph img { filter: none; scale: 1.04; } }
-  @media (max-width: 900px) {
-    .h23-backers__in { grid-template-columns: 1fr; gap: 32px; }
-    .h23-backers__head { display: contents; }
-    .h23-partners { order: 2; }
-    .h23-backers .h22-h2 { max-width: none; text-align: center; }
-    .h23-partners { text-align: center; }
-    .h23-partners ul { justify-content: center; }
-  }
-  @media (max-width: 560px) {
-    .h23-investors { gap: 12px; }
-    .h22 .h23-inv__who { padding: 14px 16px; }
-    .h23-inv__who b { font-size: 16px; line-height: 22px; }
-    .h23-inv__who span { font-size: 13px; line-height: 18px; }
-    .h23-partners li { width: 84px; border-radius: 18px; }
-  }
-
   /* ------------------------------------------------------- responsive */
   @media (max-width: 1080px) {
     .h22-row { justify-content: flex-start; overflow-x: auto; scroll-snap-type: x mandatory; padding: 12px 16px 24px; margin: 0 -16px; scrollbar-width: none; }
@@ -333,7 +297,7 @@
      scaled down, instead of stacking into one long column. */
   @media (max-width: 560px) {
     .h22-stats { margin-top: 36px; gap: 16px; }
-    .h22-products, .h22-why, .h23-oxyzo, .h23-love, .h23-backers { padding: 48px 0; }
+    .h22-products, .h22-why, .h23-oxyzo, .h23-love { padding: 48px 0; }
     .h22-rows { margin-top: 24px; gap: 4px; }
 
     /* why: lead card as a row, wide tiles side by side, small tiles in one row */
@@ -374,9 +338,6 @@
     .h23-tickets::-webkit-scrollbar { display: none; }
     .h23-ticket, .h23-ticket--lead { flex: 0 0 84%; min-height: 0; scroll-snap-align: start; }
     .h23-ticket--lead blockquote { line-height: 24px; }
-
-    .h23-backers .h22-h2 { font-size: 34px; }
-    .h23-backers__in { gap: 24px; }
   }
 
   /* ---------------------------------------------------------- motion
@@ -864,34 +825,6 @@
           <figcaption><img src="../assets/img/hp23/face-6.jpg" width="40" height="40" alt=""><span><b>Phaniraj D G</b><span class="h23-stars" role="img" aria-label="5 stars"></span></span><small>No. <span>003</span></small></figcaption>
         </figure>
       </div>
-    </div>
-  </section>
-
-  <!-- ============================================== investors and partners -->
-  <section class="h23-backers" aria-labelledby="h23-backers">
-    <div class="h23-backers__in">
-      <div class="h23-backers__head">
-        <h2 class="h22-h2" id="h23-backers" data-rise>Investors and <span class="h22-gold h22-gold--deep">partners</span></h2>
-        <div class="h23-partners" data-rise style="--i:1">
-          <ul data-stagger aria-label="Partners">
-            <li><img src="../assets/img/hp23/partner-tata-capital.png" width="240" height="240" alt="Tata Capital"></li>
-            <li><img src="../assets/img/hp23/partner-axis-direct.png" width="240" height="240" alt="Axis Direct"></li>
-            <li><img src="../assets/img/hp23/partner-yes-securities.png" width="240" height="240" alt="YES Securities"></li>
-          </ul>
-        </div>
-      </div>
-      <!-- DATA: investors. Photos and names supplied by GoldenPi; the company
-           under each name is their public affiliation, to confirm. -->
-      <ul class="h23-investors" data-stagger>
-        <li class="h23-inv">
-          <p class="h23-inv__who"><b>Nithin Kamath</b><span>Zerodha</span></p>
-          <span class="h23-inv__ph"><img src="../assets/img/hp23/inv-kamath.jpg" width="640" height="640" alt="Nithin Kamath" loading="lazy"></span>
-        </li>
-        <li class="h23-inv">
-          <p class="h23-inv__who"><b>Utpal Sheth</b><span>Rare Enterprises</span></p>
-          <span class="h23-inv__ph"><img src="../assets/img/hp23/inv-sheth.jpg" width="200" height="199" alt="Utpal Sheth" loading="lazy"></span>
-        </li>
-      </ul>
     </div>
   </section>
 </main>
