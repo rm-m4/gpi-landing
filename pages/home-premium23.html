@@ -109,7 +109,7 @@
   .h22-laurel--r { scale: -1 1; }
 
   /* --------------------------------------------------------- products */
-  .h22-products { background: var(--h22-cream); color: var(--h22-ink); padding: clamp(72px, 10vw, 110px) 0; text-align: center; }
+  .h22-products { background: var(--h22-cream); color: var(--h22-ink); padding: clamp(72px, 9vw, 112px) 0; text-align: center; }
   .h22-h2 { font-weight: 700; font-size: clamp(32px, 5.2vw, 55px); line-height: 1.27; letter-spacing: -0.035em; }
   .h22-products .h22-sub { color: var(--h22-ink); margin-top: 20px; }
   .h22-rows { display: grid; gap: 20px; margin-top: 40px; }
@@ -154,7 +154,7 @@
   .h22-badge span { font-size: 0.767em; color: #5f5a50; }
 
   /* --------------------------------------------------------------- why */
-  .h22-why { background: #000; padding: clamp(80px, 10vw, 120px) 0; text-align: center; }
+  .h22-why { background: #000; padding: clamp(72px, 9vw, 112px) 0; text-align: center; }
   .h22-why .h22-h2 { font-size: clamp(32px, 4.6vw, 50px); color: var(--h22-dim); }
   /* One gold lead card, two wide tiles over three small ones (Figma 162:2517). */
   .h23-why { display: grid; grid-template-columns: 403fr repeat(6, 110fr); grid-template-rows: 238px 184px; gap: 20px; width: min(1106px, 100%); margin: 60px auto 0; text-align: left; }
@@ -174,7 +174,7 @@
   .h22-tile p { margin-top: 14px; font-size: 16px; line-height: 24px; max-width: 18em; }
   .h23-wide { grid-column: span 3; }
   .h23-small { grid-column: span 2; padding: 24px; display: flex; flex-direction: column; align-items: center; text-align: center; }
-  .h23-small h3 { font-weight: 400; font-size: 16px; line-height: 24px; }
+  .h23-small h3 { font-weight: 500; font-size: 16px; line-height: 24px; text-wrap: balance; }
   .h23-lead {
     position: relative; overflow: hidden; grid-row: span 2; display: flex; flex-direction: column; justify-content: center; gap: 16px; padding: 30px;
     border-radius: 22px; color: #3a2c10;
@@ -187,7 +187,7 @@
   .h23-lead p { font-weight: 500; font-size: 16px; line-height: 25.6px; max-width: 288px; }
 
   /* ------------------------------------------------------------- oxyzo */
-  .h23-oxyzo { color: var(--h22-ink); padding: clamp(72px, 9vw, 120px) 0; background: radial-gradient(1005px circle at 63% 54%, rgba(224, 178, 45, 0.09), transparent 23%), #f7f6f2; }
+  .h23-oxyzo { color: var(--h22-ink); padding: clamp(72px, 9vw, 112px) 0; background: radial-gradient(1005px circle at 63% 54%, rgba(224, 178, 45, 0.09), transparent 23%), #f7f6f2; }
   .h23-oxyzo__in { display: grid; grid-template-columns: minmax(0, 1fr) 640px; align-items: start; gap: 60px; width: min(1120px, 100% - 32px); margin-inline: auto; }
   .h23-chip, .h23-pills li { display: inline-flex; align-items: center; gap: 10px; border-radius: 999px; background: rgba(255, 255, 255, 0.85); color: #1c1a16; }
   .h23-chip { height: 48px; padding: 8px 15px 8px 11px; font-weight: 500; font-size: 15px; box-shadow: 0 5px 12px #f3e8d6; }
@@ -214,7 +214,7 @@
   .h23-ox .h23-ox__k { margin-top: 12px; font-weight: 700; font-size: 11.2px; line-height: 16.8px; letter-spacing: 1.6px; text-transform: uppercase; }
 
   /* -------------------------------------------------------- customers */
-  .h23-love { background: #050505; padding: 72px 0 128px;  /* last section: room before the footer */ }
+  .h23-love { background: #050505; padding: clamp(72px, 9vw, 112px) 0 128px;  /* last section: room before the footer */ }
   .h23-love__in { display: grid; grid-template-columns: 370px minmax(0, 650px); justify-content: center; align-items: center; gap: 100px; width: min(1120px, 100% - 32px); margin-inline: auto; }
   .h23-love h2 { font-weight: 700; font-size: clamp(38px, 4.4vw, 55px); line-height: 1.27; letter-spacing: -2px; color: rgba(255, 255, 255, 0.8); max-width: 351px; }
   .h23-love__sub { font-size: 16px; line-height: 23.8px; color: rgba(255, 255, 255, 0.6); max-width: 330px; }
@@ -230,15 +230,15 @@
 
   .h23-tickets { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   /* A ticket: quote above a dashed tear line, notches cut at both ends of it. */
-  .h23-ticket { --foot: 81px; position: relative; display: flex; flex-direction: column; margin: 0; min-height: 295px; border-radius: 17px; background: #0f172a; overflow: hidden; }
-  .h23-ticket--lead { grid-column: 1 / -1; min-height: 257px; background: linear-gradient(#0f172a, #2e3c5e); }
+  .h23-ticket { --foot: 81px; position: relative; display: flex; flex-direction: column; margin: 0; min-height: 295px; border-radius: 17px; background: var(--h22-panel); border: 1px solid var(--h22-line); overflow: hidden; }
+  .h23-ticket--lead { grid-column: 1 / -1; min-height: 257px; background: linear-gradient(160deg, rgba(212, 175, 55, 0.14), transparent 60%), var(--h22-panel); border-color: rgba(212, 175, 55, 0.3); }
   .h23-ticket::before, .h23-ticket::after { content: ""; position: absolute; bottom: calc(var(--foot) - 12px); width: 16px; height: 24px; background: #050505; }
   .h23-ticket::before { left: -8px; border-radius: 0 999px 999px 0; }
   .h23-ticket::after { right: -8px; border-radius: 999px 0 0 999px; }
   .h23-ticket blockquote { flex: 1; margin: 0; padding: 25px 28px 19px; font-size: 16px; line-height: 24px; letter-spacing: -0.5px; color: #fff; }
   .h23-ticket--lead blockquote { padding: 24px 29px 18px; line-height: 31px; }
   .h23-ticket blockquote::before { content: "\201C"; display: block; height: 34px; margin-bottom: 9px; font: 700 62px/49.6px Georgia, serif; color: rgba(255, 255, 255, 0.19); }
-  .h23-ticket figcaption { display: flex; align-items: center; gap: 12px; min-height: var(--foot); padding: 14px 27px; border-top: 1px dashed rgba(255, 255, 255, 0.17); }
+  .h23-ticket figcaption { display: flex; align-items: center; gap: 12px; min-height: var(--foot); padding: 14px 27px; border-top: 1px dashed rgba(212, 175, 55, 0.3); }
   .h23-ticket figcaption img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
   .h23-ticket figcaption > span { display: grid; gap: 3px; max-width: 105px; }
   .h23-ticket figcaption b { font-size: 12px; line-height: 13.8px; color: #fff; }
@@ -349,10 +349,12 @@
     .h22-ln { white-space: nowrap; }
     .h22-hero .h22-sub { font-size: min(17px, 4.3vw); white-space: nowrap; }
     .h22-products .h22-h2 { font-size: min(32px, 6.3vw); white-space: nowrap; }
-    .h22-products .h22-sub { font-size: min(17px, 3.8vw); white-space: nowrap; }
+    .h22-products .h22-sub { margin-top: 8px; font-size: min(17px, 3.8vw); white-space: nowrap; }
+    /* product rows: narrower cards so the next one peeks in */
+    .h22-card, .h22-card--feature { font-size: min(14px, 3.6vw); }
 
     /* stats: one row between the laurels, as on desktop */
-    .h22-stats { display: flex; flex-wrap: nowrap; justify-content: center; gap: 2vw; width: auto; }
+    .h22-stats { display: flex; flex-wrap: nowrap; justify-content: space-between; gap: 2vw; width: 100%; }
     .h22-stats .h22-laurel { display: block; width: 20px; height: 30px; }
     .h22-stats div { align-items: center; text-align: center; }
     .h22-stats dd { font-size: min(18px, 4.2vw); line-height: 1.3; }
@@ -382,6 +384,7 @@
 
     .h22-js [data-rise] { opacity: 0; translate: 0 28px; transition: opacity 800ms var(--ease-out), translate 800ms var(--ease-out); transition-delay: calc(var(--i, 0) * 70ms); }
     .h22-js [data-rise].is-in { opacity: 1; translate: 0 0; }
+    .h22-js .h23-oxyzo__copy.is-in { translate: none; }  /* a translate would isolate the logo's multiply blend */
     .h22-js [data-stagger] > * { opacity: 0; translate: 0 28px; transition: opacity 800ms var(--ease-out), translate 800ms var(--ease-out), transform 400ms var(--ease-out), box-shadow 400ms var(--ease-out); }
     .h22-js [data-stagger].is-in > * { opacity: 1; translate: 0 0; }
     .h22-js [data-stagger] > :nth-child(2) { transition-delay: 70ms, 70ms, 0s, 0s; }
