@@ -214,7 +214,7 @@
   .h23-ox .h23-ox__k { margin-top: 12px; font-weight: 700; font-size: 11.2px; line-height: 16.8px; letter-spacing: 1.6px; text-transform: uppercase; }
 
   /* -------------------------------------------------------- customers */
-  .h23-love { background: #050505; padding: 72px 0; }
+  .h23-love { background: #050505; padding: 72px 0 128px;  /* last section: room before the footer */ }
   .h23-love__in { display: grid; grid-template-columns: 370px minmax(0, 650px); justify-content: center; align-items: center; gap: 100px; width: min(1120px, 100% - 32px); margin-inline: auto; }
   .h23-love h2 { font-weight: 700; font-size: clamp(38px, 4.4vw, 55px); line-height: 1.27; letter-spacing: -2px; color: rgba(255, 255, 255, 0.8); max-width: 351px; }
   .h23-love__sub { font-size: 16px; line-height: 23.8px; color: rgba(255, 255, 255, 0.6); max-width: 330px; }
@@ -298,6 +298,7 @@
   @media (max-width: 560px) {
     .h22-stats { margin-top: 36px; gap: 16px; }
     .h22-products, .h22-why, .h23-oxyzo, .h23-love { padding: 48px 0; }
+    .h23-love { padding-bottom: 80px; }
     .h22-rows { margin-top: 24px; gap: 4px; }
 
     /* why: lead card as a row, wide tiles side by side, small tiles in one row */
