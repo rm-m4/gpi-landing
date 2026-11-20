@@ -44,7 +44,9 @@ GROUPS = [
     ("Account", [("portfolio.html", "portfolio.html", "Portfolio"),
                  ("bond-utsav4.html", "bond-utsav.html", "Bond Utsav"),
                  ("bond-utsav6.html", "bond-utsav2.html", "Bond Utsav 2"),  # user, 2026-10-14
-                 ("refer-and-earn-with-referral.html", "refer-and-earn.html", "Refer &amp; Earn")]),
+                 ("refer-and-earn-with-referral.html", "refer-and-earn.html", "Refer &amp; Earn"),
+                 ("profile2.html", "profile.html", "Profile"),  # user, 2026-11-19
+                 ("profile-mobile2.html", "profile-mobile.html", "Profile (phone)")]),
 ]
 MAP = {src: dst for _, rows in GROUPS for src, dst, _ in rows}
 # other names the pages use for the same destinations (the prototype's map,

@@ -23,7 +23,7 @@ import _build as B
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 PAGES = ["user-explore-app7.html", "bond-details7.html", "ipo-details.html", "user-fixed-deposits-app2.html",
-         "fd-details2.html", "bond-utsav5.html", "portfolio.html"] + sorted(
+         "fd-details2.html", "bond-utsav5.html", "portfolio.html", "profile2.html"] + sorted(
             f for f in os.listdir(HERE) if f.startswith("collections2-"))  # app7's category pills open these
 HREF = {"index.html": "user-explore-app7.html", "user-explore.html": "user-explore-app7.html",
         "user-corporate-bonds.html": "user-explore-app7.html", "corporate-bonds.html": "user-explore-app7.html",

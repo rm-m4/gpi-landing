@@ -1,0 +1,134 @@
+[
+  {
+    "file": "excel.svg",
+    "icon": "file:file-type-excel",
+    "name": "Excel",
+    "kind": "colour",
+    "source": "@iconify-json/vscode-icons@1.2.30",
+    "author": "Roberto Huertas",
+    "licence": "MIT",
+    "url": "https://github.com/vscode-icons/vscode-icons",
+    "trademark": false
+  },
+  {
+    "file": "pdf2.svg",
+    "icon": "file:file-type-pdf2",
+    "name": "Pdf",
+    "kind": "colour",
+    "source": "@iconify-json/vscode-icons@1.2.30",
+    "author": "Roberto Huertas",
+    "licence": "MIT",
+    "url": "https://github.com/vscode-icons/vscode-icons",
+    "trademark": false
+  },
+  {
+    "file": "text.svg",
+    "icon": "file:file-type-text",
+    "name": "Text",
+    "kind": "colour",
+    "source": "@iconify-json/vscode-icons@1.2.30",
+    "author": "Roberto Huertas",
+    "licence": "MIT",
+    "url": "https://github.com/vscode-icons/vscode-icons",
+    "trademark": false
+  },
+  {
+    "file": "ui-arrow-left.svg",
+    "icon": "ui:arrow-left",
+    "name": "Arrow Left",
+    "kind": "line",
+    "source": "@iconify-json/lucide@1.2.100",
+    "author": "Lucide Contributors",
+    "licence": "ISC",
+    "url": "https://github.com/lucide-icons/lucide",
+    "trademark": false
+  },
+  {
+    "file": "ui-check.svg",
+    "icon": "ui:check",
+    "name": "Check",
+    "kind": "line",
+    "source": "@iconify-json/lucide@1.2.100",
+    "author": "Lucide Contributors",
+    "licence": "ISC",
+    "url": "https://github.com/lucide-icons/lucide",
+    "trademark": false
+  },
+  {
+    "file": "ui-chevron-down.svg",
+    "icon": "ui:chevron-down",
+    "name": "Chevron Down",
+    "kind": "line",
+    "source": "@iconify-json/lucide@1.2.100",
+    "author": "Lucide Contributors",
+    "licence": "ISC",
+    "url": "https://github.com/lucide-icons/lucide",
+    "trademark": false
+  },
+  {
+    "file": "ui-chevron-right.svg",
+    "icon": "ui:chevron-right",
+    "name": "Chevron Right",
+    "kind": "line",
+    "source": "@iconify-json/lucide@1.2.100",
+    "author": "Lucide Contributors",
+    "licence": "ISC",
+    "url": "https://github.com/lucide-icons/lucide",
+    "trademark": false
+  },
+  {
+    "file": "ui-download.svg",
+    "icon": "ui:download",
+    "name": "Download",
+    "kind": "line",
+    "source": "@iconify-json/lucide@1.2.100",
+    "author": "Lucide Contributors",
+    "licence": "ISC",
+    "url": "https://github.com/lucide-icons/lucide",
+    "trademark": false
+  },
+  {
+    "file": "ui-mail.svg",
+    "icon": "ui:mail",
+    "name": "Mail",
+    "kind": "line",
+    "source": "@iconify-json/lucide@1.2.100",
+    "author": "Lucide Contributors",
+    "licence": "ISC",
+    "url": "https://github.com/lucide-icons/lucide",
+    "trademark": false
+  },
+  {
+    "file": "ui-pencil.svg",
+    "icon": "ui:pencil",
+    "name": "Pencil",
+    "kind": "line",
+    "source": "@iconify-json/lucide@1.2.100",
+    "author": "Lucide Contributors",
+    "licence": "ISC",
+    "url": "https://github.com/lucide-icons/lucide",
+    "trademark": false
+  },
+  {
+    "file": "ui-x.svg",
+    "icon": "ui:x",
+    "name": "X",
+    "kind": "line",
+    "source": "@iconify-json/lucide@1.2.100",
+    "author": "Lucide Contributors",
+    "licence": "ISC",
+    "url": "https://github.com/lucide-icons/lucide",
+    "trademark": false
+  },
+  {
+    "file": "ui-pen-line.svg",
+    "icon": "ui:pen-line",
+    "name": "Pen Line",
+    "kind": "line",
+    "source": "@iconify-json/lucide@1.2.100",
+    "author": "Lucide Contributors",
+    "licence": "ISC",
+    "url": "https://github.com/lucide-icons/lucide",
+    "trademark": false
+  }
+]

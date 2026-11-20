@@ -157,6 +157,7 @@ python3 pages/_utsav.py      # -> bond-utsav.html (from crawl/rendered/bond-utsa
 python3 pages/_utsav6.py     # -> bond-utsav6.html's listing only (bond-utsav.html's categories, dark, max 6 bonds each; the page itself is hand-made)
 python3 pages/_utsav_live.py # -> bond-utsav-live.html (production UI, from prod_bond-utsav.tabs.json)
 python3 pages/_profile.py    # -> profile.html, profile-no-kyc.html (content/profile.md + Figma 21:2427)
+python3 pages/_profile_v1.py # -> profile2.html, profile-mobile2.html (crawl/design/profile-v59 + profile-mobile-v22; web-v1 profile.html, profile-mobile.html; then _build.py, _prototype.py, _web_v1.py)
 python3 pages/_refer.py      # -> refer-and-earn-with-referral.html (refer-and-earn.html + staging capture)
 python3 pages/_explore_bonds.py # -> user-corporate-bonds2.html (post-login bonds + Collections, merged)
 python3 pages/_explore_bonds3.py # -> user-corporate-bonds3.html (why bonds + FD comparison, then the Collections explorer; also collection-explore.html, the explorer alone, collection-explore2.html without the cards' note strip, collection-explore3.html with sage cards)
