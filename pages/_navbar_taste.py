@@ -20,6 +20,7 @@ import os
 import re
 
 import _navbar as N
+import _paths as P
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 IMG = "../assets/img/"
@@ -240,8 +241,7 @@ def main():
     page = page[:a] + slot + page[b:]
     page = page.replace('<main id="main-content">\n', '<main id="main-content">\n' + lab(), 1)
     page = page.replace("</body>", JS + "</body>", 1)
-    with open(os.path.join(HERE, "navbar-variants-taste.html"), "w", encoding="utf-8") as f:
-        f.write(page)
+    P.write_page("navbar-variants-taste.html", page)
     print("navbar-variants-taste.html %d bytes" % len(page))
 
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Write premium-fd2.html: the pre-login FD landing page. Everything on the
-logged-in FD page web-v1 shows as /fixed-deposits (user-fixed-deposits-app2.html)
+logged-in FD page web shows as /fixed-deposits (user-fixed-deposits-app2.html)
 stays as it is (the FD carousel, security, Bank and NBFC FDs, PSU vs GoldenPi,
 the calculator), with three changes for a visitor who is not logged in:
 

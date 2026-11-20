@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Profile, new design, for web-v1: two designer files (user, 2026-11-19),
+"""Profile, new design, for web: two designer files (user, 2026-11-19),
 kept as given in crawl/design/, become two pages.
 
   crawl/design/profile-v59.html        -> pages/profile2.html (desktop)

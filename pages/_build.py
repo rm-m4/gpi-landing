@@ -187,7 +187,10 @@ NB_LABELS = {"Bonds": "Bonds", "FD": "FD", "Bond Utsav": "Bond Utsav", "Refer &a
 def final_pages():
     ap = open(os.path.join(HERE, "all-pages.html"), encoding="utf-8").read()
     fin = ap[ap.index('id="panel-final"'):ap.index('id="panel-iterations"')]
-    return re.findall(r'<a href="([^"#]+\.html)"', fin)
+    # bond-utsav4/5/6 joined this tab on 2026-11-20 only because web/ is built
+    # from them; they keep the chrome they were made with (_web_v1.py swaps it).
+    return [f for f in re.findall(r'<a href="([^"#]+\.html)"', fin)
+            if f not in ("bond-utsav4.html", "bond-utsav5.html", "bond-utsav6.html")]
 
 
 def current_label(name, old):
@@ -261,10 +264,10 @@ def ggn_parts(src):
     return footer, styles, scripts
 
 
-def ggn_footer(name, page):
+def ggn_footer(name, page, src=None):
     if name.startswith("footer-") or "<footer" not in page:
         return page
-    src = GGN.get(name) or ("footer-ggn-login.html" if "nb__avatar" in page else "footer-ggn-guest.html")
+    src = src or GGN.get(name) or ("footer-ggn-login.html" if "nb__avatar" in page else "footer-ggn-guest.html")
     footer, styles, scripts = ggn_parts(src)
     for part in ("styles", "scripts"):  # drop what an earlier run injected
         page = re.sub(r"%s\n.*?%s\n" % (re.escape(MARK % part), re.escape(MARK % ("/" + part))), "", page, flags=re.S)

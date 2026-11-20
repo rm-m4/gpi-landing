@@ -6,7 +6,7 @@
 <title>All Pages</title>
 <!-- Index of every page in pages/, for review. Not a GoldenPi page: it has no
      shared header or footer, and _build.py does not touch it. Hand-maintained:
-     add a row when a page is added (Final or Iterations is a judgement call).
+     add a row when a page is added (Iteration or Migration is a judgement call).
      node crawl/check.js fails if a page on disk is not listed here, and the tab
      counts are computed from the lists. -->
 <meta name="robots" content="noindex">
@@ -55,6 +55,7 @@
     cursor: pointer;
   }
   .ap-tabs button[aria-selected="true"] { background: var(--gp-gradient-gold); color: var(--app-heading-color); }
+  @media (max-width: 480px) { .ap-tabs button { padding: 9px 12px; } }
   .ap-tabs button:focus-visible { outline: 2px solid #8a6520; outline-offset: 2px; }
   .ap-count { margin-left: 6px; font-weight: 500; opacity: 0.7; }
   .ap-list span { color: var(--subtext); font-size: 13px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
@@ -67,79 +68,83 @@
   .ap-chips button[aria-pressed="true"] { border-color: #d4af37; background: #fdf3d4; color: var(--app-heading-color); }
   .ap-chips button:focus-visible { outline: 2px solid #8a6520; outline-offset: 2px; }
   .ap-chips span { margin-left: 4px; font-weight: 500; opacity: 0.7; }
+  .ap-search { flex: 1 1 200px; max-width: 320px; margin-left: auto; padding: 10px 16px; border: 1px solid var(--light-stroke); border-radius: 999px; background: var(--white); color: var(--app-heading-color); font: inherit; font-size: 15px; }
+  .ap-search:focus-visible { outline: 2px solid #8a6520; outline-offset: 2px; }
+  .ap-empty { margin: 24px 0; color: var(--subtext); }
 </style>
 </head>
 <body>
 <main class="ap">
   <img src="../assets/img/goldenpi-logo.svg" alt="GoldenPi" width="132" height="30">
   <h1>All Pages</h1>
-  <p class="ap-sub">Every page in this repo. Final pages are the deliverable; iterations are frozen records of what was tried.</p>
+  <p class="ap-sub">Every page in this repo, in three sets. Web is what is released; Iteration is the work in progress, in pages/; Migration is the frozen record of what was tried, in migration/.</p>
 
   <div class="ap-bar">
     <div class="ap-bar__row">
       <div class="ap-tabs" role="tablist" aria-label="Page sets" hidden>
-        <button type="button" role="tab" id="tab-web-v1" aria-controls="panel-web-v1" aria-selected="true">Web V1<span class="ap-count"></span></button>
-        <button type="button" role="tab" id="tab-final" aria-controls="panel-final" aria-selected="false" tabindex="-1">Final<span class="ap-count"></span></button>
-        <button type="button" role="tab" id="tab-iterations" aria-controls="panel-iterations" aria-selected="false" tabindex="-1">Iterations<span class="ap-count"></span></button>
+        <button type="button" role="tab" id="tab-web" aria-controls="panel-web" aria-selected="true">Web<span class="ap-count"></span></button>
+        <button type="button" role="tab" id="tab-final" aria-controls="panel-final" aria-selected="false" tabindex="-1">Iteration<span class="ap-count"></span></button>
+        <button type="button" role="tab" id="tab-iterations" aria-controls="panel-iterations" aria-selected="false" tabindex="-1">Migration<span class="ap-count"></span></button>
       </div>
+      <input class="ap-search" type="search" placeholder="Search pages" aria-label="Search pages" hidden>
     </div>
     <div class="ap-chips" role="group" aria-label="Groups" hidden></div>
   </div>
 
-  <!-- ============================================================== web v1 -->
-  <section id="panel-web-v1" role="tabpanel" aria-labelledby="tab-web-v1">
-  <h2>Web V1</h2>
+  <!-- ================================================================= web -->
+  <section id="panel-web" role="tabpanel" aria-labelledby="tab-web">
+  <h2>Web</h2>
 
-  <p class="ap-sub">The final pages, as the stakeholder folder web-v1/ (pages/_web_v1.py).</p>
+  <p class="ap-sub">The released pages, in web/ (pages/_web_v1.py).</p>
 
   <h3>Home and bonds</h3>
   <ul class="ap-list">
-    <li><a href="../web-v1/explore.html"><strong>Explore (home)</strong><span>explore.html</span></a></li>
-    <li><a href="../web-v1/bond-details.html"><strong>Bond details</strong><span>bond-details.html</span></a></li>
-    <li><a href="../web-v1/ipo-details.html"><strong>NCD IPO details</strong><span>ipo-details.html</span></a></li>
+    <li><a href="../web/explore.html"><strong>Explore (home)</strong><span>explore.html</span></a></li>
+    <li><a href="../web/bond-details.html"><strong>Bond details</strong><span>bond-details.html</span></a></li>
+    <li><a href="../web/ipo-details.html"><strong>NCD IPO details</strong><span>ipo-details.html</span></a></li>
   </ul>
 
   <h3>Collections</h3>
   <ul class="ap-list">
-    <li><a href="../web-v1/collections-all-bonds.html"><strong>All Bonds</strong><span>collections-all-bonds.html</span></a></li>
-    <li><a href="../web-v1/collections-highly-rated.html"><strong>Highly Rated</strong><span>collections-highly-rated.html</span></a></li>
-    <li><a href="../web-v1/collections-high-returns.html"><strong>High Returns</strong><span>collections-high-returns.html</span></a></li>
-    <li><a href="../web-v1/collections-short-term.html"><strong>Short Term</strong><span>collections-short-term.html</span></a></li>
-    <li><a href="../web-v1/collections-gold-backed.html"><strong>Gold Backed</strong><span>collections-gold-backed.html</span></a></li>
-    <li><a href="../web-v1/collections-ncd-ipo.html"><strong>NCD IPO</strong><span>collections-ncd-ipo.html</span></a></li>
-    <li><a href="../web-v1/collections-starts-10k.html"><strong>Starts ₹10k</strong><span>collections-starts-10k.html</span></a></li>
-    <li><a href="../web-v1/collections-government-bonds.html"><strong>Government Bonds</strong><span>collections-government-bonds.html</span></a></li>
-    <li><a href="../web-v1/collections-monthly-payout.html"><strong>Monthly Payout</strong><span>collections-monthly-payout.html</span></a></li>
-    <li><a href="../web-v1/collections-tax-free-bonds.html"><strong>Tax Free Bonds</strong><span>collections-tax-free-bonds.html</span></a></li>
-    <li><a href="../web-v1/collections-public-sector-bank-bonds.html"><strong>Public Bank Bonds</strong><span>collections-public-sector-bank-bonds.html</span></a></li>
+    <li><a href="../web/collections-all-bonds.html"><strong>All Bonds</strong><span>collections-all-bonds.html</span></a></li>
+    <li><a href="../web/collections-highly-rated.html"><strong>Highly Rated</strong><span>collections-highly-rated.html</span></a></li>
+    <li><a href="../web/collections-high-returns.html"><strong>High Returns</strong><span>collections-high-returns.html</span></a></li>
+    <li><a href="../web/collections-short-term.html"><strong>Short Term</strong><span>collections-short-term.html</span></a></li>
+    <li><a href="../web/collections-gold-backed.html"><strong>Gold Backed</strong><span>collections-gold-backed.html</span></a></li>
+    <li><a href="../web/collections-ncd-ipo.html"><strong>NCD IPO</strong><span>collections-ncd-ipo.html</span></a></li>
+    <li><a href="../web/collections-starts-10k.html"><strong>Starts ₹10k</strong><span>collections-starts-10k.html</span></a></li>
+    <li><a href="../web/collections-government-bonds.html"><strong>Government Bonds</strong><span>collections-government-bonds.html</span></a></li>
+    <li><a href="../web/collections-monthly-payout.html"><strong>Monthly Payout</strong><span>collections-monthly-payout.html</span></a></li>
+    <li><a href="../web/collections-tax-free-bonds.html"><strong>Tax Free Bonds</strong><span>collections-tax-free-bonds.html</span></a></li>
+    <li><a href="../web/collections-public-sector-bank-bonds.html"><strong>Public Bank Bonds</strong><span>collections-public-sector-bank-bonds.html</span></a></li>
   </ul>
 
   <h3>Fixed deposits</h3>
   <ul class="ap-list">
-    <li><a href="../web-v1/fixed-deposits.html"><strong>Fixed Deposits</strong><span>fixed-deposits.html</span></a></li>
-    <li><a href="../web-v1/fd-details.html"><strong>FD details</strong><span>fd-details.html</span></a></li>
+    <li><a href="../web/fixed-deposits.html"><strong>Fixed Deposits</strong><span>fixed-deposits.html</span></a></li>
+    <li><a href="../web/fd-details.html"><strong>FD details</strong><span>fd-details.html</span></a></li>
   </ul>
 
   <h3>Pre-login</h3>
   <ul class="ap-list">
-    <li><a href="../web-v1/explore-prelogin.html"><strong>Explore (pre-login)</strong><span>explore-prelogin.html</span></a></li>
-    <li><a href="../web-v1/signup.html"><strong>Sign up</strong><span>signup.html</span></a></li>
+    <li><a href="../web/explore-prelogin.html"><strong>Explore (pre-login)</strong><span>explore-prelogin.html</span></a></li>
+    <li><a href="../web/signup.html"><strong>Sign up</strong><span>signup.html</span></a></li>
   </ul>
 
   <h3>Account</h3>
   <ul class="ap-list">
-    <li><a href="../web-v1/portfolio.html"><strong>Portfolio</strong><span>portfolio.html</span></a></li>
-    <li><a href="../web-v1/bond-utsav.html"><strong>Bond Utsav</strong><span>bond-utsav.html</span></a></li>
-    <li><a href="../web-v1/bond-utsav2.html"><strong>Bond Utsav 2</strong><span>bond-utsav2.html</span></a></li>
-    <li><a href="../web-v1/refer-and-earn.html"><strong>Refer &amp; Earn</strong><span>refer-and-earn.html</span></a></li>
-    <li><a href="../web-v1/profile.html"><strong>Profile</strong><span>profile.html</span></a></li>
-    <li><a href="../web-v1/profile-mobile.html"><strong>Profile (phone)</strong><span>profile-mobile.html</span></a></li>
+    <li><a href="../web/portfolio.html"><strong>Portfolio</strong><span>portfolio.html</span></a></li>
+    <li><a href="../web/bond-utsav.html"><strong>Bond Utsav</strong><span>bond-utsav.html</span></a></li>
+    <li><a href="../web/bond-utsav2.html"><strong>Bond Utsav 2</strong><span>bond-utsav2.html</span></a></li>
+    <li><a href="../web/refer-and-earn.html"><strong>Refer &amp; Earn</strong><span>refer-and-earn.html</span></a></li>
+    <li><a href="../web/profile.html"><strong>Profile</strong><span>profile.html</span></a></li>
+    <li><a href="../web/profile-mobile.html"><strong>Profile (phone)</strong><span>profile-mobile.html</span></a></li>
   </ul>
   </section>
 
   <!-- ================================================================ final -->
   <section id="panel-final" role="tabpanel" aria-labelledby="tab-final">
-  <h2>Final</h2>
+  <h2>Iteration</h2>
 
   <h3>Public</h3>
   <ul class="ap-list">
@@ -180,6 +185,9 @@
     <li><a href="refer-and-earn.html"><strong>Refer &amp; Earn</strong><span>refer-and-earn.html</span></a></li>
     <li><a href="bond-utsav.html"><strong>Bond Utsav</strong><span>bond-utsav.html</span></a></li>
     <li><a href="bond-utsav3.html"><strong>Bond Utsav (festive Deal of the Day)</strong><span>bond-utsav3.html</span></a></li>
+    <li><a href="bond-utsav4.html"><strong>Logo reveal, offer posters on parachutes</strong><span>bond-utsav4.html</span></a></li>
+    <li><a href="bond-utsav5.html"><strong>No story: opens on the logo and posters, fireworks bursting</strong><span>bond-utsav5.html</span></a></li>
+    <li><a href="bond-utsav6.html"><strong>bond-utsav4 re-timed: kid at the rocket, faster fuse, Bond Utsav logo before the posters</strong><span>bond-utsav6.html</span></a></li>
     <li><a href="investment-options-list-view.html"><strong>Discover Bonds</strong><span>investment-options-list-view.html</span></a></li>
     <li><a href="signup.html"><strong>Sign up</strong><span>signup.html</span></a></li>
     <li><a href="issuers-akara-capital-advisors-private-limited.html"><strong>Issuer: Akara Capital Advisors</strong><span>issuers-akara-capital-advisors-private-limited.html</span></a></li>
@@ -315,85 +323,82 @@
 
   <!-- =========================================================== iterations -->
   <section id="panel-iterations" role="tabpanel" aria-labelledby="tab-iterations">
-  <h2>Iterations</h2>
+  <h2>Migration</h2>
 
   <h3>Homepage</h3>
   <ul class="ap-list">
-    <li><a href="index-old.html"><strong>Archive, before conversion</strong><span>index-old.html</span></a></li>
-    <li><a href="index-alt.html"><strong>Elevated</strong><span>index-alt.html</span></a></li>
-    <li><a href="index-taste.html"><strong>Taste</strong><span>index-taste.html</span></a></li>
-    <li><a href="index-proof-cards.html"><strong>Proof block: cards + logo chips</strong><span>index-proof-cards.html</span></a></li>
-    <li><a href="hero-bg-options.html"><strong>Hero background options for home-premium22 (picker)</strong><span>hero-bg-options.html</span></a></li>
+    <li><a href="../migration/index-old.html"><strong>Archive, before conversion</strong><span>index-old.html</span></a></li>
+    <li><a href="../migration/index-alt.html"><strong>Elevated</strong><span>index-alt.html</span></a></li>
+    <li><a href="../migration/index-taste.html"><strong>Taste</strong><span>index-taste.html</span></a></li>
+    <li><a href="../migration/index-proof-cards.html"><strong>Proof block: cards + logo chips</strong><span>index-proof-cards.html</span></a></li>
+    <li><a href="../migration/hero-bg-options.html"><strong>Hero background options for home-premium22 (picker)</strong><span>hero-bg-options.html</span></a></li>
   </ul>
 
   <h3>Corporate Bonds</h3>
   <ul class="ap-list">
-    <li><a href="corporate-bonds-old.html"><strong>Archive, before conversion</strong><span>corporate-bonds-old.html</span></a></li>
-    <li><a href="corporate-bonds-alt.html"><strong>Elevated</strong><span>corporate-bonds-alt.html</span></a></li>
-    <li><a href="corporate-bonds-taste.html"><strong>Taste, minimalist</strong><span>corporate-bonds-taste.html</span></a></li>
-    <li><a href="corporate-bonds-taste2.html"><strong>Taste 2, high-end</strong><span>corporate-bonds-taste2.html</span></a></li>
-    <li><a href="corporate-bonds-taste3.html"><strong>Taste 3, three-banner hero</strong><span>corporate-bonds-taste3.html</span></a></li>
+    <li><a href="../migration/corporate-bonds-old.html"><strong>Archive, before conversion</strong><span>corporate-bonds-old.html</span></a></li>
+    <li><a href="../migration/corporate-bonds-alt.html"><strong>Elevated</strong><span>corporate-bonds-alt.html</span></a></li>
+    <li><a href="../migration/corporate-bonds-taste.html"><strong>Taste, minimalist</strong><span>corporate-bonds-taste.html</span></a></li>
+    <li><a href="../migration/corporate-bonds-taste2.html"><strong>Taste 2, high-end</strong><span>corporate-bonds-taste2.html</span></a></li>
+    <li><a href="../migration/corporate-bonds-taste3.html"><strong>Taste 3, three-banner hero</strong><span>corporate-bonds-taste3.html</span></a></li>
   </ul>
 
   <h3>Fixed Deposits</h3>
   <ul class="ap-list">
-    <li><a href="fixed-deposits-old.html"><strong>Archive, before conversion</strong><span>fixed-deposits-old.html</span></a></li>
-    <li><a href="fixed-deposits-alt.html"><strong>Elevated</strong><span>fixed-deposits-alt.html</span></a></li>
-    <li><a href="fixed-deposits-taste.html"><strong>Taste</strong><span>fixed-deposits-taste.html</span></a></li>
+    <li><a href="../migration/fixed-deposits-old.html"><strong>Archive, before conversion</strong><span>fixed-deposits-old.html</span></a></li>
+    <li><a href="../migration/fixed-deposits-alt.html"><strong>Elevated</strong><span>fixed-deposits-alt.html</span></a></li>
+    <li><a href="../migration/fixed-deposits-taste.html"><strong>Taste</strong><span>fixed-deposits-taste.html</span></a></li>
   </ul>
 
   <h3>Bond IPOs</h3>
   <ul class="ap-list">
-    <li><a href="bond-ipo-online-old.html"><strong>Archive, before conversion</strong><span>bond-ipo-online-old.html</span></a></li>
-    <li><a href="bond-ipo-online-alt.html"><strong>Elevated</strong><span>bond-ipo-online-alt.html</span></a></li>
-    <li><a href="bond-ipo-online-taste.html"><strong>Taste</strong><span>bond-ipo-online-taste.html</span></a></li>
+    <li><a href="../migration/bond-ipo-online-old.html"><strong>Archive, before conversion</strong><span>bond-ipo-online-old.html</span></a></li>
+    <li><a href="../migration/bond-ipo-online-alt.html"><strong>Elevated</strong><span>bond-ipo-online-alt.html</span></a></li>
+    <li><a href="../migration/bond-ipo-online-taste.html"><strong>Taste</strong><span>bond-ipo-online-taste.html</span></a></li>
   </ul>
 
   <h3>Bond Utsav</h3>
   <ul class="ap-list">
-    <li><a href="bond-utsav1.html"><strong>Folder tabs and collections</strong><span>bond-utsav1.html</span></a></li>
-    <li><a href="bond-utsav2.html"><strong>Review fixes: compact strip, quieter cards</strong><span>bond-utsav2.html</span></a></li>
-    <li><a href="bond-utsav-live.html"><strong>Production UI: dark row list</strong><span>bond-utsav-live.html</span></a></li>
-    <li><a href="bond-utsav4.html"><strong>Logo reveal, offer posters on parachutes</strong><span>bond-utsav4.html</span></a></li>
-    <li><a href="bond-utsav5.html"><strong>No story: opens on the logo and posters, fireworks bursting</strong><span>bond-utsav5.html</span></a></li>
-    <li><a href="bond-utsav6.html"><strong>bond-utsav4 re-timed: kid at the rocket, faster fuse, Bond Utsav logo before the posters</strong><span>bond-utsav6.html</span></a></li>
-    <li><a href="bond-utsav-day1.html"><strong>Bond Utsav day 1: bond-utsav6 with only the logo popping, no parachute posters</strong><span>bond-utsav-day1.html</span></a></li>
-    <li><a href="bond-utsav-day2.html"><strong>Bond Utsav day 2: bond-utsav6 at its own URL (a link to the same file, so the two never drift)</strong><span>bond-utsav-day2.html</span></a></li>
-    <li><a href="bond-utsav-day3.html"><strong>Bond Utsav day 3: bond-utsav6 with the gift opening into bond-utsav3's Deal of the Day</strong><span>bond-utsav-day3.html</span></a></li>
+    <li><a href="../migration/bond-utsav1.html"><strong>Folder tabs and collections</strong><span>bond-utsav1.html</span></a></li>
+    <li><a href="../migration/bond-utsav2.html"><strong>Review fixes: compact strip, quieter cards</strong><span>bond-utsav2.html</span></a></li>
+    <li><a href="../migration/bond-utsav-live.html"><strong>Production UI: dark row list</strong><span>bond-utsav-live.html</span></a></li>
+    <li><a href="../migration/bond-utsav-day1.html"><strong>Bond Utsav day 1: bond-utsav6 with only the logo popping, no parachute posters</strong><span>bond-utsav-day1.html</span></a></li>
+    <li><a href="../migration/bond-utsav-day2.html"><strong>Bond Utsav day 2: opens bond-utsav6 (it stays in pages/, where it builds web/bond-utsav2)</strong><span>bond-utsav-day2.html</span></a></li>
+    <li><a href="../migration/bond-utsav-day3.html"><strong>Bond Utsav day 3: bond-utsav6 with the gift opening into bond-utsav3's Deal of the Day</strong><span>bond-utsav-day3.html</span></a></li>
   </ul>
 
   <h3>Blog</h3>
   <ul class="ap-list">
-    <li><a href="blog.html"><strong>Blog: redesigned</strong><span>blog.html</span></a></li>
-    <li><a href="blog-minimal.html"><strong>Blog: minimal</strong><span>blog-minimal.html</span></a></li>
-    <li><a href="blog-post.html"><strong>Blog article: redesigned</strong><span>blog-post.html</span></a></li>
-    <li><a href="blog-post-minimal.html"><strong>Blog article: minimal</strong><span>blog-post-minimal.html</span></a></li>
+    <li><a href="../migration/blog.html"><strong>Blog: redesigned</strong><span>blog.html</span></a></li>
+    <li><a href="../migration/blog-minimal.html"><strong>Blog: minimal</strong><span>blog-minimal.html</span></a></li>
+    <li><a href="../migration/blog-post.html"><strong>Blog article: redesigned</strong><span>blog-post.html</span></a></li>
+    <li><a href="../migration/blog-post-minimal.html"><strong>Blog article: minimal</strong><span>blog-post-minimal.html</span></a></li>
   </ul>
 
   <h3>Footer</h3>
   <ul class="ap-list">
-    <li><a href="footer-landing.html"><strong>Footer</strong><span>footer-landing.html</span></a></li>
-    <li><a href="footer-login.html"><strong>Footer, logged in (dark, softer text)</strong><span>footer-login.html</span></a></li>
-    <li><a href="footer-login2.html"><strong>Footer, logged in (dark, original colours)</strong><span>footer-login2.html</span></a></li>
-    <li><a href="footer-login3.html"><strong>Footer, logged in (dark, loved by 20 Lac+ band)</strong><span>footer-login3.html</span></a></li>
-    <li><a href="footer-login5.html"><strong>Footer, logged in (company, loved by, credentials and figures)</strong><span>footer-login5.html</span></a></li>
-    <li><a href="footer-login6.html"><strong>Footer, logged in (footer-login5 with heart and icons)</strong><span>footer-login6.html</span></a></li>
-    <li><a href="footer-taste.html"><strong>Footer, taste (dark)</strong><span>footer-taste.html</span></a></li>
-    <li><a href="footer-bonds.html"><strong>Footer, corporate bonds</strong><span>footer-bonds.html</span></a></li>
-    <li><a href="footer-v1.html"><strong>Footer, info as cards</strong><span>footer-v1.html</span></a></li>
-    <li><a href="footer-v2.html"><strong>Footer, info as compact list</strong><span>footer-v2.html</span></a></li>
-    <li><a href="footer-figma-ui-v2.html"><strong>Footer, Figma UI v2 (type weights)</strong><span>footer-figma-ui-v2.html</span></a></li>
+    <li><a href="../migration/footer-landing.html"><strong>Footer</strong><span>footer-landing.html</span></a></li>
+    <li><a href="../migration/footer-login.html"><strong>Footer, logged in (dark, softer text)</strong><span>footer-login.html</span></a></li>
+    <li><a href="../migration/footer-login2.html"><strong>Footer, logged in (dark, original colours)</strong><span>footer-login2.html</span></a></li>
+    <li><a href="../migration/footer-login3.html"><strong>Footer, logged in (dark, loved by 20 Lac+ band)</strong><span>footer-login3.html</span></a></li>
+    <li><a href="../migration/footer-login5.html"><strong>Footer, logged in (company, loved by, credentials and figures)</strong><span>footer-login5.html</span></a></li>
+    <li><a href="../migration/footer-login6.html"><strong>Footer, logged in (footer-login5 with heart and icons)</strong><span>footer-login6.html</span></a></li>
+    <li><a href="../migration/footer-taste.html"><strong>Footer, taste (dark)</strong><span>footer-taste.html</span></a></li>
+    <li><a href="../migration/footer-bonds.html"><strong>Footer, corporate bonds</strong><span>footer-bonds.html</span></a></li>
+    <li><a href="../migration/footer-v1.html"><strong>Footer, info as cards</strong><span>footer-v1.html</span></a></li>
+    <li><a href="../migration/footer-v2.html"><strong>Footer, info as compact list</strong><span>footer-v2.html</span></a></li>
+    <li><a href="../migration/footer-figma-ui-v2.html"><strong>Footer, Figma UI v2 (type weights)</strong><span>footer-figma-ui-v2.html</span></a></li>
   </ul>
 
   <h3>Navbar</h3>
   <ul class="ap-list">
-    <li><a href="navbar-variants.html"><strong>Navbar variants: icons, theme, guest and logged in</strong><span>navbar-variants.html</span></a></li>
-    <li><a href="navbar-variants-taste.html"><strong>Navbar variants, taste: one icon family, black dark mode</strong><span>navbar-variants-taste.html</span></a></li>
+    <li><a href="../migration/navbar-variants.html"><strong>Navbar variants: icons, theme, guest and logged in</strong><span>navbar-variants.html</span></a></li>
+    <li><a href="../migration/navbar-variants-taste.html"><strong>Navbar variants, taste: one icon family, black dark mode</strong><span>navbar-variants-taste.html</span></a></li>
   </ul>
 
   <h3>Email</h3>
   <ul class="ap-list">
-    <li><a href="email-templates.html"><strong>Email header and footer, gold variants</strong><span>email-templates.html</span></a></li>
+    <li><a href="../migration/email-templates.html"><strong>Email header and footer, gold variants</strong><span>email-templates.html</span></a></li>
   </ul>
 
   </section>
@@ -441,7 +446,14 @@
 (function () {
   var chips = document.querySelector('.ap-chips');
   var group = '';
-  chips.hidden = false;
+  var search = document.querySelector('.ap-search');
+  var empty = document.createElement('p');
+  empty.className = 'ap-empty';
+  empty.textContent = 'No pages match.';
+  empty.hidden = true;
+  chips.parentNode.after(empty);
+  chips.hidden = search.hidden = false;
+  search.addEventListener('input', function () { apply(); });
 
   function panel() { return document.querySelector('[role="tabpanel"]:not([hidden])'); }
   function groups(p) {
@@ -449,16 +461,21 @@
   }
 
   function apply() {
+    // Matches the page name and file name, so "utsav" or "fd-details" both work.
+    var q = search.value.trim().toLowerCase();
+    var total = 0;
     groups(panel()).forEach(function (g) {
       var inGroup = !group || g.h.textContent === group;
       var n = 0;
       g.ul.querySelectorAll('li').forEach(function (li) {
-        var on = inGroup;
+        var on = inGroup && (!q || li.textContent.toLowerCase().indexOf(q) !== -1);
         li.hidden = !on;
         if (on) n++;
       });
       g.h.hidden = g.ul.hidden = !n;
+      total += n;
     });
+    empty.hidden = !!total;
   }
 
   function chip(label, value, count) {

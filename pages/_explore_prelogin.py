@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Write explore-prelogin.html: web-v1's Explore (user-explore-app7.html) for a
+"""Write explore-prelogin.html: web's Explore (user-explore-app7.html) for a
 visitor who is not logged in (2026-10-13, user's brief). Changes from the
 logged-in page:
 
@@ -20,7 +20,7 @@ copy, marked in the page.
 
 Taste-skill pre-flight (2026-10-13, redesign-preserve: the logged-in page as is,
 the new parts checked): one accent (gold), cards on the page's 24px radius, tinted shadows, Phosphor icons, no dashes in visible copy, one
-h1; the gate rises in with data-reveal like the sections before it. web-v1 publishes it as explore-prelogin.html.
+h1; the gate rises in with data-reveal like the sections before it. web publishes it as explore-prelogin.html.
 
     python3 pages/_explore_prelogin.py && python3 pages/_web_v1.py
 """

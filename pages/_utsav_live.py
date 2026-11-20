@@ -20,6 +20,7 @@ import json
 import os
 
 from _utsav import HERE, ROOT, MAIN, FOOTER, SHELL_FROM, ROW_SPLIT, logo_names
+import _paths as P
 
 PROD = "https://goldenpi.com"
 DATA = os.path.join(ROOT, "crawl", "rendered", "prod_bond-utsav.tabs.json")
@@ -178,7 +179,7 @@ def main():
 
 '''
     out = head + main_html + footer + "\n\n<script>\n" + js + "</script>\n\n</body>\n</html>\n"
-    open(os.path.join(HERE, "bond-utsav-live.html"), "w", encoding="utf-8").write(out)
+    P.write_page("bond-utsav-live.html", out)
     print("wrote bond-utsav-live.html  (%d tabs, %d rows)" % (len(tabs), total))
 
 

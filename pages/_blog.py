@@ -35,6 +35,7 @@ SNAPSHOT = "2026-10-05"
 esc = html.escape
 
 from _prod import HEAD, SHELL, FOOTER, SCRIPTS  # noqa: E402  (same shell as the product pages)
+import _paths as P
 
 LANDING = json.load(open(os.path.join(RENDERED, "prod_blog.json"), encoding="utf-8"))
 POST = json.load(open(os.path.join(RENDERED, "prod_blog_post.json"), encoding="utf-8"))
@@ -92,7 +93,7 @@ def page(slug, title, desc, note, body, extra_js=""):
                   r'<span class="gp-bthumb\1" style="background-image:url(../assets/img/blog/\3-640.jpg)"><img\2 src="../assets/img/blog/\3.jpg"', body)
     out += SHELL + '<main id="main-content">\n' + body + "\n</main>\n\n" + FOOTER + "\n" + SCRIPTS + extra_js
     out += "\n</body>\n</html>\n"
-    open(os.path.join(HERE, slug + ".html"), "w", encoding="utf-8").write(out)
+    P.write_page(slug + ".html", out)
     print("wrote pages/%s.html" % slug)
 
 

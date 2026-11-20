@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
-"""web-v1/: the final logged-in pages as one self-contained folder, for
-stakeholders to review (zip it, or serve it anywhere). Replicas: the pages in
-pages/ are only read, never changed.
+"""web/: the released pages as one self-contained folder (was web-v1/ until
+2026-11-20). Replicas: the pages in pages/ are only read, never changed.
 
-Every page sits flat in web-v1/ under a short name, with its own copy of the
-assets it uses (web-v1/assets/, same layout as assets/). Links between the
+Every page sits flat in web/ under a short name, with its own copy of the
+assets it uses (web/assets/, same layout as assets/). Links between the
 pages point at each other; a link to a page outside the set keeps its look
 but loses its href, so a reviewer never lands on a missing page.
 
@@ -12,7 +11,12 @@ bond-utsav4 still carries the guest navbar; its copy takes the logged-in one,
 as _prototype.py gives bond-utsav5 (Bond Utsav's own footer stays). bond-utsav6
 (pre-login, as bond-utsav2.html) takes the logged-in navbar and footer too.
 
-Also writes the Web V1 tab of all-pages.html (the panel between its markers).
+Every page with the site navbar takes portfolio.html's (the final one, its own
+item marked current; pre-login pages keep Login / Sign up), and every page with
+a footer takes footer-ggn-login's, pre-login included (user, 2026-11-20). No
+link leaves the folder, so nothing points at pages/ or migration/.
+
+Also writes the Web tab of all-pages.html (the panel between its markers).
 
     python3 pages/_prototype.py && python3 pages/_web_v1.py
 """
@@ -26,12 +30,12 @@ import _prototype as P
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
-OUT = os.path.join(ROOT, "web-v1")
+OUT = os.path.join(ROOT, "web")
 
 # in pill order, as all-pages.html lists them
 _AP = open(os.path.join(HERE, "all-pages.html"), encoding="utf-8").read()
 COLLECTIONS = list(dict.fromkeys(re.findall(r'<a href="(collections2-[a-z0-9-]+\.html)"', _AP)))
-# source page -> name in web-v1, grouped as the Web V1 tab lists them
+# source page -> name in web/, grouped as the Web tab lists them
 GROUPS = [
     ("Home and bonds", [("user-explore-app7.html", "explore.html", "Explore (home)"),
                         ("bond-details7.html", "bond-details.html", "Bond details"),
@@ -98,32 +102,58 @@ def copy_asset(rel, done):
                 copy_asset(path, done)
 
 
+NAVBAR = re.compile(r"<header\b[^>]*>.*?</header>", re.S)  # the site navbar is the page's first <header>
+# the navbar item each page marks current, by destination (none: no mark)
+CURRENT = dict({d: "Bonds" for d in ("explore.html", "bond-details.html", "ipo-details.html")},
+               **{d: "Bonds" for d in MAP.values() if d.startswith("collections-")},
+               **{"fixed-deposits.html": "FD", "fd-details.html": "FD", "bond-utsav.html": "Bond Utsav",
+                  "bond-utsav2.html": "Bond Utsav", "refer-and-earn.html": "Refer &amp; Earn",
+                  "portfolio.html": "Portfolio"})
+
+
+def final_navbar():
+    page = open(os.path.join(HERE, "portfolio.html"), encoding="utf-8").read()
+    m = NAVBAR.search(page)
+    if not m or "nb__avatar" not in m.group(0):
+        raise SystemExit("portfolio.html: logged-in navbar not found")
+    return re.sub(r' is-current| aria-current="page"', "", m.group(0))
+
+
+def final_chrome(src, dst, page):
+    """The final navbar and footer (see the docstring)."""
+    if "nb__avatar" in page:  # logged in: portfolio's navbar, this page's item current
+        nav, label = final_navbar(), CURRENT.get(dst)
+        if label:
+            nav, n = re.subn(r'class="(nb__link[^"]*)"( href="[^"]*")(><span[^>]*></span>|><img[^>]*>)<span>%s</span>' % re.escape(label),
+                             r'class="\1 is-current"\2 aria-current="page"\3<span>%s</span>' % label, nav, count=1)
+            if n != 1:
+                raise SystemExit("%s: navbar item %s not found" % (dst, label))
+        page, n = NAVBAR.subn(lambda m: nav, page, count=1)
+        if n != 1:
+            raise SystemExit("%s: navbar not found" % src)
+    return B.ggn_footer(src, page, "footer-ggn-login.html")
+
+
 def tab():
     rows = []
     for title, items in GROUPS:
-        lis = "".join('    <li><a href="../web-v1/%s"><strong>%s</strong><span>%s</span></a></li>\n'
+        lis = "".join('    <li><a href="../web/%s"><strong>%s</strong><span>%s</span></a></li>\n'
                       % (dst, name or label(src), dst) for src, dst, name in items)
         rows.append('  <h3>%s</h3>\n  <ul class="ap-list">\n%s  </ul>\n' % (title, lis))
-    return ('  <section id="panel-web-v1" role="tabpanel" aria-labelledby="tab-web-v1">\n  <h2>Web V1</h2>\n\n'
-            '  <p class="ap-sub">The final pages, as the stakeholder folder web-v1/ (pages/_web_v1.py).</p>\n\n'
+    return ('  <section id="panel-web" role="tabpanel" aria-labelledby="tab-web">\n  <h2>Web</h2>\n\n'
+            '  <p class="ap-sub">The released pages, in web/ (pages/_web_v1.py).</p>\n\n'
             + "\n".join(rows) + "  </section>\n")
 
 
 def index_tab():
     path = os.path.join(HERE, "all-pages.html")
     page = open(path, encoding="utf-8").read()
-    start, end = "  <!-- ============================================================== web v1 -->\n", \
+    start, end = "  <!-- ================================================================= web -->\n", \
                  "  <!-- ================================================================ final -->\n"
-    if start not in page:  # first run: the tab button and an empty panel slot
-        page = page.replace('        <button type="button" role="tab" id="tab-final" aria-controls="panel-final" aria-selected="true">',
-                            '        <button type="button" role="tab" id="tab-web-v1" aria-controls="panel-web-v1" aria-selected="true">'
-                            'Web V1<span class="ap-count"></span></button>\n'
-                            '        <button type="button" role="tab" id="tab-final" aria-controls="panel-final" aria-selected="false" tabindex="-1">', 1)
-        page = page.replace(end, start + end, 1)
     i, j = page.index(start) + len(start), page.index(end)
     page = page[:i] + tab() + "\n" + page[j:]
-    if page.count('id="tab-web-v1"') != 1 or page.count('id="panel-web-v1"') != 1:
-        raise SystemExit("all-pages.html: Web V1 tab not written, re-check its markup")
+    if page.count('id="tab-web"') != 1 or page.count('id="panel-web"') != 1:
+        raise SystemExit("all-pages.html: Web tab not written, re-check its markup")
     open(path, "w", encoding="utf-8").write(page)
 
 
@@ -135,8 +165,7 @@ def main():
             page = P.logged_in(src, page)
             if "nb__avatar" not in page:
                 raise SystemExit("%s: logged-in navbar not applied" % src)
-        if src == "bond-utsav6.html":  # built pre-login (its own footer); here, the folder's logged-in one
-            page = B.ggn_footer(src, page)
+        page = final_chrome(src, dst, page)
         page = P.BOND.sub('href="bond-details7.html"', page)
         page = P.FD_CARD.sub(r'\1href="fd-details2.html"', page)
         page = relink(page)
@@ -150,9 +179,9 @@ def main():
         open(os.path.join(OUT, dst), "w", encoding="utf-8").write(page)
     open(os.path.join(OUT, "index.html"), "w", encoding="utf-8").write(
         '<!doctype html>\n<meta charset="utf-8">\n<meta http-equiv="refresh" content="0; url=explore.html">\n'
-        '<title>GoldenPi Web V1</title>\n<a href="explore.html">Open the pages</a>\n')
+        '<title>GoldenPi Web</title>\n<a href="explore.html">Open the pages</a>\n')
     index_tab()
-    print("web-v1/  %d pages, %d asset files" % (len(MAP), len(done)))
+    print("web/  %d pages, %d asset files" % (len(MAP), len(done)))
 
 
 if __name__ == "__main__":

@@ -22,6 +22,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 sys.path.insert(0, os.path.join(ROOT, "crawl"))
 import images  # noqa: E402  (crawl/images.py: naming + fetch, shared)
+import _paths as P
 
 UAT = "https://uatnew.goldenpi.com"
 SHELL_FROM = "refer-and-earn.html"
@@ -282,7 +283,7 @@ def page(data, logos, name, v2=False):
 
 '''
     out = head + main_html + footer + "\n\n<script>\n" + js + SCROLL_JS + (STUCK_JS if v2 else "") + "</script>\n\n</body>\n</html>\n"
-    open(os.path.join(HERE, name), "w", encoding="utf-8").write(out)
+    P.write_page(name, out)
     print("wrote %s  (%d tabs, %d cards)" % (name, len(tabs), total))
 
 

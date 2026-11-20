@@ -1,10 +1,10 @@
 # Netlify: https://gpi-landing.netlify.app, linked to rm-m4/gpi-landing, deploys main.
-# Only pages/ and assets/ are published. The rest of the repo (crawl/ is
+# Only web/, pages/, migration/ and assets/ are published. The rest of the repo (crawl/ is
 # 340 MB of raw captures, plus content/, node_modules/, notes) stays out.
 # Layout is kept, so the pages' ../assets/ paths resolve unchanged.
 
 [build]
-  command = "rm -rf dist && mkdir dist && cp -R pages assets web-v1 robots.txt dist/"
+  command = "rm -rf dist && mkdir dist && cp -R pages migration assets web robots.txt dist/"
   publish = "dist"
 
 # The bare URL opens the review index.

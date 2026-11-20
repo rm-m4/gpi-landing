@@ -18,6 +18,7 @@ Run: python3 pages/_final.py
 """
 import os
 import re
+import _paths as P
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 BASE = "https://uatnew.goldenpi.com"
@@ -269,7 +270,7 @@ def dark_footer(page, extra=""):
 def new_footer(page):
     """Swap in the redesigned footer from footer-landing.html (its <style> and <footer>,
     read at build time so the two cannot drift)."""
-    with open(os.path.join(HERE, "footer-landing.html"), encoding="utf-8") as f:
+    with open(P.find("footer-landing.html"), encoding="utf-8") as f:
         ft = f.read()
     style = re.search(r"<style>.*?</style>", ft, re.S).group(0)
     footer = re.search(r'<footer class="ft".*?</footer>', ft, re.S).group(0)

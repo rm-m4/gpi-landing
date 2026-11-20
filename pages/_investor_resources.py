@@ -16,6 +16,7 @@ own footer already carries, so it is not repeated in the page body.
 import html
 import os
 import re
+import _paths as P
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -30,7 +31,7 @@ def key(label):
 
 def links():
     """{normalised label: href} from footer-bonds' Important Information chips."""
-    h = open(os.path.join(HERE, "footer-bonds.html"), encoding="utf-8").read()
+    h = open(P.find("footer-bonds.html"), encoding="utf-8").read()
     band = h[h.index('id="ft-info"'):h.index('id="ft-links"')]
     return {key(t): href for href, t in re.findall(r'<a [^>]*href="([^"]+)"[^>]*>(.*?)</a>', band)}
 

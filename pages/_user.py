@@ -29,6 +29,7 @@ import re
 
 import _final as F
 import _convert as C
+import _paths as P
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -1182,8 +1183,7 @@ def write_footer_page(page):
                       # footer-login5/6 keep the soft one they are built from.
                       ("footer-ggn-login.html", ggn_login(l4, soft)),
                       ("footer-login5.html", l5), ("footer-login6.html", l6)):
-        with open(os.path.join(HERE, out), "w", encoding="utf-8") as f:
-            f.write(head.replace("Footer, logged in |", "Footer, logged in, original colours |", 1)
+        P.write_page(out, (head.replace("Footer, logged in |", "Footer, logged in, original colours |", 1)
                     if out == "footer-login2.html" else
                     head.replace("Footer, logged in |", "Footer, logged in, loved by |", 1)
                     if out == "footer-login3.html" else
@@ -1196,8 +1196,7 @@ def write_footer_page(page):
                     head.replace("Footer, logged in |", "Footer, logged in, with icons |", 1).replace(
                         "</head>", '<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">\n'
                         '<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">\n</head>', 1)
-                    if out == "footer-login6.html" else head)
-            f.write(body + foot)
+                    if out == "footer-login6.html" else head) + body + foot)
         print("%-28s" % out)
 
 

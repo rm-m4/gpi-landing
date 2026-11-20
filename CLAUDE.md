@@ -31,6 +31,17 @@ Three commitments follow from that, in priority order:
 
 ## Where the project stands
 
+**Three page sets, from 2026-11-20 (the site is released).** Each is a tab of
+`pages/all-pages.html` and a folder:
+
+| Tab | Folder | What it is |
+|---|---|---|
+| Web | `web/` (was `web-v1/`) | The released pages, built by `_web_v1.py`. One navbar (portfolio.html's) and one footer (footer-ggn-login's) on every page; no link leaves the folder. This is the focus. |
+| Iteration | `pages/` | Work in progress, and the sources `web/` is built from. |
+| Migration | `migration/` | Frozen records of what was tried. Generators reach them through `pages/_paths.py` (`find`, `write_page`), which keeps their links to `pages/` working. |
+
+bond-utsav4/5/6 stay in `pages/` (Iteration): `web/` is built from them.
+
 Batch 1 is built and converted. The four live pages are the deliverable:
 `index.html`, `corporate-bonds.html`, `fixed-deposits.html`,
 `bond-ipo-online.html`.
@@ -135,8 +146,8 @@ live site uses.
 - **Put shared CSS in `assets/final.css`, not `assets/site.css`.** The frozen
   pages load `site.css` too, so changing it moves them. Only the four live pages
   load `final.css`.
-- **Every new page gets a row in `pages/all-pages.html`**, under Final or
-  Iterations (and a group within it). `check.js` fails with `not listed:` until
+- **Every new page gets a row in `pages/all-pages.html`**, under Iteration
+  or Migration (and a group within it). `check.js` fails with `not listed:` until
   it does; the tab counts update themselves.
 - **Run `node crawl/check.js` after any edit.** It fails on 404s, console errors,
   images that never decoded, and horizontal overflow at 390px.
@@ -157,7 +168,7 @@ python3 pages/_utsav.py      # -> bond-utsav.html (from crawl/rendered/bond-utsa
 python3 pages/_utsav6.py     # -> bond-utsav6.html's listing only (bond-utsav.html's categories, dark, max 6 bonds each; the page itself is hand-made)
 python3 pages/_utsav_live.py # -> bond-utsav-live.html (production UI, from prod_bond-utsav.tabs.json)
 python3 pages/_profile.py    # -> profile.html, profile-no-kyc.html (content/profile.md + Figma 21:2427)
-python3 pages/_profile_v1.py # -> profile2.html, profile-mobile2.html (crawl/design/profile-v59 + profile-mobile-v22; web-v1 profile.html, profile-mobile.html; then _build.py, _prototype.py, _web_v1.py)
+python3 pages/_profile_v1.py # -> profile2.html, profile-mobile2.html (crawl/design/profile-v59 + profile-mobile-v22; web profile.html, profile-mobile.html; then _build.py, _prototype.py, _web_v1.py)
 python3 pages/_refer.py      # -> refer-and-earn-with-referral.html (refer-and-earn.html + staging capture)
 python3 pages/_explore_bonds.py # -> user-corporate-bonds2.html (post-login bonds + Collections, merged)
 python3 pages/_explore_bonds3.py # -> user-corporate-bonds3.html (why bonds + FD comparison, then the Collections explorer; also collection-explore.html, the explorer alone, collection-explore2.html without the cards' note strip, collection-explore3.html with sage cards)
@@ -181,12 +192,12 @@ python3 pages/_premium6.py   # -> home-premium6.html (premium 2 + 3 content: pap
 python3 pages/_premium7.py   # -> home-premium7.html (premium 2 + 3 content: term-sheet deals hero, big-QR finale; then _build.py)
 python3 pages/_premium8.py   # -> home-premium8.html (premium 2 + 3 content cut to the figures: rate row hero, type index, coin sheet, giant 5%, big QR; then _build.py)
 python3 pages/_premium21.py   # -> home-premium21.html (home-premium31's whole page, dark, opening on home-premium20's gate walk; then _build.py)
-python3 pages/_premium_landing.py # -> premium-bonds.html, premium-fd.html (pre-login landings: web-v1 explore / fixed-deposits content on home-premium16's shell; then _build.py)
-python3 pages/_explore_prelogin.py # -> explore-prelogin.html (web-v1 explore, pre-login: signup rail card, login gate after the High Return shelf; then _web_v1.py)
-python3 pages/_fd_prelogin.py # -> premium-fd2.html (web-v1 FD page, pre-login: signup card in the rail, home-premium15's branding below)
+python3 pages/_premium_landing.py # -> premium-bonds.html, premium-fd.html (pre-login landings: web explore / fixed-deposits content on home-premium16's shell; then _build.py)
+python3 pages/_explore_prelogin.py # -> explore-prelogin.html (web explore, pre-login: signup rail card, login gate after the High Return shelf; then _web_v1.py)
+python3 pages/_fd_prelogin.py # -> premium-fd2.html (web FD page, pre-login: signup card in the rail, home-premium15's branding below)
 python3 pages/_build.py      # sync header/footer across pages
 python3 pages/_prototype.py  # run LAST: wires the post-login prototype (app7, bond-details7, ipo-details, FD app2, fd-details2, bond-utsav5, portfolio)
-python3 pages/_web_v1.py     # -> web-v1/ (stakeholder folder: the final logged-in pages, flat, short names, own assets; and all-pages' Web V1 tab). Run after _prototype.py
+python3 pages/_web_v1.py     # -> web/ (the released pages, flat, short names, own assets, final navbar and footer; and all-pages' Web tab). Run after _prototype.py
 node crawl/check.js          # verify every page, run after any change
 python3 -m http.server 8000  # then open /pages/<name>.html
 ```

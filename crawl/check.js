@@ -255,15 +255,22 @@ async function consistencyReport(browser, port) {
 // Iterations), so this is what keeps it complete: every page on disk is
 // linked, and every link is a page on disk.
 function indexReport() {
-  const dir = path.join(ROOT, 'pages');
-  const onDisk = fs.readdirSync(dir)
-    .filter((f) => f.endsWith('.html') && !f.startsWith('_') && f !== 'all-pages.html');
-  const html = fs.readFileSync(path.join(dir, 'all-pages.html'), 'utf8');
-  const linked = new Set([...html.matchAll(/href="([^"#/:]+\.html)"/g)].map((m) => m[1]));
+  // pages/ is the Iteration tab, migration/ the Migration tab (linked as ../migration/x.html).
+  const onDisk = sitePages().filter((f) => f !== 'pages/all-pages.html')
+    .map((f) => (f.startsWith('pages/') ? f.slice(6) : `../${f}`));
+  const html = fs.readFileSync(path.join(ROOT, 'pages', 'all-pages.html'), 'utf8');
+  const linked = new Set([...html.matchAll(/href="((?:\.\.\/migration\/)?[^"#/:]+\.html)"/g)].map((m) => m[1]));
   return [
-    ...onDisk.filter((f) => !linked.has(f)).map((f) => `not listed: ${f} (add a row under Final or Iterations)`),
+    ...onDisk.filter((f) => !linked.has(f)).map((f) => `not listed: ${f} (add a row under Iteration or Migration)`),
     ...[...linked].filter((f) => !onDisk.includes(f)).map((f) => `links to a missing page: ${f}`),
   ];
+}
+
+// Every page this checks, as a path from the repo root: pages/x.html and
+// migration/x.html. An argument without a folder means pages/.
+function sitePages() {
+  return ['pages', 'migration'].flatMap((d) => fs.readdirSync(path.join(ROOT, d))
+    .filter((f) => f.endsWith('.html') && !f.startsWith('_')).map((f) => `${d}/${f}`));
 }
 
 async function scrollThrough(page) {
@@ -325,10 +332,9 @@ const serve = () =>
 (async () => {
   fs.mkdirSync(OUT, { recursive: true });
   const pages = process.argv.slice(2).length
-    ? process.argv.slice(2)
+    ? process.argv.slice(2).map((f) => (f.includes('/') ? f : `pages/${f}`))
     // Underscore-prefixed files are templates and generators, not pages.
-    : fs.readdirSync(path.join(ROOT, 'pages'))
-        .filter((f) => f.endsWith('.html') && !f.startsWith('_'));
+    : sitePages();
 
   const srv = await serve();
   const browser = await chromium.launch({ executablePath: chromiumPath() });
@@ -342,7 +348,7 @@ const serve = () =>
     page.on('pageerror', (e) => bad.push(`pageerror: ${e.message}`));
     page.on('response', (r) => { if (r.status() >= 400) bad.push(`${r.status()} ${r.url()}`); });
 
-    await page.goto(`http://localhost:${PORT}/pages/${file}`, { waitUntil: 'networkidle', timeout: 60000 });
+    await page.goto(`http://localhost:${PORT}/${file}`, { waitUntil: 'networkidle', timeout: 60000 });
     await page.waitForTimeout(1200);
     await scrollThrough(page);
 
@@ -355,7 +361,7 @@ const serve = () =>
         .filter((i) => !i.complete || i.naturalWidth === 0).map((i) => i.getAttribute('src')));
     broken.forEach((s) => bad.push(`image did not decode: ${s}`));
 
-    const slug = file.replace(/\.html$/, '');
+    const slug = file.replace(/^pages\//, '').replace(/\//g, '-').replace(/\.html$/, '');
     // A position:sticky header is painted into every band of a full-page
     // capture, so it appears repeated down the image. Pin it for the shot only.
     // Covers both shells: .gp-header on the shared pages, .top on the standalone
@@ -367,7 +373,7 @@ const serve = () =>
     // Behaviour assertions run after the screenshot, since they mutate the page.
     try {
       bad.push(...(await checkAccordion(page)));
-      if (BEHAVIOUR[file]) bad.push(...(await BEHAVIOUR[file](page)));
+      if (BEHAVIOUR[path.basename(file)]) bad.push(...(await BEHAVIOUR[path.basename(file)](page)));
     } catch (e) {
       bad.push(`behaviour check threw: ${e.message.split('\n')[0]}`);
     }
@@ -378,7 +384,7 @@ const serve = () =>
     const mctx = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, isMobile: true });
     const mpage = await mctx.newPage();
     mpage.on('response', (r) => { if (r.status() >= 400) bad.push(`${r.status()} ${r.url()} (mobile)`); });
-    await mpage.goto(`http://localhost:${PORT}/pages/${file}`, { waitUntil: 'networkidle', timeout: 60000 });
+    await mpage.goto(`http://localhost:${PORT}/${file}`, { waitUntil: 'networkidle', timeout: 60000 });
     await mpage.waitForTimeout(900);
     await scrollThrough(mpage);
     await unstick(mpage);

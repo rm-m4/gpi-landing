@@ -19,6 +19,7 @@ from decimal import Decimal
 import re
 import urllib.parse
 import urllib.request
+import _paths as P
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CAP = os.path.join(ROOT, "crawl/rendered/beta_bonds_INE911L07154_mahaveer-1200-bond-yield")
@@ -474,7 +475,7 @@ def footer_login4(html):
 # Navbar for bond-details2: "Logged in, dark, without icons" from
 # pages/navbar-variants.html replaces beta's site-header. Its styles are the
 # nb-scoped assets/navbar.css; beta's promo strip above the header stays.
-NAVBAR_SRC = os.path.join(ROOT, "pages/navbar-variants.html")
+NAVBAR_SRC = P.find("navbar-variants.html")
 
 
 def navbar(html):

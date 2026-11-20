@@ -13,10 +13,11 @@ scheme's card tone instead of white.
 """
 import os
 import re
+import _paths as P
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 HOME = os.path.join(HERE, "footer-ggn-prelogin-home.html")
-BONDS = os.path.join(HERE, "footer-bonds.html")
+BONDS = P.find("footer-bonds.html")
 OUT = os.path.join(HERE, "footer-ggn-prelogin-bonds.html")
 PART2 = "  <!-- Part 2: SEO copy and SEO links"
 

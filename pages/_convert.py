@@ -23,6 +23,7 @@ import re
 import sys
 
 import _final as F
+import _paths as P
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 BASE = F.BASE
@@ -313,7 +314,7 @@ def home_proof():
 
 
 def build_index():
-    html = open(os.path.join(HERE, "index-old.html"), encoding="utf-8").read()
+    html = open(P.find("index-old.html"), encoding="utf-8").read()
     html = common(html, "index")
 
     # The plain "trusted by" row under the hero goes; the proof section that
@@ -493,7 +494,7 @@ def fd_hero(html):
 
 
 def build_fd():
-    html = open(os.path.join(HERE, "fixed-deposits-old.html"), encoding="utf-8").read()
+    html = open(P.find("fixed-deposits-old.html"), encoding="utf-8").read()
     html = common(html, "fixed-deposits")
 
     # Tax saving deposits were not in the captured listing, so that panel says
@@ -585,7 +586,7 @@ def ipo_hero(html):
 
 
 def build_ipo():
-    html = open(os.path.join(HERE, "bond-ipo-online-old.html"), encoding="utf-8").read()
+    html = open(P.find("bond-ipo-online-old.html"), encoding="utf-8").read()
     html = common(html, "bond-ipo-online")
 
     # No tabs on this page, but the live IPO listing gets the same cream panel

@@ -4,7 +4,7 @@ and fixed deposits in the premium homepage language (home-premium16's shell: a
 black hero with the post-login white cards in home-premium11's carousel, then
 light sections, each a shade paler).
 
-Content and cards come from the logged-in pages web-v1 shows as /explore and
+Content and cards come from the logged-in pages web shows as /explore and
 /fixed-deposits (user-explore-app7.html, user-fixed-deposits-app2.html), keeping
 only what a visitor who is not logged in can use: no pending orders, no portfolio.
 
@@ -109,7 +109,7 @@ def bonds_main():
     ctas = (f'<a class="hp-btn hp-btn--gold" href="signup.html">Start investing {ARROW}</a>'
             '<a class="hp-btn hp-btn--ghost" href="collections-all-bonds.html">View all bonds</a>')
     out = [hero('Invest in <em>Senior Secured Bonds</em>', '9-14% Fixed returns', ctas, top,
-                "the three top deals and their cards, as on web-v1/explore (user-explore-app7.html, collections.tabs.json snapshot).")]
+                "the three top deals and their cards, as on web/explore (user-explore-app7.html, collections.tabs.json snapshot).")]
     out.append(f'''
   <section class="h3-sec pl-sec pl-s1" aria-labelledby="pl-proof-t">
     <div class="hp-shell">
@@ -142,7 +142,7 @@ def bonds_main():
   <section class="h3-sec pl-sec pl-s4" aria-labelledby="pl-ipo-t">
     <div class="hp-shell">
       <h2 data-reveal class="h3-h2" id="pl-ipo-t">Live <em>NCD IPOs</em></h2>
-      <!-- DATA: the live NCD IPO as on web-v1/explore. -->
+      <!-- DATA: the live NCD IPO as on web/explore. -->
       <article data-reveal class="pl-ipo" aria-labelledby="pl-ipo-name">
         <div class="pl-ipo__id"><img src="{ipo_logo}" alt="" width="56" height="56"><div><p class="pl-ipo__pills"><span class="pl-live">NCD IPO live</span><span>{ipo_close}</span></p><h3 id="pl-ipo-name">{ipo_name}</h3></div></div>
         <dl class="pl-ipo__facts">{facts}</dl>
@@ -173,7 +173,7 @@ def fd_main():
     ctas = (f'<a class="hp-btn hp-btn--gold" href="signup.html">Start investing {ARROW}</a>'
             '<a class="hp-btn hp-btn--ghost" href="#fd-calculator">Calculate returns</a>')
     out = [hero('Explore <em>Fixed Deposit</em>', 'Highest returns up to 8.5% pa', ctas, top,
-                "the three FDs and their cards, as on web-v1/fixed-deposits (user-fixed-deposits-app2.html).")]
+                "the three FDs and their cards, as on web/fixed-deposits (user-fixed-deposits-app2.html).")]
     out.append(f'''
   <section class="h3-sec pl-sec pl-s1 pl-sec--slim" aria-labelledby="pl-offer-t">
     <div class="hp-shell">
@@ -201,7 +201,7 @@ def fd_main():
   <section class="h3-sec pl-sec pl-s4" aria-labelledby="pl-cmp-t">
     <div class="hp-shell">
       <h2 data-reveal class="h3-h2" id="pl-cmp-t">Top PSU Banks vs <em>FDs on GoldenPi</em></h2>
-      <!-- DATA: highest returns across tenures and age groups, as on web-v1/fixed-deposits. -->
+      <!-- DATA: highest returns across tenures and age groups, as on web/fixed-deposits. -->
       <div data-reveal class="pl-cmp">
         <div class="pl-cmp__chart" role="img" aria-label="Highest returns: PSU bank FD 7.20%, FD on GoldenPi 8.50%, 1.30% extra">
           <div class="pl-cmp__col"><b>7.20%</b><span class="pl-cmp__bar" style="--h:72%"></span><span>PSU Bank FD</span></div>
